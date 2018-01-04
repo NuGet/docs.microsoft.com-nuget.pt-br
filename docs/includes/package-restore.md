@@ -1,0 +1,3 @@
+- **Interface do usuário do Gerenciador de Pacotes** (Visual Studio): clique com o botão direito do mouse na solução no Gerenciador de Soluções e selecione **Restaurar pacotes do NuGet**. Se um ou mais pacotes individuais ainda não tiverem sido instalados corretamente (p que significa que o Gerenciador de Soluções mostra um ícone de erro), use a interface do usuário do Gerenciador de Pacotes para desinstalar os pacotes afetados e reinstalá-los. Consulte [Reinstalando e atualizando pacotes](../Consume-Packages/Reinstalling-and-Updating-Packages.md)
+
+- **Linha de comando**: use o comando [nuget restore](../tools/cli-ref-restore.md). Simplesmente executar `nuget restore` na pasta de projeto tenta restaurar as dependências do projeto.

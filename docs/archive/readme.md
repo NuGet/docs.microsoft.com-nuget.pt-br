@@ -1,0 +1,1 @@
+Esta pasta é um local para guardar o conteúdo que está sendo removido da documentação principal, geralmente material que se aplica a versões anteriores que provavelmente serão movidas para um local de arquivamento permanente.
