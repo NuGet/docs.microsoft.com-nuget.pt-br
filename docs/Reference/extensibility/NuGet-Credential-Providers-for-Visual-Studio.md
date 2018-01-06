@@ -13,11 +13,11 @@ keywords: "Provedores de credenciais do NuGet, autenticar com o feed, autenticar
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b2fac23102865a08509acc1cc3d09f0cd375f26
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8d7360205387d4813f95560018e2ac68f71f5603
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Autenticando feeds no Visual Studio com provedores de credenciais do NuGet
 
@@ -88,5 +88,5 @@ Um provedor de credenciais personalizado do NuGet para Visual Studio deve implem
 | bool isRetry | True se as credenciais foram solicitadas anteriormente para esse Uri, mas as credenciais fornecidas não permitiu o acesso autorizado. |
 | bool não interativo | Se for true, o provedor de credenciais deve Suprimir todos os prompts de usuário e usar valores padrão em vez disso. |
 | CancellationToken cancellationToken | Esse token de cancelamento deve ser verificada para determinar se as credenciais de solicitação de operação foi cancelada. |
-  
-**Valor de retorno**: um objeto de credenciais que implementa o [ `System.Net.ICredentials` interface](https://msdn.microsoft.com/library/system.net.icredentials.aspx).
+
+**Valor de retorno**: um objeto de credenciais que implementa o [ `System.Net.ICredentials` interface](/dotnet/api/system.net.icredentials?view=netstandard-2.0).

@@ -13,17 +13,17 @@ keywords: "Notas de versão 3.2 do NuGet, correções de bugs, problemas conheci
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 364a1ac62af25351e78df0b9a506f0919fc8fb61
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 551a54482f83803a2e5e5b6ba57a1bf3dd06db8a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-32-release-notes"></a>Notas de versão 3.2 do NuGet
 
 [Notas de versão 3.2 RC NuGet](../release-notes/nuget-3.2-RC.md) | [notas de versão do NuGet 3.2.1](../release-notes/nuget-3.2.1.md)
 
-3.2 NuGet foi lançado 16 de setembro de 2015 como uma coleção de melhorias e correções para o 3.1.1 e está disponível para ambos [dist.nuget.org](http://dist.nuget.org/index.html) e [Galeria do Visual Studio](https://visualstudiogallery.msdn.microsoft.com/5d345edc-2e2d-4a9c-b73b-d53956dc458d?SRC=Home).
+3.2 NuGet foi lançado 16 de setembro de 2015 como uma coleção de melhorias e correções para o 3.1.1 e está disponível para ambos [dist.nuget.org](http://dist.nuget.org/index.html) e [Galeria do Visual Studio](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2015).
 
 ## <a name="new-features"></a>Novos recursos
 
@@ -119,6 +119,6 @@ Por fim, também melhoramos estes itens:
 
 Uma lista completa dos problemas abordados para a extensão do Visual Studio pode ser encontrada no NuGet GitHub [etapa 3.2](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+-label%3AClosedAs%3ADuplicate+milestone%3A3.2)
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 Continuamos a rastrear problemas em nossa lista de problemas do GitHub que pode ser encontrada em: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

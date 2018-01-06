@@ -13,11 +13,11 @@ keywords: "NuGet pacote manager console, comandos do Powershell do NuGet, refer�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0da5c88447784fdd49d824bbd03b11f73c22ebc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 64450a8bcca7f6028d4ce389d51ac35e9209cfae
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="powershell-reference"></a>Referência do PowerShell
 
@@ -27,22 +27,22 @@ O Package Manager Console fornece uma interface do PowerShell dentro do Visual S
 > Todos os comandos do PowerShell referem-se somente para o consumo de pacote. Não há comandos do PowerShell relacionam para criar e publicar pacotes exceto nos casos em que um pacote também pode ser um consumidor de outros pacotes.
 
 > [!Important]
-> Os comandos listados aqui são específicos para o Console do Gerenciador de pacotes no Visual Studio e diferem do [comandos do módulo de gerenciamento de pacotes](https://msdn.microsoft.com/powershell/reference/6/packagemanagement/packagemanagement) que estão disponíveis em um ambiente do PowerShell geral. Especificamente, cada ambiente tem comandos que não estão disponíveis nos outros e comandos com o mesmo nome também podem ser diferentes em seus argumentos específicos. Ao usar o Console de gerenciamento de pacote no Visual Studio, os comandos e os argumentos documentados neste tópico presente se aplicam.
+> Os comandos listados aqui são específicos para o Console do Gerenciador de pacotes no Visual Studio e diferem do [comandos do módulo de gerenciamento de pacotes](/powershell/module/packagemanagement/?view=powershell-6) que estão disponíveis em um ambiente do PowerShell geral. Especificamente, cada ambiente tem comandos que não estão disponíveis nos outros e comandos com o mesmo nome também podem ser diferentes em seus argumentos específicos. Ao usar o Console de gerenciamento de pacote no Visual Studio, os comandos e os argumentos documentados neste tópico presente se aplicam.
 
 | Comandos comuns | Descrição | Versão do NuGet |
 | --- | --- | --- |
-| [Pacote de instalação](ps-ref-install-package.md) | Instala um pacote e suas dependências no projeto. | Todos |
-| [Pacote de atualização](ps-ref-update-package.md) | Atualiza um pacote e suas dependências ou todos os pacotes em um projeto. | Todos |
+| [Install-Package](ps-ref-install-package.md) | Instala um pacote e suas dependências no projeto. | Todos |
+| [Update-Package](ps-ref-update-package.md) | Atualiza um pacote e suas dependências ou todos os pacotes em um projeto. | Todos |
 | [Find-Package](ps-ref-find-package.md) | Pesquisa uma origem de pacote usando uma ID de pacote ou palavras-chave. | 3.0+ |
 | [Get-Package](ps-ref-get-package.md) | Recupera a lista de pacotes instalados no repositório local, ou lista de pacotes disponíveis a partir de uma origem do pacote. | Todos |
 
 | Comandos secundários | Descrição | Versão do NuGet |
 | --- | --- | --- |
-| [Adicionar BindingRedirect](ps-ref-add-bindingredirect.md) | Examina todos os assemblies no caminho de saída para um projeto e adiciona redirecionamentos de associação a `app.config` ou `web.config` quando necessário. | Todos |
-| [Get-projeto](ps-ref-get-project.md) | Exibe informações sobre o padrão ou o projeto especificado. | 3.0+ |
-| [Abrir PackagePage](ps-ref-open-packagepage.md) | Inicia o navegador padrão com o projeto, a licença ou a URL para o pacote especificado abuso. | Preterido no 3.0 + |
+| [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | Examina todos os assemblies no caminho de saída para um projeto e adiciona redirecionamentos de associação a `app.config` ou `web.config` quando necessário. | Todos |
+| [Get-Project](ps-ref-get-project.md) | Exibe informações sobre o padrão ou o projeto especificado. | 3.0+ |
+| [Open-PackagePage](ps-ref-open-packagepage.md) | Inicia o navegador padrão com o projeto, a licença ou a URL para o pacote especificado abuso. | Preterido no 3.0 + |
 | [Register-TabExpansion](ps-ref-register-tabexpansion.md) | Registra uma expansão de guia para os parâmetros de um comando, permitindo que você crie expansões personalizados para valores de parâmetro usados com frequência. | Todos |
-| [Pacote de sincronização](ps-ref-sync-package.md) | Obter a versão do instalada pacote de especificado do projeto e sincroniza a versão para o restante dos projetos na solução. | 3.0+ |
+| [Sync-Package](ps-ref-sync-package.md) | Obter a versão do instalada pacote de especificado do projeto e sincroniza a versão para o restante dos projetos na solução. | 3.0+ |
 | [Uninstall-Package](ps-ref-uninstall-package.md) | Remove um pacote de um projeto, opcionalmente, a remoção de suas dependências. | Todos |
 
 Para obter ajuda completa, detalhada em qualquer um desses comandos dentro do console, execute o seguinte com o nome do comando em questão:

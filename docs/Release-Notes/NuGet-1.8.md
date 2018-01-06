@@ -13,11 +13,11 @@ keywords: "Notas de versão 1.8 do NuGet, correções de bugs, problemas conheci
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 875cb752fed102c24da255a336d3f16729ca082c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 350f0d9590c1e0ef1a843fd783203b158059efa7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-18-release-notes"></a>Notas de versão 1.8 do NuGet
 
@@ -72,7 +72,7 @@ Há 2 modos para fornecer esse consentimento. O primeiro pode ser encontrado no 
 
 O segundo método é definir o ambiente de variável "EnableNuGetPackageRestore" como o valor "true".  Este método destina-se a máquinas autônomas como servidores de CI ou compilação.
 
-Agora, conforme mencionado acima, vamos apenas estabelecido a base para esse recurso no NuGet 1.8.  Praticamente, isso significa que enquanto adicionamos toda a lógica para habilitar o recurso, ele não é atualmente imposto nesta versão. Ele será habilitado, no entanto, na próxima versão do NuGet, para que nós desejamos que você conheça-lo assim que possível para que você pode configurar seus ambientes adequadamente e, portanto, não ser afetado quando começarmos a impor a restrição de autorização.
+Agora, conforme mencionado acima, vamos apenas estabelecido a base para esse recurso no NuGet 1.8.  Praticamente, isso significa que enquanto adicionamos toda a lógica para habilitar o recurso, ele é não aplicado no momento nesta versão. Ele será habilitado, no entanto, na próxima versão do NuGet, para que nós desejamos que você conheça-lo assim que possível para que você pode configurar seus ambientes adequadamente e, portanto, não ser afetado quando começarmos a impor a restrição de autorização.
 
 Para obter mais detalhes, consulte o [postagem no blog da equipe](http://blog.nuget.org/20120518/package-restore-and-consent.html) sobre esse recurso.
 

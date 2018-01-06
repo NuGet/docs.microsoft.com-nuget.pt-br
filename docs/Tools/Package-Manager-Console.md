@@ -13,11 +13,11 @@ keywords: Console de Gerenciador de pacote do NuGet, powershell do NuGet, gerenc
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d9df514c6f92a3ea0841503d86c44271e70f95f2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cc11963a9b9bfe9aa456d8cd4c8397e1084f660b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-manager-console"></a>Console do Gerenciador de pacotes
 
@@ -62,7 +62,7 @@ Neste tópico:
 
 ## <a name="opening-the-console-and-console-controls"></a>Abrir o console e os controles do console
 
-1. Abra o console no Visual Studio usando o **Ferramentas > Gerenciador de pacotes do NuGet > Package Manager Console** comando. O console é uma janela do Visual Studio que pode ser organizada e posicionada você quiser (consulte [Personalizar layouts de janela no Visual Studio](https://docs.microsoft.com/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Abra o console no Visual Studio usando o **Ferramentas > Gerenciador de pacotes do NuGet > Package Manager Console** comando. O console é uma janela do Visual Studio que pode ser organizada e posicionada você quiser (consulte [Personalizar layouts de janela no Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 1. Por padrão, comandos do console de operam em relação a uma origem de pacote específico e o projeto como definido no controle na parte superior da janela:
 
@@ -171,7 +171,7 @@ No Visual Studio de 2017, o NuGet e o NuGet Package Manager são instalados auto
 
 Além disso, se estiver faltando o Gerenciador de pacotes do NuGet no Visual Studio 2015 e versões anteriores, verifique **Ferramentas > extensões e atualizações...**  e procure a extensão do Gerenciador de pacotes do NuGet. Se não for possível usar o instalador de extensões do Visual Studio, você pode baixar a extensão diretamente do [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
 
-O Console do Gerenciador de pacote não está atualmente disponível com o Visual Studio para Mac. No entanto, os comandos equivalentes, estão disponíveis por meio de [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio para Mac tem uma interface de usuário para gerenciar pacotes NuGet. Consulte [incluindo NuGet um pacote em seu projeto](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+O Console do Gerenciador de pacote não está atualmente disponível com o Visual Studio para Mac. No entanto, os comandos equivalentes, estão disponíveis por meio de [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio para Mac tem uma interface de usuário para gerenciar pacotes NuGet. Consulte [incluindo NuGet um pacote em seu projeto](/visualstudio/mac/nuget-walkthrough).
 
 O Console do Gerenciador de pacote não está incluído no código do Visual Studio.
 

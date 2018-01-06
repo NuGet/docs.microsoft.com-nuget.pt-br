@@ -13,11 +13,11 @@ keywords: "Notas de versão NuGet 1.2, correções de bugs, problemas conhecidos
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d69a65352d42025b61df9068473ddedffc5f1663
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 79e82f19d2be96fee3832eeb24ebb443aebc2b64
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-12-release-notes"></a>Notas de versão 1.2 do NuGet
 
@@ -70,7 +70,7 @@ Explorador de pacotes foi atualizado para dar suporte NuGet 1.2. Para obter mais
 
 A lista anterior foi dos muitos recursos implementamos e bugs corrigimos mais perceptível. Implementado/corrigimos [itens de trabalho 59](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.2&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0) nesta versão.
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 * **1.2 incompatibilidade do pacote**: pacotes criados com a versão mais recente da ferramenta de linha de comando, nuget.exe (> 1.2) não funcionará com versões anteriores do NuGet VS suplemento (como 1.1). Se você tiver uma mensagem de erro informando que algo sobre esquema incompatível, você está executando para esse erro. Atualize o NuGet para a versão mais recente.
 * **Incompatibilidade de NuGet.Server**: se você estiver hospedando um feed usando o projeto NuGet.Server o NuGet interno, você precisará atualizar o projeto com a versão mais recente do NuGet.Server.

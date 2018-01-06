@@ -17,16 +17,15 @@ keywords: Pacote de envio por push do NuGet API, API do NuGet excluir o pacote N
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1fa3c0e1698a11208d9ef29fdf26a4980cb60cf5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="push-and-delete"></a>Enviar por push e excluir
 
-É possível enviar por push e excluir (ou remover da lista, dependendo da implementação de servidor) pacotes usando a API do NuGet V3.
-As duas operações baseiam-se do `PackagePublish` recurso encontrado na [índice de serviço](service-index.md).
+É possível enviar por push, excluir (ou remover da lista, dependendo da implementação de servidor) e relist pacotes usando a API do NuGet V3. Essas operações baseiam-se do `PackagePublish` recurso encontrado na [índice de serviço](service-index.md).
 
 ## <a name="versioning"></a>Controle de versão
 
@@ -44,9 +43,12 @@ Observe que essa URL aponta para o mesmo local que o ponto de extremidade de env
 
 ## <a name="http-methods"></a>Métodos HTTP
 
-O `PUT` e `DELETE` métodos HTTP compatíveis com esse recurso. Para quais métodos têm suporte em cada ponto de extremidade, consulte abaixo.
+O `PUT`, `POST` e `DELETE` métodos HTTP compatíveis com esse recurso. Para quais métodos têm suporte em cada ponto de extremidade, consulte abaixo.
 
 ## <a name="push-a-package"></a>Enviar um pacote
+
+> [!Note]
+> NuGet.org tem [requisitos adicionais](NuGet-Protocols.md) para interagir com o ponto de extremidade de envio por push.
 
 NuGet.org dá suporte a envio novos pacotes usando a seguinte API. Se o pacote com a ID e a versão fornecida já existir, nuget.org rejeitará o envio por push. Outras fontes de pacote podem oferecer suporte a substituição de um pacote existente.
 
@@ -101,4 +103,29 @@ X-NuGet-ApiKey | Cabeçalho | cadeia de caracteres | sim      | Por exemplo, `X-
 Código de status | Significado
 ----------- | -------
 204         | O pacote foi excluído
+404         | Nenhum pacote com fornecido `ID` e `VERSION` existe
+
+## <a name="relist-a-package"></a>Relist um pacote
+
+Se um pacote não esteja listado, é possível fazer com que o pacote novamente visível nos resultados da pesquisa usando o ponto de extremidade de "relist". Esse ponto de extremidade tem a mesma forma como o [excluir (remover da lista) ponto de extremidade](#delete-a-package) , mas usa o `POST` método HTTP em vez do `DELETE` método.
+
+Se o pacote já está listado, a solicitação ainda será bem-sucedida.
+
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+
+### <a name="request-parameters"></a>Parâmetros de solicitação
+
+Nome           | No     | Tipo   | Necessária | Observações
+-------------- | ------ | ------ | -------- | -----
+ID             | URL    | cadeia de caracteres | sim      | A ID do pacote para relist
+VERSION        | URL    | cadeia de caracteres | sim      | A versão do pacote a ser relist
+X-NuGet-ApiKey | Cabeçalho | cadeia de caracteres | sim      | Por exemplo, `X-NuGet-ApiKey: {USER_API_KEY}`
+
+### <a name="response"></a>Resposta
+
+Código de status | Significado
+----------- | -------
+204         | O pacote agora está listado
 404         | Nenhum pacote com fornecido `ID` e `VERSION` existe

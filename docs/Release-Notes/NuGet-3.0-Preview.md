@@ -13,11 +13,11 @@ keywords: "Notas de versão visualização do NuGet 3.0, correções de bugs, pr
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 564c3ed2590d34a4c4584394853e70ab84354cac
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ae137af6f9722c454458fdcb4f20760c08d6e8bb
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>Notas de versão do NuGet 3.0 Preview
 

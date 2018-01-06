@@ -17,11 +17,11 @@ keywords: "Metadados de pacote do NuGet API, o registro do NuGet API, API do NuG
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 15d3c836a5748497fe33dadc17e5a44846b4a8c0
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-metadata"></a>Metadados de pacote
 
@@ -76,7 +76,7 @@ A URL do índice de registro é previsível e pode ser determinada pelo cliente 
 
 ### <a name="registration-pages-and-leaves"></a>Deixa e páginas de registro
 
-Embora não seja estritamente necessária para uma implementação do servidor armazenar registro folhas em documentos de página de registro separados, é uma prática recomendada para conservar a memória do lado do cliente. Em vez de todos os inlining registro deixa o índice ou armazenar imediatamente deixa em documentos de página, é recomendável que a implementação do servidor define uma heurística para escolher entre as duas abordagens com base no número de versões do pacote ou deixa o tamanho cumulativo de pacote.
+Embora não seja estritamente, é necessário para uma implementação do servidor armazenar registro folhas em documentos de página de registro separados, é uma prática recomendada para conservar a memória do lado do cliente. Em vez de todos os inlining registro deixa o índice ou armazenar imediatamente deixa em documentos de página, é recomendável que a implementação do servidor define uma heurística para escolher entre as duas abordagens com base no número de versões do pacote ou deixa o tamanho cumulativo de pacote.
 
 Armazenar todas as versões do pacote (deixa) na salva de índice de registro para o número de solicitações HTTP necessária para metadados de pacote de busca, mas significa que um documento maior deve ser baixado e mais memória do cliente deve ser alocada. Por outro lado, se a implementação do servidor armazena imediatamente deixa de registro em documentos de página separada, o cliente deve executar mais solicitações HTTP para obter as informações necessárias.
 
@@ -92,7 +92,7 @@ Nome     | No     | Tipo    | Necessária | Observações
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | cadeia de caracteres  | sim      | A ID do pacote, em minúscula
 
-O `LOWER_ID` valor é a ID do pacote desejado em minúscula usando as regras implementadas pelo. Do NET [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) método.
+O `LOWER_ID` valor é a ID do pacote desejado em minúscula usando as regras implementadas pelo. Do NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) método.
 
 ### <a name="response"></a>Resposta
 

@@ -13,11 +13,11 @@ keywords: "Notas de versão 2.2 do NuGet, correções de bugs, problemas conheci
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 690e76a0686a5e7bb699410edef4a6e62ccd2a32
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1f6080e01777431c4dfb2278db167bd3bc9a67ea
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-22-release-notes"></a>Notas de versão 2.2 do NuGet
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 NuGet 2.2 foi lançado em 12 de dezembro de 2012.
 
 ## <a name="visual-studio-quick-launch"></a>Início rápido do Visual Studio
-Um dos novos recursos que foi adicionado no Visual Studio 2012 foi o [caixa de diálogo de início rápido](http://msdn.microsoft.com/library/hh417697.aspx). 2.2 NuGet estende essa caixa de diálogo que lhe permite inicializar a caixa de diálogo de Gerenciador de pacote com os termos de pesquisa inseridos no início rápido. Por exemplo, inserir 'jquery' no início rápido agora inclui uma opção nos resultados para pesquisar pacotes do NuGet correspondência 'jquery'.
+Um dos novos recursos que foi adicionado no Visual Studio 2012 foi o [caixa de diálogo de início rápido](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box). 2.2 NuGet estende essa caixa de diálogo que lhe permite inicializar a caixa de diálogo de Gerenciador de pacote com os termos de pesquisa inseridos no início rápido. Por exemplo, inserir 'jquery' no início rápido agora inclui uma opção nos resultados para pesquisar pacotes do NuGet correspondência 'jquery'.
 
 ![NuGet em início rápido do Visual Studio](./media/quick-launch.png)
 
@@ -43,7 +43,7 @@ Esta opção iniciará a padrão NuGet pacote manager experiência de pesquisa p
 
 **Atualizar 24/6/16: pastas vazias na pasta "conteúdo" serão ignoradas durante a instalação do pacote.**
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 ### <a name="package-installation-fails-for-f-projects-when-using-the-package-manager-console"></a>Falha da instalação do pacote para projetos F # ao usar o console do Gerenciador de pacote
 Ao tentar instalar um pacote do NuGet para um projeto do F # usando o console do Gerenciador de pacote, um InvalidOperationException é gerado. Estamos trabalhando ativamente com a equipe do F # para resolver o problema, mas por enquanto, a solução alternativa é instalar os pacotes do NuGet em F # projetos por meio da caixa de diálogo de Gerenciador de pacote do NuGet em vez do console. [Mais informações estão disponíveis no CodePlex](http://nuget.codeplex.com/workitem/2873).

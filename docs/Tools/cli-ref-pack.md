@@ -13,11 +13,11 @@ keywords: "referência de pacote do NuGet, o comando de pacote"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 353d5d839d85c04bc315c3a0e9cfe274a361bd15
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="pack-command-nuget-cli"></a>comando de pacote NuGet CLI)
 
@@ -53,7 +53,7 @@ onde `<nuspecPath>` e `<projectPath>` especificar o `.nuspec` ou projeto de arqu
 | NoDefaultExcludes | Impede a exclusão padrão do NuGet compactar arquivos e arquivos e pastas que iniciam com um ponto, como `.svn` e `.gitignore`. |
 | NoPackageAnalysis | Especifica que o pacote não deve executar a análise de pacote após a compilação do pacote. |
 | OutputDirectory | Especifica a pasta na qual o pacote criado é armazenado. Se nenhuma pasta for especificada, a pasta atual será usada. |
-| Propriedades | Especifica uma lista de propriedades que substituem os valores no arquivo de projeto; consulte [propriedades comuns de projeto MSBuild](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-properties) para nomes de propriedade. O argumento de propriedades aqui está uma lista de token = pares de valor, separados por ponto e vírgula, onde cada ocorrência de `$token$` no `.nuspec` arquivo será substituído pelo valor especificado. Valores podem ser cadeias de caracteres entre aspas. Observe que para a propriedade "Configuração", o padrão é "Debug". Para alterar para uma configuração de versão, use `-Properties Configuration=Release`. |
+| Propriedades | Especifica uma lista de propriedades que substituem os valores no arquivo de projeto; consulte [propriedades comuns de projeto MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) para nomes de propriedade. O argumento de propriedades aqui está uma lista de token = pares de valor, separados por ponto e vírgula, onde cada ocorrência de `$token$` no `.nuspec` arquivo será substituído pelo valor especificado. Valores podem ser cadeias de caracteres entre aspas. Observe que para a propriedade "Configuração", o padrão é "Debug". Para alterar para uma configuração de versão, use `-Properties Configuration=Release`. |
 | Sufixo | *(3.4.4+)*  Anexa um sufixo para o número de versão gerados internamente, normalmente usado para anexar construção ou outros identificadores de pré-lançamento. Por exemplo, usando `-suffix nightly` criará um pacote com um tipo de número de versão `1.2.3-nightly`. Sufixos devem começar com uma letra para evitar avisos, erros e incompatibilidades com versões diferentes do NuGet e o NuGet Package Manager. |
 | Símbolos | Especifica que o pacote contém fontes e símbolos. Quando usado com um `.nuspec` arquivo, isso cria um arquivo de pacote do NuGet regular e pacote de símbolos correspondentes. |
 | Ferramenta | Especifica que os arquivos de saída do projeto devem ser colocados no `tool` pasta. |

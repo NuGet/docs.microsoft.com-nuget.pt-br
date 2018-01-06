@@ -13,11 +13,11 @@ keywords: "Notas de versão 1.1 do NuGet, correções de bugs, problemas conheci
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 00b6a8c6095e12ea2f4ca3fb5129d6c999071e3a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 593848b3e5e063816fbbec8b4d11e6fc789d05cd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Notas de versão do NuGet 1.0 e 1.1
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 NuGet 1.0 foi lançado em 13 de janeiro de 2011.  NuGet 1.1 foi lançada em 12 de fevereiro de 2011.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Este documento contém as notas de versão para diversas versões do NuGet 1.0 agrupados de acordo com a versão de visualização principal.
 

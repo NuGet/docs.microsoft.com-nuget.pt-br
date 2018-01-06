@@ -12,11 +12,11 @@ description: "Os protocolos nuget.org em evolução para interagir com os client
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 097b7a86d056b692c52d6de76bc2fb99d1b58c6f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nugetorg-protocols"></a>Protocolos de NuGet.org
 
@@ -43,7 +43,7 @@ Os clientes precisam passar o seguinte cabeçalho quando fazem chamadas de API p
 X-NuGet-Protocol-Version: 4.1.0
 ```
 
-Observe que o pré-existente `X-NuGet-Client-Version` cabeçalho tem a mesma finalidade, mas agora está obsoleta e não deve mais ser usado.
+Observe que o `X-NuGet-Client-Version` cabeçalho possui uma semântica semelhante, mas é reservado para ser usado apenas pelo cliente do NuGet oficial. Os clientes de terceiros devem usar o `X-NuGet-Protocol-Version` cabeçalho e o valor.
 
 O **push** próprio protocolo é descrito na documentação para o [ `PackagePublish` recurso](package-publish-resource.md).
 
