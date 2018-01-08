@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 91efd4b4cd2ec0bee4425ab66e0152e580e7975c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d002f55a75b3daaa2fed7a94e88582dd4f04e05f
+ms.sourcegitcommit: 1ebfff1263992c54de75366a1b1c26dbae6c0318
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -85,7 +85,7 @@ Esses elementos precisam aparecer dentro de um elemento `<metadata>`.
 
 ### <a name="optional-metadata-elements"></a>Elementos de metadados opcionais
 
-Esses elementos precisam aparecer dentro de um elemento `<metadata>`.
+Esses elementos podem aparecer dentro de um elemento `<metadata>`.
 
 #### <a name="single-elements"></a>Elementos únicos
 
