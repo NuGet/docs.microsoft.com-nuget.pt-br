@@ -14,11 +14,11 @@ ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 25b74ab629cab0fff7114bf1621606de5fc18dd2
-ms.sourcegitcommit: 89bb9d429c19ff69084c35acad09daea3e16d56b
+ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
+ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="package-versioning"></a>Controle de versão do pacote
 
@@ -59,8 +59,8 @@ Tecnicamente, os criadores de pacote podem usar qualquer cadeia de caracteres co
 Dito isso, os desenvolvedores geralmente seguem as convenções de nomenclatura reconhecidas:
 
 - `-alpha`: Versão alfa, normalmente usado para o trabalho em andamento e experimentação.
-- `-beta`: Versão beta, normalmente um recurso completo para o próximo lançamento planejado, mas pode conter erros conhecidos.
-- `-rc`: Versão release candidate, normalmente uma versão que é potencialmente final (estável), a menos que surgem bugs significativas.
+- `-beta`: versão beta, normalmente uma completa com recursos para a próxima versão planejada, mas pode conter erros conhecidos.
+- `-rc`: versão Release candidate, normalmente uma versão que é potencialmente a final (estável), a menos que surjam bugs significativos.
 
 > [!Note]
 > Oferece suporte a 4.3.0+ NuGet [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), que oferece suporte a números de versão de pré-lançamento com a notação de ponto, como em *1.0.1-build.23*. Não há suporte para a notação de ponto com as versões anteriores ao 4.3.0 NuGet. Você pode usar um formulário como *1.0.1-build23*.
@@ -95,7 +95,8 @@ Para nuget.org, um pacote é definido como um pacote de v 2.0.0 SemVer se qualqu
 Se você carregar um pacote de v 2.0.0 específico SemVer nuget.org, o pacote é invisível para clientes mais antigos e disponível para os seguintes clientes NuGet:
 
 - NuGet 4.3.0+
-- Visual Studio 2017 versão 15,3 + 
+- Visual Studio 2017 versão 15,3 +
+- Visual Studio 2015 com [v3.6.0 VSIX NuGet](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet.exe (2.0.0+ .NET SDK)
 
 Clientes de terceiros:
