@@ -13,11 +13,11 @@ keywords: NuGet no Visual Studio, tipos de projeto personalizados, projetos do V
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 39212361e7cb2c214c3e83cef604d40cd057fd7e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Suporte do NuGet para o sistema de projetos do Visual Studio
 
@@ -121,9 +121,8 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
     return VSConstants.S_OK;
 ```
 
-
 ## <a name="dte-support"></a>Suporte a DTE
 
-O NuGet comanda o sistema do projeto para adicionar referências, itens de conteúdo e importações do MSBuild chamando [DTE](https://msdn.microsoft.com/library/mt452175.aspx), que é a interface de automação do Visual Studio nível superior. O DTE é um conjunto de interfaces COM que você já pode implementar.
+O NuGet comanda o sistema do projeto para adicionar referências, itens de conteúdo e importações do MSBuild chamando [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017), que é a interface de automação do Visual Studio nível superior. O DTE é um conjunto de interfaces COM que você já pode implementar.
 
 Se o tipo de projeto é baseado no CPS, o DTE é implementado para você.

@@ -17,11 +17,11 @@ keywords: Pacote de envio por push do NuGet API, API do NuGet excluir o pacote N
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="push-and-delete"></a>Enviar por push e excluir
 
@@ -127,5 +127,5 @@ X-NuGet-ApiKey | Cabeçalho | cadeia de caracteres | sim      | Por exemplo, `X-
 
 Código de status | Significado
 ----------- | -------
-204         | O pacote agora está listado
+200         | O pacote agora está listado
 404         | Nenhum pacote com fornecido `ID` e `VERSION` existe

@@ -13,11 +13,11 @@ keywords: criar um pacote, pacotes para Xamarin, pacotes de multiplataforma
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8ee825a6299d7de375fd2f242cf456da13b777d9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f372856232f151efcf972881cffbe7d4bb7ed6ee
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-cross-platform-packages"></a>Criar pacotes de multiplataforma
 
@@ -43,7 +43,7 @@ Neste passo a passo, você criará um pacote do NuGet de multiplataforma que pod
 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Criar a estrutura do projeto e o código de abstração
 
-1. Baixe e execute o [Plug-in de extensão de modelos do Xamarin](https://visualstudiogallery.msdn.microsoft.com/afead421-3fbf-489a-a4e8-4a244ecdbb1e) para Visual Studio. Esses modelos facilitarão a criação da estrutura de projeto necessária para este passo a passo.
+1. Baixe e execute o [Plug-in de extensão de modelos do Xamarin](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) para Visual Studio. Esses modelos facilitarão a criação da estrutura de projeto necessária para este passo a passo.
 1. No Visual Studio, **Arquivo > Novo > Projeto**, pesquise `Plugin`, selecione o modelo **Plug-in para Xamarin**, altere o nome para LoggingLibrary e clique em OK.
 
     ![Novo projeto de Aplicativo em branco (Xamarin.Forms portátil) no Visual Studio](media/CrossPlatform-NewProject.png)

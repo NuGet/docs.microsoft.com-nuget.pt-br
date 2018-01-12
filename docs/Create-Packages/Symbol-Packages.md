@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1a29fe6e9a3dec6847dbed07761e28fb8eb9b19
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bdb8a2c946618b0c297c70bf7fcf6a9038b2a02
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-symbol-packages"></a>Criando pacotes de símbolos
 
 Além de compilar pacotes para nuget.org ou outras origens, o NuGet também dá suporte à criação de pacotes de símbolos associados e publica-os no [repositório SymbolSource](http://www.symbolsource.org/Public).
 
-Os consumidores de pacote podem adicionar `http://srv.symbolsource.org/pdb/Public` às suas origens de símbolos no Visual Studio, o que permite intervir no código do pacote no depurador do Visual Studio. Consulte [Especificar símbolos (.pdb) e arquivos de origem no depurador do Visual Studio](https://docs.microsoft.com/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) para obter mais detalhes sobre esse processo.
+Os consumidores de pacote podem adicionar `http://srv.symbolsource.org/pdb/Public` às suas origens de símbolos no Visual Studio, o que permite intervir no código do pacote no depurador do Visual Studio. Consulte [Especificar símbolos (.pdb) e arquivos de origem no depurador do Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) para obter mais detalhes sobre esse processo.
 
 
 ## <a name="creating-a-symbol-package"></a>Criar um pacote de símbolos

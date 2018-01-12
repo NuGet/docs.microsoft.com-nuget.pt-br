@@ -13,11 +13,11 @@ keywords: CLI do nuget.exe, ferramentas de cliente do NuGet, gerenciador de paco
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1abb30458c9ebfb0ffb28be254efd9709a9627f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2f67c298d269149bba9f36ad9e026d5443c39b6a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Instalar as ferramentas de cliente do NuGet
 
@@ -29,7 +29,7 @@ Há duas ferramentas primárias disponíveis para ajudar você a compilar, publi
 1. A [**CLI do NuGet**](#nuget-cli) é o utilitário de linha de comando do Windows que fornece todos os recursos do NuGet; ele também pode ser executado no Mac OSX e Linux usando Mono ou por meio da CLI do .NET Core (`dotnet`).
 1. O [**Gerenciador de Pacotes do NuGet no Visual Studio**](#nuget-package-manager-in-visual-studio) (somente Windows) é uma ferramenta de GUI para gerenciar pacotes e inclui um console do PowerShell por meio do qual você pode usar alguns comandos do NuGet diretamente no Visual Studio. A Interface do usuário e o Console do Gerenciador de Pacotes são incluídos no Visual Studio (no Windows) 2012 e posterior e podem ser instalados manualmente para versões anteriores.
 
-    Com o Visual Studio para Mac, os recursos NuGet são incorporados diretamente. Consulte [Incluindo um pacote do NuGet no seu projeto](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) para ver uma explicação passo a passo.
+    Com o Visual Studio para Mac, os recursos NuGet são incorporados diretamente. Consulte [Incluindo um pacote do NuGet no seu projeto](/visualstudio/mac/nuget-walkthrough) para ver uma explicação passo a passo.
 
     No momento, o Visual Studio Code não tem suporte interno para o NuGet. Usar a CLI do NuGet ou a [CLI do dotnet](../Tools/dotnet-Commands.md).
 
@@ -53,7 +53,7 @@ Os seguintes recursos são compatíveis somente com a CLI do NuGet:
 
 > [!Note]
 > Outra boa ferramenta é o [Explorador de Pacotes do NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer), uma ferramenta autônoma e de software livre para explorar, criar e editar visualmente os pacotes do NuGet. Por exemplo, é muito útil fazer alterações experimentais em uma estrutura de pacote sem a necessidade de recompilar o pacote a cada vez.
-> A cadeia de ferramentas da [CLI do .NET Core](https://docs.microsoft.com/dotnet/articles/core/tools/index#installation) de multiplataforma, usada para desenvolver aplicativos do .NET Core, compatível com vários comandos do NuGet, como delete, locals, push, pack e restore. 
+> A cadeia de ferramentas da [CLI do .NET Core](/dotnet/articles/core/tools/index#installation) de multiplataforma, usada para desenvolver aplicativos do .NET Core, compatível com vários comandos do NuGet, como delete, locals, push, pack e restore. 
 
 ## <a name="nuget-cli"></a>CLI do NuGet
 
