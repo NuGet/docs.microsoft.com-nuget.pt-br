@@ -13,11 +13,11 @@ keywords: "Instalação de pacote do NuGet, reinstalação de pacote do NuGet, r
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 898a431af4ed2e090b87d97bf43cec965b72d3c3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a198b371c86166e2bcdee7f6cf2a6c971bea0a3
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Como reinstalar e atualizar pacotes
 
@@ -31,7 +31,8 @@ A atualização e reinstalação de pacotes é feita da seguinte maneira:
 | Interface do usuário do Gerenciador de Pacotes | Na guia **Atualizações**, selecione um ou mais pacotes e escolha **Atualizar** | Na guia **Instalado**, selecione um pacote, registre seu nome e escolha **Desinstalar**. Mude para a guia **Procurar**, pesquise pelo nome do pacote, selecione-o e escolha **Instalar**). |
 | CLI do nuget.exe | Comando `nuget update` | Para todos os pacotes, exclua a pasta do pacote e execute `nuget install`. Para um único pacote, exclua a pasta do pacote e usar `nuget install <id>` para reinstalar o mesmo. |
 
-Neste tópico:
+Neste artigo:
+
 - [Quando reinstalar um pacote](#when-to-reinstall-a-package)
 - [Restrições de versões de upgrade](#constraining-upgrade-versions)
 
@@ -39,7 +40,7 @@ Neste tópico:
 
 1. **Referências interrompidas após a restauração do pacote**: se você abriu um projeto e restaurou pacotes do NuGet, mas ainda está encontrando referências interrompidas, tente reinstalar todos os pacotes.
 1. **Projeto interrompido devido a arquivos excluídos**: o NuGet não evita que você remova itens adicionados de pacotes, portanto, é fácil modificar inadvertidamente o conteúdo instalado de um pacote e desfazer seu projeto. Para restaurar o projeto, reinstale os pacotes afetados.
-1. **Atualização de pacote interrompeu o projeto**: se uma atualização de um pacote interromper um projeto, a falha será geralmente causada por um pacote de dependência que também pode ter sido. Para restaurar o estado da dependência, reinstale o pacote específico.
+1. **Atualização de pacote interrompeu o projeto**: se uma atualização de um pacote interromper um projeto, a falha será geralmente causada por um pacote de dependência que também pode ter sido atualizado. Para restaurar o estado da dependência, reinstale o pacote específico.
 1. **Redirecionamento ou upgrade do projeto**: isso pode ser útil quando um projeto foi redirecionado ou atualizado e se o pacote exigir a reinstalação devido à alteração na estrutura de destino. O NuGet 2.7 e posterior mostra um erro de build em tais casos imediatamente após o redirecionamento do projeto e os avisos de build subsequentes informam que o pacote pode precisar ser reinstalado. Para upgrade do projeto, o NuGet mostra um erro no Log de Upgrade de Projeto.
 1. **Reinstalar um pacote durante o desenvolvimento**: os autores de pacotes geralmente precisam reinstalar a mesma versão do pacote que está sendo desenvolvido para testar o comportamento. O comando `Install-Package` não oferece uma opção para forçar uma reinstalação, portanto, use `Update-Package -reinstall` em vez disso.
 

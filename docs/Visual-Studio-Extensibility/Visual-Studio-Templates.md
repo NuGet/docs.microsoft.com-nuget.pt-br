@@ -3,29 +3,28 @@ title: Pacotes do NuGet em modelos do Visual Studio | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 2/8/2017
+ms.date: 1/3/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0b2cf228-f028-475d-8792-c012dffdb26f
 description: "As instruções para incluir pacotes do NuGet como parte dos modelos de projeto e de item do Visual Studio."
 keywords: NuGet no Visual Studio, modelos de projeto do Visual Studio, modelos de item do Visual Studio, pacotes em modelos de projeto, pacotes em modelos de item
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5b2ad7616578b5f54d917c4555e861c847814da9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 45a2ca2c08660be650f9cf38301f628923e1f8be
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pacotes em modelos do Visual Studio
 
-Os modelos de projeto e item do Visual Studio geralmente precisam garantir que determinados pacotes sejam instalados quando o projeto ou item é criado. Por exemplo, o modelo do ASP.NET MVC 3 instala jQuery, Modernizr e outros pacotes.
+Os modelos de projeto e item do Visual Studio geralmente precisam garantir que determinados pacotes sejam instalados quando o projeto ou item for criado. Por exemplo, o modelo do ASP.NET MVC 3 instala jQuery, Modernizr e outros pacotes.
 
 Para dar suporte a isso, os autores de modelo podem instruir o NuGet a instalar os pacotes necessários, em vez de bibliotecas individuais. Os desenvolvedores podem atualizar facilmente esses pacotes posteriormente a qualquer momento.
 
-Para saber mais sobre a criação de modelos em si, consulte [Criando modelos de projeto e de item no Visual Studio](https://msdn.microsoft.com/library/s365byhx.aspx) ou [Criando modelos personalizados de projeto e de item com o SDK do Visual Studio](https://msdn.microsoft.com/library/ff527340.aspx).
+Para saber mais sobre como criar modelos, consulte [Como fazer para criando modelos de projeto](/visualstudio/ide/how-to-create-project-templates) ou [Criando modelos personalizados de projeto e de item](/visualstudio/extensibility/creating-custom-project-and-item-templates).
 
 O restante desta seção descreve as etapas específicas a serem tomadas ao criar um modelo para incluir corretamente os pacotes do NuGet.
 
@@ -34,16 +33,15 @@ O restante desta seção descreve as etapas específicas a serem tomadas ao cria
 
 Para ver um exemplo, consulte o [Exemplo de NuGetInVsTemplates](https://bitbucket.org/marcind/nugetinvstemplates).
 
-
 ## <a name="adding-packages-to-a-template"></a>Adicionar pacotes a um modelo
 
-Quando um modelo é instanciado, um [Assistente de modelo](https://msdn.microsoft.com/library/ms185301.aspx) é invocado para carregar a lista de pacotes para instalar juntamente com informações sobre onde encontrar esses pacotes. Pacotes podem ser inseridos no VSIX, inseridos no modelo ou localizados no disco rígido local, quando então você usa uma chave do Registro para referenciar o caminho do arquivo. Detalhes sobre esses locais são fornecidos mais adiante nesta seção.
+Quando um modelo é instanciado, um [Assistente de modelo](/visualstudio/extensibility/how-to-use-wizards-with-project-templates) é invocado para carregar a lista de pacotes para instalar juntamente com informações sobre onde encontrar esses pacotes. Pacotes podem ser inseridos no VSIX, inseridos no modelo ou localizados no disco rígido local, quando então você usa uma chave do Registro para referenciar o caminho do arquivo. Detalhes sobre esses locais são fornecidos mais adiante nesta seção.
 
-Pacotes pré-instalados funcionam usando [assistentes de modelo](http://msdn.microsoft.com/library/ms185301.aspx). Um assistente especial é invocado quando o modelo é instanciado. O assistente carrega a lista de pacotes que precisam ser instalados e transmite essas informações para as APIs do NuGet apropriadas.
+Pacotes pré-instalados funcionam usando [assistentes de modelo](/visualstudio/extensibility/how-to-use-wizards-with-project-templates). Um assistente especial é invocado quando o modelo é instanciado. O assistente carrega a lista de pacotes que precisam ser instalados e transmite essas informações para as APIs do NuGet apropriadas.
 
 Etapas para incluir pacotes em um modelo:
 
-1. No seu arquivo `vstemplate`, adicione uma referência ao assistente de modelo do NuGet adicionando um elemento [`WizardExtension`](http://msdn.microsoft.com/library/ms171411.aspx):
+1. No seu arquivo `vstemplate`, adicione uma referência ao assistente de modelo do NuGet adicionando um elemento [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates):
 
     ```xml
     <WizardExtension>
@@ -66,12 +64,11 @@ Etapas para incluir pacotes em um modelo:
 
     *(NuGet 2.2.1 ou superior)*  O assistente é compatível com vários elementos `<package>` para dar suporte a várias origens de pacote. Ambos os atributos `id` e `version` são necessários, o que significa que a versão específica de um pacote será instalada mesmo se uma versão mais recente estiver disponível. Isso impede que atualizações do pacote interrompam o modelo, deixando a opção de atualizar o pacote para o desenvolvedor que usa o modelo.
 
-
 1. Especifique o repositório em que o NuGet pode encontrar os pacotes conforme descrito nas seções a seguir.
 
 ### <a name="vsix-package-repository"></a>Repositório de pacote VSIX
 
-A abordagem de implantação recomendada para modelos de projeto/item do Visual Studio é um [extensão do VSIX](http://msdn.microsoft.com/library/ff363239.aspx) porque ela permite empacotar vários modelos de projeto/item juntos e permite que os desenvolvedores descubram facilmente seus modelos usando o Gerenciador de Extensões do VS ou a Galeria do Visual Studio. Atualizações da extensão também são fáceis de implantar usando o [mecanismo de atualização automática do Gerenciador de Extensões do Visual Studio](http://msdn.microsoft.com/library/dd997169.aspx).
+A abordagem de implantação recomendada para modelos de projeto/item do Visual Studio é um [extensão do VSIX](/visualstudio/extensibility/shipping-visual-studio-extensions) porque ela permite empacotar vários modelos de projeto/item juntos e permite que os desenvolvedores descubram facilmente seus modelos usando o Gerenciador de Extensões do VS ou a Galeria do Visual Studio. Atualizações da extensão também são fáceis de implantar usando o [mecanismo de atualização automática do Gerenciador de Extensões do Visual Studio](/visualstudio/extensibility/how-to-update-a-visual-studio-extension).
 
 O próprio VSIX pode servir como a origem para os pacotes necessários para o modelo:
 
@@ -83,25 +80,17 @@ O próprio VSIX pode servir como a origem para os pacotes necessários para o mo
     </packages>
     ```
 
-    O atributo `repository` especifica o tipo de repositório como `extension` enquanto `repositoryId` é o identificador exclusivo do próprio VSIX (esse é o valor do atributo [`ID`](http://msdn.microsoft.com/library/dd393688.aspx) no arquivo `vsixmanifest` da extensão).
+    O atributo `repository` especifica o tipo de repositório como `extension` enquanto `repositoryId` é o identificador exclusivo do VSIX (esse é o valor do atributo `ID` no arquivo `vsixmanifest` da extensão, consulte [Referência do Esquema de Extensão do VSIX 2.0](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)).
 
 1. Coloque seus arquivos `nupkg` em uma pasta chamada `Packages` dentro do VSIX.
-1. Adicione os arquivos de pacote necessários como [conteúdo de extensão personalizada](http://msdn.microsoft.com/library/dd393737.aspx) no seu arquivo `source.extension.vsixmanifest`. Se você estiver usando o esquema 2.0, ele deverá ser semelhante a isso:
+
+1. Adicione os arquivos de pacote necessários como `<Asset>` no seu arquivo `vsixmanifest` (consulte [Referência do Esquema de Extensão do VSIX 2.0](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)):
 
     ```xml
     <Asset Type="Moq.4.0.10827.nupkg" d:Source="File" Path="Packages\Moq.4.0.10827.nupkg" d:VsixSubPath="Packages" />
     ```
 
-    Se você estiver usando o esquema 1.0, ele deverá ser semelhante a isso:
-
-    ```xml
-    <CustomExtension Type="Moq.4.0.10827.nupkg">
-        packages/Moq.4.0.10827.nupkg
-    </CustomExtension>
-    ```
-
 1. Observe que você pode entregar os mesmos pacotes VSIX como seus modelos de projeto ou colocá-los em um VSIX separado se isso fizer mais sentido para o seu cenário. No entanto, não faça referência a nenhum VSIX que você não controla, pois as alterações para esta extensão podem interromper o modelo.
-
 
 ### <a name="template-package-repository"></a>Repositório de pacote de modelo
 
@@ -120,7 +109,6 @@ Se você estiver distribuindo apenas um modelo de projeto/item único e não pre
 1. Coloque os pacotes na pasta raiz do arquivo ZIP do modelo de projeto/item.
 
 Observe que usar, usando essa abordagem, um VSIX que contém vários modelos leva a sobrecarga desnecessária quando um ou mais pacotes são comuns aos modelos. Nesses casos, use o [VSIX como repositório](#vsix-package-repository) conforme descrito na seção anterior.
-
 
 ### <a name="registry-specified-folder-path"></a>Caminho da pasta especificada do Registro
 
@@ -159,6 +147,6 @@ SDKs que são instalados usando um MSI podem instalar os pacotes do NuGet direta
     <!-- ... -->
     ```
 
-1. Exigir que modelos de item/projeto sejam salvos na criação definindo [`<PromptForSaveOnCreation>`](http://msdn.microsoft.com/library/twfxayz5.aspx) no arquivo `.vstemplate`.
+1. Exija que modelos de item/projeto sejam salvos na criação incluindo [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) no arquivo `.vstemplate`.
 
 1. Os modelos não incluem um arquivo `packages.config` ou `project.json`, nem incluem nenhuma referência ou conteúdo que seria adicionado quando os pacotes do NuGet são instalados.

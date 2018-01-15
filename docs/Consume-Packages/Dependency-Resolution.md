@@ -13,11 +13,11 @@ keywords: "Dependências de pacotes do NuGet, controle de versão do NuGet, vers
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 44c69c07990fed72b439698d22021ebcbb2eed89
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 93a3d077a6dd1946485fc8c48f97c8009280890c
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Como o NuGet resolve as dependências do pacote
 
@@ -151,6 +151,12 @@ Para resolver isso, você precisa referenciar diretamente o `C.dll` que você de
             }
         }
     }
+    ```
+
+- Com [referências de pacote em arquivos de projeto](../consume-packages/package-references-in-project-files.md) (NuGet 4.0 + somente), adicione `ExcludeAssets="All"` na dependência:
+
+    ```xml
+    <PackageReference Include="packageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
 ## <a name="dependency-updates-during-package-install"></a>Atualizações de dependência durante a instalação do pacote 

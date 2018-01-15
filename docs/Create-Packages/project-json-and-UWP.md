@@ -13,11 +13,11 @@ keywords: "Dependências do NuGet, NuGet e UWP, UWP e project.json, arquivo proj
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 40507e541997cea368052c373a4124d9c4a00a51
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ae49c017365e1a63622fde318d5c94b64ed1ea2e
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json e UWP
 
@@ -70,7 +70,7 @@ Pacotes do NuGet usando esse formato tem a seguinte pasta e comportamento bem co
 
 Pacotes do NuGet podem conter arquivos `.targets` e `.props` que são importados para qualquer projeto do MSBuild em que o pacote é instalado. No NuGet 2.x, isso foi feito injetando instruções `<Import>` no arquivo `.csproj`, enquanto no NuGet 3.0 não há nenhuma ação de “instalação específica no projeto”. Em vez disso, o processo de restauração do pacote grava dois arquivos `[projectname].nuget.props` e `[projectname].NuGet.targets`.
 
-O MSBuild sabe procurar esses dois arquivos e os importa automaticamente próximo ao início e no final do processo de build do projeto. Isso fornece um comportamento muito semelhante ao NuGet 2.x, mas com uma grande diferença: *não há nenhuma garantia da ordem dos arquivos de destinos/objetos neste caso*. No entanto, o MSBuild fornece maneiras de ordenar destinos por meio dos atributos `BeforeTargets` e `AfterTargets` da definição `<Target>` (consulte [Elemento de Destino (MSBuild)](https://docs.microsoft.com/visualstudio/msbuild/target-element-msbuild).
+O MSBuild sabe procurar esses dois arquivos e os importa automaticamente próximo ao início e no final do processo de build do projeto. Isso fornece um comportamento muito semelhante ao NuGet 2.x, mas com uma grande diferença: *não há nenhuma garantia da ordem dos arquivos de destinos/objetos neste caso*. No entanto, o MSBuild fornece maneiras de ordenar destinos por meio dos atributos `BeforeTargets` e `AfterTargets` da definição `<Target>` (consulte [Elemento de Destino (MSBuild)](/visualstudio/msbuild/target-element-msbuild).
 
 
 ## <a name="lib-and-ref"></a>Lib e Ref
@@ -93,7 +93,7 @@ A pasta `lib` contém os assemblies que são usados no tempo de execução. Para
 
 A maioria dos autores de pacote não exigem a pasta `ref`. É útil para os pacotes que precisam fornecer uma área de superfície consistente para compilação e IntelliSense, mas têm uma implementação diferente para TxMs diferentes. O maior caso de uso são os pacotes `System.*` que estão sendo produzidos como parte do envio de .NET Core no NuGet. Estes pacotes têm várias implementações que estão sendo unificadas por um conjunto consistente de assemblies de referência.
 
-Mecanicamente, os assemblies incluídos na pasta `ref` são os assemblies de referência que estão sendo passados para o compilador. Para aqueles dentre vocês que usaram csc.exe, esses são os assemblies que estamos passando para a opção [C# /reference option](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option).
+Mecanicamente, os assemblies incluídos na pasta `ref` são os assemblies de referência que estão sendo passados para o compilador. Para aqueles dentre vocês que usaram csc.exe, esses são os assemblies que estamos passando para a opção [C# /reference option](/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option).
 
 A estrutura da pasta `ref` é o mesmo que `lib`, por exemplo:
 
@@ -121,7 +121,7 @@ Neste exemplo, os assemblies nos diretórios `ref` serão idênticos.
 
 ## <a name="runtimes"></a>Tempos de execução
 
-A pasta de tempos de execução contém os assemblies e bibliotecas nativos necessários para executar em “tempos de execução” específicos, que geralmente são definidos pelo sistema operacional e arquitetura de CPU. Esses tempos de execução são identificados usando [RIDs (Identificadores de tempo de execução)](https://docs.microsoft.com/dotnet/core/rid-catalog) como `win`, `win-x86`, `win7-x86`, `win8-64`, etc.
+A pasta de tempos de execução contém os assemblies e bibliotecas nativos necessários para executar em “tempos de execução” específicos, que geralmente são definidos pelo sistema operacional e arquitetura de CPU. Esses tempos de execução são identificados usando [RIDs (Identificadores de tempo de execução)](/dotnet/core/rid-catalog) como `win`, `win-x86`, `win7-x86`, `win8-64`, etc.
 
 ## <a name="native-light-up"></a>Iluminação nativa
 
@@ -157,7 +157,7 @@ Considerando o pacote acima, acontece o seguinte:
 
 No exemplo acima, o assembly `lib/net40` é composto puramente por código gerenciado, embora os assemblies na pasta de tempos de execução serão p/invoke para o assembly auxiliar nativo para chamar as APIs específicas para o Windows 8.
 
-Somente uma pasta `lib` será escolhida, por isso se houver uma pasta específica do tempo de execução, ela estará escolhida em vez de `lib` específica fora do tempo de execução. A pasta nativa é aditiva, se existir, ela é copiada para a saída do build.
+Somente uma pasta `lib` única será escolhida, por isso se houver uma pasta específica do tempo de execução, ela será escolhida em vez do `lib` específico fora do tempo de execução. A pasta nativa é aditiva, se existir, ela é copiada para a saída do build.
 
 ## <a name="managed-wrapper"></a>Wrapper gerenciado
 

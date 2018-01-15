@@ -11,11 +11,11 @@ ms.assetid: 86f7e724-2509-4d7d-aa8d-4a3fb913ded6
 description: O pack e restore do NuGet podem funcionar diretamente como destinos do MSBuild com o NuGet 4.0 e superior.
 keywords: NuGet e MSBuild, NuGet pack target, NuGet restore target
 ms.reviewer: karann-msft
-ms.openlocfilehash: def01380e5bc3bf878e72dd437f52cd033641ca5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d4778a21a96de6d76d7a20ff9a305960dd6c2bf1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -193,7 +193,7 @@ Ao usar o `MSBuild /t:pack /p:IncludeSymbols=true`, os arquivos `.pdb` correspon
 
 Isso é o mesmo que `IncludeSymbols`, exceto que também copia os arquivos de origem com arquivos `.pdb`. Todos os arquivos do tipo `Compile` são copiadas para `src\<ProjectName>\`, preservando a estrutura de pastas do caminho relativo no pacote resultante. O mesmo também ocorre para arquivos de origem de qualquer `ProjectReference` que tem `TreatAsPackageReference` definido como `false`.
 
-Se um arquivo do tipo Compilação estiver fora da pasta de projeto, ele é adicionado apenas a `src\<ProjectName>\`.
+Se um arquivo do tipo Compilação estiver fora da pasta de projeto, ele será adicionado apenas a `src\<ProjectName>\`.
 
 ### <a name="istool"></a>IsTool
 
@@ -235,7 +235,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 
 Configurações de restauração adicionais podem vir de propriedades MSBuild no arquivo de projeto. Os valores também podem ser definidos na linha de comando usando a opção `/p:` (consulte os Exemplos abaixo).
 
-| Propriedade | Descrição |
+| propriedade | Descrição |
 |--------|--------|
 | RestoreSources | Uma lista delimitada por ponto e vírgula de origens de pacote. |
 | RestorePackagesPath | Caminho da pasta dos pacotes do usuário. |

@@ -13,11 +13,11 @@ keywords: "P e R do NuGet, perguntas e respostas, problemas comuns, versões do 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 105fa6e1cad3d163b673376c74ce9c835a0b5059
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
+ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>Perguntas frequentes do NuGet
 
@@ -57,9 +57,9 @@ Para obter mais informações, consulte [Localizando e escolhendo pacotes](../Co
 **Como é a compatibilidade do NuGet com os diferentes produtos do Visual Studio?**
 
 - O Visual Studio no Windows é compatível com a [Interface do usuário do Gerenciador de Pacotes](../tools/Package-Manager-UI.md) e o [Console do Gerenciador de Pacotes](../tools/Package-Manager-Console.md).
-- O Visual Studio para Mac tem recursos internos do NuGet, conforme descrito em [Incluindo um pacote do NuGet em seu projeto](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+- O Visual Studio para Mac tem recursos internos do NuGet, conforme descrito em [Incluindo um pacote do NuGet em seu projeto](/visualstudio/mac/nuget-walkthrough).
 - O Visual Studio Code (todas as plataformas) não tem nenhuma integração direta do NuGet. Usar a [CLI do NuGet](../tools/nuget-exe-CLI-Reference.md) ou a [CLI do dotnet](../tools/dotnet-commands.md).
-- O Visual Studio Team Services fornece [uma etapa de build para restaurar os pacotes do NuGet](https://docs.microsoft.com/vsts/build-release/tasks/package/nuget). Você também pode [hospedar feeds privados de pacote do NuGet no Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
+- O Visual Studio Team Services fornece [uma etapa de build para restaurar os pacotes do NuGet](/vsts/build-release/tasks/package/nuget). Você também pode [hospedar feeds privados de pacote do NuGet no Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
 
 **Como fazer para verificar a versão exata das ferramentas do NuGet que estão instaladas?**
 
@@ -101,7 +101,7 @@ Sim, é possível adicionar comandos personalizados para `nuget.exe`, conforme d
 
 **Como fazer para obter acesso ao objeto DTE no console do Gerenciador de Pacotes?**
 
-O objeto de nível superior no modelo de objeto de automação do Visual Studio é chamado o objeto DTE (Ambiente de Ferramentas de Desenvolvimento). O console fornece isso por meio de uma variável chamada `$DTE`. Para obter mais informações, consulte [Visão geral do modelo de automação](https://docs.microsoft.com/visualstudio/extensibility/internals/automation-model-overview) na documentação de Extensibilidade do Visual Studio.
+O objeto de nível superior no modelo de objeto de automação do Visual Studio é chamado o objeto DTE (Ambiente de Ferramentas de Desenvolvimento). O console fornece isso por meio de uma variável chamada `$DTE`. Para obter mais informações, consulte [Visão geral do modelo de automação](/visualstudio/extensibility/internals/automation-model-overview) na documentação de Extensibilidade do Visual Studio.
 
 **Tento converter a variável $DTE para o tipo DTE2, mas recebo um erro: não é possível converter o valor de “EnvDTE.DTEClass” do tipo “EnvDTE.DTEClass” para o tipo “EnvDTE80.DTE2”. Qual é o problema?**
 
@@ -177,9 +177,9 @@ Se um pacote não especificar os termos de licença, entre em contato com o prop
 
 ## <a name="managing-packages-on-nugetorg"></a>Gerenciando pacotes em nuget.org
 
-**Posso editar os metadados do pacote depois que ele é carregado? Por que é recomendável editar o nuspec e carregar um novo pacote para fazer alterações nos metadados do pacote?**
+**Posso editar os metadados do pacote depois que ele é carregado? Por que é exigido editar o nuspec e carregar um novo pacote para fazer alterações nos metadados do pacote?**
 
-O NuGet implementará a assinatura do pacote. Um princípio de design da assinatura de pacote é que o conteúdo do pacote assinado deve ser imutável, que inclui o nuspec. Editar os resultados de metadados de pacote em alterações de nuspec, invalidando assinaturas existentes. É recomendável modificar fluxos de trabalho existentes para não exigir a edição dos metadados do pacote depois que o este foi criado.
+O NuGet requer que todos os pacotes sejam assinados. Um princípio de design da assinatura de pacote é que o conteúdo do pacote assinado deve ser imutável, que inclui o nuspec. Editar os resultados de metadados de pacote em alterações de nuspec, invalidando assinaturas existentes. É recomendável modificar fluxos de trabalho existentes para não exigir a edição dos metadados do pacote depois que o este foi criado.
 
 Observe que as dependências listadas para seu pacote são geradas automaticamente do próprio pacote e não podem ser editadas.
 

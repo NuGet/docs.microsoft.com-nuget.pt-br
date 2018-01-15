@@ -13,15 +13,15 @@ keywords: "Gerenciador de pacotes do NuGet, consumo, criação de pacote, hosped
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29dcedf33a54e249fe0b6acf588e4aafde28304f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bc6a9e154df287fee6a7e00cc1349dfa2100643
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="an-introduction-to-nuget"></a>Uma introdução ao NuGet
 
-Uma ferramenta essencial para qualquer plataforma de desenvolvimento moderna é um mecanismo por meio do qual os desenvolvedores podem criar, compartilhar e consumir bibliotecas de código úteis. Essas bibliotecas são normalmente chamadas de “pacotes” porque podem conter código compilado (como DLLs) juntamente com outros tipos de conteúdo que podem ser necessárias nos projetos que as consomem.
+Uma ferramenta essencial para qualquer plataforma de desenvolvimento moderna é um mecanismo por meio do qual os desenvolvedores podem criar, compartilhar e consumir código útil. Geralmente, esse código é fornecido em "pacotes" que contêm código compilado (como DLLs) juntamente com outro conteúdo necessário nos projetos que consomem esses pacotes.
 
 Para .NET, o mecanismo para compartilhar código é **NuGet**, que define como os pacotes .NET são criados, hospedados e consumidos e fornece as ferramentas para cada uma dessas funções. 
 
@@ -45,7 +45,7 @@ Além do suporte à hospedagem, o NuGet também fornece uma variedade de ferrame
 | --- | --- | --- | --- |
 | [CLI do nuget.exe](Tools/nuget-exe-CLI-Reference.md) | Todos | Criação, Consumo | Fornece todos os recursos do NuGet, com alguns comandos de que aplicam especificamente aos criadores de pacote, alguns somente aos consumidores e outros a ambos. Por exemplo, os criadores de pacote usam o comando `nuget pack` para criar um pacote de vários assemblies e arquivos relacionados, os consumidores de pacote usam `nuget install` para incluir pacotes em um projeto e todos usam `nuget config` para definir as variáveis de configuração do NuGet.  |
 | [Interface do usuário do Gerenciador de Pacotes](Tools/Package-Manager-UI.md) | Visual Studio no Windows | Consumo | Fornece uma interface do usuário fácil de usar para instalar e gerenciar pacotes em projetos do .NET. | 
-| [Gerenciar a interface do usuário do NuGet](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) | Visual Studio para Mac | Consumo | Fornece uma interface do usuário fácil de usar para instalar e gerenciar pacotes em projetos do .NET. |
+| [Gerenciar a interface do usuário do NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio para Mac | Consumo | Fornece uma interface do usuário fácil de usar para instalar e gerenciar pacotes em projetos do .NET. |
 | [Console do gerenciador de pacotes](Tools/Package-Manager-Console.md) | Visual Studio no Windows | Consumo | Fornece [comandos do PowerShell](Tools/Powershell-Reference.md) para instalar e gerenciar pacotes em projetos do .NET. | 
 | [CLI do dotnet](Tools/dotnet-Commands.md) | Todos | Criação, Consumo | Fornece certas funcionalidades da CLI do NuGet diretamente na cadeia de ferramentas do .NET Core. |
 | [MSBuild](Schema/msbuild-targets.md) | Windows | Criação, Consumo | Fornece a capacidade de criar e restaurar os pacotes usados em um projeto diretamente por meio da cadeia de ferramentas do MSBuild. |

@@ -17,11 +17,11 @@ keywords: "A API do NuGet enumera todos os pacotes, pacotes de replicação da A
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50a5be4cb0405ad78a72d0497612781a4b346060
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5559a7cd104861b1a10aa8d1513696e609c51c15
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Consulta para todos os pacotes publicados em nuget.org
 
@@ -40,7 +40,7 @@ O modo herdado de fazer isso normalmente depende da classificação da entidade 
 
 Por esse motivo, o guia a seguir pode ser seguido para resolver os cenários mencionados acima de maneira mais confiável e pronta para o futuro.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 No centro deste guia está o recurso na [API do NuGet](../../api/overview.md) chamado de **catálogo**. O catálogo é uma API somente de acréscimo que permite que o chamador veja um histórico completo de pacotes adicionados, modificados e excluídos do nuget.org. Se você estiver interessado em todos ou até mesmo em um subconjunto dos pacotes publicados no nuget.org, o catálogo é uma ótima maneira de se manter atualizado com o conjunto de pacotes disponíveis atualmente à medida que o tempo passa.
 

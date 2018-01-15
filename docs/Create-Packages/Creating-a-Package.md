@@ -13,11 +13,11 @@ keywords: "Criação de pacotes do NuGet, criando um pacote, manifesto de nuspec
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e7a2c4d02afb2387161c22fe5bd443eb0991ea8c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6675d21a2900a1b61e17c08518b328732f4472c5
+ms.sourcegitcommit: 1cb047b24b3b69d80e808c23b2ace0d98d2dfdcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="creating-nuget-packages"></a>Criando pacotes do NuGet
 
@@ -284,7 +284,7 @@ Com o NuGet 3.5 ou superior, os pacotes podem ser marcados com um *tipo de pacot
 
 - Pacotes do tipo `Dependency` adicionam ativos de tempo de build ou de execução a bibliotecas e aplicativos e podem ser instalados em qualquer tipo de projeto (supondo que eles sejam compatíveis).
 
-- Pacotes do tipo `DotnetCliTool` são extensões para a [CLI do .NET](https://docs.microsoft.com/dotnet/articles/core/tools/index) e são invocados na linha de comando. Esses pacotes podem ser instalados somente em projetos do .NET Core e não têm nenhum efeito sobre operações de restauração. Mais detalhes sobre essas extensões por projeto estão disponíveis na documentação da [extensibilidade do .NET Core](https://docs.microsoft.com/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
+- Pacotes do tipo `DotnetCliTool` são extensões para a [CLI do .NET](/dotnet/articles/core/tools/index) e são invocados na linha de comando. Esses pacotes podem ser instalados somente em projetos do .NET Core e não têm nenhum efeito sobre operações de restauração. Mais detalhes sobre essas extensões por projeto estão disponíveis na documentação da [extensibilidade do .NET Core](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
 
     Quando um pacote DotnetCliTool é instalado, o Visual Studio coloca o pacote no nó `project.json` `tools` em vez do nó `dependencies`.
 

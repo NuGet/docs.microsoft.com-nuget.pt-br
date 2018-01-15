@@ -13,13 +13,15 @@ keywords: "instalar o NuGet, consumo de pacote do NuGet, instalando pacotes do N
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bcccc7139de31a8d07e9ed52abfd12fe9e6d687b
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 639f4883f5ce904a44d8aa23d76c93ed79ea4b9d
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-and-use-a-package"></a>Instalar e usar um pacote
+
+Pacotes do NuGet são unidades de código reutilizável que outros desenvolvedores disponibilizam para uso em seus projetos. Consulte [O que há de novo no NuGet](../What-is-NuGet.md) para obter mais informações.
 
 [!INCLUDE [install-methods](../includes/install-methods.md)]
 

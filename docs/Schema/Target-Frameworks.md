@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d1d2e6850f22306d715b1c2071ee45b0eb050dc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 36e1f0cd6e4284a6bd272ce3c85749e9ed72cbcd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="target-frameworks"></a>Frameworks de destino
 
@@ -53,7 +53,7 @@ Os clientes do NuGet são compatíveis com as estruturas indicadas na tabela aba
 |                |              | net46      |
 |                |              | net461     |
 |                |              | net462     |
-|Windows Store   | netcore      | netcore [netcore45] |
+|Microsoft Store (Windows Store) | netcore      | netcore [netcore45] |
 |                |              | netcore45 [win, win8] |
 |                |              | netcore451 [win81] |
 |                |              | netcore50 |
@@ -122,7 +122,7 @@ Várias estruturas relacionadas e compatíveis entre si, mas não necessariament
 
 ## <a name="net-platform-standard"></a>NET Platform Standard
 
-O [.NET Platform Standard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) simplifica referências entre estruturas compatíveis com o binário, permitindo que uma estrutura de destino única faça referência a uma combinação de outras. (Para obter informações, consulte o [.NET Primer](https://docs.microsoft.com/dotnet/articles/standard/index).)
+O [.NET Platform Standard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) simplifica referências entre estruturas compatíveis com o binário, permitindo que uma estrutura de destino única faça referência a uma combinação de outras. (Para obter informações, consulte o [.NET Primer](/dotnet/articles/standard/index).)
 
 A [Ferramenta Obter a ferramenta de estrutura mais próxima do NuGet](https://aka.ms/s2m3th) simula o que o NuGet usa para a seleção de uma estrutura de muitos ativos de estrutura disponíveis em um pacote baseado na estrutura do projeto.
 

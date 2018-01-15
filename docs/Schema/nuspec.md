@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d002f55a75b3daaa2fed7a94e88582dd4f04e05f
-ms.sourcegitcommit: 1ebfff1263992c54de75366a1b1c26dbae6c0318
+ms.openlocfilehash: cd5b7c79ad0af07b167e062d4a2f5142ef2d718a
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -172,8 +172,8 @@ E você compila um assembly cujo `AssemblyName` é `LoggingLibrary` com a config
 O elemento `<dependencies>` dentro do `<metadata>` contém diversos elementos `<dependency>` que identificam os outros pacotes dos quais o pacote de nível superior depende. Os atributos para cada `<dependency>` são os seguintes:
 
 | Atributo | Descrição |
-| --- | --- | 
-| `id` | (Obrigatório) A ID do pacote da dependência. |
+| --- | --- |
+| `id` | (Obrigatório) A ID do pacote de dependência, como "EntityFramework" e "NUnit", que é o nome do pacote nuget.org mostrado em uma página do pacote. |
 | `version` | (Obrigatório) O intervalo de versões aceitáveis como uma dependência. Consulte [Controle de versão do pacote](../reference/package-versioning.md#version-ranges-and-wildcards) para ver a sintaxe exata. |
 | include | Uma lista delimitada por vírgulas de marcas de inclusão/exclusão (veja abaixo) que indicam a dependência a ser incluída no pacote final. O valor padrão é `none`. |
 | exclude | Uma lista delimitada por vírgulas de marcas de inclusão/exclusão (veja abaixo) que indicam a dependência a ser excluída do pacote final. O valor padrão é `all`. Marcas especificadas com `exclude` têm precedência sobre aquelas especificadas com `include`. Por exemplo, `include="runtime, compile" exclude="compile"` é o mesmo que `include="runtime"`. |
@@ -254,7 +254,7 @@ Por exemplo, o elemento `<references>` a seguir instrui o NuGet a adicionar refe
 </references>
 ```
 
-Referências explícitas são geralmente usadas apenas para assemblies de tempo de design. Ao usar [Contratos de código](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/code-contracts), por exemplo, os assemblies de contrato precisam ser próximos dos assemblies de tempo de execução que eles aumentar para que o Visual Studio possa encontrá-los, mas os assemblies de contrato não precisam ser referenciados pelo projeto ou copiados para a pasta `bin` do projeto.
+Referências explícitas são geralmente usadas apenas para assemblies de tempo de design. Ao usar [Contratos de código](/dotnet/framework/debug-trace-profile/code-contracts), por exemplo, os assemblies de contrato precisam ser próximos dos assemblies de tempo de execução que eles aumentar para que o Visual Studio possa encontrá-los, mas os assemblies de contrato não precisam ser referenciados pelo projeto ou copiados para a pasta `bin` do projeto.
 
 Da mesma forma, as referências explícitas podem ser usadas para estruturas de teste de unidade, como XUnit, que precisam de ferramentas de assemblies localizados ao lado de assemblies de tempo de execução, mas não precisa que eles estejam incluídos como referências de projeto.
 
