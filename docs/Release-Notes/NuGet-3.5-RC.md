@@ -41,17 +41,17 @@ versão 3.5 está se concentrou em melhorar a qualidade e o desempenho de client
 
 * Atualizar vários pacotes com a reversão deixa o projeto em um estado interrompido - [#3139](https://github.com/NuGet/Home/issues/3139)
 
-* ContentFiles em qualquer não são adicionados para projetos de identificadores de netstandard - [&#3118;](https://github.com/NuGet/Home/issues/3118)
+* ContentFiles em qualquer não são adicionados para projetos de identificadores de netstandard - [#3118](https://github.com/NuGet/Home/issues/3118)
 
 * Não é possível empacotar biblioteca direcionado ao .net padrão corretamente - [#3108](https://github.com/NuGet/Home/issues/3108)
 
-* Arquivo -> Novo projeto -> Falha de projeto de biblioteca de classes (portátil) em VS2015 e Dev15 - [&#3094;](https://github.com/NuGet/Home/issues/3094)
+* Arquivo -> Novo projeto -> Falha de projeto de biblioteca de classes (portátil) em VS2015 e Dev15 - [#3094](https://github.com/NuGet/Home/issues/3094)
 
-* Erro do NuGet - 1.0.0-* não é uma cadeia de caracteres de versão válida - [&#3070;](https://github.com/NuGet/Home/issues/3070)
+* Erro do NuGet - 1.0.0-* não é uma cadeia de caracteres de versão válida - [#3070](https://github.com/NuGet/Home/issues/3070)
 
 * Find-Package falha para exibição, mas funciona Install-Package - [#3068](https://github.com/NuGet/Home/issues/3068)
 
-* Erro ao "Install-Package jquery.validation" em dev15 - [&#3061;](https://github.com/NuGet/Home/issues/3061)
+* Erro ao "Install-Package jquery.validation" em dev15 - [#3061](https://github.com/NuGet/Home/issues/3061)
 
 * Quando instalado VS 2015 atualização 3 em uma relação que usa NuGet versão 3.5.0 erro - [#3053](https://github.com/NuGet/Home/issues/3053)
 
@@ -69,15 +69,15 @@ versão 3.5 está se concentrou em melhorar a qualidade e o desempenho de client
 
 * pacote do NuGet - newtonsoft. JSON ausente de dependência de pacote - [#2876](https://github.com/NuGet/Home/issues/2876)
 
-* Erro no ExecuteSynchronizedCore no Linux/MacOS + Mono - [&#2860;](https://github.com/NuGet/Home/issues/2860)
+* Erro no ExecuteSynchronizedCore no Linux/MacOS + Mono - [#2860](https://github.com/NuGet/Home/issues/2860)
 
 * VS não oferece suporte a variáveis de ambiente no caminho do repositório (nuget.exe faz) - [#2763](https://github.com/NuGet/Home/issues/2763)
 
-* Corrigir problemas de acessibilidade - [&#2745;](https://github.com/NuGet/Home/issues/2745)
+* Corrigir problemas de acessibilidade - [#2745](https://github.com/NuGet/Home/issues/2745)
 
 * Estruturas portátil com perfis hifenizadas são rejeitadas. - [#2734](https://github.com/NuGet/Home/issues/2734)
 
-* O Gerenciador de pacotes do NuGet deve esclarecer essa lista de opções em pacotes detalhes não se aplicam a `project.json`  -  [&#2665;](https://github.com/NuGet/Home/issues/2665)
+* O Gerenciador de pacotes do NuGet deve esclarecer essa lista de opções em pacotes detalhes não se aplicam a `project.json`  -  [#2665](https://github.com/NuGet/Home/issues/2665)
 
 * Falha de atualização do NuGet 3.3.0 '... uma restrição adicional definida no Packages impede esta operação.' - [#1816](https://github.com/NuGet/Home/issues/1816)
 
@@ -87,11 +87,11 @@ versão 3.5 está se concentrou em melhorar a qualidade e o desempenho de client
 
 ## <a name="performance-improvements"></a>Melhorias de desempenho
 
-* Desempenho: Melhorar o análise de framework de destino de ContentModel - [&#3162;](https://github.com/NuGet/Home/issues/3162)
+* Desempenho: Melhorar o análise de framework de destino de ContentModel - [#3162](https://github.com/NuGet/Home/issues/3162)
 
-* Desempenho: Evitar leitura `runtime.json` arquivos para restaurações que não têm RIDs [&#3150;](https://github.com/NuGet/Home/issues/3150). Em máquinas de CI, restaure de uma amostra de que aplicativo Web ASP.NET reduzido mais de 15 segundos para 3 segundos.
+* Desempenho: Evitar leitura `runtime.json` arquivos para restaurações que não têm RIDs [#3150](https://github.com/NuGet/Home/issues/3150). Em máquinas de CI, restaure de uma amostra de que aplicativo Web ASP.NET reduzido mais de 15 segundos para 3 segundos.
 
-* Desempenho: Tempo de carregamento Package Manager Console init.ps1 [&#2956;](https://github.com/NuGet/Home/issues/2956). Tempo para abrir PackageManagerConsole aprimorada em alguns casos de 132s por 10.
+* Desempenho: Tempo de carregamento Package Manager Console init.ps1 [#2956](https://github.com/NuGet/Home/issues/2956). Tempo para abrir PackageManagerConsole aprimorada em alguns casos de 132s por 10.
 
 * Solucionar problemas de desempenho ReSharper na atualização do NuGet - [#3044](https://github.com/NuGet/Home/issues/3044): em um projeto de exemplo, o tempo necessário para instalar pacotes reduzido de 140s para 68s.
 
@@ -101,13 +101,13 @@ versão 3.5 está se concentrou em melhorar a qualidade e o desempenho de client
 
 * Avisar incorreta instalar ou atualizar para o projeto com tfm = "dotnet" - [#3137](https://github.com/NuGet/Home/issues/3137)
 
-* Adicionar suporte netcoreapp11 e netstandard17 - [&#2998;](https://github.com/NuGet/Home/issues/2998)
+* Adicionar suporte netcoreapp11 e netstandard17 - [#2998](https://github.com/NuGet/Home/issues/2998)
 
-* Imprimir o conteúdo do cabeçalho de aviso do NuGet para o console no nuget.exe - [&#2934;](https://github.com/NuGet/Home/issues/2934)
+* Imprimir o conteúdo do cabeçalho de aviso do NuGet para o console no nuget.exe - [#2934](https://github.com/NuGet/Home/issues/2934)
 
-* Atributo AssemblyMetadata aproveite `.nuspec` token substituições - [&#2851;](https://github.com/NuGet/Home/issues/2851)
+* Atributo AssemblyMetadata aproveite `.nuspec` token substituições - [#2851](https://github.com/NuGet/Home/issues/2851)
 
-* Remova a propriedade locked do arquivo lock - [&#2379;](https://github.com/NuGet/Home/issues/2379)
+* Remova a propriedade locked do arquivo lock - [#2379](https://github.com/NuGet/Home/issues/2379)
 
 * Pacotes de símbolo já não devem ser usados em instalar ou atualizar &#2807;
 

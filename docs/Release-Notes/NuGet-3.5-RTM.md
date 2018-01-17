@@ -33,9 +33,9 @@ ms.lasthandoff: 12/14/2017
 
 * Mensagens de log parecem estar na ordem inversa para a interface do usuário - [#3446](https://github.com/NuGet/Home/issues/3446)
 
-* gera de restauração do Nuget V3.4.4 - "formato do caminho especificado não é suportado" - [&#3442;](https://github.com/NuGet/Home/issues/3442)
+* gera de restauração do Nuget V3.4.4 - "formato do caminho especificado não é suportado" - [#3442](https://github.com/NuGet/Home/issues/3442)
 
-* NuGet cmdLine 3.6 beta não honra - Prop Configuration = Release - [&#3432;](https://github.com/NuGet/Home/issues/3432)
+* NuGet cmdLine 3.6 beta não honra - Prop Configuration = Release - [#3432](https://github.com/NuGet/Home/issues/3432)
 
 * Instalar o NuGet IKVM lenta em grande projeto - [#3428](https://github.com/NuGet/Home/issues/3428)
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/14/2017
 
 * instalação/restaurar 3.5 do compartilhamento UNC tem desempenho regressão de 3.4.4 - [#3355](https://github.com/NuGet/Home/issues/3355)
 
-* Erro ao instalar Moq do gerenciamento de pacote da interface do usuário para um projeto de net451 - [&#3349;](https://github.com/NuGet/Home/issues/3349)
+* Erro ao instalar Moq do gerenciamento de pacote da interface do usuário para um projeto de net451 - [#3349](https://github.com/NuGet/Home/issues/3349)
 
 * Guia de instalação no nível da solução não mostra a versão do pacote - [#3339](https://github.com/NuGet/Home/issues/3339)
 
@@ -57,23 +57,23 @@ ms.lasthandoff: 12/14/2017
 
 * Pacote do NuGet não conseguir resolver o assembly ao recuperar metadados de assembly portátil - [#3128](https://github.com/NuGet/Home/issues/3128)
 
-* O NuGet não é possível localizar `msbuild.exe` em Mono - [&#3085;](https://github.com/NuGet/Home/issues/3085)
+* O NuGet não é possível localizar `msbuild.exe` em Mono - [#3085](https://github.com/NuGet/Home/issues/3085)
 
 * pacote de NuGet.exe não permite uma marca de pré-lançamento que começa com números de - [#1743](https://github.com/NuGet/Home/issues/1743)
 
-* Falha de instalação do pacote NuGet em VS2015E - [&#1298;](https://github.com/NuGet/Home/issues/1298)
+* Falha de instalação do pacote NuGet em VS2015E - [#1298](https://github.com/NuGet/Home/issues/1298)
 
 * Allowedverdions filtrar não funcionar no nível da solução - [#333](https://github.com/NuGet/Home/issues/333)
 
 * A restauração falhará aleatoriamente um item com a mesma chave já foi adicionada. - [#2646](https://github.com/NuGet/Home/issues/2646)
 
-* Não é possível instalar Nuget.Common em `.csproj`  -  [&#2635;](https://github.com/NuGet/Home/issues/2635)
+* Não é possível instalar Nuget.Common em `.csproj`  -  [#2635](https://github.com/NuGet/Home/issues/2635)
 
 * Ao usar a interface do usuário para pesquisar uma fonte V2, FindPackagesById é chamado duas vezes para cada ID - [#2517](https://github.com/NuGet/Home/issues/2517)
 
 * Pacotes não podem depender de projetos - [#2490](https://github.com/NuGet/Home/issues/2490)
 
-* pacote de NuGet.exe - Exclude é documentado mas não tem suporte - [&#2284;](https://github.com/NuGet/Home/issues/2284)
+* pacote de NuGet.exe - Exclude é documentado mas não tem suporte - [#2284](https://github.com/NuGet/Home/issues/2284)
 
 * Problemas com o erro mensagens quando a seção 'contentFiles' de `.nuspec` é inválida - [#1686](https://github.com/NuGet/Home/issues/1686)
 
@@ -91,19 +91,19 @@ ms.lasthandoff: 12/14/2017
 
 * NuGet atualização por meio do Gerenciador de pacotes remove propriedades a partir de `project.json`  -  [#2888](https://github.com/NuGet/Home/issues/2888)
 
-* Tente carregar "NuGet.TeamFoundationServer14", mas que o nome da DLL alterado para "NuGet.TeamFoundationServer" - NuGet.PackageManagement.VisualStudio [&#2857;](https://github.com/NuGet/Home/issues/2857)
+* Tente carregar "NuGet.TeamFoundationServer14", mas que o nome da DLL alterado para "NuGet.TeamFoundationServer" - NuGet.PackageManagement.VisualStudio [#2857](https://github.com/NuGet/Home/issues/2857)
 
-* Gerenciador de pacote UI não mostra recentemente atualizado versão - [&#2828;](https://github.com/NuGet/Home/issues/2828)
+* Gerenciador de pacote UI não mostra recentemente atualizado versão - [#2828](https://github.com/NuGet/Home/issues/2828)
 
-* pacote de atualização tentando usar packageid, versão, em vez de package.version - [&#2771;](https://github.com/NuGet/Home/issues/2771)
+* pacote de atualização tentando usar packageid, versão, em vez de package.version - [#2771](https://github.com/NuGet/Home/issues/2771)
 
-* NuGet restauração csproj deve erro se o projeto não está usando o nuget (`packages.config` ou `project.json`)- [&#2766;](https://github.com/NuGet/Home/issues/2766)
+* NuGet restauração csproj deve erro se o projeto não está usando o nuget (`packages.config` ou `project.json`)- [#2766](https://github.com/NuGet/Home/issues/2766)
 
 * Erro do TFS "[arquivo] não ser encontrado no espaço de trabalho, ou você não tem permissão para acessá-lo" durante a atualização ou desinstalação ao projeto/solução está associado ao controle de origem do TFS - [#2739](https://github.com/NuGet/Home/issues/2739)
 
 * pacote de atualização não obter dependências de pacotes de destino não - [#2724](https://github.com/NuGet/Home/issues/2724)
 
-* Não é possível definir o nível de verbosidade de logs para ações de interface do usuário de Gerenciador de pacote Nuget - [&#2705;](https://github.com/NuGet/Home/issues/2705)
+* Não é possível definir o nível de verbosidade de logs para ações de interface do usuário de Gerenciador de pacote Nuget - [#2705](https://github.com/NuGet/Home/issues/2705)
 
 * configuração do NuGet é inválida - VS 2015 VSIX (v3.4.3) - [#2667](https://github.com/NuGet/Home/issues/2667)
 
@@ -115,21 +115,21 @@ ms.lasthandoff: 12/14/2017
 
 * [dotnet restauração] – configfile é relativo ao diretório de projeto em vez do dir cmd - [#2639](https://github.com/NuGet/Home/issues/2639)
 
-* Alocações excessivas no código da versão comparsion - [&#2632;](https://github.com/NuGet/Home/issues/2632)
+* Alocações excessivas no código da versão comparsion - [#2632](https://github.com/NuGet/Home/issues/2632)
 
 * Várias instâncias de nuget.exe tentando instalar o mesmo pacote em paralelo faz com que uma gravação dupla - [#2628](https://github.com/NuGet/Home/issues/2628)
 
 * Informações de dependência não é armazenado em cache para operações de multiprojetos - [#2619](https://github.com/NuGet/Home/issues/2619)
 
-* Instalar e atualizar os pacotes de download sem verificar a pasta pacotes primeiro - [&#2618;](https://github.com/NuGet/Home/issues/2618)
+* Instalar e atualizar os pacotes de download sem verificar a pasta pacotes primeiro - [#2618](https://github.com/NuGet/Home/issues/2618)
 
-* Se a lista de origem do pacote está vazia, não é possível adicionar origem do pacote por meio da interface do usuário (NuGet 3.4. x)- [&#2617;](https://github.com/NuGet/Home/issues/2617)
+* Se a lista de origem do pacote está vazia, não é possível adicionar origem do pacote por meio da interface do usuário (NuGet 3.4. x)- [#2617](https://github.com/NuGet/Home/issues/2617)
 
 * Enganar erro ao tentar instalar o pacote que depende de tempo de design fachadas - [#2594](https://github.com/NuGet/Home/issues/2594)
 
 * Instalação de um pacote do console PackageManager com a configuração de "All" tenta somente primeira fonte - [#2557](https://github.com/NuGet/Home/issues/2557)
 
-* Versão beta mais recente não descompactar ModernHttpClient - [&#2518;](https://github.com/NuGet/Home/issues/2518)
+* Versão beta mais recente não descompactar ModernHttpClient - [#2518](https://github.com/NuGet/Home/issues/2518)
 
 * VS2015 Falha na inicialização com o NuGet automática interna 3.4.1 - [#2419](https://github.com/NuGet/Home/issues/2419)
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 12/14/2017
 
 * VSIX criado localmente deve ter o mesmo DLLs e arquivos que a compilação de CI. - [#2401](https://github.com/NuGet/Home/issues/2401)
 
-* Corrigir avisos de downgrade do NuGet em compilação - [&#2396;](https://github.com/NuGet/Home/issues/2396)
+* Corrigir avisos de downgrade do NuGet em compilação - [#2396](https://github.com/NuGet/Home/issues/2396)
 
 * Falha ao autenticar a origem do pacote (3 vezes) está bloqueada para sempre - [#2362](https://github.com/NuGet/Home/issues/2362)
 
@@ -145,15 +145,15 @@ ms.lasthandoff: 12/14/2017
 
 * Ocorre falha na instalação do NuGet com todas as fontes de pacote, mas o pacote ausente da fonte de 1 - [#2322](https://github.com/NuGet/Home/issues/2322)
 
-* [PerfWatson] UIDelay: nuget.packagemanagement.visualstudio.dll! NuGet.PackageManagement.VisualStudio.VSMSBuildNuGetProjectSystem+*lt; &gt;c__DisplayClass_0 +&lt;&lt;Adicionarreferencia&gt;b__&gt;d.MoveNext - [&#2285;](https://github.com/NuGet/Home/issues/2285)
+* [PerfWatson] UIDelay: nuget.packagemanagement.visualstudio.dll! NuGet.PackageManagement.VisualStudio.VSMSBuildNuGetProjectSystem+*lt; &gt;c__DisplayClass_0 +&lt;&lt;Adicionarreferencia&gt;b__&gt;d.MoveNext - [#2285](https://github.com/NuGet/Home/issues/2285)
 
 * Instalar blocos se uma única fonte não será autorizada - [#2034](https://github.com/NuGet/Home/issues/2034)
 
 * `.nuspec`versão do intervalo deve substituir a versão - IncludeReferencedProjects - [#1983](https://github.com/NuGet/Home/issues/1983)
 
-* Pacote de atualização muito lenta - "tentando coletar informações de dependências" - [&#1909;](https://github.com/NuGet/Home/issues/1909)
+* Pacote de atualização muito lenta - "tentando coletar informações de dependências" - [#1909](https://github.com/NuGet/Home/issues/1909)
 
-* Downgrades furtivos NuGet do pacote ao lote Atualizando suas dependências - [&#1903;](https://github.com/NuGet/Home/issues/1903)
+* Downgrades furtivos NuGet do pacote ao lote Atualizando suas dependências - [#1903](https://github.com/NuGet/Home/issues/1903)
 
 * atualização de NuGet.exe descarta o nome forte do assembly e o atributo privado. - [#1778](https://github.com/NuGet/Home/issues/1778)
 
@@ -185,25 +185,25 @@ ms.lasthandoff: 12/14/2017
 
 * pacote do NuGet para `project.json` ignora packOptions marcas como resumo, autores e proprietários etc - [#3161](https://github.com/NuGet/Home/issues/3161)
 
-* NullReferenceException via NuGet.Packaging.PhysicalPackageFile.GetStream - [&#3160;](https://github.com/NuGet/Home/issues/3160)
+* NullReferenceException via NuGet.Packaging.PhysicalPackageFile.GetStream - [#3160](https://github.com/NuGet/Home/issues/3160)
 
 * Pacote do NuGet ignora dependências na saída `.nuspec` para `project.json`  -  [#3145](https://github.com/NuGet/Home/issues/3145)
 
 * Atualizar vários pacotes com a reversão deixa o projeto em um estado interrompido - [#3139](https://github.com/NuGet/Home/issues/3139)
 
-* ContentFiles em qualquer não são adicionados para projetos de identificadores de netstandard - [&#3118;](https://github.com/NuGet/Home/issues/3118)
+* ContentFiles em qualquer não são adicionados para projetos de identificadores de netstandard - [#3118](https://github.com/NuGet/Home/issues/3118)
 
 * Não é possível empacotar biblioteca direcionado ao .net padrão corretamente - [#3108](https://github.com/NuGet/Home/issues/3108)
 
-* Arquivo -> Novo projeto -> Falha de projeto de biblioteca de classes (portátil) em VS2015 e Dev15 - [&#3094;](https://github.com/NuGet/Home/issues/3094)
+* Arquivo -> Novo projeto -> Falha de projeto de biblioteca de classes (portátil) em VS2015 e Dev15 - [#3094](https://github.com/NuGet/Home/issues/3094)
 
-* Erro do NuGet - 1.0.0-* não é uma cadeia de caracteres de versão válida - [&#3070;](https://github.com/NuGet/Home/issues/3070)
+* Erro do NuGet - 1.0.0-* não é uma cadeia de caracteres de versão válida - [#3070](https://github.com/NuGet/Home/issues/3070)
 
 * Find-Package falha para exibição, mas funciona Install-Package - [#3068](https://github.com/NuGet/Home/issues/3068)
 
-* Erro ao "Install-Package jquery.validation" em dev15 - [&#3061;](https://github.com/NuGet/Home/issues/3061)
+* Erro ao "Install-Package jquery.validation" em dev15 - [#3061](https://github.com/NuGet/Home/issues/3061)
 
-* pacote de NuGet xproj é Padronizando para caminho de destino inválido - [&#3060;](https://github.com/NuGet/Home/issues/3060)
+* pacote de NuGet xproj é Padronizando para caminho de destino inválido - [#3060](https://github.com/NuGet/Home/issues/3060)
 
 * Quando instalado VS 2015 atualização 3 em uma relação que usa NuGet versão 3.5.0 erro - [#3053](https://github.com/NuGet/Home/issues/3053)
 
@@ -233,15 +233,15 @@ ms.lasthandoff: 12/14/2017
 
 * VS não oferece suporte a variáveis de ambiente no caminho do repositório (nuget.exe faz) - [#2763](https://github.com/NuGet/Home/issues/2763)
 
-* Rótulo de UIElements sem rótulo na UI do Gerenciador de pacotes para acessibilidade - [&#2745;](https://github.com/NuGet/Home/issues/2745)
+* Rótulo de UIElements sem rótulo na UI do Gerenciador de pacotes para acessibilidade - [#2745](https://github.com/NuGet/Home/issues/2745)
 
 * Estruturas portátil com perfis hifenizadas são rejeitadas. - [#2734](https://github.com/NuGet/Home/issues/2734)
 
-* O Gerenciador de pacotes do NuGet deve esclarecer essa lista de opções em pacotes detalhes não se aplicam a `project.json`  -  [&#2665;](https://github.com/NuGet/Home/issues/2665)
+* O Gerenciador de pacotes do NuGet deve esclarecer essa lista de opções em pacotes detalhes não se aplicam a `project.json`  -  [#2665](https://github.com/NuGet/Home/issues/2665)
 
-* envio/excluir NuGet.exe não usam a chave de API - [&#2627;](https://github.com/NuGet/Home/issues/2627)
+* envio/excluir NuGet.exe não usam a chave de API - [#2627](https://github.com/NuGet/Home/issues/2627)
 
-* Remova a propriedade locked do arquivo lock - [&#2379;](https://github.com/NuGet/Home/issues/2379)
+* Remova a propriedade locked do arquivo lock - [#2379](https://github.com/NuGet/Home/issues/2379)
 
 * Falha de atualização do NuGet 3.3.0 '... uma restrição adicional definida no Packages impede esta operação.' - [#1816](https://github.com/NuGet/Home/issues/1816)
 
@@ -254,7 +254,7 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="features"></a>Recursos
 
-* Suporte à configuração CopyLocal como falso nas referências adicionadas pelo NuGet - [&#329;](https://github.com/NuGet/Home/issues/329)
+* Suporte à configuração CopyLocal como falso nas referências adicionadas pelo NuGet - [#329](https://github.com/NuGet/Home/issues/329)
 
 * suporte de NuGet.exe para 15 MSBuild - [#1937](https://github.com/NuGet/Home/issues/1937)
 
@@ -276,7 +276,7 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="dcrs"></a>DCRs
 
-* NuGet.exe push - o parâmetro de tempo limite não funciona - [&#2785;](https://github.com/NuGet/Home/issues/2785)
+* NuGet.exe push - o parâmetro de tempo limite não funciona - [#2785](https://github.com/NuGet/Home/issues/2785)
 
 * Texto de descrição do pacote deve ser selecionável - [#1769](https://github.com/NuGet/Home/issues/1769)
 
@@ -284,7 +284,7 @@ ms.lasthandoff: 12/14/2017
 
 * Adicionar extensibilidade API para comparar estruturas com importações - [#2633](https://github.com/NuGet/Home/issues/2633)
 
-* Ocultar as opções da dependência ao usar `project.json`  -  [&#2486;](https://github.com/NuGet/Home/issues/2486)
+* Ocultar as opções da dependência ao usar `project.json`  -  [#2486](https://github.com/NuGet/Home/issues/2486)
 
 * Impressão do cabeçalho de versão de nuget.exe na saída detalhada - [#1887](https://github.com/NuGet/Home/issues/1887)
 
@@ -292,8 +292,8 @@ ms.lasthandoff: 12/14/2017
 
 * Avisar incorreta instalar ou atualizar para o projeto com tfm = "dotnet" - [#3137](https://github.com/NuGet/Home/issues/3137)
 
-* Corrigir problemas de desempenho com ReShaper e NuGet para Update - [&#3044;](https://github.com/NuGet/Home/issues/3044)
+* Corrigir problemas de desempenho com ReShaper e NuGet para Update - [#3044](https://github.com/NuGet/Home/issues/3044)
 
-* Adicionar suporte netcoreapp11 e netstandard17 - [&#2998;](https://github.com/NuGet/Home/issues/2998)
+* Adicionar suporte netcoreapp11 e netstandard17 - [#2998](https://github.com/NuGet/Home/issues/2998)
 
-* Atributo AssemblyMetadata aproveite `.nuspec` token substituições - [&#2851;](https://github.com/NuGet/Home/issues/2851)
+* Atributo AssemblyMetadata aproveite `.nuspec` token substituições - [#2851](https://github.com/NuGet/Home/issues/2851)
