@@ -109,7 +109,7 @@ versão 3.5 está se concentrou em melhorar a qualidade e o desempenho de client
 
 * Remova a propriedade locked do arquivo lock - [#2379](https://github.com/NuGet/Home/issues/2379)
 
-* Pacotes de símbolo já não devem ser usados em instalar ou atualizar &#2807;
+* Pacotes de símbolo já não devem ser usados em instalar ou atualizar #2807
 
 ## <a name="features"></a>Recursos
 
