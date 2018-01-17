@@ -109,7 +109,7 @@ ms.lasthandoff: 12/14/2017
 
 * <span data-ttu-id="db10f-156">Remova a propriedade locked do arquivo lock - [#2379](https://github.com/NuGet/Home/issues/2379)</span><span class="sxs-lookup"><span data-stu-id="db10f-156">Remove the locked property from the lock file - [#2379](https://github.com/NuGet/Home/issues/2379)</span></span>
 
-* <span data-ttu-id="db10f-157">Pacotes de símbolo já não devem ser usados em instalar ou atualizar &#2807;</span><span class="sxs-lookup"><span data-stu-id="db10f-157">Symbol packages should not ever be used in install or update #2807</span></span>
+* <span data-ttu-id="db10f-157">Pacotes de símbolo já não devem ser usados em instalar ou atualizar #2807</span><span class="sxs-lookup"><span data-stu-id="db10f-157">Symbol packages should not ever be used in install or update #2807</span></span>
 
 ## <a name="features"></a><span data-ttu-id="db10f-158">Recursos</span><span class="sxs-lookup"><span data-stu-id="db10f-158">Features</span></span>
 
