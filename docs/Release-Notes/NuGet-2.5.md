@@ -50,14 +50,14 @@ Gostaríamos de agradecer os seguintes colaboradores externos por suas contribui
 1. [Maxime Brugidou](https://www.codeplex.com/site/users/view/brugidou) ([@brugidou](https://twitter.com/brugidou))
     - [#936](https://nuget.codeplex.com/workitem/936) -lidar com dependências do projeto quando de remessa
 1. [Xavier Decoster](https://www.codeplex.com/site/users/view/XavierDecoster) ([@XavierDecoster](https://twitter.com/xavierdecoster))
-    - [#2991](https://nuget.codeplex.com/workitem/2991), [&#3164;](https://nuget.codeplex.com/workitem/3164) -suporte senha com texto não criptografado ao armazenar credenciais de origem do pacote em arquivos de nuget.cofig
+    - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) -suporte senha com texto não criptografado ao armazenar credenciais de origem do pacote em arquivos de nuget.cofig
 1. [James Manning](http://www.codeplex.com/site/users/view/jmanning) ([@manningj](https://twitter.com/manningj))
-    - [&#3190;](http://nuget.codeplex.com/workitem/3190), [#3191](http://nuget.codeplex.com/workitem/3191) -descrição de Ajuda do Get-Package corrigir
+    - [#3190](http://nuget.codeplex.com/workitem/3190), [#3191](http://nuget.codeplex.com/workitem/3191) -descrição de Ajuda do Get-Package corrigir
 
 Agradecemos também as pessoas a seguir para localizar os bugs com o NuGet 2.5 Beta/RC que foram aprovadas e corrigido antes da versão final:
 
 1. [Parede Tony](https://www.codeplex.com/site/users/view/CodeChief) ([@CodeChief](https://twitter.com/codechief))
-    - [&#3200;](https://nuget.codeplex.com/workitem/3200) - MSTest dividido com mais recente NuGet 2.4 e 2.5 compilações
+    - [#3200](https://nuget.codeplex.com/workitem/3200) - MSTest dividido com mais recente NuGet 2.4 e 2.5 compilações
 
 # <a name="notable-features-in-the-release"></a>Recursos importantes da versão
 

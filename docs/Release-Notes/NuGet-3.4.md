@@ -66,11 +66,11 @@ Os seguintes recursos foram adicionados anteriormente no RC e foram atualizados 
     * Carregando projetos com um script init.ps1 (como EntityFramework)
     * Publicação de conteúdo da web
 
-* **Solução alternativa:** Certifique-se de que a instalação do Windows 10 tem os patches mais recentes aplicados, expecially janeiro de 2016 (3124263 KB) ou uma atualização posterior.  Mais detalhes estão disponíveis em [problema do GitHub &#1638;](http://github.com/nuget/home/issues/1638)
+* **Solução alternativa:** Certifique-se de que a instalação do Windows 10 tem os patches mais recentes aplicados, expecially janeiro de 2016 (3124263 KB) ou uma atualização posterior.  Mais detalhes estão disponíveis em [problema do GitHub #1638](http://github.com/nuget/home/issues/1638)
 
 * **Problema:** os redirecionamentos de protocolo do NuGet v2 foram interrompidos.
 Os repositórios NuGet personalizados que redirecionam solicitações para um host alternativo não consideram a solicitação de redirecionamento.
 * **Solução alternativa:** para contornar esse problema, configure o URI do repositório de pacote nas configurações para apontar para o local do servidor redirecionado.
-Para obter mais informações, consulte [solicitação de recepção GitHub &#387;](https://github.com/NuGet/NuGet.Client/pull/387).
+Para obter mais informações, consulte [solicitação de recepção GitHub #387](https://github.com/NuGet/NuGet.Client/pull/387).
 
 Continuamos a rastrear problemas em nossa lista de problemas do GitHub que pode ser encontrada em: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

@@ -13,11 +13,11 @@ keywords: "referência de pacote do NuGet, o comando de pacote"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="pack-command-nuget-cli"></a>comando de pacote NuGet CLI)
 
@@ -42,7 +42,7 @@ onde `<nuspecPath>` e `<projectPath>` especificar o `.nuspec` ou projeto de arqu
 | --- | --- |
 | BasePath | Define o caminho base dos arquivos definidos no `.nuspec` arquivo. |
 | Build | Especifica que o projeto deve ser criado antes de criar o pacote. |
-| Excluir | Especifica um ou mais padrões de curinga para excluir ao criar um pacote. |
+| Excluir | Especifica um ou mais padrões de curinga para excluir ao criar um pacote. Para especificar mais de um padrão, repita-sinalizador de exclusão. Consulte o exemplo a seguir. |
 | ExcludeEmptyDirectories | Impede a inclusão de diretórios vazios ao criar o pacote. |
 | ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
@@ -100,4 +100,6 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 nuget pack foo.nuspec -Version 2.1.0
 
 nuget pack foo.nuspec -Version 1.0.0 -MinClientVersion 2.5
+
+nuget pack Package.nuspec -exclude "*.exe" -exclude "*.bat"
 ```

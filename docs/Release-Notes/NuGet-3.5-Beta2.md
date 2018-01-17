@@ -43,7 +43,7 @@ NuGet 3.5 Beta 2 RTM foi lançado em 27 de junho de 2016 para Visual Studio 2013
 
 * Corrigir a atualização de pacote para pacotes de destino não conta - [#2724](https://github.com/NuGet/Home/issues/2724)
 
-* Usar o nível de detalhamento do MSBuild para definir o nível de agente de log para o Gerenciador de pacote do Nuget ações de interface do usuário - [&#2705;](https://github.com/NuGet/Home/issues/2705)
+* Usar o nível de detalhamento do MSBuild para definir o nível de agente de log para o Gerenciador de pacote do Nuget ações de interface do usuário - [#2705](https://github.com/NuGet/Home/issues/2705)
 
 * Configuração de NuGet de correção é erro inválido em projetos de site - VS 2015 VSIX (v3.4.3) - [#2667](https://github.com/NuGet/Home/issues/2667)
 
@@ -55,19 +55,19 @@ NuGet 3.5 Beta 2 RTM foi lançado em 27 de junho de 2016 para Visual Studio 2013
 
 * Restauração usa credenciais armazenadas do NuGet. config para feeds do VSTS - [#2647](https://github.com/NuGet/Home/issues/2647)
 
-* Desempenho - alocações excessivas de correção no código da versão comparsion - [&#2632;](https://github.com/NuGet/Home/issues/2632)
+* Desempenho - alocações excessivas de correção no código da versão comparsion - [#2632](https://github.com/NuGet/Home/issues/2632)
 
 * Corrigir problemas quando várias instâncias do nuget.exe tenta instalar o mesmo pacote em paralelo - [#2628](https://github.com/NuGet/Home/issues/2628)
 
 * Desempenho - informações de dependência de Cache para operações de multiprojetos - [#2619](https://github.com/NuGet/Home/issues/2619)
 
-* Corrija o problema onde adicionado das configurações de fontes de pacote não foi possível quando a lista de origem está vazia - [&#2617;](https://github.com/NuGet/Home/issues/2617)
+* Corrija o problema onde adicionado das configurações de fontes de pacote não foi possível quando a lista de origem está vazia - [#2617](https://github.com/NuGet/Home/issues/2617)
 
 * Corrija o erro falsas durante a tentativa de instalar o pacote que depende de tempo de design fachadas - [#2594](https://github.com/NuGet/Home/issues/2594)
 
 * Instalação de um pacote do console PackageManager com a configuração de "All" tenta somente primeira fonte - [#2557](https://github.com/NuGet/Home/issues/2557)
 
-* Corrigir problemas com os pacotes que têm arquivos com tempos de gravação no futuro (Mono) - [&#2518;](https://github.com/NuGet/Home/issues/2518)
+* Corrigir problemas com os pacotes que têm arquivos com tempos de gravação no futuro (Mono) - [#2518](https://github.com/NuGet/Home/issues/2518)
 
 * Exibir a exceção quando há uma falha de projetos de localização no comando update - [#2418](https://github.com/NuGet/Home/issues/2418)
 
@@ -89,14 +89,14 @@ NuGet 3.5 Beta 2 RTM foi lançado em 27 de junho de 2016 para Visual Studio 2013
 
 ## <a name="features-and-behavior-changes"></a>Recursos e alterações de comportamento
 
-* NuGet.exe push - o parâmetro de tempo limite não funciona - [&#2785;](https://github.com/NuGet/Home/issues/2785)
+* NuGet.exe push - o parâmetro de tempo limite não funciona - [#2785](https://github.com/NuGet/Home/issues/2785)
 
 * restauração de NuGet.exe não produz `.props` e `.targets` arquivos de `.nuproj` projetos (regressão em v3.4.3.855) - [#2711](https://github.com/NuGet/Home/issues/2711)
 
 * Precisa de extensibilidade de API para comparar estruturas com importações - [#2633](https://github.com/NuGet/Home/issues/2633)
 
-* Ocultar as opções da dependência ao usar `project.json`  -  [&#2486;](https://github.com/NuGet/Home/issues/2486)
+* Ocultar as opções da dependência ao usar `project.json`  -  [#2486](https://github.com/NuGet/Home/issues/2486)
 
 * Impressão do cabeçalho de versão de nuget.exe na saída detalhada - [#1887](https://github.com/NuGet/Home/issues/1887)
 
-* NuGet deve adicionar suporte para /nativeassets/ /runtimes/ {rid} {txm}- [&#2782;](https://github.com/NuGet/Home/issues/2782)
+* NuGet deve adicionar suporte para /nativeassets/ /runtimes/ {rid} {txm}- [#2782](https://github.com/NuGet/Home/issues/2782)

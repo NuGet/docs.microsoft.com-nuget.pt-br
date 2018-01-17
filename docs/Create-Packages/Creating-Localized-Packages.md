@@ -109,7 +109,7 @@ Dessa forma, um assembly satélite usa a convenção de nomenclatura `{identifie
 
 Como esse é um pacote separado, ele tem seu próprio arquivo `.nuspec` que contém metadados localizado. Lembre-se que o idioma no `.nuspec` **precisa** corresponder àquele usado no nome do arquivo.
 
-O assembly satélite também **precisa** declarar uma versão exata do pacote principal como uma dependência, usando a notação de versão [] (consulte [Controle de versão do pacote](../reference/package-versioning.md)). Por exemplo, `ContosoUtilities.de.1.0.0.nupkg` precisa declarar uma dependência em `ContosoUtilities.1.0.0.nupkg` usando a notação `[1.0.0]`. O pacote satélite pode, obviamente, ter um número de versão diferente do pacote principal.
+O assembly satélite também **precisa** declarar uma versão exata do pacote principal como uma dependência, usando a notação de versão [] \(consulte [Controle de versão do pacote](../reference/package-versioning.md)). Por exemplo, `ContosoUtilities.de.1.0.0.nupkg` precisa declarar uma dependência em `ContosoUtilities.1.0.0.nupkg` usando a notação `[1.0.0]`. O pacote satélite pode, obviamente, ter um número de versão diferente do pacote principal.
 
 A estrutura do pacote satélite deverá incluir o assembly do recurso e o arquivo XML do IntelliSense em uma subpasta que corresponde a `{language}` no nome de arquivo do pacote:
 
