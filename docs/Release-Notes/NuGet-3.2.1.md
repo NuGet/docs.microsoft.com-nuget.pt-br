@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d27c3bb9-8db1-439a-a134-54e20b7a7766
 description: "Notas de versão do NuGet 3.2.1 incluindo problemas conhecidos, correções de bug, recursos adicionados e DCRs."
 keywords: "Notas de versão NuGet 3.2.1, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b2001d9518a34bbd5f2879de6123ec13abf4ae08
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c9c2457c33eb3630f632c98bf0cf96703c3a548
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-321-release-notes"></a>Notas de versão do NuGet 3.2.1
 
@@ -40,6 +39,6 @@ ms.lasthandoff: 12/14/2017
 
 Uma lista completa dos problemas abordados para a extensão de linha de comando e o Visual Studio pode ser encontrada no NuGet GitHub [3.2.1 marco](https://github.com/NuGet/Home/issues?q=milestone%3A3.2.1+is%3Aclosed)
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 Continuamos a rastrear problemas em nossa lista de problemas do GitHub que pode ser encontrada em: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

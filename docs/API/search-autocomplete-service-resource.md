@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ead5cf7a-e51e-4cbb-8798-58226f4c853f
 description: "O serviço de preenchimento automático de pesquisa oferece suporte a versões e descoberta interativa de IDs de pacote."
 keywords: "API de preenchimento automático do NuGet, NuGet pacote ID, ID de pacote de subcadeia de caracteres de pesquisa"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 313ceb630947b46c34b98e14044ecf121b725087
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="autocomplete"></a>Preenchimento Automático
 
@@ -51,9 +50,7 @@ O preenchimento automático de primeira API dá suporte ao procurar por parte de
 
 Um pacote com apenas as versões não aparecerão nos resultados.
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
@@ -90,9 +87,7 @@ Dados      | Matriz de cadeias de caracteres | sim      | O pacote correspondem 
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-```
 GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
-```
 
 ### <a name="sample-response"></a>Resposta de exemplo
 
@@ -104,9 +99,7 @@ Depois que uma ID de pacote for descoberta usando a API anterior, um cliente pod
 
 Uma versão do pacote que está na lista não aparecerão nos resultados.
 
-```
-GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
@@ -134,9 +127,7 @@ As versões do pacote no `data` matriz pode conter metadados de compilação Sem
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-```
-GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
-```
+    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
 
 ### <a name="sample-response"></a>Resposta de exemplo
 

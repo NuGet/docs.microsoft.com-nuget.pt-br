@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: fbe05ada-c15e-4fa2-ad70-898c0296de9e
 description: "Notas de versão do NuGet 2.7.1 incluindo problemas conhecidos, correções de bug, recursos adicionados e DCRs."
 keywords: "Notas de versão NuGet 2.7.1, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 89fdcb6fe9fb27acab7c75f9acd92f089d578bd3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 10128970204bc9cb8c55a1f2ebc29891356c2f5d
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-271-release-notes"></a>Notas de versão do NuGet 2.7.1
 

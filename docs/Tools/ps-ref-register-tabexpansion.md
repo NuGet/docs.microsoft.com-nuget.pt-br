@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8314ec69-ee8c-4933-84ef-e6d8a412d268
 description: "Referência de comando do PowerShell do registro TabExpansion no Console do Gerenciador de pacotes do NuGet no Visual Studio."
 keywords: "Console do Gerenciador, comandos do Powershell do NuGet, referência do Powershell do NuGet, TabExpansion de registro do pacote NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 498b8638c81b800e5f20f7604b36e6af76da0283
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5691c07f9efef4bfd12680421f3b02c5a523eb6f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (Console de Gerenciador de pacotes no Visual Studio)
 

@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: c193f1e3-d114-427f-9425-9930cc8e4db3
 description: "Notas de versão do NuGet 2.5, incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
 keywords: "Notas de versão 2.5 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d3bebbbe550645fcffad078538134427103cf98
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c2c6cf85b9ebccf200be9ef4a2bf96802cffcaea
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-25-release-notes"></a>Notas de versão 2.5 do NuGet
 
@@ -59,9 +58,9 @@ Agradecemos também as pessoas a seguir para localizar os bugs com o NuGet 2.5 B
 1. [Parede Tony](https://www.codeplex.com/site/users/view/CodeChief) ([@CodeChief](https://twitter.com/codechief))
     - [#3200](https://nuget.codeplex.com/workitem/3200) - MSTest dividido com mais recente NuGet 2.4 e 2.5 compilações
 
-# <a name="notable-features-in-the-release"></a>Recursos importantes da versão
+## <a name="notable-features-in-the-release"></a>Recursos importantes da versão
 
-## <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>Permitir que os usuários substituir os arquivos de conteúdo que já existe
+### <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>Permitir que os usuários substituir os arquivos de conteúdo que já existe
 
 Um dos recursos mais solicitados de todo o tempo foi a capacidade de substituir os arquivos de conteúdo que já existem no disco quando incluídos em um pacote do NuGet. Começando com o NuGet 2.5, esses conflitos são identificados e você será solicitado a substituir os arquivos, enquanto anteriormente esses arquivos sempre foram ignorados.
 
@@ -71,13 +70,13 @@ Um dos recursos mais solicitados de todo o tempo foi a capacidade de substituir 
 
 Defina uma ação padrão quando já existe um arquivo de um pacote no projeto de destino. Definido como 'Sobrescrever' para substituir os arquivos sempre. Defina como 'Ignorar' para ignorar arquivos. Se não for especificado, ele solicitará para cada arquivo conflitante.
 
-## <a name="automatic-import-of-msbuild-targets-and-props-files"></a>Importação automática de arquivos de destino e destinos do MSBuild
+### <a name="automatic-import-of-msbuild-targets-and-props-files"></a>Importação automática de arquivos de destino e destinos do MSBuild
 
 Foi criada uma nova pasta convencional no nível superior do pacote do NuGet.  Como um par de `\lib`, `\content`, e `\tools`, você pode incluir um `\build` pasta em seu pacote.  Nesta pasta, você pode colocar dois arquivos com nomes fixos, `{packageid}.targets` ou `{packageid}.props`. Esses dois arquivos podem ser diretamente em `build` ou em pastas específicas do framework assim como as outras pastas. A regra para a pasta de estrutura melhor correspondência de separação é exatamente o mesmo que os.
 
 Quando o NuGet instala um pacote com arquivos \build, ele adicionará um MSBuild `<Import>` elemento no arquivo de projeto apontando para o `.targets` e `.props` arquivos. O `.props` arquivo é adicionado na parte superior, enquanto o `.targets` é adicionado à parte inferior.
 
-## <a name="specify-different-references-per-platform-using-references-element"></a>Especifique referências diferentes por plataforma usando `<References/>` elemento
+### <a name="specify-different-references-per-platform-using-references-element"></a>Especifique referências diferentes por plataforma usando `<References/>` elemento
 
 Antes de 2.5, no `.nuspec` arquivo, o usuário só pode especificar os arquivos de referência, a ser adicionada para todos os framework. Agora com esse novo recurso no 2.5, o usuário pode criar o `<reference/>` elemento para cada plataforma suportada, por exemplo:
 
@@ -105,7 +104,7 @@ Esse novo recurso permitirá que os autores de pacote usar o recurso de referên
 
 Observação: você deve atualmente usar pacote de nuget.exe para usar esse recurso; Explorador de pacotes do NuGet ainda não suporta-lo.
 
-## <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>Atualizar todos os botões para permitir que todos os pacotes de atualização de uma vez
+### <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>Atualizar todos os botões para permitir que todos os pacotes de atualização de uma vez
 
 Muitos de vocês sabem sobre o cmdlet do PowerShell "Pacote de atualização" para atualizar todos os pacotes; Agora há uma maneira fácil de fazer isso por meio de interface de usuário.
 
@@ -118,7 +117,7 @@ Para experimentar esse recurso:
 
 ![Atualizar todos os botões na caixa de diálogo](./media/NuGet-2.5/update-all.png)
 
-## <a name="improved-project-reference-support-for-nugetexe-pack"></a>Suporte de referência de projeto aprimorado para nuget.exe Pack
+### <a name="improved-project-reference-support-for-nugetexe-pack"></a>Suporte de referência de projeto aprimorado para nuget.exe Pack
 
 Agora a processos de comando do pacote de nuget.exe referenciada projetos com as seguintes regras:
 
@@ -132,7 +131,7 @@ Isso permite que um projeto referenciado deve ser tratada como uma dependência,
 
 Mais detalhes aqui: [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
 
-## <a name="add-a-minimum-nuget-version-property-to-packages"></a>Adicionar uma propriedade de 'Mínimo a versão do NuGet' para pacotes
+### <a name="add-a-minimum-nuget-version-property-to-packages"></a>Adicionar uma propriedade de 'Mínimo a versão do NuGet' para pacotes
 
 Um novo atributo de metadados chamado 'minClientVersion' agora pode indicar a versão de cliente NuGet mínima necessária para consumir um pacote.
 
@@ -146,7 +145,7 @@ Se o usuário tem o NuGet 2.5 instalado e um pacote é identificado como exigir 
 
 Isso será aprimoram a experiência existente onde os pacotes de começam a instalar, mas não que indica que uma versão de esquema não reconhecido foi identificada.
 
-## <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>Dependências não desnecessariamente são atualizadas durante a instalação do pacote
+### <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>Dependências não desnecessariamente são atualizadas durante a instalação do pacote
 
 Antes do NuGet 2.5, quando foi instalado um pacote que depende de um pacote já instalado no projeto, a dependência será atualizada como parte da instalação do novo, mesmo se a versão existente atendidas a dependência.
 
@@ -167,13 +166,13 @@ Começando com o NuGet 2.5, se uma versão de dependência já for atendida, a d
 
 Para obter mais informações sobre essa alteração, leia o detalhado [item de trabalho](http://nuget.codeplex.com/workitem/1681) , bem como os relacionados [segmento de discussão](http://nuget.codeplex.com/discussions/436712).
 
-## <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>NuGet.exe produz solicitações http com detalhamento detalhado
+### <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>NuGet.exe produz solicitações http com detalhamento detalhado
 
 Se você estiver solucionando problemas de nuget.exe ou apenas curioso que são feitas solicitações HTTP durante operações, o '-detalhes detalhadas ' switch agora mostrará todas as solicitações HTTP feitas.
 
 ![Saída HTTP de nuget.exe](./media/NuGet-2.5/verbosity.png)
 
-## <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>push NuGet.exe agora dá suporte a fontes de UNC e pasta
+### <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>push NuGet.exe agora dá suporte a fontes de UNC e pasta
 
 Antes do NuGet 2.5, se você tentou executar 'nuget.exe push' para uma origem de pacote com base em um caminho UNC ou uma pasta local, o envio falhará. Com o recurso de configuração hierárquica adicionado recentemente, tornou-se comum de nuget.exe para precisa direcionar uma fonte UNC/pasta ou uma galeria do NuGet com base em HTTP.
 
@@ -185,7 +184,7 @@ O comando a seguir agora funcionará:
 nuget push -source \\mycompany\repo\ mypackage.1.0.0.nupkg
 ```
 
-## <a name="nugetexe-supports-explicitly-specified-config-files"></a>NuGet.exe oferece suporte a arquivos de configuração especificado explicitamente
+### <a name="nugetexe-supports-explicitly-specified-config-files"></a>NuGet.exe oferece suporte a arquivos de configuração especificado explicitamente
 
 suportam a comandos de NuGet.exe que acessar configuração (todos exceto 'especificação' e 'pacote') agora um novo '-ConfigFile' opção, o que força um arquivo de configuração específico a ser usado no lugar do arquivo de configuração padrão em % AppData%\nuget\Nuget.Config.
 
@@ -195,7 +194,7 @@ Exemplo:
 nuget sources add -name test -source http://test -ConfigFile C:\test\.nuget\Nuget.Config
 ```
 
-## <a name="support-for-native-projects"></a>Suporte para projetos nativos
+### <a name="support-for-native-projects"></a>Suporte para projetos nativos
 
 Com o NuGet 2.5, a NuGet ferramentas agora está disponível para projetos nativos no Visual Studio. Esperamos que mais pacotes nativos utilizará o recurso de importações do MSBuild acima, usando uma ferramenta criada pelo [CoApp projeto](http://coapp.org). Para obter mais informações, leia [os detalhes sobre a ferramenta](http://coapp.org/news/2013-03-27-The-Long-Awaited-post.html) no site da coapp.org.
 

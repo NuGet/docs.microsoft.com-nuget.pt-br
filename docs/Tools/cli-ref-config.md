@@ -3,21 +3,20 @@ title: "Comando de configuração de CLI do NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a50295ff-8be9-47d9-a260-822e899334cb
 description: "Referência para o comando de configuração de nuget.exe"
 keywords: "referência de configuração NuGet, o comando de configuração"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f49751d9747687177e3b6c1890ee9d2919be8d0e
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 31abc5c1ade0aff9a2f23ec89ec7082acedb3653
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="config-command-nuget-cli"></a>comando de configuração (NuGet CLI)
 
@@ -27,7 +26,7 @@ Obtém ou define os valores de configuração do NuGet. Para uso adicional, cons
 
 ## <a name="usage"></a>Uso
 
-```
+```cli
 nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]
 nuget config -AsPath <name> [options]
 ```
@@ -43,17 +42,17 @@ No NuGet 3.4 ou posterior, `<value>` pode usar [variáveis de ambiente](cli-ref-
 | Opção | Descrição |
 | --- | --- |
 | AsPath | Retorna a configuração do valor como um caminho, ignorado quando `-Set` é usado. |
-| ConfigFile | *(2.5 +)*  NuGet o arquivo de configuração para modificar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
+| ConfigFile | O arquivo de configuração do NuGet para modificar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
 | ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
-| Não interativo | Suprime avisos para a entrada do usuário ou confirmações. |
-| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas (2.5 +)*. |
+| NonInteractive | Suprime avisos para a entrada do usuário ou confirmações. |
+| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 
 ### <a name="examples"></a>Exemplos
 
-```
+```cli
 nuget config -Set repositoryPath=c:\packages -configfile c:\my.config
 
 nuget config -Set repositoryPath=

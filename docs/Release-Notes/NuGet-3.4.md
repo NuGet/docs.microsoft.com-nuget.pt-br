@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 80a429f5-7569-4349-ad7f-4fe9218eac23
 description: "Notas de versão do NuGet 3.4, incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
 keywords: "Notas de versão NuGet 3.4, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 911e4377ad9c8b1f865b0721f43ff73b62df6d1e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 515fb888aca2a8eb138c8fea1fb5b3f5a8f4e275
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-34-release-notes"></a>Notas de versão 3.4 do NuGet
 
@@ -59,7 +58,7 @@ Os seguintes recursos foram adicionados anteriormente no RC e foram atualizados 
 
 * Números de versão do pacote agora são normalizados para o formato *principais*. *pequenas*. *patch*-*pré-lançamento* cada um dos principais, secundária e patch são tratados como inteiros e descartar qualquer zeros à esquerda.  As informações de pré-lançamento são tratadas como uma cadeia de caracteres e nenhuma alteração será aplicada a ele. Esses números são usados em consultas, os clientes do NuGet e a pesquisa fornecidos pelo serviço do nuget.org.  Mais detalhes podem ser encontrados em documentos do NuGet em [versões de pré-lançamento](../create-packages/prerelease-packages.md).
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 * **Problema:** Windows 10 v1511 usuários podem enfrentar problemas ou até mesmo uma falha Visual Studio com o Powershell no Visual Studio nos seguintes cenários:
     * Instalar / desinstalar os pacotes que têm install.ps1 / uninstall.ps1 scripts

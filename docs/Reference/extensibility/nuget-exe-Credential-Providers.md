@@ -7,17 +7,16 @@ ms.date: 12/12/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3cf592de-39f2-4e7f-a597-62635fdcedfa
 description: "provedores de credenciais de NuGet.exe autenticam com um feed e são implementados como executáveis de linha de comando que seguem as convenções específicas."
 keywords: provedores de credenciais de NuGet.exe, provedor de credenciais de API, autenticar com o feed, autenticar com a Galeria
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82ab4d6e9be0736e008f5bd27d46e1db166d7bb4
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Autenticando feeds com provedores de credenciais de nuget.exe
 
@@ -59,7 +58,7 @@ Um provedor deve fazer o seguinte:
 | Parâmetro/Switch |Descrição|
 |----------------|-----------|
 | URI {value} | Os pacote URI que requerem credenciais de fonte.|
-| Não interativo | Se estiver presente, o provedor não emite prompts interativos. |
+| NonInteractive | Se estiver presente, o provedor não emite prompts interativos. |
 | IsRetry | Se estiver presente, indica que essa tentativa é uma repetição de uma tentativa com falha anterior. Os provedores costumam usar este sinalizador para garantir que eles ignoram qualquer cache existente e solicitar novas credenciais se possível.|
 | Detalhamento {value} | Se estiver presente, um dos seguintes valores: "normal", "silenciosa" ou "detalhados". Se nenhum valor for fornecido, o padrão será "normal". Provedores devem usar isso como uma indicação do nível de log opcional para emitir o fluxo de erro padrão. |
 

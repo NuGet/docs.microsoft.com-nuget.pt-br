@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4110a36a-cffe-4038-8da4-e841bce6e94b
 description: "Notas de versão do NuGet 3.3 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
 keywords: "Notas de versão 3.3 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f35f7621db324957b0af8329cf9faa11493835e2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c83f87231497e14c36f1b8100b7bec720bb63b1c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-33-release-notes"></a>Notas de versão 3.3 do NuGet
 
@@ -64,6 +63,6 @@ A lista completa de problemas foram resolvidos na versão 3.3 pode ser encontrad
 
 A lista de problemas corrigidos na versão de linha de comando 3.3 são registradas no [3.3 etapa de linha de comando](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline).
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 Continuamos a rastrear problemas em nossa lista de problemas do GitHub que pode ser encontrada em: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

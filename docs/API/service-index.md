@@ -11,26 +11,22 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2f6d6cf2-53fb-417a-b1d8-e0ac591c1699
 description: "O índice de serviço é o ponto de entrada da API de HTTP do NuGet e enumera os recursos do servidor."
 keywords: Ponto de entrada de API do NuGet, descoberta de ponto de extremidade NuGetA PI
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 0c43a09d8564964bd0140b9ac5deb9d3063e4dc5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="service-index"></a>Índice de serviço
 
 O índice de serviço é um documento JSON que é o ponto de entrada para uma origem de pacote do NuGet e permite uma implementação de cliente descobrir os recursos da origem do pacote. O índice de serviço é um objeto JSON com duas propriedades obrigatórias: `version` (a versão do esquema do índice de serviço) e `resources` (pontos de extremidade ou recursos da origem do pacote).
 
-índice de serviço do NuGet.org está localizado aqui:
-```
-https://api.nuget.org/v3/index.json
-```
+índice de serviço do NuGet.org está localizado em `https://api.nuget.org/v3/index.json`.
 
 ## <a name="versioning"></a>Controle de versão
 
@@ -63,9 +59,7 @@ O `@id` é uma URL que deve ser absoluto e deve ter o esquema HTTP ou HTTPS.
 
 O `@type` é usado para identificar o protocolo específico a ser usado ao interagir com o recurso. O tipo do recurso é uma cadeia de caracteres opaca mas geralmente tem o formato:
 
-```
-{RESOURCE_NAME}/{RESOURCE_VERSION}
-```
+    {RESOURCE_NAME}/{RESOURCE_VERSION}
 
 Os clientes devem codificar o `@type` valores que compreendem e observá-los no índice de serviço da origem do pacote. Exato `@type` valores em uso hoje em dia são enumerados nos documentos de referência de recursos individuais listados no [visão geral da API](overview.md#resources-and-schema).
 
@@ -75,9 +69,7 @@ Não há nenhum requisito de que cada recurso tem uma única `@id` ou `@type`. C
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-```
-GET https://api.nuget.org/v3/index.json
-```
+OBTER https://api.nuget.org/v3/index.json
 
 ### <a name="sample-response"></a>Resposta de exemplo
 

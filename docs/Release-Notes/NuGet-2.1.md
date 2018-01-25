@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6f972803-9e17-43f5-b77b-973c3accf695
 description: "Notas de versão do NuGet 2.1 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
 keywords: "Notas de versão 2.1 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 05cdb898cc674ac7eadb238d41896638d8e3488c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-21-release-notes"></a>Notas de versão 2.1 do NuGet
 
@@ -101,15 +100,15 @@ Para aplicativos de armazenamento do Windows 8, os identificadores semelhante ao
 
 |NuGet 2.0 e versões anterior|2.1 NuGet|
 |----------------|-----------|
-|winRT45. NETCore45|Ganho de Windows, Windows 8, win8|
+|winRT45, .NETCore45|Ganho de Windows, Windows 8, win8|
 
 <br/>
 Para projetos do Windows Phone, os identificadores semelhante ao seguinte:
 
 |Sistema operacional do telefone|NuGet 2.0 e versões anterior|2.1 NuGet
 |----------------|-----------|-----------|
-|Windows Phone 7|silverlight3 wp|WP, wp7, WindowsPhone, WindowsPhone7|
-|Windows Phone 7.5 (Mango)|silverilght4 wp71|wp71, WindowsPhone71|
+|Windows Phone 7|silverlight3-wp|WP, wp7, WindowsPhone, WindowsPhone7|
+|Windows Phone 7.5 (Mango)|silverilght4-wp71|wp71, WindowsPhone71|
 |Windows Phone 8|(sem suporte)|wp8, WindowsPhone8|
 <br/>
 Em todas as alterações acima, os nomes de framework antigos continuarão ser totalmente suportados pelo NuGet 2.1.  Mais adiante, os novos nomes devem ser usados porque elas serão mais estáveis em versões futuras das respectivas plataformas. Os novos nomes serão *não* ser suportados em versões do NuGet antes 2.1, no entanto, por isso, planeje adequadamente quando fazer a transição.

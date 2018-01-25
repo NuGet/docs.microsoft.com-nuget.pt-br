@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 96b07019-c2e1-4f40-9290-f65ad71af3b1
 description: A URL de base de registro do pacote permite buscar metadados sobre os pacotes.
 keywords: "Metadados de pacote do NuGet API, o registro do NuGet API, API do NuGet não consta da lista de pacotes"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-metadata"></a>Metadados de pacote
 
@@ -82,9 +81,7 @@ Armazenar todas as versões do pacote (deixa) na salva de índice de registro pa
 
 A heurística nuget.org usa é o seguinte: se houver 128 ou mais versões de um pacote, quebrar a deixa em páginas de tamanho 64. Se houver menos de 128 versões, embutido todos os deixa o índice de registro.
 
-```
-GET {@id}/{LOWER_ID}/index.json
-```
+    GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
@@ -155,7 +152,7 @@ iconUrl                  | cadeia de caracteres                     | no       |
 id                       | cadeia de caracteres                     | sim      | A ID do pacote
 licenseUrl               | cadeia de caracteres                     | no       | 
 listados                   | boolean                    | no       | Deve ser considerada como caso esteja ausente, listado
-MinClientVersion         | cadeia de caracteres                     | no       | 
+minClientVersion         | cadeia de caracteres                     | no       | 
 projectUrl               | cadeia de caracteres                     | no       | 
 Publicado                | cadeia de caracteres                     | no       | Uma cadeia de caracteres que contém um carimbo de hora ISO 8601 de quando o pacote foi publicado
 requireLicenseAcceptance | boolean                    | no       | 
@@ -193,11 +190,9 @@ Se o `range` propriedade for excluída ou uma cadeia de caracteres vazia, o clie
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
 
-### <a name="sample-response"></a>Resposta de exemplo 
+### <a name="sample-response"></a>Resposta de exemplo
 
 [!code-JSON [package-registration-index.json](./_data/package-registration-index.json)]
 
@@ -222,9 +217,7 @@ A forma dos objetos de folha de registro é o mesmo que o índice de registro [a
 
 ## <a name="sample-request"></a>Solicitação de amostra
 
-```
-GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
-```
+    GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
 
 ## <a name="sample-response"></a>Resposta de exemplo
 
@@ -252,9 +245,7 @@ registro   | cadeia de caracteres  | no       | A URL para o índice de registro
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
 
 ### <a name="sample-response"></a>Resposta de exemplo
 

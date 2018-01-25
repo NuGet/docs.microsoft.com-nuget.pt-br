@@ -3,21 +3,20 @@ title: Comando de pacote do NuGet CLI | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 55e9e4d2-8039-4e9b-bdd9-c8b3eb0e894b
 description: "Referência para o comando de pacote nuget.exe"
 keywords: "referência de pacote do NuGet, o comando de pacote"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: 732a712f88c6267caae361673a05af0781877cf4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="pack-command-nuget-cli"></a>comando de pacote NuGet CLI)
 
@@ -30,7 +29,7 @@ Cria um pacote do NuGet com base em especificado `.nuspec` ou arquivo de projeto
 
 ## <a name="usage"></a>Uso
 
-```
+```cli
 nuget pack <nuspecPath | projectPath> [options]
 ```
 
@@ -57,7 +56,7 @@ onde `<nuspecPath>` e `<projectPath>` especificar o `.nuspec` ou projeto de arqu
 | Sufixo | *(3.4.4+)*  Anexa um sufixo para o número de versão gerados internamente, normalmente usado para anexar construção ou outros identificadores de pré-lançamento. Por exemplo, usando `-suffix nightly` criará um pacote com um tipo de número de versão `1.2.3-nightly`. Sufixos devem começar com uma letra para evitar avisos, erros e incompatibilidades com versões diferentes do NuGet e o NuGet Package Manager. |
 | Símbolos | Especifica que o pacote contém fontes e símbolos. Quando usado com um `.nuspec` arquivo, isso cria um arquivo de pacote do NuGet regular e pacote de símbolos correspondentes. |
 | Ferramenta | Especifica que os arquivos de saída do projeto devem ser colocados no `tool` pasta. |
-| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas (2.5 +)*. |
+| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 | Versão | Substitui o número da versão de `.nuspec` arquivo. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
@@ -83,7 +82,7 @@ Para este projeto, o pacote criado pelo `nuget pack` terá uma dependência no `
 
 ## <a name="examples"></a>Exemplos
 
-```
+```cli
 nuget pack
 
 nuget pack foo.nuspec

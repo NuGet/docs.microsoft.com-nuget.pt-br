@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 082a96b9-607b-4225-864d-e1cea537f591
 description: "Notas de versão 3.5 do NuGet incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
 keywords: "Notas de versão 3.5 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0a0f039d2529e1d41bbc0c7f9ac3f76f51f96ce5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-#<a name="nuget-35-release-notes"></a>Notas de versão 3.5 do NuGet
+# <a name="nuget-35-release-notes"></a>Notas de versão 3.5 do NuGet
 
 [Notas de versão de RC 3.5 do NuGet](../release-notes/nuget-3.5-RC.md) | [notas de versão de RC do NuGet 4.0](../release-notes/nuget-4.0-RC.md)
 
@@ -93,7 +92,7 @@ ms.lasthandoff: 12/14/2017
 
 * Tente carregar "NuGet.TeamFoundationServer14", mas que o nome da DLL alterado para "NuGet.TeamFoundationServer" - NuGet.PackageManagement.VisualStudio [#2857](https://github.com/NuGet/Home/issues/2857)
 
-* Gerenciador de pacote UI não mostra recentemente atualizado versão - [#2828](https://github.com/NuGet/Home/issues/2828)
+* Gerenciador de pacote UI não mostra recentemente atualizado versão - [&#2828;](https://github.com/NuGet/Home/issues/2828)
 
 * pacote de atualização tentando usar packageid, versão, em vez de package.version - [#2771](https://github.com/NuGet/Home/issues/2771)
 

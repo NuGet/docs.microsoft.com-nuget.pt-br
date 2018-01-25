@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b514da09-da1f-416b-9bfc-692f08fb6957
 description: "Notas de versão do NuGet 3.4.2 incluindo problemas conhecidos, correções de bug, recursos adicionados e DCRs."
 keywords: "Notas de versão NuGet 3.4.2, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6761c59b6dc85b9a8503041928c2707549006d9c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 892a965e67762af2ae42c2d6ee75d2838104d1c2
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-342-release-notes"></a>Notas de versão do NuGet 3.4.2
 
@@ -36,7 +35,7 @@ Você pode baixar a versão release candidate do nuget.exe 3.4.2 [aqui](https://
 * Além dessa alteração, corrigimos um problema em que podemos foram atingir a rede duas vezes quando buscar a atualização de contagem na IU do VS. Isso foi parcialmente responsável por alguns clientes de problemas de tempo limite experiência em 3.4/3.4.1.
 * Adicionado suporte para configuração de no_proxy
 
-##<a name="fixes"></a>Correções
+## <a name="fixes"></a>Correções
 
 * Corrigido um problema em que nuget.org fonte estava ausente nas configurações do NuGet ou de configuração após a atualização para 3.4.1.
 * Corrigido um problema em que uma alteração de maiusculas e minúsculas para FindPackagesById no 3.4.1 quebras Artifactory.

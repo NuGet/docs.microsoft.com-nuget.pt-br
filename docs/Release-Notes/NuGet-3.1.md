@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0fc4d89a-ccca-4d63-85bf-461cd9ced882
 description: "Notas de versão do NuGet 3.1 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
 keywords: "Notas de versão 3.1 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: eef2b2c1af99671c7ae3874c2c12130f104e88eb
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: a7aa43b8701b3bbef8f6ebce9a5d636ee1bc6abe
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-31-release-notes"></a>Notas de versão 3.1 do NuGet
 
@@ -52,7 +51,7 @@ Os recursos a seguir não estão mais disponíveis para o Visual Studio 2015 e p
     * A equipe está trabalhando para implementar novamente esse recurso, siga a discussão e andamento em: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)
 
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 
 Houve um número de problemas conhecidos, fornecido com esta versão.
 
@@ -71,7 +70,7 @@ O novo local distribuível reside no host dist.nuget.org, com uma estrutura de p
 * NuGet.exe pode restaurar e instalar pacotes em projetos que usam um `project.json` arquivo.
 * NuGet.exe pode se conectar e consumir o protocolo de v3 do NuGet em: [https://api.nuget.org/v3/index.json](https://api.nuget.org/v3/index.json)
 
-## <a name="known-issues"></a>Problemas conhecidos ##
+## <a name="known-issues"></a>Problemas Conhecidos ##
 
 1.    Não é possível executar o pacote em relação a um `project.json` arquivo - [928](https://github.com/NuGet/Home/issues/928)
 2.    Não há suporte para Mono - [1059](https://github.com/NuGet/Home/issues/1059)

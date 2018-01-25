@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 39ceaeb3-2d33-4b1c-b195-eba36c6cbf9a
 description: "Notas de versão do NuGet 2.2.1 incluindo problemas conhecidos, correções de bug, recursos adicionados e DCRs."
 keywords: "Notas de versão 2.2.1 o NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c31150572b4b6e066643ebcf0d92be16b25c6e19
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c3e912dcabeb3a26c880b42560a3cec6f7bf2db9
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-221-release-notes"></a>Notas de versão do NuGet 2.2.1
 
@@ -54,6 +53,6 @@ O cenário principal para esse recurso é personalizados modelos de projeto do A
 NuGet 2.2.1 inclui algumas correções de bugs de destino. Para obter uma lista de trabalho itens corrigidos no NuGet 2.2.1, por favor, exibir o [NuGet Issue Tracker para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.2.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 Se você estiver estendendo modelos de projeto do ASP.NET, todos os repositórios de pacote pré-instalado devem usar o mesmo valor para o `isPreunzipped` atributo.

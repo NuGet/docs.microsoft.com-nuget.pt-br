@@ -3,23 +3,22 @@ title: Comando do NuGet CLI locais | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 7f672c7c-74c9-4296-bc27-4d47882b541c
 description: "Referência para o comando de locais de nuget.exe"
 keywords: "referência de locais do NuGet, comando locais"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8cc06eedc20507e2bdd210e40c471ff551b89563
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b2f62a9ab5699bfb486eee146ab7046f5240aa50
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-## <a name="locals-command-nuget-cli"></a>comando de locais (NuGet CLI)
+# <a name="locals-command-nuget-cli"></a>comando de locais (NuGet CLI)
 
 **Aplica-se a:** pacote consumo &bullet; **versões com suporte:** 3.3 +
 
@@ -27,7 +26,7 @@ Limpa ou lista os recursos locais do NuGet, como o cache de solicitação de htt
 
 ## <a name="usage"></a>Uso
 
-```
+```cli
 nuget locals <cache> [options]
 ```
 
@@ -42,14 +41,14 @@ onde `<cache>` é um dos `all`, `http-cache`, `packages-cache`, `global-packages
 | ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
 | Lista | Lista o local do cache especificado ou os locais de todos os caches quando usado com *todos os*. |
-| Não interativo | Suprime avisos para a entrada do usuário ou confirmações. |
+| NonInteractive | Suprime avisos para a entrada do usuário ou confirmações. |
 | Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Exemplos
 
-```
+```cli
 nuget locals all -list
 nuget locals http-cache -clear
 ```

@@ -7,18 +7,17 @@ ms.date: 12/08/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee3c826-dd3a-4fa9-863f-1fd80bc4230f
 description: "Informações sobre como especificar números de versão e intervalos para outros pacotes que depende de um pacote do NuGet e como as dependências estejam instaladas."
 keywords: "controle de versão, as dependências de pacotes do NuGet, versões de dependência NuGet, números de versão do NuGet, versão do pacote NuGet, intervalos de versão, especificações de versão, os números de versão normalizada"
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
-ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
+ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-versioning"></a>Controle de versão do pacote
 
@@ -42,12 +41,11 @@ Um número de versão específico está no formato *Major [-sufixo]*, onde os co
 - *-Sufixo* (opcional): um hífen seguido por uma cadeia de caracteres que indica uma versão de pré-lançamento (seguir o [convenção de controle de versão semântico ou 1.0 SemVer](http://semver.org/spec/v1.0.0.html)).
 
 **Exemplos:**
-```
-1.0.1
-6.11.1231
-4.3.1-rc
-2.2.44-beta1
-```
+
+    1.0.1
+    6.11.1231
+    4.3.1-rc
+    2.2.44-beta1
 
 > [!Important]
 > NuGet.org rejeita qualquer upload do pacote que não tem um número de versão exata. A versão deve ser especificada no `.nuspec` ou arquivo de projeto usado para criar o pacote.
@@ -67,16 +65,14 @@ Dito isso, os desenvolvedores geralmente seguem as convenções de nomenclatura 
 
 Ao resolver referências de pacote e várias versões de pacote são diferentes apenas pelo sufixo, NuGet escolhe uma versão sem um sufixo primeiro, em seguida, aplica-se a prioridade para as versões em ordem alfabética inversa de pré-lançamento. Por exemplo, as versões a seguir serão escolhidas na ordem exata mostrado:
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-1.0.1-aaa
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
+    1.0.1-aaa
 
 ## <a name="semantic-versioning-200"></a>Controle de versão semântico 2.0.0
 
@@ -123,7 +119,7 @@ Ao fazer referência a dependências do pacote, NuGet suporta usando a notação
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Mista inclusivo mínima e exclusiva máximo da versão |
 | (1.0)    | inválidos | inválidos |
 
-Ao usar o PackageReference ou `project.json` pacote formatos de referência, o NuGet também dá suporte ao uso de uma notação de curinga, \*, para o principal, secundária, Patch e partes de sufixo de pré-lançamento do número. Não há suporte para caracteres curinga com o `packages.config` formato.
+Ao usar o formato PackageReference, os NuGet também oferece suporte ao uso de uma notação de curinga, \*, para o principal, secundária, Patch e partes de sufixo de pré-lançamento do número. Não há suporte para caracteres curinga com o `packages.config` formato.
 
 > [!Note]
 > As versões de pré-lançamento não são incluídas durante a resolução de intervalos de versão. As versões de pré-lançamento *são* incluído ao usar um caractere curinga (\*). O intervalo de versão *[1.0,2.0]*, por exemplo, não inclua 2.0 beta, mas a notação de curinga _2.0-*_ does. Consulte [emitir 912](https://github.com/NuGet/Home/issues/912) para uma discussão mais detalhada em pré-lançamento curingas.
@@ -228,18 +224,14 @@ Ao obter pacotes de um repositório durante a instalação, reinstale ou restaur
 
 - Zeros à esquerda são removidos dos números de versão:
 
-    ```
-    1.00 is treated as 1.0
-    1.01.1 is treated as 1.1.1
-    1.00.0.1 is treated as 1.0.0.1
-    ```
+        1.00 is treated as 1.0
+        1.01.1 is treated as 1.1.1
+        1.00.0.1 is treated as 1.0.0.1
 
 - Um zero na quarta parte do número de versão será omitido
 
-    ```
-    1.0.0.0 is treated as 1.0.0
-    1.0.01.0 is treated as 1.0.1
-    ```
+        1.0.0.0 is treated as 1.0.0
+        1.0.01.0 is treated as 1.0.1
 
 Essa normalização não afeta os números de versão dos pacotes em si; ele afeta somente como NuGet corresponde versões durante a resolução de dependências.
 

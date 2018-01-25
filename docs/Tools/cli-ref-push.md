@@ -3,21 +3,20 @@ title: Comando de envio por push do NuGet CLI | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a9709eee-add2-47fb-98e6-eec0697087f6
 description: "Referência para o comando de envio de nuget.exe"
 keywords: "referência de push NuGet, o comando de envio"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2828cdc41903d8a948870155b23721724bfa781e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 50883bc85ab96cba54fb4ce0bd344e8148c4fab1
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="push-command-nuget-cli"></a>comando de envio (NuGet CLI)
 
@@ -32,7 +31,7 @@ Configuração de padrão do NuGet é obtida Carregando `%AppData%\NuGet\NuGet.C
 
 ## <a name="usage"></a>Uso
 
-```
+```cli
 nuget push <packagePath> [options]
 ```
 
@@ -43,23 +42,23 @@ onde `<packagePath>` identifica o pacote para enviar por push para o servidor.
 | Opção | Descrição |
 | --- | --- |
 | apiKey | A chave de API para o repositório de destino. Se não estiverem presentes, especificada na *%AppData%\NuGet\NuGet.Config* é usado. |
-| ConfigFile | *(2.5 +)*  NuGet o arquivo de configuração para aplicar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
+| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
 | DisableBuffering | Desabilita o buffer de envio por push para um servidor HTTP (s) para diminuir o uso de memória. Cuidado: quando esta opção for usada, a autenticação integrada do Windows pode não funcionar. |
 | ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
-| Não interativo | Suprime avisos para a entrada do usuário ou confirmações. |
+| NonInteractive | Suprime avisos para a entrada do usuário ou confirmações. |
 | NoSymbols | *(3.5 +)*  Se existe um pacote de símbolos, ele não será enviado a um servidor de símbolos. |
-| Origem | Especifica a URL do servidor. Com o NuGet 2.5 + NuGet identificará um UNC ou uma fonte de pasta local e simplesmente copiar o arquivo em vez de enviar por push usando HTTP.  Além disso, a partir do NuGet 3.4.2, este parâmetro é obrigatório, a menos que o `NuGet.Config` arquivo Especifica um *DefaultPushSource* valor (consulte [NuGet Configurando comportamento](../Consume-Packages/Configuring-NuGet-Behavior.md)). |
+| Origem | Especifica a URL do servidor. NuGet identifica um UNC ou uma fonte de pasta local e simplesmente copia o arquivo em vez de enviar por push usando HTTP.  Além disso, a partir do NuGet 3.4.2, este parâmetro é obrigatório, a menos que o `NuGet.Config` arquivo Especifica um *DefaultPushSource* valor (consulte [NuGet Configurando comportamento](../Consume-Packages/Configuring-NuGet-Behavior.md)). |
 | SymbolSource | *(3.5 +)*  Especifica a URL do servidor de símbolo; nuget.smbsrc.net é usado ao enviar para nuget.org |
 | SymbolApiKey | *(3.5 +)*  Especifica a chave de API para a URL especificada em `-SymbolSource`. |
 | Tempo limite | Especifica o tempo limite, em segundos, para enviar por push para um servidor. O padrão é 300 segundos (5 minutos). |
-| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas (2.5 +)*. |
+| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Exemplos
 
-```
+```cli
 nuget push foo.nupkg
 
 nuget push foo.symbols.nupkg

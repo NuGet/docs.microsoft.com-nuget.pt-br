@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1eaa403a-5c13-4c05-9352-2f791b98aa7e
 description: "O serviço de publicação permite que os clientes publicar novos pacotes e remover da lista ou excluir os pacotes existentes."
 keywords: Pacote de envio por push do NuGet API, API do NuGet excluir o pacote NuGet API remover da lista o pacote, o pacote de carregamento de API do NuGet, NuGet API criar pacote
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: f8051ca57fccae77917567d8c9f2f8a120a8d884
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="push-and-delete"></a>Enviar por push e excluir
 
@@ -52,9 +51,7 @@ O `PUT`, `POST` e `DELETE` métodos HTTP compatíveis com esse recurso. Para qua
 
 NuGet.org dá suporte a envio novos pacotes usando a seguinte API. Se o pacote com a ID e a versão fornecida já existir, nuget.org rejeitará o envio por push. Outras fontes de pacote podem oferecer suporte a substituição de um pacote existente.
 
-```
-PUT https://www.nuget.org/api/v2/package
-```
+    PUT https://www.nuget.org/api/v2/package
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
@@ -86,9 +83,7 @@ Implementações de servidor variam de acordo o código de status de êxito reto
 
 NuGet.org interpreta a solicitação de exclusão do pacote como um "remover da lista". Isso significa que o pacote ainda está disponível para os consumidores existentes do pacote, mas o pacote não aparece nos resultados da pesquisa ou na interface da web. Para obter mais informações sobre esta prática, consulte o [pacotes excluído](../policies/deleting-packages.md) política. Outras implementações do servidor estão livres para interpretar esse sinal como uma exclusão de disco rígida, exclusão reversível ou remover da lista. Por exemplo, [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (uma implementação de servidor somente com suporte a mais antiga API V2) oferece suporte à manipulação esta solicitação como um unlist ou uma exclusão de disco rígida com base em uma opção de configuração.
 
-```
-DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
-```
+    DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
@@ -111,9 +106,7 @@ Se um pacote não esteja listado, é possível fazer com que o pacote novamente 
 
 Se o pacote já está listado, a solicitação ainda será bem-sucedida.
 
-```
-POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
-```
+    POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 

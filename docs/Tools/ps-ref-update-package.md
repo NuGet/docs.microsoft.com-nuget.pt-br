@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b4aa92a9-ce47-4d23-ae51-d5683e08a9d5
 description: "Referência de comando do PowerShell do pacote de atualização no Console do Gerenciador de pacotes do NuGet no Visual Studio."
 keywords: "Console do Gerenciador, comandos do Powershell do NuGet, referência do Powershell do NuGet, pacote de atualização do pacote NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 71f5cd7061e0f765d8808db8a3798657a941ba14
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 768fdb4d7c785b4f3ed9e70958390676ea965794
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Pacote de atualização (Console de Gerenciador de pacotes no Visual Studio)
 
@@ -52,7 +51,7 @@ NuGet 2.7 e anterior fornece uma mensagem de erro informando que uma versão mai
 | Safe | Restringe as atualizações para versões somente com a mesma versão principal e secundária do pacote instalado atualmente. |
 | Origem | O caminho de URL ou pasta para a origem do pacote a ser pesquisado. Caminhos de pasta local podem ser absoluto ou relativo para a pasta atual. Se omitido, `Uninstall-Package` procura a origem de pacote selecionada atualmente. |
 | IncludePrerelease | Inclui pacotes de pré-lançamento de atualizações. |
-| Reinstale o | Pacotes de Resintalls usando as versões atualmente instaladas. Consulte [reinstalação e atualização de pacotes](../consume-packages/reinstalling-and-updating-packages.md). |
+| Reinstalar | Pacotes de Resintalls usando as versões atualmente instaladas. Consulte [reinstalação e atualização de pacotes](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | A ação a ser tomada quando for solicitado a substituir ou ignorar os arquivos existentes, referenciados pelo projeto. Os valores possíveis são *substituir, ignorar, None, OverwriteAll*, e *IgnoreAll* (3.0 +). |
 | DependencyVersion | A versão dos pacotes de dependência a usar, que pode ser um dos seguintes:<br/><ul><li>*Menor* (padrão): a versão mais antiga</li><li>*HighestPatch*: a versão com o patch mais baixo principal, secundária menor, mais alto</li><li>*HighestMinor*: a versão com o menor principais, mais alto patch menor, mais alto</li><li>*Mais alto* (padrão para o pacote de atualização sem parâmetros): a versão mais recente</li></ul>Você pode definir o valor padrão usando o [ `dependencyVersion` ](../Schema/nuget-config-file.md#config-section) definindo no `Nuget.Config` arquivo. |
 | ToHighestPatch | Restringe as atualizações para somente versões com a mesma versão secundária do pacote instalado atualmente. |

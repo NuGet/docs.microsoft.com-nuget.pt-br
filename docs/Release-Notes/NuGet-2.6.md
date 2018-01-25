@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d99bbf29-2b9a-4dc5-a823-5eb4f9e30f7f
 description: "Notas de versão do NuGet 2.6 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
 keywords: "Notas de versão 2.6 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-26-release-notes"></a>Notas de versão 2.6 do NuGet
 
@@ -38,7 +37,7 @@ A partir do NuGet 2.6, publicaremos duas extensões como abaixo:
 1. [O NuGet Package Manager](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (aplica-se ao Visual Studio 2010 e 2012)
 1. [Gerenciador de pacotes do NuGet para Visual Studio 2013](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
-Com essa divisão, o [nuget.org](https://nuget.org) botão da página inicial "Instalar o NuGet" Agora você será direcionado para o [instalando NuGet](../guides/install-nuget.md) página, onde você pode encontrar mais informações sobre como instalar os clientes do NuGet diferentes.
+Com essa divisão, o [nuget.org](https://nuget.org) botão de "Instalar o NuGet" da home page leva você para a [instalando NuGet](../install-nuget-client-tools.md) página, onde você pode encontrar mais informações sobre como instalar os clientes do NuGet diferentes.
 
 <a name="xdt"></a>
 
@@ -53,8 +52,8 @@ Em abril de 2013, fizemos duas anúncios grandes sobre o suporte do NuGet para X
 Para aproveitar o suporte do NuGet XDT, a mecânica semelhante do [recurso de transformação de configuração atual](../create-packages/source-and-config-file-transformations.md).
 Arquivos de transformação são adicionados à pasta de conteúdo do pacote. No entanto, enquanto as transformações de configuração usarem um único arquivo de instalação e desinstalação, transformações XDT habilitam controle refinado de ambos os processos usando os seguintes arquivos:
 
-- Web.config.Install.XDT
-- Web.config.uninstall.XDT
+- Web.config.install.xdt
+- Web.config.uninstall.xdt
 
 Além disso, o NuGet usa o sufixo de arquivo para determinar qual mecanismo de execução para transformações, para que pacotes usando o web.config.transforms existentes continuarão a funcionar. Transformações XDT também podem ser aplicadas a qualquer arquivo XML (não apenas Web. config), portanto você pode aproveitar isso para outros aplicativos em seu projeto.
 
@@ -69,10 +68,10 @@ Recurso de origem de pacote personalizado do NuGet fornece uma maneira de organi
 
 2.6 NuGet estende a lógica de configuração NuGet pesquisando a hierarquia de pastas sob o caminho % ProgramData%/NuGet/Config. Instaladores de produto podem adicionar arquivos de configuração personalizados do NuGet nesta pasta para registrar uma origem de pacote personalizado para seus produtos. Além disso, a estrutura de pasta dá suporte à semântica de produto, versão e até mesmo SKU do IDE. Configurações dos seguintes diretórios são aplicadas na seguinte ordem com uma estratégia de precedência "última no wins".
 
-1. %ProgramData%\NuGet\Config\*. config
-2. %ProgramData%\NuGet\Config\{IDE}\*. config
-3. %ProgramData%\NuGet\Config\{IDE}\{versão}\*. config
-4. %ProgramData%\NuGet\Config\{IDE}\{versão}\{SKU}\*. config
+1. %ProgramData%\NuGet\Config\*.config
+2. %ProgramData%\NuGet\Config\{IDE}\*.config
+3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
+4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
 
 Nessa lista, o espaço reservado {IDE} é específico para o IDE no qual está executando o NuGet, portanto no caso do Visual Studio, ele será "VisualStudio". {Version} e espaços reservados de {SKU} (por exemplo, são fornecidos pelo IDE "11.0" e "WDExpress", "VWDExpress" e "Pro", respectivamente). A pasta, em seguida, pode conter muitos arquivos diferentes de config.
 Portanto, a empresa de componente ACME pode, como parte do instalador de seu produto, adicionar uma origem de pacote personalizado que serão visível somente nas versões Professional e Ultimate do Visual Studio 2012, criando o seguinte caminho de arquivo:

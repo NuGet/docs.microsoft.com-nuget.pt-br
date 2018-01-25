@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ba2edaad-4795-47a0-a572-d0e1716bd540
 description: "Notas de versão do NuGet 2.7 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
 keywords: "Notas de versão 2.7 NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 502cb5e68f905e9ad8f4003bb0690d3e676f6bb7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b0e12f7e2cffa6e721dd13c117b7b3727cfcb5d7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-27-release-notes"></a>Notas de versão 2.7 do NuGet
 
@@ -122,7 +121,7 @@ Além do trabalho que fizemos sozinhos, estamos também trabalhando com alguns p
 
 Com cada um dos parceiros acima, devem usar sua própria cópia do nuget.exe e você não precisa realizar nuget.exe em sua solução.
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 Havia dois problemas conhecidos com a restauração de nuget.exe com a versão 2.7 inicial, mas eles foram corrigidos em 9/6/2013 com uma atualização para o [NuGet.CommandLine pacote](http://www.nuget.org/packages/NuGet.CommandLine/).  Essa atualização também está disponível no [página de download do NuGet 2.7](https://nuget.codeplex.com/releases/view/107605) no CodePlex.  Executando `nuget.exe update -self` será atualizada para a versão mais recente.
 

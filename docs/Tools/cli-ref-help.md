@@ -3,21 +3,20 @@ title: Comando de Ajuda do NuGet CLI | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 780d7f52-d6c6-45cd-8a62-218ff8c0b270
 description: "Referência para o comando de ajuda de nuget.exe"
 keywords: "referência da Ajuda NuGet, o comando de ajuda"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 55dc263fedd7ed5a3e48b76dbc9a3ccc220655cf
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 97f72e1be0df6e97f8b06696b2b3861800e4ea08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>Ajuda ou? comando (NuGet CLI)
 
@@ -27,7 +26,7 @@ Exibe geral informações de Ajuda e informações de ajuda sobre os comandos es
 
 ## <a name="usage"></a>Uso
 
-```
+```cli
 nuget help [command] [options]
 nuget ? [command] [options]
 ```
@@ -42,18 +41,18 @@ onde [comando] identifica um comando específico para o qual exibir a Ajuda.
 | Opção | Descrição |
 | --- | --- |
 | Todos | Imprimir a ajuda detalhada para todos os comandos disponíveis; ignorado se for fornecido um comando específico. |
-| ConfigFile | *(2.5 +)*  NuGet o arquivo de configuração para aplicar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
+| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
 | ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando Ajuda. |
 | Markdown | Imprimir a ajuda detalhada no formato de redução quando usado com `-All`. Caso contrário é ignorado. |
-| Não interativo | Suprime avisos para a entrada do usuário ou confirmações. |
-| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas (2.5 +)*. |
+| NonInteractive | Suprime avisos para a entrada do usuário ou confirmações. |
+| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Exemplos
 
-```
+```cli
 nuget help
 nuget help push
 nuget ?

@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ec68b5d1-a684-4995-b1a6-6210dbb24875
 description: "O endereço base do pacote é uma interface simples para buscar o pacote propriamente dito."
 keywords: "NuGet simples contêiner, o endereço base do pacote NuGet, o NuGet nupkg API, versões de pacote do NuGet API, API do NuGet não consta da lista de pacotes, o NuGet API download nuspec"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: a581f9854410bc1a84d65310b38928a1d889ece2
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c2e631dc0bba95ac849430d77142f27ef591f741
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-content"></a>Conteúdo do pacote
 
@@ -52,9 +51,7 @@ Se o cliente sabe uma ID de pacote e quer descobrir quais versões do pacote do 
 > [!Note]
 > Essa lista contém as duas versões do pacote listados e não listados.
 
-```
-GET {@id}/{LOWER_ID}/index.json
-```
+    GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
@@ -80,9 +77,7 @@ A intenção é que as cadeias de caracteres de versão encontradas nesta matriz
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-```
-GET https://api.nuget.org/v3-flatcontainer/owin/index.json
-```
+    GET https://api.nuget.org/v3-flatcontainer/owin/index.json
 
 ### <a name="sample-response"></a>Resposta de exemplo
 
@@ -92,9 +87,7 @@ GET https://api.nuget.org/v3-flatcontainer/owin/index.json
 
 Se o cliente sabe um ID de pacote e a versão e deseja baixar o conteúdo do pacote, eles só precisam construir a URL a seguir:
 
-```
-GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
-```
+    GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
@@ -115,9 +108,7 @@ Se o pacote não existe na origem do pacote, um código de 404 status será reto
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-```
-GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg
-```
+    GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg
 
 ### <a name="sample-response"></a>Resposta de exemplo
 
@@ -127,9 +118,7 @@ O fluxo binário é nupkg para newtonsoft 9.0.1.
 
 Se o cliente sabe um ID de pacote e a versão e deseja baixar o manifesto de pacote, eles só precisam construir a URL a seguir:
 
-```
-GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
-```
+    GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
@@ -150,9 +139,7 @@ Se o pacote não existe na origem do pacote, um código de 404 status será reto
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-```
-GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/6.0.4/newtonsoft.json.nuspec
-```
+    GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/6.0.4/newtonsoft.json.nuspec
 
 ### <a name="sample-response"></a>Resposta de exemplo
 

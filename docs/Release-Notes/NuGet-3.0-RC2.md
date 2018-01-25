@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 20f9b360-2d78-4676-a803-e86996eb2f10
 description: "Notas de versão do NuGet 3.0 RC2 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
 keywords: "Notas de versão NuGet 3.0 RC2, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2a708babf200a650a0faffc704235d3c142f510f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 67299408170ae3c3676c2866bec2945b41ad4184
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-rc2-release-notes"></a>Notas de versão do NuGet 3.0 RC2
 
@@ -35,9 +34,9 @@ No total, é fechada 158 problemas nesta versão, e você pode examinar o [lista
 * [Adicionar caixa de seleção 'Não mostrar a janela de visualização'](https://github.com/NuGet/Home/issues/566)
 * [Limitação para reduzir a utilização do processador do processo de inclusão](https://github.com/NuGet/Home/issues/356)
 * Melhor tratamento de referência de biblioteca de classes portátil
-    * [https://GitHub.com/NuGet/home/issues/562](https://github.com/NuGet/Home/issues/562)
-    * [https://GitHub.com/NuGet/home/issues/454](https://github.com/NuGet/Home/issues/454)
-    * [https://GitHub.com/NuGet/home/issues/440](https://github.com/NuGet/Home/issues/440)
+    * [https://github.com/NuGet/Home/issues/562](https://github.com/NuGet/Home/issues/562)
+    * [https://github.com/NuGet/Home/issues/454](https://github.com/NuGet/Home/issues/454)
+    * [https://github.com/NuGet/Home/issues/440](https://github.com/NuGet/Home/issues/440)
 * [Serviço de preenchimento automático foi diferencia maiusculas de minúsculas](https://github.com/NuGet/Home/issues/198)
 * [Atualização reintroduzir credenciais de autenticação básica](https://github.com/NuGet/Home/issues/456)
 * [Log de erros aprimorado](https://github.com/NuGet/Home/issues/407)

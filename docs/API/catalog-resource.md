@@ -11,17 +11,16 @@ ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cfd338b5-6253-48c0-88ba-17c6b98fc935
 description: "O catálogo é um índice de todos os pacotes criados e excluídos em nuget.org."
 keywords: "Catálogo de API do NuGet V3, log de transações nuget.org, replicar NuGet.org, clone NuGet.org, registro somente de acréscimo de NuGet.org"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="catalog"></a>Catálogo
 
@@ -73,9 +72,7 @@ Itens de catálogo sempre sejam adicionados ao catálogo em uma ordem cronológi
 
 A seguinte solicitação de busca o índice do catálogo.
 
-```
-GET {@id}
-```
+    GET {@id}
 
 O índice do catálogo é um documento JSON que contém um objeto com as seguintes propriedades:
 
@@ -107,9 +104,7 @@ Em comparação com o [recursos de metadados do pacote](registration-base-url-re
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 ### <a name="sample-response"></a>Resposta de exemplo
 
@@ -161,9 +156,7 @@ Para obter mais detalhes sobre significa que cada tipo, consulte o [corresponden
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 ### <a name="sample-response"></a>Resposta de exemplo
 
@@ -178,8 +171,8 @@ O documento de folha de catálogo é um objeto JSON com as seguintes propriedade
 Nome                    | Tipo                       | Necessária | Observações
 ----------------------- | -------------------------- | -------- | -----
 @type                   | cadeia de caracteres ou matriz de cadeias de caracteres | sim      | Os tipos de item de catálogo
-catálogo: commitId        | cadeia de caracteres                     | sim      | Uma ID de confirmação associada a este item de catálogo
-catálogo: commitTimeStamp | cadeia de caracteres                     | sim      | O carimbo de hora de confirmação desse item de catálogo
+catalog:commitId        | cadeia de caracteres                     | sim      | Uma ID de confirmação associada a este item de catálogo
+catalog:commitTimeStamp | cadeia de caracteres                     | sim      | O carimbo de hora de confirmação desse item de catálogo
 id                      | cadeia de caracteres                     | sim      | A ID do pacote do item de catálogo
 Publicado               | cadeia de caracteres                     | sim      | A data de publicação do item de catálogo de pacote
 version                 | cadeia de caracteres                     | sim      | A versão do pacote do item de catálogo
@@ -217,7 +210,7 @@ isPrerelease            | boolean                    | sim      | Se a versão d
 linguagem                | cadeia de caracteres                     | no       |
 licenseUrl              | cadeia de caracteres                     | no       |
 listados                  | boolean                    | no       | Se o pacote está listado
-MinClientVersion        | cadeia de caracteres                     | no       |
+minClientVersion        | cadeia de caracteres                     | no       |
 packageHash             | cadeia de caracteres                     | sim      | O hash do pacote, codificação usando [padrão na base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | cadeia de caracteres                     | sim      |
 packageSize             | inteiro                    | sim      | O tamanho de nupkg do pacote em bytes
@@ -242,9 +235,7 @@ O `published` carimbo de hora é o tempo quando o pacote última foi listado.
 
 #### <a name="sample-request"></a>Solicitação de amostra
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
 
 #### <a name="sample-response"></a>Resposta de exemplo
 
@@ -265,9 +256,7 @@ O `published` propriedade é a hora em que o pacote foi excluído, que normalmen
 
 #### <a name="sample-request"></a>Solicitação de amostra
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
-```
 
 #### <a name="sample-response"></a>Resposta de exemplo
 

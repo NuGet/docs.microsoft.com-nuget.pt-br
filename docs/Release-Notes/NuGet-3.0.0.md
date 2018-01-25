@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8ad13a67-9348-4f04-8f8b-b8f4a0b2c6df
 description: "Notas de versão do NuGet 3.0.0 incluindo problemas conhecidos, correções de bug, recursos adicionados e DCRs."
 keywords: "Notas de versão NuGet 3.0.0, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 95c4bf92f5eeb676fa6bcc3b7bcbf191efa9cb9e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ef8557c37105eb7915919c7b15d41d024921761f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-release-notes"></a>Notas de versão 3.0 do NuGet
 
@@ -29,7 +28,7 @@ Recomendamos que os desenvolvedores que têm acesso a atualização da Galeria d
 
 No total, é fechada 240 problemas na versão 3.0, e você pode examinar o [lista completa dos problemas no GitHub](https://github.com/NuGet/Home/issues?q=milestone%3A3.0.0-RTM+is%3Aclosed).
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 Houve um número de problemas conhecidos, fornecido com esta versão e todos esses itens corrigidos na nossa versão 3.1 agendado para coincidir com a versão do Windows 10 em 29 de julho.  Você poderá atualizar a extensão do Visual Studio da Galeria em ou após essa data para corrigir esses problemas conhecidos.
 
@@ -48,9 +47,9 @@ Houve um número de problemas conhecidos, fornecido com esta versão e todos ess
 * [Adicionar caixa de seleção 'Não mostrar a janela de visualização'](https://github.com/NuGet/Home/issues/566)
 * [Limitação para reduzir a utilização do processador do processo de inclusão](https://github.com/NuGet/Home/issues/356)
 * Melhor tratamento de referência de biblioteca de classes portátil
-    * [https://GitHub.com/NuGet/home/issues/562](https://github.com/NuGet/Home/issues/562)
-    * [https://GitHub.com/NuGet/home/issues/454](https://github.com/NuGet/Home/issues/454)
-    * [https://GitHub.com/NuGet/home/issues/440](https://github.com/NuGet/Home/issues/440)
+    * [https://github.com/NuGet/Home/issues/562](https://github.com/NuGet/Home/issues/562)
+    * [https://github.com/NuGet/Home/issues/454](https://github.com/NuGet/Home/issues/454)
+    * [https://github.com/NuGet/Home/issues/440](https://github.com/NuGet/Home/issues/440)
 * [Serviço de preenchimento automático foi diferencia maiusculas de minúsculas](https://github.com/NuGet/Home/issues/198)
 * [Atualização reintroduzir credenciais de autenticação básica](https://github.com/NuGet/Home/issues/456)
 * [Log de erros aprimorado](https://github.com/NuGet/Home/issues/407)
