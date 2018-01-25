@@ -1,15 +1,14 @@
-# [O que é o NuGet?](What-is-NuGet.md)
+# [O que é o NuGet?](what-is-nuget.md)
+# [Instalar as ferramentas de cliente do NuGet](install-nuget-client-tools.md)
 # Guia de Início Rápido
 ## [Criar e publicar um pacote](Quickstart/Create-and-Publish-a-Package.md)
 ## [Usar um pacote](Quickstart/Use-a-Package.md)
 # Guias
-## [Instalar as ferramentas de cliente do NuGet](Guides/Install-NuGet.md)
 ## [Criar pacotes NET Standard (Visual Studio 2017)](Guides/Create-NET-Standard-Packages-VS2017.md)
 ## [Criar pacotes NET Standard (Visual Studio 2015)](Guides/Create-NET-Standard-Packages-VS2015.md)
 ## [Criar pacotes UWP](Guides/Create-UWP-Packages.md)
 ## [Criando controles UWP como pacotes NuGet](Guides/Create-UWP-Controls.md)
 ## [Criar pacotes de multiplataforma](Guides/Create-Cross-Platform-Packages.md)
-## [Consulta para todos os pacotes usando a API](Guides/api/query-for-all-published-packages.md)
 # Criar Pacotes
 ## [Visão geral e fluxo de trabalho](Create-Packages/Overview-and-Workflow.md)
 ## [Criando um pacote](Create-Packages/Creating-a-Package.md)
@@ -20,8 +19,6 @@
 ## [Pacotes nativos](Create-Packages/Native-Packages.md)
 ## [Pacotes de símbolo](Create-Packages/Symbol-Packages.md)
 ## [Publicar um pacote](Create-Packages/Publish-a-package.md)
-## [project.json e UWP](Create-Packages/project-json-and-UWP.md)
-## [Impacto do project.json](Create-Packages/project-json-Impact.md)
 # Consumir Pacotes
 ## [Visão geral e fluxo de trabalho](Consume-Packages/Overview-and-Workflow.md)
 ## [Localizando e escolhendo pacotes](Consume-Packages/Finding-and-Choosing-Packages.md)
@@ -72,7 +69,6 @@
 # Referência
 ## [.nuspec](Schema/nuspec.md)
 ## [packages.config](Schema/packages-config.md)
-## [project.json](Schema/project-json.md)
 ## [Controle de versão do pacote](reference/package-versioning.md)
 ## [Arquivo Nuget.Config](Schema/nuget-config-file.md)
 ## [Destinos do MSBuild](Schema/msbuild-targets.md)
@@ -84,8 +80,13 @@
 ## Extensibilidade
 ### [Provedores de credenciais NuGet para Visual Studio](Reference/extensibility/Nuget-Credential-Providers-for-Visual-Studio.md)
 ### [Provedores de credenciais nuget.exe](Reference/extensibility/nuget-exe-Credential-Providers.md)
+## Conteúdo Arquivado
+### [formato de referência do Project](archive/project-json.md)
+### [project.json e UWP](archive/project-json-and-UWP.md)
+### [project.json impact](archive/project-json-impact.md)
 # API
 ## [Visão Geral](API/overview.md)
+## [Como consultar todos os pacotes usando a API](Guides/api/query-for-all-published-packages.md)
 ## [Índice de serviço](API/service-index.md)
 ## [Efetuar push e excluir](API/package-publish-resource.md)
 ## [Pesquisar](API/search-query-service-resource.md)
