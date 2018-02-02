@@ -3,21 +3,20 @@ title: "Pacotes do NuGet e controle do código-fonte | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 07/17/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2c874e6f-99eb-46dd-997f-f67d98d0237e
 description: "Considerações sobre como tratar pacotes do NuGet nos sistemas de controle de versão e do código-fonte, e como omitir pacotes com git e TFVC."
 keywords: "Controle de código-fonte do NuGet, controle de versão do NuGet, NuGet e git, NuGet e TFS, NuGet e TFVC, omitindo pacotes, repositórios de controle do código-fonte, repositórios de controle de versão"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c73dea74f2363f49fb476a5812c29de63fec89a3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6261625d5d7eaa748f9ad15510b7b2af3c814e44
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Omitindo pacotes do NuGet em sistemas de controle do código-fonte
 
@@ -38,7 +37,7 @@ Use o [arquivo .gitignore](https://git-scm.com/docs/gitignore) evitar incluir a 
 
 As partes importantes do arquivo `.gitignore` são:
 
-```
+```gitignore
 # Ignore NuGet Packages
 *.nupkg
 
@@ -70,7 +69,7 @@ Para desabilitar a integração de controle do código-fonte com TFVC para os ar
 
 1. Nessa pasta, crie um arquivo chamado `NuGet.Config` e abra-o para edição.
 
-1. Adicione o texto a seguir no mínimo, em que a configuração [disableSourceControlIntegration](../Schema/nuget-config-file.md#solution-section) instrui o Visual Studio a ignorar tudo na pasta `packages`:
+1. Adicione o texto a seguir no mínimo, em que a configuração [disableSourceControlIntegration](../reference/nuget-config-file.md#solution-section) instrui o Visual Studio a ignorar tudo na pasta `packages`:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -85,9 +84,9 @@ Para desabilitar a integração de controle do código-fonte com TFVC para os ar
 
 1. No TFS 2012 ou posterior, ou com o Visual Studio Team Services, crie um arquivo `.tfignore` conforme descrito em [AddFiles para o servidor](https://www.visualstudio.com/en-us/docs/tfvc/add-files-server#tfignore). Nesse arquivo, inclua o conteúdo abaixo para ignorar explicitamente as modificações na pasta `\packages` no nível do repositório e alguns outros arquivos intermediários. (Você pode criar o arquivo no Windows Explorer usando o nome de um `.tfignore.` com o ponto à direita, mas pode ser necessário desabilitar a opção “Ocultar extensões de arquivos conhecidos” primeiro.):
 
-   ```
+   ```cli
    # Ignore NuGet Packages
-   *.nupkg   
+   *.nupkg
 
    # Ignore the NuGet packages folder in the root of the repository. If needed, prefix 'packages'
    # with additional folder names if it's not in the same folder as .tfignore.   

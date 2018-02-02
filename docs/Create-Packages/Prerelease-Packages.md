@@ -3,21 +3,20 @@ title: "Versões pré-lançamento em pacotes do NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/14/2017
+ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: df6a366a-22c1-47bb-8017-18231311ce88
 description: "Diretrizes para compilar pacotes de pré-lançamento"
 keywords: "controle de versão, controle de versão de pacote do NuGet, versões de pré-lançamento do NuGet, pacotes de pré-lançamento do NuGet, versões de versão prévia do pacote, versões RC do pacote, versões Beta do pacote, controle de versão semântico do NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07cb9b9bdeeea6f283e95a11a06d7f2043c9b17c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="building-pre-release-packages"></a>Compilando pacotes de pré-lançamento
 
@@ -47,7 +46,6 @@ Você pode especificar essas versões de duas maneiras:
 
 Quando você estiver pronto para lançar uma versão estável, basta remover o sufixo e o pacote terá precedência sobre as versões de pré-lançamento. Novamente, consulte [Controle de versão do pacote](../reference/package-versioning.md#pre-release-versions).
 
-
 ## <a name="installing-and-updating-pre-release-packages"></a>Instalando e atualizando pacotes de pré-lançamento
 
 Por padrão, o NuGet não inclui as versões de pré-lançamento ao trabalhar com pacotes, mas você pode alterar esse comportamento da seguinte maneira:
@@ -61,7 +59,6 @@ Por padrão, o NuGet não inclui as versões de pré-lançamento ao trabalhar co
 - **Console do Gerenciador de Pacotes**: use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../tools/powershell-reference.md).
 
 - **CLI do NuGet**: use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../tools/nuget-exe-cli-reference.md)
-
 
 ## <a name="semantic-versioning"></a>Controle de versão semântico
 
@@ -86,16 +83,14 @@ Considerando isso, geralmente é aconselhável seguir as convenções de nomencl
 
 Qualquer sufixo que você usar, no entanto, receberá precedência do NuGet cem ordem alfabética inversa:
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta12
-1.0.1-beta05
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta12
+    1.0.1-beta05
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
 
 Conforme mostrado, a versão sem nenhum sufixo sempre terá precedência sobre as versões de pré-lançamento. Observe também que, se você usar sufixos numéricos com marcas de pré-lançamento que podem usar números de dois dígitos (ou mais), use zeros à esquerda como beta01 e beta05 para garantir que eles sejam classificados corretamente quando os números aumentarem.
