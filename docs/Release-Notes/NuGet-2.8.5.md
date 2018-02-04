@@ -13,24 +13,24 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: ace56284e56f24394d49c0598ec3604b62caaf67
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
-# <a name="nuget-285-release-notes"></a><span data-ttu-id="ed123-104">Notas de versão do NuGet 2.8.5</span><span class="sxs-lookup"><span data-stu-id="ed123-104">NuGet 2.8.5 Release Notes</span></span>
+# <a name="nuget-285-release-notes"></a><span data-ttu-id="ae5de-104">Notas de versão do NuGet 2.8.5</span><span class="sxs-lookup"><span data-stu-id="ae5de-104">NuGet 2.8.5 Release Notes</span></span>
 
-<span data-ttu-id="ed123-105">[Notas de versão do NuGet 2.8.3](../release-notes/nuget-2.8.3.md) | [notas de versão do NuGet 2.8.6](../release-notes/nuget-2.8.6.md)</span><span class="sxs-lookup"><span data-stu-id="ed123-105">[NuGet 2.8.3 Release Notes](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 Release Notes](../release-notes/nuget-2.8.6.md)</span></span>
+<span data-ttu-id="ae5de-105">[Notas de versão do NuGet 2.8.3](../release-notes/nuget-2.8.3.md) | [notas de versão do NuGet 2.8.6](../release-notes/nuget-2.8.6.md)</span><span class="sxs-lookup"><span data-stu-id="ae5de-105">[NuGet 2.8.3 Release Notes](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 Release Notes](../release-notes/nuget-2.8.6.md)</span></span>
 
-<span data-ttu-id="ed123-106">NuGet 2.8.5 foi lançado em 30 de março de 2015.</span><span class="sxs-lookup"><span data-stu-id="ed123-106">NuGet 2.8.5 was released March 30, 2015.</span></span> <span data-ttu-id="ed123-107">É uma pequena atualização para nosso 2.8.3 VSIX com alguns direcionados correções.</span><span class="sxs-lookup"><span data-stu-id="ed123-107">It is a minor update to our 2.8.3 VSIX with some targeted fixes.</span></span>
+<span data-ttu-id="ae5de-106">NuGet 2.8.5 foi lançado em 30 de março de 2015.</span><span class="sxs-lookup"><span data-stu-id="ae5de-106">NuGet 2.8.5 was released March 30, 2015.</span></span> <span data-ttu-id="ae5de-107">É uma pequena atualização para nosso 2.8.3 VSIX com alguns direcionados correções.</span><span class="sxs-lookup"><span data-stu-id="ae5de-107">It is a minor update to our 2.8.3 VSIX with some targeted fixes.</span></span>
 
-<span data-ttu-id="ed123-108">Nesta versão, a caixa de diálogo Gerenciador de pacotes do NuGet foi adicionado suporte às [Monikers de Framework de destino do DNX](https://github.com/aspnet/dnx).</span><span class="sxs-lookup"><span data-stu-id="ed123-108">In this release, the support for NuGet Package Manager dialog was added for [DNX Target Framework Monikers](https://github.com/aspnet/dnx).</span></span>  <span data-ttu-id="ed123-109">Esses novos identificadores de framework com suporte incluem:</span><span class="sxs-lookup"><span data-stu-id="ed123-109">These new framework monikers that are supported include:</span></span>
+<span data-ttu-id="ae5de-108">Nesta versão, a caixa de diálogo Gerenciador de pacotes do NuGet foi adicionado suporte às [Monikers de Framework de destino do DNX](https://github.com/aspnet/dnx).</span><span class="sxs-lookup"><span data-stu-id="ae5de-108">In this release, the support for NuGet Package Manager dialog was added for [DNX Target Framework Monikers](https://github.com/aspnet/dnx).</span></span>  <span data-ttu-id="ae5de-109">Esses novos identificadores de framework com suporte incluem:</span><span class="sxs-lookup"><span data-stu-id="ae5de-109">These new framework monikers that are supported include:</span></span>
 
-* <span data-ttu-id="ed123-110">**core50** - um moniker do framework (TFM) que é compatível com o CLR principal 'base' de destino.</span><span class="sxs-lookup"><span data-stu-id="ed123-110">**core50** - A 'base' target framework moniker (TFM) that is compatible with the Core CLR.</span></span>
-* <span data-ttu-id="ed123-111">**dnx452** - TFM A aplicativos específicos com base em DNX usando o 4.5.2 completo versão do framework</span><span class="sxs-lookup"><span data-stu-id="ed123-111">**dnx452** - A TFM specific to DNX-based apps using the full 4.5.2 version of the framework</span></span>
-* <span data-ttu-id="ed123-112">**dnx46** - TFM A aplicativos específicos com base em DNX usando a versão 4.6 completo do framework</span><span class="sxs-lookup"><span data-stu-id="ed123-112">**dnx46** - A TFM specific to DNX-based apps using the full 4.6 version of the framework</span></span>
-* <span data-ttu-id="ed123-113">**dnxcore50** - TFM A aplicativos específicos com base em DNX usando a versão 5.0 do núcleo do framework</span><span class="sxs-lookup"><span data-stu-id="ed123-113">**dnxcore50** - A TFM specific to DNX-based apps using the Core 5.0 version of the framework</span></span>
+* <span data-ttu-id="ae5de-110">**core50** - um moniker do framework (TFM) que é compatível com o CLR principal 'base' de destino.</span><span class="sxs-lookup"><span data-stu-id="ae5de-110">**core50** - A 'base' target framework moniker (TFM) that is compatible with the Core CLR.</span></span>
+* <span data-ttu-id="ae5de-111">**dnx452** - TFM A aplicativos específicos com base em DNX usando o 4.5.2 completo versão do framework</span><span class="sxs-lookup"><span data-stu-id="ae5de-111">**dnx452** - A TFM specific to DNX-based apps using the full 4.5.2 version of the framework</span></span>
+* <span data-ttu-id="ae5de-112">**dnx46** - TFM A aplicativos específicos com base em DNX usando a versão 4.6 completo do framework</span><span class="sxs-lookup"><span data-stu-id="ae5de-112">**dnx46** - A TFM specific to DNX-based apps using the full 4.6 version of the framework</span></span>
+* <span data-ttu-id="ae5de-113">**dnxcore50** - TFM A aplicativos específicos com base em DNX usando a versão 5.0 do núcleo do framework</span><span class="sxs-lookup"><span data-stu-id="ae5de-113">**dnxcore50** - A TFM specific to DNX-based apps using the Core 5.0 version of the framework</span></span>
 
-<span data-ttu-id="ed123-114">Um bug foi corrigido que pacotes impedido de instalar nos projetos FSharp corretamente:</span><span class="sxs-lookup"><span data-stu-id="ed123-114">One bug was fixed that prevented packages from installing into FSharp projects properly:</span></span>
+<span data-ttu-id="ae5de-114">Um bug foi corrigido que pacotes impedido de instalar nos projetos FSharp corretamente:</span><span class="sxs-lookup"><span data-stu-id="ae5de-114">One bug was fixed that prevented packages from installing into FSharp projects properly:</span></span>
 
-<span data-ttu-id="ed123-115">https://nuget.codeplex.com/workitem/4400</span><span class="sxs-lookup"><span data-stu-id="ed123-115">https://nuget.codeplex.com/workitem/4400</span></span>
+<span data-ttu-id="ae5de-115">https://nuget.codeplex.com/workitem/4400</span><span class="sxs-lookup"><span data-stu-id="ae5de-115">https://nuget.codeplex.com/workitem/4400</span></span>
