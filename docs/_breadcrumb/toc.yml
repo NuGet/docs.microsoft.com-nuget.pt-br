@@ -8,17 +8,17 @@
       items:
         - name: Guia de Início Rápido
           tocHref: /nuget/quickstart/
-          topicHref: /nuget/quickstart/create-and-publish-a-package
+          topicHref: /nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli
         - name: Guias
           tocHref: /nuget/guides/
-          topicHref: /nuget/guides/install-nuget
-        - name: Criar Pacotes
+          topicHref: /nuget/guides/create-net-standard-packages-vs2017
+        - name: Criar pacotes
           tocHref: /nuget/create-packages/
           topicHref: /nuget/create-packages/overview-and-workflow
-        - name: Consumir Pacotes
+        - name: Consumir pacotes
           tocHref: /nuget/consume-packages/
           topicHref: /nuget/consume-packages/overview-and-workflow
-        - name: Hospedar Pacotes
+        - name: Hospedar pacotes
           tocHref: /nuget/hosting-packages/
           topicHref: /nuget/hosting-packages/overview
         - name: Ferramentas
@@ -26,7 +26,7 @@
           topicHref: /nuget/tools/nuget-exe-cli-reference
         - name: Referência
           tocHref: /nuget/reference/
-          topicHref: /nuget/schema/nuspec
+          topicHref: /nuget/reference/nuspec
         - name: API
           tocHref: /nuget/api/
           topicHref: /nuget/api/overview
