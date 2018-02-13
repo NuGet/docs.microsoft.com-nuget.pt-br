@@ -12,11 +12,11 @@ keywords: "Arquivo NuGet.Config, referência de configuração do NuGet, opçõe
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="nugetconfig-reference"></a>Referência do NuGet.Config
 
@@ -48,7 +48,7 @@ Neste tópico:
 
 Contém diversas definições de configurações, que podem ser definidas usando o comando [`nuget config`](../tools/cli-ref-config.md).
 
-Observação: `dependencyVersion` e `repositoryPath` se aplicam apenas a projetos que usam `packages.config`. `globalPackagesFolder`aplica-se somente a projetos usando o formato de PackageReference.
+Observação: `dependencyVersion` e `repositoryPath` se aplicam apenas a projetos que usam `packages.config`. `globalPackagesFolder` aplica-se somente a projetos usando o formato de PackageReference.
 
 | Chave | Valor |
 | --- | --- |
@@ -131,7 +131,7 @@ Observe que a URL de origem para nuget.org é `https://api.nuget.org/v3/index.js
 
 ### <a name="packagesources"></a>packageSources
 
-Lista todas as origens de pacotes conhecidas.
+Lista todas as origens de pacotes conhecidas. A ordem é ignorada durante operações de restauração e com qualquer projeto usando o formato de PackageReference. NuGet respeita a ordem das fontes para instalar e atualizar as operações com projetos usando `packages.config`.
 
 | Chave | Valor |
 | --- | --- |
