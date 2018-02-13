@@ -16,17 +16,17 @@ keywords:
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 08/15/2017
+ms.date: 02/12/2018
 ms.topic: hub-page
 ms.prod: nuget
 ms.technology: 
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 58cd4b41c555b38334b10b3bb5aa2e22a430a5d4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 901327a37f378e16210d4e0272fa3d5638af9bff
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/01/2018
                             </a>
                         </li>
                         <li>
-                            <a href="quickstart/use-a-package.md">
+                            <a href="quickstart/install-and-use-a-package-using-the-dotnet-cli.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -68,8 +68,8 @@ ms.lasthandoff: 02/01/2018
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Guias de Início Rápido</h3>
-                                            <p>Experiência NuGet com explicações passo a passo para criar um pacote simples e usar um pacote.</p>
+                                            <h3>Início Rápido: usando um pacote</h3>
+                                            <p>Saiba como instalar e usar um Pacote NuGet dentro de um projeto. Temos orientações passo a passo disponíveis para a CLI do DotNet e o Visual Studio.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -77,18 +77,18 @@ ms.lasthandoff: 02/01/2018
                             </a>
                         </li>
                         <li>
-                            <a href="install-nuget-client-tools.md">
+                            <a href="quickstart/create-and-publish-a-package-using-the-dotnet-cli.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
                                         <div class="cardImageOuter">
                                             <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-guides.svg" alt="Guides: experience NuGet's tools and capabilities with installation and package creation walkthroughs." />
+                                                <img src="media/hub/nuget-get-started-guides.svg" alt="Guides: experience NuGet's tools and capabilities for creating a package." />
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Guias</h3>
-                                            <p>Experiência de ferramentas e recursos NuGet com explicações passo a passo de instalação e criação de pacotes.</p>
+                                            <h3>Início Rápido: criando um pacote</h3>
+                                            <p>Experimente as ferramentas e funcionalidades do NuGet para criação de pacotes. Temos orientações passo a passo disponíveis para a CLI do DotNet e o Visual Studio.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ ms.lasthandoff: 02/01/2018
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Criar Pacotes</h3>
+                                            <h3>Criar pacotes</h3>
                                             <p>Tudo o que você precisa saber sobre a criação de pacotes do NuGet, desde o fluxo de trabalho geral para controle de versão, pré-lançamento e &amp; outros pacotes especializados.</p>
                                         </div>
                                     </div>
@@ -125,7 +125,7 @@ ms.lasthandoff: 02/01/2018
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Consumir Pacotes</h3>
+                                            <h3>Consumir pacotes</h3>
                                             <p>Tudo o que você precisa saber sobre o uso de pacotes do NuGet, desde localizar e escolher bons pacotes para atualizações de restauração e armazenamento em cache.</p>
                                         </div>
                                     </div>
