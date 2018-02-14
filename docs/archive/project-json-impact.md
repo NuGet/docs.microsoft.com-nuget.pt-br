@@ -12,11 +12,11 @@ keywords: "NuGet e project.json, impacto do project.json, considerações de cri
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6104b4dac330869bc5724ffcf15cc0ac9ee26c1f
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: b732d48b169825764d614c338658f8c6ef45e765
+ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impacto do project.json durante a criação de pacotes
 
@@ -61,7 +61,7 @@ Pacotes que tentam modificar o projeto para facilitar a inicialização normalme
 
 A maioria dos pacotes existentes não deve precisar usar o formato de pacote descrito abaixo.
 
-O formato habilita conteúdo nativo como um cenário de primeira classe. Isso significa que assemblies gerenciados dependem de implementações próximas a hardware para enviar fornecer implementações binárias juntamente com os assemblies gerenciados, dependendo da plataforma de destino. O pacote System.IO.Compression, por exemplo, utiliza essa tecnologia. [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
+O formato habilita conteúdo nativo como um cenário de primeira classe. Isso significa que assemblies gerenciados dependem de implementações próximas a hardware para enviar implementações binárias juntamente com os assemblies gerenciados, dependendo da plataforma de destino. O pacote System.IO.Compression, por exemplo, utiliza essa tecnologia. [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
 
 Resumindo, se a funcionalidade acima não é absolutamente necessária, recomendamos continuar usando o formato de pacote existente, visto que o formato descrito aqui é compatível somente com o NuGet 3.x ou superior.
 
