@@ -3,7 +3,7 @@ title: Formas de instalar pacotes NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 01/30/2018
+ms.date: 02/12/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: "instalar o NuGet, consumo de pacote NuGet, instalação de pacotes Nu
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e48bbe813168e773bc46b7fe25af29785ff75df
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3bae03e148a366388c10d08e83c89dac6ff56d06
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Maneiras diferentes de instalar um pacote NuGet
 
@@ -35,7 +35,10 @@ Em geral, o NuGet faz o seguinte ao receber uma solicitação de instalação de
 
 1. Adquira o pacote:
     - Verifique se o pacote solicitado já existe em um cache (veja [Gerenciar o cache do NuGet](managing-the-nuget-cache.md)).
-    - Se o pacote não estiver no cache, tente baixar o pacote das fontes listadas nos arquivos de configuração, começando com o primeiro na lista. Esse comportamento permite que você use feeds de pacote privados antes de procurar por um pacote em nuget.org (veja [Configurar o comportamento do NuGet](configuring-nuget-behavior.md)).
+    - Se o pacote não estiver armazenado no cache, tente baixá-lo das fontes listadas nos [arquivos de configuração](Configuring-NuGet-Behavior.md).
+      - No caso dos projetos que usam o formato de referência `packages.config`, o NuGet usa a ordem das fontes na configuração.
+      - No caso dos projetos que usam o formato PackageReference, o NuGet verifica primeiro as fontes que estão em pastas locais, em seguida, verifica as fontes de compartilhamentos de rede e depois as fontes HTTP (Internet).
+      - De modo geral, a ordem em que o NuGet verifica as fontes não é especialmente significativa, porque todos os pacotes fornecidos com um identificador e número de versão específicos são exatamente os mesmos em todas as fontes encontradas.
     - Se o pacote for adquirido com êxito de uma das fontes, o NuGet o adicionará ao cache. Caso contrário, a instalação falhará.
 
 1. Expanda o pacote no projeto.
