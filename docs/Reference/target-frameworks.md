@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dbeec1d3332571d8e9616dfe9675b5fcf3c85589
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="target-frameworks"></a>Frameworks de destino
 
@@ -129,7 +129,7 @@ A série de monikers `dotnet` deve ser usada no NuGet 3.3 e versões anteriores;
 ## <a name="portable-class-libraries"></a>Bibliotecas de Classes Portáteis
 
 > [!Warning]
-> **PCLs não são recomendados**. Embora haja suporte para PCLs, os autores de pacote devem dar suporte ao netstandard em vez disso. O .NET Platform Standard é uma evolução de PCLs e representa a portabilidade binária entre plataformas que usam um moniker único que não está vinculado a um estático como monikers *portable-a+b+c*.
+> **PCLs não são recomendados**. Embora haja suporte para PCLs, os autores de pacote devem dar suporte ao netstandard em vez disso. É uma evolução do PCLs e representa binária portabilidade entre plataformas usando um moniker único que não está vinculado a uma biblioteca estática, como no .NET Platform Standard *portátil-a + b + c* identificadores de origem.
 
 Para definir uma estrutura de destino que se refere a várias estruturas de destino filho, a palavra-chave `portable` é usada para prefixar a lista de estruturas referenciadas. Evite incluir estruturas extras artificialmente que não são diretamente compiladas, pois o erro pode causar efeitos colaterais indesejados nessas estruturas.
 

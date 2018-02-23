@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 56cb9d5b40bbfbd722e611e0e86945eddbe9d19a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -94,7 +94,7 @@ Esses elementos podem aparecer dentro de um elemento `<metadata>`.
 | **owners** | Uma lista separada por vírgulas de criadores de pacotes que usam nomes de perfil no nuget.org. Essa geralmente é a mesma lista que `authors` e é ignorado ao carregar o pacote no nuget.org. Consulte [Gerenciando os proprietários de pacote no nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Uma URL para a home page do pacote, geralmente mostrada em exibições de interface do usuário, bem como em nuget.org. |
 | **licenseUrl** | Uma URL para a licença do pacote, geralmente mostrada em exibições de interface do usuário, bem como no nuget.org. |
-| **iconUrl** | Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como o ícone do pacote na exibição de interface do usuário. Verifique se esse elemento contém a *URL direta da imagem* e não a URL de uma página da Web que contém a imagem. Por exemplo, para usar uma imagem do GitHub, use o arquivo URL bruto como `https://github.com/<username>/<repository>/raw/<branch>/<logo.png>`. |
+| **iconUrl** | Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como o ícone do pacote na exibição de interface do usuário. Verifique se esse elemento contém a *URL direta da imagem* e não a URL de uma página da Web que contém a imagem. Por exemplo, para usar uma imagem do GitHub, use o arquivo bruto URL como *https://github.com/\<username\>/\<repositório\>/raw/\<ramificação\> / \<logo.png\>*. |
 | **requireLicenseAcceptance** | Um valor booliano que especifica se o cliente precisa solicitar que o consumidor aceite a licença do pacote antes de instalá-lo. |
 | **developmentDependency** | *(2.8 ou superior)* Um valor booliano que especifica se o pacote está marcado como uma dependência somente de desenvolvimento, que impede que o pacote seja incluído como uma dependência em outros pacotes. |
 | **summary** | Uma breve descrição do pacote para exibição de interface do usuário. Se omitido, uma versão truncada do `description` é usada. |
@@ -108,7 +108,7 @@ Esses elementos podem aparecer dentro de um elemento `<metadata>`.
 
 | Elemento | Descrição |
 | --- | --- |
-**packageTypes** | *(3.5 +)*  Uma coleção de zero ou mais `<packageType>` elementos que especificam o tipo do pacote se diferente de um pacote de dependência tradicional. Cada packageType tem os atributos de *name* e *version*. Consulte [Definindo um tipo de pacote](../create-packages/creating-a-package.md#setting-a-package-type). |
+**packageTypes** | *(3.5 ou superior)* Uma coleção de zero ou mais elementos `<packageType>` que especificam o tipo do pacote se for diferente de um pacote de dependência tradicional. Cada packageType tem os atributos de *name* e *version*. Consulte [Definindo um tipo de pacote](../create-packages/creating-a-package.md#setting-a-package-type). |
 | **dependencies** | Uma coleção de zero ou mais elementos `<dependency>` que especificam as dependências do pacote. Cada dependência tem atributos de *id*, *version*, *include* (3.x ou superior) e *exclude* (3.x ou superior). Consulte [Dependências](#dependencies) abaixo. |
 | **frameworkAssemblies** | *(1.2 ou superior)* Uma coleção de zero ou mais elementos `<frameworkAssembly>` identifica as referências de assembly do .NET Framework que este pacote requer, o que garante que elas sejam adicionadas aos projetos que consomem o pacote. Cada frameworkAssembly tem os atributos *assemblyName* e *targetFramework*. Consulte [Especificando as referências GAC de assembly do framework](#specifying-framework-assembly-references-gac) abaixo. |
 | **references** | *(1.5 ou superior)* Uma coleção de zero ou mais assemblies de nomenclatura de elementos `<reference>` na pasta `lib` do pacote que são adicionados como referências de projeto. Cada referência tem um atributo *file*. `<references>` também pode conter um elemento `<group>` com um atributo *targetFramework*, que contém elementos `<reference>`. Se omitido, todas as referências no `lib` são incluídas. Consulte [Especificando referências de assembly explícitas](#specifying-explicit-assembly-references) abaixo. |
@@ -328,7 +328,7 @@ Para ignorar esse comportamento automático e controlar explicitamente quais arq
 </files>
 ```
 
-Com o NuGet 2.x e anteriores, e em projetos que usam `packages.config`, o elemento `<files>` também é usado para incluir arquivos de conteúdo imutáveis quando um pacote é instalado. Com o NuGet 3.3 + e projetos PackageReference, o `<contentFiles>` elemento é usado em vez disso. Consulte [Incluindo arquivos de conteúdo](#including-content-files) abaixo para ver os detalhes.
+Com o NuGet 2.x e anteriores, e em projetos que usam `packages.config`, o elemento `<files>` também é usado para incluir arquivos de conteúdo imutáveis quando um pacote é instalado. Com o NuGet 3.3 ou superior e projetos PackageReference, o elemento `<contentFiles>` é usado. Consulte [Incluindo arquivos de conteúdo](#including-content-files) abaixo para ver os detalhes.
 
 ### <a name="file-element-attributes"></a>Atributos do elemento de arquivo
 
@@ -413,7 +413,7 @@ Arquivos de conteúdo são arquivos imutáveis que um pacote incluir em um proje
 - Scripts que precisam ser incluídos na saída de build do projeto
 - Arquivos de configuração para o pacote que precisam ser incluídos no projeto, mas não precisam de nenhuma alteração específica do projeto
 
-Arquivos de conteúdo são incluídos em um pacote usando o elemento `<files>`, especificando a pasta `content` no atributo `target`. No entanto, esses arquivos são ignorados quando o pacote é instalado em um projeto usando PackageReference, que usa o `<contentFiles>` elemento.
+Arquivos de conteúdo são incluídos em um pacote usando o elemento `<files>`, especificando a pasta `content` no atributo `target`. No entanto, esses arquivos são ignorados quando o pacote é instalado em um projeto usando PackageReference, que usa o elemento `<contentFiles>`.
 
 Para máxima compatibilidade com projetos de consumo, é ideal que um pacote especifique os arquivos de conteúdo em ambos os elementos.
 
@@ -544,7 +544,7 @@ Esses arquivos são especificados com um conjunto de atributos que descrevem com
 | **exclude** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 | **buildAction** | A ação de build para atribuir ao item de conteúdo para o MSBuild, como `Content`, `None`, `Embedded Resource`, `Compile`, etc. O padrão é `Compile`. |
 | **copyToOutput** | Um valor booliano que indica se os itens de conteúdo devem ser copiados para a pasta de saída do build. O padrão é falso. |
-| **flatten** | Um valor booliano que indica se os itens de conteúdo devem ser copiados para uma única pasta na saída do build (verdadeiro) ou preservar a estrutura de pasta no pacote (falso). Esse sinalizador só funciona quando copyToOutput sinalizador é definido como true. O padrão é falso. |
+| **flatten** | Um valor booliano que indica se os itens de conteúdo devem ser copiados para uma única pasta na saída do build (verdadeiro) ou preservar a estrutura de pasta no pacote (falso). Esse sinalizador só funciona quando o sinalizador copyToOutput está definido como true. O padrão é falso. |
 
 Ao instalar um pacote, o NuGet aplicará os elementos filho de `<contentFiles>` de cima para baixo. Se várias entradas corresponderem ao mesmo arquivo, todas as entradas serão aplicadas. A entrada superior substitui as entradas mais baixas em caso de conflito para o mesmo atributo.
 
