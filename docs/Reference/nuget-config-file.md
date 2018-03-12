@@ -12,11 +12,11 @@ keywords: "Arquivo NuGet.Config, referência de configuração do NuGet, opçõe
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
-ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
+ms.openlocfilehash: c76ebcb06adc5e5b862647de6b6f4e19bde87b91
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nugetconfig-reference"></a>Referência do NuGet.Config
 
@@ -87,7 +87,7 @@ Configura se o NuGet realiza redirecionamentos de associação automática quand
 
 ## <a name="packagerestore-section"></a>Seção packageRestore
 
-*Ignorado no 2.7 ou superior*
+*Ignorada em todas as versões atuais (2.7 +)*
 
 Controla a restauração de pacote durante builds.
 

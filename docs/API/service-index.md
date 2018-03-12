@@ -16,11 +16,11 @@ keywords: Ponto de entrada de API do NuGet, descoberta de ponto de extremidade N
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 8de0bc15edc358d091d84da54b8b67c085f29645
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-index"></a>Índice de serviço
 
@@ -30,12 +30,11 @@ O índice de serviço é um documento JSON que é o ponto de entrada para uma or
 
 ## <a name="versioning"></a>Controle de versão
 
-O `version` valor é uma cadeia de caracteres de versão pode ser analisado SemVer 2.0.0 que indica a versão do esquema do índice de serviço.
-A API exige que a cadeia de caracteres de versão tem um número de versão principal do `3`. Como as alterações recentes não são feitas para o esquema de índice de serviço, versão secundária da cadeia de caracteres de versão será aumentado.
+O `version` valor é uma cadeia de caracteres de versão pode ser analisado SemVer 2.0.0 que indica a versão do esquema do índice de serviço. A API exige que a cadeia de caracteres de versão tem um número de versão principal do `3`. Como as alterações recentes não são feitas para o esquema de índice de serviço, versão secundária da cadeia de caracteres de versão será aumentado.
 
 Cada recurso no índice de serviço é com controle de versão independentemente do serviço de versão de esquema de índice.
 
-A versão atual do esquema é `3.0.0-beta.1`.
+A versão atual do esquema é `3.0.0`. O `3.0.0` versão é funcionalmente equivalente à antigos `3.0.0-beta.1` versão mas deve ser preferencial porque ele se comunica mais claramente o esquema estável, definido.
 
 ## <a name="http-methods"></a>Métodos HTTP
 

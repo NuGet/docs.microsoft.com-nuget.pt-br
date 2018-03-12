@@ -11,11 +11,11 @@ description: O pack e restore do NuGet podem funcionar diretamente como destinos
 keywords: NuGet e MSBuild, NuGet pack target, NuGet restore target
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -55,7 +55,7 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 | Autores | Autores | Nome do usuário atual | |
 | Proprietários | N/D | Não está presente no NuSpec | |
 | Título | Título | O PackageId| |
-| Descrição | Descrição | “Package Description” | |
+| Descrição | PackageDescription | “Package Description” | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | LicenseUrl | PackageLicenseUrl | empty | |
@@ -222,6 +222,9 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. Executar restauração
 1. Baixar os pacotes
 1. Gravar arquivo de ativos, destinos e objetos
+
+> [!Note]
+> O `restore` destino do MSBuild funciona apenas para projetos que usam `PackageReference` itens e não restaurar os pacotes referenciados usando um `packages.config` arquivo.
 
 ### <a name="restore-properties"></a>Restaurar propriedades
 
