@@ -26,6 +26,7 @@
 ## [Pacotes de pré-lançamento](create-packages/prerelease-packages.md)
 ## [Pacotes nativos](create-packages/native-packages.md)
 ## [Pacotes de símbolo](create-packages/symbol-packages.md)
+## [Assinando pacotes](create-packages/sign-a-package.md)
 ## [Publicar um pacote](create-packages/publish-a-package.md)
 ## Guias
 ### [Criar pacotes UWP](guides/create-uwp-packages.md)
@@ -33,7 +34,7 @@
 ### [Criar pacotes NET Standard (Visual Studio 2015)](guides/create-net-standard-packages-vs2015.md)
 ### [Criar pacotes para o Xamarin](guides/create-packages-for-xamarin.md)
 # Hospedar pacotes
-## [Visão Geral](hosting-packages/overview.md)
+## [Visão geral](hosting-packages/overview.md)
 ## [Feeds locais](hosting-packages/local-feeds.md)
 ## [NuGet.Server](hosting-packages/nuget-server.md)
 # Ferramentas
@@ -51,9 +52,11 @@
 ### [push](tools/cli-ref-push.md)
 ### [restore](tools/cli-ref-restore.md)
 ### [setapikey](tools/cli-ref-setapikey.md)
+### [sign](tools/cli-ref-sign.md)
 ### [sources](tools/cli-ref-sources.md)
 ### [spec](tools/cli-ref-spec.md)
 ### [update](tools/cli-ref-update.md)
+### [verify](tools/cli-ref-verify.md)
 ### [Variáveis de ambiente](tools/cli-ref-environment-variables.md)
 ## [Interface do usuário do Gerenciador de Pacotes](tools/package-manager-ui.md)
 ## [Console do gerenciador de pacotes](tools/package-manager-console.md)
@@ -79,6 +82,7 @@
 ## [Erros e avisos](reference/errors-and-warnings.md)
 ## [Reserva de prefixo de ID](reference/id-prefix-reservation.md)
 ## [SDK do cliente NuGet](reference/nuget-client-sdk.md)
+## [Referência de pacotes assinados](reference/signed-packages-reference.md)
 ## Extensibilidade
 ### [Provedores de credenciais NuGet para Visual Studio](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [Provedores de credenciais nuget.exe](reference/extensibility/nuget-exe-credential-providers.md)
@@ -87,7 +91,7 @@
 ### [project.json e UWP](archive/project-json-and-uwp.md)
 ### [project.json impact](archive/project-json-impact.md)
 # API
-## [Visão Geral](api/overview.md)
+## [Visão geral](api/overview.md)
 ## [Como consultar todos os pacotes usando a API](guides/api/query-for-all-published-packages.md)
 ## [Índice de serviço](api/service-index.md)
 ## [Enviar por push e excluir](api/package-publish-resource.md)
@@ -108,9 +112,9 @@
 ## [Ecossistema](policies/ecosystem.md)
 ## [Solução de controvérsias](policies/dispute-resolution.md)
 ## [Exclusão de pacotes](policies/deleting-packages.md)
-# [Repositórios do GitHub](https://github.com/NuGet)
 # Notas de Versão
 ## [Problemas conhecidos](release-notes/known-issues.md)
+## [NuGet 4.6 RTM](release-notes/NuGet-4.6-RTM.md)
 ## [NuGet 4.5 RTM](release-notes/NuGet-4.5-RTM.md)
 ## [NuGet 4.4 RTM](release-notes/NuGet-4.4-RTM.md)
 ## [NuGet 4.3 RTM](release-notes/NuGet-4.3-RTM.md)
