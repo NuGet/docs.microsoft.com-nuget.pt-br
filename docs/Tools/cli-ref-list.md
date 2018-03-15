@@ -12,46 +12,48 @@ keywords: "referência de lista do NuGet, comando de pacotes de lista"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5a1f68aaffd26a0f903aa3a7a4a450a0121191c3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e0945b9e64a15a839f62bde0a0ef8f3d83335d4
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="list-command-nuget-cli"></a><span data-ttu-id="e7b1b-104">comando Listar (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="e7b1b-104">list command (NuGet CLI)</span></span>
+# <a name="list-command-nuget-cli"></a><span data-ttu-id="ed2fb-104">comando Listar (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="ed2fb-104">list command (NuGet CLI)</span></span>
 
-<span data-ttu-id="e7b1b-105">**Aplica-se a:** consumo de pacote, a publicação &bullet; **versões com suporte:** todos</span><span class="sxs-lookup"><span data-stu-id="e7b1b-105">**Applies to:** package consumption, publishing &bullet; **Supported versions:** all</span></span>
+<span data-ttu-id="ed2fb-105">**Aplica-se a:** consumo de pacote, a publicação &bullet; **versões com suporte:** todos</span><span class="sxs-lookup"><span data-stu-id="ed2fb-105">**Applies to:** package consumption, publishing &bullet; **Supported versions:** all</span></span>
 
-<span data-ttu-id="e7b1b-106">Exibe uma lista de pacotes de uma origem específica.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-106">Displays a list of packages from a given source.</span></span> <span data-ttu-id="e7b1b-107">Se nenhuma fonte for especificada, todas as fontes definidas no arquivo de configuração global, `%AppData%\NuGet\NuGet.Config`, são usados.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-107">If no sources are specified, all sources defined in the global configuration file, `%AppData%\NuGet\NuGet.Config`, are used.</span></span> <span data-ttu-id="e7b1b-108">Se `NuGet.Config` não especifica nenhuma fonte, em seguida, `list` usa o feed padrão (nuget.org).</span><span class="sxs-lookup"><span data-stu-id="e7b1b-108">If `NuGet.Config` specifies no sources, then `list` uses the default feed (nuget.org).</span></span>
+<span data-ttu-id="ed2fb-106">Exibe uma lista de pacotes de uma origem específica.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-106">Displays a list of packages from a given source.</span></span> <span data-ttu-id="ed2fb-107">Se nenhuma fonte for especificada, todas as fontes definidas no arquivo de configuração global, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config`, são usados.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-107">If no sources are specified, all sources defined in the global configuration file, `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config`, are used.</span></span> <span data-ttu-id="ed2fb-108">Se `NuGet.Config` não especifica nenhuma fonte, em seguida, `list` usa o feed padrão (nuget.org).</span><span class="sxs-lookup"><span data-stu-id="ed2fb-108">If `NuGet.Config` specifies no sources, then `list` uses the default feed (nuget.org).</span></span>
 
-## <a name="usage"></a><span data-ttu-id="e7b1b-109">Uso</span><span class="sxs-lookup"><span data-stu-id="e7b1b-109">Usage</span></span>
+## <a name="usage"></a><span data-ttu-id="ed2fb-109">Uso</span><span class="sxs-lookup"><span data-stu-id="ed2fb-109">Usage</span></span>
 
 ```cli
 nuget list [search terms] [options]
 ```
 
-<span data-ttu-id="e7b1b-110">onde os termos de pesquisa opcional filtra a lista exibida.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-110">where the optional search terms will filter the displayed list.</span></span> <span data-ttu-id="e7b1b-111">Termos de pesquisa são aplicados para os nomes dos pacotes, marcas e descrições do pacote.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-111">Search terms are applied to the names of packages, tags, and package descriptions.</span></span>
+<span data-ttu-id="ed2fb-110">onde os termos de pesquisa opcional filtra a lista exibida.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-110">where the optional search terms will filter the displayed list.</span></span> <span data-ttu-id="ed2fb-111">Termos de pesquisa são aplicados para os nomes dos pacotes, marcas e descrições de pacote como elas são quando usá-los em nuget.org.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-111">Search terms are applied to the names of packages, tags, and package descriptions just as they are when using them on nuget.org.</span></span>
 
-## <a name="options"></a><span data-ttu-id="e7b1b-112">Opções</span><span class="sxs-lookup"><span data-stu-id="e7b1b-112">Options</span></span>
+## <a name="options"></a><span data-ttu-id="ed2fb-112">Opções</span><span class="sxs-lookup"><span data-stu-id="ed2fb-112">Options</span></span>
 
-| <span data-ttu-id="e7b1b-113">Opção</span><span class="sxs-lookup"><span data-stu-id="e7b1b-113">Option</span></span> | <span data-ttu-id="e7b1b-114">Descrição</span><span class="sxs-lookup"><span data-stu-id="e7b1b-114">Description</span></span> |
+| <span data-ttu-id="ed2fb-113">Opção</span><span class="sxs-lookup"><span data-stu-id="ed2fb-113">Option</span></span> | <span data-ttu-id="ed2fb-114">Descrição</span><span class="sxs-lookup"><span data-stu-id="ed2fb-114">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="e7b1b-115">Todasas versões</span><span class="sxs-lookup"><span data-stu-id="e7b1b-115">AllVersions</span></span> | <span data-ttu-id="e7b1b-116">Lista todas as versões de um pacote.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-116">List all versions of a package.</span></span> <span data-ttu-id="e7b1b-117">Por padrão, somente a versão mais recente do pacote é exibida.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-117">By default, only the latest package version is displayed.</span></span> |
-| <span data-ttu-id="e7b1b-118">ConfigFile</span><span class="sxs-lookup"><span data-stu-id="e7b1b-118">ConfigFile</span></span> | <span data-ttu-id="e7b1b-119">O arquivo de configuração do NuGet para aplicar.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-119">The NuGet configuration file to apply.</span></span> <span data-ttu-id="e7b1b-120">Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-120">If not specified, *%AppData%\NuGet\NuGet.Config* is used.</span></span> |
-| <span data-ttu-id="e7b1b-121">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="e7b1b-121">ForceEnglishOutput</span></span> | <span data-ttu-id="e7b1b-122">*(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-122">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
-| <span data-ttu-id="e7b1b-123">Ajuda</span><span class="sxs-lookup"><span data-stu-id="e7b1b-123">Help</span></span> | <span data-ttu-id="e7b1b-124">Exibe informações de ajuda para o comando.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-124">Displays help information for the command.</span></span> |
-| <span data-ttu-id="e7b1b-125">IncludeDelisted</span><span class="sxs-lookup"><span data-stu-id="e7b1b-125">IncludeDelisted</span></span> | <span data-ttu-id="e7b1b-126">*(3.2 +)*  Exibir pacotes não listados.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-126">*(3.2+)* Display unlisted packages.</span></span> |
-| <span data-ttu-id="e7b1b-127">NonInteractive</span><span class="sxs-lookup"><span data-stu-id="e7b1b-127">NonInteractive</span></span> | <span data-ttu-id="e7b1b-128">Suprime avisos para a entrada do usuário ou confirmações.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-128">Suppresses prompts for user input or confirmations.</span></span> |
-| <span data-ttu-id="e7b1b-129">Versão de pré-lançamento</span><span class="sxs-lookup"><span data-stu-id="e7b1b-129">PreRelease</span></span> | <span data-ttu-id="e7b1b-130">Inclui pacotes pré-lançados na lista.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-130">Includes prerelease packages in the list.</span></span> |
-| <span data-ttu-id="e7b1b-131">Origem</span><span class="sxs-lookup"><span data-stu-id="e7b1b-131">Source</span></span> | <span data-ttu-id="e7b1b-132">Especifica uma lista de fontes de pacotes para pesquisar.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-132">Specifies a list of packages sources to search.</span></span> |
-| <span data-ttu-id="e7b1b-133">Detalhamento</span><span class="sxs-lookup"><span data-stu-id="e7b1b-133">Verbosity</span></span> | <span data-ttu-id="e7b1b-134">Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*.</span><span class="sxs-lookup"><span data-stu-id="e7b1b-134">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
+| <span data-ttu-id="ed2fb-115">Todasas versões</span><span class="sxs-lookup"><span data-stu-id="ed2fb-115">AllVersions</span></span> | <span data-ttu-id="ed2fb-116">Lista todas as versões de um pacote.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-116">List all versions of a package.</span></span> <span data-ttu-id="ed2fb-117">Por padrão, somente a versão mais recente do pacote é exibida.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-117">By default, only the latest package version is displayed.</span></span> |
+| <span data-ttu-id="ed2fb-118">ConfigFile</span><span class="sxs-lookup"><span data-stu-id="ed2fb-118">ConfigFile</span></span> | <span data-ttu-id="ed2fb-119">O arquivo de configuração do NuGet para aplicar.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-119">The NuGet configuration file to apply.</span></span> <span data-ttu-id="ed2fb-120">Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-120">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>|
+| <span data-ttu-id="ed2fb-121">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="ed2fb-121">ForceEnglishOutput</span></span> | <span data-ttu-id="ed2fb-122">*(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-122">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
+| <span data-ttu-id="ed2fb-123">Ajuda</span><span class="sxs-lookup"><span data-stu-id="ed2fb-123">Help</span></span> | <span data-ttu-id="ed2fb-124">Exibe informações de ajuda para o comando.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-124">Displays help information for the command.</span></span> |
+| <span data-ttu-id="ed2fb-125">IncludeDelisted</span><span class="sxs-lookup"><span data-stu-id="ed2fb-125">IncludeDelisted</span></span> | <span data-ttu-id="ed2fb-126">*(3.2 +)*  Exibir pacotes não listados.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-126">*(3.2+)* Display unlisted packages.</span></span> |
+| <span data-ttu-id="ed2fb-127">NonInteractive</span><span class="sxs-lookup"><span data-stu-id="ed2fb-127">NonInteractive</span></span> | <span data-ttu-id="ed2fb-128">Suprime avisos para a entrada do usuário ou confirmações.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-128">Suppresses prompts for user input or confirmations.</span></span> |
+| <span data-ttu-id="ed2fb-129">Versão de pré-lançamento</span><span class="sxs-lookup"><span data-stu-id="ed2fb-129">PreRelease</span></span> | <span data-ttu-id="ed2fb-130">Inclui pacotes pré-lançados na lista.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-130">Includes prerelease packages in the list.</span></span> |
+| <span data-ttu-id="ed2fb-131">Origem</span><span class="sxs-lookup"><span data-stu-id="ed2fb-131">Source</span></span> | <span data-ttu-id="ed2fb-132">Especifica uma lista de fontes de pacotes para pesquisar.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-132">Specifies a list of packages sources to search.</span></span> |
+| <span data-ttu-id="ed2fb-133">Detalhamento</span><span class="sxs-lookup"><span data-stu-id="ed2fb-133">Verbosity</span></span> | <span data-ttu-id="ed2fb-134">Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*.</span><span class="sxs-lookup"><span data-stu-id="ed2fb-134">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
 
-<span data-ttu-id="e7b1b-135">Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)</span><span class="sxs-lookup"><span data-stu-id="e7b1b-135">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
+<span data-ttu-id="ed2fb-135">Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)</span><span class="sxs-lookup"><span data-stu-id="ed2fb-135">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
 
-## <a name="examples"></a><span data-ttu-id="e7b1b-136">Exemplos</span><span class="sxs-lookup"><span data-stu-id="e7b1b-136">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="ed2fb-136">Exemplos</span><span class="sxs-lookup"><span data-stu-id="ed2fb-136">Examples</span></span>
 
 ```cli
 nuget list
 
-nuget list -Verbosity detailed -AllVersions
+nuget list chinese korean -Verbosity detailed
+
+nuget list couchbase -AllVersions
 ```
