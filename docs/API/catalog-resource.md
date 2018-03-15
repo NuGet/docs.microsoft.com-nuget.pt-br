@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "O catálogo é um índice de todos os pacotes criados e excluídos em nuget.org."
-keywords: "Catálogo de API do NuGet V3, log de transações nuget.org, replicar NuGet.org, clone NuGet.org, registro somente de acréscimo de NuGet.org"
+keywords: "Catálogo de API do NuGet V3, log de transações nuget.org, replicar nuget.org, clone nuget.org, registro somente de acréscimo de nuget.org"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="catalog"></a>Catálogo
 
@@ -50,7 +50,7 @@ Todas as URLs encontradas no suporte a recurso de catálogo apenas os métodos H
 
 ## <a name="catalog-index"></a>Índice do catálogo
 
-O índice do catálogo é um documento em um local conhecido que tem uma lista de itens de catálogo, ordenados cronologically. É o ponto de entrada do recurso de catálogo.
+O índice do catálogo é um documento em um local conhecido que tem uma lista de itens de catálogo, ordenadas cronologicamente. É o ponto de entrada do recurso de catálogo.
 
 O índice é composto de páginas de catálogo. Cada página de catálogo contém itens de catálogo. Cada item de catálogo representa um evento sobre um único pacote em um ponto no tempo. Um item de catálogo pode representar um pacote que foi criado, não listados, listado novamente ou excluído da origem do pacote. Processando os itens de catálogo em ordem cronológica, o cliente pode criar uma exibição atualizada de cada pacote que existe na origem do pacote V3.
 
@@ -128,7 +128,7 @@ pai          | cadeia de caracteres           | sim      | Uma URL para o índic
 
 Cada elemento de `items` matriz é um objeto com alguns detalhes mínimo sobre o item de catálogo. Esses objetos de item não contêm todos os dados do item de catálogo. A ordem dos itens na página de `items` matriz não está definida. Itens podem ser solicitados pelo cliente na memória usando seus `commitTimeStamp` propriedade.
 
-O número de itens de catálogo em uma página é definido pela implementação do servidor. Para nuget.org, há no máximo 550 itens em cada página, embora o número real pode ser menor para dependong algumas páginas no tamanho do próximo lote de confirmação no ponto no tempo.
+O número de itens de catálogo em uma página é definido pela implementação do servidor. Para nuget.org, há no máximo 550 itens em cada página, embora o número real pode ser menor para algumas páginas, dependendo do tamanho do próximo lote de confirmação no ponto no tempo.
 
 Conforme novos itens são apresentados, o `count` é objetos de item de catálogo novo e incrementado aparecem na `items` matriz.
 
@@ -164,7 +164,7 @@ Para obter mais detalhes sobre significa que cada tipo, consulte o [corresponden
 
 ## <a name="catalog-leaf"></a>Folha de catálogo
 
-A folha de catálogo contém metadados sobre um ID de pacote específico e a versão em algum ponto no tempo. É um documento obtido usando o `@id` valor encontrado em uma página de catálogo. A URL para uma folha de catálogo não se destina a ser predictedable e deve ser detectada usando apenas uma página de catálogo.
+A folha de catálogo contém metadados sobre um ID de pacote específico e a versão em algum ponto no tempo. É um documento obtido usando o `@id` valor encontrado em uma página de catálogo. A URL para uma folha de catálogo não se destina a ser previsíveis e deve ser detectada usando apenas uma página de catálogo.
 
 O documento de folha de catálogo é um objeto JSON com as seguintes propriedades:
 
@@ -226,16 +226,16 @@ O pacote `version` propriedade é a cadeia de caracteres de versão completo, no
 
 O `created` carimbo de hora é quando o pacote foi recebido pela origem do pacote, que é normalmente um curto período de tempo antes de carimbo de hora de confirmação do item de catálogo.
 
-O `packageHashAlgorithm` é uma cadeia de caracteres definidos por represeting de implementação do servidor, o algoritmo de hash usado para produzir o `packageHash`. NuGet.org usado sempre o `packageHashAlgorithm` valor `SHA512`.
+O `packageHashAlgorithm` é uma cadeia de caracteres definida pela implementação de servidor que representa o algoritmo de hash usado para produzir o `packageHash`. NuGet.org usado sempre o `packageHashAlgorithm` valor `SHA512`.
 
 O `published` carimbo de hora é o tempo quando o pacote última foi listado.
 
 > [!Note]
-> Em nuget.org, o `published` valor é definido para ano 1900 quando o pacote for removido da lista.
+> Em nuget.org, o `published` valor é definido como o ano de 1900 quando o pacote for removido da lista.
 
 #### <a name="sample-request"></a>Solicitação de amostra
 
-GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+OBTER https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 #### <a name="sample-response"></a>Resposta de exemplo
 
@@ -256,7 +256,7 @@ O `published` propriedade é a hora em que o pacote foi excluído, que normalmen
 
 #### <a name="sample-request"></a>Solicitação de amostra
 
-GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+OBTER https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
 #### <a name="sample-response"></a>Resposta de exemplo
 
@@ -307,7 +307,7 @@ Com esse algoritmo básico, a implementação do cliente pode criar uma exibiç�
 
 ### <a name="dependent-cursors"></a>Cursores dependentes
 
-Suponha que há dois clientes de catálogo que têm uma dependência inherant onde saída de um cliente depende de saída do cliente para outro. 
+Suponha que há dois clientes de catálogo que têm uma dependência inerente onde saída de um cliente depende de saída do cliente para outro. 
 
 #### <a name="example"></a>Exemplo
 
@@ -317,7 +317,7 @@ Já que ambos os recursos são criados fora do catálogo, o cursor do cliente de
 
 #### <a name="algorithm"></a>Algoritmo
 
-Para implementar essa restrição, simples modificar o algoritmo acima para ser:
+Para implementar essa restrição, basta modificar o algoritmo acima para ser:
 
 1. Busca o valor de cursor gravada de um repositório local.
 1. Baixe e desserializar o índice do catálogo.

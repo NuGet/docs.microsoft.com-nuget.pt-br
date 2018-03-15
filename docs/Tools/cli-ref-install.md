@@ -12,11 +12,11 @@ keywords: "NuGet instalar referência, o comando do pacote de instalação"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e824b08486704371eebefb964f86315d82fc222
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 8d5f53c833fb42c9fe37d0629eab33e8f0bc70d7
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-command-nuget-cli"></a>instalar o comando (NuGet CLI)
 
@@ -27,7 +27,7 @@ Baixa e instala um pacote em um projeto, o padrão para a pasta atual, usando fo
 > [!Tip]
 > Para baixar um pacote diretamente fora do contexto de um projeto, visite a página do pacote no [nuget.org](https://www.nuget.org) e selecione o **baixar** link.
 
-Se nenhuma fonte for especificada, aqueles listados no arquivo de configuração global, `%APPDATA%\NuGet\NuGet.Config`, são usados. Consulte [NuGet Configurando comportamento](../consume-packages/configuring-nuget-behavior.md) para obter detalhes adicionais.
+Se nenhuma fonte for especificada, aqueles listados no arquivo de configuração global, `%APPDATA%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac Linux), são usados. Consulte [NuGet Configurando comportamento](../consume-packages/configuring-nuget-behavior.md) para obter detalhes adicionais.
 
 Se nenhum pacote específico é especificada, `install` instala todos os pacotes listados no projeto de `packages.config` arquivo, tornando-o como [ `restore` ](cli-ref-restore.md).
 
@@ -47,7 +47,7 @@ onde `<packageID>` nomeia o pacote de instalação (usando a versão mais recent
 
 | Opção | Descrição |
 | --- | --- |
-| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
+| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
 | DependencyVersion | *(4.4 +)*  Especifica uma versão específica, substituindo o comportamento de resolução de dependência padrão. |
 | DisableParallelProcessing | Desativa a instalação de vários pacotes em paralelo. |
 | ExcludeVersion | Instala o pacote para uma pasta chamada com apenas o nome do pacote e não o número de versão. |

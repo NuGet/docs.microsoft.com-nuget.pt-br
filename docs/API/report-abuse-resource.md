@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "O modelo de URL do relatório abuso permite que os clientes exibir um link para relatar abuso em sua interface do usuário."
-keywords: "Relatar abuso da API do NuGet, reclamação do arquivo NuGet API, o modelo de URL de relatório NuGet.org"
+keywords: "Relatar abuso da API do NuGet, reclamação do arquivo NuGet API, o modelo de URL de relatório nuget.org"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c12be294c71547fbce421c72aa091e0eee15aacd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: efbe5704e6e6028f9382fea3fe5ec453f573a2e9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="report-abuse-url-template"></a>Modelo de URL do relatório abuso
 
@@ -35,7 +35,7 @@ O seguinte `@type` valores são usados:
 Valor @type                       | Observações
 --------------------------------- | -----
 ReportAbuseUriTemplate/3.0.0-beta | A versão inicial
-ReportAbuseUriTemplate/3.0.0-rc   | Alias de`ReportAbuseUriTemplate/3.0.0-beta`
+ReportAbuseUriTemplate/3.0.0-rc   | Alias de `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>Modelo de URL
 
@@ -58,7 +58,7 @@ Nome        | Tipo    | Necessária | Observações
 `{id}`      | cadeia de caracteres  | no       | A ID do pacote para relatar abuso para
 `{version}` | cadeia de caracteres  | no       | A versão do pacote para relatar abuso para
 
-O `{id}` e `{version}` valores interpretados pela implementação do servidor devem ser o caso que e não é afetado se a versão é normalizada.
+O `{id}` e `{version}` valores interpretados pela implementação do servidor devem ser não diferencia maiusculas de minúsculas e não é afetado se a versão é normalizada.
 
 Por exemplo, o modelo de abuso de relatório do nuget.org tem esta aparência:
 

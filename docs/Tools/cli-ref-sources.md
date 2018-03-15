@@ -12,18 +12,17 @@ keywords: "NuGet fontes de referência, fontes de comando"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1e8204f5e1bf712f65d8efb14ca2a4bd802e3f90
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 139a9494e1ea898c90ce79d5990530fbe08642bd
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="sources-command-nuget-cli"></a>comando de fontes (NuGet CLI)
 
 **Aplica-se a:** consumo de pacote, a publicação &bullet; **versões com suporte:** todos
 
-Gerencia a lista de fontes localizado no arquivo de configuração de escopo de usuário ou um arquivo de configuração especificado. O arquivo de configuração de escopo do usuário está localizado em `%APPDATA%\NuGet\NuGet.Config` no Windows e em `~/.nuget/NuGet.Config` no Mac/Linux.
-
+Gerencia a lista de fontes localizado no arquivo de configuração de escopo de usuário ou um arquivo de configuração especificado. O arquivo de configuração de escopo do usuário está localizado em `%APPDATA%\NuGet\NuGet.Config` (Windows) e `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
 
 Observe que a URL de origem para nuget.org é `https://api.nuget.org/v3/index.json`.
 
@@ -39,7 +38,7 @@ onde `<operation>` é um dos *lista, adicionar, remover, habilitar, desabilitar,
 
 | Opção | Descrição |
 | --- | --- |
-| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
+| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
 | ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Formatar | Aplica-se para o `list` ação e pode ser `Detailed` (o padrão) ou `Short`. |
 | Ajuda | Exibe informações de ajuda para o comando. |

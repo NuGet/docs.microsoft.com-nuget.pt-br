@@ -12,11 +12,11 @@ keywords: "referência de espelho do NuGet, comando de espelho"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 80b8f9a3b74030ffd3f1c7b784204d98be67d684
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>comando de espelho (NuGet CLI)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/14/2018
 Reflete um pacote e suas dependências de repositórios de origem especificado para o repositório de destino.
 
 > [!NOTE]
-> Para habilitar esse comando para versões do NuGet antes 3.2, vá para [https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases), selecione a versão estável mais recente, baixe `NuGet.ServerExtensions.dll` e `Nuget-Signed.exe` para seu disco local e renomear `Nuget-Signed.exe` para `nuget.exe`.
+> Para habilitar esse comando para versões do NuGet antes 3.2, vá para [ https://nuget.codeplex.com/releases ](https://nuget.codeplex.com/releases), selecione a versão estável mais recente, baixe `NuGet.ServerExtensions.dll` e `Nuget-Signed.exe` para seu disco local e renomear `Nuget-Signed.exe` para `nuget.exe`.
 
 ## <a name="usage"></a>Uso
 
@@ -43,12 +43,12 @@ Se o repositório de destino estiver em `https://machine/repo` que está executa
 
 | Opção | Descrição |
 | --- | --- |
-| apiKey | A chave de API para o repositório de destino. Se não estiverem presentes, especificada na *%AppData%\NuGet\NuGet.Config* é usado. |
+| apiKey | A chave de API para o repositório de destino. Se não estiverem presentes, o especificado no arquivo de configuração é usado (`%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Linux/Mac)). |
 | Ajuda | Exibe informações de ajuda para o comando. |
 | NoCache | Impede que o NuGet usando pacotes de caches de computador local. |
 | NOOP | Registra o que deve ser feito, mas não executa as ações; assume o sucesso para operações de envio por push. |
 | Versão de pré-lançamento | Inclui pacotes pré-lançados na operação de espelhamento. |
-| Origem | Uma lista de fontes de pacote para espelhar. Se nenhuma fonte for especificada, aqueles definidos no *%AppData%\NuGet\NuGet.Config* forem usados, padronizando para nuget.org se nenhum for especificado. |
+| Origem | Uma lista de fontes de pacote para espelhar. Se nenhuma fonte for especificada, aqueles definidos no arquivo de configuração (consulte ApiKey acima) são usados, padronizando para nuget.org se nenhum for especificado. |
 | Tempo limite | Especifica o tempo limite, em segundos, para enviar por push para um servidor. O padrão é 300 segundos (5 minutos). |
 | Versão | A versão do pacote para instalação. Se não for especificado, a versão mais recente é espelhada. |
 

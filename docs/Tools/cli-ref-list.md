@@ -12,17 +12,17 @@ keywords: "referência de lista do NuGet, comando de pacotes de lista"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5a1f68aaffd26a0f903aa3a7a4a450a0121191c3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e0945b9e64a15a839f62bde0a0ef8f3d83335d4
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="list-command-nuget-cli"></a>comando Listar (NuGet CLI)
 
 **Aplica-se a:** consumo de pacote, a publicação &bullet; **versões com suporte:** todos
 
-Exibe uma lista de pacotes de uma origem específica. Se nenhuma fonte for especificada, todas as fontes definidas no arquivo de configuração global, `%AppData%\NuGet\NuGet.Config`, são usados. Se `NuGet.Config` não especifica nenhuma fonte, em seguida, `list` usa o feed padrão (nuget.org).
+Exibe uma lista de pacotes de uma origem específica. Se nenhuma fonte for especificada, todas as fontes definidas no arquivo de configuração global, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config`, são usados. Se `NuGet.Config` não especifica nenhuma fonte, em seguida, `list` usa o feed padrão (nuget.org).
 
 ## <a name="usage"></a>Uso
 
@@ -30,14 +30,14 @@ Exibe uma lista de pacotes de uma origem específica. Se nenhuma fonte for espec
 nuget list [search terms] [options]
 ```
 
-onde os termos de pesquisa opcional filtra a lista exibida. Termos de pesquisa são aplicados para os nomes dos pacotes, marcas e descrições do pacote.
+onde os termos de pesquisa opcional filtra a lista exibida. Termos de pesquisa são aplicados para os nomes dos pacotes, marcas e descrições de pacote como elas são quando usá-los em nuget.org.
 
 ## <a name="options"></a>Opções
 
 | Opção | Descrição |
 | --- | --- |
 | Todasas versões | Lista todas as versões de um pacote. Por padrão, somente a versão mais recente do pacote é exibida. |
-| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
+| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
 | ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
 | IncludeDelisted | *(3.2 +)*  Exibir pacotes não listados. |
@@ -53,5 +53,7 @@ Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 ```cli
 nuget list
 
-nuget list -Verbosity detailed -AllVersions
+nuget list chinese korean -Verbosity detailed
+
+nuget list couchbase -AllVersions
 ```

@@ -12,11 +12,11 @@ keywords: "NuGet verificar a referência, verifique se o comando"
 ms.reviewer:
 - karann
 - rmpablos
-ms.openlocfilehash: 2747491eb35d8685a44e86fcc1b572013982c754
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 096c79670267d9b602dd6ad30640e832441c31c5
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="verify-command-nuget-cli"></a>Verifique se o comando (NuGet CLI)
 
@@ -38,7 +38,7 @@ onde `<package(s)>` é uma ou mais `.nupkg` arquivos.
 | --- | --- |
 | Todos | Especifica que todas as verificações de possíveis devem ser executadas no pacote (s). |
 | CertificateFingerprint | Especifica um ou mais SHA-256 certificado impressões digitais de certificados (s) qual pacotes assinados devem ser assinados com. Uma impressão digital de certificado SHA-256 é um hash SHA-256 do certificado. Várias entradas devem ser separada por ponto e vírgula. |
-| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
+| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
 | ForceEnglishOutput | Força o nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
 | NonInteractive | Suprime avisos para a entrada do usuário ou confirmações. |
