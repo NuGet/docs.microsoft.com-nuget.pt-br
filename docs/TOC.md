@@ -3,8 +3,9 @@
 # Guias de Início Rápido
 ## [Instalar e usar um pacote (CLI do dotnet)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Instalar e usar um pacote (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)
-## [Criar e publicar um pacote (CLI do dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
-## [Criar e publicar um pacote (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)
+## [Criar e publicar um pacote do .NET Standard (CLI do DotNet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
+## [Criar e publicar um pacote do .NET Standard (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)
+## [Criar e publicar um pacote do .NET Framework (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
 # Consumir pacotes
 ## [Visão geral e fluxo de trabalho](consume-packages/overview-and-workflow.md)
 ## [Localizando e escolhendo pacotes](consume-packages/finding-and-choosing-packages.md)
