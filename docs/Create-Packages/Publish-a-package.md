@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 610b20831b17ca5c1bae07546fde6eff3e2e43cc
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 6cb582c036392ae2792f2fa4d307370e91c4f961
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="publishing-packages"></a>Publicando pacotes
 
@@ -72,9 +72,9 @@ Em seguida, você pode carregar o pacote por meio do portal da Web nuget.org, ef
 
 ### <a name="package-validation-and-indexing"></a>Validação e indexação de pacote
 
-Pacotes enviados por push para NuGet.org passam por várias validações. Quando o pacote tiver passado todas as verificações de validação, pode levar algum tempo para que ele seja indexado e exibido nos resultados da pesquisa. Após a conclusão da indexação, você receberá um email confirmando que o pacote foi publicado com êxito. Se a verificação de validação do pacote falhar, a página de detalhes do pacote será atualizada para exibir o erro associado e você também receberá uma notificação por email.
+Os pacotes enviados por push para o nuget.org passam por várias validações. Quando o pacote tiver passado todas as verificações de validação, pode levar algum tempo para que ele seja indexado e exibido nos resultados da pesquisa. Após a conclusão da indexação, você receberá um email confirmando que o pacote foi publicado com êxito. Se a verificação de validação do pacote falhar, a página de detalhes do pacote será atualizada para exibir o erro associado e você também receberá uma notificação por email.
 
-A validação e indexação do pacote geralmente leva menos de 15 minutos. Se a publicação do pacote estiver demorando mais do que o esperado, visite [status.nuget.org](https://status.nuget.org/) para verificar se o NuGet.org está passando por alguma interrupção. Se todos os sistemas estiverem operacionais e o pacote não tiver sido publicado com êxito dentro de uma hora, faça logon no NuGet.org e entre em contato conosco usando o link Entre em contato com o suporte na página do pacote.
+A validação e indexação do pacote geralmente leva menos de 15 minutos. Se a publicação do pacote estiver demorando mais do que o esperado, visite [status.nuget.org](https://status.nuget.org/) para verificar se o nuget.org está passando por alguma interrupção. Se todos os sistemas estiverem operacionais e o pacote não tiver sido publicado com êxito dentro de uma hora, faça logon no nuget.org e entre em contato conosco usando o link Entre em contato com o suporte na página do pacote.
 
 ### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
 

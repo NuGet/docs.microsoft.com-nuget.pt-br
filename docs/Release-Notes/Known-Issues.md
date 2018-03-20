@@ -12,11 +12,11 @@ keywords: Problemas conhecidos do NuGet, problemas do NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b9190c058215d9e63894de45c0c55c8ddae0e0f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="known-issues-with-nuget"></a>Problemas conhecidos com o NuGet
 
@@ -45,7 +45,7 @@ No NuGet 3.4 e 3.4.1, ao usar o suplemento do NuGet, nenhuma origem é relatada 
 
 ![Configuração do NuGet sem origens](./media/knownIssue-34-NoSources.PNG)
 
-O arquivo `NuGet.Config` na sua pasta `%AppData%\NuGet\` foi acidentalmente esvaziado. Para corrigir isso: feche o Visual Studio 2015, exclua o arquivo `NuGet.Config` na pasta `%AppData%\NuGet\` e reinicie o Visual Studio.  Um novo arquivo `NuGet.Config` será gerado e você poderá continuar.
+O arquivo `NuGet.Config` na pasta `%AppData%\NuGet\` (Windows) ou `~/.nuget/` (Mac/Linux) foi esvaziado acidentalmente. Para corrigir isso: feche o Visual Studio (no Windows se aplicável), exclua o arquivo `NuGet.Config` e tente realizar a operação novamente. O NuGet gerará um novo `NuGet.Config` e você poderá continuar.
 
 ## <a name="error-installing-packages-with-nuget-27"></a>Erro ao instalar pacotes com o NuGet 2.7
 
@@ -96,7 +96,7 @@ Se você estiver executando o VS 2010 SP1, poderá encontrar a seguinte mensagem
 Ao exibir os logs, você poderá ver uma menção de um `SignatureMismatchException`.
 
 Para evitar que isso ocorra, há um [hotfix do Visual Studio 2010 SP1](http://bit.ly/vsixcertfix) que você pode instalar.
-Outra opção é usar a solução alternativa de simplesmente desinstalar o NuGet (enquanto o Visual Studio é executado como Administrador) e, em seguida, instalá-lo da Galeria de Extensões do VS.  Consulte [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) para obter mais informações.
+Outra opção é usar a solução alternativa de simplesmente desinstalar o NuGet (enquanto o Visual Studio é executado como Administrador) e, em seguida, instalá-lo da Galeria de Extensões do VS.  Veja [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) para obter mais informações.
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>O Console do Gerenciador de Pacotes gera uma exceção quando o suplemento do Reflector Visual Studio também é instalado.
 
@@ -165,7 +165,7 @@ Se você tentar desinstalar o NuGet por meio do Gerenciador de Extensões do Vis
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>O Console do Gerenciador de Pacotes falha quando eu o abro no Windows XP. Qual é o problema?
 
-O NuGet requer o tempo de execução do Powershell 2.0. O Windows XP, por padrão, não têm o Powershell 2.0. Você pode baixar o tempo de execução do Powershell 2.0 de [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929). Após a instalação, reinicie o Visual Studio e será possível abrir o Console do Gerenciador de Pacotes.
+O NuGet requer o tempo de execução do Powershell 2.0. O Windows XP, por padrão, não têm o Powershell 2.0. Você pode baixar o tempo de execução do PowerShell 2.0 em [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929). Após a instalação, reinicie o Visual Studio e será possível abrir o Console do Gerenciador de Pacotes.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>O Visual Studio 2010 SP1 Beta falha na saída se o Console de Gerenciador de Pacote estiver aberto.
 

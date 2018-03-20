@@ -1,5 +1,5 @@
 ---
-title: Criar pacotes do NuGet de multiplataforma (para iOS, Android e Windows) | Microsoft Docs
+title: Criar pacotes NuGet para Xamarin (para iOS, Android e Windows) | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,26 +12,26 @@ keywords: criar um pacote, pacotes para Xamarin, pacotes de multiplataforma
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2f0131e4f447e2e0ab5a1d17e476a425eaa01b61
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-cross-platform-packages"></a>Criar pacotes de multiplataforma
+# <a name="create-packages-for-xamarin"></a>Criar pacotes para o Xamarin
 
 Um pacote de multiplataforma contém código que usa APIs nativas no iOS, Android e Windows, dependendo do sistema operacional de tempo de execução. Embora seja simples fazer isso, é preferível para permitir que os desenvolvedores consumam o pacote de um PCL ou de bibliotecas do .NET Standard por meio de uma área de superfície de API comum.
 
 Neste passo a passo, você cria um pacote NuGet de multiplataforma que pode ser usado em projetos móveis no iOS, Android e Windows.
 
-1. [Pré-requisitos](#pre-requisites)
+1. [Pré-requisitos](#prerequisites)
 1. [Criar a estrutura do projeto e o código de abstração](#create-the-project-structure-and-abstraction-code)
 1. [Escreva o código específico para sua plataforma](#write-your-platform-specific-code)
 1. [Criar e atualizar o arquivo .nuspec](#create-and-update-the-nuspec-file)
 1. [Empacotar o componente](#package-the-component)
 1. [Tópicos relacionados](#related-topics)
 
-## <a name="pre-requisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Visual Studio 2015 com UWP (Plataforma Universal do Windows) e Xamarin. Instale a edição Community gratuitamente no [visualstudio.com](https://www.visualstudio.com/) e, claro, você também pode usar as edições Professional e Enterprise. Para incluir as ferramentas UWP e Xamarin, selecione uma instalação Personalizada e verifique as opções apropriadas.
 1. CLI do NuGet. Baixe a versão mais recente do nuget.exe de [nuget.org/downloads](https://nuget.org/downloads) e salve-a em um local de sua escolha. Em seguida, adicione tal local à sua variável de ambiente PATH, se ainda não tiver feito isso.
@@ -112,9 +112,9 @@ Para implementar uma implementação específica da plataforma `ILoggingLibrary`
 
 1. Abra um prompt de comando, navegue até a pasta `LoggingLibrary` que está um nível abaixo do qual o arquivo `.sln` está e execute o comando `spec` do NuGet para criar o arquivo `Package.nuspec` inicial:
 
-```cli
-nuget spec
-```
+    ```cli
+    nuget spec
+    ```
 
 1. Renomeie este arquivo para `LoggingLibrary.nuspec` e abra-o em um editor.
 1. Atualize o arquivo para corresponder ao seguinte, substituindo YOUR_NAME por um valor apropriado. O valor `<id>`, especificamente, precisa ser exclusivo no nuget.org (consulte as convenções de nomenclatura descritas em [Criando um pacote](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)). Observe que você também precisa atualizar as marcas de autor e descrição ou um erro é mostrado durante a etapa de empacotamento.

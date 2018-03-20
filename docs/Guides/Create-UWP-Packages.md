@@ -12,11 +12,11 @@ keywords: criar um pacote, pacotes para UWP, Componentes do Windows Runtime
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d35b484ff708d7174c19791ab1ad7904bea0d2f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-uwp-packages"></a>Criar pacotes UWP
 
@@ -24,7 +24,7 @@ A [UWP (Plataforma Universal do Windows)](https://developer.microsoft.com/window
 
 Neste passo a passo, você cria um pacote NuGet com um componente UWP nativo (incluindo um controle XAML) que pode ser usado em projetos nativos e gerenciados.
 
-## <a name="pre-requisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Visual Studio 2017 ou 2015. Instale a edição Community 2017 gratuitamente no [visualstudio.com](https://www.visualstudio.com/); você também pode usar as edições Professional e Enterprise.
 
@@ -156,7 +156,7 @@ No seu componente, a lógica principal do tipo ImageEnhancer está no código na
 
 ### <a name="adding-targets"></a>Adicionar .targets
 
-Em seguida, projetos C++ e JavaScript que podem consumir seu pacote do NuGet precisam de um arquivo .targets para identificar os arquivos de assembly e winmd necessários. (Projetos C# e Visual Basic fazem isso automaticamente.) Crie esse arquivo copiando o texto abaixo para `ImageEnhancer.targets` e salve-o na mesma pasta que o arquivo `.nuspec`:
+Em seguida, projetos C++ e JavaScript que podem consumir seu pacote do NuGet precisam de um arquivo .targets para identificar os arquivos de assembly e winmd necessários. (Projetos C# e Visual Basic fazem isso automaticamente.) Crie esse arquivo copiando o texto abaixo em `ImageEnhancer.targets` e salve-o na mesma pasta que o arquivo `.nuspec`. _Observação_: esse arquivo `.targets` precisa ter o mesmo nome que a ID do pacote (por exemplo, o elemento `<Id>` no arquivo `.nupspec`):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

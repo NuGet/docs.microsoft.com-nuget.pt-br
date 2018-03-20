@@ -12,11 +12,11 @@ keywords: "Dependências do NuGet, NuGet e UWP, UWP e project.json, arquivo proj
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f1ec086d6404c441ca5ad53028af2265a2344905
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3ef3703b2be92f84d37866bce9934ebcfed3a9f7
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json e UWP
 
@@ -121,7 +121,7 @@ Neste exemplo, os assemblies nos diretórios `ref` serão idênticos.
 
 A pasta de tempos de execução contém os assemblies e bibliotecas nativos necessários para executar em “tempos de execução” específicos, que geralmente são definidos pelo sistema operacional e arquitetura de CPU. Esses tempos de execução são identificados usando [RIDs (Identificadores de tempo de execução)](/dotnet/core/rid-catalog) como `win`, `win-x86`, `win7-x86`, `win8-64`, etc.
 
-## <a name="native-light-up"></a>Iluminação nativa
+## <a name="native-helpers-to-use-platform-specific-apis"></a>Auxiliares nativo para usar APIs específicas de plataforma
 
 O exemplo a seguir mostra um pacote que tem uma implementação totalmente gerenciada para várias plataformas, mas usa auxiliares nativos no Windows 8, em que ele pode chamar APIs nativas específicas do Windows 8.
 

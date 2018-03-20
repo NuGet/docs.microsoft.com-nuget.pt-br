@@ -12,11 +12,11 @@ keywords: "instalar o NuGet, consumo de pacote do NuGet, instalando pacotes do N
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0030877803ac7403f26e27ac3c5a0303d69c489
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Instalar e usar um pacote no Visual Studio
 
@@ -27,7 +27,7 @@ Depois de instalado, consulte o pacote no código com `using <namespace>` em que
 > [!Tip]
 > **Começar com nuget.org**: normalmente, os desenvolvedores em .NET encontram os componentes que podem reutilizar em seus próprios aplicativos procurando no nuget.org. Você pode pesquisar no nuget.org diretamente ou localizar e instalar pacotes de dentro do Visual Studio, conforme mostrado neste artigo.
 
-## <a name="pre-requisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Visual Studio 2017 com a carga de trabalho de desenvolvimento da Plataforma Universal do Windows, ou
 - Visual Studio 2015 Atualização 3 com Ferramentas para Aplicativos Universais do Windows.
@@ -40,7 +40,7 @@ Os pacotes NuGet podem ser instalados em algum tipo de projeto do .NET. Para est
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Adicionar o pacote do NuGet Newtonsoft.Json
 
-Para instalar o pacote, use a IU do Gerenciador de Pacotes ou o Console do Gerenciador de Pacotes.
+Para instalar o pacote, use a IU do Gerenciador de Pacotes ou o Console do Gerenciador de Pacotes. Ao instalar um pacote, o NuGet registrará a dependência no arquivo de projeto ou em um arquivo `packages.config`. Para obter mais informações, veja [Visão geral e fluxo de trabalho do consumo de pacote](../consume-packages/Overview-and-Workflow.md).
 
 ### <a name="package-manager-ui"></a>Interface do usuário do Gerenciador de Pacotes
 

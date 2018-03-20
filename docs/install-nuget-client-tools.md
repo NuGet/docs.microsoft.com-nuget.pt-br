@@ -12,11 +12,11 @@ keywords: CLI do nuget.exe, ferramentas de cliente do NuGet, gerenciador de paco
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ec8de83c9e05981016215e487888ab68a616d977
-ms.sourcegitcommit: dbcb872ec10430e1d761f34b851650e31c87a96d
+ms.openlocfilehash: 462557e939e769f26fe05d6f9e2994eaf43c6e11
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Instalar as ferramentas de cliente do NuGet
 
@@ -28,7 +28,7 @@ Para trabalhar com o NuGet, como um consumidor ou criador de pacotes, você pode
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | Incluído com o SDK do .NET Core e fornece os principais recursos do NuGet em todas as plataformas. | [SDK do .NET Core](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | Fornece todos os recursos do NuGet no Windows e a maioria dos recursos em execução em [Mono](http://www.mono-project.com/docs/getting-started/install/) no Mac e Linux. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
-| [Visual Studio](#visual-studio) | Fornece recursos de NuGet por meio da IU do Gerenciador de Pacotes e o Console do Gerenciador de Pacotes. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
+| [Visual Studio](#visual-studio) | Fornece funcionalidades do NuGet por meio da interface do usuário do Gerenciador de Pacotes e do Console do Gerenciador de Pacotes, incluídos com as cargas de trabalho relacionadas ao .NET. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
 A [CLI do MSBuild](reference/msbuild-targets.md) também fornece a capacidade de restaurar e criar pacotes, que é útil principalmente em servidores de compilação. O MSBuild não é uma ferramenta para fins gerais para trabalhar com o NuGet.
 
@@ -67,10 +67,10 @@ Instalação:
 - Visual Studio para Mac: os recursos NuGet são incorporados diretamente. Consulte [Incluindo um pacote do NuGet no seu projeto](/visualstudio/mac/nuget-walkthrough) para ver uma explicação passo a passo. Para outros recursos, use as ferramentas da CLI `dotnet.exe` ou `nuget.exe`.
 
 - Visual Studio no Windows: o **Gerenciador de Pacotes NuGet** está incluído com o Visual Studio 2012 e posterior. O Gerenciador de Pacotes fornece a [IU do Gerenciador de Pacotes](tools/package-manager-ui.md) e o [Console do Gerenciador de Pacote](tools/package-manager-console.md), por meio dos quais você pode executar a maioria das operações do NuGet.
+  - O instalador do Visual Studio 2017 inclui o Gerenciador de Pacotes do NuGet com qualquer carga de trabalho que utiliza o .NET. Para instalar separadamente ou para verificar se o Gerenciador de Pacotes está instalado, execute o instalador do Visual Studio 2017 e marque a opção em **Componentes individuais > Ferramentas de código > Gerenciador de pacotes do NuGet**.
   - A IU e o Console do Gerenciador de Pacotes são exclusivos para o Visual Studio no Windows. Eles não estão disponíveis no Visual Studio para Mac no momento.
   - O Visual Studio não inclui automaticamente a CLI do `nuget.exe`, que deve ser instalada separadamente, conforme descrito anteriormente.
   - Os comandos do Console do Gerenciador de Pacotes funcionam apenas dentro do Visual Studio no Windows e não em outros ambientes de PowerShell.
-  - O instalador do Visual Studio 2017 inclui o Gerenciador de Pacotes do NuGet com qualquer carga de trabalho que utiliza o .NET. Para instalar separadamente ou para verificar se o Gerenciador de Pacotes está instalado, execute o instalador do Visual Studio 2017 e marque a opção em **Componentes individuais > Ferramentas de código > Gerenciador de pacotes do NuGet**.
   - Para o Visual Studio 2010 e versões anteriores, instale a extensão "Gerenciador de Pacotes NuGet para Visual Studio".
   - As extensões do NuGet para Visual Studio 2013 e 2015 também podem ser baixadas do [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
   - Se você quiser visualizar futuros recursos do NuGet, instale o [Visual Studio 2017 Preview](https://www.visualstudio.com/vs/preview/), que funciona lado a lado com as versões estáveis do Visual Studio. Para relatar problemas ou compartilhar ideias para versões prévias, abra um problema no [repositório GitHub do NuGet](https://github.com/Nuget/Home/issues).

@@ -12,11 +12,11 @@ keywords: "controle de versão, controle de versão de pacote do NuGet, versões
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 03f744a96841a8c49d9f1dde89620b85de968d6f
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="building-pre-release-packages"></a>Compilando pacotes de pré-lançamento
 
@@ -79,7 +79,7 @@ Considerando isso, geralmente é aconselhável seguir as convenções de nomencl
 - `-rc`: versão Release candidate, normalmente uma versão que é potencialmente a final (estável), a menos que surjam bugs significativos.
 
 > [!Note]
-> O NuGet não é compatível com os números de pré-lançamento do [SemVer-compatible (v2.0.0)](http://semver.org/spec/v2.0.0.html) com a notação de pontos, como em `1.0.1-build.23`. Você pode usar um formulário como `1.0.1-build23`, mas essa sempre é considerada uma versão de pré-lançamento.
+> O NuGet 4.3.0+ é compatível com o [Semantic Versioning v2.0.0](http://semver.org/spec/v2.0.0.html), que oferece compatibilidade com números com notação de ponto pré-lançamento, como no `1.0.1-build.23`. A notação de ponto não e compatível com as versões do NuGet anteriores à 4.3.0. Em versões anteriores do NuGet, você poderia usar um formulário como `1.0.1-build23`, mas ela sempre foi considerada uma versão de pré-lançamento.
 
 Qualquer sufixo que você usar, no entanto, receberá precedência do NuGet cem ordem alfabética inversa:
 

@@ -1,5 +1,5 @@
 ---
-title: "Guia de introdução para a criação e publicação de um pacote NuGet usando a CLI do dotnet | Microsoft Docs"
+title: Criando e publicando um pacote NuGet usando a CLI do dotnet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,17 +12,17 @@ keywords: "Criação de pacote NuGet, publicação de pacote NuGet, tutorial do 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c9f46cafafcdc238e43979d6f05521e19bf3d7f6
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-publish-a-package"></a>Criar e publicar um pacote
 
 É um processo simples para criar um pacote NuGet de uma Biblioteca de Classes do .NET e publique-o em nuget.org usando a CLI (interface de linha de comando) `dotnet`.
 
-## <a name="pre-requisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Instale o [SDK do .NET Core](https://www.microsoft.com/net/download/), que inclui a CLI do `dotnet`.
 
@@ -95,7 +95,6 @@ Depois que você tiver um arquivo `.nupkg`, publique-o em nuget.org usando o com
 
 [!INCLUDE[publish-errors](includes/publish-errors.md)]
 
-
 ### <a name="manage-the-published-package"></a>Gerenciar o pacote publicado
 
 [!INCLUDE[publish-manage](includes/publish-manage.md)]
@@ -107,3 +106,4 @@ Depois que você tiver um arquivo `.nupkg`, publique-o em nuget.org usando o com
 - [Suporte a várias estruturas de destino](../create-packages/supporting-multiple-target-frameworks.md)
 - [Controle de versão do pacote](../reference/package-versioning.md)
 - [Criando pacotes localizados](../create-packages/creating-localized-packages.md)
+- [Assinando pacotes](../create-packages/Sign-a-package.md)

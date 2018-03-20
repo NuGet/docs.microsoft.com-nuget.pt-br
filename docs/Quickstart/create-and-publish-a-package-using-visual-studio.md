@@ -1,28 +1,28 @@
 ---
-title: "Guia de introdução para a criação e publicação de um pacote NuGet usando o Visual Studio | Microsoft Docs"
+title: "Guia de introdução para a criação e a publicação de um pacote NuGet do .NET Standard usando o Visual Studio | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 02/02/2018
+ms.date: 03/18/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet usando o Visual Studio 2017.
+description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Standard usando o Visual Studio 2017.
 keywords: "Criação de pacote NuGet, publicação de pacote NuGet, tutorial do NuGet, criação de pacote NuGet no Visual Studio, pacote msbuild"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a4d60fdc0f27f9c4080266e212ac1cfe470ba925
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 733fee616601e1d15d8fb5814b5bfb7905ff4a33
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio"></a>Criar e publicar um pacote usando o Visual Studio
+# <a name="create-and-publish-a-package-using-visual-studio-net-standard"></a>Criar e publicar um pacote usando o Visual Studio (.NET Standard)
 
-É um processo simples criar um pacote NuGet de uma Biblioteca de Classes do .NET no Visual Studio e publicá-lo em nuget.org usando uma ferramenta de CLI.
+É um processo simples criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studio e, em seguida, publicá-lo no nuget.org usando uma ferramenta de CLI.
 
-## <a name="pre-requisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Instale qualquer edição do Visual Studio 2017 de [visualstudio.com](https://www.visualstudio.com/) usando qualquer carga de trabalho relacionada ao .NET. O Visual Studio 2017 inclui automaticamente os recursos do NuGet quando uma carga de trabalho do .NET é instalada.
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="create-a-class-library-project"></a>Criar um projeto de biblioteca de classes
 
-Você pode usar um projeto existente da Biblioteca de Classes .NET para o código que você deseja empacotar, ou criar um simples da seguinte maneira:
+Você pode usar um projeto existente da Biblioteca de Classes .NET Standard para o código que você deseja empacotar ou criar um simples da seguinte maneira:
 
 1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, expanda o nó **Visual C# > .NET Standard**, selecione o modelo de "Biblioteca de Classes (.NET Standard)", nomeie o projeto como AppLogger e clique em **OK**.
 
@@ -60,7 +60,7 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>Configurar propriedades do pacote
 
-1. Selecione o comando de menu **Projeto > Propriedades** e, em seguida, selecione a guia **Pacote**:
+1. Selecione o comando de menu **Projeto > Propriedades** e, em seguida, selecione a guia **Pacote**. (A guia **Pacote** é exibida apenas para projetos da biblioteca de classes .NET Standard; se você estiver direcionando para o .NET Framework, veja [Criar e publicar um pacote do .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md).)
 
     ![Propriedades do pacote NuGet em um projeto do Visual Studio](media/qs_create-vs-01-package-properties.png)
 
@@ -95,7 +95,7 @@ namespace AppLogger
 
 ### <a name="alternate-option-pack-with-msbuild"></a>Opção alternativa: empacotar com o MSBuild
 
-Como uma alternativa ao uso do comando de menu **Pack**, o NuGet 4.x+ e o MSBuild 15.1+ são compatíveis com um destino `pack` quando o projeto contém os dados do pacote necessários:
+Como uma alternativa ao uso do comando de menu **Pack**, o NuGet 4.x+ e o MSBuild 15.1+ são compatíveis com um destino `pack` quando o projeto contém os dados do pacote necessários. Abra um prompt de comando, navegue até a pasta do projeto e execute o seguinte comando. (Você normalmente deseja iniciar o "Prompt de Comando do Desenvolvedor para Visual Studio" por meio do menu Iniciar, pois ele estará configurado com todos os caminhos necessários para o MSBuild.)
 
 ```cli
 msbuild /t:pack /p:Configuration=Release

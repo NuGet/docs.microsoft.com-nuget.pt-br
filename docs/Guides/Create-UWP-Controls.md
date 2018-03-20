@@ -3,7 +3,7 @@ title: Como empacotar controles UWP com o NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/21/2017
+ms.date: 03/14/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,17 +12,17 @@ keywords: Controles UWP do NuGet, designer XAML do Visual Studio, designer do Bl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3af17121f73b878decd5f0c933696fc1b0c786d7
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 1af5118eb71836d8b8bcfa8ff713d9fef3c86374
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Criando controles UWP como pacotes do NuGet
 
 Com o Visual Studio 2017, você pode aproveitar os recursos adicionados para os controles UWP que você fornecer em pacotes do NuGet. Este guia orientará você quanto a esses recursos usando o [exemplo ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). 
 
-## <a name="pre-requisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Visual Studio 2017
 1. Noções básicas sobre como [Criar pacotes UWP](create-uwp-packages.md)
@@ -100,13 +100,7 @@ Por exemplo, digamos que você definiu o TPMinV para o pacote de controles para 
     \lib\uap10.0\*
     \ref\uap10.0\*
 
-Para impor a verificação de TPMinV apropriada, crie um [arquivo de destino do MSBuild](/visualstudio/msbuild/msbuild-targets) e empacote-o na pasta de build (substituindo “your_assembly_name” pelo nome do seu assembly específico):
-
-    \build
-      \uap10.0
-        your_assembly_name.targets
-    \lib
-    \tools
+Para impor a verificação de TPMinV apropriada, crie um [arquivo de destino do MSBuild](/visualstudio/msbuild/msbuild-targets) e empacote-o em `build\uap10.0" folder as `<nome_do_assembly>.targets`, replacing `<nome_do_assembly>` com o nome do assembly específico.
 
 Veja este exemplo de como o arquivo de destino deve parecer:
 
@@ -114,7 +108,7 @@ Veja este exemplo de como o arquivo de destino deve parecer:
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <Target Name="TPMinVCheck" BeforeTargets="Build;ReBuild" Condition="'$(TargetPlatformMinVersion)' != ''">
+  <Target Name="TPMinVCheck" BeforeTargets="ResolveAssemblyReferences" Condition="'$(TargetPlatformMinVersion)' != ''">
     <PropertyGroup>
       <RequiredTPMinV>10.0.14393</RequiredTPMinV>
       <ActualTPMinV>$(TargetPlatformMinVersion)</ActualTPMinV>
@@ -126,17 +120,15 @@ Veja este exemplo de como o arquivo de destino deve parecer:
 
 ## <a name="add-design-time-support"></a>Adicionar suporte no tempo de design
 
-Para configurar onde as propriedades do controle aparecem na Inspeção de propriedade, adicionar adornos personalizados, etc., coloque o arquivo `design.dll` dentro da pasta `lib\<platform>\Design` conforme apropriado para a plataforma de destino. Além disso, para garantir que o recurso **[Editar modelo > Editar uma cópia](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** funcione, você precisa incluir o `Generic.xaml` e os dicionários de recursos que ele mescla na pasta `<AssemblyName>\Themes`. (Este arquivo não tem nenhum impacto sobre o comportamento de tempo de execução de um controle.)
+Para configurar onde as propriedades do controle aparecem na Inspeção de propriedade, adicionar adornos personalizados, etc., coloque o arquivo `design.dll` dentro da pasta `lib\uap10.0\Design` conforme apropriado para a plataforma de destino. Além disso, para garantir que o recurso **[Editar Modelo > Editar uma Cópia](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** funcione, você precisará incluir o `Generic.xaml` e os dicionários de recursos aos quais ele é mesclado na pasta `<your_assembly_name>\Themes` (novamente, usando o nome real do assembly). (Este arquivo não tem nenhum impacto sobre o comportamento de tempo de execução de um controle.) A estrutura de pastas, portanto, seria exibida da seguinte maneira:
 
-    \build
     \lib
-      \uap10.0.14393.0
+      \uap10.0
         \Design
           \MyControl.design.dll
         \your_assembly_name
           \Themes
             Generic.xaml
-    \tools
 
 > [!Note]
 > Por padrão, as propriedades de controle aparecerão na categoria Diversos na Inspeção de propriedade.
@@ -149,23 +141,15 @@ Para obter um exemplo, consulte [MyCustomControl.cs](https://github.com/NuGet/Sa
 
 ## <a name="package-content-such-as-images"></a>Conteúdo do pacote como imagens
 
-Para conteúdo do pacote, como imagens que podem ser usadas por seu controle ou o projeto UWP consumidor. adicione esses arquivos à pasta `lib\uap10.0.14393.0` da seguinte maneira (“your_assembly_name” deve corresponder novamente ao seu controle específico):
+Para conteúdo do pacote como imagens que podem ser usadas para controle ou o projeto do UWP de consumidor, coloque os arquivos na pasta `lib\uap10.0`.
 
-    \build
-    \lib
-      \uap10.0.14393.0
-        \Design
-          \your_assembly_name
-    \contosoSampleImage.jpg
-    \tools
-
-Você também pode criar um [arquivo de destino do MSBuild](/visualstudio/msbuild/msbuild-targets) para garantir que o ativo seja copiado para a pasta de saída do projeto consumidor:
+Você também pode criar um [arquivo de destino do MSBuild](/visualstudio/msbuild/msbuild-targets) para assegurar que o ativo seja copiado para a pasta de saída do projeto consumidor:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'UAP'">
-        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0.14393.0\contosoSampleImage.jpg">
+        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0\contosoSampleImage.jpg">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>

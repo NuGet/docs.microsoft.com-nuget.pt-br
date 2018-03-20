@@ -3,7 +3,7 @@ title: Usando NuGet.Server para hospedar feeds do NuGet Feeds | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 08/25/2017
+ms.date: 03/13/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: Feed do NuGet, Galeria do NuGet, feed de pacote remoto, NuGet.Server
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4cb3f04954fac1b4a39284be187776ab4a19b364
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: d85c1ca88ca44c8f8bfa5cb9c453279f65f26f50
+ms.sourcegitcommit: 9adf5349eab91bd1d044e11f34836d53cfb115b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -28,28 +28,32 @@ O NuGet.Server é um pacote fornecido pelo .NET Foundation que cria um aplicativ
 
 As seções a seguir abordam esse processo em detalhes usando o C#.
 
+Caso tenha outras dúvidas sobre o NuGet.Server, crie um problema no [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues).
+
 ## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a>Criar e implantar um aplicativo Web ASP.NET com o NuGet.Server
 
-1. No Visual Studio, selecione **Arquivo > Novo > Projeto**, defina a estrutura de destino para o .NET Framework 4.6 (veja abaixo), pesquise por “ASP.NET” e selecione o modelo de C# **Aplicativo Web ASP.NET (.NET Framework)**.
+1. No Visual Studio, selecione **Arquivo > Novo > Projeto**, pesquise "ASP.NET", selecione o modelo de C# **Aplicativo Web ASP.NET (.NET Framework)** e defina **Estrutura** como ".NET Framework 4.6":
 
-    ![Definindo o destino do .NET Framework 4.6](media/Hosting_01-NuGet.Server-Set4.6.png)
+    ![Definindo a estrutura de destino para um novo projeto](media/Hosting_01-NuGet.Server-Set4.6.png)
 
-1. Dê um nome adequado para o aplicativo *diferente* do NuGet.Server, selecione OK e, na próxima caixa de diálogo, escolha o modelo **Vazio** e clique em OK.
+1. Dê um nome adequado ao aplicativo *diferente* de NuGet.Server, selecione OK e, na próxima caixa de diálogo, selecione o modelo **Vazio** e selecione **OK**.
 
-1. Clique com o botão direito do mouse no projeto, selecione **Gerenciar pacotes do NuGet** e, na interface do usuário do Gerenciador de Pacotes, pesquise e instale a versão mais recente do pacote do NuGet.Server se voltado para o .NET Framework 4.6. (Também é possível instalá-lo do Console do Gerenciador de Pacotes com `Install-Package NuGet.Server`.)
+1. Clique com o botão direito do mouse no projeto e escolha **Gerenciar Pacotes NuGet**.
+
+1. Na interface do usuário do Gerenciador de Pacotes, selecione a guia **Procurar** e, em seguida, pesquise e instale a versão mais recente do pacote NuGet.Server se você estiver direcionando para o .NET Framework 4.6. (Também é possível instalá-lo do Console do Gerenciador de Pacotes com `Install-Package NuGet.Server`.) Se solicitado, aceite os termos de licença.
 
     ![Instalando o pacote do NuGet.Server](media/Hosting_02-NuGet.Server-Package.png)
 
+1. Instalar o NuGet.Server converte o aplicativo Web vazio em uma origem de pacote. Ele instala uma variedade de outros pacotes, cria uma pasta `Packages` no aplicativo e modifica `web.config` para incluir as configurações adicionais (veja os comentários no arquivo para obter detalhes).
+
     > [!Important]
-    > Se seu aplicativo Web destina-se ao .NET Framework 4.5.2, você precisa instalar o NuGet Server **2.10.3** em vez disso.
+    > Inspecione cuidadosamente `web.config` depois que o pacote NuGet.Server tiver concluído as modificações desse arquivo. O NuGet.Server talvez não substituirá os elementos existentes, mas criará elementos duplicados. Essas duplicatas provocarão um "Erro Interno do Servidor" quando você tentar executar o projeto mais tarde. Por exemplo, se o seu `web.config` contiver `<compilation debug="true" targetFramework="4.5.2" />` antes de instalar o NuGet.Server, o pacote não o substituirá, mas sim inserirá um segundo `<compilation debug="true" targetFramework="4.6" />`. Nesse caso, exclua o elemento com a versão mais antiga da estrutura.
 
-1. Instalar o NuGet.Server converte o aplicativo Web vazio em uma origem de pacote. Ele cria uma pasta `Packages` no aplicativo e substitui `web.config` para incluir configurações adicionais (consulte os comentários no arquivo para obter detalhes).
-
-1. Para disponibilizar esses pacotes no feed quando você publicar o aplicativo em um servidor, adicione seus arquivos `.nupkg` para a pasta `Packages` no Visual Studio e, em seguida, defina sua **Ação de build** para **Conteúdo** e **Copiar para diretório de saída** para **Sempre copiar**:
+1. Para disponibilizar esses pacotes no feed quando você publicar o aplicativo em um servidor, adicione os arquivos `.nupkg` à pasta `Packages` no Visual Studio e, em seguida, defina a **Ação de Build** deles como **Conteúdo** e **Copiar para Diretório de Saída** como **Sempre copiar**:
 
     ![Copiando pacotes para a pasta Pacotes no projeto](media/Hosting_03-NuGet.Server-Package-Folder.png)
 
-1. Execute o site localmente no Visual Studio (sem depuração, que é Ctrl + F5). A página inicial fornece as URLs do feed do pacote:
+1. Execute o site localmente no Visual Studio (usando **Depurar > Iniciar sem Depurar** ou Ctrl + F5). A home page fornece as URLs do feed do pacote, conforme mostrado abaixo. Se você encontrar erros, inspecione cuidadosamente o `web.config` para verificar se há elementos duplicados, conforme observado anteriormente na etapa 5.
 
     ![A página inicial padrão de um aplicativo com NuGet.Server](media/Hosting_04-NuGet.Server-FeedHomePage.png)
 
@@ -58,6 +62,7 @@ As seções a seguir abordam esse processo em detalhes usando o C#.
 1. Na primeira vez que você executar o aplicativo, o NuGet.Server reestrutura a pasta `Packages` para conter uma pasta para cada pacote. Isso corresponde ao [layout de armazenamento local](http://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) introduzido no NuGet 3.3 para melhorar o desempenho. Ao adicionar mais pacotes, continue seguindo esta estrutura.
 
 1. Depois de testar sua implantação local, implante o aplicativo para qualquer outro site interno ou externo, conforme necessário.
+
 1. Uma vez implantado no `http://<domain>`, a URL que você usa para a origem do pacote será `http://<domain>/nuget`.
 
 ## <a name="configuring-the-packages-folder"></a>Configurar a pasta Pacotes
@@ -77,7 +82,7 @@ Quando o `packagesPath` for omitido ou deixado em branco, a pasta de pacotes é 
 
 ## <a name="adding-packages-to-the-feed-externally"></a>Adicionar pacotes ao feed externamente
 
-Quando um site do NuGet.Server está em execução, você pode adicionar ou excluir pacotes usando o nuget.exe fornecido para os quais você definiu um valor de chave de API em `web.config`.
+Quando um site do NuGet.Server está em execução, você pode adicionar pacotes usando o comando [nuget push](../tools/cli-ref-push.md), desde que você defina um valor de chave de API em `web.config`.
 
 Depois de instalar o pacote do NuGet.Server, o `web.config` contém um valor `appSetting/apiKey` vazio:
 
@@ -101,4 +106,14 @@ Para habilitar essa capacidade, defina o `apiKey` para um valor (o ideal é uma 
 </appSettings>
 ```
 
-Se o servidor já está protegido ou você não exige uma chave de API (por exemplo, ao usar um servidor privado em uma rede de equipe local), é possível definir `requireApiKey` para `false`. Todos os usuários com acesso ao servidor poderão, então, efetuar push ou excluir pacotes.
+Se o servidor já está protegido ou você não exige uma chave de API (por exemplo, ao usar um servidor privado em uma rede de equipe local), é possível definir `requireApiKey` para `false`. Todos os usuários com acesso ao servidor poderão efetuar push dos pacotes.
+
+## <a name="removing-packages-from-the-feed"></a>Removendo pacotes do feed
+
+Com o NuGet.Server, o comando [nuget delete](../tools/cli-ref-delete.md) remove um pacote do repositório, desde que você inclua a chave de API com o comentário.
+
+Se, em vez disso, você desejar alterar o comportamento para remover o pacote da lista (deixando-o disponível para a restauração de pacote), altere a chave `enableDelisting` em `web.config` para true.
+
+## <a name="nugetserver-support"></a>Suporte do NuGet.Server
+
+Para obter ajuda adicional sobre o uso do NuGet.Server, crie um problema no [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues).
