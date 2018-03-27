@@ -1,22 +1,22 @@
 ---
-title: "Formato PackageReference do NuGet (referências de pacote em arquivos de projeto) | Microsoft Docs"
+title: Formato PackageReference do NuGet (referências de pacote em arquivos de projeto) | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 07/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Veja detalhes sobre o PackageReference de NuGet em arquivos de projeto compatível com o NuGet 4.0 e posterior e o VS2017 e .Net Core 2.0"
-keywords: "Dependências de pacote NuGet, referências de pacote, arquivos de projeto, PackageReference, packages.config, VS2017, Visual Studio 2017, NuGet 4, .NET Core 2.0"
+ms.technology: ''
+description: Veja detalhes sobre o PackageReference de NuGet em arquivos de projeto compatível com o NuGet 4.0 e posterior e o VS2017 e .Net Core 2.0
+keywords: Dependências de pacote NuGet, referências de pacote, arquivos de projeto, PackageReference, packages.config, VS2017, Visual Studio 2017, NuGet 4, .NET Core 2.0
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 679871a280c158c863e0daf790af1b7cef509943
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: e1880c9b294e19ef1b71c7b17b02df8ff1cf1b73
+ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
@@ -24,7 +24,7 @@ As referências de pacote, usando o nó `PackageReference`, gerenciam as depend�
 
 Com o PackageReference, você também pode usar condições do MSBuild para escolher as referências de pacote por estrutura de destino, por configuração, por plataforma ou por outros agrupamentos. Ele também proporciona um controle refinado sobre as dependências e o fluxo de conteúdo. (Para obter mais detalhes, veja [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).)
 
-Por padrão, o PackageReference é usado para projetos do .NET Core, para projetos do .NET Standard e para projetos da UWP direcionados ao Windows 10 Build 15063 (Atualização para CRiadores) e posterior. Os projetos com estrutura completa do .NET são compatíveis com o PackageReference, mas no momento contam com `packages.config` como padrão. Para usar PackageReference, migre as dependências de `packages.config` para o arquivo de projeto e remova packages.config.
+Por padrão, o PackageReference é usado para projetos do .NET Core, para projetos do .NET Standard e para projetos da UWP direcionados ao Windows 10 Build 15063 (Atualização para Criadores) e posterior, com exceção dos projetos da C ++ UWP. Os projetos com estrutura completa do .NET são compatíveis com o PackageReference, mas no momento contam com `packages.config` como padrão. Para usar PackageReference, migre as dependências de `packages.config` para o arquivo de projeto e remova packages.config.
 
 ## <a name="adding-a-packagereference"></a>Adicionar um PackageReference
 
@@ -94,7 +94,7 @@ Os valores permitidos para essas marcas são os seguintes, com vários valores s
 | Valor | Descrição |
 | --- | ---
 | compilar | O conteúdo da pasta `lib` |
-| tempo de execução | O conteúdo da pasta `runtime` |
+| tempo de execução | O conteúdo da pasta `runtimes` |
 | contentFiles | O conteúdo da pasta `contentfiles` |
 | build | Objetos e propriedades na pasta `build` |
 | analisadores | Analisadores de .NET |
