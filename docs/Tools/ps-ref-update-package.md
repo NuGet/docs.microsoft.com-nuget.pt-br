@@ -1,22 +1,25 @@
 ---
-title: "Referência do pacote de atualização do NuGet PowerShell | Microsoft Docs"
+title: Referência do pacote de atualização do NuGet PowerShell | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referência de comando do PowerShell do pacote de atualização no Console do Gerenciador de pacotes do NuGet no Visual Studio."
-keywords: "Console do Gerenciador, comandos do Powershell do NuGet, referência do Powershell do NuGet, pacote de atualização do pacote NuGet"
+ms.technology: ''
+description: Referência de comando do PowerShell do pacote de atualização no Console do Gerenciador de pacotes do NuGet no Visual Studio.
+keywords: Console do Gerenciador, comandos do Powershell do NuGet, referência do Powershell do NuGet, pacote de atualização do pacote NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 293d9a7fdcce633eb5a97e5f76398deb5c13bdb4
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 05772159d62f73e7d25f71ad36809f5ae8ef6aae
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Pacote de atualização (Console de Gerenciador de pacotes no Visual Studio)
 
@@ -47,7 +50,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | ProjectName | O nome do projeto que contém os pacotes para atualizar, padronizando para todos os projetos. |
 | Versão | A versão a ser usado para a atualização, o padrão para a versão mais recente. No NuGet 3.0 +, o valor de versão deve ser um dos *menor, mais alta, HighestMinor*, ou *HighestPatch* (equivalente a - Safe). |
 | Safe | Restringe as atualizações para versões somente com a mesma versão principal e secundária do pacote instalado atualmente. |
-| Origem | O caminho de URL ou pasta para a origem do pacote a ser pesquisado. Caminhos de pasta local podem ser absoluto ou relativo para a pasta atual. Se omitido, `Uninstall-Package` procura a origem de pacote selecionada atualmente. |
+| Origem | O caminho de URL ou pasta para a origem do pacote a ser pesquisado. Caminhos de pasta local podem ser absoluto ou relativo para a pasta atual. Se omitido, `Update-Package` procura a origem de pacote selecionada atualmente. |
 | IncludePrerelease | Inclui pacotes de pré-lançamento de atualizações. |
 | Reinstalar | Pacotes de Resintalls usando as versões atualmente instaladas. Confira [Reinstalando e atualizando pacotes](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | A ação a ser tomada quando for solicitado a substituir ou ignorar os arquivos existentes, referenciados pelo projeto. Os valores possíveis são *substituir, ignorar, None, OverwriteAll*, e *IgnoreAll* (3.0 +). |

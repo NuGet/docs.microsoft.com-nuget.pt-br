@@ -1,22 +1,25 @@
 ---
-title: "Notas de versão do NuGet 1.8 | Microsoft Docs"
+title: Notas de versão do NuGet 1.8 | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 1.8 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão 1.8 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
+ms.technology: ''
+description: Notas de versão do NuGet 1.8 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
+keywords: Notas de versão 1.8 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 139c30e29d8148eab7298329a07d8e412259e595
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: b94382f79143cac6bd5deccb5e5253ba8c6f60ec
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-18-release-notes"></a>Notas de versão 1.8 do NuGet
 
@@ -27,7 +30,7 @@ ms.lasthandoff: 02/20/2018
 ## <a name="known-installation-issue"></a>Problema de instalação conhecidos
 Se você estiver executando o VS 2010 SP1, você pode executar em um erro de instalação durante a tentativa de atualizar o NuGet se você tiver uma versão mais antiga.
 
-A solução alternativa é simplesmente desinstalar NuGet e, em seguida, instalá-lo a partir da Galeria de extensão do VS.  Consulte [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) para obter mais informações, ou [vá diretamente para o hotfix VS](http://bit.ly/vsixcertfix).
+A solução alternativa é simplesmente desinstalar NuGet e, em seguida, instalá-lo a partir da Galeria de extensão do VS.  Consulte [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) para obter mais informações, ou [vá diretamente para o hotfix VS](http://bit.ly/vsixcertfix).
 
 Observação: Se o Visual Studio não permitirão que você desinstalar a extensão (o botão de desinstalação estiver desabilitado), em seguida, provavelmente você precisa reiniciar o Visual Studio usando "Executar como administrador".
 
@@ -60,7 +63,7 @@ Além disso, ao instalar o pacote de satélite, NuGet também reconhece a conven
 
 Um bug existente observar com pacotes de satélite é que o NuGet não copiar recursos localizados para o `bin` pasta para projetos de site.  Esse problema será corrigido na próxima versão do NuGet.
 
-Para um exemplo completo que demonstra como criar e usar pacotes de satélite, consulte [https://github.com/NuGet/SatellitePackageSample](https://github.com/NuGet/SatellitePackageSample).
+Para um exemplo completo que demonstra como criar e usar pacotes de satélite, consulte [ https://github.com/NuGet/SatellitePackageSample ](https://github.com/NuGet/SatellitePackageSample).
 
 ### <a name="package-restore-consent"></a>Consentimento de restauração do pacote
 Na versão 1.8 do NuGet, é apresentada a base para dar suporte a uma restrição importante na restauração do pacote para proteger a privacidade do usuário. Essa restrição requer que os desenvolvedores que criam projetos e soluções que estão usando a restauração do pacote para autorização explicitamente a restauração do pacote vai online para baixar os pacotes de fontes de pacote configurado.

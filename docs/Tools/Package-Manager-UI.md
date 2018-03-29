@@ -1,27 +1,30 @@
 ---
-title: "Referência de interface do usuário do Gerenciador de pacotes do NuGet | Microsoft Docs"
+title: Referência de interface do usuário do Gerenciador de pacotes do NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: "Instruções para usar o NuGet Package Manager UI no Visual Studio para trabalhar com pacotes do NuGet."
-keywords: "NuGet UI, Gerenciador de pacotes do NuGet da interface do usuário, o NuGet no Visual Studio, gerenciamento de pacotes do NuGet, interface de usuário do NuGet, o Gerenciador de pacotes no Visual Studio"
+description: Instruções para usar o NuGet Package Manager UI no Visual Studio para trabalhar com pacotes do NuGet.
+keywords: NuGet UI, Gerenciador de pacotes do NuGet da interface do usuário, o NuGet no Visual Studio, gerenciamento de pacotes do NuGet, interface de usuário do NuGet, o Gerenciador de pacotes no Visual Studio
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 35bb856ccff43c77af7eac67da4614d83dcdc533
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interface do usuário de Gerenciador de pacotes do NuGet
 
@@ -37,7 +40,7 @@ Neste tópico:
 - [Controle de opções do Gerenciador de pacote](#package-manager-options-control)
 
 > [!Note]
-> Verifique se está faltando o NuGet Package Manager no Visual Studio 2015, **Ferramentas > extensões e atualizações...**  e procure o *NuGet Package Manager* extensão. Se não for possível usar o instalador de extensões do Visual Studio, baixe a extensão diretamente do [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+> Verifique se está faltando o NuGet Package Manager no Visual Studio 2015, **Ferramentas > extensões e atualizações...**  e procure o *NuGet Package Manager* extensão. Se não for possível usar o instalador de extensões do Visual Studio, baixe a extensão diretamente do [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
 > No Visual Studio de 2017, o NuGet e o NuGet Package Manager são instalados automaticamente com qualquer. Cargas de trabalho relacionados à rede. Instalá-lo individualmente selecionando o **componentes individuais > código Ferramentas > Gerenciador de pacotes do NuGet** opção no instalador do Visual Studio de 2017.
 
@@ -125,7 +128,7 @@ Para gerenciar fontes de pacote:
 
     ![Opções de fontes de pacote](media/options.png)
 
-1. Para adicionar uma fonte, selecione  **+** , edite o nome, digite a URL ou caminho de **fonte** controle e selecione **atualização**. A fonte agora aparece no seletor de lista suspensa.
+1. Para adicionar uma fonte, selecione **+**, edite o nome, digite a URL ou caminho de **fonte** controle e selecione **atualização**. A fonte agora aparece no seletor de lista suspensa.
 1. Para alterar uma origem do pacote, selecioná-lo, faça edições no **nome** e **fonte** caixas e selecione **atualização**.
 1. Para desabilitar uma origem do pacote, desmarque a caixa à esquerda do nome na lista.
 1. Para remover uma origem do pacote, selecione-o e, em seguida, selecione o **X** botão.

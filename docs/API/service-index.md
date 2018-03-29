@@ -1,5 +1,5 @@
 ---
-title: "Índice de serviço, o NuGet API | Microsoft Docs"
+title: Índice de serviço, o NuGet API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "O índice de serviço é o ponto de entrada da API de HTTP do NuGet e enumera os recursos do servidor."
+ms.technology: ''
+description: O índice de serviço é o ponto de entrada da API de HTTP do NuGet e enumera os recursos do servidor.
 keywords: Ponto de entrada de API do NuGet, descoberta de ponto de extremidade NuGetA PI
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 8de0bc15edc358d091d84da54b8b67c085f29645
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 1c1dea25067cc582a14a0dd22c2f3f7f70d40a02
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-index"></a>Índice de serviço
 

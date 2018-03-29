@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referência para o comando de espelho nuget.exe"
-keywords: "referência de espelho do NuGet, comando de espelho"
+ms.technology: ''
+description: Referência para o comando de espelho nuget.exe
+keywords: referência de espelho do NuGet, comando de espelho
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 512bd72d568cda81eb7c6a1555c36ead66b5c438
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>comando de espelho (NuGet CLI)
 
@@ -45,7 +48,7 @@ Se o repositório de destino estiver em `https://machine/repo` que está executa
 | --- | --- |
 | apiKey | A chave de API para o repositório de destino. Se não estiverem presentes, o especificado no arquivo de configuração é usado (`%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Linux/Mac)). |
 | Ajuda | Exibe informações de ajuda para o comando. |
-| NoCache | Impede que o NuGet usando pacotes de caches de computador local. |
+| NoCache | Impede que o NuGet usando pacotes armazenados em cache. Consulte [Gerenciando os pacotes globais e as pastas do cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NOOP | Registra o que deve ser feito, mas não executa as ações; assume o sucesso para operações de envio por push. |
 | Versão de pré-lançamento | Inclui pacotes pré-lançados na operação de espelhamento. |
 | Origem | Uma lista de fontes de pacote para espelhar. Se nenhuma fonte for especificada, aqueles definidos no arquivo de configuração (consulte ApiKey acima) são usados, padronizando para nuget.org se nenhum for especificado. |

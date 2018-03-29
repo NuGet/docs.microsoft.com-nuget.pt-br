@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referência para o comando de inicialização de nuget.exe"
-keywords: "referência de init NuGet, o comando de inicialização"
+ms.technology: ''
+description: Referência para o comando de inicialização de nuget.exe
+keywords: referência de init NuGet, o comando de inicialização
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d7710cd024e2c2956fb73aa767c3be55b9fb0f9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 01a3553622020b5868e33ece09cd7555cb712fd3
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="init-command-nuget-cli"></a>comando init (NuGet CLI)
 
@@ -38,7 +41,7 @@ onde `<source>` é a pasta que contém pacotes e `<destination>` é a pasta loca
 
 | Opção | Descrição |
 | --- | --- |
-| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
+| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
 | ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Expandir | Adiciona todos os arquivos em cada pacote que é adicionado à origem do pacote; mesmo que `-Expand` com o `add` comando. |
 | Ajuda | Exibe informações de ajuda para o comando. |

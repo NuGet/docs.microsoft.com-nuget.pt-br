@@ -6,19 +6,22 @@ manager: ghogen
 ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.nuget.packagemanager.console
-description: "Instruções para usar o NuGet Package Manager Console no Visual Studio para trabalhar com pacotes."
+description: Instruções para usar o NuGet Package Manager Console no Visual Studio para trabalhar com pacotes.
 keywords: Console de Gerenciador de pacote do NuGet, powershell do NuGet, gerenciar os pacotes NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 60c7edd0497e162cc511424e9acfbbfd6f53fd46
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: af22a524f6b4a41a4c24077fe396846da6fb1ff8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-manager-console"></a>Console do Gerenciador de Pacotes
 
@@ -80,19 +83,10 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 Consulte [Install-Package](../tools/ps-ref-install-package.md).
 
-Instalação de um pacote executa as seguintes ações:
+Instalação de um pacote no console executa as mesmas etapas, conforme descrito em [o que acontece quando um pacote é instalado](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), com as seguintes adições:
 
-- Exibe os termos de licença aplicáveis na janela do console com um contrato implícito. Se você não concorda com os termos, você deve desinstalar o pacote imediatamente.
-- Adiciona uma referência ao projeto em qualquer formato de referência está em uso. Referências subsequentemente aparecem no Gerenciador de soluções e o arquivo de formato de referência aplicáveis. No entanto, observe que, com PackageReference, você precisa salvar o projeto para ver as alterações no arquivo de projeto diretamente.
-- Armazena em cache o pacote:
-  - PackageReference: pacote é armazenado em cache `%USERPROFILE%\.nuget\packages` e o bloqueio de arquivos ou seja, `project.assets.json` é atualizada.
-  - `packages.config`: cria um `packages` pasta na raiz da solução e cópias o pacote de arquivos em uma subpasta dentro dele. O `package.config` arquivo está atualizado.
-- Atualizações `app.config` e/ou `web.config` se o pacote usa [transformações de arquivos de origem e configuração](../create-packages/source-and-config-file-transformations.md).
-- Instala todas as dependências, se ainda não estiverem presentes no projeto. Isso pode atualizar versões de pacote no processo, conforme descrito em [resolução de dependência](../consume-packages/dependency-resolution.md).
-- Exibe o arquivo do pacote Leiame, se disponível, em uma janela do Visual Studio.
-
-> [!Tip]
-> Uma das principais vantagens de instalação de pacotes com o `Install-Package` comando no console do é o que adiciona uma referência ao projeto, como se você usou o Gerenciador de pacotes UI. Em contraste, o `nuget install` comando CLI apenas baixa o pacote e não adiciona automaticamente uma referência.
+- O Console exibe os termos de licença aplicáveis em sua janela com contrato implícito. Se você não concorda com os termos, você deve desinstalar o pacote imediatamente.
+- Também uma referência para o pacote é adicionada ao arquivo de projeto e aparece no **Solution Explorer** sob o **referências** nó, você precisa salvar o projeto para ver as alterações no arquivo de projeto diretamente.
 
 ## <a name="uninstalling-a-package"></a>Desinstalar um pacote
 
@@ -111,12 +105,9 @@ Consulte [Uninstall-Package](../tools/ps-ref-uninstall-package.md). Use [Get-Pac
 
 Desinstalar um pacote executa as seguintes ações:
 
-- Remove as referências ao pacote do projeto (e qualquer formato de referência está em uso). As referências não aparecem mais no Gerenciador de soluções. (Talvez seja necessário recompilar o projeto para vê-lo removido o **Bin** pasta.)
+- Remove as referências ao pacote do projeto (e qualquer formato de gerenciamento está em uso). As referências não aparecem mais na **Gerenciador de soluções**. (Talvez seja necessário recompilar o projeto para vê-lo removido o **Bin** pasta.)
 - Reverte as alterações feitas `app.config` ou `web.config` quando o pacote foi instalado.
 - Dependências de remove anteriormente instalado se não há pacotes restantes usam essas dependências.
-
-> [!Tip]
-> Como `Install-Package`, o `Uninstall-Package` comando tem o benefício de referências do projeto, ao contrário de `nuget uninstall` comando CLI.
 
 ## <a name="updating-a-package"></a>Um pacote de atualização
 
@@ -159,7 +150,7 @@ Consulte [Find-Package](../tools/ps-ref-find-package.md). No Visual Studio 2013 
 
 No Visual Studio de 2017, o NuGet e o NuGet Package Manager são instalados automaticamente quando você seleciona qualquer. Cargas de trabalho relacionados à rede; Você também pode instalar individualmente, verificando o **componentes individuais > código Ferramentas > Gerenciador de pacotes do NuGet** opção no instalador do Visual Studio de 2017.
 
-Além disso, se estiver faltando o Gerenciador de pacotes do NuGet no Visual Studio 2015 e versões anteriores, verifique **Ferramentas > extensões e atualizações...**  e procure a extensão do Gerenciador de pacotes do NuGet. Se não for possível usar o instalador de extensões do Visual Studio, você pode baixar a extensão diretamente do [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+Além disso, se estiver faltando o Gerenciador de pacotes do NuGet no Visual Studio 2015 e versões anteriores, verifique **Ferramentas > extensões e atualizações...**  e procure a extensão do Gerenciador de pacotes do NuGet. Se não for possível usar o instalador de extensões do Visual Studio, você pode baixar a extensão diretamente do [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 
 O Console do Gerenciador de pacote não está atualmente disponível com o Visual Studio para Mac. No entanto, os comandos equivalentes, estão disponíveis por meio de [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio para Mac tem uma interface de usuário para gerenciar pacotes NuGet. Consulte [incluindo NuGet um pacote em seu projeto](/visualstudio/mac/nuget-walkthrough).
 

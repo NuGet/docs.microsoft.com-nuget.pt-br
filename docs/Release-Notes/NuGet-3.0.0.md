@@ -1,22 +1,25 @@
 ---
-title: "Notas de versão do NuGet 3.0 | Microsoft Docs"
+title: Notas de versão do NuGet 3.0 | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 3.0.0 incluindo problemas conhecidos, correções de bug, recursos adicionados e DCRs."
-keywords: "Notas de versão NuGet 3.0.0, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
+ms.technology: ''
+description: Notas de versão do NuGet 3.0.0 incluindo problemas conhecidos, correções de bug, recursos adicionados e DCRs.
+keywords: Notas de versão NuGet 3.0.0, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 65251b28093d2ac275053b8bfef6620e16e3fb4a
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: fc669e4a8440c295f08eef461186eef5f505df42
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-30-release-notes"></a>Notas de versão 3.0 do NuGet
 

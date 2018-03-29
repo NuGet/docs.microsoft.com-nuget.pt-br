@@ -1,23 +1,26 @@
 ---
-title: "Referência de versão do pacote do NuGet | Microsoft Docs"
+title: Referência de versão do pacote do NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 03/23/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Informações sobre como especificar números de versão e intervalos para outros pacotes que depende de um pacote do NuGet e como as dependências estejam instaladas."
-keywords: "controle de versão, as dependências de pacotes do NuGet, versões de dependência NuGet, números de versão do NuGet, versão do pacote NuGet, intervalos de versão, especificações de versão, os números de versão normalizada"
+ms.technology: ''
+description: Informações sobre como especificar números de versão e intervalos para outros pacotes que depende de um pacote do NuGet e como as dependências estejam instaladas.
+keywords: controle de versão, as dependências de pacotes do NuGet, versões de dependência NuGet, números de versão do NuGet, versão do pacote NuGet, intervalos de versão, especificações de versão, os números de versão normalizada
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-versioning"></a>Controle de versão do pacote
 
@@ -61,7 +64,7 @@ Dito isso, os desenvolvedores geralmente seguem as convenções de nomenclatura 
 - `-rc`: versão Release candidate, normalmente uma versão que é potencialmente a final (estável), a menos que surjam bugs significativos.
 
 > [!Note]
-> Oferece suporte a 4.3.0+ NuGet [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), que oferece suporte a números de versão de pré-lançamento com a notação de ponto, como em *1.0.1-build.23*. Não há suporte para a notação de ponto com as versões anteriores ao 4.3.0 NuGet. Você pode usar um formulário como *1.0.1-build23*.
+> Oferece suporte a 4.3.0+ NuGet [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), que oferece suporte a números de versão de pré-lançamento com a notação de ponto, como em *1.0.1-build.23*. A notação de ponto não e compatível com as versões do NuGet anteriores à 4.3.0. Você pode usar um formulário como *1.0.1-build23*.
 
 Ao resolver referências de pacote e várias versões de pacote são diferentes apenas pelo sufixo, NuGet escolhe uma versão sem um sufixo primeiro, em seguida, aplica-se a prioridade para as versões em ordem alfabética inversa de pré-lançamento. Por exemplo, as versões a seguir serão escolhidas na ordem exata mostrado:
 
@@ -109,8 +112,8 @@ Ao fazer referência a dependências do pacote, NuGet suporta usando a notação
 
 | Notation | Regra aplicada | Descrição |
 |----------|--------------|-------------|
-| 1.0 | 1.0 ≤ x | Versão mínima, inclusive |
-| (1.0,) | 1.0 < x | Versão mínima, exclusivo |
+| 1.0 | x ≥ 1.0 | Versão mínima, inclusive |
+| (1.0,) | x > 1.0 | Versão mínima, exclusivo |
 | [1.0] | x = = 1.0 | Correspondência exata de versão |
 | (,1.0] | x ≤ 1.0 | Versão máxima, inclusive |
 | (,1.0) | x < 1.0 | Versão máxima, exclusivo |

@@ -1,21 +1,25 @@
 ---
-title: "Empacotamento e restauração do NuGet como destinos do MSBuild | Microsoft Docs"
+title: Empacotamento e restauração do NuGet como destinos do MSBuild | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: O pack e restore do NuGet podem funcionar diretamente como destinos do MSBuild com o NuGet 4.0 e superior.
 keywords: NuGet e MSBuild, NuGet pack target, NuGet restore target
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+- unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a9c2c2229d717dff8472dce0ba568e4a21900b19
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -110,7 +114,7 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-Como parte da alteração para o [Problema do NuGet 2582](https://github.com/NuGet/Home/issues/2582), `PackageIconUrl` eventualmente será alterado para `PackageIconUri` e pode ser um caminho relativo para um arquivo de ícone que será incluído na raiz do pacote resultante.
+Como parte da alteração de [NuGet problema 352](https://github.com/NuGet/Home/issues/352), `PackageIconUrl` eventualmente será alterado para `PackageIconUri` e pode ser um caminho relativo para um arquivo de ícone que será incluído na raiz do pacote resultante.
 
 ### <a name="output-assemblies"></a>Assemblies de saída
 
@@ -231,6 +235,61 @@ Um exemplo de um arquivo csproj ao empacotar um arquivo nuspec é:
 </Project>
 ```
 
+### <a name="advanced-extension-points-to-create-customized-package"></a>Advanced pontos de extensão para criar o pacote personalizado
+
+O `pack` destino fornece dois pontos de extensão que executam o interna, compilação de destino do framework específico. Suportam os pontos de extensão incluindo conteúdo específico do framework de destino e assemblies em um pacote:
+
+- `TargetsForTfmSpecificBuildOutput` destino: uso de arquivos dentro do `lib` pasta ou uma pasta especificada usando `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` destino: uso de arquivos fora do `BuildOutputTargetFolder`.
+
+#### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
+
+Escrever um destino personalizado e especificá-lo como o valor de `$(TargetsForTfmSpecificBuildOutput)` propriedade. Para todos os arquivos que precisam entrar no `BuildOutputTargetFolder` lib (por padrão), o destino deve gravar os arquivos no ItemGroup `BuildOutputInPackage` e definir os dois valores de metadados a seguir:
+
+- `FinalOutputPath`: O caminho absoluto do arquivo. Se não for fornecido, a identidade é usada para avaliar o caminho de origem.
+- `TargetPath`: (Opcional) defina quando o arquivo precisa ir para uma subpasta em `lib\<TargetFramework>` , como assemblies de satélite que vão em suas pastas de cultura do respectivos. O padrão é o nome do arquivo.
+
+Exemplo:
+
+```
+<PropertyGroup>
+  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
+</PropertyGroup>
+
+<Target Name="GetMyPackageFiles">
+  <ItemGroup>
+    <BuildOutputInPackage Include="$(OutputPath)cs\$(AssemblyName).resources.dll">
+        <TargetPath>cs</TargetPath>
+    </BuildOutputInPackage>
+  </ItemGroup>
+</Target>
+```
+
+#### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
+
+Escrever um destino personalizado e especificá-lo como o valor de `$(TargetsForTfmSpecificContentInPackage)` propriedade. Para todos os arquivos incluir no pacote, o destino deve gravar os arquivos no ItemGroup `TfmSpecificPackageFile` e defina os seguintes metadados opcionais:
+
+- `PackagePath`: O caminho onde o arquivo deve ser a saída do pacote. NuGet emite um aviso se mais de um arquivo é adicionado para o mesmo caminho de pacote.
+- `BuildAction`: A ação de compilação para atribuir ao arquivo, é necessário somente se o caminho do pacote está no `contentFiles` pasta. O padrão é "None".
+
+Um exemplo:
+```
+<PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+</PropertyGroup>
+
+<Target Name=""CustomContentTarget"">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include=""abc.txt"">
+        <PackagePath>mycontent/$(TargetFramework)</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
+        <PackagePath>net46content</PackagePath>
+      </TfmSpecificPackageFile>  
+    </ItemGroup>
+  </Target>  
+```
+
 ## <a name="restore-target"></a>restore target
 
 `MSBuild /t:restore` (que `nuget restore` e `dotnet restore` usam com projetos do .NET Core), restaura pacotes referenciados no arquivo de projeto da seguinte maneira:
@@ -254,7 +313,7 @@ Configurações de restauração adicionais podem vir de propriedades MSBuild no
 | RestorePackagesPath | Caminho da pasta dos pacotes do usuário. |
 | RestoreDisableParallel | Limite os downloads para um de cada vez. |
 | RestoreConfigFile | Caminho para um arquivo `Nuget.Config` a ser aplicado. |
-| RestoreNoCache | Se verdadeiro, evita o uso de cache da Web. |
+| RestoreNoCache | Se true, evita o uso de pacotes armazenados em cache. Consulte [Gerenciando os pacotes globais e as pastas do cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | Se verdadeiro, ignora origens de pacote com falha ou ausentes. |
 | RestoreTaskAssemblyFile | Caminho para `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Lista separada por ponto e vírgula de projetos a serem restaurados, que devem conter caminhos absolutos. |
@@ -282,7 +341,7 @@ A restauração cria os seguintes arquivos na pasta `obj` de build:
 
 | Arquivo | Descrição |
 |--------|--------|
-| `project.assets.json` | Anteriormente `project.lock.json` |
+| `project.assets.json` | Contém o gráfico de dependência de todas as referências do pacote. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Referências a objetos do MSBuild contidos em pacotes |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Referências a destinos do MSBuild contidos em pacotes |
 

@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: A URL de base de registro do pacote permite buscar metadados sobre os pacotes.
-keywords: "Metadados de pacote do NuGet API, o registro do NuGet API, API do NuGet não consta da lista de pacotes"
+keywords: Metadados de pacote do NuGet API, o registro do NuGet API, API do NuGet não consta da lista de pacotes
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-metadata"></a>Metadados de pacote
 
@@ -35,8 +38,8 @@ O seguinte `@type` valores são usados:
 Valor @type                     | Observações
 ------------------------------- | -----
 RegistrationsBaseUrl            | A versão inicial
-RegistrationsBaseUrl/3.0.0-beta | Alias de`RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-rc   | Alias de`RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-beta | Alias de `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-rc   | Alias de `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | Gzip respostas
 RegistrationsBaseUrl/3.6.0      | Inclui pacotes SemVer 2.0.0
 
@@ -146,7 +149,7 @@ Nome                     | Tipo                       | Necessária | Observaç�
 ------------------------ | -------------------------- | -------- | -----
 @id                      | cadeia de caracteres                     | sim      | A URL usada para produzir esse objeto de documento
 authors                  | cadeia de caracteres ou matriz de cadeias de caracteres | no       | 
-dependencyGroups         | Matriz de objetos           | no       | A URL para o conteúdo do pacote (. nupkg)
+dependencyGroups         | Matriz de objetos           | no       | As dependências do pacote, agrupados por estrutura de destino
 descrição              | cadeia de caracteres                     | no       | 
 iconUrl                  | cadeia de caracteres                     | no       | 
 id                       | cadeia de caracteres                     | sim      | A ID do pacote

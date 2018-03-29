@@ -1,22 +1,25 @@
 ---
-title: "Comando de restauração do NuGet CLI | Microsoft Docs"
+title: Comando de restauração do NuGet CLI | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referência do comando de restauração de nuget.exe"
-keywords: "NuGet restaure referência, restaure o comando de pacotes"
+ms.technology: ''
+description: Referência do comando de restauração de nuget.exe
+keywords: NuGet restaure referência, restaure o comando de pacotes
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>comando de restauração (NuGet CLI)
 
@@ -46,15 +49,15 @@ onde `<projectPath>` Especifica o local de uma solução ou um `packages.config`
 | Ajuda | Exibe informações de ajuda para o comando. |
 | MSBuildPath | *(4.0 +)*  Especifica o caminho do MSBuild para usar com o comando tendo precedência sobre `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15. Por padrão que o MSBuild em seu caminho é separado, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
-| NoCache | Impede que o NuGet usando pacotes de caches de computador local. |
+| NoCache | Impede que o NuGet usando pacotes armazenados em cache. Consulte [Gerenciando os pacotes globais e as pastas do cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NonInteractive | Suprime avisos para a entrada do usuário ou confirmações. |
-| OutputDirectory | Especifica a pasta na qual os pacotes são instalados. Se nenhuma pasta for especificada, a pasta atual será usada. |
+| OutputDirectory | Especifica a pasta na qual os pacotes são instalados. Se nenhuma pasta for especificada, a pasta atual será usada. Necessário quando a restauração com um `packages.config` de arquivos, a menos que `PackagesDirectory` ou `SolutionDirectory` é usado.|
 | PackageSaveMode | Especifica os tipos de arquivos para salvar após a instalação do pacote: um dos `nuspec`, `nupkg`, ou `nuspec;nupkg`. |
-| PackagesDirectory | Mesmo que `OutputDirectory`. |
+| PackagesDirectory | Mesmo que `OutputDirectory`. Necessário quando a restauração com um `packages.config` de arquivos, a menos que `OutputDirectory` ou `SolutionDirectory` é usado. |
 | Project2ProjectTimeOut | Tempo limite em segundos para resolver referências de projeto ao projeto. |
 | Recursiva | *(4.0 +)*  Restaura todos os projetos de referências para os projetos UWP e .NET Core. Não se aplicam a projetos usando `packages.config`. |
 | RequireConsent | Verifica se a restauração de pacotes é habilitado antes de baixar e instalar os pacotes. Para obter detalhes, consulte [restauração do pacote](../consume-packages/package-restore.md). |
-| SolutionDirectory | Especifica a pasta de solução. Não é válido ao restaurar pacotes para uma solução. |
+| SolutionDirectory | Especifica a pasta de solução. Não é válido ao restaurar pacotes para uma solução. Necessário quando a restauração com um `packages.config` de arquivos, a menos que `PackagesDirectory` ou `OutputDirectory` é usado. |
 | Origem | Especifica a lista de fontes de pacote (como URLs) para usar para a restauração. Se omitido, o comando usa as fontes fornecidas nos arquivos de configuração, consulte [NuGet Configurando comportamento](../consume-packages/configuring-nuget-behavior.md). |
 | Detalhamento |> especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 

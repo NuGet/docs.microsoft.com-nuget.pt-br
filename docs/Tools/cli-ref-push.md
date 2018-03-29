@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referência para o comando de envio de nuget.exe"
-keywords: "referência de push NuGet, o comando de envio"
+ms.technology: ''
+description: Referência para o comando de envio de nuget.exe
+keywords: referência de push NuGet, o comando de envio
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 095e81406df3db5fbfc6c5202362894b2c6d7cf8
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 832f7aeb2b485acbb83e5213916fc3423df961ab
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="push-command-nuget-cli"></a>comando de envio (NuGet CLI)
 

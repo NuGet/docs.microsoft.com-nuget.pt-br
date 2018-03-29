@@ -1,22 +1,25 @@
 ---
-title: "Referência do pacote do NuGet Sync PowerShell | Microsoft Docs"
+title: Referência do pacote do NuGet Sync PowerShell | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referência de comando do PowerShell do pacote de sincronização no Console do Gerenciador de pacotes do NuGet no Visual Studio."
-keywords: "Console do Gerenciador, comandos do Powershell do NuGet, referência do Powershell do NuGet, sincronização do pacote do pacote NuGet"
+ms.technology: ''
+description: Referência de comando do PowerShell do pacote de sincronização no Console do Gerenciador de pacotes do NuGet no Visual Studio.
+keywords: Console do Gerenciador, comandos do Powershell do NuGet, referência do Powershell do NuGet, sincronização do pacote do pacote NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8e4b627cff01a353440c47883b98cd93f9edd6cb
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 0297015c3f1b8a8aced2545b4c4c3e6ccb1c7146
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Pacote de sincronização (Console de Gerenciador de pacotes no Visual Studio)
 

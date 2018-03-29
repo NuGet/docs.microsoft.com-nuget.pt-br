@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referência para o comando de setapikey nuget.exe"
-keywords: "NuGet setapikey referência, o comando setapikey"
+ms.technology: ''
+description: Referência para o comando de setapikey nuget.exe
+keywords: NuGet setapikey referência, o comando setapikey
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ca6caddbf1404bcaa1ca068c9556f7cf0c651947
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 696ccf9df5af487d3bf75925c1c1e0d1d1bf7f7b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setapikey-command-nuget-cli"></a>comando setapikey (NuGet CLI)
 
@@ -36,7 +39,7 @@ onde `<source>` identifica o servidor e `<key>` é a chave ou senha para salvar.
 
 | Opção | Descrição |
 | --- | --- |
-| ConfigFile | O arquivo de configuração do NuGet para modificar. Se não for especificado, *%AppData%\NuGet\NuGet.Config* é usado. |
+| ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
 | ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
 | NonInteractive | Suprime avisos para a entrada do usuário ou confirmações. |

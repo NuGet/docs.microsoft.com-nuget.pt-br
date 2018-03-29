@@ -1,22 +1,25 @@
 ---
-title: "Referência do arquivo NuGet.Config | Microsoft Docs"
+title: Referência do arquivo NuGet.Config | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 10/25/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referência do arquivo NuGet.Config incluindo as seções config, bindingRedirects, packageRestore, solution e packageSource."
-keywords: "Arquivo NuGet.Config, referência de configuração do NuGet, opções de configuração do NuGet"
+ms.technology: ''
+description: Referência do arquivo NuGet.Config incluindo as seções config, bindingRedirects, packageRestore, solution e packageSource.
+keywords: Arquivo NuGet.Config, referência de configuração do NuGet, opções de configuração do NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a5be1ebcca0accafcdaf32f0b1b7ca66ec53425
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e2a9d4f10ac6af4e5bc7386d4f78e18c2a5752c4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nugetconfig-reference"></a>Referência do NuGet.Config
 
@@ -48,13 +51,13 @@ Neste tópico:
 
 Contém diversas definições de configurações, que podem ser definidas usando o comando [`nuget config`](../tools/cli-ref-config.md).
 
-Observação: `dependencyVersion` e `repositoryPath` se aplicam apenas a projetos que usam `packages.config`. `globalPackagesFolder` aplica-se somente a projetos usando o formato de PackageReference.
+`dependencyVersion` e `repositoryPath` se aplicam apenas a projetos usando `packages.config`. `globalPackagesFolder` aplica-se somente a projetos usando o formato de PackageReference.
 
 | Chave | Valor |
 | --- | --- |
 | dependencyVersion (somente `packages.config`) | O valor `DependencyVersion` padrão para a instalação, restauração e atualização do pacote, quando a opção `-DependencyVersion` não tiver sido especificada diretamente. Esse valor também é usado pela interface do usuário do Gerenciador de Pacotes do NuGet. Os valores são `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (projetos não usam `packages.config`) | O local da pasta de pacotes global padrão. O padrão é `%USERPROFILE%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Um caminho relativo pode ser usado em arquivos `Nuget.Config` específicos do projeto. |
-| repositoryPath (somente `packages.config`) | O local no qual instalar os pacotes do NuGet em vez da pasta `$(Solutiondir)/packages` padrão. Um caminho relativo pode ser usado em arquivos `Nuget.Config` específicos do projeto. |
+| globalPackagesFolder (projetos usando PackageReference apenas) | O local da pasta de pacotes global padrão. O padrão é `%userprofile%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Um caminho relativo pode ser usado em arquivos `Nuget.Config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
+| repositoryPath (somente `packages.config`) | O local no qual instalar os pacotes do NuGet em vez da pasta `$(Solutiondir)/packages` padrão. Um caminho relativo pode ser usado em arquivos `Nuget.Config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
 | defaultPushSource | Identifica a URL ou o caminho da origem do pacote que deve ser usada como o padrão se nenhuma outra origem de pacote for encontrada para uma operação. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Configurações de proxy a serem usadas ao se conectar a origens de pacote; `http_proxy` deve estar no formato `http://<username>:<password>@<domain>`. As senhas são criptografadas e não podem ser adicionadas manualmente. Para `no_proxy`, o valor é uma lista separada por vírgulas de domínios a ignorar no servidor proxy. Como alternativa, você pode usar as variáveis de ambiente http_proxy e no_proxy para esses valores. Para ver detalhes adicionais, consulte [Configurações de proxy do NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 
@@ -64,7 +67,7 @@ Observação: `dependencyVersion` e `repositoryPath` se aplicam apenas a projeto
 <config>
     <add key="dependencyVersion" value="Highest" />
     <add key="globalPackagesFolder" value="c:\packages" />
-    <add key="repositoryPath" value="c:\repo" />
+    <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
 </config>
 ```
