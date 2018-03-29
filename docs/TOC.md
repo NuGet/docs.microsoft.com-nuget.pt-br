@@ -14,7 +14,7 @@
 ### [Solução de problemas](consume-packages/package-restore-troubleshooting.md)
 ## [Reinstalação e atualização de pacotes](consume-packages/reinstalling-and-updating-packages.md)
 ## [Pacotes e controle do código-fonte](consume-packages/packages-and-source-control.md)
-## [Gerenciamento do cache do NuGet](consume-packages/managing-the-nuget-cache.md)
+## [Gerenciando os pacotes globais e as pastas de cache](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ## [Configuração do comportamento de NuGet](consume-packages/configuring-nuget-behavior.md)
 ## [Resolução de dependência](consume-packages/dependency-resolution.md)
 # Criar pacotes
@@ -31,8 +31,8 @@
 ## Guias
 ### [Criar pacotes UWP](guides/create-uwp-packages.md)
 ### [Criação de controles UWP como pacotes do NuGet](guides/create-uwp-controls.md)
-### [Criar pacotes NET Standard (Visual Studio 2015)](guides/create-net-standard-packages-vs2015.md)
-### [Criar pacotes para o Xamarin](guides/create-packages-for-xamarin.md)
+### [Criar pacotes do NET Standard/NET Framework com o Visual Studio 2015](guides/create-net-standard-packages-vs2015.md)
+### [Criar pacotes para Xamarin com o Visual Studio 2015](guides/create-packages-for-xamarin.md)
 # Hospedar pacotes
 ## [Visão geral](hosting-packages/overview.md)
 ## [Feeds locais](hosting-packages/local-feeds.md)
@@ -88,7 +88,7 @@
 ### [Provedores de credenciais NuGet para Visual Studio](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [Provedores de credenciais nuget.exe](reference/extensibility/nuget-exe-credential-providers.md)
 ## Conteúdo Arquivado
-### [formato de referência do Project](archive/project-json.md)
+### [formato de gerenciamento project.json](archive/project-json.md)
 ### [project.json e UWP](archive/project-json-and-uwp.md)
 ### [project.json impact](archive/project-json-impact.md)
 # API
