@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 09/27/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Descrição dos diversos métodos para várias versões do .NET Framework de dentro de um único pacote do NuGet."
-keywords: "Direcionamento de pacote do NuGet, versões do .NET Framework, NuGet e .NET, direcionando várias estruturas, criação de pacotes do NuGet"
+ms.technology: ''
+description: Descrição dos diversos métodos para várias versões do .NET Framework de dentro de um único pacote do NuGet.
+keywords: Direcionamento de pacote do NuGet, versões do .NET Framework, NuGet e .NET, direcionando várias estruturas, criação de pacotes do NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 723dbcc12ecc4e16d2ba4662559f107b9b22e2c2
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4349fed276b1a1f46845c990718f9202b356072c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Suporte a várias versões do .NET Framework
 

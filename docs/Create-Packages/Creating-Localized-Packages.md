@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Detalhes sobre os dois modos de criar pacotes do NuGet localizados, incluindo todos os assemblies em um único pacote ou publicando assemblies separados."
-keywords: "Localização de pacote do NuGet, assemblies satélite do NuGet, criação de pacotes localizados, convenções de localização do NuGet"
+ms.technology: ''
+description: Detalhes sobre os dois modos de criar pacotes do NuGet localizados, incluindo todos os assemblies em um único pacote ou publicando assemblies separados.
+keywords: Localização de pacote do NuGet, assemblies satélite do NuGet, criação de pacotes localizados, convenções de localização do NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5946ba6b43d3c418a1624aeb27d12b385d66b2fb
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 39ff6d300ec1a1f7941cad5953599f25f55117f4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>Criando pacotes do NuGet localizados
 

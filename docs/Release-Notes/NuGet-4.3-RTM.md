@@ -1,23 +1,26 @@
 ---
-title: "Notas de Versão do NuGet 4.3 RTM | Microsoft Docs"
+title: Notas de Versão do NuGet 4.3 RTM | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: unniravindranathan
 ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 4.3 RTM incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs."
-keywords: "Notas de versão do NuGet 4.3 RTM, correções de bugs, problemas conhecidos, recursos adicionados, DCRs"
+ms.technology: ''
+description: Notas de versão do NuGet 4.3 RTM incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
+keywords: Notas de versão do NuGet 4.3 RTM, correções de bugs, problemas conhecidos, recursos adicionados, DCRs
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: a2b61d854f4a5f1490832dab9a272c3a13b56adf
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 3c798bde11548b866cad62697315e907dea91aa5
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-43-rtm-release-notes"></a>Notas de Versão do NuGet 4.3 RTM
 

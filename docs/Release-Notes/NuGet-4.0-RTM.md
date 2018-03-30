@@ -1,22 +1,25 @@
 ---
-title: "Notas de Versão do NuGet 4.0 RC | Microsoft Docs"
+title: Notas de Versão do NuGet 4.0 RC | Microsoft Docs
 author: anangaur
 ms.author: anangaur
 manager: unniravindranathan
 ms.date: 03/03/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 4.0 RTM incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs."
-keywords: "Notas de versão do NuGet 4.0 RTM, correções de bugs, problemas conhecidos, recursos adicionados, DCRs"
+ms.technology: ''
+description: Notas de versão do NuGet 4.0 RTM incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
+keywords: Notas de versão do NuGet 4.0 RTM, correções de bugs, problemas conhecidos, recursos adicionados, DCRs
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d1ab89f0decb64a64d04dc293e5273b577e8398b
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 75ce757c209afd74f8d4f45d58d4e13a23b3b743
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Notas de Versão do NuGet 4.0 RTM
 

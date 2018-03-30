@@ -8,19 +8,22 @@ ms.author:
 - kraigb
 manager: skofman
 ms.date: 11/02/2017
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "Usando a API do NuGet, você pode consultar todos os pacotes publicados em nuget.org e manter-se atualizado com o passar do tempo."
-keywords: "A API do NuGet enumera todos os pacotes, pacotes de replicação da API do NuGet, os pacotes mais recentes publicados em nuget.org"
+ms.technology: ''
+description: Usando a API do NuGet, você pode consultar todos os pacotes publicados em nuget.org e manter-se atualizado com o passar do tempo.
+keywords: A API do NuGet enumera todos os pacotes, pacotes de replicação da API do NuGet, os pacotes mais recentes publicados em nuget.org
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: ce25680f3b591e9c6b0234b6ac30b82205d10ad3
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 5ea11e1b4edd87b6d30d3838986ca60aaa77870f
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Consulta para todos os pacotes publicados em nuget.org
 

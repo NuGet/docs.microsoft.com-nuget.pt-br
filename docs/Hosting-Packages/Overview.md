@@ -1,23 +1,26 @@
 ---
-title: "Visão geral da hospedagem de seus próprios Feeds de NuGet | Microsoft Docs"
+title: Visão geral da hospedagem de seus próprios Feeds de NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/25/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Uma visão geral de aberturas para hospedar seus próprios feeds de pacote do NuGet ou galerias localmente ou remotamente."
+ms.technology: ''
+description: Uma visão geral de aberturas para hospedar seus próprios feeds de pacote do NuGet ou galerias localmente ou remotamente.
 keywords: Feed de NuGet, Galeria NuGet, feed de pacote de personalizado, NuGet.Server
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 738190e20603046d075faa3f50402601890583c1
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 242404caa12f17ea359a13d574379b34f13f2e40
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hospedando seus próprios feeds do NuGet
 

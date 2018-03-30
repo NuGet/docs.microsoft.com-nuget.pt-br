@@ -6,21 +6,24 @@ manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Detalhes sobre a criação de pacotes do NuGet nativos que contém código C++ em vez do código gerenciado, para uso em projetos C++."
-keywords: "Pacotes do NuGet nativos, pacotes do NuGet C++, pacotes de código nativo, voltado para projetos C++"
+ms.technology: ''
+description: Detalhes sobre a criação de pacotes do NuGet nativos que contém código C++ em vez do código gerenciado, para uso em projetos C++.
+keywords: Pacotes do NuGet nativos, pacotes do NuGet C++, pacotes de código nativo, voltado para projetos C++
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 71f4eca411d520630ca7d77165b8f03cd32af290
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ed33f906f11a80c0d033292f7de151e93b8368fd
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-native-packages"></a>Criando pacotes nativos
 
-Um pacote nativo contém o código C++ nativo em vez do código gerenciado, permitindo que ele seja usado dentro de projetos C++. (Consulte [Pacotes C++ nativos](../consume-packages/finding-and-choosing-packages.md#native-cpp-packages) na seção Consumir.)
+Um pacote nativo contém o código C++ nativo em vez do código gerenciado, permitindo que ele seja usado dentro de projetos C++. (Consulte [Pacotes C++ nativos](../consume-packages/finding-and-choosing-packages.md#native-c-packages) na seção Consumir.)
 
 Para ser consumido em um projeto C++, um pacote precisa ter como destino a estrutura `native`. No momento não há nenhum número de versão associado a essa estrutura, visto que o NuGet trata todos os projetos do C++ da mesma forma.
 

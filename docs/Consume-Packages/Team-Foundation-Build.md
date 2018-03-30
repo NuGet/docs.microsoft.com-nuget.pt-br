@@ -1,22 +1,25 @@
 ---
-title: "Explicação passo a passo da restauração de pacotes do NuGet com o Team Foundation Build | Microsoft Docs"
+title: Explicação passo a passo da restauração de pacotes do NuGet com o Team Foundation Build | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Um passo a passo de como restaurar pacotes do NuGet com o Team Foundation Build (no TFS e no Visual Studio Team Services).
-keywords: "Restauração do pacote do NuGet, NuGet e TFS, NuGet e VSTS, sistemas de build do NuGet, build do team foundation, projetos do MSBuild personalizados, build na nuvem, integração contínua"
+keywords: Restauração do pacote do NuGet, NuGet e TFS, NuGet e VSTS, sistemas de build do NuGet, build do team foundation, projetos do MSBuild personalizados, build na nuvem, integração contínua
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e3ef6e3bcc55705315fcb6ccf3e917963c62250
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f46a7402214bf965918a5195605027913a8c60c2
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Configurando a restauração de pacote com o Team Foundation Build
 
@@ -110,6 +113,9 @@ O arquivo `.gitignore` se parece com o seguinte:
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 O arquivo `.gitignore` é [muito poderoso](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Por exemplo, se você geralmente não quiser fazer check-in do conteúdo da pasta `packages`, mas deseja prosseguir com a orientação anterior de fazer check-in nos arquivos `.targets`, você poderia ter a seguinte regra em vez disso:
 
@@ -125,6 +131,9 @@ O controle de versão do TF dá suporte a um mecanismo muito semelhante por meio
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 ## <a name="buildproj"></a>build.proj
 
