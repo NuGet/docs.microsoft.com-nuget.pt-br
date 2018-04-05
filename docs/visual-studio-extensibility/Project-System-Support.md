@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/09/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Integração do NuGet ao sistema de projeto do Visual Studio para tipos de projetos de terceiros."
+ms.technology: ''
+description: Integração do NuGet ao sistema de projeto do Visual Studio para tipos de projetos de terceiros.
 keywords: NuGet no Visual Studio, tipos de projeto personalizados, projetos do Visual Studio
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e2f7c4a32f80b96360f08d04efb8af639af2ddd3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 0ffebfc9e403315482d3781a00a0a6896fd04f0c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Suporte do NuGet para o sistema de projetos do Visual Studio
 

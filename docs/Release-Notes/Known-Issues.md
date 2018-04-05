@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Problemas conhecidos com o NuGet, incluindo autenticação, instalação de pacote e ferramentas."
+ms.technology: ''
+description: Problemas conhecidos com o NuGet, incluindo autenticação, instalação de pacote e ferramentas.
 keywords: Problemas conhecidos do NuGet, problemas do NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c36da5dc73dddbd540a36d171583cbf542e0678f
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="known-issues-with-nuget"></a>Problemas conhecidos com o NuGet
 
@@ -227,7 +230,7 @@ Ferramentas do Windows Phone não são compatíveis com o Gerenciador de Extens�
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>Alterar a diferenciação entre maiúsculas e minúsculas de IDs do pacote do NuGet interrompe a restauração do pacote
 
-Conforme discutido em detalhes em [neste problema do GitHub](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), é possível alterar a diferenciação entre minúsculas e maiúsculas de pacotes do NuGet por meio do suporte ao NuGet, porém isso causa complicações durante a restauração de pacote para usuários que têm pacotes existentes com um padrão diferente de maiúsculas e minúsculas no cache local. É recomendável solicitar uma alteração de caso somente quando você tem uma maneira de se comunicar com os usuários existentes do seu pacote sobre a interrupção que pode ocorrer na restauração do pacote de tempo de build.
+Conforme discutido em detalhes [neste problema do GitHub](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), é possível alterar as letras minúsculas e maiúsculas de pacotes do NuGet por meio do suporte ao NuGet, mas isso causa complicações durante a restauração de pacote para usuários que têm pacotes existentes com um padrão diferente de maiúsculas e minúsculas na pasta *global-packages*. É recomendável solicitar uma alteração de caso somente quando você tem uma maneira de se comunicar com os usuários existentes do seu pacote sobre a interrupção que pode ocorrer na restauração do pacote de tempo de build.
 
 ## <a name="reporting-issues"></a>Relatando problemas
 

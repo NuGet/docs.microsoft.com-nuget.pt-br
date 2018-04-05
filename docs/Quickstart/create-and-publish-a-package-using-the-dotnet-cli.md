@@ -4,19 +4,22 @@ author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/24/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet usando a CLI do .NET Core, dotnet.
-keywords: "Criação de pacote NuGet, publicação de pacote NuGet, tutorial do NuGet, publicação de dotnet do pacote NuGet"
+keywords: Criação de pacote NuGet, publicação de pacote NuGet, tutorial do NuGet, publicação de dotnet do pacote NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 536e39ae64649ca1c11afa95c20872515e9e4c83
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-publish-a-package"></a>Criar e publicar um pacote
 
@@ -38,7 +41,7 @@ Você pode usar um projeto existente da Biblioteca de Classes .NET para o códig
 
 ## <a name="add-package-metadata-to-the-project-file"></a>Adicionar metadados de pacote ao arquivo de projeto
 
-Todos os pacotes NuGet precisam de um manifesto que descreve seu conteúdo e suas dependências. Em um pacote final, o manifesto é um arquivo `.nuspec` gerado das propriedades de metadados do NuGet que você inclui no arquivo do projeto.
+Todos os pacotes NuGet precisam de um manifesto que descreve seu conteúdo e suas dependências. Em um pacote final, o manifesto é um arquivo `.nuspec` gerado das propriedades de metadados do NuGet que você inclui no arquivo de projeto.
 
 1. Abra o arquivo de projeto (`.csproj`) e adicione as seguintes propriedades mínima dentro da marca `<PropertyGroup>` existente, alterando os valores conforme apropriado:
 
@@ -59,14 +62,14 @@ Todos os pacotes NuGet precisam de um manifesto que descreve seu conteúdo e sua
 
 ## <a name="run-the-pack-command"></a>Executar o comando pack
 
-Para compilar um pacote NuGet (um arquivo `.nupkg`) do projeto, execute o comando `dotnet pack`:
+Para compilar um pacote do NuGet (um arquivo `.nupkg`) do projeto, execute o comando `dotnet pack`, que também compila o projeto automaticamente:
 
 ```cli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
 
-A saída mostrará o caminho até o arquivo `.nupkg`:
+A saída mostra o caminho até o arquivo `.nupkg`:
 
 ```output
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
@@ -75,6 +78,14 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   Restore completed in 29.91 ms for D:\proj\AppLoggerNet\AppLogger\AppLogger.csproj.
   AppLogger -> D:\proj\AppLoggerNet\AppLogger\bin\Debug\netstandard2.0\AppLogger.dll
   Successfully created package 'D:\proj\AppLoggerNet\AppLogger\bin\Debug\AppLogger.1.0.0.nupkg'.
+```
+
+### <a name="automatically-generate-package-on-build"></a>Gerar pacote automaticamente no build
+
+Para executar `dotnet pack` automaticamente ao executar `dotnet build`, adicione a seguinte linha ao arquivo de projeto em `<PropertyGroup>`:
+
+```xml
+<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
 ## <a name="publish-the-package"></a>Publicar o pacote

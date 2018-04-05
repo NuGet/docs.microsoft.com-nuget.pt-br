@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "As instruções para incluir pacotes do NuGet como parte dos modelos de projeto e de item do Visual Studio."
+ms.technology: ''
+description: As instruções para incluir pacotes do NuGet como parte dos modelos de projeto e de item do Visual Studio.
 keywords: NuGet no Visual Studio, modelos de projeto do Visual Studio, modelos de item do Visual Studio, pacotes em modelos de projeto, pacotes em modelos de item
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pacotes em modelos do Visual Studio
 
@@ -62,7 +65,7 @@ Etapas para incluir pacotes em um modelo:
     </WizardData>
     ```
 
-    *(NuGet 2.2.1 ou superior)*  O assistente é compatível com vários elementos `<package>` para dar suporte a várias origens de pacote. Ambos os atributos `id` e `version` são necessários, o que significa que a versão específica de um pacote será instalada mesmo se uma versão mais recente estiver disponível. Isso impede que atualizações do pacote interrompam o modelo, deixando a opção de atualizar o pacote para o desenvolvedor que usa o modelo.
+    O assistente é compatível com vários elementos `<package>` para dar suporte a várias origens de pacote. Ambos os atributos `id` e `version` são necessários, o que significa que a versão específica de um pacote será instalada mesmo se uma versão mais recente estiver disponível. Isso impede que atualizações do pacote interrompam o modelo, deixando a opção de atualizar o pacote para o desenvolvedor que usa o modelo.
 
 1. Especifique o repositório em que o NuGet pode encontrar os pacotes conforme descrito nas seções a seguir.
 
@@ -116,9 +119,9 @@ SDKs que são instalados usando um MSI podem instalar os pacotes do NuGet direta
 
 1. Faça o MSI instalar pacotes no computador. Você pode instalar apenas os arquivos `.nupkg` ou instalá-los junto com o conteúdo expandido, que salva uma etapa adicional quando o modelo é usado. Nesse caso, siga a estrutura de pasta padrão do NuGet no qual os arquivos `.nupkg` estão na pasta raiz e cada pacote tem uma subpasta com o par de ID/versão como o nome da subpasta.
 
-1. Grave uma chave do Registro para identificar o local do pacote:
+1. Grave uma chave do Registro para identificar a localização do pacote:
 
-    - Local da chave: o `HKEY_LOCAL_MACHINE\SOFTWARE[\Wow6432Node]\NuGet\Repository` em todo o computador ou, em caso de modelos e pacotes instalados por usuário, use `HKEY_CURRENT_USER\SOFTWARE\NuGet\Repository` como alternativa
+    - localização da chave: o `HKEY_LOCAL_MACHINE\SOFTWARE[\Wow6432Node]\NuGet\Repository` em todo o computador ou, em caso de modelos e pacotes instalados por usuário, use `HKEY_CURRENT_USER\SOFTWARE\NuGet\Repository` como alternativa
     - Nome da chave: use um nome exclusivo para você. Por exemplo, os modelos do ASP.NET MVC 4 para VS 2012 usam `AspNetMvc4VS11`.
     - Valores: o caminho completo para a pasta de pacotes.
 

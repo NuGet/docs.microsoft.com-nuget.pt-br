@@ -1,26 +1,29 @@
 ---
-title: "Pacotes do NuGet e controle do código-fonte | Microsoft Docs"
+title: Pacotes do NuGet e controle do código-fonte | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 07/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Considerações sobre como tratar pacotes do NuGet nos sistemas de controle de versão e do código-fonte, e como omitir pacotes com git e TFVC."
-keywords: "Controle de código-fonte do NuGet, controle de versão do NuGet, NuGet e git, NuGet e TFS, NuGet e TFVC, omitindo pacotes, repositórios de controle do código-fonte, repositórios de controle de versão"
+ms.technology: ''
+description: Considerações sobre como tratar pacotes do NuGet nos sistemas de controle de versão e do código-fonte, e como omitir pacotes com git e TFVC.
+keywords: Controle de código-fonte do NuGet, controle de versão do NuGet, NuGet e git, NuGet e TFS, NuGet e TFVC, omitindo pacotes, repositórios de controle do código-fonte, repositórios de controle de versão
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6261625d5d7eaa748f9ad15510b7b2af3c814e44
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 43fc1653616091b0f974903147645c0c99c8f57b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Omitindo pacotes do NuGet em sistemas de controle do código-fonte
 
-Os desenvolvedores geralmente omitem pacotes do NuGet de seus repositórios de controle do código-fonte e, em vez disso, contam com a [restauração de pacote](../consume-packages/package-restore.md) para reinstalar as dependências de um projeto antes de um build.
+Os desenvolvedores geralmente omitem pacotes do NuGet de seus repositórios de controle do código-fonte e, em vez disso, contam com a [restauração de pacote](package-restore.md) para reinstalar as dependências de um projeto antes de um build.
 
 Alguns dos motivos para contar com a restauração de pacote são:
 
@@ -29,11 +32,11 @@ Alguns dos motivos para contar com a restauração de pacote são:
 1. Fica mais difícil limpar as pastas de pacote não utilizadas da solução, pois pode ser necessário garantir que você não exclua as pastas de pacote ainda em uso.
 1. Ao omitir pacotes, você pode manter limites claros de propriedade entre o código e os pacotes de terceiros dos quais você depende. Muitos pacotes do NuGet já são mantidos em seus próprios repositórios de controle do código-fonte.
 
-Embora a restauração do pacote seja o comportamento padrão com o NuGet, é necessário certo trabalho manual para omitir pacotes&mdash;, ou seja, a pasta `packages` em seu projeto&mdash;do controle do código-fonte, conforme descrito nas seções a seguir.
+Embora a restauração de pacote seja o comportamento padrão no NuGet, é necessário certo trabalho manual para omitir pacotes &mdash; ou seja, a pasta `packages` em seu projeto &mdash; do controle do código-fonte, conforme descrito neste artigo.
 
 ## <a name="omitting-packages-with-git"></a>Omitir pacotes com Git
 
-Use o [arquivo .gitignore](https://git-scm.com/docs/gitignore) evitar incluir a pasta `packages` no controle do código-fonte. Para referência, consulte o [exemplo `.gitignore` para projetos do Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
+Use o [arquivo .gitignore](https://git-scm.com/docs/gitignore) para ignorar pacotes do NuGet (`.nupkg`), a pasta `packages`, `project.assets.json`, entre outros itens. Para referência, veja o [exemplo de `.gitignore` para projetos do Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
 
 As partes importantes do arquivo `.gitignore` são:
 
@@ -41,20 +44,24 @@ As partes importantes do arquivo `.gitignore` são:
 # Ignore NuGet Packages
 *.nupkg
 
-# Ignore the packages folder
-**/packages/*
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
 
-# Include packages/build/, which is used as an MSBuild target
-!**/packages/build/
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
 
-# Uncomment if necessary; generally it's regenerated when needed
-#!**/packages/repositories.config
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
 
 # Ignore other intermediate files that NuGet might create. project.lock.json is used in conjunction
-# with project.json; project.assets.json is used in conjunction with the PackageReference format.
+# with project.json (NuGet v3); project.assets.json is used in conjunction with the PackageReference
+# format (NuGet v4 and .NET Core).
 project.lock.json
 project.assets.json
-*.nuget.props
 ```
 
 ## <a name="omitting-packages-with-team-foundation-version-control"></a>Omitindo pacotes com o Controle de Versão do Team Foundation
@@ -92,7 +99,7 @@ Para desabilitar a integração de controle do código-fonte com TFVC para os ar
    # with additional folder names if it's not in the same folder as .tfignore.   
    packages
 
-   # Include package target files which may be required for MSBuild, again prefixing the folder name as needed.
+   # Exclude package target files which may be required for MSBuild, again prefixing the folder name as needed.
    !packages/*.targets
 
    # Omit temporary files

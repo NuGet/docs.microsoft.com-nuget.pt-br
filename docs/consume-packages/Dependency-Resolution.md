@@ -1,22 +1,25 @@
 ---
-title: "Resolução de dependência de pacote do NuGet | Microsoft Docs"
+title: Resolução de dependência de pacote do NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Detalhes sobre o processo por meio do qual as dependências de um pacote do NuGet são resolvidas e instaladas no NuGet 2.x e 3.x ou superior."
-keywords: "Dependências de pacotes do NuGet, controle de versão do NuGet, versões de dependência, grafo de versão, resolução de versão, restauração transitiva"
+ms.technology: ''
+description: Detalhes sobre o processo por meio do qual as dependências de um pacote do NuGet são resolvidas e instaladas no NuGet 2.x e 3.x ou superior.
+keywords: Dependências de pacotes do NuGet, controle de versão do NuGet, versões de dependência, grafo de versão, resolução de versão, restauração transitiva
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: aa2537a2538d0ea665944784ef183dc12faa9b38
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: d387acd369c88a64abaa2cb94a913fe211df8da1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Como o NuGet resolve as dependências do pacote
 
@@ -24,13 +27,13 @@ Sempre que um pacote for instalado ou reinstalado, o que inclui o que está send
 
 Essas dependências imediatas também podem ter suas próprias dependências, que podem continuar em uma profundidade arbitrária. Isso produz o que é chamado de um *grafo de dependência* que descreve as relações entre os pacotes em todos os níveis.
 
-Quando vários pacotes têm a mesma dependência, a mesma ID de pacote pode aparecer no grafo várias vezes, potencialmente com restrições de versão diferentes. No entanto, somente uma versão de determinado pacote pode ser usada em um projeto, por isso o NuGet precisa escolher qual versão é usada. O processo exato depende do formato de referência de pacote que está sendo usado.
+Quando vários pacotes têm a mesma dependência, a mesma ID de pacote pode aparecer no grafo várias vezes, potencialmente com restrições de versão diferentes. No entanto, somente uma versão de determinado pacote pode ser usada em um projeto, por isso o NuGet precisa escolher qual versão é usada. O processo exato depende do formato de gerenciamento de pacote em uso.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Resolução de dependência com PackageReference
 
 Ao instalar os pacotes em projetos usando o formato PackageReference, o NuGet adiciona referências a um grafo de pacote simples no arquivo apropriado e resolve conflitos antecipadamente. Esse processo é chamado de *restauração transitiva*. Reinstalar ou restaurar pacotes é um processo de baixar os pacotes listados no grafo, resultando em builds mais rápidos e mais previsíveis. Você também pode aproveitar as versões curinga (flutuantes), como 2.8. \*, evitando chamadas caras e propensas a erro para `nuget update` em computadores clientes e servidores de build.
 
-Quando o processo de restauração do NuGet é executado antes de uma compilação, ele resolve as dependências primeiro na memória, em seguida, grava o grafo resultante em um arquivo chamado `project.assets.json` na pasta `obj` de um projeto usando PackageReference. O MSBuild lê este arquivo e converte-o em um conjunto de pastas em que as referências em potencial podem ser encontradas e as adiciona à árvore de projeto na memória.
+Quando o processo de restauração do NuGet é executado antes de um build, ele resolve as dependências primeiro na memória, em seguida, grava o grafo resultante em um arquivo chamado `project.assets.json` na pasta `obj` de um projeto usando PackageReference. O MSBuild lê este arquivo e converte-o em um conjunto de pastas em que as referências em potencial podem ser encontradas e as adiciona à árvore de projeto na memória.
 
 O arquivo de bloqueio é temporário e não deve ser adicionado ao controle do código-fonte. É listado por padrão em ambos `.gitignore` e `.tfignore`. Consulte [Pacotes e controle do código-fonte](packages-and-source-control.md).
 
@@ -109,7 +112,7 @@ Com `packages.config`, o NuGet tenta resolver conflitos de dependência durante 
 
 Por padrão, o NuGet 2.8 procura a versão de patch mais baixa (veja [Notas de versão do NuGet 2.8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Você pode controlar essa configuração por meio do atributo `DependencyVersion` em `Nuget.Config` e a opção `-DependencyVersion` na linha de comando.  
 
-O processo `packages.config` para resolver as dependências fica complicado para grandes grafos de dependência. Cada nova instalação do pacote exige uma transversal de todo o grafo e aumenta as chances de conflitos de versão. Quando ocorre um conflito, a instalação é interrompida, deixando o projeto em um estado indeterminado, especialmente com possíveis modificações para o arquivo de projeto. Isso não é um problema ao usar outros formatos de referência de pacote.
+O processo `packages.config` para resolver as dependências fica complicado para grandes grafos de dependência. Cada nova instalação do pacote exige uma transversal de todo o grafo e aumenta as chances de conflitos de versão. Quando ocorre um conflito, a instalação é interrompida, deixando o projeto em um estado indeterminado, especialmente com possíveis modificações para o arquivo de projeto. Isso não é um problema ao usar outros formatos de gerenciamento de pacote.
 
 ## <a name="managing-dependency-assets"></a>Gerenciamento de ativos de dependência
 
@@ -121,7 +124,7 @@ Quando o projeto de nível superior for um pacote, você também tem controle so
 
 Há cenários em que assemblies com o mesmo nome podem ser referenciados mais de uma vez em um projeto, produzindo erros de tempo de design e de tempo de build. Considere um projeto que contém uma versão personalizada do `C.dll` e faz referência ao Pacote C que também contém `C.dll`. Por outro lado, o projeto também depende do Pacote B, que também depende do Pacote C e `C.dll`. Como resultado, o NuGet não pode determinar qual `C.dll` usar, mas não é possível você apenas remover a dependência do projeto no pacote C porque o pacote B também depende dele.
 
-Para resolver isso, você precisa referenciar diretamente o `C.dll` que você deseja (ou usar outro pacote que faz referência ao pacote correto) e, em seguida, adiciona uma dependência ao Pacote C que exclui todos os seus ativos. Isso é feito da seguinte maneira dependendo do formato de referência de pacote em uso:
+Para resolver isso, você precisa referenciar diretamente o `C.dll` que você deseja (ou usar outro pacote que faz referência ao pacote correto) e, em seguida, adiciona uma dependência ao Pacote C que exclui todos os seus ativos. Isso é feito da seguinte maneira dependendo do formato de gerenciamento de pacote em uso:
 
 - [PackageReference](../consume-packages/package-references-in-project-files.md): adicionar `Exclude="All"` à dependência:
 

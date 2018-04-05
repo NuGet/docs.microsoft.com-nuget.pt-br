@@ -1,28 +1,31 @@
 ---
-title: "Referência do arquivo project.json para NuGet | Microsoft Docs"
+title: Referência do arquivo project.json para NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 07/27/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Em alguns tipos de projeto, o project.json mantém a lista de pacotes do NuGet usados no projeto."
-keywords: "Project.json do NuGet, referências de pacote do NuGet, dependências do NuGet, project.lock.json"
+ms.technology: ''
+description: Em alguns tipos de projeto, o project.json mantém a lista de pacotes do NuGet usados no projeto.
+keywords: Project.json do NuGet, referências de pacote do NuGet, dependências do NuGet, project.lock.json
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2e2c521b18dd67e49942cc20eafef0be7f91573a
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-reference"></a>Referência do project.json
 
 *NuGet 3.x ou superior*
 
-O arquivo `project.json` mantém uma lista de pacotes usados em um projeto, conhecidos como um formato de referência de pacote. Ele substitui `packages.config`, mas é, por sua vez substituído por [PackageReference](../consume-packages/package-references-in-project-files.md) com o NuGet 4.0 e superior.
+O arquivo `project.json` mantém uma lista de pacotes usados em um projeto, conhecidos como um formato de gerenciamento de pacote. Ele substitui `packages.config`, mas é, por sua vez substituído por [PackageReference](../consume-packages/package-references-in-project-files.md) com o NuGet 4.0 e superior.
 
 O arquivo [`project.lock.json`](#projectlockjson) (descrito abaixo) também é usado em projetos que empregam o `project.json`.
 
@@ -122,7 +125,7 @@ Lista as estruturas em que o projeto é executado, como `net45`, `netcoreapp`, `
     }
  ```
 
-Somente uma única entrada é permitida na seção `frameworks`. (Uma exceção são os arquivos `project.json` para projetos do ASP.NET são compilados com a cadeia de ferramentas DNX preterida, o que permite considerar vários destinos.)
+Somente uma única entrada é permitida na seção `frameworks`. (Uma exceção são os arquivos `project.json` para projetos do ASP.NET compilados com a cadeia de ferramentas DNX preterida, o que permite considerar vários destinos).
 
 ## <a name="runtimes"></a>Tempos de execução
 
@@ -175,13 +178,13 @@ O arquivo `project.json` usado pelo NuGet é um subconjunto do que é encontrado
 
 - O arquivo não pode conter dependências, opções de compilação, etc. que são vistos nos arquivos `project.json` de DNX. Considerando que pode haver apenas uma única estrutura, não faz sentido inserir dependências específicas de estrutura.
 
-- A compilação é tratada pelo MSBuild, por isso as opções de compilação, definições do pré-processador, etc. fazem parte do arquivo de projeto do MSBuild e não de `project.json`.
+- O build é tratada pelo MSBuild, por isso as opções de build, definições do pré-processador, etc. fazem parte do arquivo de projeto do MSBuild e não de `project.json`.
 
 No NuGet 3 ou superior, não é esperado que os desenvolvedores editem o `project.json` manualmente, visto que a interface do usuário do Gerenciador de Pacotes no Visual Studio manipula o conteúdo. Dito isso, você certamente pode editar o arquivo, mas será preciso compilar o projeto para iniciar uma restauração de pacote ou invocar a restauração de outra maneira. Consulte [Restauração de pacote](../consume-packages/package-restore.md).
 
 
 ## <a name="projectlockjson"></a>project.lock.json
 
-O arquivo `project.lock.json` é gerado no processo de restauração de pacotes do NuGet em projetos que usam `project.json`. Ele contém um instantâneo de todas as informações geradas à medida que o NuGet percorre o grafo de pacotes e inclui a versão, conteúdo e as dependências de todos os pacotes em seu projeto. O sistema de build usa isso para escolher os pacotes de um local global que são relevantes ao compilar o projeto em vez de depender de uma pasta de pacotes local no projeto em si. Isso resulta em desempenho mais rápido de build porque é necessário ler somente `project.lock.json` em vez de muitos arquivos `.nuspec` separados.
+O arquivo `project.lock.json` é gerado no processo de restauração de pacotes do NuGet em projetos que usam `project.json`. Ele contém um instantâneo de todas as informações geradas à medida que o NuGet percorre o grafo de pacotes e inclui a versão, conteúdo e as dependências de todos os pacotes em seu projeto. O sistema de build usa isso para escolher os pacotes de uma localização global que são relevantes ao compilar o projeto em vez de depender de uma pasta de pacotes local no projeto em si. Isso resulta em desempenho mais rápido de build porque é necessário ler somente `project.lock.json` em vez de muitos arquivos `.nuspec` separados.
 
 `project.lock.json` é gerado automaticamente na restauração do pacote, por isso ele pode ser omitido do controle do código-fonte adicionando-o aos arquivos `.gitignore` e `.tfignore` (consulte [Pacotes e controle do código-fonte](../consume-packages/packages-and-source-control.md). No entanto, se você incluí-lo no controle do código-fonte, o histórico de alterações mostrará as alterações em dependências resolvidas ao longo do tempo.

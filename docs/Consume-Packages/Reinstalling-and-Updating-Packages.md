@@ -6,18 +6,20 @@ manager: ghogen
 ms.date: 12/07/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 2785879b-97f0-4a85-b3cc-bf4eaa5c39bf
-description: "Detalhes sobre quando é necessário reinstalar e atualizar pacotes, assim como acontece com referências de pacote interrompidas no Visual Studio."
-keywords: "Instalação de pacote do NuGet, reinstalação de pacote do NuGet, restauração de pacote do NuGet, atualização de pacote, restaurando pacotes, corrigir referências interrompidas"
+ms.technology: ''
+description: Detalhes sobre quando é necessário reinstalar e atualizar pacotes, assim como acontece com referências de pacote interrompidas no Visual Studio.
+keywords: Instalação de pacote do NuGet, reinstalação de pacote do NuGet, restauração de pacote do NuGet, atualização de pacote, restaurando pacotes, corrigir referências interrompidas
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e2875630b24fbe04fc7bcab52335d849e54160de
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Como reinstalar e atualizar pacotes
 
@@ -48,7 +50,7 @@ Neste artigo:
 
 Por padrão, reinstalar ou atualizar um pacote *sempre* instala a versão mais recente disponível da origem do pacote.
 
-Em projetos que usam o formato `packages.config` de referência, no entanto, você pode restringir o intervalo de versão especificamente. Por exemplo, se você souber que o aplicativo funciona apenas com a versão 1.x de um pacote, mas não 2.0 e superior, talvez devido a uma alteração principal no pacote de API, pode ser útil restringir os upgrades para as versões 1.x. Isso impede atualizações acidentais que interromperiam o aplicativo.
+Em projetos que usam o formato `packages.config` de gerenciamento, no entanto, é possível restringir o intervalo de versão especificamente. Por exemplo, se você souber que o aplicativo funciona apenas com a versão 1.x de um pacote, mas não 2.0 e superior, talvez devido a uma alteração principal no pacote de API, pode ser útil restringir os upgrades para as versões 1.x. Isso impede atualizações acidentais que interromperiam o aplicativo.
 
 Para definir uma restrição, abra `packages.config` em um editor de texto, localize a dependência em questão e adicione o atributo `allowedVersions` com um intervalo de versão. Por exemplo, para restringir atualizações para a versão 1.x, defina `allowedVersions` para `[1,2)`:
 

@@ -1,26 +1,29 @@
 ---
-title: "Guia de introdução ao uso de pacotes NuGet no Visual Studio | Microsoft Docs"
+title: Guia de introdução ao uso de pacotes NuGet no Visual Studio | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
-description: "Um tutorial passo a passo sobre o processo de instalação e uso de um pacote NuGet em um projeto do Visual Studio."
-keywords: "instalar o NuGet, consumo de pacote do NuGet, instalando pacotes do NuGet, referências de pacote do NuGet, usando pacotes do NuGet"
+ms.technology: ''
+description: Um tutorial passo a passo sobre o processo de instalação e uso de um pacote NuGet em um projeto do Visual Studio.
+keywords: instalar o NuGet, consumo de pacote do NuGet, instalando pacotes do NuGet, referências de pacote do NuGet, usando pacotes do NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4205893cc02cffff8926513a555393d10c046f43
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Instalar e usar um pacote no Visual Studio
 
-Os pacotes NuGet contém código reutilizável que outros desenvolvedores disponibilizam para uso em seus projetos. Consulte [O que há de novo no NuGet](../What-is-NuGet.md) para obter mais informações. Pacotes são instalados em um projeto do Visual Studio usando a IU do Gerenciador de Pacotes ou o Console do Gerenciador de Pacotes, conforme descrito neste artigo para o pacote popular [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) e um projeto da UWP (Plataforma Universal do Windows).
+Os pacotes NuGet contém código reutilizável que outros desenvolvedores disponibilizam para uso em seus projetos. Consulte [O que há de novo no NuGet](../What-is-NuGet.md) para obter mais informações. Os pacotes são instalados em um projeto do Visual Studio usando a interface do usuário do Gerenciador de Pacotes ou o Console do Gerenciador de Pacotes. Este artigo demonstra o processo usando o conhecido pacote [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) e um projeto da UWP (Plataforma Universal do Windows). O mesmo processo se aplica a qualquer outro projeto .NET ou .NET Core.
 
 Depois de instalado, consulte o pacote no código com `using <namespace>` em que \<namespace\> é específico para o pacote que você está usando. Depois que a referência é feita, você pode chamar o pacote por meio de sua API.
 
@@ -36,7 +39,9 @@ Você pode instalar a edição Community 2017 gratuitamente no [visualstudio.com
 
 ## <a name="create-a-project"></a>Criar um projeto
 
-Os pacotes NuGet podem ser instalados em algum tipo de projeto do .NET. Para este passo a passo, use um aplicativo UWP (Plataforma Universal do Windows). Crie um projeto no Visual Studio usando **Arquivo > Novo Projeto...** e selecionando **Universal do Windows > Aplicativo em Branco (Universal do Windows)**. Aceite os valores padrão para a Versão de Destino e a Versão Mínima quando solicitado.
+É possível instalar pacotes do NuGet em qualquer projeto .NET, desde que o pacote ofereça suporte à mesma estrutura de destino do projeto.
+
+Para este passo a passo, use um aplicativo da UWP (Plataforma Universal do Windows). Crie um projeto no Visual Studio usando **Arquivo > Novo Projeto...** e selecionando **Universal do Windows > Aplicativo em Branco (Universal do Windows)**. Aceite os valores padrão para a Versão de Destino e a Versão Mínima quando solicitado.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Adicionar o pacote do NuGet Newtonsoft.Json
 
@@ -56,7 +61,7 @@ Para instalar o pacote, use a IU do Gerenciador de Pacotes ou o Console do Geren
 
 1. (Visual Studio 2017) Se receber uma solicitação para selecionar um formato de gerenciamento de pacote, selecione **PackageReference no arquivo de projeto**:
 
-    ![Selecionando um formato de referência de pacote](media/QS_Use-03b-SelectFormat.png)
+    ![Como selecionar um formato de gerenciamento de pacote](media/QS_Use-03b-SelectFormat.png)
 
 1. Se for solicitado para examinar as alterações, selecione **OK**.
 

@@ -1,55 +1,76 @@
 ---
-title: Formas de instalar pacotes NuGet | Microsoft Docs
+title: Formas de instalar pacotes do NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 02/12/2018
-ms.topic: get-started-article
+ms.topic: overview
 ms.prod: nuget
-ms.technology: 
-description: "Descreve o processo de instalação de pacotes NuGet em um projeto, incluindo o que acontece no disco e com os arquivos de projeto aplicáveis."
-keywords: "instalar o NuGet, consumo de pacote NuGet, instalação de pacotes NuGet, referências de pacote NuGet"
+ms.technology: ''
+description: Descreve o processo de instalação de pacotes NuGet em um projeto, incluindo o que acontece no disco e com os arquivos de projeto aplicáveis.
+keywords: instalar o NuGet, consumo de pacote NuGet, instalação de pacotes NuGet, referências de pacote NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3bae03e148a366388c10d08e83c89dac6ff56d06
-ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: b8cce7bd6c1bd73eb018b8891ddd72b2f4432d55
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Maneiras diferentes de instalar um pacote NuGet
 
-Os pacotes NuGet são baixados e instalados usando qualquer um dos métodos a seguir (veja [Instalar ferramentas de cliente NuGet](../install-nuget-client-tools.md) se eles ainda não estiverem instalados):
+Os pacotes do NuGet serão baixados e instalados usando qualquer um dos métodos da tabela a seguir (veja [Instalar ferramentas de cliente do NuGet](../install-nuget-client-tools.md) se eles ainda não estiverem instalados). É possível recuperar o pacote de um cache, em vez de baixá-lo.
 
 | Método | Descrição |
 | --- | --- |
-| CLI do dotnet.exe<br/>`dotnet install <package_name>` | (Todas as plataformas) Baixa o pacote identificado por \<package_name\>, expande seu conteúdo para uma pasta no diretório atual e adiciona uma referência ao arquivo do projeto. Além disso, baixa e instala as dependências.<ul><li>[Instalar e usar um pacote (CLI do dotnet)](../quickstart/install-and-use-a-package-using-the-dotnet-cli.md)</li><li>[Comandos dotnet](../tools/dotnet-commands.md)</li></ul> |
-| Interface do Usuário do Gerenciador de Pacotes (Visual Studio) | (Windows e Mac) Fornece uma interface do usuário por meio da qual você pode procurar, selecionar e instalar pacotes e suas dependências em um projeto. Adicione referências a pacotes instalados ao arquivo de projeto.<ul><li>[Instalar e usar um pacote (Visual Studio)](../quickstart/install-and-use-a-package-in-visual-studio.md)</li><li>[Referência da interface do usuário do Gerenciador de Pacotes (Windows)](../tools/package-manager-ui.md)</li><li>[Incluir um pacote NuGet ao seu projeto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| Console do Gerenciador de Pacotes (Visual Studio)<br/>`Install-Package <package_name>` | (Somente Windows) Baixa e instala o pacote identificado por \<package_name\> em um projeto especificado na solução, depois adiciona uma referência ao arquivo do projeto. Além disso, baixa e instala as dependências.<ul><li>[Instalar e usar um pacote (Visual Studio)](../quickstart/install-and-use-a-package-in-visual-studio.md)</li><li>[Guia do Console do Gerenciador de Pacotes](../tools/package-manager-console.md)</li></ul> |
-| CLI do nuget.exe<br/>`nuget install <package_name>` | (Todas as plataformas) Baixa o pacote identificado por \<package_name\> e expande seu conteúdo em uma pasta no diretório atual; também pode baixar todos os pacotes listados em um arquivo do `packages.config`. Também baixa e instala as dependências, mas não altera os arquivos do projeto.<ul><li>[comando install](../tools/cli-ref-install.md)</li></ul> |
+| CLI do dotnet.exe<br/>`dotnet add package <package_name>` | (Todas as plataformas) Recupera o pacote identificado por \<package_name\>, expande seu conteúdo para uma pasta no diretório atual e adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências.<ul><li>[Instalar e usar um pacote (CLI do dotnet)](../quickstart/install-and-use-a-package-using-the-dotnet-cli.md)</li><li>[comando dotnet add package](/dotnet/core/tools/dotnet-add-package)</li></ul> |
+| Interface do Usuário do Gerenciador de Pacotes (Visual Studio) | (Windows e Mac) Fornece uma interface do usuário por meio da qual você pode procurar, selecionar e instalar pacotes e suas dependências em um projeto a partir de uma fonte do pacote especificado. Adicione referências a pacotes instalados ao arquivo de projeto.<ul><li>[Instalar e usar um pacote (Visual Studio)](../quickstart/install-and-use-a-package-in-visual-studio.md)</li><li>[Referência da interface do usuário do Gerenciador de Pacotes (Windows)](../tools/package-manager-ui.md)</li><li>[Incluir um pacote NuGet ao seu projeto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| Console do Gerenciador de Pacotes (Visual Studio)<br/>`Install-Package <package_name>` | (Somente Windows) Recupera e instala o pacote identificado por \<package_name\> de uma fonte selecionada em um projeto especificado na solução, depois adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências.<ul><li>[Instalar e usar um pacote (Visual Studio)](../quickstart/install-and-use-a-package-in-visual-studio.md)</li><li>[Guia do Console do Gerenciador de Pacotes](../tools/package-manager-console.md)</li></ul> |
+| CLI do nuget.exe<br/>`nuget install <package_name>` | (Todas as plataformas) Recupera o pacote identificado por \<package_name\> e expande seu conteúdo em uma pasta no diretório atual; também pode recuperar todos os pacotes listados em um arquivo do `packages.config`. Também recupera e instala dependências, mas não altera arquivos de projeto ou `packages.config`.<ul><li>[comando install](../tools/cli-ref-install.md)</li></ul> |
 
-## <a name="general-install-process"></a>Processo de instalação geral
+## <a name="what-happens-when-a-package-is-installed"></a>O que acontece quando um pacote é instalado
 
-Em geral, o NuGet faz o seguinte ao receber uma solicitação de instalação de um pacote:
+Em poucas palavras, as diferentes ferramentas NuGet normalmente criam uma referência a um pacote no arquivo de projeto ou em `packages.config`, depois executam uma restauração de pacote, o que efetivamente instala o pacote. A exceção é `nuget install`, que apenas expande o pacote em uma pasta `packages` e não modifica nenhum outro arquivo.
+
+O processo geral é o seguinte:
+
+1. (Todas as ferramentas, exceto `nuget.exe`) Registre a versão e o identificador de pacote no arquivo de projeto ou em `packages.config`.
 
 1. Adquira o pacote:
-    - Verifique se o pacote solicitado já existe em um cache (veja [Gerenciar o cache do NuGet](managing-the-nuget-cache.md)).
-    - Se o pacote não estiver armazenado no cache, tente baixá-lo das fontes listadas nos [arquivos de configuração](Configuring-NuGet-Behavior.md).
-      - No caso dos projetos que usam o formato de referência `packages.config`, o NuGet usa a ordem das fontes na configuração.
-      - No caso dos projetos que usam o formato PackageReference, o NuGet verifica primeiro as fontes que estão em pastas locais, em seguida, verifica as fontes de compartilhamentos de rede e depois as fontes HTTP (Internet).
+    - Verifique se o pacote (pelo identificador exato ou pelo número da versão) já está instalado na pasta *global-packages* conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](managing-the-global-packages-and-cache-folders.md).
+
+    - Se o pacote não estiver armazenado na pasta *global-packages*, tente recuperá-lo das fontes listadas nos [arquivos de configuração](Configuring-NuGet-Behavior.md). Para fontes online, primeiro tente recuperar o pacote do cache, a menos que `-NoCache` esteja especificado com comandos `nuget.exe` ou `--no-cache` esteja especificado com `dotnet restore`. (O Visual Studio e o `dotnet add package` sempre usam o cache). Se for usado um pacote do cache, "CACHE" será exibido na saída. O cache tem um tempo de expiração de 30 minutos.
+
+    - Se o pacote não estiver armazenado no cache, tente baixá-lo das fontes listadas na configuração. Se um pacote for baixado, "GET" e "OK" serão exibidos na saída.
+
+    - Se o pacote não puder ser adquirido com êxito de nenhuma fonte, a instalação falhará neste ponto com um erro como [NU1103](../reference/errors-and-warnings.md#nu1103). Os erros de comandos `nuget.exe` mostram apenas a última fonte selecionada, mas implicam que o pacote não estava disponível de nenhuma fonte.
+
+    Na aquisição do pacote, a ordem das fontes na configuração do NuGet pode ser aplicável:
+      - No caso dos projetos que usam o formato PackageReference, o NuGet verifica primeiro a pasta local de fontes e os compartilhamentos de rede antes de verificar as fontes HTTP.
+      - No caso dos projetos que usam o formato de gerenciamento `packages.config`, o NuGet usa a ordem das fontes na configuração. Uma exceção são as operações de restauração, caso em que a ordenação das fontes é ignorada e o NuGet usa o pacote da fonte que responder primeiro.
       - De modo geral, a ordem em que o NuGet verifica as fontes não é especialmente significativa, porque todos os pacotes fornecidos com um identificador e número de versão específicos são exatamente os mesmos em todas as fontes encontradas.
-    - Se o pacote for adquirido com êxito de uma das fontes, o NuGet o adicionará ao cache. Caso contrário, a instalação falhará.
 
-1. Expanda o pacote no projeto.
-    - Expandir significa descompactar o conteúdo do pacote em uma subpasta apropriada. Uma cópia do próprio `.nupkg` também é colocada na subpasta.
-    - Se o pacote estiver sendo instalado em um projeto do Visual Studio ou do .NET Core, somente os arquivos relevantes à estrutura de destino do projeto serão expandidos. Quando é instalado usando a linha de comando do nuget.exe, ocorre a expansão de todos os assemblies.
+1. (Todas as ferramentas, exceto `nuget.exe`) salvam uma cópia do pacote e outras informações na pasta *http-cache*, conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](managing-the-global-packages-and-cache-folders.md).
 
-1. Se o pacote for instalado no Visual Studio ou na CLI do dotnet, uma referência será adicionada ao arquivo de projeto apropriado (ou `packages.config` para alguns tipos de projeto no Visual Studio).
+1. Se o pacote for baixado, instale-o na pasta *global-packages* por usuário. O NuGet cria uma subpasta para cada identificador de pacote e, em seguida, cria subpastas para cada versão instalada do pacote.
 
-## <a name="related-topics"></a>Tópicos relacionados
+1. Atualize outros arquivos de projeto e pastas:
+
+    - Em caso de projetos que usam PackageReference, atualize o grafo de dependência do pacote armazenado em `obj/project.assets.json`. O conteúdo do pacote em si não é copiado para nenhuma pasta de projeto.
+    - Em projetos que usam `packages.config`, copie as partes do pacote expandido que correspondem à estrutura de destino do projeto na pasta `packages` do projeto. (Quando `nuget install` é usado, todo o pacote expandido é copiado, pois `nuget.exe` não examina arquivos de projeto para identificar a estrutura de destino).
+    - Atualize `app.config` e/ou `web.config` se o pacote usar [transformações de origem e arquivo de configuração](../create-packages/source-and-config-file-transformations.md).
+
+1. Instale todas as dependências de nível inferior se não estiverem presentes no projeto. Esse processo pode atualizar versões do pacote, conforme descrito em [Resolução de dependências](../consume-packages/dependency-resolution.md).
+
+1. (Somente no Visual Studio) Exiba o arquivo Leiame do pacote, se disponível, em uma janela do Visual Studio.
+
+## <a name="related-articles"></a>Artigos relacionados
 
 - [Visão geral e fluxo de trabalho do consumo de pacote](../consume-packages/overview-and-workflow.md)
 - [Localizando e escolhendo pacotes](../consume-packages/finding-and-choosing-packages.md)
+- [Como gerenciar as pastas global-packages e de cache do NuGet](managing-the-global-packages-and-cache-folders.md)
 - [Configuração do comportamento de NuGet](../consume-packages/configuring-nuget-behavior.md)
-- [Gerenciamento do cache do NuGet](managing-the-nuget-cache.md)

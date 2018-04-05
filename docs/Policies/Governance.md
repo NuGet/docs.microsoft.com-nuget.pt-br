@@ -1,22 +1,25 @@
 ---
-title: "Governança de Projeto NuGet | Microsoft Docs"
+title: Governança de Projeto NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "O modelo de governança para o NuGet, inclusive funções e responsabilidades de confirmadores, colaboradores e usuários."
-keywords: "Governança do NuGet, ditador benevolente do NuGet, responsabilidades de confirmador, responsabilidades de colaborador, responsabilidades de usuário"
+ms.technology: ''
+description: O modelo de governança para o NuGet, inclusive funções e responsabilidades de confirmadores, colaboradores e usuários.
+keywords: Governança do NuGet, ditador benevolente do NuGet, responsabilidades de confirmador, responsabilidades de colaborador, responsabilidades de usuário
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ea1ddcc3e145afe3b905b23db37e1e61500200bb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: aa48b95482c65de47d54daff142402dd2ff6558a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-governance"></a>Governança do NuGet
 
