@@ -1,38 +1,41 @@
 ---
-title: "Como criar pacotes de símbolos do NuGet | Microsoft Docs"
+title: Como criar pacotes de símbolos do NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 09/12/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Como criar pacotes do NuGet que contêm apenas os símbolos compatíveis com a depuração de outros pacotes do NuGet no Visual Studio."
-keywords: "Pacotes de símbolos do NuGet, depuração de pacote do NuGet, suporte à depuração de NuGet, símbolos de pacotes, convenções de símbolo de pacote do NuGet"
+ms.technology: ''
+description: Como criar pacotes do NuGet que contêm apenas os símbolos compatíveis com a depuração de outros pacotes do NuGet no Visual Studio.
+keywords: Pacotes de símbolos do NuGet, depuração de pacote do NuGet, suporte à depuração de NuGet, símbolos de pacotes, convenções de símbolo de pacote do NuGet
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e1d90009c739a7f358e9581c7032523b8b284936
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6b6ddb0ca8ac5d7589dc5cb6de66ee3aa5faf8b6
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="creating-symbol-packages"></a><span data-ttu-id="b4bfc-104">Criando pacotes de símbolos</span><span class="sxs-lookup"><span data-stu-id="b4bfc-104">Creating symbol packages</span></span>
+# <a name="creating-symbol-packages"></a><span data-ttu-id="fc1ec-104">Criando pacotes de símbolos</span><span class="sxs-lookup"><span data-stu-id="fc1ec-104">Creating symbol packages</span></span>
 
-<span data-ttu-id="b4bfc-105">Além de compilar pacotes para nuget.org ou outras origens, o NuGet também dá suporte à criação de pacotes de símbolos associados e publica-os no repositório SymbolSource.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-105">In addition to building packages for nuget.org or other sources, NuGet also supports creating associated symbol packages and publishing them to the SymbolSource repository.</span></span>
+<span data-ttu-id="fc1ec-105">Além de compilar pacotes para nuget.org ou outras origens, o NuGet também dá suporte à criação de pacotes de símbolos associados e publica-os no repositório SymbolSource.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-105">In addition to building packages for nuget.org or other sources, NuGet also supports creating associated symbol packages and publishing them to the SymbolSource repository.</span></span>
 
-<span data-ttu-id="b4bfc-106">Os consumidores de pacote podem adicionar `https://nuget.smbsrc.net` às suas origens de símbolos no Visual Studio, o que permite intervir no código do pacote no depurador do Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-106">Package consumers can then add `https://nuget.smbsrc.net` to their symbol sources in Visual Studio, which allows stepping into package code in the Visual Studio debugger.</span></span> <span data-ttu-id="b4bfc-107">Consulte [Especificar símbolos (.pdb) e arquivos de origem no depurador do Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) para obter mais detalhes sobre esse processo.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-107">See [Specify symbol (.pdb) and source files in the Visual Studio debugger](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) for details on that process.</span></span>
+<span data-ttu-id="fc1ec-106">Os consumidores de pacote podem adicionar `https://nuget.smbsrc.net` às suas origens de símbolos no Visual Studio, o que permite intervir no código do pacote no depurador do Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-106">Package consumers can then add `https://nuget.smbsrc.net` to their symbol sources in Visual Studio, which allows stepping into package code in the Visual Studio debugger.</span></span> <span data-ttu-id="fc1ec-107">Consulte [Especificar símbolos (.pdb) e arquivos de origem no depurador do Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) para obter mais detalhes sobre esse processo.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-107">See [Specify symbol (.pdb) and source files in the Visual Studio debugger](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) for details on that process.</span></span>
 
-## <a name="creating-a-symbol-package"></a><span data-ttu-id="b4bfc-108">Criar um pacote de símbolos</span><span class="sxs-lookup"><span data-stu-id="b4bfc-108">Creating a symbol package</span></span>
+## <a name="creating-a-symbol-package"></a><span data-ttu-id="fc1ec-108">Criar um pacote de símbolos</span><span class="sxs-lookup"><span data-stu-id="fc1ec-108">Creating a symbol package</span></span>
 
-<span data-ttu-id="b4bfc-109">Para criar um pacote de símbolos, siga essas convenções:</span><span class="sxs-lookup"><span data-stu-id="b4bfc-109">To create a symbol package, follow these conventions:</span></span>
+<span data-ttu-id="fc1ec-109">Para criar um pacote de símbolos, siga essas convenções:</span><span class="sxs-lookup"><span data-stu-id="fc1ec-109">To create a symbol package, follow these conventions:</span></span>
 
-- <span data-ttu-id="b4bfc-110">Nomeie o pacote primário (com o seu código) `{identifier}.nupkg` e inclua todos os arquivos, exceto os arquivos `.pdb`.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-110">Name the primary package (with your code) `{identifier}.nupkg` and include all your files except `.pdb` files.</span></span>
-- <span data-ttu-id="b4bfc-111">Nomeie o pacote de símbolos `{identifier}.symbols.nupkg` e inclua sua DLL de assembly, arquivos `.pdb`, arquivos XMLDOC, arquivos de origem (consulte as seções a seguir).</span><span class="sxs-lookup"><span data-stu-id="b4bfc-111">Name the symbol package `{identifier}.symbols.nupkg` and include your assembly DLL, `.pdb` files, XMLDOC files, source files (see the sections that follow).</span></span>
+- <span data-ttu-id="fc1ec-110">Nomeie o pacote primário (com o seu código) `{identifier}.nupkg` e inclua todos os arquivos, exceto os arquivos `.pdb`.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-110">Name the primary package (with your code) `{identifier}.nupkg` and include all your files except `.pdb` files.</span></span>
+- <span data-ttu-id="fc1ec-111">Nomeie o pacote de símbolos `{identifier}.symbols.nupkg` e inclua sua DLL de assembly, arquivos `.pdb`, arquivos XMLDOC, arquivos de origem (consulte as seções a seguir).</span><span class="sxs-lookup"><span data-stu-id="fc1ec-111">Name the symbol package `{identifier}.symbols.nupkg` and include your assembly DLL, `.pdb` files, XMLDOC files, source files (see the sections that follow).</span></span>
 
-<span data-ttu-id="b4bfc-112">Você pode criar pacotes com a opção `-Symbols` de um arquivo `.nuspec` ou um arquivo de projeto:</span><span class="sxs-lookup"><span data-stu-id="b4bfc-112">You can create both packages with the `-Symbols` option, either from a `.nuspec` file or a project file:</span></span>
+<span data-ttu-id="fc1ec-112">Você pode criar pacotes com a opção `-Symbols` de um arquivo `.nuspec` ou um arquivo de projeto:</span><span class="sxs-lookup"><span data-stu-id="fc1ec-112">You can create both packages with the `-Symbols` option, either from a `.nuspec` file or a project file:</span></span>
 
 ```cli
 nuget pack MyPackage.nuspec -Symbols
@@ -40,13 +43,13 @@ nuget pack MyPackage.nuspec -Symbols
 nuget pack MyProject.csproj -Symbols
 ```
 
-<span data-ttu-id="b4bfc-113">Observe que `pack` requer o Mono 4.4.2 no Mac OS X e não funciona em sistemas Linux.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-113">Note that `pack` requires Mono 4.4.2 on Mac OS X and does not work on Linux systems.</span></span> <span data-ttu-id="b4bfc-114">Em um Mac, você também precisa converter os nomes de caminho do Windows no arquivo `.nuspec` em caminhos no estilo Unix.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-114">On a Mac, you must also convert Windows pathnames in the `.nuspec` file to Unix-style paths.</span></span>
+<span data-ttu-id="fc1ec-113">Observe que `pack` requer o Mono 4.4.2 no Mac OS X e não funciona em sistemas Linux.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-113">Note that `pack` requires Mono 4.4.2 on Mac OS X and does not work on Linux systems.</span></span> <span data-ttu-id="fc1ec-114">Em um Mac, você também precisa converter os nomes de caminho do Windows no arquivo `.nuspec` em caminhos no estilo Unix.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-114">On a Mac, you must also convert Windows pathnames in the `.nuspec` file to Unix-style paths.</span></span>
 
-## <a name="symbol-package-structure"></a><span data-ttu-id="b4bfc-115">Estrutura do pacote de símbolos</span><span class="sxs-lookup"><span data-stu-id="b4bfc-115">Symbol package structure</span></span>
+## <a name="symbol-package-structure"></a><span data-ttu-id="fc1ec-115">Estrutura do pacote de símbolos</span><span class="sxs-lookup"><span data-stu-id="fc1ec-115">Symbol package structure</span></span>
 
-<span data-ttu-id="b4bfc-116">Um pacote de símbolos pode ser direcionado a várias estruturas de destino da mesma maneira que um pacote de biblioteca, portanto, a estrutura da pasta `lib` deve ser exatamente a mesma que o pacote primário, incluindo somente arquivos `.pdb` junto com a DLL.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-116">A symbol package can target multiple target frameworks in the same way that a library package does, so the structure of the `lib` folder should be exactly the same as the primary package, only including `.pdb` files alongside the DLL.</span></span>
+<span data-ttu-id="fc1ec-116">Um pacote de símbolos pode ser direcionado a várias estruturas de destino da mesma maneira que um pacote de biblioteca, portanto, a estrutura da pasta `lib` deve ser exatamente a mesma que o pacote primário, incluindo somente arquivos `.pdb` junto com a DLL.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-116">A symbol package can target multiple target frameworks in the same way that a library package does, so the structure of the `lib` folder should be exactly the same as the primary package, only including `.pdb` files alongside the DLL.</span></span>
 
-<span data-ttu-id="b4bfc-117">Por exemplo, um pacote de símbolos voltado para o .NET 4.0 e o Silverlight 4 teria este layout:</span><span class="sxs-lookup"><span data-stu-id="b4bfc-117">For example, a symbol package that targets .NET 4.0 and Silverlight 4 would have this layout:</span></span>
+<span data-ttu-id="fc1ec-117">Por exemplo, um pacote de símbolos voltado para o .NET 4.0 e o Silverlight 4 teria este layout:</span><span class="sxs-lookup"><span data-stu-id="fc1ec-117">For example, a symbol package that targets .NET 4.0 and Silverlight 4 would have this layout:</span></span>
 
     \lib
         \net40
@@ -56,7 +59,7 @@ nuget pack MyProject.csproj -Symbols
             \MyAssembly.dll
             \MyAssembly.pdb
 
-<span data-ttu-id="b4bfc-118">Arquivos de origem são, então, colocados em uma pasta especial separada chamada `src`, que precisa seguir a estrutura relativa do repositório de origem.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-118">Source files are then placed in a separate special folder named `src`, which must follow the relative structure of your source repository.</span></span> <span data-ttu-id="b4bfc-119">Isso ocorre porque PDBs contêm caminhos absolutos para arquivos de origem usados para compilar a DLL correspondente e eles precisam ser encontrados durante o processo de publicação.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-119">This is because PDBs contain absolute paths to source files used to compile the matching DLL, and they need to be found during the publishing process.</span></span> <span data-ttu-id="b4bfc-120">Um caminho base (prefixo de caminho comum) pode ser eliminado. Por exemplo, considere uma biblioteca compilada com base nesses arquivos:</span><span class="sxs-lookup"><span data-stu-id="b4bfc-120">A base path (common path prefix) can be stripped out. For example, consider a library built from these files:</span></span>
+<span data-ttu-id="fc1ec-118">Arquivos de origem são, então, colocados em uma pasta especial separada chamada `src`, que precisa seguir a estrutura relativa do repositório de origem.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-118">Source files are then placed in a separate special folder named `src`, which must follow the relative structure of your source repository.</span></span> <span data-ttu-id="fc1ec-119">Isso ocorre porque PDBs contêm caminhos absolutos para arquivos de origem usados para compilar a DLL correspondente e eles precisam ser encontrados durante o processo de publicação.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-119">This is because PDBs contain absolute paths to source files used to compile the matching DLL, and they need to be found during the publishing process.</span></span> <span data-ttu-id="fc1ec-120">Um caminho base (prefixo de caminho comum) pode ser eliminado. Por exemplo, considere uma biblioteca compilada com base nesses arquivos:</span><span class="sxs-lookup"><span data-stu-id="fc1ec-120">A base path (common path prefix) can be stripped out. For example, consider a library built from these files:</span></span>
 
     C:\Projects
         \MyProject
@@ -72,7 +75,7 @@ nuget pack MyProject.csproj -Symbols
                 \MySilverlightExtensions.cs
                 \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
 
-<span data-ttu-id="b4bfc-121">Além da pasta `lib`, um pacote de símbolos precisaria conter este layout:</span><span class="sxs-lookup"><span data-stu-id="b4bfc-121">Apart from the `lib` folder, a symbol package would need to contain this layout:</span></span>
+<span data-ttu-id="fc1ec-121">Além da pasta `lib`, um pacote de símbolos precisaria conter este layout:</span><span class="sxs-lookup"><span data-stu-id="fc1ec-121">Apart from the `lib` folder, a symbol package would need to contain this layout:</span></span>
 
     \src
         \Common
@@ -85,9 +88,9 @@ nuget pack MyProject.csproj -Symbols
                 \AssemblyInfo.cs
             \MySilverlightExtensions.cs
 
-## <a name="referring-to-files-in-the-nuspec"></a><span data-ttu-id="b4bfc-122">Fazendo referência a arquivos no nuspec</span><span class="sxs-lookup"><span data-stu-id="b4bfc-122">Referring to files in the nuspec</span></span>
+## <a name="referring-to-files-in-the-nuspec"></a><span data-ttu-id="fc1ec-122">Fazendo referência a arquivos no nuspec</span><span class="sxs-lookup"><span data-stu-id="fc1ec-122">Referring to files in the nuspec</span></span>
 
-<span data-ttu-id="b4bfc-123">Um pacote de símbolos pode ser compilado por convenções, de uma estrutura de pasta conforme descrito na seção anterior ou especificando o conteúdo na seção `files` do manifesto.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-123">A symbol package can be built by conventions, from a folder structure as described in the previous section, or by specifying its contents in the `files` section of the manifest.</span></span> <span data-ttu-id="b4bfc-124">Por exemplo, para compilar o pacote mostrado na seção anterior, use o seguinte no arquivo `.nuspec`:</span><span class="sxs-lookup"><span data-stu-id="b4bfc-124">For example, to build the package shown in the previous section, use the following in the `.nuspec` file:</span></span>
+<span data-ttu-id="fc1ec-123">Um pacote de símbolos pode ser compilado por convenções, de uma estrutura de pasta conforme descrito na seção anterior ou especificando o conteúdo na seção `files` do manifesto.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-123">A symbol package can be built by conventions, from a folder structure as described in the previous section, or by specifying its contents in the `files` section of the manifest.</span></span> <span data-ttu-id="fc1ec-124">Por exemplo, para compilar o pacote mostrado na seção anterior, use o seguinte no arquivo `.nuspec`:</span><span class="sxs-lookup"><span data-stu-id="fc1ec-124">For example, to build the package shown in the previous section, use the following in the `.nuspec` file:</span></span>
 
 ```xml
 <files>
@@ -99,39 +102,39 @@ nuget pack MyProject.csproj -Symbols
 </files>
 ```
 
-## <a name="publishing-a-symbol-package"></a><span data-ttu-id="b4bfc-125">Publicando um pacote de símbolos</span><span class="sxs-lookup"><span data-stu-id="b4bfc-125">Publishing a symbol package</span></span>
+## <a name="publishing-a-symbol-package"></a><span data-ttu-id="fc1ec-125">Publicando um pacote de símbolos</span><span class="sxs-lookup"><span data-stu-id="fc1ec-125">Publishing a symbol package</span></span>
 
 > [!Important]
-> <span data-ttu-id="b4bfc-126">Para efetuar push em pacotes para o nuget.org, você precisa usar o [nuget.exe v4.1.0 ou superior](https://www.nuget.org/downloads), que implementa os [protocolos NuGet](../api/nuget-protocols.md) necessários.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-126">To push packages to nuget.org you must use [nuget.exe v4.1.0 or above](https://www.nuget.org/downloads), which implements the required [NuGet protocols](../api/nuget-protocols.md).</span></span>
+> <span data-ttu-id="fc1ec-126">Para efetuar push em pacotes para o nuget.org, você precisa usar o [nuget.exe v4.1.0 ou superior](https://www.nuget.org/downloads), que implementa os [protocolos NuGet](../api/nuget-protocols.md) necessários.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-126">To push packages to nuget.org you must use [nuget.exe v4.1.0 or above](https://www.nuget.org/downloads), which implements the required [NuGet protocols](../api/nuget-protocols.md).</span></span>
 
-1. <span data-ttu-id="b4bfc-127">Para sua conveniência, primeiro salve sua chave de API com o NuGet (consulte [publicar um pacote](../create-packages/publish-a-package.md), que aplicará nuget.org e symbolsource.org, pois symbolsource.org verificará nuget.org para confirmar se você é o proprietário do pacote.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-127">For convenience, first save your API key with NuGet (see [publish a package](../create-packages/publish-a-package.md), which will apply to both nuget.org and symbolsource.org, because symbolsource.org will check with nuget.org to verify that you are the package owner.</span></span>
+1. <span data-ttu-id="fc1ec-127">Para sua conveniência, primeiro salve sua chave de API com o NuGet (consulte [publicar um pacote](../create-packages/publish-a-package.md), que aplicará nuget.org e symbolsource.org, pois symbolsource.org verificará nuget.org para confirmar se você é o proprietário do pacote.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-127">For convenience, first save your API key with NuGet (see [publish a package](../create-packages/publish-a-package.md), which will apply to both nuget.org and symbolsource.org, because symbolsource.org will check with nuget.org to verify that you are the package owner.</span></span>
 
     ```cli
     nuget SetApiKey Your-API-Key
     ```
 
-1. <span data-ttu-id="b4bfc-128">Depois de publicar o pacote principal no nuget.org, efetue push do pacote de símbolos como mostrado a seguir, que usará automaticamente symbolsource.org como o destino devido ao `.symbols` no nome de arquivo:</span><span class="sxs-lookup"><span data-stu-id="b4bfc-128">After publishing your primary package to nuget.org, push the symbol package as follows, which will automatically use symbolsource.org as the target because of the `.symbols` in the filename:</span></span>
+1. <span data-ttu-id="fc1ec-128">Depois de publicar o pacote principal no nuget.org, efetue push do pacote de símbolos como mostrado a seguir, que usará automaticamente symbolsource.org como o destino devido ao `.symbols` no nome de arquivo:</span><span class="sxs-lookup"><span data-stu-id="fc1ec-128">After publishing your primary package to nuget.org, push the symbol package as follows, which will automatically use symbolsource.org as the target because of the `.symbols` in the filename:</span></span>
 
     ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 > [!Note]
-> <span data-ttu-id="b4bfc-129">Com o nuget.exe 4.5.0 ou superior, os pacotes de símbolos não são enviados por push automaticamente para o symbolsource.org. Você precisaria efetuar push nos pacotes de símbolos separadamente, conforme explicado na próxima etapa.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-129">With nuget.exe 4.5.0 or above, the symbols packages are not automatically pushed to symbolsource.org. You would need to push the symbols packages separately as explained in the next step.</span></span>
+> <span data-ttu-id="fc1ec-129">Com o nuget.exe 4.5.0 ou superior, os pacotes de símbolos não são enviados por push automaticamente para o symbolsource.org. Você precisaria efetuar push nos pacotes de símbolos separadamente, conforme explicado na próxima etapa.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-129">With nuget.exe 4.5.0 or above, the symbols packages are not automatically pushed to symbolsource.org. You would need to push the symbols packages separately as explained in the next step.</span></span>
 
-1. <span data-ttu-id="b4bfc-130">Para publicar em um repositório de símbolos diferente ou para efetuar push em um pacote de símbolos que não segue a convenção de nomenclatura, use a opção `-Source`:</span><span class="sxs-lookup"><span data-stu-id="b4bfc-130">To publish to a different symbol repository, or to push a symbol package that doesn't follow the naming convention, use the `-Source` option:</span></span>
+1. <span data-ttu-id="fc1ec-130">Para publicar em um repositório de símbolos diferente ou para efetuar push em um pacote de símbolos que não segue a convenção de nomenclatura, use a opção `-Source`:</span><span class="sxs-lookup"><span data-stu-id="fc1ec-130">To publish to a different symbol repository, or to push a symbol package that doesn't follow the naming convention, use the `-Source` option:</span></span>
 
     ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
     ```
 
-1. <span data-ttu-id="b4bfc-131">Você também pode efetuar push nos pacotes primário e de símbolos para ambos os repositórios ao mesmo tempo usando o seguinte:</span><span class="sxs-lookup"><span data-stu-id="b4bfc-131">You can also push both primary and symbol packages to both repositories at the same time using the following:</span></span>
+1. <span data-ttu-id="fc1ec-131">Você também pode efetuar push nos pacotes primário e de símbolos para ambos os repositórios ao mesmo tempo usando o seguinte:</span><span class="sxs-lookup"><span data-stu-id="fc1ec-131">You can also push both primary and symbol packages to both repositories at the same time using the following:</span></span>
 
     ```cli
     nuget push MyPackage.nupkg
     ```
 
-<span data-ttu-id="b4bfc-132">Nesse caso, o NuGet publicará `MyPackage.symbols.nupkg`, se presente, em https://nuget.smbsrc.net/ (a URL de push para symbolsource.org), depois de publicar o pacote principal para nuget.org.</span><span class="sxs-lookup"><span data-stu-id="b4bfc-132">In this case, NuGet will publish `MyPackage.symbols.nupkg`, if present, to https://nuget.smbsrc.net/ (the push URL for symbolsource.org), after it publishes the primary package to nuget.org.</span></span>
+<span data-ttu-id="fc1ec-132">Nesse caso, o NuGet publicará `MyPackage.symbols.nupkg`, se presente, em https://nuget.smbsrc.net/ (a URL de push para symbolsource.org), depois de publicar o pacote principal em nuget.org.</span><span class="sxs-lookup"><span data-stu-id="fc1ec-132">In this case, NuGet will publish `MyPackage.symbols.nupkg`, if present, to https://nuget.smbsrc.net/ (the push URL for symbolsource.org), after it publishes the primary package to nuget.org.</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="b4bfc-133">Consulte também</span><span class="sxs-lookup"><span data-stu-id="b4bfc-133">See Also</span></span>
+## <a name="see-also"></a><span data-ttu-id="fc1ec-133">Consulte também</span><span class="sxs-lookup"><span data-stu-id="fc1ec-133">See Also</span></span>
 
-<span data-ttu-id="b4bfc-134">[Mover para o novo mecanismo de SymbolSource](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)</span><span class="sxs-lookup"><span data-stu-id="b4bfc-134">[Moving to the new SymbolSource engine](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)</span></span>
+<span data-ttu-id="fc1ec-134">[Mover para o novo mecanismo de SymbolSource](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)</span><span class="sxs-lookup"><span data-stu-id="fc1ec-134">[Moving to the new SymbolSource engine](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)</span></span>
