@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: 99caf371ca1bd85e6af4e879741e3e2caab6e860
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 7844ace0565b2e70f8f68e6e61548f0f28171689
+ms.sourcegitcommit: 5b223c5814799caa6309e95792a2d338df692778
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/04/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
@@ -96,8 +96,8 @@ Os valores permitidos para essas marcas são os seguintes, com vários valores s
 
 | Valor | Descrição |
 | --- | ---
-| compilar | O conteúdo da pasta `lib` |
-| tempo de execução | O conteúdo da pasta `runtimes` |
+| compilar | Conteúdo da pasta `lib` e controles se seu projeto puder compilar em relação aos assemblies dentro da pasta |
+| tempo de execução | Conteúdo da pasta `lib` e `runtimes` pasta e controles se esses assemblies forem copiados para o diretório de saída de compilação |
 | contentFiles | O conteúdo da pasta `contentfiles` |
 | build | Objetos e propriedades na pasta `build` |
 | analisadores | Analisadores de .NET |

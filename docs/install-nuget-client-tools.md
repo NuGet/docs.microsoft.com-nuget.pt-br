@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: dd9ca3b39c4bc9b00d8fca6fe1479d64016bad86
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e4dfe1102d1e0e2013136b0ae4975e5036e34642
+ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Instalar as ferramentas de cliente do NuGet
 
@@ -33,7 +33,7 @@ Para trabalhar com o NuGet, como um consumidor ou criador de pacotes, você pode
 | [nuget.exe](#nugetexe-cli) | Fornece todos os recursos do NuGet no Windows e a maioria dos recursos no Mac e Linux quando executado em Mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | No Windows, fornece funcionalidades do NuGet por meio da interface do usuário do Gerenciador de Pacotes e do Console do Gerenciador de Pacotes, incluídos com as cargas de trabalho relacionadas ao .NET. No Mac, oferece alguns recursos por meio da interface do usuário. No Visual Studio Code, recursos do NuGet são fornecidos por meio de extensões. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
-A [CLI do MSBuild](reference/msbuild-targets.md) também fornece a capacidade de restaurar e criar pacotes, que é útil principalmente em servidores de build. O MSBuild não é uma ferramenta para fins gerais para trabalhar com o NuGet.
+A [CLI do MSBuild](reference/msbuild-targets.md) também fornece a capacidade de restaurar e criar pacotes, que é útil principalmente em servidores de compilação. O MSBuild não é uma ferramenta para fins gerais para trabalhar com o NuGet.
 
 ## <a name="cli-tools"></a>Ferramentas da CLI
 
@@ -46,7 +46,7 @@ A CLI do .NET Core 2.0, `dotnet.exe`, funciona em todas as plataformas (Windows,
 Instalação:
 
 - Em computadores de desenvolvedor, instale o [SDK do .NET Core](https://aka.ms/dotnetcoregs).
-- Para servidores de build, siga as instruções em [Usar o SDK do .NET Core e ferramentas na Integração contínua](/dotnet/core/tools/using-ci-with-cli).
+- Para servidores de compilação, siga as instruções em [Usar o SDK do .NET Core e ferramentas na Integração contínua](/dotnet/core/tools/using-ci-with-cli).
 
 Para saber mais, confira [Ferramentas da interface de linha de comando do .NET Core](/dotnet/core/tools/index?tabs=netcore2x#tabpanel_fXL5YCOYDa_netcore2x).
 
@@ -59,7 +59,7 @@ Instalação:
 [!INCLUDE[install-cli](includes/install-cli.md)]
 
 > [!Tip]
-> Use `nuget update -self` para atualizar seu nuget.exe existente para a versão mais recente.
+> Use `nuget update -self` no Windows para atualizar o nuget.exe existente para a versão mais recente.
 
 > [!Note]
 > A CLI do NuGet mais recente recomendada está sempre disponível em `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe`. Para fins de compatibilidade com sistemas mais antigos de integração contínua, uma URL anterior, `https://nuget.org/nuget.exe`, atualmente fornece a [ferramenta da CLI 2.8.6 preterida](https://github.com/NuGet/NuGetGallery/issues/5381).
