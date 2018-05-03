@@ -1,29 +1,17 @@
 ---
-title: Relatar abuso modelo de URL, o NuGet API | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Modelo de URL do relatório abuso, NuGet API
+description: O modelo de URL do relatório abuso permite que os clientes exibir um link para relatar abuso em sua interface do usuário.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: O modelo de URL do relatório abuso permite que os clientes exibir um link para relatar abuso em sua interface do usuário.
-keywords: Relatar abuso da API do NuGet, reclamação do arquivo NuGet API, o modelo de URL de relatório nuget.org
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: ded861e3eaf73e45b8d4bd80b96d54bfeb38e9d6
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 15cf0953391489d9dd9b5d609c3f4c8f66748f19
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="report-abuse-url-template"></a>Modelo de URL do relatório abuso
 

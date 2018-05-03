@@ -1,22 +1,16 @@
 ---
-title: "Notas de versão do NuGet 3.4.1 | Microsoft Docs"
+title: Notas de versão do NuGet 3.4.1
+description: Notas de versão do NuGet 3.4.1 incluindo problemas conhecidos, correções de bug, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 3.4.1 incluindo problemas conhecidos, correções de bug, recursos adicionados e DCRs."
-keywords: "Notas de versão NuGet 3.4.1, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: c2e22b6c22c55fd51bd1d20d52b4b7b07c5a205c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d492afc59fe2f9237aaf54dca56e09f9148a0dcf
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-341-release-notes"></a>Notas de versão do NuGet 3.4.1
 
@@ -27,7 +21,7 @@ NuGet 3.4.1 foi liberado 30 de março de 2016, ao mesmo tempo como o Visual Stud
 ## <a name="updates-and-improvements"></a>Atualizações e aprimoramentos
 
 * Corrigido um problema que impedia a procurar pacotes de IU do Visual Studio com uma instalação mínima do Visual Studio
-* Corrigido um problema com a localização do Visual Studio`lucene.net.dll`
+* Corrigido um problema com a localização do Visual Studio `lucene.net.dll`
 * Todas as fontes não devem ser a fonte de repositório padrão depois que uma extensão do NuGet instalar ou atualizar.  Você pode participar a esse recurso das definições de configuração.
 
 Continuamos a rastrear problemas em nossa lista de problemas do GitHub que pode ser encontrada em: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

@@ -1,22 +1,16 @@
 ---
-title: "Notas de versão do NuGet 2.0 | Microsoft Docs"
+title: Notas de versão 2.0 do NuGet
+description: Notas de versão do NuGet 2.0, incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 2.0, incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão 2.0 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: eaa3c8db1cce72ff93671a1df63698748cdfab70
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0e637a953d9d5d10394857a352be96a7f68dc4e8
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-20-release-notes"></a>Notas de versão 2.0 do NuGet
 
@@ -27,7 +21,7 @@ NuGet 2.0 foi lançada em 19 de junho de 2012.
 ## <a name="known-installation-issue"></a>Problema de instalação conhecidos
 Se você estiver executando o VS 2010 SP1, você pode executar em um erro de instalação durante a tentativa de atualizar o NuGet se você tiver uma versão mais antiga.
 
-A solução alternativa é simplesmente desinstalar NuGet e, em seguida, instalá-lo a partir da Galeria de extensão do VS.  Consulte [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) para obter mais informações, ou [vá diretamente para o hotfix VS](http://bit.ly/vsixcertfix).
+A solução alternativa é simplesmente desinstalar NuGet e, em seguida, instalá-lo a partir da Galeria de extensão do VS.  Consulte [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) para obter mais informações, ou [vá diretamente para o hotfix VS](http://bit.ly/vsixcertfix).
 
 Observação: Se o Visual Studio não permitirão que você desinstalar a extensão (o botão de desinstalação estiver desabilitado), em seguida, provavelmente você precisa reiniciar o Visual Studio usando "Executar como administrador".
 

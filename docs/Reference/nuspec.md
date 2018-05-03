@@ -1,26 +1,17 @@
 ---
-title: Referência do arquivo .nuspec para NuGet | Microsoft Docs
+title: Referência de arquivo. NuSpec para NuGet
+description: O arquivo .nuspec contém metadados de pacote usados ao compilar um pacote e para fornecer informações para os consumidores do pacote.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 08/29/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: O arquivo .nuspec contém metadados de pacote usados ao compilar um pacote e para fornecer informações para os consumidores do pacote.
-keywords: referência de nuspec, metadados de pacote do NuGet, manifesto de pacote do NuGet, esquema de nuspec
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 086826b47402bb5e7066c7a10b1e2ff246fd58ea
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.reviewer: anangaur
+ms.openlocfilehash: c11b50aa1637c00f0f0e71a6e20ce5d435db402b
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -97,14 +88,14 @@ Esses elementos podem aparecer dentro de um elemento `<metadata>`.
 | **owners** | Uma lista separada por vírgulas de criadores de pacotes que usam nomes de perfil no nuget.org. Essa geralmente é a mesma lista que `authors` e é ignorado ao carregar o pacote no nuget.org. Consulte [Gerenciando os proprietários de pacote no nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Uma URL para a home page do pacote, geralmente mostrada em exibições de interface do usuário, bem como em nuget.org. |
 | **licenseUrl** | Uma URL para a licença do pacote, geralmente mostrada em exibições de interface do usuário, bem como no nuget.org. |
-| **iconUrl** | Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como o ícone do pacote na exibição de interface do usuário. Verifique se esse elemento contém a *URL direta da imagem* e não a URL de uma página da Web que contém a imagem. Por exemplo, para usar uma imagem do GitHub, use o arquivo bruto URL como  *https://github.com/ \<username\>/\<repositório\>/raw/\<ramificação\> / \<logo.png\>*. |
+| **iconUrl** | Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como o ícone do pacote na exibição de interface do usuário. Verifique se esse elemento contém a *URL direta da imagem* e não a URL de uma página da Web que contém a imagem. Por exemplo, para usar uma imagem do GitHub, use o arquivo bruto URL como  <em>https://github.com/ \<username\>/\<repositório\>/raw/\<ramificação\> / \<logo.png\></em>. |
 | **requireLicenseAcceptance** | Um valor booliano que especifica se o cliente precisa solicitar que o consumidor aceite a licença do pacote antes de instalá-lo. |
 | **developmentDependency** | *(2.8 ou superior)* Um valor booliano que especifica se o pacote está marcado como uma dependência somente de desenvolvimento, que impede que o pacote seja incluído como uma dependência em outros pacotes. |
 | **summary** | Uma breve descrição do pacote para exibição de interface do usuário. Se omitido, uma versão truncada do `description` é usada. |
 | **releaseNotes** | *(1.5 ou superior)* Uma descrição das alterações feitas nesta versão do pacote, frequentemente usado na interface do usuário como a guia **Atualizações** do Gerenciador de Pacotes do Visual Studio em vez da descrição do pacote. |
 | **direitos autorais** | *(1.5 ou superior)* Detalhes sobre direitos autorais do pacote. |
 | **language** | A identificação de localidade para o pacote. Consulte [Criando pacotes localizados](../create-packages/creating-localized-packages.md). |
-| **tags** | Uma lista delimitada por espaço de marcas e palavras-chave que descrevem o pacote e auxiliam na descoberta de pacotes por meio de pesquisa e filtragem. |
+| **tags**  | Uma lista delimitada por espaço de marcas e palavras-chave que descrevem o pacote e auxiliam na descoberta de pacotes por meio de pesquisa e filtragem. |
 | **serviceable** | *(3.3 ou superior)* Somente para uso interno do NuGet. |
 
 #### <a name="collection-elements"></a>Elementos de coleção
@@ -183,8 +174,8 @@ O elemento `<dependencies>` dentro do `<metadata>` contém diversos elementos `<
 
 | Marca Incluir/Excluir | Pastas afetadas do destino |
 | --- | --- |
-| contentFiles | Conteúdo  |
-| tempo de execução | Runtime, Resources e FrameworkAssemblies  |
+| contentFiles | Conteúdo |
+| tempo de execução | Runtime, Resources e FrameworkAssemblies |
 | compilar | lib |
 | build | build (objetos e destinos do MSBuild) |
 | nativa | nativa |

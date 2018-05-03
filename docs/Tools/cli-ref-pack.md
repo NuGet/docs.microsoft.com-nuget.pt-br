@@ -1,25 +1,16 @@
 ---
-title: Comando de pacote do NuGet CLI | Microsoft Docs
+title: Comando de pacote do NuGet CLI
+description: Referência para o comando de pacote nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referência para o comando de pacote nuget.exe
-keywords: referência de pacote do NuGet, o comando de pacote
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 14ecf724477f652275eb68a090bb57b8640d4a8a
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: a2468b099a822e69298ea78c80cfd1d5d5c09938
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="pack-command-nuget-cli"></a>comando de pacote NuGet CLI)
 
@@ -33,7 +24,7 @@ Cria um pacote do NuGet com base em especificado `.nuspec` ou arquivo de projeto
 ## <a name="usage"></a>Uso
 
 ```cli
-nuget pack <nuspecPath | projectPath> [options]
+nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 ```
 
 onde `<nuspecPath>` e `<projectPath>` especificar o `.nuspec` ou projeto de arquivo, respectivamente.
@@ -55,7 +46,7 @@ onde `<nuspecPath>` e `<projectPath>` especificar o `.nuspec` ou projeto de arqu
 | NoDefaultExcludes | Impede a exclusão padrão do NuGet compactar arquivos e arquivos e pastas que iniciam com um ponto, como `.svn` e `.gitignore`. |
 | NoPackageAnalysis | Especifica que o pacote não deve executar a análise de pacote após a compilação do pacote. |
 | OutputDirectory | Especifica a pasta na qual o pacote criado é armazenado. Se nenhuma pasta for especificada, a pasta atual será usada. |
-| Propriedades | Especifica uma lista de propriedades que substituem os valores no arquivo de projeto; consulte [propriedades comuns de projeto MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) para nomes de propriedade. O argumento de propriedades aqui está uma lista de token = pares de valor, separados por ponto e vírgula, onde cada ocorrência de `$token$` no `.nuspec` arquivo será substituído pelo valor especificado. Valores podem ser cadeias de caracteres entre aspas. Observe que para a propriedade "Configuração", o padrão é "Debug". Para alterar para uma configuração de versão, use `-Properties Configuration=Release`. |
+| Propriedades | Deve aparecer por último na linha de comando após outras opções. Especifica uma lista de propriedades que substituem os valores no arquivo de projeto; consulte [propriedades comuns de projeto MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) para nomes de propriedade. O argumento de propriedades aqui está uma lista de token = pares de valor, separados por ponto e vírgula, onde cada ocorrência de `$token$` no `.nuspec` arquivo será substituído pelo valor especificado. Valores podem ser cadeias de caracteres entre aspas. Observe que para a propriedade "Configuração", o padrão é "Debug". Para alterar para uma configuração de versão, use `-Properties Configuration=Release`. |
 | Sufixo | *(3.4.4+)*  Anexa um sufixo para o número de versão gerados internamente, normalmente usado para anexar construção ou outros identificadores de pré-lançamento. Por exemplo, usando `-suffix nightly` criará um pacote com um tipo de número de versão `1.2.3-nightly`. Sufixos devem começar com uma letra para evitar avisos, erros e incompatibilidades com versões diferentes do NuGet e o NuGet Package Manager. |
 | Símbolos | Especifica que o pacote contém fontes e símbolos. Quando usado com um `.nuspec` arquivo, isso cria um arquivo de pacote do NuGet regular e pacote de símbolos correspondentes. |
 | Ferramenta | Especifica que os arquivos de saída do projeto devem ser colocados no `tool` pasta. |
@@ -96,8 +87,8 @@ nuget pack foo.csproj -Properties Configuration=Release
 
 nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="1.0.5"
 
-# create a package from project foo.csproj, using MSBuild version 12 to build the project
-nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="1.0.5" -MSBuildVersion 12
+# Create a package from project foo.csproj, using MSBuild version 12 to build the project
+nuget pack foo.csproj -Build -Symbols -MSBuildVersion 12 -Properties owners=janedoe,xiaop;version="1.0.5
 
 nuget pack foo.nuspec -Version 2.1.0
 

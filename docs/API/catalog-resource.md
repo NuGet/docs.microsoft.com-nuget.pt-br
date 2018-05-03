@@ -1,29 +1,17 @@
 ---
-title: Catálogo, a API do NuGet V3 | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Recurso de catálogo, API do NuGet V3
+description: O catálogo é um índice de todos os pacotes criados e excluídos em nuget.org.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: O catálogo é um índice de todos os pacotes criados e excluídos em nuget.org.
-keywords: Catálogo de API do NuGet V3, log de transações nuget.org, replicar nuget.org, clone nuget.org, registro somente de acréscimo de nuget.org
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 61ed502eee498f5ad0a014e3338503f2855396a5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 464b252ca318a5bd3487c723dbf4c7062e4698a3
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="catalog"></a>Catálogo
 

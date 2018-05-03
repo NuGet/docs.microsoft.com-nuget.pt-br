@@ -1,25 +1,16 @@
 ---
-title: Notas de versão do NuGet 3.0 Beta | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: Notas de versão do NuGet 3.0 Beta
 description: Notas de versão do NuGet 3.0 Beta, incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
-keywords: Notas de versão do NuGet 3.0 Beta, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: bb64cbce4f26d84e1ba12930578382f887bb85f8
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 4608b196d19f95410f9fe20f6a22e31c15955b89
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-30-beta-release-notes"></a>Notas de versão do NuGet 3.0 Beta
 
@@ -29,7 +20,7 @@ NuGet 3.0 Beta foi lançado em 23 de fevereiro de 2015 para a versão do Visual 
 
 É altamente recomendável que você desinstale qualquer versão anterior da extensão do NuGet Visual Studio 2015 antes de instalar esta nova versão.  Se você tiver problemas com esta versão da extensão, recomendamos que você reverter para a [versão anterior](http://nuget.codeplex.com/downloads/get/909582) para uso com o Visual Studio 2015 preview.
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012+
+## <a name="visual-studio-2012"></a>Visual Studio 2012 +
 
 Este NuGet 3.0 Beta está disponível para instalação no Visual Studio 2015 CTP 6 extensão de galeria. Estamos trabalhando para sair descartes de preview para Visual Studio 2012 e o Visual Studio 2013 muito em breve. Anteriormente, compartilhamos nossa intenção [interromper as atualizações para o Visual Studio 2010](http://blog.nuget.org/20141002/visual-studio-2010.html), e fez essa decisão difícil.
 

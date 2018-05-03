@@ -1,22 +1,16 @@
 ---
-title: "Notas de versão do NuGet 2.12 | Microsoft Docs"
+title: Notas de versão 2.12 do NuGet
+description: Notas de versão do NuGet 2.12 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 2.12 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão 2.12 NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 69055ed174d36a34c588a6e677d1459bea8896b5
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 407360a1147cc3f1a6a23a9efccb17b745ca70d1
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-212-release-notes"></a>Notas de versão 2.12 do NuGet
 

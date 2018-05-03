@@ -1,22 +1,16 @@
 ---
-title: "Notas de versão do NuGet 1.6 | Microsoft Docs"
+title: Notas de versão 1.6 do NuGet
+description: Notas de versão do NuGet 1.6 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 1.6 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão 1.6 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 114b03cede24dee520ace1d8aa920a648ad16af1
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0345e180893a56302385d27792c4e15ba5d96989
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
  # <a name="nuget-16-release-notes"></a>Notas de versão 1.6 do NuGet
 
@@ -27,7 +21,7 @@ ms.lasthandoff: 02/02/2018
 ## <a name="known-installation-issue"></a>Problema de instalação conhecidos
 Se você estiver executando o VS 2010 SP1, você pode executar em um erro de instalação durante a tentativa de atualizar o NuGet se você tiver uma versão mais antiga.
 
-A solução alternativa é simplesmente desinstalar NuGet e, em seguida, instalá-lo a partir da Galeria de extensão do VS.  Consulte [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) para obter mais informações.
+A solução alternativa é simplesmente desinstalar NuGet e, em seguida, instalá-lo a partir da Galeria de extensão do VS.  Veja [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) para obter mais informações.
 
 Observação: Se o Visual Studio não permitirão que você desinstalar a extensão (o botão de desinstalação estiver desabilitado), em seguida, provavelmente você precisa reiniciar o Visual Studio usando "Executar como administrador".
 

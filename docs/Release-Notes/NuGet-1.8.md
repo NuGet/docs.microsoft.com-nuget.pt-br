@@ -1,25 +1,16 @@
 ---
-title: Notas de versão do NuGet 1.8 | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: Notas de versão 1.8 do NuGet
 description: Notas de versão do NuGet 1.8 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
-keywords: Notas de versão 1.8 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: b94382f79143cac6bd5deccb5e5253ba8c6f60ec
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 1801d62b786717c088429fbeca6f1f72f5ab6b4f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-18-release-notes"></a>Notas de versão 1.8 do NuGet
 

@@ -1,22 +1,16 @@
 ---
-title: "Notas de versão do NuGet 3.4 | Microsoft Docs"
+title: Notas de versão 3.4 do NuGet
+description: Notas de versão do NuGet 3.4, incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 3.4, incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão NuGet 3.4, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 515fb888aca2a8eb138c8fea1fb5b3f5a8f4e275
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 3f2a945b628022bdcc6e69a7a4b1be6c53b65626
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-34-release-notes"></a>Notas de versão 3.4 do NuGet
 
@@ -24,9 +18,9 @@ ms.lasthandoff: 02/02/2018
 
 NuGet 3.4 foi lançada em 30 de março de 2016 como parte do Visual Studio 2015 atualização 2 e versão de visualização do Visual Studio 15 e foi criado com alguns princípios em mente:
 
-*  Suporte de plataforma cruzada
-*  Melhorias de desempenho
-*  Pequenos aperfeiçoamentos de interface do usuário
+* Suporte de plataforma cruzada
+* Melhorias de desempenho
+* Pequenos aperfeiçoamentos de interface do usuário
 
 Os seguintes recursos foram adicionados anteriormente no RC e foram atualizados ou concluídos para a versão 3.4:
 

@@ -1,25 +1,16 @@
 ---
-title: Comando de configuração de CLI do NuGet | Microsoft Docs
+title: Comando de configuração de CLI do NuGet
+description: Referência para o comando de configuração de nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referência para o comando de configuração de nuget.exe
-keywords: referência de configuração NuGet, o comando de configuração
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e3d08f210bd56fcb8eb701fc9b241a3ab45998ec
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 414eb8386f949347772f33170de881534dc71482
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="config-command-nuget-cli"></a>comando de configuração (NuGet CLI)
 

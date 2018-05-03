@@ -1,25 +1,16 @@
 ---
-title: Comando update do NuGet CLI | Microsoft Docs
+title: Comando de atualização de CLI do NuGet
+description: Referência para o comando de atualização de nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referência para o comando de atualização de nuget.exe
-keywords: referência de atualização do NuGet, comando de pacote de atualização
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 1ea04f2fa2a753065ee4f17cbb926e37acf129e0
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e6964d92436ce1bac9e6af85f6dae75fcf40378d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="update-command-nuget-cli"></a>comando de atualização (NuGet CLI)
 
@@ -54,7 +45,7 @@ onde `<configPath>` identifica em uma `packages.config` ou arquivo de solução 
 | MSBuildVersion | *(3.2 +)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15. Por padrão que o MSBuild em seu caminho é separado, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
 | NonInteractive | Suprime avisos para a entrada do usuário ou confirmações. |
 | Versão de pré-lançamento | Permite a atualização para as versões de pré-lançamento. Este sinalizador não é necessário ao atualizar os pacotes de pré-lançamento que já estão instalados. |
-| RepositoryPath | Especifica a pasta local onde os pacotes estão instalados. |
+| Caminho do repositório | Especifica a pasta local onde os pacotes estão instalados. |
 | Safe | Especifica que apenas atualizações com a versão mais recente disponível dentro da mesma versão principal e secundária, o pacote instalado será instalado. |
 | Self | Atualiza o nuget.exe para a versão mais recente; todos os outros argumentos são ignorados. |
 | Origem | Especifica a lista de fontes de pacote (como URLs) para usar as atualizações. Se omitido, o comando usa as fontes fornecidas nos arquivos de configuração, consulte [NuGet Configurando comportamento](../consume-packages/configuring-nuget-behavior.md). |

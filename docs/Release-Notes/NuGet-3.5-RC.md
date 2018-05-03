@@ -1,22 +1,16 @@
 ---
-title: "3.5 notas de versão RC | Microsoft Docs"
+title: 3.5 notas de versão RC
+description: Notas de versão do NuGet 3.5 RC incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 3.5 RC incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão RC do NuGet 3.5, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: fdb84da5f1648ce4508afe6ddcf04bddd41284d3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d620a8b8d97f9a52cb2bc93a91eb393130a42898
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-35-rc-release-notes"></a>Notas de versão de RC do NuGet 3.5
 
@@ -24,7 +18,7 @@ ms.lasthandoff: 02/02/2018
 
 versão 3.5 está se concentrou em melhorar a qualidade e o desempenho de clientes do NuGet. Além disso, podemos ter enviado alguns recursos, como suporte para [pastas Fallback](https://github.com/NuGet/Home/issues/2899), [PackageType](https://github.com/NuGet/Home/issues/2476) suporte em `.nuspec` e muito mais.
 
-[Lista de Problemas](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5 RC")
+[Lista de Problemas](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5%20RC")
 
 ## <a name="bug-fixes"></a>Correções de Bug
 

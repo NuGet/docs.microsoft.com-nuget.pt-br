@@ -1,22 +1,16 @@
 ---
-title: Provedores de credenciais de NuGet.exe | Microsoft Docs
+title: Provedores de credenciais de NuGet.exe
+description: provedores de credenciais de NuGet.exe autenticam com um feed e são implementados como executáveis de linha de comando que seguem as convenções específicas.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/12/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "provedores de credenciais de NuGet.exe autenticam com um feed e são implementados como executáveis de linha de comando que seguem as convenções específicas."
-keywords: provedores de credenciais de NuGet.exe, provedor de credenciais de API, autenticar com o feed, autenticar com a Galeria
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 494ea83007895e973585395e0cfe05b7226c4c3e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Autenticando feeds com provedores de credenciais de nuget.exe
 

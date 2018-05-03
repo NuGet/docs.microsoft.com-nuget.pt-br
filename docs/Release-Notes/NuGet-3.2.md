@@ -1,22 +1,16 @@
 ---
-title: "Notas de versão do NuGet 3.2 | Microsoft Docs"
+title: Notas de versão 3.2 do NuGet
+description: Notas de versão do NuGet 3.2 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 3.2 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão 3.2 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 1728a5c0d83be84686e7ab1394cfc4f8f809987c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 938104c50fee19ee398de49c786bbb4963ba1429
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-release-notes"></a>Notas de versão 3.2 do NuGet
 
@@ -45,7 +39,7 @@ Fizemos vários aprimoramentos para lidar melhor com falhas de rede ao tentar tr
 * Corrigido o comando de restauração do NuGet corretamente retornar 1 quando ocorre uma condição de erro - [1186](https://github.com/NuGet/Home/issues/1186)
 * Agora, repetindo as conexões de rede cada 200 ms para um máximo de 5 tentativas no caso de falhas do HTTP 5xx - [1120](https://github.com/NuGet/Home/issues/1120)
 * Melhor tratamento de redirecionamento de respostas do servidor durante um comando push - [1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`agora dá suporte a nome de URL ou no repositório do NuGet. config como um argumento - [1046](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` agora dá suporte a nome de URL ou no repositório do NuGet. config como um argumento - [1046](https://github.com/NuGet/Home/issues/1046)
 * Os pacotes ausentes que não foram localizados em um repositório durante uma restauração agora são relatados como erros, em vez de avisos [1038](https://github.com/NuGet/Home/issues/1038)
 * Corrigido o tratamento de multipartwebrequest de \r\n para cenários de Unix/Linux - [776](https://github.com/NuGet/Home/issues/776)
 

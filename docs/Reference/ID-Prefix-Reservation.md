@@ -1,26 +1,17 @@
 ---
-title: Prefixo de ID de referência de reserva | Microsoft Docs
+title: Prefixo de ID de referência de reserva
+description: Descrição do recurso de reserva de prefixo de ID de pacote e guia do autor.
 author: diverdan92
 ms.author: diverdan92
-manager: unniravindranathan
+manager: unnir
 ms.date: 10/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Descrição do recurso de reserva de prefixo de ID de pacote e guia do autor.
-keywords: ID do pacote NuGet, prefixo, reserva
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7b1956612bd48a1c59503418f1a4d7d9dee900f5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 63f442ae25b92aacbbf5af7d9b3ea1a5dafe5fc9
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Reserva de prefixo de ID de pacote
 
@@ -67,16 +58,16 @@ Quando um pacote é proveniente de um prefixo reservado, você verá o abaixo in
 **nuget.org Gallery**
 ![nuget.org Gallery](media/nuget-gallery-reserved-prefix.png)
 
-**Visual Studio**
+**O Visual Studio**
 ![Visual Studio](media/visual-studio-reserved-prefix.png)
 
 ## <a name="id-prefix-reservation-application-process"></a>Processo de aplicativo de reserva de prefixo de ID
 
 1. Examine a aceitação [critérios de reserva de ID de prefixo](#id-prefix-reservation-criteria).
 
-1. Determinar os namespaces que você deseja reservar, além de qualquer [prefixo reserva cenários avançados](#advanced-prefix-reservation-scenarios) talvez seja necessária.
+2. Determinar os namespaces que você deseja reservar, além de qualquer [prefixo reserva cenários avançados](#advanced-prefix-reservation-scenarios) talvez seja necessária.
 
-1. Enviar um email para [ account@nuget.org ](mailto:account@nuget.org) com o proprietário do nome para exibição em [nuget.org](https://www.nuget.org/), bem como os prefixos reservados que você está solicitando. Se você estiver delegando subconjuntos de prefixo para proprietários de várias, certifique-se de mencionar todos os nomes de exibição proprietário e subconjuntos de prefixo.
+3. Enviar um email para [ account@nuget.org ](mailto:account@nuget.org) com o proprietário do nome para exibição em [nuget.org](https://www.nuget.org/), bem como os prefixos reservados que você está solicitando. Se você estiver delegando subconjuntos de prefixo para proprietários de várias, certifique-se de mencionar todos os nomes de exibição proprietário e subconjuntos de prefixo.
 
 Depois que o aplicativo for enviado, você será notificado de aceitação ou rejeição (com os critérios que causou a rejeição). Pode, precisamos fazer mais perguntas de identifica para confirmar a identidade do proprietário.
 

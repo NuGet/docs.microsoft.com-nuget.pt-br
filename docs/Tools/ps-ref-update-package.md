@@ -1,25 +1,16 @@
 ---
-title: Referência do pacote de atualização do NuGet PowerShell | Microsoft Docs
+title: Referência do pacote de atualização do NuGet PowerShell
+description: Referência de comando do PowerShell do pacote de atualização no Console do Gerenciador de pacotes do NuGet no Visual Studio.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referência de comando do PowerShell do pacote de atualização no Console do Gerenciador de pacotes do NuGet no Visual Studio.
-keywords: Console do Gerenciador, comandos do Powershell do NuGet, referência do Powershell do NuGet, pacote de atualização do pacote NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 05772159d62f73e7d25f71ad36809f5ae8ef6aae
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 621e59633117a29c58fe643860ee7e2b40a4fbe2
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Pacote de atualização (Console de Gerenciador de pacotes no Visual Studio)
 

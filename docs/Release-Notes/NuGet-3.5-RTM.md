@@ -1,22 +1,16 @@
 ---
-title: "Notas de versão do NuGet 3.5 Beta | Microsoft Docs"
+title: Notas de versão Beta do NuGet 3.5
+description: Notas de versão 3.5 do NuGet incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão 3.5 do NuGet incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão 3.5 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: cdb540229cae0e6e952ac2a0c00c8801ccbbb28d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-release-notes"></a>Notas de versão 3.5 do NuGet
 
@@ -80,7 +74,7 @@ ms.lasthandoff: 02/02/2018
 
 * Nenhuma informação foi fornecida durante a chamada de nuget.exe atualização csproj enquanto o projeto não tem um `packages.config`  -  [#1496](https://github.com/NuGet/Home/issues/1496)
 
-* `packages.config`Restore não tenta novamente em códigos de status 5xx do código-fonte V2 - [#1217](https://github.com/NuGet/Home/issues/1217)
+* `packages.config` Restore não tenta novamente em códigos de status 5xx do código-fonte V2 - [#1217](https://github.com/NuGet/Home/issues/1217)
 
 * Ponto duplo no arquivo src em `.nuspec` não funciona - [#2947](https://github.com/NuGet/Home/issues/2947)
 
@@ -92,7 +86,7 @@ ms.lasthandoff: 02/02/2018
 
 * Tente carregar "NuGet.TeamFoundationServer14", mas que o nome da DLL alterado para "NuGet.TeamFoundationServer" - NuGet.PackageManagement.VisualStudio [#2857](https://github.com/NuGet/Home/issues/2857)
 
-* Gerenciador de pacote UI não mostra recentemente atualizado versão - [&#2828;](https://github.com/NuGet/Home/issues/2828)
+* Gerenciador de pacote UI não mostra recentemente atualizado versão - [2828 #](https://github.com/NuGet/Home/issues/2828)
 
 * pacote de atualização tentando usar packageid, versão, em vez de package.version - [#2771](https://github.com/NuGet/Home/issues/2771)
 
@@ -148,7 +142,7 @@ ms.lasthandoff: 02/02/2018
 
 * Instalar blocos se uma única fonte não será autorizada - [#2034](https://github.com/NuGet/Home/issues/2034)
 
-* `.nuspec`versão do intervalo deve substituir a versão - IncludeReferencedProjects - [#1983](https://github.com/NuGet/Home/issues/1983)
+* `.nuspec` versão do intervalo deve substituir a versão - IncludeReferencedProjects - [#1983](https://github.com/NuGet/Home/issues/1983)
 
 * Pacote de atualização muito lenta - "tentando coletar informações de dependências" - [#1909](https://github.com/NuGet/Home/issues/1909)
 
@@ -226,7 +220,7 @@ ms.lasthandoff: 02/02/2018
 
 * Plug-in de credencial foi encerrado com erro -1 / erro baixar pacote ao usar os provedores de credenciais com várias fontes - [#2885](https://github.com/NuGet/Home/issues/2885)
 
-* `project.json`restauração do NuGet provoca a recompilação quando nada alterado - [#2817](https://github.com/NuGet/Home/issues/2817)
+* `project.json` restauração do NuGet provoca a recompilação quando nada alterado - [#2817](https://github.com/NuGet/Home/issues/2817)
 
 * Pacotes de símbolos nunca não devem ser usada na instalação ou atualização - [#2807](https://github.com/NuGet/Home/issues/2807)
 

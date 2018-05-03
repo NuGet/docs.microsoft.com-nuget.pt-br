@@ -1,26 +1,17 @@
 ---
-title: "Preenchimento automático, o NuGet API | Microsoft Docs"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Preenchimento automático, o NuGet API
+description: O serviço de preenchimento automático de pesquisa oferece suporte a versões e descoberta interativa de IDs de pacote.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "O serviço de preenchimento automático de pesquisa oferece suporte a versões e descoberta interativa de IDs de pacote."
-keywords: "API de preenchimento automático do NuGet, NuGet pacote ID, ID de pacote de subcadeia de caracteres de pesquisa"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: d5e1936c6c5406a1a376c16b2bad5351320dfb4f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="autocomplete"></a>Preenchimento Automático
 
@@ -33,8 +24,8 @@ O seguinte `@type` valores são usados:
 Valor @type                          | Observações
 ------------------------------------ | -----
 SearchAutocompleteService            | A versão inicial
-SearchAutocompleteService/3.0.0-beta | Alias de`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Alias de`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | Alias de `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | Alias de `SearchAutocompleteService`
 
 ## <a name="base-url"></a>URL Base
 
@@ -59,7 +50,7 @@ Nome        | No     | Tipo    | Necessária | Observações
 q           | URL    | cadeia de caracteres  | no       | A cadeia de caracteres a ser comparada com IDs de pacote
 skip        | URL    | inteiro | no       | O número de resultados a ignorar, de paginação
 Take        | URL    | inteiro | no       | O número de resultados para retornar para a paginação
-versão de pré-lançamento  | URL    | boolean | no       | `true`ou `false` determinar a inclusão [pacotes de pré-lançamento](../create-packages/prerelease-packages.md)
+versão de pré-lançamento  | URL    | boolean | no       | `true` ou `false` determinar a inclusão [pacotes de pré-lançamento](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | cadeia de caracteres  | no       | Uma cadeia de caracteres de versão SemVer 1.0.0 
 
 A consulta de preenchimento automático `q` é analisado em uma maneira que é definida pela implementação do servidor. NuGet.org oferece suporte a consultas para o prefixo de tokens de ID de pacote, que fazem parte da ID produzido pelo spliting original por caracteres mista de caso e o símbolo.
@@ -82,12 +73,12 @@ A raiz do objeto JSON tem as seguintes propriedades:
 
 Nome      | Tipo             | Necessária | Observações
 --------- | ---------------- | -------- | -----
-totalHits | inteiro          | sim      | O número total de correspondências, desconsiderando `skip` e`take`
+totalHits | inteiro          | sim      | O número total de correspondências, desconsiderando `skip` e `take`
 Dados      | Matriz de cadeias de caracteres | sim      | O pacote correspondem às IDs de solicitação
 
 ### <a name="sample-request"></a>Solicitação de amostra
 
-GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+OBTER https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="sample-response"></a>Resposta de exemplo
 
@@ -106,7 +97,7 @@ Uma versão do pacote que está na lista não aparecerão nos resultados.
 Nome        | No     | Tipo    | Necessária | Observações
 ----------- | ------ | ------- | -------- | -----
 id          | URL    | cadeia de caracteres  | sim      | A ID do pacote para buscar versões para
-versão de pré-lançamento  | URL    | boolean | no       | `true`ou `false` determinar a inclusão [pacotes de pré-lançamento](../create-packages/prerelease-packages.md)
+versão de pré-lançamento  | URL    | boolean | no       | `true` ou `false` determinar a inclusão [pacotes de pré-lançamento](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | cadeia de caracteres  | no       | Uma cadeia de caracteres de versão SemVer 2.0.0 
 
 Se `prerelease` não for fornecido, os pacotes de pré-lançamento serão excluídos.

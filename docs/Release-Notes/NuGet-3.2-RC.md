@@ -1,22 +1,16 @@
 ---
-title: "Notas de versão de RC do NuGet 3.2 | Microsoft Docs"
+title: Notas de versão do NuGet 3.2 RC
+description: Notas de versão do NuGet 3.2 RC incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 3.2 RC incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão RC do NuGet 3.2, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: b19f62217ed79689ce067107dd64dfffe2c59291
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0310bac6fdb3ef92176f9224ace1620a230664af
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-rc-release-notes"></a>Notas de versão do NuGet 3.2 RC
 
@@ -27,7 +21,7 @@ Lançado NuGet 3.2 versão release candidate 2 de setembro de 2015 como uma cole
 ## <a name="new-features"></a>Novos recursos
 
 * Os projetos que residem na mesma pasta agora podem ter diferentes `project.json` arquivos nessa pasta específica para cada projeto.  Para cada projeto, o nome de `project.json` arquivo `{ProjectName}.project.json` e NuGet corretamente irá referenciar e usar esse conteúdo para cada projeto adequadamente.  Isso dá suporte a um novo recurso [1102](https://github.com/NuGet/Home/issues/1102)
-* `NuGet.Config`agora dá suporte a um globalPackagesFolder como um caminho relativo - [1062](https://github.com/NuGet/Home/issues/1062)
+* `NuGet.Config` agora dá suporte a um globalPackagesFolder como um caminho relativo - [1062](https://github.com/NuGet/Home/issues/1062)
 
 ## <a name="command-line-updates"></a>Atualizações de linha de comando
 
@@ -45,7 +39,7 @@ Essa é a primeira versão do cliente nuget.exe que oferece suporte a servidores
 * Corrigido o comando de restauração do NuGet corretamente retornar 1 quando ocorre uma condição de erro - [1186](https://github.com/NuGet/Home/issues/1186)
 * Agora, repetindo as conexões de rede cada 200 ms para um máximo de 5 tentativas no caso de falhas do HTTP 5xx - [1120](https://github.com/NuGet/Home/issues/1120)
 * Melhor tratamento de redirecionamento de respostas do servidor durante um comando push - [1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`agora dá suporte a nome de URL ou no repositório do NuGet. config como um argumento - [1046](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` agora dá suporte a nome de URL ou no repositório do NuGet. config como um argumento - [1046](https://github.com/NuGet/Home/issues/1046)
 * Os pacotes ausentes que não foram localizados em um repositório durante uma restauração agora são relatados como erros, em vez de avisos [1038](https://github.com/NuGet/Home/issues/1038)
 * Corrigido o tratamento de multipartwebrequest de \r\n para cenários de Unix/Linux - [776](https://github.com/NuGet/Home/issues/776)
 

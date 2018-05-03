@@ -1,25 +1,16 @@
 ---
-title: Comando de restauração do NuGet CLI | Microsoft Docs
+title: Comando de restauração do NuGet CLI
+description: Referência do comando de restauração de nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referência do comando de restauração de nuget.exe
-keywords: NuGet restaure referência, restaure o comando de pacotes
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dd0a74c9ed9b879643ed24cbddacff87310dfd6b
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>comando de restauração (NuGet CLI)
 
@@ -68,24 +59,23 @@ Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 O comando restore executa as seguintes etapas:
 
 1. Determine o modo de operação do comando restore.
-    tipo de arquivo projectPath | Comportamento
-    | --- | --- |
-    Solução (pasta) | NuGet procura um `.sln` de arquivo e usa esse encontrado; caso contrário, retorna um erro. `(SolutionDir)\.nuget` é usado como a pasta inicial.
-    `.sln` Arquivo | Restaurar os pacotes identificados pela solução; gera um erro se `-SolutionDirectory` é usado. `$(SolutionDir)\.nuget` é usado como a pasta inicial.
-    `packages.config` ou o arquivo de projeto | Restaure os pacotes listados no arquivo, resolvendo e instalando dependências.
-    Outro tipo de arquivo | Arquivo é considerado um `.sln` arquivo acima; se não for uma solução, o NuGet fornece um erro.
-    (projectPath não especificado) | -NuGet procura por arquivos de solução na pasta atual. Se for encontrado um único arquivo, que é usado para restaurar os pacotes; Se várias soluções forem encontradas, o NuGet apresentará um erro.
-    |-Se não houver nenhum arquivo de solução, o NuGet procura um `packages.config` e a usa para restaurar os pacotes.
-    |-Se não houver solução ou `packages.config` arquivo for encontrado, o NuGet apresentará um erro.
 
-1. Determine a pasta de pacotes usando a seguinte ordem de prioridade (NuGet apresentará um erro se nenhuma dessas pastas são encontradas):
+   | tipo de arquivo projectPath | Comportamento |
+   | --- | --- |
+   | Solução (pasta) | NuGet procura um `.sln` de arquivo e usa esse encontrado; caso contrário, retorna um erro. `(SolutionDir)\.nuget` é usado como a pasta inicial. |
+   | `.sln` Arquivo | Restaurar os pacotes identificados pela solução; gera um erro se `-SolutionDirectory` é usado. `$(SolutionDir)\.nuget` é usado como a pasta inicial. |
+   | `packages.config` ou o arquivo de projeto | Restaure os pacotes listados no arquivo, resolvendo e instalando dependências. |
+   | Outro tipo de arquivo | Arquivo é considerado um `.sln` arquivo acima; se não for uma solução, o NuGet fornece um erro. |
+   | (projectPath não especificado) | <ul><li>NuGet procura por arquivos de solução na pasta atual. Se for encontrado um único arquivo, que é usado para restaurar os pacotes; Se várias soluções forem encontradas, o NuGet apresentará um erro.</li><li>Se não houver nenhum arquivo de solução, o NuGet procura um `packages.config` e a usa para restaurar os pacotes.</li><li>Se não houver solução ou `packages.config` arquivo for encontrado, o NuGet apresentará um erro.</ul> |
+
+2. Determine a pasta de pacotes usando a seguinte ordem de prioridade (NuGet apresentará um erro se nenhuma dessas pastas são encontradas):
 
     - A pasta especificada com `-PackagesDirectory`.
     - O `repositoryPath` vale em `Nuget.Config`
     - A pasta especificada com `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 
-1. Ao restaurar pacotes para uma solução, o NuGet faz o seguinte:
+3. Ao restaurar pacotes para uma solução, o NuGet faz o seguinte:
     - Carrega o arquivo de solução.
     - Restaura os pacotes de nível de solução listados na `$(SolutionDir)\.nuget\packages.config` para o `packages` pasta.
     - Restaurar os pacotes listados na `$(ProjectDir)\packages.config` para o `packages` pasta. Para cada pacote especificado, restaurar o pacote em paralelo, a menos que `-DisableParallelProcessing` for especificado.

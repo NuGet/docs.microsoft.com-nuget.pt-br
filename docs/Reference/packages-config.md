@@ -1,25 +1,16 @@
 ---
-title: Referência do arquivo packages.config do NuGet | Microsoft Docs
+title: Referência do arquivo NuGet Packages. config
+description: Em alguns tipos de projeto, o packages.json mantém a lista de pacotes do NuGet usados no projeto.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Em alguns tipos de projeto, o packages.json mantém a lista de pacotes do NuGet usados no projeto.
-keywords: Arquivo packages.config do NuGet, referências de pacote do NuGet, dependências do NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 38d4724d25476d372a936cb8ebf08e2b53fcf9f4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 73234f79cb9eb30327c4e206a5bc51c5bc1c6f1d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="packagesconfig-reference"></a>Referência de packages.config
 

@@ -1,28 +1,22 @@
 ---
-title: "Notas de versão do NuGet 3.5 Beta | Microsoft Docs"
+title: Notas de versão Beta do NuGet 3.5
+description: Notas de versão do NuGet 3.5 Beta incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 3.5 Beta incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão Beta do NuGet 3.5, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 52e8ac4f14af991c41455aeaa2b0bf163c4ab70b
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: aee2a66101fd7e95ec6240edaeda60ed48d0915a
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-beta-release-notes"></a>Notas de versão Beta do NuGet 3.5
 
 [Notas de versão do NuGet 3.4](../release-notes/nuget-3.4.md) | [notas de versão 3.5-Beta2 NuGet](../release-notes/nuget-3.5-Beta2.md)
 
-Versão Beta do NuGet 3.5 foi lançado em 16 de maio de 2016 como parte do wave ferramentas de visualização do ASP.NET Core. Essa versão adiciona suporte para .NET Core RC2 e ASP.NET Core RC2. Para obter mais informações sobre essa versão, consulte [http://dot.net](http://dot.net).
+Versão Beta do NuGet 3.5 foi lançado em 16 de maio de 2016 como parte do wave ferramentas de visualização do ASP.NET Core. Essa versão adiciona suporte para .NET Core RC2 e ASP.NET Core RC2. Para obter mais informações sobre essa versão, consulte [ http://dot.net ](http://dot.net).
 
 Você pode baixar o VSIX e nuget.exe [aqui](https://dist.nuget.org/index.html).
 

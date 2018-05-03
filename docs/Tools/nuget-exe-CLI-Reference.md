@@ -1,22 +1,16 @@
 ---
-title: "Referência da Interface de linha de comando (CLI) do NuGet | Microsoft Docs"
+title: Referência da Interface de linha de comando (CLI) do NuGet
+description: Índice de referência de linha de comando para o nuget.exe CLI
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/23/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Índice de referência de linha de comando para o nuget.exe CLI"
-keywords: "índice de referência de NuGet.exe, interface de linha de comando nuget.exe, nuget.exe CLI, comando nuget"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 8b1ee17702f5a54a77dc2cd663e13729a9b4a39f
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: ed91a31505ab1de9447cdbeb87c8ad08f7ba56d8
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-cli-reference"></a>Referência da CLI do NuGet
 
@@ -28,7 +22,7 @@ Esta documentação reflete a versão mais recente do NuGet CLI. Para obter deta
 
 ## <a name="installing-nugetexe"></a>Instalando o nuget.exe
 
-[!INCLUDE[install-cli](../includes/install-cli.md)]
+[!INCLUDE [install-cli](../includes/install-cli.md)]
 
 > [!Tip]
 > Para disponibilizar a CLI do NuGet no Console do Gerenciador de pacotes no Visual Studio, consulte [usando a CLI nuget.exe no console do](package-manager-console.md#using-the-nugetexe-cli-in-the-console).
@@ -51,8 +45,8 @@ Comandos disponíveis e aplicabilidade para criação de pacote, consumo de paco
 | [push](cli-ref-push.md) | Publicando | Todos | Publica um pacote para uma origem de pacote. |
 | [config](cli-ref-config.md) | Todos | Todos | Obtém ou define os valores de configuração do NuGet. |
 | [help ou ?](cli-ref-help.md) | Todos | Todos | Exibe a Ajuda informações ou ajuda para um comando. |
-| [locals](cli-ref-locals.md) | Consumo | 3.3+ | Limpa ou lista de pacotes em vários caches ou a pasta pacotes global ou identifica essas pastas. |
-| [restore](cli-ref-restore.md) | Consumo | 2.7+ | Restaura todos os pacotes referenciados pelo formato de referência de pacote em uso. Ao executar em Mono, não há suporte a restauração de pacotes usando o formato de PackageReference. |
+| [locals](cli-ref-locals.md) | Consumo | 3.3+ | Lista de locais do *pacotes global*, *cache http*, e *temp* limpa o conteúdo das pastas e pastas. |
+| [restore](cli-ref-restore.md) | Consumo | 2.7+ | Restaura todos os pacotes referenciados pelo formato de gerenciamento de pacote em uso. Ao executar em Mono, não há suporte a restauração de pacotes usando o formato de PackageReference. |
 | [setapikey](cli-ref-setapikey.md) | Publicação de consumo | Todos | Salva uma chave de API para uma origem do pacote fornecido quando essa origem de pacote exige uma chave de acesso. |
 | [spec](cli-ref-spec.md) | Criação | Todos | Gera um `.nuspec` de arquivo, usando tokens se gerar o arquivo de um projeto do Visual Studio. |
 

@@ -1,22 +1,16 @@
 ---
-title: "Notas de versão do NuGet 3.1 | Microsoft Docs"
+title: Notas de versão 3.1 do NuGet
+description: Notas de versão do NuGet 3.1 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 3.1 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão 3.1 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: a7aa43b8701b3bbef8f6ebce9a5d636ee1bc6abe
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d14455da6f8af4db92f7105ea1b0e88eb9e71600
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-31-release-notes"></a>Notas de versão 3.1 do NuGet
 
@@ -32,7 +26,7 @@ Problemas e recursos nesta versão são marcados no GitHub, com o ["3.1 suporte 
 
 ### <a name="new-features"></a>Novos recursos
 
-* `project.json`suporte para suporte de UWP do Windows e do ASP.NET 5
+* `project.json` suporte para suporte de UWP do Windows e do ASP.NET 5
 * Instalação do pacote transitiva
 
 Descrição e a definição desses recursos podem ser encontrados em outro lugar na documentação.
@@ -45,7 +39,7 @@ Os recursos a seguir não estão mais disponíveis para o Visual Studio 2015:
 
 Os recursos a seguir não estão mais disponíveis para o Visual Studio 2015 e projetos que usam o `project.json` especificação
 
-* `install.ps1`e `uninstall.ps1` -esses scripts serão ignorados durante a instalação do pacote, restaurar, atualizar e desinstalar
+* `install.ps1` e `uninstall.ps1` -esses scripts serão ignorados durante a instalação do pacote, restaurar, atualizar e desinstalar
 * Transformações de configuração serão ignoradas
 * Conteúdo será executado, mas não foi copiado em um projeto.
     * A equipe está trabalhando para implementar novamente esse recurso, siga a discussão e andamento em: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)
@@ -59,7 +53,7 @@ Houve um número de problemas conhecidos, fornecido com esta versão.
 
 ## <a name="nuget-command-line"></a>Linha de comando do NuGet
 
-O executável de linha de comando do NuGet foi atualizado e movido para um novo local de distribuição para que as versões históricas de nuget.exe podem continuar a ser disponibilizado.  Você pode baixar a versão 3.1 beta do nuget.exe para Windows no: [http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe](http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe)
+O executável de linha de comando do NuGet foi atualizado e movido para um novo local de distribuição para que as versões históricas de nuget.exe podem continuar a ser disponibilizado.  Você pode baixar a versão 3.1 beta do nuget.exe Windows em: [http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe](http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe)
 
 O novo local distribuível reside no host dist.nuget.org, com uma estrutura de pastas que segue este modelo:
 
@@ -75,4 +69,4 @@ O novo local distribuível reside no host dist.nuget.org, com uma estrutura de p
 1.    Não é possível executar o pacote em relação a um `project.json` arquivo - [928](https://github.com/NuGet/Home/issues/928)
 2.    Não há suporte para Mono - [1059](https://github.com/NuGet/Home/issues/1059)
 3.    Não é localizado - [1058](https://github.com/NuGet/Home/issues/1058), [1057](https://github.com/NuGet/Home/issues/1057)
-4.    Não é assinado, assim como o http://nuget.org/nuget.exe existente - [1073](https://github.com/NuGet/Home/issues/1073)
+4.    Não é assinado, assim como existente http://nuget.org/nuget.exe - [1073](https://github.com/NuGet/Home/issues/1073)

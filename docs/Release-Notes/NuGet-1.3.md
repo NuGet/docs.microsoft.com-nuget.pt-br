@@ -1,22 +1,16 @@
 ---
-title: "Notas de versão do NuGet 1.3 | Microsoft Docs"
+title: Notas de versão 1.3 do NuGet
+description: Notas de versão do NuGet 1.3 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notas de versão do NuGet 1.3 incluindo correções de bugs, problemas conhecidos, recursos adicionados e DCRs."
-keywords: "Notas de versão 1.3 do NuGet, correções de bugs, problemas conhecidos, adicionaram recursos, DCRs"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 59169be5b39ba4436e13e0935a0ad6efa724e08e
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: c0284fe0afb11bf6465897132cccd160674ea3e1
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-13-release-notes"></a>Notas de versão 1.3 do NuGet
 
@@ -30,7 +24,7 @@ ms.lasthandoff: 02/02/2018
 
 A equipe do NuGet fez uma parceria com o pessoal [SymbolSource.org](http://www.symbolsource.org/) para oferecer uma maneira muito simple de publicar seu do PDB e de fontes junto com o pacote. Isso permite que os consumidores de seu pacote passar para a fonte do seu pacote do depurador. Para obter mais detalhes, leia [criar e publicar um pacote de símbolos](../create-packages/symbol-packages.md) a maneira fácil de publicar pacotes do NuGet com fontes. Você também pode assistir uma demonstração ao vivo desse recurso como parte do NuGet em profundidade falar no Mix11. Esse recurso é demonstrado totalmente iniciando na marca de 20 minutos do vídeo.
 
-### <a name="open-packagepage-command"></a>`Open-PackagePage`Comando
+### <a name="open-packagepage-command"></a>`Open-PackagePage` Comando
 
 Este comando torna fácil de obter a página do projeto para um pacote a partir do Console do Gerenciador de pacotes. Ele também fornece opções para abrir a URL de licença e a página do relatório abuso para o pacote.
 A sintaxe do comando é:
