@@ -1,26 +1,17 @@
 ---
-title: Referências de estruturas de destino para NuGet | Microsoft Docs
+title: Referência de estruturas de destino para NuGet
+description: As referências de estrutura de destino do NuGet identificam e isolam componentes dependentes de estrutura de um pacote.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/11/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: As referências de estrutura de destino do NuGet identificam e isolam componentes dependentes de estrutura de um pacote.
-keywords: Direcionamento de pacote do NuGet, destinos do .NET framework, versões do .NET framework
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0a9c45ef31e27c2242edce48e2cf272e5280dcff
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: anangaur
+ms.openlocfilehash: 6b7ee3f739847777dda638d8fed083c48ed5812e
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="target-frameworks"></a>Frameworks de destino
 
@@ -41,25 +32,25 @@ Normalmente, uma estrutura é referenciada por um moniker curto de estrutura de 
 
 Os clientes do NuGet são compatíveis com as estruturas indicadas na tabela abaixo. Equivalentes são mostrados entre colchetes []. Observe que algumas ferramentas, como `dotnet`, podem usar as variações de TFMs canônicos em alguns arquivos. Por exemplo, `dotnet pack` usa `.NETCoreApp2.0` em um arquivo `.nuspec` em vez de `netcoreapp2.0`. As várias ferramentas de cliente do NuGet manipulam essas variações corretamente, mas você sempre deve usar TFMs canônicos ao editar arquivos diretamente.
 
-| Nome           | Abreviação de | TFMs/TxMs |
-| -------------  | ------------ | --------- |
-|.NET Framework  | net          | net11     |
-|                |              | net20     |
-|                |              | net35     |
-|                |              | net40     |
-|                |              | net403    |
-|                |              | net45      |
-|                |              | net451     |
-|                |              | net452     |
-|                |              | net46      |
-|                |              | net461     |
-|                |              | net462     |
-|Microsoft Store (Windows Store) | netcore      | netcore [netcore45] |
-|                |              | netcore45 [win, win8] |
-|                |              | netcore451 [win81] |
-|                |              | netcore50 |
-|.NET MicroFramework | netmf    | netmf |
-|Windows         | win          | win [win8, netcore45] |
+| Nome | Abreviação de | TFMs/TxMs |
+| ------------- | ------------ | --------- |
+|.NET Framework | net | net11 |
+| | | net20 |
+| | | net35 |
+| | | net40 |
+| | | net403 |
+| | | net45 |
+| | | net451 |
+| | | net452 |
+| | | net46 |
+| | | net461 |
+| | | net462 |
+|Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
+| | | netcore45 [win, win8] |
+| | | netcore451 [win81] |
+| | | netcore50 |
+|.NET MicroFramework | netmf | netmf |
+|Windows | win | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (incompatível com a plataforma Windows 10) |
@@ -88,6 +79,7 @@ Tizen | tizen | tizen3 |
 | | | tizen4 |
 
 ## <a name="deprecated-frameworks"></a>Estruturas preteridas
+
 As seguintes estruturas são preteridas. Os pacotes direcionados a essas estruturas devem ser migrados para as substituições indicadas.
 
 | Estrutura preterida | Substituição
@@ -114,12 +106,12 @@ As seguintes estruturas são preteridas. Os pacotes direcionados a essas estrutu
 Várias estruturas relacionadas e compatíveis entre si, mas não necessariamente equivalentes:
 
 | Framework | Pode usar |
-| --- | --- |
+| -- | --- |
 | uap (Plataforma Universal do Windows) | win81 |
 | | wpa81 |
 | | netcore50 |
 | win (Microsoft Store) | winrt |
-| | | winrt45 |
+| | |
 
 ## <a name="net-platform-standard"></a>NET Platform Standard
 

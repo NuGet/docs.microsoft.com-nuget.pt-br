@@ -1,26 +1,17 @@
 ---
-title: Assinado pacotes referência | Microsoft Docs
+title: Conectado a referência de pacotes do NuGet
+description: Requisitos de assinatura de pacote do NuGet.
 author: rido-min
 ms.author: rido-min
-manager: unniravindranathan
-ms.date: 03/06/2018
+manager: unnir
+ms.date: 04/24/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Descrição do recurso de pacotes de entrada.
-keywords: Entrada de pacote do NuGet, assinatura de certificado
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: a2a338596f7d98ded11da6fb02bafba3521249ab
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 751a8ff14bdc3a647985da4f908ad1a0fd0def9a
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="signed-packages"></a>Pacotes assinados
 
@@ -38,6 +29,9 @@ Para obter detalhes sobre como criar um pacote assinado, consulte [assinatura pa
 
 > [!Important]
 > Atualmente, o NuGet.org não aceita pacotes assinados. Você pode assinar pacotes para publicá-los em feeds personalizados.
+
+> [!Important]
+> Atualmente há suporte para a assinatura do pacote somente quando usar nuget.exe no Windows. Verificação de pacotes assinados é suportada atualmente apenas ao usar o nuget.exe ou o Visual Studio no Windows.
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 

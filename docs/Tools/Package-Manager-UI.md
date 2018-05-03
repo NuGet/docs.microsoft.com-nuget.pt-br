@@ -1,30 +1,21 @@
 ---
-title: Referência de interface do usuário do Gerenciador de pacotes do NuGet | Microsoft Docs
+title: Referência de interface do usuário do Gerenciador de pacotes do NuGet
+description: Instruções para usar o NuGet Package Manager UI no Visual Studio para trabalhar com pacotes do NuGet.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/08/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+ms.topic: conceptual
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: Instruções para usar o NuGet Package Manager UI no Visual Studio para trabalhar com pacotes do NuGet.
-keywords: NuGet UI, Gerenciador de pacotes do NuGet da interface do usuário, o NuGet no Visual Studio, gerenciamento de pacotes do NuGet, interface de usuário do NuGet, o Gerenciador de pacotes no Visual Studio
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 99bd51798460a56cb8515d46791a9e75d9e630cc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interface do usuário de Gerenciador de pacotes do NuGet
 
@@ -59,7 +50,7 @@ Neste tópico:
     ![Referências no Gerenciador de soluções](media/References.png)
 
 > [!Tip]
-    > Para incluir as versões de pré-lançamento na pesquisa e para disponibilizar as versões de pré-lançamento na versão de lista suspensa, selecione o **incluir pré-lançamento** opção.
+> Para incluir as versões de pré-lançamento na pesquisa e para disponibilizar as versões de pré-lançamento na versão de lista suspensa, selecione o **incluir pré-lançamento** opção.
 
 ## <a name="uninstalling-a-package"></a>Desinstalar um pacote
 
