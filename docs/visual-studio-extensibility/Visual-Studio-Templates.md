@@ -1,25 +1,16 @@
 ---
-title: Pacotes do NuGet em modelos do Visual Studio | Microsoft Docs
+title: Pacotes do NuGet em modelos do Visual Studio
+description: As instruções para incluir pacotes do NuGet como parte dos modelos de projeto e de item do Visual Studio.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/03/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: As instruções para incluir pacotes do NuGet como parte dos modelos de projeto e de item do Visual Studio.
-keywords: NuGet no Visual Studio, modelos de projeto do Visual Studio, modelos de item do Visual Studio, pacotes em modelos de projeto, pacotes em modelos de item
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 801e107afb498d7a3353bd36d71eb7b0f0201910
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pacotes em modelos do Visual Studio
 
@@ -119,9 +110,9 @@ SDKs que são instalados usando um MSI podem instalar os pacotes do NuGet direta
 
 1. Faça o MSI instalar pacotes no computador. Você pode instalar apenas os arquivos `.nupkg` ou instalá-los junto com o conteúdo expandido, que salva uma etapa adicional quando o modelo é usado. Nesse caso, siga a estrutura de pasta padrão do NuGet no qual os arquivos `.nupkg` estão na pasta raiz e cada pacote tem uma subpasta com o par de ID/versão como o nome da subpasta.
 
-1. Grave uma chave do Registro para identificar a localização do pacote:
+1. Grave uma chave do Registro para identificar o local do pacote:
 
-    - localização da chave: o `HKEY_LOCAL_MACHINE\SOFTWARE[\Wow6432Node]\NuGet\Repository` em todo o computador ou, em caso de modelos e pacotes instalados por usuário, use `HKEY_CURRENT_USER\SOFTWARE\NuGet\Repository` como alternativa
+    - Local da chave: o `HKEY_LOCAL_MACHINE\SOFTWARE[\Wow6432Node]\NuGet\Repository` em todo o computador ou, em caso de modelos e pacotes instalados por usuário, use `HKEY_CURRENT_USER\SOFTWARE\NuGet\Repository` como alternativa
     - Nome da chave: use um nome exclusivo para você. Por exemplo, os modelos do ASP.NET MVC 4 para VS 2012 usam `AspNetMvc4VS11`.
     - Valores: o caminho completo para a pasta de pacotes.
 

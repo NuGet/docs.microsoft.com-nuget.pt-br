@@ -1,25 +1,16 @@
 ---
-title: Formas de instalar pacotes do NuGet | Microsoft Docs
+title: Maneiras de instalar os pacotes do NuGet
+description: Descreve o processo de instalação de pacotes NuGet em um projeto, incluindo o que acontece no disco e com os arquivos de projeto aplicáveis.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 02/12/2018
 ms.topic: overview
-ms.prod: nuget
-ms.technology: ''
-description: Descreve o processo de instalação de pacotes NuGet em um projeto, incluindo o que acontece no disco e com os arquivos de projeto aplicáveis.
-keywords: instalar o NuGet, consumo de pacote NuGet, instalação de pacotes NuGet, referências de pacote NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: b8cce7bd6c1bd73eb018b8891ddd72b2f4432d55
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 028fb9710e808974348d9cca3c56103c087d5390
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Maneiras diferentes de instalar um pacote NuGet
 
@@ -40,33 +31,36 @@ O processo geral é o seguinte:
 
 1. (Todas as ferramentas, exceto `nuget.exe`) Registre a versão e o identificador de pacote no arquivo de projeto ou em `packages.config`.
 
-1. Adquira o pacote:
-    - Verifique se o pacote (pelo identificador exato ou pelo número da versão) já está instalado na pasta *global-packages* conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](managing-the-global-packages-and-cache-folders.md).
+2. Adquira o pacote:
+   - Verifique se o pacote (pelo identificador exato ou pelo número da versão) já está instalado na pasta *global-packages* conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](managing-the-global-packages-and-cache-folders.md).
 
-    - Se o pacote não estiver armazenado na pasta *global-packages*, tente recuperá-lo das fontes listadas nos [arquivos de configuração](Configuring-NuGet-Behavior.md). Para fontes online, primeiro tente recuperar o pacote do cache, a menos que `-NoCache` esteja especificado com comandos `nuget.exe` ou `--no-cache` esteja especificado com `dotnet restore`. (O Visual Studio e o `dotnet add package` sempre usam o cache). Se for usado um pacote do cache, "CACHE" será exibido na saída. O cache tem um tempo de expiração de 30 minutos.
+   - Se o pacote não estiver armazenado na pasta *global-packages*, tente recuperá-lo das fontes listadas nos [arquivos de configuração](Configuring-NuGet-Behavior.md). Para fontes online, primeiro tente recuperar o pacote do cache, a menos que `-NoCache` esteja especificado com comandos `nuget.exe` ou `--no-cache` esteja especificado com `dotnet restore`. (O Visual Studio e o `dotnet add package` sempre usam o cache). Se for usado um pacote do cache, "CACHE" será exibido na saída. O cache tem um tempo de expiração de 30 minutos.
 
-    - Se o pacote não estiver armazenado no cache, tente baixá-lo das fontes listadas na configuração. Se um pacote for baixado, "GET" e "OK" serão exibidos na saída.
+   - Se o pacote não estiver armazenado no cache, tente baixá-lo das fontes listadas na configuração. Se um pacote for baixado, "GET" e "OK" serão exibidos na saída.
 
-    - Se o pacote não puder ser adquirido com êxito de nenhuma fonte, a instalação falhará neste ponto com um erro como [NU1103](../reference/errors-and-warnings.md#nu1103). Os erros de comandos `nuget.exe` mostram apenas a última fonte selecionada, mas implicam que o pacote não estava disponível de nenhuma fonte.
+   - Se o pacote não puder ser adquirido com êxito de nenhuma fonte, a instalação falhará neste ponto com um erro como [NU1103](../reference/errors-and-warnings.md#nu1103). Os erros de comandos `nuget.exe` mostram apenas a última fonte selecionada, mas implicam que o pacote não estava disponível de nenhuma fonte.
 
-    Na aquisição do pacote, a ordem das fontes na configuração do NuGet pode ser aplicável:
-      - No caso dos projetos que usam o formato PackageReference, o NuGet verifica primeiro a pasta local de fontes e os compartilhamentos de rede antes de verificar as fontes HTTP.
-      - No caso dos projetos que usam o formato de gerenciamento `packages.config`, o NuGet usa a ordem das fontes na configuração. Uma exceção são as operações de restauração, caso em que a ordenação das fontes é ignorada e o NuGet usa o pacote da fonte que responder primeiro.
-      - De modo geral, a ordem em que o NuGet verifica as fontes não é especialmente significativa, porque todos os pacotes fornecidos com um identificador e número de versão específicos são exatamente os mesmos em todas as fontes encontradas.
+   Na aquisição do pacote, a ordem das fontes na configuração do NuGet pode ser aplicável:
 
-1. (Todas as ferramentas, exceto `nuget.exe`) salvam uma cópia do pacote e outras informações na pasta *http-cache*, conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](managing-the-global-packages-and-cache-folders.md).
+   - No caso dos projetos que usam o formato PackageReference, o NuGet verifica primeiro a pasta local de fontes e os compartilhamentos de rede antes de verificar as fontes HTTP.
 
-1. Se o pacote for baixado, instale-o na pasta *global-packages* por usuário. O NuGet cria uma subpasta para cada identificador de pacote e, em seguida, cria subpastas para cada versão instalada do pacote.
+   - No caso dos projetos que usam o formato de gerenciamento `packages.config`, o NuGet usa a ordem das fontes na configuração. Uma exceção são as operações de restauração, caso em que a ordenação das fontes é ignorada e o NuGet usa o pacote da fonte que responder primeiro.
 
-1. Atualize outros arquivos de projeto e pastas:
+   - De modo geral, a ordem em que o NuGet verifica as fontes não é especialmente significativa, porque todos os pacotes fornecidos com um identificador e número de versão específicos são exatamente os mesmos em todas as fontes encontradas.
+
+3. (Todas as ferramentas, exceto `nuget.exe`) salvam uma cópia do pacote e outras informações na pasta *http-cache*, conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](managing-the-global-packages-and-cache-folders.md).
+
+4. Se o pacote for baixado, instale-o na pasta *global-packages* por usuário. O NuGet cria uma subpasta para cada identificador de pacote e, em seguida, cria subpastas para cada versão instalada do pacote.
+
+5. Atualize outros arquivos de projeto e pastas:
 
     - Em caso de projetos que usam PackageReference, atualize o grafo de dependência do pacote armazenado em `obj/project.assets.json`. O conteúdo do pacote em si não é copiado para nenhuma pasta de projeto.
     - Em projetos que usam `packages.config`, copie as partes do pacote expandido que correspondem à estrutura de destino do projeto na pasta `packages` do projeto. (Quando `nuget install` é usado, todo o pacote expandido é copiado, pois `nuget.exe` não examina arquivos de projeto para identificar a estrutura de destino).
     - Atualize `app.config` e/ou `web.config` se o pacote usar [transformações de origem e arquivo de configuração](../create-packages/source-and-config-file-transformations.md).
 
-1. Instale todas as dependências de nível inferior se não estiverem presentes no projeto. Esse processo pode atualizar versões do pacote, conforme descrito em [Resolução de dependências](../consume-packages/dependency-resolution.md).
+6. Instale todas as dependências de nível inferior se não estiverem presentes no projeto. Esse processo pode atualizar versões do pacote, conforme descrito em [Resolução de dependências](../consume-packages/dependency-resolution.md).
 
-1. (Somente no Visual Studio) Exiba o arquivo Leiame do pacote, se disponível, em uma janela do Visual Studio.
+7. (Somente no Visual Studio) Exiba o arquivo Leiame do pacote, se disponível, em uma janela do Visual Studio.
 
 ## <a name="related-articles"></a>Artigos relacionados
 

@@ -1,25 +1,16 @@
 ---
-title: Resolução de dependência de pacote do NuGet | Microsoft Docs
+title: Resolução de dependências de pacote do NuGet
+description: Detalhes sobre o processo por meio do qual as dependências de um pacote do NuGet são resolvidas e instaladas no NuGet 2.x e 3.x ou superior.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 08/14/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Detalhes sobre o processo por meio do qual as dependências de um pacote do NuGet são resolvidas e instaladas no NuGet 2.x e 3.x ou superior.
-keywords: Dependências de pacotes do NuGet, controle de versão do NuGet, versões de dependência, grafo de versão, resolução de versão, restauração transitiva
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: d387acd369c88a64abaa2cb94a913fe211df8da1
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: bfe6e348fa9a8f5df7f28509098260128920c528
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Como o NuGet resolve as dependências do pacote
 
@@ -33,7 +24,7 @@ Quando vários pacotes têm a mesma dependência, a mesma ID de pacote pode apar
 
 Ao instalar os pacotes em projetos usando o formato PackageReference, o NuGet adiciona referências a um grafo de pacote simples no arquivo apropriado e resolve conflitos antecipadamente. Esse processo é chamado de *restauração transitiva*. Reinstalar ou restaurar pacotes é um processo de baixar os pacotes listados no grafo, resultando em builds mais rápidos e mais previsíveis. Você também pode aproveitar as versões curinga (flutuantes), como 2.8. \*, evitando chamadas caras e propensas a erro para `nuget update` em computadores clientes e servidores de build.
 
-Quando o processo de restauração do NuGet é executado antes de um build, ele resolve as dependências primeiro na memória, em seguida, grava o grafo resultante em um arquivo chamado `project.assets.json` na pasta `obj` de um projeto usando PackageReference. O MSBuild lê este arquivo e converte-o em um conjunto de pastas em que as referências em potencial podem ser encontradas e as adiciona à árvore de projeto na memória.
+Quando o processo de restauração do NuGet é executado antes de uma compilação, ele resolve as dependências primeiro na memória, em seguida, grava o grafo resultante em um arquivo chamado `project.assets.json` na pasta `obj` de um projeto usando PackageReference. O MSBuild lê este arquivo e converte-o em um conjunto de pastas em que as referências em potencial podem ser encontradas e as adiciona à árvore de projeto na memória.
 
 O arquivo de bloqueio é temporário e não deve ser adicionado ao controle do código-fonte. É listado por padrão em ambos `.gitignore` e `.tfignore`. Consulte [Pacotes e controle do código-fonte](packages-and-source-control.md).
 
