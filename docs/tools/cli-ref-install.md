@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 615f2beca1eb288417f2345fcdf25e323942d300
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
-ms.translationtype: HT
+ms.openlocfilehash: 1c6ec1181f2f619eb8a4f2d87f7910f25b98e0f4
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="install-command-nuget-cli"></a>Commando install (NuGet CLI)
 
@@ -27,7 +27,7 @@ Se nenhum pacote específico é especificada, `install` instala todos os pacotes
 
 O `install` comando não modifica um arquivo de projeto ou `packages.config`; desse modo é semelhante a `restore` em que ele apenas adiciona os pacotes para o disco, mas não altera as dependências do projeto.
 
-Para adicionar uma dependência, adicionar um projeto por meio do Gerenciador de pacote da interface do usuário ou o Console no Visual Studio ou modificar `packages.config` e, em seguida, execute um `install` ou `restore`.
+Para adicionar uma dependência, adicionar um pacote por meio do Gerenciador de pacote da interface do usuário ou o Console no Visual Studio ou modificar `packages.config` e, em seguida, execute um `install` ou `restore`.
 
 ## <a name="usage"></a>Uso
 
