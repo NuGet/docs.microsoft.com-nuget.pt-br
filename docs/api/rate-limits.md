@@ -10,11 +10,11 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: e236d685a700d0f47480336cece8edfd44c28863
-ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
+ms.openlocfilehash: c5d3cf68ac6a96a6c14eb5e652bcf72698b6a8e8
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rate-limits"></a>Limites de taxa
 
@@ -46,5 +46,5 @@ As tabelas a seguir listam os limites de taxa para a API do NuGet.org.
 
 | API | Tipo de limite | Valor do limite | API usecase | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | Chave de API | 100 / minuto | Carregue um novo pacote de NuGet (versão) por meio do ponto de extremidade de envio por push v2 
-**EXCLUIR** `/api/v2/package/{id}/{version}` | Chave de API | 100 / minuto | Remover da lista um pacote do NuGet via ponto de extremidade v2 (versão) 
+**PUT** `/api/v2/package` | Chave de API | 250 / hora | Carregue um novo pacote de NuGet (versão) por meio do ponto de extremidade de envio por push v2 
+**EXCLUIR** `/api/v2/package/{id}/{version}` | Chave de API | 250 / hora | Remover da lista um pacote do NuGet via ponto de extremidade v2 (versão) 
