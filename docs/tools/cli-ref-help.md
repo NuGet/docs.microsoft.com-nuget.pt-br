@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="help-or--command-nuget-cli"></a>Ajuda ou? Commando (NuGet CLI)
+# <a name="help-or--command-nuget-cli"></a>help or ? Commando (NuGet CLI)
 
 **Aplica-se a:** todos os &bullet; **versões com suporte**: todos os
 
