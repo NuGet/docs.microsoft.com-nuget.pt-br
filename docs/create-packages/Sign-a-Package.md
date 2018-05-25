@@ -7,11 +7,11 @@ manager: unnir
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: a469cbdd218a0e9c18950bb0d36faf4dbcb42a01
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9900db1970a89de129d9074e5900e0aa048101de
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="signing-nuget-packages"></a>Assinando pacotes NuGet
 
@@ -24,9 +24,6 @@ A assinatura de um pacote é um processo que verifica se o pacote não foi modif
 1. nuget.exe 4.6.0 ou posterior. Veja como [Instalar a CLI do NuGet](../install-nuget-client-tools.md#nugetexe-cli).
 
 1. [Um certificado de autenticação de código](../reference/signed-packages-reference.md#get-a-code-signing-certificate).
-
-> [!Warning]
-> No momento, o nuget.org não aceita pacotes assinados. Você pode assinar pacotes para publicá-los em feeds personalizados.
 
 ## <a name="sign-a-package"></a>Assinar um pacote
 

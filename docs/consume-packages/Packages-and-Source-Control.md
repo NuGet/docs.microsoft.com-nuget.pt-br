@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5a36b886c3de1943b99b10faff63f4e244166ceb
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: bc2c6d5e9933f2f6103363a2e69fbb9b47f80ecf
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Omitindo pacotes do NuGet em sistemas de controle do código-fonte
 
@@ -80,7 +80,7 @@ Para desabilitar a integração de controle do código-fonte com TFVC para os ar
 
 1. Se você estiver usando o TFS 2010 ou anterior, encubra a pasta `packages` nos seus mapeamentos de espaço de trabalho.
 
-1. No TFS 2012 ou posterior, ou com o Visual Studio Team Services, crie um arquivo `.tfignore` conforme descrito em [AddFiles para o servidor](https://www.visualstudio.com/en-us/docs/tfvc/add-files-server#tfignore). Nesse arquivo, inclua o conteúdo abaixo para ignorar explicitamente as modificações na pasta `\packages` no nível do repositório e alguns outros arquivos intermediários. (Você pode criar o arquivo no Windows Explorer usando o nome de um `.tfignore.` com o ponto à direita, mas pode ser necessário desabilitar a opção “Ocultar extensões de arquivos conhecidos” primeiro.):
+1. No TFS 2012 ou posterior, ou com o Visual Studio Team Services, crie um arquivo `.tfignore` conforme descrito em [AddFiles para o servidor](/vsts/tfvc/add-files-server.md?view=vsts#tfignore). Nesse arquivo, inclua o conteúdo abaixo para ignorar explicitamente as modificações na pasta `\packages` no nível do repositório e alguns outros arquivos intermediários. (Você pode criar o arquivo no Windows Explorer usando o nome de um `.tfignore.` com o ponto à direita, mas pode ser necessário desabilitar a opção “Ocultar extensões de arquivos conhecidos” primeiro.):
 
    ```cli
    # Ignore NuGet Packages

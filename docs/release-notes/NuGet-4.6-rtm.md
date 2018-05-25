@@ -6,22 +6,24 @@ ms.author: anangaur
 manager: unnir
 ms.date: 3/7/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8fc374167e5c7f601c41887c4844854d0177ccb
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 11e604ad9a28ac2b22880a13ef9d8b41d8c09507
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="nuget-46-rtm-release-notes"></a>Notas de versão do NuGet 4.6 RTM
 
 O [Visual Studio 2017 15.6 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) vem com o [NuGet 4.6.0](https://dist.nuget.org/win-x86-commandline/v4.6.0/nuget.exe).
 
 ## <a name="summary-whats-new-in-this-release"></a>Resumo: novidades desta versão
-* Adicionamos compatibilidade com [pacotes de assinatura](https://docs.microsoft.com/en-us/nuget/create-packages/sign-a-package).  
-* O Visual Studio 2017 e o nuget.exe agora verificam a integridade do pacote antes de instalá-lo, restaurando os pacotes para [pacotes assinados](https://docs.microsoft.com/en-us/nuget/reference/signed-packages-reference).
+
+* Adicionamos compatibilidade com [pacotes de assinatura](../create-packages/sign-a-package.md).
+* O Visual Studio 2017 e o nuget.exe agora verificam a integridade do pacote antes de instalá-lo, restaurando os pacotes para [pacotes assinados](../reference/signed-packages-reference.md).
 * Melhoramos o desempenho das restaurações sucessivas.
 
 ## <a name="known-issues"></a>Problemas conhecidos
+
 ### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>Problemas com o .NET Standard 2.0 com o .NET Framework & NuGet 
 
 O .NET Standard e suas ferramentas foram projetados de modo que os projetos destinados ao .NET Framework 4.6.1 podem consumir pacotes do NuGet e projetos destinados ao .NET Standard 2.0 ou anterior. [Este documento](https://github.com/dotnet/standard/issues/481) resume os problemas desse cenário, o plano para lidar com eles e soluções alternativas que você pode implantar com o estado atual das ferramentas.
@@ -29,11 +31,13 @@ O .NET Standard e suas ferramentas foram projetados de modo que os projetos dest
 ## <a name="top-issues-fixed-in-this-release"></a>Principais problemas corrigidos nesta versão
 
 **Correções de desempenho**
+
 * Não grave arquivos de ativo quando não houver alterações – [6491](https://github.com/NuGet/Home/issues/6491)
 * A restauração provoca avaliações adicionais do MSBuild quando o TFM dos projetos filho não coincidem com o do projeto pai – [6311](https://github.com/NuGet/Home/issues/6311)
 * Melhorar o desempenho da restauração NoOp otimizando a criação das especificações do grafo de dependência – [6252](https://github.com/NuGet/Home/issues/6252)
 
 **•s**
+
 * Efetuar push para a pasta local deixa nupkg bloqueado – [6325](https://github.com/NuGet/Home/issues/6325)
 * Implementação do plug-in do NuGet: vários problemas – [6149](https://github.com/NuGet/Home/issues/6149)
 * UIHang – remover chamada de serviço de consulta de inicialização do MEF no VSSolutionManager – [6110](https://github.com/NuGet/Home/issues/6110)
@@ -60,6 +64,5 @@ O .NET Standard e suas ferramentas foram projetados de modo que os projetos dest
 * NuGet adiciona travamentos no CentOS – [2708](https://github.com/NuGet/Home/issues/2708)
 * Falha na restauração com packagesavemode -nupkg para json.net – [2706](https://github.com/NuGet/Home/issues/2706)
 * Filtro do Gerenciador de Pacotes não disponível na Janela de Saída do VS para o comando restore – [2704](https://github.com/NuGet/Home/issues/2704)
-
 
 [Lista de todos os problemas corrigidos nesta versão](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.6")
