@@ -1,20 +1,23 @@
 ---
-title: Guia de Introdução para criar e publicar um pacote do NuGet do .NET Framework usando o Visual Studio
-description: Tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Framework usando o Visual Studio 2017.
+title: Criar e publicar um pacote .NET Framework usando o Visual Studio no Windows
+description: Tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Framework usando o Visual Studio 2017 no Windows.
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/13/2018
+ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 01760034a121b1ff6f227e006415779898c4cf6d
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: ba02b53c6ac0b4172b8611958775980ce401bf9b
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework"></a>Início Rápido: Criar e publicar um pacote usando o Visual Studio (.NET Framework)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Início Rápido: Criar e publicar um pacote usando o Visual Studio (.NET Framework no Windows)
 
-Para criar um pacote NuGet em uma Biblioteca de Classes .NET Framework, é necessário criar a DLL no Visual Studio e, em seguida, usar a ferramenta de linha de comando nuget.exe para criar e publicar o pacote.
+Para criar um pacote NuGet em uma Biblioteca de Classes .NET Framework, é necessário criar a DLL no Visual Studio no Windows e, em seguida, usar a ferramenta de linha de comando nuget.exe para criar e publicar o pacote.
+
+> [!Note]
+> Este Início Rápido se aplica somente ao Visual Studio 2017 para Windows. O Visual Studio para Mac não inclui os recursos descritos aqui. Em vez disso, use as [ferramentas CLI do dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

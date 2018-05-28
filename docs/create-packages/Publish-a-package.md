@@ -4,18 +4,18 @@ description: Instruções detalhadas sobre como publicar um pacote do NuGet no n
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 539ac9485e6062a0bdc3bb86dac0f028a2de7821
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 806a64d2d7654e4c1bca89a13d70fd9983c12703
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="publishing-packages"></a>Publicando pacotes
 
-Após você ter criado um pacote e ter seu arquivo `.nukpg`, é um processo simples disponibilizá-lo para outros desenvolvedores, públicos ou privados:
+Após você ter criado um pacote e ter seu arquivo `.nupkg`, é um processo simples disponibilizá-lo para outros desenvolvedores, públicos ou privados:
 
 - Pacotes públicos são disponibilizados para todos os desenvolvedores globalmente por meio do [nuget.org](https://www.nuget.org/packages/manage/upload), conforme descrito neste artigo (requer NuGet 4.1.0 ou posterior).
 - Pacotes privados estão disponíveis apenas para uma equipe ou organização e eles são hospedados em um compartilhamento de arquivos, um servidor NuGet privado, no [Gerenciamento de Pacotes do Visual Studio Team Services](https://www.visualstudio.com/docs/package/nuget/publish) ou em um repositório de terceiros, como myget, ProGet, Nexus Repository e Artifactory. Para ver detalhes adicionais, consulte [Visão geral de hospedagem de pacotes](../hosting-packages/overview.md).
@@ -71,6 +71,13 @@ Para efetuar push em pacotes para o nuget.org, você precisa usar o [nuget.exe v
     ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
+
+#### <a name="publish-signed-packages"></a>Publicar pacotes assinados
+
+Para enviar pacotes assinados, primeiro você deve [registrar o certificado](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg) usado para assinar os pacotes. 
+
+> [!Warning]
+> O nuget.org rejeita os pacotes que não atendem aos [requisitos de pacotes assinados](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg).
 
 ### <a name="package-validation-and-indexing"></a>Validação e indexação de pacote
 

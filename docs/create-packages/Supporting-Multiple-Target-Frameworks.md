@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: d1a64c61954381b7ab3a7ecc8aa5a812cfa14e8b
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9bdcff8210c192a695a5645f28ef88087469ec52
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Suporte a várias versões do .NET Framework
 
@@ -28,7 +28,7 @@ Ao compilar um pacote que contém somente uma versão de uma biblioteca ou desti
 
 Para ver uma lista completa de nomes compatíveis, consulte a [Referência a Estruturas de Destino](../reference/target-frameworks.md#supported-frameworks).
 
-Você nunca deve ter uma versão da biblioteca que não seja específico para uma estrutura e colocada diretamente na pasta `lib` raiz. (Essa capacidade era compatível somente com `packages.config`). Isso o tornaria compatível com qualquer estrutura de destino e permitiria que ele seja instalado em qualquer lugar, provavelmente resultando em erros de tempo de execução inesperados. A adição de assemblies à pasta raiz (como `lib\abc.dll`) ou subpastas (como `lib\abc\abc.dll`) foi preterida e será ignorada ao usar o formato de PackagesReference.
+Você nunca deve ter uma versão da biblioteca que não seja específico para uma estrutura e colocada diretamente na pasta `lib` raiz. (Essa capacidade era compatível somente com `packages.config`). Isso tornaria a biblioteca compatível com qualquer estrutura de destino e permitiria que ela fosse instalada em qualquer lugar, provavelmente resultando em erros de tempo de execução inesperados. A adição de assemblies à pasta raiz (como `lib\abc.dll`) ou subpastas (como `lib\abc\abc.dll`) foi preterida e será ignorada ao usar o formato de PackagesReference.
 
 Por exemplo, a seguinte estrutura de pastas a seguir é compatível com quatro versões de um assembly que são específicas da estrutura:
 

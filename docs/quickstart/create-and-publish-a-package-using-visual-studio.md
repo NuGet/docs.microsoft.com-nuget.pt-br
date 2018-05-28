@@ -1,20 +1,23 @@
 ---
-title: Guia de introdução para a criação e a publicação de um pacote do NuGet do .NET Standard usando o Visual Studio
-description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Standard usando o Visual Studio 2017.
+title: Criar e publicar um pacote .NET Standard usando o Visual Studio no Windows
+description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Standard usando o Visual Studio 2017 no Windows.
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/18/2018
+ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: c5d58aa6312eae801607ca44a81bc092a7a7c15f
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: f4e6473d307f2f71016f6926abbcdb1295abc7b5
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard"></a>Início Rápido: Criar e publicar um pacote do NuGet usando o Visual Studio (.NET Standard)
+# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Início Rápido: Criar e publicar um pacote do NuGet usando o Visual Studio (.NET Standard somente no Windows)
 
-É um processo simples criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studio e, em seguida, publicá-lo no nuget.org usando uma ferramenta de CLI.
+Criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studio no Windows e, em seguida, publicá-lo no nuget.org usando uma ferramenta de CLI é um processo simples.
+
+> [!Note]
+> Este Início Rápido se aplica somente ao Visual Studio 2017 para Windows. O Visual Studio para Mac não inclui os recursos descritos aqui. Em vez disso, use as [ferramentas CLI do dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

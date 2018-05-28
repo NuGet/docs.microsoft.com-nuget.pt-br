@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: c1e3bfd1c7e80c7deb505ef732d73c2edf3e32f7
-ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
+ms.openlocfilehash: 1657479e1a87f7022caa2fd991127b4ca702cdac
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="creating-nuget-packages"></a>Criando pacotes do NuGet
 
@@ -157,7 +157,7 @@ Em seguida, edite o arquivo manualmente para que ele descreva o conteúdo exato 
 
 ### <a name="from-a-convention-based-working-directory"></a>De um diretório de trabalho baseado em convenção
 
-Como um pacote do NuGet é apenas um arquivo ZIP que foi renomeado com a extensão `.nupkg`, geralmente é mais fácil criar a estrutura de pastas que você deseja no sistema de arquivos para depois criar o arquivo `.nuspec` diretamente dessa estrutura. O comando `nuget pack` adicionará automaticamente todos os arquivos nessa estrutura de pastas (excluindo as pastas que começam com `.`, permitindo que você mantenha arquivos particulares na mesma estrutura).
+Como um pacote do NuGet é apenas um arquivo ZIP que foi renomeado com a extensão `.nupkg`, geralmente é mais fácil criar a estrutura de pastas que você deseja no sistema de arquivos local para depois criar o arquivo `.nuspec` diretamente dessa estrutura. O comando `nuget pack` adicionará automaticamente todos os arquivos nessa estrutura de pastas (excluindo as pastas que começam com `.`, permitindo que você mantenha arquivos particulares na mesma estrutura).
 
 A vantagem dessa abordagem é que você não precisa especificar no manifesto quais arquivos você deseja incluir no pacote (conforme explicado mais adiante neste tópico). Basta fazer com que o processo de build produza a estrutura de pasta exata que vai para o pacote e incluir facilmente outros arquivos que não podem fazer parte de um projeto, caso contrário:
 
@@ -361,12 +361,9 @@ Com o NuGet 3.x, os destinos não são adicionados ao projeto, mas são disponib
 Pacotes que contêm assemblies de interoperabilidade COM devem incluir um [arquivo de destino](#including-msbuild-props-and-targets-in-a-package) apropriado para que os metadados `EmbedInteropTypes` corretos são adicionados a projetos usando o formato PackageReference. Por padrão, os metadados `EmbedInteropTypes` são sempre falsos para todos os assemblies quando PackageReference é usado, por isso o arquivo de destino adiciona tais metadados explicitamente. Para evitar conflitos, o nome de destino deve ser exclusivo; o ideal é usar uma combinação de nome do pacote e o assembly que está sendo inserido, substituindo o `{InteropAssemblyName}` no exemplo a seguir por esse valor. (Consulte também [NuGet.Samples.Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop) para ver um exemplo.)
 
 ```xml
-<Target Name="EmbeddingAssemblyNameFromPackageId" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
-  <PropertyGroup>
-    <_InteropAssemblyFileName>{InteropAssemblyName}</_InteropAssemblyFileName>
-  </PropertyGroup>
+<Target Name="Embedding**AssemblyName**From**PackageId**" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
   <ItemGroup>
-    <ReferencePath Condition=" '%(FileName)' == '$(_InteropAssemblyFileName)' AND '%(ReferencePath.NuGetPackageId)' == '$(MSBuildThisFileName)' ">
+    <ReferencePath Condition=" '%(FileName)' == '{InteropAssemblyName}' AND '%(ReferencePath.NuGetPackageId)' == '$(MSBuildThisFileName)' ">
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </ReferencePath>
   </ItemGroup>
@@ -381,7 +378,7 @@ Além disso, por padrão, os [ativos de build não fluem transitivamente](../con
 
 ## <a name="running-nuget-pack-to-generate-the-nupkg-file"></a>Executando o nuget pack para gerar o arquivo .nupkg
 
-Ao usar um assembly ou o diretório de trabalho baseado em convenção, crie um pacote executando `nuget pack` com seu arquivo `.nuspec`, substituindo `<manifest-name>` pelo nome do seu arquivo específico:
+Ao usar um assembly ou o diretório de trabalho baseado em convenção, crie um pacote executando `nuget pack` com seu arquivo `.nuspec`, substituindo `<project-name>` pelo nome do seu arquivo específico:
 
 ```cli
 nuget pack <project-name>.nuspec
@@ -444,7 +441,7 @@ Para testes automatizados, o processo básico é o seguinte:
 1. Copie o arquivo `.nupkg` para uma pasta local.
 1. Adicione a pasta às origens de pacote usando o comando `nuget sources add -name <name> -source <path>` (consulte [origens do nuget](../tools/cli-ref-sources.md)). Observe que é preciso apenas configurar essa origem local uma vez em qualquer computador.
 1. Instale o pacote da origem usando `nuget install <packageID> -source <name>` em que `<name>` corresponde ao nome de sua origem conforme fornecido para `nuget sources`. Especificar a origem garante que o pacote seja instalado somente dela.
-1. Examine o sistema de arquivos para verificar se os arquivos estão instalados corretamente.
+1. Examine seu sistema de arquivos para verificar se os arquivos estão instalados corretamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
