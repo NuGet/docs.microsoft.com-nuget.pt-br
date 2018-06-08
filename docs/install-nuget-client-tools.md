@@ -1,16 +1,17 @@
 ---
 title: Instalar as ferramentas de cliente do NuGet
 description: Diretrizes sobre como instalar as ferramentas de cliente, o dotnet e a CLI (interface de linha de comando) do nuget e o Gerenciador de Pacotes para o Visual Studio.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 04/09/2018
 ms.topic: quickstart
-ms.openlocfilehash: 6681c910768bc705f5e09340e04e4d368fde5efe
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: f136295cd46dd11a153b5f9c25a685a5a8dbd45a
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818115"
 ---
 # <a name="installing-nuget-client-tools"></a>Instalar as ferramentas de cliente do NuGet
 

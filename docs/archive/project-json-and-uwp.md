@@ -1,16 +1,17 @@
 ---
 title: Arquivo project.json do NuGet com projetos UWP
 description: Descrição de como o arquivo project.json é usado para rastrear dependências do NuGet em projetos UWP (Plataforma Universal do Windows).
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 07/17/2017
 ms.topic: conceptual
-ms.openlocfilehash: 826aed65a69c553bedf661cb5a4f940735dfba2c
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: bd66f0afd6380a18118847d1da02285f5f3ded5d
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818715"
 ---
 # <a name="projectjson-and-uwp"></a>project.json e UWP
 
