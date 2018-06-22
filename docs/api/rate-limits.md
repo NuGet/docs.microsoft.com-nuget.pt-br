@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34225938"
 ---
 # <a name="rate-limits"></a><span data-ttu-id="57b45-103">Limites de taxa</span><span class="sxs-lookup"><span data-stu-id="57b45-103">Rate Limits</span></span>
 

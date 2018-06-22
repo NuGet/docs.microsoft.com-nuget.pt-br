@@ -1,0 +1,53 @@
+---
+title: Notas de versão do NuGet 2.2.1
+description: Notas de versão do NuGet 2.2.1 incluindo problemas conhecidos, correções de bug, recursos adicionados e DCRs.
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: fddeb4e8c9fb2d85ba1876360862461e8ef025af
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/26/2018
+ms.locfileid: "31819287"
+---
+# <a name="nuget-221-release-notes"></a><span data-ttu-id="facb4-103">Notas de versão do NuGet 2.2.1</span><span class="sxs-lookup"><span data-stu-id="facb4-103">NuGet 2.2.1 Release Notes</span></span>
+
+<span data-ttu-id="facb4-104">[Notas de versão do NuGet 2.2](../release-notes/nuget-2.2.md) | [notas de versão do NuGet 2.5](../release-notes/nuget-2.5.md)</span><span class="sxs-lookup"><span data-stu-id="facb4-104">[NuGet 2.2 Release Notes](../release-notes/nuget-2.2.md) | [NuGet 2.5 Release Notes](../release-notes/nuget-2.5.md)</span></span>
+
+<span data-ttu-id="facb4-105">NuGet 2.2.1 foi lançado em 15 de fevereiro de 2013.</span><span class="sxs-lookup"><span data-stu-id="facb4-105">NuGet 2.2.1 was released on February 15, 2013.</span></span>  <span data-ttu-id="facb4-106">O número de versão da extensão do VS é 2.2.40116.9051.</span><span class="sxs-lookup"><span data-stu-id="facb4-106">The VS Extension version number is 2.2.40116.9051.</span></span>
+
+## <a name="localization-refresh"></a><span data-ttu-id="facb4-107">Atualização de localização</span><span class="sxs-lookup"><span data-stu-id="facb4-107">Localization Refresh</span></span>
+<span data-ttu-id="facb4-108">NuGet é fornecido como parte do Visual Studio 2012, ele foi totalmente localizado em inglês + 13 outros idiomas.</span><span class="sxs-lookup"><span data-stu-id="facb4-108">When NuGet shipped as part of Visual Studio 2012, it was fully localized into English + 13 other languages.</span></span>  <span data-ttu-id="facb4-109">Desde então, NuGet 2.1 e 2.2 fornecidos, mas a localização não tinha sido atualizada.</span><span class="sxs-lookup"><span data-stu-id="facb4-109">Since then, NuGet 2.1 and 2.2 have shipped but the localization had not been refreshed.</span></span>  <span data-ttu-id="facb4-110">A versão do NuGet 2.2.1 atualiza nossa localização.</span><span class="sxs-lookup"><span data-stu-id="facb4-110">The NuGet 2.2.1 release refreshes our localization.</span></span>
+
+<span data-ttu-id="facb4-111">Interface do usuário e o Console do PowerShell do NuGet são localizados em idiomas a seguir:</span><span class="sxs-lookup"><span data-stu-id="facb4-111">NuGet's UI and PowerShell Console are localized into the following languages:</span></span>
+
+1. <span data-ttu-id="facb4-112">Chinês (simplificado)</span><span class="sxs-lookup"><span data-stu-id="facb4-112">Chinese (Simplified)</span></span>
+1. <span data-ttu-id="facb4-113">Chinês (tradicional)</span><span class="sxs-lookup"><span data-stu-id="facb4-113">Chinese (Traditional)</span></span>
+1. <span data-ttu-id="facb4-114">Tcheco</span><span class="sxs-lookup"><span data-stu-id="facb4-114">Czech</span></span>
+1. <span data-ttu-id="facb4-115">Inglês</span><span class="sxs-lookup"><span data-stu-id="facb4-115">English</span></span>
+1. <span data-ttu-id="facb4-116">Francês</span><span class="sxs-lookup"><span data-stu-id="facb4-116">French</span></span>
+1. <span data-ttu-id="facb4-117">Alemão</span><span class="sxs-lookup"><span data-stu-id="facb4-117">German</span></span>
+1. <span data-ttu-id="facb4-118">Italiano</span><span class="sxs-lookup"><span data-stu-id="facb4-118">Italian</span></span>
+1. <span data-ttu-id="facb4-119">Japonês</span><span class="sxs-lookup"><span data-stu-id="facb4-119">Japanese</span></span>
+1. <span data-ttu-id="facb4-120">Coreano</span><span class="sxs-lookup"><span data-stu-id="facb4-120">Korean</span></span>
+1. <span data-ttu-id="facb4-121">Polonês</span><span class="sxs-lookup"><span data-stu-id="facb4-121">Polish</span></span>
+1. <span data-ttu-id="facb4-122">Português (Brasil)</span><span class="sxs-lookup"><span data-stu-id="facb4-122">Portuguese (Brazil)</span></span>
+1. <span data-ttu-id="facb4-123">Russo</span><span class="sxs-lookup"><span data-stu-id="facb4-123">Russian</span></span>
+1. <span data-ttu-id="facb4-124">Espanhol</span><span class="sxs-lookup"><span data-stu-id="facb4-124">Spanish</span></span>
+1. <span data-ttu-id="facb4-125">Turco</span><span class="sxs-lookup"><span data-stu-id="facb4-125">Turkish</span></span>
+
+## <a name="visual-studio-templates-support-multiple-preinstalled-package-repositories"></a><span data-ttu-id="facb4-126">Modelos do Visual Studio oferecem suporte a vários repositórios de pacote pré-instalado</span><span class="sxs-lookup"><span data-stu-id="facb4-126">Visual Studio Templates Support Multiple Preinstalled Package Repositories</span></span>
+<span data-ttu-id="facb4-127">Se você gerar modelos do Visual Studio, você pode usar o NuGet [pré-instalar pacotes](../visual-studio-extensibility/visual-studio-templates.md) como parte do modelo.</span><span class="sxs-lookup"><span data-stu-id="facb4-127">If you produce Visual Studio templates, you can use NuGet to [preinstall packages](../visual-studio-extensibility/visual-studio-templates.md) as part of the template.</span></span>  <span data-ttu-id="facb4-128">Até agora, esse recurso tinha uma limitação que todos os pacotes necessários para provenientes da mesma origem.</span><span class="sxs-lookup"><span data-stu-id="facb4-128">Until now, this feature had a limitation that all of the packages needed to come from the same source.</span></span>  <span data-ttu-id="facb4-129">Com o NuGet 2.2.1 no entanto, você pode ter pacotes instalados vários repositórios (dentro do modelo, um VSIX ou uma pasta no disco definida no registro).</span><span class="sxs-lookup"><span data-stu-id="facb4-129">With NuGet 2.2.1 though, you can have packages installed from multiple repositories (within the template, a VSIX, or a folder on disk defined in the registry).</span></span>
+
+<span data-ttu-id="facb4-130">O cenário principal para esse recurso é personalizados modelos de projeto do ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="facb4-130">The main scenario for this feature is custom ASP.NET project templates.</span></span>  <span data-ttu-id="facb4-131">Os modelos internos do ASP.NET usam pacotes pré-instalados, extrair pacotes de disco local.</span><span class="sxs-lookup"><span data-stu-id="facb4-131">The built-in ASP.NET templates use preinstalled packages, pulling packages from local disk.</span></span>  <span data-ttu-id="facb4-132">Agora você pode criar um modelo de projeto ASP.NET personalizado que usa os pacotes existentes instalados pelo ASP.NET mas adicionar extras pacotes do NuGet em seu modelo.</span><span class="sxs-lookup"><span data-stu-id="facb4-132">You can now create a custom ASP.NET project template that uses the existing packages installed by ASP.NET but add extra NuGet packages into your template.</span></span>
+
+## <a name="bug-fixes"></a><span data-ttu-id="facb4-133">Correções de Bug</span><span class="sxs-lookup"><span data-stu-id="facb4-133">Bug Fixes</span></span>
+<span data-ttu-id="facb4-134">NuGet 2.2.1 inclui algumas correções de bugs de destino.</span><span class="sxs-lookup"><span data-stu-id="facb4-134">NuGet 2.2.1 includes a few targeted bug fixes.</span></span> <span data-ttu-id="facb4-135">Para obter uma lista de trabalho itens corrigidos no NuGet 2.2.1, por favor, exibir o [NuGet Issue Tracker para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.2.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).</span><span class="sxs-lookup"><span data-stu-id="facb4-135">For a list of work items fixed in NuGet 2.2.1, please view the [NuGet Issue Tracker for this release](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.2.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).</span></span>
+
+
+## <a name="known-issues"></a><span data-ttu-id="facb4-136">Problemas Conhecidos</span><span class="sxs-lookup"><span data-stu-id="facb4-136">Known Issues</span></span>
+
+<span data-ttu-id="facb4-137">Se você estiver estendendo modelos de projeto do ASP.NET, todos os repositórios de pacote pré-instalado devem usar o mesmo valor para o `isPreunzipped` atributo.</span><span class="sxs-lookup"><span data-stu-id="facb4-137">If you are extending ASP.NET project templates, all preinstalled package repositories must use the same value for the `isPreunzipped` attribute.</span></span>

@@ -11,6 +11,7 @@ ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34449611"
 ---
 # <a name="nuget-46-rtm-release-notes"></a><span data-ttu-id="d4c5f-103">Notas de versão do NuGet 4.6 RTM</span><span class="sxs-lookup"><span data-stu-id="d4c5f-103">NuGet 4.6 RTM Release Notes</span></span>
 

@@ -11,6 +11,7 @@ ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32045081"
 ---
 # <a name="nuget-40-rtm-release-notes"></a><span data-ttu-id="59df8-103">Notas de Versão do NuGet 4.0 RTM</span><span class="sxs-lookup"><span data-stu-id="59df8-103">NuGet 4.0 RTM Release Notes</span></span>
 
