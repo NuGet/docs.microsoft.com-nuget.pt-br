@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 2ff83538f9f1cf3bd4ed616ec8f5f1aef3ffd9d6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 142f82386395b8ab2ed1d57218db9bc1d2e98638
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818536"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843440"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -89,7 +89,7 @@ Esses elementos podem aparecer dentro de um elemento `<metadata>`.
 | **owners** | Uma lista separada por vírgulas de criadores de pacotes que usam nomes de perfil no nuget.org. Essa geralmente é a mesma lista que `authors` e é ignorado ao carregar o pacote no nuget.org. Consulte [Gerenciando os proprietários de pacote no nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Uma URL para a home page do pacote, geralmente mostrada em exibições de interface do usuário, bem como em nuget.org. |
 | **licenseUrl** | Uma URL para a licença do pacote, geralmente mostrada em exibições de interface do usuário, bem como no nuget.org. |
-| **iconUrl** | Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como o ícone do pacote na exibição de interface do usuário. Verifique se esse elemento contém a *URL direta da imagem* e não a URL de uma página da Web que contém a imagem. Por exemplo, para usar uma imagem do GitHub, use o arquivo bruto URL como <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
+| **iconUrl** | Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como o ícone do pacote na exibição de interface do usuário. Verifique se esse elemento contém a *URL direta da imagem* e não a URL de uma página da Web que contém a imagem. Por exemplo, para usar uma imagem do GitHub, use o arquivo URL bruto como <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
 | **requireLicenseAcceptance** | Um valor booliano que especifica se o cliente precisa solicitar que o consumidor aceite a licença do pacote antes de instalá-lo. |
 | **developmentDependency** | *(2.8 ou superior)* Um valor booliano que especifica se o pacote está marcado como uma dependência somente de desenvolvimento, que impede que o pacote seja incluído como uma dependência em outros pacotes. |
 | **summary** | Uma breve descrição do pacote para exibição de interface do usuário. Se omitido, uma versão truncada do `description` é usada. |
@@ -98,6 +98,7 @@ Esses elementos podem aparecer dentro de um elemento `<metadata>`.
 | **language** | A identificação de localidade para o pacote. Consulte [Criando pacotes localizados](../create-packages/creating-localized-packages.md). |
 | **tags**  | Uma lista delimitada por espaço de marcas e palavras-chave que descrevem o pacote e auxiliam na descoberta de pacotes por meio de pesquisa e filtragem. |
 | **serviceable** | *(3.3 ou superior)* Somente para uso interno do NuGet. |
+| **repositório** | Repositório de metadados, consiste em quatro atributos opcionais: *tipo* e *url* *(4.0 e posteriores)*, e *branch* e  *confirmação* *(4.6 +)*. Esses atributos permitem que você mapeie o. nupkg ao repositório que criou, com potencial para ficarem conforme detalhado de como a ramificação individual ou a confirmação que criou o pacote. |
 
 #### <a name="collection-elements"></a>Elementos de coleção
 
@@ -141,7 +142,7 @@ Com exceção de `$configuration$`, os valores do projeto são usados como prefe
 | **$id$** | Arquivo de projeto | AssemblyName (título) do arquivo de projeto |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion se existir, caso contrário AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
-| **$title$** | AssemblyInfo | AssemblyTitle |
+| **$ $title** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | DLL de assembly | Configuração usada para compilar o assembly, com Depuração como padrão. Observe que, para criar um pacote usando uma configuração de Versão, você sempre usará `-properties Configuration=Release` na linha de comando. |
@@ -540,7 +541,7 @@ Esses arquivos são especificados com um conjunto de atributos que descrevem com
 | **include** | (Obrigatório) O local do arquivo ou arquivos a serem incluídos, sujeito a exclusões especificadas pelo atributo `exclude`. O caminho é relativo ao arquivo `.nuspec`, a menos que um caminho absoluto seja especificado. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 | **exclude** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 | **buildAction** | A ação de build para atribuir ao item de conteúdo para o MSBuild, como `Content`, `None`, `Embedded Resource`, `Compile`, etc. O padrão é `Compile`. |
-| **copyToOutput** | Um valor booleano que indica se a pasta de saída copiar itens de conteúdo para a compilação (ou publicar). O padrão é falso. |
+| **copyToOutput** | Um booliano que indica se a pasta de saída copiar itens de conteúdo para a compilação (ou publicar). O padrão é falso. |
 | **flatten** | Um valor booliano que indica se os itens de conteúdo devem ser copiados para uma única pasta na saída do build (verdadeiro) ou preservar a estrutura de pasta no pacote (falso). Esse sinalizador só funciona quando o sinalizador copyToOutput está definido como true. O padrão é falso. |
 
 Ao instalar um pacote, o NuGet aplicará os elementos filho de `<contentFiles>` de cima para baixo. Se várias entradas corresponderem ao mesmo arquivo, todas as entradas serão aplicadas. A entrada superior substitui as entradas mais baixas em caso de conflito para o mesmo atributo.

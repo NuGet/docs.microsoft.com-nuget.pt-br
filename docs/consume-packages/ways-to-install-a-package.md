@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 02/12/2018
 ms.topic: overview
-ms.openlocfilehash: 5f71ce6217071efc3d483cde4cf36c5585808167
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0f59c3b7f1e32ae34889921c13d15074ef5c1260
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816913"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843375"
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Maneiras diferentes de instalar um pacote NuGet
 
@@ -39,7 +39,7 @@ O processo geral é o seguinte:
 
    - Se o pacote não estiver armazenado no cache, tente baixá-lo das fontes listadas na configuração. Se um pacote for baixado, "GET" e "OK" serão exibidos na saída.
 
-   - Se o pacote não puder ser adquirido com êxito de nenhuma fonte, a instalação falhará neste ponto com um erro como [NU1103](../reference/errors-and-warnings.md#nu1103). Os erros de comandos `nuget.exe` mostram apenas a última fonte selecionada, mas implicam que o pacote não estava disponível de nenhuma fonte.
+   - Se o pacote não puder ser adquirido com êxito de nenhuma fonte, a instalação falhará neste ponto com um erro como [NU1103](../reference/errors-and-warnings/NU1103.md). Os erros de comandos `nuget.exe` mostram apenas a última fonte selecionada, mas implicam que o pacote não estava disponível de nenhuma fonte.
 
    Na aquisição do pacote, a ordem das fontes na configuração do NuGet pode ser aplicável:
 
