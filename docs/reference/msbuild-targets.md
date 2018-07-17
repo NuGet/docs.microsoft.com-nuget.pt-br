@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: f835deabe337236dcabe6654f1963984ab0687ca
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0e7e0952519afdcb4b50f31d33cce2a92e3579b4
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818302"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069694"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -38,13 +38,13 @@ Da mesma forma, você pode gravar uma tarefa do MSBuild, escrever seu próprio d
 
 ## <a name="pack-target"></a>pack target
 
-Para projetos padrão do .NET usando o formato PackageReference, usando `msbuild /t:pack` desenha entradas do arquivo de projeto para usar na criação de um pacote do NuGet.
+Para projetos do .NET Standard usando o formato PackageReference, `msbuild /t:pack` extrai as entradas do arquivo de projeto para usar na criação de um pacote do NuGet.
 
 A tabela abaixo descreve as propriedades do MSBuild que podem ser adicionadas a um arquivo do projeto dentro do primeiro nó `<PropertyGroup>`. Você pode fazer essas edições facilmente no Visual Studio 2017 e posterior clicando com o botão direito do mouse no projeto e selecionando **Editar {project_name}** no menu de contexto. Para sua conveniência, a tabela é organizada pela propriedade equivalente em um arquivo [`.nuspec` ](../reference/nuspec.md).
 
 Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatíveis com o MSBuild.
 
-| Valor de atributo/NuSpec | Propriedade do MSBuild | Padrão | Observações |
+| Valor de atributo/NuSpec | Propriedade do MSBuild | Padrão | Notas |
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | $(AssemblyName) do MSBuild |
 | Versão | PackageVersion | Versão | Isso é compatível com semver, por exemplo “1.0.0”, “1.0.0-beta” ou “1.0.0-beta-00345” |
@@ -63,8 +63,8 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 | ReleaseNotes | PackageReleaseNotes | empty | |
 | Url do repositório | RepositoryUrl | empty | URL do repositório usado para clonar ou recuperar o código-fonte. Exemplo: *https://github.com/NuGet/NuGet.Client.git* |
 | Tipo do repositório | RepositoryType | empty | Tipo de repositório. Exemplos: *git*, *tfs*. |
-| Ramificação do repositório | RepositoryBranch | empty | Informações de ramificação do repositório opcional. *RepositoryUrl* também deve ser especificado para essa propriedade a ser incluído. Exemplo: *mestre* (NuGet 4.7.0+) |
-| Repositório/confirmação | RepositoryCommit | empty | Confirmação de repositório opcional ou conjunto de alterações para indicar que o pacote de origem foi desenvolvido com. *RepositoryUrl* também deve ser especificado para essa propriedade a ser incluído. Exemplo: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
+| / Ramificação do repositório | RepositoryBranch | empty | Informações de branch do repositório opcional. *{1&gt;repositoryurl&lt;1* também deve ser especificado para essa propriedade a ser incluído. Exemplo: *mestre* (NuGet 4.7.0+) |
+| Repositório/confirmação | RepositoryCommit | empty | Confirmação do repositório opcional ou conjunto de alterações para indicar que o pacote de código-fonte foi compilado. *{1&gt;repositoryurl&lt;1* também deve ser especificado para essa propriedade a ser incluído. Exemplo: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Resumo | Sem suporte | | |
 
@@ -106,7 +106,7 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-Como parte da alteração de [NuGet problema 352](https://github.com/NuGet/Home/issues/352), `PackageIconUrl` eventualmente será alterado para `PackageIconUri` e pode ser um caminho relativo para um arquivo de ícone que será incluído na raiz do pacote resultante.
+Como parte da alteração para [NuGet problema 352](https://github.com/NuGet/Home/issues/352), `PackageIconUrl` eventualmente será alterado para `PackageIconUri` e pode ser um caminho relativo para um arquivo de ícone que será incluído na raiz do pacote resultante.
 
 ### <a name="output-assemblies"></a>Assemblies de saída
 
@@ -192,7 +192,7 @@ Ao usar `MSBuild /t:pack /p:IsTool=true`, todos os arquivos de saída, conforme 
 
 ### <a name="packing-using-a-nuspec"></a>Empacotamento usando um .nuspec
 
-Você pode usar um `.nuspec` arquivo compactar seu projeto desde que você tenha um arquivo de projeto do SDK para importar `NuGet.Build.Tasks.Pack.targets` para que a tarefa de pacote pode ser executada. Você ainda precisa restaurar o projeto antes de você pode empacotar um arquivo nuspec. A estrutura de destino do arquivo do projeto é irrelevante e não é usado quando um nuspec de remessa. As três propriedades MSBuild a seguir são relevantes para empacotamento usando um `.nuspec`:
+Você pode usar um `.nuspec` arquivo para empacotar seu projeto desde que você tenha um arquivo de projeto do SDK para importar `NuGet.Build.Tasks.Pack.targets` para que a tarefa de pacote pode ser executada. Você ainda precisará restaurar o projeto antes que você pode empacotar um arquivo nuspec. A estrutura de destino do arquivo de projeto é irrelevante e não usados ao empacotar um nuspec. As três propriedades MSBuild a seguir são relevantes para empacotamento usando um `.nuspec`:
 
 1. `NuspecFile`: caminho relativo ou absoluto para o arquivo `.nuspec` que está sendo usado para o empacotamento.
 1. `NuspecProperties`: uma lista separada por ponto e vírgula de pares chave/valor. Devido à maneira como a análise de linha de comando do MSBuild funciona, várias propriedades precisam ser especificadas da seguinte maneira: `/p:NuspecProperties=\"key1=value1;key2=value2\"`.  
@@ -210,9 +210,9 @@ Se estiver usando o MSBuild para empacotar seu projeto, use um comando como o se
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
-Observe que um nuspec de remessa usando dotnet.exe ou msbuild também leva para compilar o projeto por padrão. Isso pode ser evitado passando ```--no-build``` dotnet.exe, que é o equivalente da configuração de propriedade ```<NoBuild>true</NoBuild> ``` em seu arquivo de projeto, juntamente com a configuração ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` no arquivo de projeto
+Observe que um nuspec de remessa usando dotnet.exe ou msbuild também leva para compilar o projeto por padrão. Isso pode ser evitado, passando ```--no-build``` dotnet.exe, que é o equivalente da configuração de propriedade ```<NoBuild>true</NoBuild> ``` em seu arquivo de projeto, juntamente com a configuração ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` no arquivo de projeto
 
-Um exemplo de um arquivo csproj ao empacotar um arquivo nuspec é:
+Um exemplo de um arquivo csproj para empacotar um arquivo nuspec é:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -227,19 +227,19 @@ Um exemplo de um arquivo csproj ao empacotar um arquivo nuspec é:
 </Project>
 ```
 
-### <a name="advanced-extension-points-to-create-customized-package"></a>Advanced pontos de extensão para criar o pacote personalizado
+### <a name="advanced-extension-points-to-create-customized-package"></a>Advanced pontos de extensão para criar pacote personalizado
 
-O `pack` destino fornece dois pontos de extensão que executam o interna, compilação de destino do framework específico. Suportam os pontos de extensão incluindo conteúdo específico do framework de destino e assemblies em um pacote:
+O `pack` destino fornece dois pontos de extensão que são executados na interna, target framework compilação específica. Suportam os pontos de extensão incluindo conteúdo específico do framework de destino e assemblies em um pacote:
 
-- `TargetsForTfmSpecificBuildOutput` destino: uso de arquivos dentro do `lib` pasta ou uma pasta especificada usando `BuildOutputTargetFolder`.
-- `TargetsForTfmSpecificContentInPackage` destino: uso de arquivos fora do `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificBuildOutput` destino: Use para arquivos dentro de `lib` pasta ou uma pasta especificada usando `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` destino: Use para arquivos fora do `BuildOutputTargetFolder`.
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
-Escrever um destino personalizado e especificá-lo como o valor de `$(TargetsForTfmSpecificBuildOutput)` propriedade. Para todos os arquivos que precisam entrar no `BuildOutputTargetFolder` lib (por padrão), o destino deve gravar os arquivos no ItemGroup `BuildOutputInPackage` e definir os dois valores de metadados a seguir:
+Escrever um destino personalizado e especificá-lo como o valor da `$(TargetsForTfmSpecificBuildOutput)` propriedade. Para todos os arquivos que precisam ir para o `BuildOutputTargetFolder` lib (por padrão), o destino deve gravar esses arquivos no ItemGroup `BuildOutputInPackage` e defina os seguintes dois valores de metadados:
 
 - `FinalOutputPath`: O caminho absoluto do arquivo. Se não for fornecido, a identidade é usada para avaliar o caminho de origem.
-- `TargetPath`: (Opcional) defina quando o arquivo precisa ir para uma subpasta em `lib\<TargetFramework>` , como assemblies de satélite que vão em suas pastas de cultura do respectivos. O padrão é o nome do arquivo.
+- `TargetPath`: (Opcional) defina quando o arquivo deve ir para uma subpasta dentro do `lib\<TargetFramework>` , como assemblies de satélite que vão em suas pastas de cultura respectivo. O padrão é o nome do arquivo.
 
 Exemplo:
 
@@ -259,10 +259,10 @@ Exemplo:
 
 #### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
 
-Escrever um destino personalizado e especificá-lo como o valor de `$(TargetsForTfmSpecificContentInPackage)` propriedade. Para todos os arquivos incluir no pacote, o destino deve gravar os arquivos no ItemGroup `TfmSpecificPackageFile` e defina os seguintes metadados opcionais:
+Escrever um destino personalizado e especificá-lo como o valor da `$(TargetsForTfmSpecificContentInPackage)` propriedade. Para todos os arquivos incluir no pacote, o destino deve gravar esses arquivos no ItemGroup `TfmSpecificPackageFile` e defina os seguintes metadados opcionais:
 
-- `PackagePath`: O caminho onde o arquivo deve ser a saída do pacote. NuGet emite um aviso se mais de um arquivo é adicionado para o mesmo caminho de pacote.
-- `BuildAction`: A ação de compilação para atribuir ao arquivo, é necessário somente se o caminho do pacote está no `contentFiles` pasta. O padrão é "None".
+- `PackagePath`: O caminho onde o arquivo deve ser gerado no pacote. O NuGet emitirá um aviso se mais de um arquivo for adicionado no mesmo caminho de pacote.
+- `BuildAction`: A ação de compilação a ser atribuído ao arquivo, é necessário somente se o caminho do pacote está no `contentFiles` pasta. O padrão é "None".
 
 Um exemplo:
 ```xml
@@ -270,12 +270,12 @@ Um exemplo:
   <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
 </PropertyGroup>
 
-<Target Name=""CustomContentTarget"">
+<Target Name="CustomContentTarget">
   <ItemGroup>
-    <TfmSpecificPackageFile Include=""abc.txt"">
+    <TfmSpecificPackageFile Include="abc.txt">
       <PackagePath>mycontent/$(TargetFramework)</PackagePath>
     </TfmSpecificPackageFile>
-    <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
+    <TfmSpecificPackageFile Include="Extensions/ext.txt" Condition="'$(TargetFramework)' == 'net46'">
       <PackagePath>net46content</PackagePath>
     </TfmSpecificPackageFile>  
   </ItemGroup>
@@ -293,7 +293,7 @@ Um exemplo:
 1. Baixar os pacotes
 1. Gravar arquivo de ativos, destinos e objetos
 
-O `restore` destino funciona **somente** para projetos que usam o formato PackageReference. Ele faz **não** para projetos usando o `packages.config` formato; use [restauração do nuget](../tools/cli-ref-restore.md) em vez disso.
+O `restore` destino works **somente** para projetos que usam o formato PackageReference. Ele faz **não** funcionam para projetos que usam o `packages.config` formato; use [restauração do nuget](../tools/cli-ref-restore.md) em vez disso.
 
 ### <a name="restore-properties"></a>Restaurar propriedades
 
@@ -305,7 +305,7 @@ Configurações de restauração adicionais podem vir de propriedades MSBuild no
 | RestorePackagesPath | Caminho da pasta dos pacotes do usuário. |
 | RestoreDisableParallel | Limite os downloads para um de cada vez. |
 | RestoreConfigFile | Caminho para um arquivo `Nuget.Config` a ser aplicado. |
-| RestoreNoCache | Se true, evita o uso de pacotes armazenados em cache. Consulte [Gerenciando os pacotes globais e as pastas do cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
+| RestoreNoCache | Se verdadeiro, evita o uso de pacotes armazenados em cache. Ver [gerenciar as pastas de cache e de pacotes globais](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | Se verdadeiro, ignora origens de pacote com falha ou ausentes. |
 | RestoreTaskAssemblyFile | Caminho para `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Lista separada por ponto e vírgula de projetos a serem restaurados, que devem conter caminhos absolutos. |
@@ -333,7 +333,7 @@ A restauração cria os seguintes arquivos na pasta `obj` de build:
 
 | Arquivo | Descrição |
 |--------|--------|
-| `project.assets.json` | Contém o gráfico de dependência de todas as referências do pacote. |
+| `project.assets.json` | Contém o grafo de dependência de todas as referências de pacote. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Referências a objetos do MSBuild contidos em pacotes |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Referências a destinos do MSBuild contidos em pacotes |
 

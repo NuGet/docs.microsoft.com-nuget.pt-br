@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1ca97e1c2dfba876aefe6b06eab10def67b8d848
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843388"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072360"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrar de Packages. config para PackageReference
 
@@ -31,7 +31,7 @@ Visual Studio 2017 versão 15.7 e posteriores dão suporte para migrar um projet
 * Migração não está atualmente disponível para o projeto de C++ e ASP.NET.
 * Alguns pacotes podem não ser totalmente compatíveis com o PackageReference. Para obter mais informações, consulte [problemas de compatibilidade de pacote](#package-compatibility-issues).
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 1. A opção `Migrate packages.config to PackageReference...` não está disponível no menu de contexto de clique com o botão direito do mouse 
 
@@ -41,7 +41,7 @@ Quando um projeto é aberto pela primeira vez, o NuGet pode não ser inicializad
 
 #### <a name="workaround"></a>Solução alternativa 
 
-Execute qualquer uma das seguintes ações NuGet: 
+Execute qualquer uma das seguintes ações do NuGet: 
 * Abra a interface do usuário do Gerenciador de Pacotes, clique com o botão direito do mouse em `References` e selecione `Manage NuGet Packages...` 
 * Abra o Console do Gerenciador de Pacotes em `Tools > NuGet Package Manager`, selecione `Package Manager Console` 
 * Execute a restauração do NuGet, clique com o botão direito do mouse no nó de solução no Gerenciador de Soluções e selecione `Restore NuGet Packages` 
@@ -58,7 +58,7 @@ Agora você deve conseguir ver a opção de migração. Observe que essa opção
 
 1. No **Gerenciador de soluções**, clique com botão direito no **referências** nó ou o `packages.config` arquivo e selecione **Migrovat Packages. config na PackageReference...** .
 
-1. O migrator analisa as referências do pacote NuGet do projeto e tenta categorize-as em **dependências de nível superior** (que você instalou diretório de pacotes do NuGet) e **dependências transitivas**(pacotes que foram instalados como dependências de pacotes de nível superior).
+1. O migrator analisa as referências do pacote NuGet do projeto e tenta categorize-as em **dependências de nível superior** (pacotes do NuGet que você instalou diretamente) e **dependências transitivas** (pacotes que foram instalados como dependências de pacotes de nível superior).
 
    > [!Note]
    > PackageReference dá suporte à restauração de pacote transitivo e resolve as dependências dinamicamente, que significa que dependências transitivas não precisam ser instaladas explicitamente.
