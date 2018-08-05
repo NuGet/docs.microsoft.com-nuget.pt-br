@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
-ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
+ms.openlocfilehash: b05192038bff071ca7a5b8f2e0f735696d09bef6
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072360"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508264"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrar de Packages. config para PackageReference
 
@@ -28,10 +28,10 @@ Visual Studio 2017 versão 15.7 e posteriores dão suporte para migrar um projet
 ### <a name="limitations"></a>Limitações
 
 * PackageReference do NuGet não está disponível no Visual Studio 2015 e anteriores. Projetos migrados podem ser abertos apenas no Visual Studio 2017.
-* Migração não está atualmente disponível para o projeto de C++ e ASP.NET.
+* Migração não está atualmente disponível para projetos C++ e ASP.NET.
 * Alguns pacotes podem não ser totalmente compatíveis com o PackageReference. Para obter mais informações, consulte [problemas de compatibilidade de pacote](#package-compatibility-issues).
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 
 1. A opção `Migrate packages.config to PackageReference...` não está disponível no menu de contexto de clique com o botão direito do mouse 
 
