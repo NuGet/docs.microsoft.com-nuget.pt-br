@@ -73,7 +73,7 @@ ms.locfileid: "31822585"
 
 * Push sempre envia todo pacote duas vezes com origens do pacote - autenticado [#1501](https://github.com/NuGet/Home/issues/1501)
 
-* Nenhuma informação foi fornecida durante a chamada de nuget.exe atualização csproj enquanto o projeto não tem um `packages.config`  -  [#1496](https://github.com/NuGet/Home/issues/1496)
+* Nenhuma informação foi fornecida durante a chamada de nuget.exe atualização *.csproj enquanto o projeto não tem um `packages.config`  -  [#1496](https://github.com/NuGet/Home/issues/1496)
 
 * `packages.config` Restore não tenta novamente em códigos de status 5xx do código-fonte V2 - [#1217](https://github.com/NuGet/Home/issues/1217)
 

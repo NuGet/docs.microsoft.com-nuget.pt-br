@@ -166,7 +166,7 @@ Não há nenhuma solução alternativa no momento.
 
 - [Avisos e erros] NoWarn não flui transitivamente por referências P2P – [#5501](https://github.com/NuGet/Home/issues/5501)
 
-- Carga de Solução Leve: núcleo comum para interface do usuário de PM, PMC e IVs* – [#5057](https://github.com/NuGet/Home/issues/5057)
+- Carga de Solução Leve: núcleo comum para interface do usuário de PM, PMC e IVs – [#5057](https://github.com/NuGet/Home/issues/5057)
 
 - Lightweight Solution Load: suporte – PMC – [#5053](https://github.com/NuGet/Home/issues/5053)
 
