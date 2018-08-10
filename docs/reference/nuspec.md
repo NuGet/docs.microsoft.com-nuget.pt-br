@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6d190d9fdb26d76fa8e46b7d283c1857cfab26e9
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 110d1aa29fc7238f1a82c1a81ec6431dfe437420
+ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508030"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40020447"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -56,20 +56,18 @@ Para obter uma representação visual do esquema, abra o arquivo de esquema no V
 
 ![Gerenciador de Esquema do Visual Studio com o nuspec.xsd aberto](media/SchemaExplorer.png)
 
-### <a name="metadata-attributes"></a>Atributos de metadados
-
 ### <a name="required-metadata-elements"></a>Elementos de metadados necessários
 
-Embora os elementos a seguir sejam os requisitos mínimos para um pacote, considere adicionar os [elementos de metadados opcionais](#optional-metadata-elements) para melhorar a experiência geral que os desenvolvedores têm com o pacote.
+Embora os elementos a seguir sejam os requisitos mínimos para um pacote, considere adicionar os [elementos de metadados opcionais](#optional-metadata-elements) para melhorar a experiência geral que os desenvolvedores têm com o pacote. 
 
 Esses elementos precisam aparecer dentro de um elemento `<metadata>`.
 
-| Elemento | Descrição |
-| --- | --- |
-| **id** | O identificador de pacote que não diferencia maiúsculas de minúsculas, o qual deve ser exclusivo no nuget.org ou em qualquer galeria na qual o pacote reside. IDs podem não conter espaços nem caracteres que não sejam válidos para uma URL e geralmente seguem as regras de namespace do .NET. Consulte [Escolhendo um identificador de pacote exclusivo](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) para ver diretrizes. |
-| **version** | A versão do pacote, seguindo o padrão *principal.secundária.patch*. Os números de versão podem incluir um sufixo de pré-lançamento, conforme descrito em [Controle de versões de pré-lançamento](../reference/package-versioning.md#pre-release-versions). |
-| **description** | Uma descrição longa do pacote para exibição de interface do usuário. |
-| **authors** | Uma lista separada por vírgulas de autores de pacotes, que correspondem aos nomes de perfil em nuget.org. Eles são exibidos na Galeria do NuGet em nuget.org e são usados para fazer referência cruzada aos pacotes dos mesmos autores. |
+#### <a name="id"></a>id 
+O identificador de pacote que não diferencia maiúsculas de minúsculas, o qual deve ser exclusivo no nuget.org ou em qualquer galeria na qual o pacote reside. IDs podem não conter espaços nem caracteres que não sejam válidos para uma URL e geralmente seguem as regras de namespace do .NET. Consulte [Escolhendo um identificador de pacote exclusivo](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) para ver diretrizes. # # # versão a versão do pacote, seguindo a *Major* padrão. Os números de versão podem incluir um sufixo de pré-lançamento, conforme descrito em [Controle de versões de pré-lançamento](../reference/package-versioning.md#pre-release-versions). 
+#### <a name="description"></a>descrição
+Uma descrição longa do pacote para exibição de interface do usuário. 
+#### <a name="authors"></a>authors
+Uma lista separada por vírgulas de autores de pacotes, que correspondem aos nomes de perfil em nuget.org. Eles são exibidos na Galeria do NuGet em nuget.org e são usados para fazer referência cruzada aos pacotes dos mesmos autores. 
 
 ### <a name="optional-metadata-elements"></a>Elementos de metadados opcionais
 
@@ -101,7 +99,8 @@ Uma lista delimitada por espaço de marcas e palavras-chave que descrevem o paco
 #### <a name="serviceable"></a>facilidade de manutenção 
 *(3.3 ou superior)* Somente para uso interno do NuGet.
 #### <a name="repository"></a>repositório
-Repositório de metadados, consiste em quatro atributos opcionais: *tipo* e *url* *(4.0 e posteriores)*, e *branch* e  *confirmação* *(4.6 +)*. Esses atributos permitem que você mapeie o. nupkg ao repositório que criou, com potencial para ficarem conforme detalhado de como a ramificação individual ou a confirmação que criou o pacote. Isso deve ser uma url disponível publicamente que pode ser invocado diretamente por um software de controle de versão. Ele não deve ser uma página html pois destina-se para o computador. Para vincular a página do projeto, use o `projectUrl` campo, em vez disso. |
+Repositório de metadados, consiste em quatro atributos opcionais: *tipo* e *url* *(4.0 e posteriores)*, e *branch* e *confirmação* *(4.6 +)*. Esses atributos permitem que você mapeie o. nupkg ao repositório que criou, com potencial para ficarem conforme detalhado de como a ramificação individual ou a confirmação que criou o pacote. Isso deve ser uma url disponível publicamente que pode ser invocado diretamente por um software de controle de versão. Ele não deve ser uma página html pois destina-se para o computador. Para vincular a página do projeto, use o `projectUrl` campo, em vez disso. |
+
 #### <a name="minclientversion"></a>minClientVersion
 Especifica a versão mínima do cliente NuGet que pode instalar esse pacote, imposta pelo nuget.exe e pelo Gerenciador de Pacotes do Visual Studio. Isso é usado sempre que o pacote depender de recursos específicos do arquivo `.nuspec` que foram adicionados em uma versão específica do cliente do NuGet. Por exemplo, um pacote usando o atributo `developmentDependency` deve especificar “2.8” para `minClientVersion`. Da mesma forma, um pacote usando o elemento `contentFiles` (consulte a próxima seção) deve definir `minClientVersion` para “3.3”. Observe também que, como os clientes do NuGet antes de 2.5 não reconhecem esse sinalizador, eles *sempre* recusam instalar o pacote, não importando o que `minClientVersion` contém.
 

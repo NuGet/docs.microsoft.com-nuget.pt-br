@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 9900db1970a89de129d9074e5900e0aa048101de
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 8bbbc785a50e49530bbbd4e88bbd71a8a7bfe911
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449598"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508173"
 ---
 # <a name="signing-nuget-packages"></a>Assinando pacotes NuGet
 
@@ -44,7 +44,7 @@ Conforme descrito na referência do comando, você pode usar um certificado disp
 - O servidor de carimbo de data/hora não satisfaz aos requisitos de certificado.
 
 > [!Note]
-> Os pacotes assinados devem incluir um carimbo de data/hora para assegurar que a assinatura permaneça válida quando o certificado de autenticação expira. A operação de assinatura produz um [aviso NU3002](../reference/Errors-and-Warnings.md#nu3002) ao assinar sem um carimbo de data/hora.
+> Os pacotes assinados devem incluir um carimbo de data/hora para assegurar que a assinatura permaneça válida quando o certificado de autenticação expira. A operação de assinatura produz um [aviso NU3002](../reference/errors-and-warnings/NU3002.md) ao assinar sem um carimbo de data/hora.
 
 ## <a name="verify-a-signed-package"></a>Verificar um pacote assinado
 
@@ -56,7 +56,7 @@ nuget verify -signature MyPackage.nupkg
 
 ## <a name="install-a-signed-package"></a>Instalar um pacote assinado
 
-Os pacotes assinados não exigem nenhuma ação específica para serem instalados. No entanto, se o conteúdo tiver sido modificado depois da assinatura, a instalação será bloqueada e um [erro NU3008](../reference/Errors-and-Warnings.md#nu3008) será gerado.
+Os pacotes assinados não exigem nenhuma ação específica para serem instalados. No entanto, se o conteúdo tiver sido modificado depois da assinatura, a instalação será bloqueada e um [erro NU3008](../reference/errors-and-warnings/NU3008.md) será gerado.
 
 > [!Warning]
 > Os pacotes assinados com certificados não confiáveis são considerados não assinados e instalados sem avisos ou erros, como qualquer outro pacote não assinado.
