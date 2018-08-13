@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 61f447877459764906cf9a2b88b32a8bc0553689
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 48930701f1bb5f13718505b85b293f38d37d19fb
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817665"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508342"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
@@ -135,12 +135,12 @@ Por exemplo, digamos que seu destino é `netstandard1.4` e `net452`, mas tem uma
 ```xml
 <ItemGroup>
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
     <!-- ... -->
 </ItemGroup>
 ```
 
-Um pacote compilado usando este projeto mostrará que Newtonsoft.json está incluído como uma dependência somente para um destino `net452`:
+Um pacote compilado usando este projeto mostrará que Newtonsoft.Json está incluído como uma dependência somente para um destino `net452`:
 
 ![O resultado da aplicação de uma condição em PackageReference com o VS2017](media/PackageReference-Condition.png)
 
@@ -149,7 +149,7 @@ As condições também podem ser aplicadas no nível de `ItemGroup` e serão apl
 ```xml
 <ItemGroup Condition = "'$(TargetFramework)' == 'net452'">
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
     <!-- ... -->
 </ItemGroup>

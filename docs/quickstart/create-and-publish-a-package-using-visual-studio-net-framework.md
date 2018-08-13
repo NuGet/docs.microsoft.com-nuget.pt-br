@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: ffa2128b577673e980f4115f37f8685858c36250
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: c537ee97b79648428df2c1b52894f536f5626a9e
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963152"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508251"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Início Rápido: Criar e publicar um pacote usando o Visual Studio (.NET Framework no Windows)
 
@@ -114,7 +114,7 @@ Execute `nuget spec` apenas uma vez para gerar o manifesto inicial. Ao atualizar
 
 ## <a name="edit-the-manifest"></a>Editar o manifesto
 
-1. O NuGet gerará erro se você tentar criar um pacote com os valores padrão no arquivo `.nuspec`, portanto edite os campos a seguir antes de continuar. Veja [Referência do arquivo .nuspec – elementos únicos](../reference/nuspec.md#single-elements) para obter uma descrição de como eles são usados.
+1. O NuGet gerará erro se você tentar criar um pacote com os valores padrão no arquivo `.nuspec`, portanto edite os campos a seguir antes de continuar. Veja a [Referência do arquivo .nuspec – elementos de metadados opcionais](../reference/nuspec.md#optional-metadata-elements) para uma descrição de como eles são usados.
 
     - licenseUrl
     - projectUrl

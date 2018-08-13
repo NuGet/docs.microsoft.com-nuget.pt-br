@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: b72369efb906f6d186c914fa3d8dd1da0be94641
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: 95750bc926c242c02112f68a5aebf43c5fdb9a46
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37948363"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508290"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hospedando seus próprios feeds do NuGet
 
@@ -32,7 +32,7 @@ Também há vários outros produtos de hospedagem de NuGet compatíveis com feed
 - [NuGet Server](http://nugetserver.net/), um projeto da comunidade do Inedo
 - [NuGet Server (Software Livre)](http://nuget-server.net), uma implementação de software livre semelhante ao NuGet Server da Inedo
 - [LiGet](https://github.com/ai-traders/liget), uma implementação em código aberto do servidor NuGet V2 que é executado no kestrel no docker
-- [BaGet](https://github.com/loic-sharma/BaGet), na implementação em código aberto do servidor NuGet V3 usando o .NET Core
+- [BaGet](https://github.com/loic-sharma/BaGet), uma implementação de software livre do servidor NuGet V3 criada no ASP.NET Core
 - [Artifactory](https://www.jfrog.com/artifactory/) da JFrog.
 - [Nexus](http://www.sonatype.org/nexus/) da Sonatype.
 - [TeamCity](https://www.jetbrains.com/teamcity/) da JetBrains.
