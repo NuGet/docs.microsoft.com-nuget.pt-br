@@ -16,12 +16,12 @@ keywords: Assinaturas de repositório de API do NuGet, nuget.org certificados de
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 27c572a482fef791f19b3d32e816a41d8dc40b53
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 32dd2ee19261488a2b1b92724095a11ced69ae68
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020550"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793201"
 ---
 # <a name="repository-signatures"></a>Assinaturas de repositório
 
@@ -59,7 +59,7 @@ O índice de assinaturas do repositório contém duas informações:
 
 Na maioria dos casos, a lista de certificados só será acrescentada ao. Novos certificados seriam adicionados à lista quando o certificado de autenticação anterior expirou e a origem do pacote precisa começar a usar um novo certificado de assinatura. Se um certificado for removido da lista, o que significa que todas as assinaturas de pacote criadas com o certificado de autenticação removido devem não ser consideradas válidas pelo cliente. Nesse caso, a assinatura do pacote (mas não necessariamente o pacote) é inválido. Uma política de cliente pode permitir que a instalação do pacote como não assinados.
 
-No caso de revogação de certificado (comprometimento da chave, por exemplo,), espera-se que a origem do pacote desistir de todos os pacotes assinados pelo certificado afetado. Além disso, a origem do pacote deve remover o certificado afetado da lista de certificados de assinatura.
+No caso de revogação de certificado (comprometimento da chave, por exemplo,), a origem do pacote é esperada para assinar novamente todos os pacotes assinados pelo certificado afetado. Além disso, a origem do pacote deve remover o certificado afetado da lista de certificados de assinatura.
 
 A seguinte solicitação de busca de índice de assinaturas do repositório.
 

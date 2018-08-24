@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 87000ce95ffeef36d9f792e9e8fdad6878488773
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c9267945b8055b536cf35911c36a066981ef67b6
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818315"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793286"
 ---
 # <a name="target-frameworks"></a>Frameworks de destino
 
@@ -46,6 +46,9 @@ Os clientes do NuGet são compatíveis com as estruturas indicadas na tabela aba
 | | | net46 |
 | | | net461 |
 | | | net462 |
+| | | net47 |
+| | | net471 |
+| | | net472 |
 |Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
 | | | netcore45 [win, win8] |
 | | | netcore451 [win81] |
@@ -76,6 +79,7 @@ Plataforma Universal do Windows | uap | uap [uap10.0] |
 Aplicativos .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
+| | | netcoreapp2.1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -125,7 +129,7 @@ A série de monikers `dotnet` deve ser usada no NuGet 3.3 e versões anteriores;
 ## <a name="portable-class-libraries"></a>Bibliotecas de Classes Portáteis
 
 > [!Warning]
-> **PCLs não são recomendados**. Embora haja suporte para PCLs, os autores de pacote devem dar suporte ao netstandard em vez disso. É uma evolução do PCLs e representa binária portabilidade entre plataformas usando um moniker único que não está vinculado a uma biblioteca estática, como no .NET Platform Standard *portátil-a + b + c* identificadores de origem.
+> **PCLs não são recomendados**. Embora haja suporte para PCLs, os autores de pacote devem dar suporte ao netstandard em vez disso. É uma evolução de PCLs e representa a portabilidade binária entre plataformas usando um moniker único que não está vinculado a uma biblioteca estática, como o .NET Platform Standard *portátil-a + b + c* monikers.
 
 Para definir uma estrutura de destino que se refere a várias estruturas de destino filho, a palavra-chave `portable` é usada para prefixar a lista de estruturas referenciadas. Evite incluir estruturas extras artificialmente que não são diretamente compiladas, pois o erro pode causar efeitos colaterais indesejados nessas estruturas.
 
