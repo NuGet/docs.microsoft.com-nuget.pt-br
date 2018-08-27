@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: e97773d79b22db1f08d868190895a9417b12c924
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: af6e6e015f2e4adccd99171abb37e7291551351c
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963081"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794093"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Início Rápido: Criar e publicar um pacote do NuGet usando o Visual Studio (.NET Standard somente no Windows)
 
@@ -149,6 +149,26 @@ Esta etapa é uma alternativa ao uso de `nuget.exe`.
 ### <a name="manage-the-published-package"></a>Gerenciar o pacote publicado
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
+
+## <a name="adding-a-readme-and-other-files"></a>Adicionar um Leiame e outros arquivos
+
+Para especificar diretamente os arquivos a serem incluídos no pacote, edite o arquivo de projeto e use a propriedade `content`:
+
+```xml
+<ItemGroup>
+  <Content Include="readme.txt">
+    <Pack>true</Pack>
+    <PackagePath>\</PackagePath>
+  </Content>
+</ItemGroup>
+```
+
+Isso incluirá um arquivo chamado `readme.txt` na raiz do pacote. O Visual Studio exibe o conteúdo do arquivo como texto sem formatação imediatamente depois de instalar o pacote diretamente. (Arquivos Leiame não são exibidos para pacotes instalados como dependências). Por exemplo, mostramos aqui como o arquivo Leiame para o pacote HtmlAgilityPack é exibido:
+
+![A exibição de um arquivo Leiame para um pacote do NuGet na instalação](../create-packages/media/Create_01-ShowReadme.png)
+
+> [!Note]
+> Somente adicionar o readme.txt na raiz do projeto não resultará na inclusão dele no pacote resultante.
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
