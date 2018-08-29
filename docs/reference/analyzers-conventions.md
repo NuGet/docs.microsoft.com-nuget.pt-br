@@ -1,21 +1,21 @@
 ---
-title: Formatos de analisador de plataforma do compilador .NET para NuGet
+title: Formatos de analisador de plataforma de compilador de .NET para NuGet
 description: Convenções de analisadores do .NET que são empacotados e distribuídos com pacotes do NuGet que implementam uma API ou biblioteca.
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: dc5896631fa3b15dcc1b84b054cb532d56193f36
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 9e833447820c0fb13cf558a45921554e82e2b2df
+ms.sourcegitcommit: ddc2b07a788d4a92b9df193c9bbd43db945b14d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818380"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43119156"
 ---
 # <a name="analyzer-nuget-formats"></a>Formatos de NuGet do Analisador
 
-A plataforma de compilador .NET (também conhecido como "Roslyn") permitem aos desenvolvedores criar [analisadores](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) que examinar a árvore de sintaxe e semântica de código, como ele está sendo gravado. Isso fornece aos desenvolvedores uma maneira de criar ferramentas de análise específica de domínio, como aquelas que ajudam a orientar o uso de uma API ou biblioteca específica. Você pode encontrar mais informações no wiki do GitHub do [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Consulte também o artigo [Use o Roslyn para escrever um analisador de código dinâmico para sua API](https://msdn.microsoft.com/magazine/dn879356.aspx) na MSDN Magazine.
+O .NET Compiler Platform (também conhecido como "Roslyn") permitem que os desenvolvedores criem [analisadores](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) que examinam a árvore de sintaxe e semântica de código porque ele está sendo gravado. Isso fornece aos desenvolvedores uma maneira de criar ferramentas de análise específica de domínio, como aquelas que ajudam a orientar o uso de uma API ou biblioteca específica. Você pode encontrar mais informações no wiki do GitHub do [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Consulte também o artigo [Use o Roslyn para escrever um analisador de código dinâmico para sua API](https://msdn.microsoft.com/magazine/dn879356.aspx) na MSDN Magazine.
 
 Os próprios analisadores normalmente são empacotados e distribuídos como parte dos pacotes do NuGet que implementam a API ou a biblioteca em questão.
 
@@ -44,7 +44,7 @@ Observe também que, como este pacote não tem nenhum requisito específico de p
 
 O uso da pasta `analyzers` é semelhante àquela usada para [estruturas de destino](../create-packages/supporting-multiple-target-frameworks.md), exceto os especificadores no caminho descrevem as dependências do host de desenvolvimento em vez do tempo de build. O formato geral é o seguinte:
 
-    $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}}/{analyzer_name}.dll
+    $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
 - **framework_name**: a área de superfície da API *opcional* do .NET Framework que as DLLs independentes precisam executar. `dotnet` é atualmente o único valor válido porque Roslyn é o único host que pode executar analisadores. Se nenhum destino for especificado, é considerado que as DLLs se aplicam a *todos* os destinos.
 - **supported_language**: o idioma ao qual a DLL se aplica, um dos `cs` (C#), `vb` (Visual Basic) e `fs` (F#). O idioma indica que o analisador deve ser carregado apenas para um projeto usando o idioma. Se nenhum idioma for especificado, será considerado que o DLL se aplicar a *todos* os idiomas compatíveis com os analisadores.
