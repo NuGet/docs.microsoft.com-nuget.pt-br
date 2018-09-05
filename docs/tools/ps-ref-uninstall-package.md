@@ -1,23 +1,22 @@
 ---
-title: Referência de PowerShell do NuGet Uninstall-Package
-description: Referência de comando do PowerShell do pacote de desinstalação no Console do Gerenciador de pacotes do NuGet no Visual Studio.
+title: Referência do PowerShell NuGet Uninstall-Package
+description: Referência de comando do PowerShell de pacote de desinstalação no Console do Gerenciador de pacotes NuGet no Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 860a58c359c9b723564a70f83aee4eee5cebf16d
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: ae60473fbb716b23f40b0605be8aaa8515802315
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818861"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551637"
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-Package (Console do Gerenciador de Pacotes no Visual Studio)
 
 *Este tópico descreve o comando dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows. Para o comando genérico do pacote de desinstalação do PowerShell, consulte o [referência do PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
-Remove um pacote de um projeto, opcionalmente, a remoção de suas dependências. Se outros pacotes dependerem deste pacote, o comando falhará, a menos que – Force opção é especificada.
+Remove um pacote de um projeto, opcionalmente, removendo suas dependências. Se outros pacotes dependem deste pacote, o comando falhará a menos que – Force a opção for especificada.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -26,24 +25,24 @@ Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [
     [-Version <string>] [-WhatIf] [<CommonParameters>]
 ```
 
-Se outros pacotes dependerem deste pacote, o comando falhará, a menos que – Force opção é especificada.
+Se outros pacotes dependem deste pacote, o comando falhará a menos que – Force a opção for especificada.
 
 ## <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Descrição |
 | --- | --- |
-| Id | (Obrigatório) O identificador do pacote a ser desinstalado. -Id switch é opcional. |
+| Id | (Obrigatório) O identificador do pacote a desinstalar. -Id do comutador em si é opcional. |
 | Versão | A versão do pacote para desinstalar, padronizando para a versão atualmente instalada. |
-| RemoveDependencies | Desinstale o pacote e suas dependências não usadas. Ou seja, se qualquer dependência tiver outro pacote que depende dele, ele é ignorado. |
-| ProjectName | O projeto do qual deseja desinstalar o pacote, o padrão para o projeto padrão. |
+| RemoveDependencies | Desinstale o pacote e suas dependências não utilizadas. Ou seja, se qualquer dependência tiver outro pacote que depende dele, ele será ignorado. |
+| ProjectName | O projeto do qual deseja desinstalar o pacote, padronizando para o projeto padrão. |
 | Force | Força um pacote a ser desinstalado, mesmo se outros pacotes dependem dele. |
-| WhatIf | Mostra o que aconteceria quando a execução do comando sem realmente executar a desinstalação. |
+| WhatIf | Mostra o que aconteceria ao executar o comando sem realmente executar a desinstalação. |
 
-Nenhum desses parâmetros aceitar caracteres curinga ou de entrada do pipeline.
+Nenhum desses parâmetros aceitam caracteres curinga ou de entrada do pipeline.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-`Uninstall-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, WarningAction, detalhado e WarningVariable.
+`Uninstall-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 

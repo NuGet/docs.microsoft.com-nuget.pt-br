@@ -1,23 +1,22 @@
 ---
-title: Referência do PowerShell do NuGet Open-PackagePage
-description: Referência de comando do PowerShell PackagePage abrir no Console do Gerenciador de pacotes do NuGet no Visual Studio.
+title: Referência do PowerShell aberta-PackagePage do NuGet
+description: Referência de comando do PowerShell de PackagePage aberto no Console do Gerenciador de pacotes NuGet no Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e64a83c01a7baac330c99fe40ba52f328a2133b8
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0325aa4ddd718a901dd6a09cdf86cae260e326ab
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817714"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547162"
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Console do Gerenciador de Pacotes no Visual Studio)
 
-*Preterido no 3.0 +; disponível apenas dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
+*Preterido no 3.0 ou superior; disponível somente dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
 
-Inicia o navegador padrão com o projeto, a licença ou a URL para o pacote especificado abuso.
+Inicia o navegador padrão com o projeto, a licença ou a URL para relatar abuso para o pacote especificado.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -30,18 +29,18 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
 
 | Parâmetro | Descrição |
 | --- | --- |
-| Id | A ID do pacote do pacote desejado. -Id switch é opcional. |
-| Versão | A versão do pacote, o padrão para a versão mais recente. |
-| Origem | A origem do pacote, o padrão para a fonte selecionada na fonte de lista suspensa. |
-| Licença | Abre o navegador a URL de licença do pacote. Se - licença nem - ReportAbuse for especificado, o navegador abre a URL do projeto do pacote. |
-| ReportAbuse | Abre o navegador a URL de abuso de relatório do pacote. Se - licença nem - ReportAbuse for especificado, o navegador abre a URL do projeto do pacote. |
-| PassThru | Exibe a URL; Use com - WhatIf para suprimir a abrir o navegador. |
+| Id | A ID do pacote do pacote desejado. -Id do comutador em si é opcional. |
+| Versão | A versão do pacote, padronizando para a versão mais recente. |
+| Origem | A origem do pacote, padronizando para a fonte selecionada na lista suspensa origem. |
+| Licença | Abre o navegador a URL de licença do pacote. Se nem - licença nem - ReportAbuse for especificado, o navegador abre a URL do projeto do pacote. |
+| ReportAbuse | Abre o navegador a URL para relatar abuso do pacote. Se nem - licença nem - ReportAbuse for especificado, o navegador abre a URL do projeto do pacote. |
+| PassThru | Exibe a URL; Use com - WhatIf para suprimir abrindo o navegador. |
 
-Nenhum desses parâmetros aceitar caracteres curinga ou de entrada do pipeline.
+Nenhum desses parâmetros aceitam caracteres curinga ou de entrada do pipeline.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-`Open-PackagePage` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, WarningAction, detalhado e WarningVariable.
+`Open-PackagePage` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 

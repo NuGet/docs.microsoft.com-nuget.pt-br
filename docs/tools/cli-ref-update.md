@@ -1,29 +1,28 @@
 ---
 title: Comando de atualização de CLI do NuGet
-description: Referência para o comando de atualização de nuget.exe
+description: Referência do comando de atualização nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 39e269b10a0cf144d5971d2af9f82a606e0b6904
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: fc34550b3669d83466318645987cfd3078bc3c18
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817701"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545094"
 ---
 # <a name="update-command-nuget-cli"></a>Commando update (NuGet CLI)
 
-**Aplica-se a:** pacote consumo &bullet; **versões com suporte:** todos
+**Aplica-se a:** consumo do pacote &bullet; **versões com suporte:** todos os
 
 Atualiza todos os pacotes em um projeto (usando `packages.config`) para suas versões mais recentes disponíveis. É recomendável executar ['restore'](cli-ref-restore.md) antes de executar o `update`. (Para atualizar um pacote individual, use [ `nuget install` ](cli-ref-install.md) sem especificar um número de versão, em que o NuGet caso instala a versão mais recente.)
 
-Observação: `update` não funciona com a CLI em execução em Mono (Mac OSX ou Linux) ou ao usar o formato de PackageReference.
+Observação: `update` não funciona com a CLI executando em Mono (Mac OSX ou Linux) ou ao usar o formato PackageReference.
 
-O `update` comando também atualiza as referências de assembly no arquivo de projeto, desde que as referências já existe. Se um pacote atualizado tem um assembly adicionado, uma nova referência é *não* adicionado. Novas dependências do pacote também não têm suas referências de assembly adicionadas. Para incluir essas operações como parte de uma atualização, atualize o pacote no Visual Studio usando a UI Package Manager ou o Package Manager Console.
+O `update` comando também atualiza as referências de assembly no arquivo de projeto, desde aqueles faz referência já existir. Se um pacote atualizado tiver um assembly adicionado, uma nova referência será *não* adicionado. Novas dependências do pacote também não têm suas referências de assembly adicionadas. Para incluir essas operações como parte de uma atualização, atualize o pacote no Visual Studio usando a UI do Gerenciador de pacotes ou o Console do Gerenciador de pacotes.
 
-Este comando também pode ser usado para atualizar o nuget.exe si mesmo usando o *-self* sinalizador.
+Esse comando também pode ser usado para atualizar nuget.exe em si usando o *-self* sinalizador.
 
 ## <a name="usage"></a>Uso
 
@@ -31,7 +30,7 @@ Este comando também pode ser usado para atualizar o nuget.exe si mesmo usando o
 nuget update <configPath> [options]
 ```
 
-onde `<configPath>` identifica em uma `packages.config` ou arquivo de solução que lista as dependências do projeto.
+em que `<configPath>` identifica um uma `packages.config` ou arquivo de solução que lista as dependências do projeto.
 
 ## <a name="options"></a>Opções
 
@@ -39,19 +38,19 @@ onde `<configPath>` identifica em uma `packages.config` ou arquivo de solução 
 | --- | --- |
 | ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
 | FileConflictAction | Especifica a ação a ser tomada quando for solicitado a substituir ou ignorar os arquivos existentes, referenciados pelo projeto. Os valores são *substituir, ignorar, nenhum*. |
-| ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
+| ForceEnglishOutput | *(3.5 ou superior)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
-| Id | Especifica uma lista de IDs para a atualização do pacote. |
-| MSBuildPath | *(4.0 +)*  Especifica o caminho do MSBuild para usar com o comando tendo precedência sobre `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15. Por padrão que o MSBuild em seu caminho é separado, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
-| NonInteractive | Suprime avisos para a entrada do usuário ou confirmações. |
-| Versão de pré-lançamento | Permite a atualização para as versões de pré-lançamento. Este sinalizador não é necessário ao atualizar os pacotes de pré-lançamento que já estão instalados. |
-| Caminho do repositório | Especifica a pasta local onde os pacotes estão instalados. |
-| Safe | Especifica que apenas atualizações com a versão mais recente disponível dentro da mesma versão principal e secundária, o pacote instalado será instalado. |
-| Self | Atualiza o nuget.exe para a versão mais recente; todos os outros argumentos são ignorados. |
-| Origem | Especifica a lista de fontes de pacote (como URLs) para usar as atualizações. Se omitido, o comando usa as fontes fornecidas nos arquivos de configuração, consulte [NuGet Configurando comportamento](../consume-packages/configuring-nuget-behavior.md). |
+| Id | Especifica uma lista de IDs de atualização de pacote. |
+| MSBuildPath | *(4.0 e posteriores)*  Especifica o caminho do MSBuild a usar com o comando, tendo precedência sobre `-MSBuildVersion`. |
+| MSBuildVersion | *(3.2 e superior)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15. Por padrão que o MSBuild em seu caminho é escolhido, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
+| NonInteractive | Suprime a solicitações de entrada do usuário ou confirmações. |
+| Versão de pré-lançamento | Permite a atualização para versões de pré-lançamento. Este sinalizador não é necessário ao atualizar os pacotes de pré-lançamento que já estão instalados. |
+| Caminho do repositório | Especifica a pasta local onde os pacotes são instalados. |
+| Safe | Especifica que atualiza apenas com a versão mais recente disponível dentro da mesma versão principal e secundária como o pacote instalado será instalado. |
+| Self | Nuget.exe atualizações para a versão mais recente; todos os outros argumentos são ignorados. |
+| Origem | Especifica a lista de origens de pacote (como URLs) para usar as atualizações. Se omitido, o comando usa as fontes fornecidas em arquivos de configuração, consulte [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md). |
 | Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
-| Versão | Quando usado com uma ID de pacote, especifica a versão do pacote para atualizar. |
+| Versão | Quando usado com uma ID de pacote, especifica a versão do pacote a atualizar. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 

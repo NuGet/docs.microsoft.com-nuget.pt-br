@@ -3,19 +3,18 @@ title: API do NuGet, os limites de taxa
 description: As APIs do NuGet será impuseram limites de taxa para evitar abusos.
 author: cmanu
 ms.author: cmanu
-manager: skofman
 ms.date: 03/20/2018
 ms.topic: reference
 ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: a55eb49318b766028d1579a4d33618617bbd8801
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 70b478ae17cd10b17f9d6ecb0f5776c1effcea58
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508121"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548671"
 ---
 # <a name="rate-limits"></a>Limites de taxa
 

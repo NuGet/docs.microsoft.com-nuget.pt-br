@@ -3,15 +3,14 @@ title: Migrando do Package para formatos de PackageReference
 description: Obter detalhes sobre como migrar um projeto do formato de gerenciamento do Package para PackageReference com suporte do NuGet 4.0 ou superior e o VS2017 e .NET Core 2.0
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: b05192038bff071ca7a5b8f2e0f735696d09bef6
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 05a82e48c7083a19c50a05fa1df74ebfff8030d1
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508264"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546680"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrar de Packages. config para PackageReference
 
@@ -41,7 +40,7 @@ Quando um projeto é aberto pela primeira vez, o NuGet pode não ser inicializad
 
 #### <a name="workaround"></a>Solução alternativa 
 
-Execute qualquer uma das seguintes ações do NuGet: 
+Execute qualquer uma das seguintes ações NuGet: 
 * Abra a interface do usuário do Gerenciador de Pacotes, clique com o botão direito do mouse em `References` e selecione `Manage NuGet Packages...` 
 * Abra o Console do Gerenciador de Pacotes em `Tools > NuGet Package Manager`, selecione `Package Manager Console` 
 * Execute a restauração do NuGet, clique com o botão direito do mouse no nó de solução no Gerenciador de Soluções e selecione `Restore NuGet Packages` 

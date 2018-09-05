@@ -3,15 +3,14 @@ title: Formatos de analisador de plataforma de compilador de .NET para NuGet
 description: Convenções de analisadores do .NET que são empacotados e distribuídos com pacotes do NuGet que implementam uma API ou biblioteca.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 9e833447820c0fb13cf558a45921554e82e2b2df
-ms.sourcegitcommit: ddc2b07a788d4a92b9df193c9bbd43db945b14d9
+ms.openlocfilehash: a5ccbba5fbc189eb59acfdeb86a4a03dcf907a9a
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43119156"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547625"
 ---
 # <a name="analyzer-nuget-formats"></a>Formatos de NuGet do Analisador
 

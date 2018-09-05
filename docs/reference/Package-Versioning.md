@@ -1,24 +1,23 @@
 ---
 title: Referência de versão do pacote do NuGet
-description: Informações sobre como especificar números de versão e intervalos para outros pacotes que depende de um pacote do NuGet e como as dependências estejam instaladas.
+description: Obter detalhes exatos sobre como especificar números de versão e intervalos para outros pacotes mediante o qual depende de um pacote do NuGet e como as dependências são instaladas.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: db529a4aa92f0f0bce0b52b21d2a01bf973d01f2
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b980c1084fe8e31573053a4dcf38bbfa6146e6de
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817590"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549767"
 ---
 # <a name="package-versioning"></a>Controle de versão do pacote
 
-Um pacote específico é sempre chamado usando seu identificador de pacote e um número de versão exata. Por exemplo, [do Entity Framework](https://www.nuget.org/packages/EntityFramework/) em nuget.org tem vários pacotes específicos de doze disponíveis, variando de versão *4.1.10311* versão *6.1.3* (o mais recente estável versão) e uma variedade de versões de pré-lançamento como *6.2.0-beta1*.
+Um pacote específico é sempre chamado usando seu identificador de pacote e um número de versão exato. Por exemplo, [Entity Framework](https://www.nuget.org/packages/EntityFramework/) em nuget.org tem vários pacotes específicos doze disponíveis, variando desde a versão *4.1.10311* para a versão *6.1.3* (o estável mais recente versão) e, como uma variedade de versões de pré-lançamento *6.2.0-beta1*.
 
-Ao criar um pacote, você pode atribuir um número de versão específico com um sufixo de texto opcional de pré-lançamento. Ao consumir pacotes, por outro lado, você pode especificar um número de versão exata ou um intervalo de versões aceitáveis.
+Ao criar um pacote, você pode atribuir um número de versão específico com um sufixo de pré-lançamento um texto opcional. Ao consumir pacotes, por outro lado, você pode especificar um número de versão exato ou um intervalo de versões aceitáveis.
 
 Neste tópico:
 
@@ -30,10 +29,10 @@ Neste tópico:
 
 Um número de versão específico está no formato *Major [-sufixo]*, onde os componentes têm os seguintes significados:
 
-- *Principais*: alterações recentes
-- *Secundária*: novos recursos, mas compatível com versões anteriores
-- *Patch*: correções de bugs compatíveis com versões anteriores somente
-- *-Sufixo* (opcional): um hífen seguido por uma cadeia de caracteres que indica uma versão de pré-lançamento (seguir o [convenção de controle de versão semântico ou 1.0 SemVer](http://semver.org/spec/v1.0.0.html)).
+- *Principais*: alterações significativas
+- *Pequenas*: novos recursos, mas compatível com versões anteriores
+- *Patch*: correções de bug compatíveis com versões anteriores só
+- *-Sufixo* (opcional): um hífen seguido por uma cadeia de caracteres que indica uma versão de pré-lançamento (seguir as [convenção de SemVer 1.0 ou de controle de versão semântico](http://semver.org/spec/v1.0.0.html)).
 
 **Exemplos:**
 
@@ -43,22 +42,22 @@ Um número de versão específico está no formato *Major [-sufixo]*, onde os co
     2.2.44-beta1
 
 > [!Important]
-> NuGet.org rejeita qualquer upload do pacote que não tem um número de versão exata. A versão deve ser especificada no `.nuspec` ou arquivo de projeto usado para criar o pacote.
+> NuGet.org rejeita qualquer upload do pacote que não tem um número de versão exato. A versão deve ser especificada no `.nuspec` ou arquivo de projeto usado para criar o pacote.
 
 ### <a name="pre-release-versions"></a>As versões de pré-lançamento
 
-Tecnicamente, os criadores de pacote podem usar qualquer cadeia de caracteres como um sufixo a para denotar uma versão de pré-lançamento, como NuGet trata qualquer versão tal como pré-lançamento e não faz com que nenhum outra interpretação. Ou seja, o NuGet exibe a versão completa da cadeia de caracteres em qualquer interface de usuário estiver envolvido, deixando qualquer interpretação do significado do sufixo para o consumidor.
+Tecnicamente falando, criadores de pacote podem usar qualquer cadeia de caracteres como um sufixo a para denotar uma versão de pré-lançamento, como o NuGet trata qualquer versão tal como versões de pré-lançamento e não faz com que nenhuma outra interpretação. Ou seja, exibe o NuGet a versão completa da cadeia de caracteres em qualquer interface do usuário estiver envolvido, deixando qualquer interpretação do significado do sufixo para o consumidor.
 
-Dito isso, os desenvolvedores geralmente seguem as convenções de nomenclatura reconhecidas:
+Dito isso, os desenvolvedores de pacote geralmente seguem as convenções de nomenclatura reconhecidas:
 
-- `-alpha`: Versão alfa, normalmente usado para o trabalho em andamento e experimentação.
+- `-alpha`: Versão alfa, normalmente usado para em andamento e experimentação.
 - `-beta`: versão beta, normalmente uma completa com recursos para a próxima versão planejada, mas pode conter erros conhecidos.
 - `-rc`: versão Release candidate, normalmente uma versão que é potencialmente a final (estável), a menos que surjam bugs significativos.
 
 > [!Note]
-> Oferece suporte a 4.3.0+ NuGet [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), que oferece suporte a números de versão de pré-lançamento com a notação de ponto, como em *1.0.1-build.23*. A notação de ponto não e compatível com as versões do NuGet anteriores à 4.3.0. Você pode usar um formulário como *1.0.1-build23*.
+> Dá suporte a NuGet 4.3.0 [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), que oferece suporte a números de versão de pré-lançamento com a notação de ponto, como em *1.0.1-build.23*. A notação de ponto não e compatível com as versões do NuGet anteriores à 4.3.0. Você pode usar um formulário como *1.0.1-build23*.
 
-Ao resolver referências de pacote e várias versões de pacote são diferentes apenas pelo sufixo, NuGet escolhe uma versão sem um sufixo primeiro, em seguida, aplica-se a prioridade para as versões em ordem alfabética inversa de pré-lançamento. Por exemplo, as versões a seguir serão escolhidas na ordem exata mostrado:
+Para resolver referências de pacote e várias versões de pacote diferem apenas pelo sufixo, NuGet escolhe uma versão sem um sufixo pela primeira vez, em seguida, aplica-se a precedência para versões de pré-lançamento em ordem alfabética inversa. Por exemplo, as versões a seguir serão escolhidas na ordem exata mostrada:
 
     1.0.1
     1.0.1-zzz
@@ -71,37 +70,37 @@ Ao resolver referências de pacote e várias versões de pacote são diferentes 
 
 ## <a name="semantic-versioning-200"></a>Controle de versão semântico 2.0.0
 
-Com o NuGet 4.3.0+ e Visual Studio 2017 versão 15,3 +, NuGet dá suporte a [o controle de versão semântico 2.0.0](http://semver.org/spec/v2.0.0.html).
+Com o NuGet 4.3.0 e Visual Studio 2017 versão 15.3 ou superior, o NuGet dá suporte a [controle de versão semântico 2.0.0](http://semver.org/spec/v2.0.0.html).
 
-Não há suporte para determinados semântica de v SemVer 2.0.0 em clientes mais antigos. NuGet considera uma versão do pacote a ser SemVer v 2.0.0 específico se qualquer uma das instruções a seguir for verdadeira:
+Não há suporte para determinadas semântica de SemVer v2.0.0 em clientes mais antigos. O NuGet considerará uma versão do pacote de SemVer v2.0.0 específico se qualquer uma das instruções a seguir for verdadeira:
 
-- O rótulo de pré-lançamento é separado por pontos, por exemplo, *1.0.0-alpha.1*
+- O rótulo de pré-lançamento é separado por ponto, por exemplo, *1.0.0-alpha.1*
 - A versão tem metadados de compilação, por exemplo, *1.0.0+githash*
 
-Para nuget.org, um pacote é definido como um pacote de v 2.0.0 SemVer se qualquer uma das instruções a seguir for verdadeira:
+Para nuget.org, um pacote é definido como um pacote de v2.0.0 SemVer se qualquer uma das instruções a seguir for verdadeira:
 
-- A versão do pacote é SemVer v 2.0.0 compatível, mas não SemVer v1.0.0 compatíveis, conforme definido acima.
-- Nenhum dos intervalos de versão de dependência do pacote tem uma versão mínima ou máxima é SemVer v 2.0.0 compatível, mas não SemVer v1.0.0 compatíveis, definidos acima. Por exemplo, *[1.0.0-alpha.1,)*.
+- A versão do pacote é SemVer v2.0.0 em conformidade, mas não SemVer v1.0.0 em conformidade, conforme definido acima.
+- Qualquer um dos intervalos de versão de dependência do pacote tem uma versão mínima ou máxima é SemVer v2.0.0 em conformidade, mas não SemVer v1.0.0 em conformidade, definido acima; Por exemplo, *[1.0.0-alpha.1,)*.
 
-Se você carregar um pacote de v 2.0.0 específico SemVer nuget.org, o pacote é invisível para clientes mais antigos e disponível para os seguintes clientes NuGet:
+Se você carregar um pacote do SemVer v2.0.0 específicas para o nuget.org, o pacote é invisível para os clientes mais antigos e está disponível para os seguintes clientes NuGet:
 
-- NuGet 4.3.0+
-- Visual Studio 2017 versão 15,3 +
+- O NuGet 4.3.0
+- Visual Studio 2017 versão 15.3 ou superior
 - Visual Studio 2015 com [v3.6.0 VSIX NuGet](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet
-  - dotnetcore.exe (2.0.0+ .NET SDK)
+  - dotnetcore.exe (2.0.0+ do SDK do .NET)
 
 Clientes de terceiros:
 
-- Cláusula JetBrains adicional
-- Paket versão 5.0 +
+- Rider da JetBrains
+- Paket versão 5.0 ou superior
 
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
 ## <a name="version-ranges-and-wildcards"></a>Curingas e intervalos de versão
 
-Ao fazer referência a dependências do pacote, NuGet suporta usando a notação de intervalo para especificar os intervalos de versão, resumidos da seguinte maneira:
+Ao fazer referência às dependências do pacote, o NuGet dá suporte a usando a notação de intervalo para especificar os intervalos de versão, resumidos da seguinte maneira:
 
 | Notation | Regra aplicada | Descrição |
 |----------|--------------|-------------|
@@ -112,17 +111,17 @@ Ao fazer referência a dependências do pacote, NuGet suporta usando a notação
 | (,1.0) | x < 1.0 | Versão máxima, exclusivo |
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Intervalo exato, inclusive |
 | (1.0,2.0) | 1.0 < x < 2.0 | Intervalo exato, exclusivo |
-| [1.0,2.0) | 1.0 ≤ x < 2.0 | Mista inclusivo mínima e exclusiva máximo da versão |
+| [1.0,2.0) | 1.0 ≤ x < 2.0 | Misto inclusivo mínimo e exclusivo versão máxima do |
 | (1.0)    | inválidos | inválidos |
 
-Ao usar o formato PackageReference, os NuGet também oferece suporte ao uso de uma notação de curinga, \*, para o principal, secundária, Patch e partes de sufixo de pré-lançamento do número. Não há suporte para caracteres curinga com o `packages.config` formato.
+Ao usar o formato PackageReference, o NuGet também suporta o uso de uma notação de curinga, \*, para Major, Minor, Patch e partes de sufixo de pré-lançamento do número. Não há suporte para caracteres curinga com o `packages.config` formato.
 
 > [!Note]
-> As versões de pré-lançamento não são incluídas durante a resolução de intervalos de versão. As versões de pré-lançamento *são* incluído ao usar um caractere curinga (\*). O intervalo de versão *[1.0,2.0]*, por exemplo, não inclua 2.0 beta, mas a notação de curinga _2.0-*_ does. Consulte [emitir 912](https://github.com/NuGet/Home/issues/912) para uma discussão mais detalhada em pré-lançamento curingas.
+> As versões de pré-lançamento não são incluídas durante a resolução de intervalos de versão. Versões de pré-lançamento *estão* incluídos ao usar um caractere curinga (\*). O intervalo de versão *[1.0,2.0]*, por exemplo, não incluem 2.0 beta, mas a notação de curinga _2.0-*_ faz. Ver [emitir 912](https://github.com/NuGet/Home/issues/912) para uma discussão mais detalhada sobre curingas de pré-lançamento.
 
 ### <a name="examples"></a>Exemplos
 
-Sempre especifique uma versão ou um intervalo de versão para as dependências do pacote em arquivos de projeto, `packages.config` arquivos, e `.nuspec` arquivos. Sem uma versão ou um intervalo de versão, o NuGet 2.8.x e escolhe anteriormente a versão mais recente do pacote disponíveis ao resolver uma dependência, enquanto o NuGet 3. x e posterior escolhe a versão mais antiga do pacote. Especificando uma versão ou intervalo evita este incerteza.
+Sempre especifique uma versão ou intervalo de versão para dependências do pacote em arquivos de projeto `packages.config` arquivos, e `.nuspec` arquivos. Sem uma versão ou intervalo de versão, o NuGet 2.8.x e escolhe anteriormente a versão mais recente do pacote disponíveis ao resolver uma dependência, enquanto o NuGet 3.x e posterior, escolhe a versão mais antiga do pacote. Especificando uma versão ou intervalo evita essa incerteza.
 
 #### <a name="references-in-project-files-packagereference"></a>Referências em arquivos de projeto (PackageReference)
 
@@ -150,9 +149,9 @@ Sempre especifique uma versão ou um intervalo de versão para as dependências 
 <PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
 ```
 
-**Referências em `packages.config`:**
+**Referências no `packages.config`:**
 
-Em `packages.config`, cada dependência é listada com um exata `version` atributo que é usado durante a restauração de pacotes. O `allowedVersions` atributo é usado somente durante as operações de atualização para restringir as versões aos quais o pacote pode ser atualizado.
+Na `packages.config`, cada dependência é listada com um exata `version` atributo que é usado ao restaurar os pacotes. O `allowedVersions` atributo é usado somente durante as operações de atualização para restringir as versões aos quais o pacote pode ser atualizado.
 
 ```xml
 <!-- Install/restore version 6.1.0, accept any version 6.1.0 and above on update. -->
@@ -181,9 +180,9 @@ Em `packages.config`, cada dependência é listada com um exata `version` atribu
 <package id="ExamplePackage" version="1.3.5" allowedVersions="[1.3.2,1.5)" />
 ```
 
-**Referências em `.nuspec` arquivos**
+**Referências no `.nuspec` arquivos**
 
-O `version` atributo em um `<dependency>` elemento descreve as versões de intervalo são aceitáveis em uma dependência.
+O `version` de atributo em um `<dependency>` elemento descreve as versões de intervalo são aceitáveis para uma dependência.
 
 ```xml
 <!-- Accepts any version 6.1 and above. -->
@@ -211,11 +210,11 @@ O `version` atributo em um `<dependency>` elemento descreve as versões de inter
 ## <a name="normalized-version-numbers"></a>Números de versão normalizado
 
 > [!Note]
-> Isso é uma alteração significativa para NuGet 3.4 e versões posteriores.
+> Isso é uma alteração significativa para o NuGet 3.4 e posterior.
 
-Ao obter pacotes de um repositório durante a instalação, reinstale ou restaurar as operações, o NuGet 3.4 + trata números de versão da seguinte maneira:
+Ao obter pacotes de um repositório durante a instalação, reinstalar ou restaurar as operações, o NuGet 3.4 ou superior trata números de versão da seguinte maneira:
 
-- Zeros à esquerda são removidos dos números de versão:
+- Zeros à esquerda são removidos de números de versão:
 
         1.00 is treated as 1.0
         1.01.1 is treated as 1.1.1
@@ -226,6 +225,6 @@ Ao obter pacotes de um repositório durante a instalação, reinstale ou restaur
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
 
-Essa normalização não afeta os números de versão dos pacotes em si; ele afeta somente como NuGet corresponde versões durante a resolução de dependências.
+Essa normalização não afeta os números de versão dos pacotes em si; ela afeta como o NuGet corresponde apenas versões ao resolver as dependências.
 
-No entanto, os repositórios de pacote do NuGet devem tratar esses valores da mesma maneira como o NuGet para evitar duplicação de versão do pacote. Portanto, um repositório que contém a versão *1.0* de um pacote não devem também hospedar versão *1.0.0* como um pacote diferente e separado.
+No entanto, os repositórios de pacote do NuGet devem tratar esses valores da mesma maneira como o NuGet para evitar a duplicação de versão do pacote. Portanto, um repositório que contém a versão *1.0* de um pacote não devem também hospedar versão *1.0.0* como um pacote separado e diferente.

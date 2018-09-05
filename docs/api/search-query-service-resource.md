@@ -1,22 +1,21 @@
 ---
-title: Pesquisa de API do NuGet
-description: O serviço de pesquisa permite que os clientes para consultar pacotes pela palavra-chave e os resultados do filtro em determinados campos de pacote.
+title: Pesquisa, a API do NuGet
+description: O serviço de pesquisa permite que os clientes para consultar pacotes pela palavra-chave e para filtrar os resultados em determinados campos do pacote.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 76600ee916305ee01ddfb675c83c184e980c5a42
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f04c6a62fc3b5056ad82930447b8ba46a8797fd2
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821077"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548085"
 ---
 # <a name="search"></a>Pesquisar
 
-É possível procurar pacotes disponíveis em uma origem de pacote usando a API V3. O recurso usado para pesquisar o `SearchQueryService` recurso encontrado na [índice de serviço](service-index.md).
+É possível pesquisar pacotes disponíveis em uma origem de pacote usando a API V3. É o recurso usado para pesquisar o `SearchQueryService` recurso encontrado na [índice de serviço](service-index.md).
 
 ## <a name="versioning"></a>Controle de versão
 
@@ -30,15 +29,15 @@ SearchQueryService/3.0.0-rc   | Alias de `SearchQueryService`
 
 ## <a name="base-url"></a>URL Base
 
-A URL base para a seguinte API é o valor da `@id` propriedade associada a um recurso mencionados acima `@type` valores. No documento a seguir, a URL base do espaço reservado `{@id}` será usado.
+A URL base para a seguinte API é o valor da `@id` propriedade associada a um do recurso mencionados anteriormente `@type` valores. O seguinte documento, o espaço reservado de URL de base `{@id}` será usado.
 
 ## <a name="http-methods"></a>Métodos HTTP
 
-Todas as URLs encontradas no suporte a recurso de registro os métodos HTTP `GET` e `HEAD`.
+Todas as URLs encontradas no suporte a recursos de registro os métodos HTTP `GET` e `HEAD`.
 
-## <a name="search-for-packages"></a>Procurar pacotes
+## <a name="search-for-packages"></a>Pesquisar pacotes
 
-A API de pesquisa permite que um cliente consulta para uma página de pacotes de correspondência de uma consulta de pesquisa especificado. A interpretação da consulta de pesquisa (por exemplo, a geração de tokens dos termos de pesquisa) é determinada pela implementação do servidor, mas a expectativa geral é que a consulta de pesquisa é usada para correspondência de marcas, títulos, descrições e IDs de pacote. Também podem ser considerados outros campos de metadados do pacote.
+A API de pesquisa permite que um cliente consulta para uma página de pacotes que correspondem a uma consulta de pesquisa especificado. A interpretação da consulta de pesquisa (por exemplo, a geração de tokens de termos de pesquisa) é determinada pela implementação do servidor, mas a expectativa geral é que a consulta de pesquisa é usada para correspondência de IDs de pacote, títulos, descrições e marcas. Também podem ser considerados outros campos de metadados do pacote.
 
 Um pacote não listado nunca deve aparecer nos resultados da pesquisa.
 
@@ -48,38 +47,38 @@ Um pacote não listado nunca deve aparecer nos resultados da pesquisa.
 
 Nome        | No     | Tipo    | Necessária | Observações
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | cadeia de caracteres  | no       | Termos de pesquisa usado para pacotes de filtro
-skip        | URL    | inteiro | no       | O número de resultados a ignorar, de paginação
-Take        | URL    | inteiro | no       | O número de resultados para retornar para a paginação
-versão de pré-lançamento  | URL    | boolean | no       | `true` ou `false` determinar a inclusão [pacotes de pré-lançamento](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | cadeia de caracteres  | no       | Uma cadeia de caracteres de versão SemVer 1.0.0 
+q           | URL    | cadeia de caracteres  | no       | Termos de pesquisa usada para pacotes de filtro
+skip        | URL    | inteiro | no       | O número de resultados a ignorar, para paginação
+Take        | URL    | inteiro | no       | O número de resultados a serem retornados para a paginação
+versão de pré-lançamento  | URL    | boolean | no       | `true` ou `false` determinar se é necessário incluir [pacotes de pré-lançamento](../create-packages/prerelease-packages.md)
+semVerLevel | URL    | cadeia de caracteres  | no       | Uma cadeia de caracteres de versão 1.0.0 de SemVer 
 
-A consulta de pesquisa `q` é analisado em uma maneira que é definida pela implementação do servidor. NuGet.org oferece suporte à filtragem básica em um [vários campos](../consume-packages/finding-and-choosing-packages.md#search-syntax). Se nenhum `q` for fornecido, todos os pacotes devem ser retornados, dentro dos limites impostos pela skip e take. Isso permite que o guia de "Procurar" na experiência do NuGet Visual Studio.
+A consulta de pesquisa `q` é analisado de uma maneira que é definida pela implementação do servidor. NuGet.org dá suporte à filtragem básica em um [variedade de campos](../consume-packages/finding-and-choosing-packages.md#search-syntax). Se nenhum `q` for fornecido, todos os pacotes devem ser devolvidos, dentro dos limites impostos pela skip e take. Isso permite que a guia "Procurar" na experiência do NuGet Visual Studio.
 
 O `skip` parâmetro padrão é 0.
 
 O `take` parâmetro deve ser um inteiro maior que zero. A implementação do servidor pode impor um valor máximo.
 
-Se `prerelease` não for fornecido, os pacotes de pré-lançamento serão excluídos.
+Se `prerelease` não for fornecido, pacotes de pré-lançamento são excluídos.
 
-O `semVerLevel` parâmetro de consulta é usado para aceitar [SemVer 2.0.0 pacotes](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages).
-Se esse parâmetro de consulta é excluído, apenas pacotes com versões compatíveis do SemVer 1.0.0 serão retornados (com o [padrão controle de versão do NuGet](../reference/package-versioning.md) limitações, como cadeias de caracteres de versão com 4 partes de inteiro).
-Se `semVerLevel=2.0.0` for fornecido, SemVer 1.0.0 e pacotes compatíveis SemVer 2.0.0 serão retornados. Consulte o [suporte SemVer 2.0.0 nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) para obter mais informações.
+O `semVerLevel` parâmetro de consulta é usado para participar [SemVer 2.0.0 pacotes](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages).
+Se esse parâmetro de consulta é excluído, apenas pacotes com as versões compatíveis do SemVer 1.0.0 serão retornados (com o [padrão controle de versão do NuGet](../reference/package-versioning.md) advertências, como cadeias de caracteres de versão com partes de inteiro de 4).
+Se `semVerLevel=2.0.0` for fornecido, SemVer 1.0.0 e pacotes de SemVer 2.0.0 compatíveis serão retornados. Consulte a [SemVer 2.0.0 suporte para nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) para obter mais informações.
 
 ### <a name="response"></a>Resposta
 
-A resposta é documento JSON que contém até `take` resultados da pesquisa. Resultados da pesquisa são agrupados por ID do pacote.
+A resposta é o documento JSON que contém até `take` resultados da pesquisa. Os resultados da pesquisa são agrupados por ID do pacote.
 
-A raiz do objeto JSON tem as seguintes propriedades:
+O objeto JSON de raiz tem as seguintes propriedades:
 
 Nome      | Tipo             | Necessária | Observações
 --------- | ---------------- | -------- | -----
 totalHits | inteiro          | sim      | O número total de correspondências, desconsiderando `skip` e `take`
-Dados      | Matriz de objetos | sim      | Os resultados da pesquisa correspondidos com a solicitação
+Dados      | matriz de objetos | sim      | Os resultados da pesquisa correspondidos pela solicitação
 
-### <a name="search-result"></a>resultado da pesquisa
+### <a name="search-result"></a>Resultado da pesquisa
 
-Cada item de `data` matriz é um objeto JSON composto de um grupo de versões do pacote de compartilhar a mesma ID de pacote.
+Cada item no `data` matriz é um objeto JSON composto de um grupo de versões do pacote compartilhando a mesma ID de pacote.
 O objeto tem as seguintes propriedades:
 
 Nome           | Tipo                       | Necessária | Observações
@@ -87,30 +86,30 @@ Nome           | Tipo                       | Necessária | Observações
 id             | cadeia de caracteres                     | sim      | A ID do pacote correspondente
 version        | cadeia de caracteres                     | sim      | A cadeia de caracteres de versão SemVer 2.0.0 completa do pacote (pode conter metadados de compilação)
 descrição    | cadeia de caracteres                     | no       | 
-versões       | Matriz de objetos           | sim      | Todas as versões da correspondência de pacote a `prerelease` parâmetro
+versões       | matriz de objetos           | sim      | Todas as versões do pacote correspondente a `prerelease` parâmetro
 authors        | cadeia de caracteres ou matriz de cadeias de caracteres | no       | 
 iconUrl        | cadeia de caracteres                     | no       | 
 licenseUrl     | cadeia de caracteres                     | no       | 
 owners         | cadeia de caracteres ou matriz de cadeias de caracteres | no       | 
 projectUrl     | cadeia de caracteres                     | no       | 
-registro   | cadeia de caracteres                     | no       | A URL absoluta associados [índice de registro](registration-base-url-resource.md#registration-index)
+registro   | cadeia de caracteres                     | no       | A URL absoluta associados [índice do registro](registration-base-url-resource.md#registration-index)
 resumo        | cadeia de caracteres                     | no       | 
 marcações           | cadeia de caracteres ou matriz de cadeias de caracteres | no       | 
 título          | cadeia de caracteres                     | no       | 
-totalDownloads | inteiro                    | no       | Esse valor pode ser inferido pela soma de downloads de `versions` matriz
-Verificado       | boolean                    | no       | Um valor de JSON booleano que indica se o pacote é [verificado](../reference/id-prefix-reservation.md)
+totalDownloads | inteiro                    | no       | Esse valor pode ser inferido pela soma de downloads no `versions` matriz
+Verificado       | boolean                    | no       | Um valor de JSON booliano que indica se o pacote é [verificado](../reference/id-prefix-reservation.md)
 
-Em nuget.org, um pacote verificado é uma que tenha uma ID do pacote correspondente a um prefixo de ID reservado e pertencentes a um dos proprietários do namespace reservado. Para obter mais informações, consulte o [documentação sobre reserva de prefixo de ID](../reference/id-prefix-reservation.md).
+Em nuget.org, um pacote verificado é aquele que tem uma ID de pacote, um prefixo reservado da ID de correspondência e pertencentes a um dos proprietários do namespace reservado. Para obter mais informações, consulte o [documentação sobre a reserva de prefixo de ID](../reference/id-prefix-reservation.md).
 
-Os metadados contidos no objeto de resultado de pesquisa é obtido a versão mais recente do pacote. Cada item de `versions` matriz é um objeto JSON com as seguintes propriedades:
+Os metadados contidos no objeto de resultado de pesquisa é obtido a versão mais recente do pacote. Cada item no `versions` matriz é um objeto JSON com as seguintes propriedades:
 
 Nome      | Tipo    | Necessária | Observações
 --------- | ------- | -------- | -----
-@id       | cadeia de caracteres  | sim      | A URL absoluta associados [folha de registro](registration-base-url-resource.md#registration-leaf)
+@id       | cadeia de caracteres  | sim      | A URL absoluta associados [folha registro](registration-base-url-resource.md#registration-leaf)
 version   | cadeia de caracteres  | sim      | A cadeia de caracteres de versão SemVer 2.0.0 completa do pacote (pode conter metadados de compilação)
 Downloads | inteiro | sim      | O número de downloads para esta versão do pacote específico
 
-### <a name="sample-request"></a>Solicitação de amostra
+### <a name="sample-request"></a>Exemplo de solicitação
 
     GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
 

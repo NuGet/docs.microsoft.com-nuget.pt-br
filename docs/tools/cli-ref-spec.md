@@ -3,15 +3,14 @@ title: Comando spec da CLI do NuGet
 description: Referência do comando spec nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: cd1dc66676898e2be1c64698886a5ba29a07f88f
-ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
+ms.openlocfilehash: 68b165751ab6794d2a01d7e466619b1ce4d7ed72
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42794145"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546443"
 ---
 # <a name="spec-command-nuget-cli"></a>comando spec (CLI do NuGet)
 

@@ -1,23 +1,22 @@
 ---
-title: Comando do NuGet CLI setapikey
-description: Referência para o comando de setapikey nuget.exe
+title: Comando do CLI do NuGet setapikey
+description: Referência do comando de setapikey nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 66fc62074b4e7c39ff2ed6b515eee9f821530536
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b00e8b1f7a6fda9c1a0c079069fa8ee08a45b419
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817678"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549214"
 ---
-# <a name="setapikey-command-nuget-cli"></a>comando setapikey (NuGet CLI)
+# <a name="setapikey-command-nuget-cli"></a>setapikey comando (CLI do NuGet)
 
-**Aplica-se a:** consumo de pacote, a publicação &bullet; **versões com suporte:** todos
+**Aplica-se a:** consumo de pacote, publicando &bullet; **versões com suporte:** todos os
 
-Salva uma chave de API para uma URL de servidor específico em `NuGet.Config` para que ele não precisa ser inserido para os comandos subsequentes.
+Salva uma chave de API para uma URL de servidor específico em `NuGet.Config` para que ele não precisa ser inserido para comandos subsequentes.
 
 ## <a name="usage"></a>Uso
 
@@ -25,16 +24,16 @@ Salva uma chave de API para uma URL de servidor específico em `NuGet.Config` pa
 nuget setapikey <key> -Source <url> [options]
 ```
 
-onde `<source>` identifica o servidor e `<key>` é a chave ou senha para salvar. Se `<source>` for omitido, nuget.org é assumido.
+em que `<source>` identifica o servidor e `<key>` é a chave ou senha para salvar. Se `<source>` for omitido, o nuget.org é assumido.
 
 ## <a name="options"></a>Opções
 
 | Opção | Descrição |
 | --- | --- |
 | ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
-| ForceEnglishOutput | *(3.5 +)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
+| ForceEnglishOutput | *(3.5 ou superior)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
-| NonInteractive | Suprime avisos para a entrada do usuário ou confirmações. |
+| NonInteractive | Suprime a solicitações de entrada do usuário ou confirmações. |
 | Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)

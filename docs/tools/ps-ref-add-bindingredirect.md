@@ -1,25 +1,24 @@
 ---
-title: Referência do PowerShell do NuGet BindingRedirect adicionar
-description: Referência de comando do PowerShell Add-BindingRedirect no Console do Gerenciador de pacotes do NuGet no Visual Studio.
+title: Referência do PowerShell BindingRedirect adicionar NuGet
+description: Referência de comando do PowerShell Add-BindingRedirect no Console do Gerenciador de pacotes NuGet no Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f3addd95b64d78eac201deeb2c64915ea935cd71
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: dec7db04c5cf239863b9c00e9f5bc0dde42c7e47
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817617"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551651"
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (Console do Gerenciador de Pacotes no Visual Studio)
 
-*Disponível apenas dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
+*Disponível somente dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
 
-Examina todos os assemblies no caminho de saída para um projeto e adiciona redirecionamentos de associação para o arquivo de configuração do aplicativo ou da web, quando necessário. Esse comando é executado automaticamente quando a instalação de um pacote.
+Examina todos os assemblies no caminho de saída para um projeto e adiciona redirecionamentos de ligação ao arquivo de configuração da web ou aplicativo, onde for necessário. Esse comando é executado automaticamente ao instalar um pacote.
 
-Para obter detalhes sobre associação redirecionamentos e por que eles são usados, consulte [Redirecting Assembly Versions](/dotnet/framework/configure-apps/redirect-assembly-versions) na documentação do .NET.
+Para obter detalhes sobre associação de redirecionamentos e por que eles são usados, consulte [Redirecting Assembly Versions](/dotnet/framework/configure-apps/redirect-assembly-versions) na documentação do .NET.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -31,13 +30,13 @@ Add-BindingRedirect [-ProjectName] <string> [<CommonParameters>]
 
 | Parâmetro | Descrição |
 | --- | --- |
-| ProjectName | (Obrigatório) O projeto ao qual adicionar redirecionamentos de associação. A opção - ProjectName em si é opcional. |
+| ProjectName | (Obrigatório) O projeto ao qual adicionar redirecionamentos de associação. O comutador - ProjectName em si é opcional. |
 
-Nenhum desses parâmetros aceitar caracteres curinga ou de entrada do pipeline.
+Nenhum desses parâmetros aceitam caracteres curinga ou de entrada do pipeline.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-`Add-BindingRedirect` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, WarningAction, detalhado e WarningVariable.
+`Add-BindingRedirect` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 

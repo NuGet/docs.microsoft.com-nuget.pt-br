@@ -3,15 +3,14 @@ title: Referência do arquivo NuGet. config
 description: Referência do arquivo NuGet.Config incluindo as seções config, bindingRedirects, packageRestore, solution e packageSource.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 3d6741b2d724b967e76ba65547e84adcd461a521
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818393"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546909"
 ---
 # <a name="nugetconfig-reference"></a>referência do NuGet. config
 
@@ -43,12 +42,12 @@ Neste tópico:
 
 Contém diversas definições de configurações, que podem ser definidas usando o comando [`nuget config`](../tools/cli-ref-config.md).
 
-`dependencyVersion` e `repositoryPath` se aplicam apenas a projetos usando `packages.config`. `globalPackagesFolder` aplica-se somente a projetos usando o formato de PackageReference.
+`dependencyVersion` e `repositoryPath` se aplicam somente a projetos usando `packages.config`. `globalPackagesFolder` aplica-se somente a projetos usando o formato PackageReference.
 
 | Chave | Valor |
 | --- | --- |
 | dependencyVersion (somente `packages.config`) | O valor `DependencyVersion` padrão para a instalação, restauração e atualização do pacote, quando a opção `-DependencyVersion` não tiver sido especificada diretamente. Esse valor também é usado pela interface do usuário do Gerenciador de Pacotes do NuGet. Os valores são `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (projetos usando PackageReference apenas) | O local da pasta de pacotes global padrão. O padrão é `%userprofile%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
+| globalPackagesFolder (projetos que usam PackageReference apenas) | O local da pasta de pacotes global padrão. O padrão é `%userprofile%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
 | repositoryPath (somente `packages.config`) | O local no qual instalar os pacotes do NuGet em vez da pasta `$(Solutiondir)/packages` padrão. Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
 | defaultPushSource | Identifica a URL ou o caminho da origem do pacote que deve ser usada como o padrão se nenhuma outra origem de pacote for encontrada para uma operação. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Configurações de proxy a serem usadas ao se conectar a origens de pacote; `http_proxy` deve estar no formato `http://<username>:<password>@<domain>`. As senhas são criptografadas e não podem ser adicionadas manualmente. Para `no_proxy`, o valor é uma lista separada por vírgulas de domínios a ignorar no servidor proxy. Como alternativa, você pode usar as variáveis de ambiente http_proxy e no_proxy para esses valores. Para ver detalhes adicionais, consulte [Configurações de proxy do NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
@@ -124,7 +123,7 @@ Observe que a URL de origem para nuget.org é `https://api.nuget.org/v3/index.js
 
 ### <a name="packagesources"></a>packageSources
 
-Lista todas as origens de pacotes conhecidas. A ordem é ignorada durante operações de restauração e com qualquer projeto usando o formato de PackageReference. NuGet respeita a ordem das fontes para instalar e atualizar as operações com projetos usando `packages.config`.
+Lista todas as origens de pacotes conhecidas. A ordem é ignorada durante operações de restauração e com qualquer projeto usando o formato PackageReference. NuGet respeita a ordem das fontes para instalar e atualizar operações com projetos usando `packages.config`.
 
 | Chave | Valor |
 | --- | --- |

@@ -1,23 +1,22 @@
 ---
 title: Referência do PowerShell Get-pacote do NuGet
-description: Referência de comando do PowerShell Get-Package no Console do Gerenciador de pacotes do NuGet no Visual Studio.
+description: Referência de comando do PowerShell Get-Package no Console do Gerenciador de pacotes NuGet no Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f4b71fc44e44dcbd5d123a0e2fed63adb79964b5
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: a28b29614dfe5abdeb24438b3451d96634a120db
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818497"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551436"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Console do Gerenciador de Pacotes no Visual Studio)
 
 *Este tópico descreve o comando dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows. Para o comando do PowerShell Get-Package genérico, consulte o [referência do PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
-Recupera a lista de pacotes instalados no repositório local, lista de pacotes disponíveis a partir de uma origem de pacote quando usado com a opção - ListAvailable ou lista de atualizações disponíveis quando usado com a opção-Update.
+Recupera a lista de pacotes instalados no repositório local, lista de pacotes disponíveis a partir de uma origem de pacote quando usado com a opção - ListAvailable ou lista de atualizações disponíveis quando usado com a opção - opção de atualização.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -33,22 +32,22 @@ Sem parâmetros, `Get-Package` exibe a lista de pacotes instalados no projeto pa
 
 | Parâmetro | Descrição |
 | --- | --- |
-| Origem | O caminho de URL ou pasta para o pacote. Caminhos de pasta local podem ser absoluto ou relativo para a pasta atual. Se omitido, `Get-Package` procura a origem de pacote selecionada atualmente. Quando usado com - ListAvailable, o padrão é nuget.org. |
-| ListAvailable | Lista de pacotes disponíveis a partir de uma origem do pacote, padronizando para nuget.org. Mostra um padrão de 50 pacotes, a menos que - PageSize e/ou - primeiro é especificado. |
-| Atualizações | Lista os pacotes que tenham uma atualização disponível da origem do pacote. |
+| Origem | O caminho de URL ou pasta para o pacote. Caminhos de pasta local podem ser absoluto ou relativo à pasta atual. Se omitido, `Get-Package` procura a origem do pacote selecionado no momento. Quando usado com - ListAvailable, assume como padrão para o nuget.org. |
+| ListAvailable | Lista os pacotes disponíveis a partir de uma origem de pacote, padronizando para nuget.org. Mostra um padrão de 50 pacotes, a menos que - PageSize e/ou - primeiro é especificado. |
+| Atualizações | Lista os pacotes que têm uma atualização disponível da origem do pacote. |
 | ProjectName | O projeto do qual obter os pacotes instalados. Se omitido, retorna instalados projetos da solução inteira. |
-| Filtro | Uma cadeia de caracteres de filtro usada para restringir a lista de pacotes por aplicá-la para a ID do pacote, descrição e marcas. |
-| Primeiro | O número de pacotes a serem retornados desde o início da lista. Se não for especificado, padrão é 50. |
+| Filtro | Uma cadeia de caracteres de filtro usada para restringir a lista de pacotes aplicando-o para a ID do pacote, descrição e marcas. |
+| Primeiro | O número de pacotes para retornar do início da lista. Se não for especificado, padrão é 50. |
 | Skip | Omite o primeiro &lt;int&gt; pacotes na lista exibida.  |
-| Todasas versões | Exibe todas as versões disponíveis de cada pacote em vez de apenas a versão mais recente. |
+| AllVersions | Exibe todas as versões disponíveis de cada pacote em vez de apenas a versão mais recente. |
 | IncludePrerelease | Inclui pacotes pré-lançados nos resultados. |
-| PageSize | *(3.0 +)*  Quando usado com - ListAvailable (obrigatório), o número de pacotes para a lista antes de fazer uma solicitação para continuar. |
+| PageSize | *(3.0 ou superior)*  Quando usado com - ListAvailable (obrigatório), o número de pacotes para a lista antes de entregar um prompt para continuar. |
 
-Nenhum desses parâmetros aceitar caracteres curinga ou de entrada do pipeline.
+Nenhum desses parâmetros aceitam caracteres curinga ou de entrada do pipeline.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-`Get-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, WarningAction, detalhado e WarningVariable.
+`Get-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 

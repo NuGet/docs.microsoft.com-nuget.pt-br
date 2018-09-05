@@ -3,15 +3,14 @@ title: Empacotamento e restauração do NuGet como destinos do MSBuild
 description: O pack e restore do NuGet podem funcionar diretamente como destinos do MSBuild com o NuGet 4.0 e superior.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0e7e0952519afdcb4b50f31d33cce2a92e3579b4
-ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
+ms.openlocfilehash: 07296ce5a9ba85d68eca5f4915d6efea00dc8980
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069694"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548866"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -44,7 +43,7 @@ A tabela abaixo descreve as propriedades do MSBuild que podem ser adicionadas a 
 
 Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatíveis com o MSBuild.
 
-| Valor de atributo/NuSpec | Propriedade do MSBuild | Padrão | Notas |
+| Valor de atributo/NuSpec | Propriedade do MSBuild | Padrão | Observações |
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | $(AssemblyName) do MSBuild |
 | Versão | PackageVersion | Versão | Isso é compatível com semver, por exemplo “1.0.0”, “1.0.0-beta” ou “1.0.0-beta-00345” |

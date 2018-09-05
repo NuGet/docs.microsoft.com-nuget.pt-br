@@ -1,21 +1,20 @@
 ---
-title: Referência do pacote de atualização do NuGet PowerShell
-description: Referência de comando do PowerShell do pacote de atualização no Console do Gerenciador de pacotes do NuGet no Visual Studio.
+title: Referência de pacote de atualização do NuGet do PowerShell
+description: Referência de comando do PowerShell do pacote de atualização no Console do Gerenciador de pacotes NuGet no Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: aa039f3ffcc0a7323178dae846733559c0f689b5
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: d47e1978ab7d827e0b8b97cd4e7237019185b50f
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817093"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546070"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Console do Gerenciador de Pacotes no Visual Studio)
 
-*Disponível apenas dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
+*Disponível somente dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
 
 Atualiza um pacote e suas dependências ou todos os pacotes em um projeto, para uma versão mais recente.
 
@@ -27,7 +26,7 @@ Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Ve
     [-DependencyVersion] [-ToHighestPatch] [-ToHighestMinor] [-WhatIf] [<CommonParameters>]
 ```
 
-No NuGet 2.8 + `Update-Package` pode ser usado para fazer o downgrade de um pacote existente em seu projeto. Por exemplo, se você tiver 5.1.0-rc1 Microsoft.AspNet.MVC instalado, o comando a seguir seria o downgrade dele para 5.0.0:
+No NuGet 2.8 ou superior, `Update-Package` pode ser usado para fazer o downgrade de um pacote existente em seu projeto. Por exemplo, se você tiver 5.1.0-rc1 ASPNET instalado, o comando a seguir seria fazer o downgrade para 5.0.0:
 
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -37,25 +36,25 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 |  Parâmetro | Descrição |
 | --- | --- |
-| Id | O identificador do pacote para atualizar. Se omitido, todos os pacotes de atualizações. -Id switch é opcional. |
-| IgnoreDependencies | Ignora a dependências do pacote de atualização. |
+| Id | O identificador do pacote a atualizar. Se omitido, todos os pacotes de atualizações. -Id do comutador em si é opcional. |
+| IgnoreDependencies | Ignora atualizando dependências do pacote. |
 | ProjectName | O nome do projeto que contém os pacotes para atualizar, padronizando para todos os projetos. |
-| Versão | A versão a ser usado para a atualização, o padrão para a versão mais recente. No NuGet 3.0 +, o valor de versão deve ser um dos *menor, mais alta, HighestMinor*, ou *HighestPatch* (equivalente a - Safe). |
-| Safe | Restringe as atualizações para versões somente com a mesma versão principal e secundária do pacote instalado atualmente. |
-| Origem | O caminho de URL ou pasta para a origem do pacote a ser pesquisado. Caminhos de pasta local podem ser absoluto ou relativo para a pasta atual. Se omitido, `Update-Package` procura a origem de pacote selecionada atualmente. |
+| Versão | A versão a ser usado para a atualização, padronizando para a versão mais recente. No NuGet 3.0 ou superior, o valor de versão deve ser um dos *menor, mais alto, HighestMinor*, ou *HighestPatch* (equivalente ao - Safe). |
+| Safe | Restringe atualizações para versões somente com a mesma versão principal e secundária do pacote atualmente instalado. |
+| Origem | O caminho de URL ou pasta para a origem do pacote a pesquisar. Caminhos de pasta local podem ser absoluto ou relativo à pasta atual. Se omitido, `Update-Package` procura a origem do pacote selecionado no momento. |
 | IncludePrerelease | Inclui pacotes de pré-lançamento de atualizações. |
-| Reinstalar | Pacotes de Resintalls usando as versões atualmente instaladas. Confira [Reinstalando e atualizando pacotes](../consume-packages/reinstalling-and-updating-packages.md). |
-| FileConflictAction | A ação a ser tomada quando for solicitado a substituir ou ignorar os arquivos existentes, referenciados pelo projeto. Os valores possíveis são *substituir, ignorar, None, OverwriteAll*, e *IgnoreAll* (3.0 +). |
-| DependencyVersion | A versão dos pacotes de dependência a usar, que pode ser um dos seguintes:<br/><ul><li>*Menor* (padrão): a versão mais antiga</li><li>*HighestPatch*: a versão com o patch mais baixo principal, secundária menor, mais alto</li><li>*HighestMinor*: a versão com o menor principais, mais alto patch menor, mais alto</li><li>*Mais alto* (padrão para o pacote de atualização sem parâmetros): a versão mais recente</li></ul>Você pode definir o valor padrão usando o [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) definindo no `Nuget.Config` arquivo. |
-| ToHighestPatch | Restringe as atualizações para somente versões com a mesma versão secundária do pacote instalado atualmente. |
-| ToHighestMinor | Restringe as atualizações para somente versões com a mesma versão principal do pacote instalado atualmente. |
-| WhatIf | Mostra o que aconteceria quando a execução do comando sem realmente executar a atualização. |
+| Reinstalar | Pacotes de Resintalls usando suas versões atualmente instaladas. Confira [Reinstalando e atualizando pacotes](../consume-packages/reinstalling-and-updating-packages.md). |
+| FileConflictAction | A ação a ser tomada quando for solicitado a substituir ou ignorar os arquivos existentes, referenciados pelo projeto. Os valores possíveis são *substituir, ignorar, None, OverwriteAll*, e *IgnoreAll* (3.0 ou superior). |
+| DependencyVersion | A versão dos pacotes de dependência a ser usado, que pode ser um dos seguintes:<br/><ul><li>*Mais baixo* (padrão): a versão mais antiga</li><li>*HighestPatch*: a versão com o patch mais baixa principal, secundária menor, mais alto</li><li>*HighestMinor*: a versão com menor principais, o patch mais alto de pequena, mais alto</li><li>*Mais alto* (padrão para o pacote de atualização sem parâmetros): a versão mais recente</li></ul>Você pode definir o valor padrão usando o [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) definindo no `Nuget.Config` arquivo. |
+| ToHighestPatch | Restringe atualizações para apenas as versões com a mesma versão secundária do pacote atualmente instalado. |
+| ToHighestMinor | Restringe atualizações para apenas as versões com a mesma versão principal que o pacote atualmente instalado. |
+| WhatIf | Mostra o que aconteceria ao executar o comando sem realmente executar a atualização. |
 
-Nenhum desses parâmetros aceitar caracteres curinga ou de entrada do pipeline.
+Nenhum desses parâmetros aceitam caracteres curinga ou de entrada do pipeline.
 
 ### <a name="common-parameters"></a>Parâmetros comuns
 
-`Update-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, WarningAction, detalhado e WarningVariable.
+`Update-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
 
 ### <a name="examples"></a>Exemplos
 
