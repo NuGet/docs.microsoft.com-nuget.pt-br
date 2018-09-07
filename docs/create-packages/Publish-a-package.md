@@ -3,16 +3,15 @@ title: Como publicar um pacote do NuGet
 description: Instruções detalhadas sobre como publicar um pacote do NuGet no nuget.org ou feeds privados e como gerenciar a propriedade de pacote no nuget.org.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: eb45ac1574efc79873d2d372f122a3d756e90ee5
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: bd36ae311da1ec824726c5d73670b1232a3f89e0
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963110"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549580"
 ---
 # <a name="publishing-packages"></a>Publicando pacotes
 

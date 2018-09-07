@@ -3,15 +3,14 @@ title: Como gerenciar as pastas de pacotes globais, de cache e temporárias no N
 description: Como gerenciar a pasta de instalação de pacote global, o cache de pacote e as pastas temporárias que existem em um computador, usados durante a instalação, restauração e atualização de pacotes.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 545e658d26b557f27d6534bf677f467e65a315b4
-ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
+ms.openlocfilehash: c547ae1d46079d040d7c3aa4c7678e70cd199dce
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42793612"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548007"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Como gerenciar as pastas de pacotes globais, de cache e temporárias
 

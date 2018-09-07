@@ -3,16 +3,15 @@ title: Consulta para todos os pacotes publicados em nuget.org
 description: Usando a API do NuGet, você pode consultar todos os pacotes publicados em nuget.org e manter-se atualizado com o passar do tempo.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 4190cfb500127f117ea1067f0679e5c248bffb3d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821363"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551072"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Consulta para todos os pacotes publicados em nuget.org
 

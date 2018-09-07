@@ -3,15 +3,14 @@ title: O que é o NuGet e o que ele faz?
 description: Uma introdução abrangente sobre o que o NuGet é e o que ele faz
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: b8929baa9022b7c40acbeb8a4f868fa5532ec13b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0b7105ea5d183d139c8bac915378924ba9c0874a
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818354"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548813"
 ---
 # <a name="an-introduction-to-nuget"></a>Uma introdução ao NuGet
 

@@ -3,15 +3,14 @@ title: Visão geral e fluxo de trabalho do uso de pacotes do NuGet
 description: Uma visão geral do processo de consumir pacotes do NuGet em um projeto, com links para outras partes específicas do processo.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1c909a38fc48a7da7dd3bad25f34e0837d8b37bd
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: a5807a6895a76a7d6660d218b29e1d3a2802ca28
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818602"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545042"
 ---
 # <a name="package-consumption-workflow"></a>Fluxo de trabalho de consumo do pacote
 

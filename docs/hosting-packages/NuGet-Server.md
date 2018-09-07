@@ -3,15 +3,14 @@ title: Usando NuGet.Server para hospedar feeds do NuGet
 description: Como criar e hospedar um feed de pacote do NuGet em qualquer servidor que executa o IIS usando NuGet.Server, tornando os pacotes disponíveis por meio de HTTP e OData.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: b1ef1764b28631c3032ac23a250dedece7803ae6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e99d42744ec860976ae098be94e747ec4bc9a7c6
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817961"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551950"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
