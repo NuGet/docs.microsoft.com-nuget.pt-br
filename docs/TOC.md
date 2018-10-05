@@ -130,7 +130,7 @@
 ### [Aviso do NuGet NU3023](reference/errors-and-warnings/NU3023.md)
 ### [Aviso do NuGet NU3025](reference/errors-and-warnings/NU3025.md)
 ### [Aviso do NuGet NU3027](reference/errors-and-warnings/NU3027.md)
-### [Erro do NuGet NU3028](reference/errors-and-warnings/NU3028.md)
+### [Aviso do NuGet NU3028](reference/errors-and-warnings/NU3028.md)
 ### [Erro do NuGet NU5000](reference/errors-and-warnings/NU5000.md)
 ### [Erro do NuGet NU5001](reference/errors-and-warnings/NU5001.md)
 ### [Erro do NuGet NU5002](reference/errors-and-warnings/NU5002.md)
@@ -222,6 +222,7 @@
 ## [Exclusão de pacotes](policies/deleting-packages.md)
 # Notas de Versão
 ## [Problemas conhecidos](release-notes/known-issues.md)
+## [NuGet 4.8 RTM](release-notes/NuGet-4.8-RTM.md)
 ## [NuGet 4.7 RTM](release-notes/NuGet-4.7-RTM.md)
 ## [NuGet 4.6 RTM](release-notes/NuGet-4.6-RTM.md)
 ## [NuGet 4.5 RTM](release-notes/NuGet-4.5-RTM.md)
