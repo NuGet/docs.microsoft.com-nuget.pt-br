@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 0711f3ee00b4a387d676ca43c98a9467effed90a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546584"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50980996"
 ---
 # <a name="package-id-prefix-reservation"></a>Reserva de prefixo de ID de pacote
 
@@ -65,7 +65,7 @@ Quando um pacote é proveniente de um prefixo reservado, você verá o abaixo de
 
 1. Examine a aceitação [critérios para a reserva de ID de prefixo](#id-prefix-reservation-criteria).
 
-2. Determinar os namespaces que você deseja reservar, além de quaisquer [cenários de reserva de prefixo avançados](#advanced-prefix-reservation-scenarios) talvez seja necessária.
+2. Determinar os prefixos que você deseja reservar, além de quaisquer [cenários de reserva de prefixo avançados](#advanced-prefix-reservation-scenarios) talvez seja necessária.
 
 3. Enviar um email para [ account@nuget.org ](mailto:account@nuget.org) com o proprietário do nome de exibição no [nuget.org](https://www.nuget.org/), bem como os prefixos reservados que você está solicitando. Se você estiver delegando subconjuntos de prefixo para vários proprietários, verifique se você menciona todos os nomes de exibição do proprietário e subconjuntos de prefixo.
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ddb22d819a1a4e41a2019705789a11de6cad1d79
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5fe8b35125d9171a37afb337ed08d06445e5f890
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548436"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981152"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -86,7 +86,7 @@ Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Um valor booliano que especifica se o cliente precisa solicitar que o consumidor aceite a licença do pacote antes de instalá-lo.
 #### <a name="developmentdependency"></a>developmentDependency
-*(2.8 ou superior)* Um valor booliano que especifica se o pacote está marcado como uma dependência somente de desenvolvimento, que impede que o pacote seja incluído como uma dependência em outros pacotes.
+*(2.8 ou superior)* Um valor booliano que especifica se o pacote está marcado como uma dependência somente de desenvolvimento, que impede que o pacote seja incluído como uma dependência em outros pacotes. Com o PackageReference (NuGet 4.8 +), esse sinalizador também significa que ele excluirá os ativos de tempo de compilação da compilação. Consulte [DevelopmentDependency suporte para PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 #### <a name="summary"></a>resumo
 Uma breve descrição do pacote para exibição de interface do usuário. Se omitido, uma versão truncada do `description` é usada.
 #### <a name="releasenotes"></a>releaseNotes
@@ -118,7 +118,7 @@ Uma coleção de zero ou mais elementos `<dependency>` que especificam as depend
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 ou superior)* Uma coleção de elementos `<files>` que identificam os arquivos de conteúdo para incluir o projeto consumidor. Esses arquivos são especificados com um conjunto de atributos que descrevem como eles devem ser usados dentro do sistema de projeto. Consulte [Especificando arquivos a serem incluídos no pacote](#specifying-files-to-include-in-the-package) abaixo.
 #### <a name="files"></a>arquivos 
-O nó `<package>` pode conter um nó `<files>` como um irmão de `<metadata>` e/ou um filho `<contentFiles>` em `<metadata>`, para especificar quais assembly e arquivos de conteúdo são incluídos no pacote. Consulte [Incluindo arquivos do assembly](#including-assembly-files) e [Incluindo arquivos de conteúdo](#including-content-files) mais adiante neste tópico para obter detalhes.
+O `<package>` nó pode conter um `<files>` nó como um irmão à `<metadata>`e uma `<contentFiles>` filho em `<metadata>`, para especificar quais arquivos de assembly e o conteúdo para incluir no pacote. Consulte [Incluindo arquivos do assembly](#including-assembly-files) e [Incluindo arquivos de conteúdo](#including-content-files) mais adiante neste tópico para obter detalhes.
 
 ## <a name="replacement-tokens"></a>Tokens de substituição
 

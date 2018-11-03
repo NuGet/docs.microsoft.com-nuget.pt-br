@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f04c6a62fc3b5056ad82930447b8ba46a8797fd2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548085"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981126"
 ---
 # <a name="search"></a>Pesquisar
 
@@ -99,7 +99,7 @@ título          | cadeia de caracteres                     | no       |
 totalDownloads | inteiro                    | no       | Esse valor pode ser inferido pela soma de downloads no `versions` matriz
 Verificado       | boolean                    | no       | Um valor de JSON booliano que indica se o pacote é [verificado](../reference/id-prefix-reservation.md)
 
-Em nuget.org, um pacote verificado é aquele que tem uma ID de pacote, um prefixo reservado da ID de correspondência e pertencentes a um dos proprietários do namespace reservado. Para obter mais informações, consulte o [documentação sobre a reserva de prefixo de ID](../reference/id-prefix-reservation.md).
+Em nuget.org, um pacote verificado é aquele que tem uma ID de pacote, um prefixo reservado da ID de correspondência e pertencentes a um dos proprietários do prefixo reservado. Para obter mais informações, consulte o [documentação sobre a reserva de prefixo de ID](../reference/id-prefix-reservation.md).
 
 Os metadados contidos no objeto de resultado de pesquisa é obtido a versão mais recente do pacote. Cada item no `versions` matriz é um objeto JSON com as seguintes propriedades:
 

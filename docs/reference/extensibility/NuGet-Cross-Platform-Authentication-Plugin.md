@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1258ca4b30cb674c3832f12262940729438dd5b0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d80339eb81ade1cf2c323a604cc4fac06dcb1012
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546628"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981048"
 ---
 # <a name="nuget-cross-platform-authentication-plugin"></a>NuGet cross plug-in de autenticação de plataforma
 
@@ -36,7 +36,7 @@ Para permitir que a restauração pause e aguarde para autenticação, chame a r
 
 ## <a name="creating-a-cross-platform-authentication-plugin"></a>Criando um plug-in de autenticação de plataforma cruzada
 
-Uma implementação de exemplo pode ser encontrada no [plug-in do MSCredProvider](https://github.com/Microsoft/mscredprovider).
+Uma implementação de exemplo pode ser encontrada no [plug-in do provedor de credenciais do Microsoft](https://github.com/Microsoft/artifacts-credprovider).
 
 É muito importante que os plug-ins está em conformidade com os requisitos de segurança estabelecidos pelas ferramentas de cliente do NuGet.
 O mínimo necessário é de versão para um plug-in ser um plug-in de autenticação *2.0.0*.
