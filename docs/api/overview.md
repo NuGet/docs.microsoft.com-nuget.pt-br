@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 770173d6b84048cf42a5da46cbc474d8cf604a08
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547497"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580331"
 ---
 # <a name="nuget-api"></a>API do NuGet
 
@@ -49,16 +49,17 @@ As alterações do protocolo não significativas foram feitas para a API desde a
 
 O **índice de serviço** descreve uma variedade de recursos. O conjunto atual de recursos com suporte são os seguintes:
 
-Nome do recurso                                                          | Necessária | Descrição
----------------------------------------------------------------------- | -------- | -----------
+Nome do recurso                                                           | Necessária | Descrição
+----------------------------------------------------------------------  | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | sim      | Enviar por push e excluir (ou remover da lista) pacotes.
 [`SearchQueryService`](search-query-service-resource.md)               | sim      | Filtrar e pesquisar pacotes pela palavra-chave.
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | sim      | Obter metadados de pacote.
 [`PackageBaseAddress`](package-base-address-resource.md)               | sim      | Obter o conteúdo do pacote (. nupkg).
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | no       | Descubra os IDs de pacote e versões pela subcadeia de caracteres.
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | no       | Construa uma URL para acessar uma página da web de "relatar abuso".
-[`RepositorySignatures`](repository-signatures-resource.md)            | no       | Obter certificados usados na assinatura do repositório.
-[`Catalog`](catalog-resource.md)                                       | no       | Registro completo de todos os eventos de pacote.
+[`RepositorySignatures`](repository-signatures-resource.md)             | no      | Obter certificados usados na assinatura do repositório.
+[`Catalog`](catalog-resource.md)                                         | no      | Registro completo de todos os eventos de pacote.
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | no      | Enviar por push pacotes de símbolos.
 
 Em geral, todos os dados não binários retornados por um recurso de API são serializados usando JSON. O esquema de resposta retornado por cada recurso no índice de serviço é definido individualmente para esse recurso. Para obter mais informações sobre cada recurso, consulte os tópicos listados acima.
 
