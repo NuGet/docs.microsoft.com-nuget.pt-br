@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 37c2208f0942b12428dba9d664f25e7e4f3c0b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547368"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981165"
 ---
 # <a name="creating-nuget-packages"></a>Criando pacotes do NuGet
 
@@ -170,8 +170,9 @@ As convenções de pasta são as seguintes:
 | Pasta | Descrição | Ação após a instalação do pacote |
 | --- | --- | --- |
 | (raiz) | Local para leiame.txt | O Visual Studio exibe um arquivo Leiame.txt na raiz do pacote quando este é instalado. |
-| lib/{tfm} | Arquivos de assembly (`.dll`), documentação (`.xml`) e símbolo (`.pdb`) para TFM (Moniker de Estrutura de Destino) | Assemblies são adicionados como referências; `.xml` e `.pdb` são copiados para as pastas do projeto. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md) para ver a criação de subpastas específicas de destino da estrutura. |
-| runtimes | Arquivos de assembly específico de arquitetura (`.dll`), símbolo (`.pdb`) e recurso nativo (`.pri`) | Assemblies são adicionados como referências; outros arquivos são copiados para as pastas do projeto. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md). |
+| lib/{tfm} | Arquivos de assembly (`.dll`), documentação (`.xml`) e símbolo (`.pdb`) para TFM (Moniker de Estrutura de Destino) | Os assemblies são adicionados como referências para a compilação e o tempo de execução também; `.xml` e `.pdb` são copiados para as pastas do projeto. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md) para ver a criação de subpastas específicas de destino da estrutura. |
+| ref/{tfm} | Arquivos de assembly (`.dll`) e símbolo (`.pdb`) para TFM (Moniker de Estrutura de Destino) | Assemblies são adicionados como referências apenas para o tempo de compilação, portanto, nada será copiado para a pasta lixeira do projeto. |
+| runtimes | Arquivos de assembly específico de arquitetura (`.dll`), símbolo (`.pdb`) e recurso nativo (`.pri`) | Assemblies são adicionados como referências apenas para o tempo de execução. Outros arquivos são copiados para as pastas do projeto. Deve sempre haver um assembly específico (TFM) `AnyCPU` correspondente na pasta `/ref/{tfm}` para oferecer o assembly de tempo de compilação correspondente. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md). |
 | conteúdo | Arquivos arbitrários | O conteúdo é copiado para a raiz do projeto. Pense na pasta **content** como a raiz do aplicativo de destino que, enfim, consome o pacote. Para fazer o pacote adicionar uma imagem à pasta */imagens* do aplicativo, coloque-o na pasta *content/images* do pacote. |
 | build | Arquivos `.targets` e `.props` do MSBuild | Inserido automaticamente no arquivo de projeto ou em `project.lock.json` (NuGet 3.x+). |
 | ferramentas | Scripts e programas do Powershell acessíveis do Console do Gerenciador de Pacotes | A pasta `tools` é adicionada à variável de ambiente `PATH` somente para o Console do Gerenciador de Pacotes (especificamente, *não* para o `PATH` conforme definido para MSBuild ao criar o projeto). |

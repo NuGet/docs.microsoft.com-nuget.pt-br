@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0b22d48b9151b903a5307beafa5ccef14e5fecf3
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551700"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981139"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Suporte a várias versões do .NET Framework
 
@@ -65,7 +65,13 @@ Se você tiver assemblies específicos de arquitetura, ou seja, assemblies separ
             \native
             \lib\uap10.0
 
+Esses assemblies só estarão disponíveis no tempo de execução, portanto, se você quiser fornecer o assembly de tempo de compilação correspondente, também terá um assembly `AnyCPU` na pasta `/ref{tfm}`. 
+
+O NuGet sempre escolhe esses recursos de compilação ou de tempo de execução de uma pasta, portanto, se houver alguns ativos compatíveis de `/ref`, `/lib` será ignorado para adicionar conjuntos de tempo de compilação. Da mesma forma, se houver alguns recursos compatíveis de `/runtime`, `/lib` também será ignorado para o tempo de execução.
+
 Consulte [Criar pacotes de UWP](../guides/create-uwp-packages.md) para obter um exemplo de referência a esses arquivos no manifesto `.nuspec`.
+
+Confira também [Como empacotar um componente de aplicativo da Windows Store com o NuGet](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Correspondendo versões de assembly e a estrutura de destino em um projeto
 

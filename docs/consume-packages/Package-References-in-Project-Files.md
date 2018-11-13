@@ -5,16 +5,22 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 648b2679538e38b2451d7857beb5d070deeef7c5
-ms.sourcegitcommit: 47858da1103848cc1b15bdc00ac7219c0ee4a6a0
+ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44516198"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981022"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
-As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). Usar o PackageReference, como ele é chamado, não afeta os outros aspectos do NuGet; por exemplo, as configurações nos arquivos `NuGet.Config` (inclusive nas origens de pacote) ainda são aplicadas, conforme explicado em [Configurando o comportamento do NuGet](configuring-nuget-behavior.md).
+As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). Usar o PackageReference, como ele é chamado, não afeta os outros aspectos do NuGet; por exemplo, as configurações
+
+
+
+
+
+nos arquivos `NuGet.fig` (inclusive nas origens de pacote) ainda são aplicadas, conforme explicado em [Como configurar o comportamento do NuGet](configuring-nuget-behavior.md).
 
 Com o PackageReference, você também pode usar condições do MSBuild para escolher as referências de pacote por estrutura de destino, por configuração, por plataforma ou por outros agrupamentos. Ele também proporciona um controle refinado sobre as dependências e o fluxo de conteúdo. (Para obter mais detalhes, veja [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).)
 
@@ -153,3 +159,85 @@ As condições também podem ser aplicadas no nível de `ItemGroup` e serão apl
     <!-- ... -->
 </ItemGroup>
 ```
+
+## <a name="locking-dependencies"></a>Bloqueio de dependências
+*Esse recurso está disponível no NuGet **4.9** ou superior e no Visual Studio 2017 **15.9 Preview 5** ou superior.*
+
+A entrada da restauração do NuGet é um conjunto de Referências de pacote do arquivo de projeto (dependências de nível superior ou diretas) e a saída é um fechamento completo de todas as dependências do pacote, incluindo as dependências transitivas. Se a lista PackageReference de entrada não tiver sido alterada, o NuGet tenta sempre produzir o mesmo fechamento completo das dependências de pacotes. No entanto, em alguns cenários, isso não poderá ser feito. Por exemplo:
+
+* Quando você usa versões flutuantes como `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Embora a intenção aqui seja derivar para a versão mais recente sempre que uma restauração de pacotes ocorrer, há cenários em que os usuários exigem que o grafo seja bloqueado em uma determinada versão mais recente e derive para uma versão posterior, se disponível, mediante um gesto explícito.
+* Uma versão mais recente do pacote que corresponde aos requisitos de versão do PackageReference é publicada. Por exemplo, 
+
+  * Dia 1: se você tiver especificado `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>`, mas as versões disponíveis nos repositórios do NuGet forem 4.1.0, 4.2.0 e 4.3.0. Nesse caso, o NuGet teria que ser resolvido como 4.1.0 (mais próximo da versão mínima)
+
+  * Dia 2: a versão 4.0.0 é publicada. O NuGet agora encontrará a correspondência exata e iniciará a resolução como 4.0.0
+
+* Uma determinada versão de pacote é removida do repositório. Embora nuget.org não permita exclusões de pacotes, nem todos os repositórios de pacotes possuem essas restrições. Isso faz com que o NuGet encontre a melhor correspondência quando não puder resolver a versão excluída.
+
+### <a name="enabling-lock-file"></a>Habilitar o arquivo de bloqueio
+Para persistir o fechamento completo das dependências de pacotes, você pode optar pelo recurso de bloqueio de arquivos definindo a propriedade `RestorePackagesWithLockFile` do MSBuild para seu projeto:
+
+```xml
+<PropertyGroup>
+    <!--- ... -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!--- ... -->
+</PropertyGroup>    
+```
+
+Se essa propriedade for definida, a restauração do NuGet gerará um arquivo de bloqueio – arquivo `packages.lock.json` no diretório raiz do projeto que lista todas as dependências do pacote. 
+
+> [!Note]
+> Se um projeto tiver o arquivo `packages.lock.json` no diretório raiz, o arquivo de bloqueio sempre será usado com a restauração, mesmo que a propriedade `RestorePackagesWithLockFile` não esteja definida. Portanto, outra maneira de optar por esse recurso é através da criação um arquivo `packages.lock.json` fictício em branco no diretório raiz do projeto.
+
+### <a name="restore-behavior-with-lock-file"></a>Comportamento `restore` com o arquivo de bloqueio
+Se houver um arquivo de bloqueio para o projeto, o NuGet usará esse arquivo de bloqueio para executar `restore`. O NuGet faz uma verificação rápida para ver se houve alguma alteração nas dependências do pacote, conforme mencionado no arquivo do projeto (ou nos arquivos dependentes dos projetos) e, se não houver alterações, ele apenas restaurará os pacotes mencionados no arquivo de bloqueio. Não há reavaliações das dependências do pacote.
+
+Se o NuGet detectar uma alteração nas dependências definidas, conforme mencionado nos arquivos de projeto, ele reavaliará o grafo do pacote e atualizará o arquivo de bloqueio para refletir o novo fechamento do pacote para o projeto.
+
+Para CI/CD e outros cenários, onde você não deseja alterar as dependências de pacote rapidamente, é possível configurar o `lockedmode` como `true`:
+
+Para dotnet.exe, execute:
+```
+> dotnet.exe restore --locked-mode
+```
+
+Para msbuild.exe, execute:
+```
+> msbuild.exe /t:restore /p:RestoreLockedMode=true
+```
+
+Você também pode definir essa propriedade condicional do MSBuild em seu arquivo de projeto:
+```xml
+<PropertyGroup>
+    <!--- ... -->
+    <RestoreLockedMode>true</RestoreLockedMode>
+    <!--- ... -->
+</PropertyGroup> 
+```
+
+Se o modo de bloqueio for `true`, a restauração ocorrerá nos pacotes exatos conforme listado no arquivo de bloqueio ou não ocorrerá se você tiver atualizado as dependências de pacote definidas para o projeto após a criação do arquivo de bloqueio.
+
+### <a name="make-lock-file-part-of-your-source-repository"></a>Tornar o arquivo de bloqueio parte de seu repositório de origem
+Se você estiver compilando um aplicativo, um executável e o projeto em questão estarão no final da cadeia da dependência, portanto, verifique o arquivo de bloqueio no repositório do código-fonte para que o NuGet possa utilizá-lo durante a restauração.
+
+No entanto, se seu projeto for um projeto de biblioteca que não é enviado ou um projeto de código comum do qual outros projetos dependem, você **não deverá** fazer check-in do arquivo de bloqueio como parte de seu código-fonte. Não há mal nenhum em manter o arquivo de bloqueio. No entanto, as dependências do pacote bloqueado do projeto de código comum não podem ser usadas, conforme listado no arquivo de bloqueio, durante a restauração/compilação de um projeto que depende desse projeto de código comum.
+
+Por exemplo:
+```
+ProjectA
+  |------> PackageX 2.0.0
+  |------> ProjectB
+             |------>PackageX 1.0.0
+```
+Se `ProjectA` tiver uma dependência em uma versão `2.0.0` do `PackageX`, além de referências `ProjectB` que dependem da versão `1.0.0` do `PackageX`, o arquivo de bloqueio de `ProjectB` listará uma dependência na versão `1.0.0` do `PackageX`. No entanto, quando `ProjectA` for criado, seu arquivo de bloqueio conterá uma dependência na versão **`2.0.0`** do `PackageX` e **não** na versão `1.0.0`, conforme listado no arquivo de bloqueio de `ProjectB`. Portanto, o arquivo de bloqueio de um projeto de código comum tem pouco a dizer sobre os pacotes resolvidos de projetos que dependem dele.
+
+### <a name="lock-file-extensibility"></a>Extensibilidade do arquivo de bloqueio
+Você pode controlar vários comportamentos de restauração com o arquivo de bloqueio conforme descrito abaixo:
+
+| Opção | Opção equivalente do MSBuild | 
+|:---  |:--- |
+| `--use-lock-file` | Uso do arquivo de bloqueio de um projeto pelas inicializações. Como alternativa, você pode definir a propriedade `RestorePackagesWithLockFile` no arquivo de projeto | 
+| `--locked-mode` | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você gostaria de obter as compilações irreversíveis. Isso também pode ser feito através da definição da propriedade `RestoreLockedMode` do MSBuild como `true` |  
+| `--force-evaluate` | Esta opção é útil com pacotes que têm a versão flutuante definida no projeto. Por padrão, a restauração do NuGet não atualizará automaticamente a versão do pacote em cada restauração, a menos que você execute a restauração com a opção `--force-evaluate`. |
+| `--lock-file-path` | Define o local de um arquivo de bloqueio personalizado para um projeto. Isso também pode ser feito através da definição da propriedade `NuGetLockFilePath` do MSBuild. Por padrão, o NuGet é compatível com `packages.lock.json` no diretório raiz. Se você tiver vários projetos no mesmo diretório, o NuGet oferecerá suporte ao arquivo de bloqueio `packages.<project_name>.lock.json` específico do projeto |
