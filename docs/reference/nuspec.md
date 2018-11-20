@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 48f56ec5f042f6e78e38a202f0879c6949e7ee11
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
+ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580383"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51944074"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -79,7 +79,49 @@ Uma lista separada por vírgulas de criadores de pacotes que usam nomes de perfi
 #### <a name="projecturl"></a>projectUrl
 Uma URL para a home page do pacote, geralmente mostrada em exibições de interface do usuário, bem como em nuget.org. 
 #### <a name="licenseurl"></a>licenseUrl
+> [!Important]
+> licenseUrl está sendo preterido. Licença de uso em vez disso.
+
 Uma URL para a licença do pacote, geralmente mostrada em exibições de interface do usuário, bem como no nuget.org.
+#### <a name="license"></a>licença
+Uma expressão de licença SPDX ou o caminho para um arquivo de licença dentro do pacote, geralmente mostrado em exibições IU bem como em nuget.org. Se você esteja licenciando o pacote sob uma licença comuns, como a cláusula de 2 BSD ou MIT, use o identificador de licença SPDX associado.<br>Por exemplo: `<license type="expression">MIT</license>`
+
+Aqui está a lista completa dos [identificadores de licença SPDX](https://spdx.org/licenses/). NuGet.org aceita apenas OSI ou licenças FSF aprovado ao usar expressão de tipo de licença.
+
+Se o pacote é licenciado sob várias licenças comuns, você pode especificar uma licença de composição usando o [SPDX versão 2.0 da sintaxe de expressão](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Por exemplo: `<license type="expression">BSD-2-Clause OR MIT</license>`
+
+Se você estiver usando uma licença que não tenha sido atribuída a um identificador SPDX ou é uma licença personalizada, você pode empacotar um arquivo com o texto de licença. Por exemplo:
+```xml
+<package>
+  <metadata>
+    ...
+    <license type="file">LICENSE.txt</license>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="licenses\LICENSE.txt" target="" />
+    ...
+  </files>
+</package>
+```
+A sintaxe exata de expressões de licença do NuGet é descrita abaixo em [ABNF](https://tools.ietf.org/html/rfc5234).
+```cli
+license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
+
+license-exception-id  = <short form license exception identifier from https://spdx.org/spdx-specification-21-web-version#h.ruv3yl8g6czd>
+
+simple-expression = license-id / license-id”+”
+
+compound-expression =  1*1(simple-expression /
+                simple-expression "WITH" license-exception-id /
+                compound-expression "AND" compound-expression /
+                compound-expression "OR" compound-expression ) /                
+                "(" compound-expression ")" )
+
+license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
+```
+
 #### <a name="iconurl"></a>iconUrl
 Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como o ícone do pacote na exibição de interface do usuário. Verifique se esse elemento contém a *URL direta da imagem* e não a URL de uma página da Web que contém a imagem. Por exemplo, para usar uma imagem do GitHub, use o arquivo URL bruto como <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
 
@@ -614,7 +656,7 @@ As pastas vazias podem usar `.` para recusar o fornecimento de conteúdo para ce
         <description>Sample exists only to show a sample .nuspec file.</description>
         <language>en-US</language>
         <projectUrl>http://xunit.codeplex.com/</projectUrl>
-        <licenseUrl>http://xunit.codeplex.com/license</licenseUrl>
+        <license type="expression">MIT</license>
     </metadata>
 </package>
 ```

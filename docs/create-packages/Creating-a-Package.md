@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 1221631b22eed7d2d8e58bd08ff120d91231d49b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981165"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580384"
 ---
 # <a name="creating-nuget-packages"></a>Criando pacotes do NuGet
 
@@ -177,7 +177,7 @@ As convenções de pasta são as seguintes:
 | build | Arquivos `.targets` e `.props` do MSBuild | Inserido automaticamente no arquivo de projeto ou em `project.lock.json` (NuGet 3.x+). |
 | ferramentas | Scripts e programas do Powershell acessíveis do Console do Gerenciador de Pacotes | A pasta `tools` é adicionada à variável de ambiente `PATH` somente para o Console do Gerenciador de Pacotes (especificamente, *não* para o `PATH` conforme definido para MSBuild ao criar o projeto). |
 
-Como a estrutura de pastas pode conter qualquer número de assemblies para uma infinidade de estruturas de destino, esse método é necessário ao criar pacotes compatíveis com várias estruturas 
+Como a estrutura de pastas pode conter qualquer número de assemblies para uma infinidade de estruturas de destino, esse método é necessário ao criar pacotes compatíveis com várias estruturas.
 
 Em qualquer caso, uma vez que a estrutura de pastas esteja em vigor, execute o seguinte comando nessa pasta para criar o arquivo `.nuspec`:
 

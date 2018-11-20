@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: dd36987e020c2daa02bb875aa9dbd69c85bba4d3
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: dfbd6a3e6d59dfcea6394891703ea66bce5e8e92
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49951740"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580266"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Como criar controles de interface do usuário como pacotes do NuGet
 
@@ -89,7 +89,11 @@ No exemplo a seguir, o controle implementado em `ManagedPackage.winmd` aparecer�
 
 Para exibir um ícone personalizado no painel de caixa de ferramentas/ativos, adicione uma imagem ao seu projeto ou ao projeto `design.dll` correspondente com o nome “Namespace.ControlName.extension” e defina a ação de build como “Recurso Inserido”. Você também deve garantir que o `AssemblyInfo.cs` associado especifique o atributo ProvideMetadata - `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Veja este [exemplo](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
 
-Os formatos compatíveis são `.png`, `.jpg`, `.jpeg`, `.gif` e `.bmp`. O tamanho da imagem recomendado é 64 pixels por 64 pixels.
+Os formatos compatíveis são `.png`, `.jpg`, `.jpeg`, `.gif` e `.bmp`. O formato recomendado é BMP24 em 16 x 16 pixels.
+
+![Exemplo de ícone da caixa de ferramentas](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
+
+A tela de fundo rosa é substituída em tempo de execução. Os ícones são recoloridos quando o tema do Visual Studio é alterado e essa cor da tela de fundo é esperada. Para obter mais informações, veja [Imagens e ícones para o Visual Studio](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
 No exemplo a seguir, o projeto contém um arquivo de imagem denominado “ManagedPackage.MyCustomControl.png”.
 

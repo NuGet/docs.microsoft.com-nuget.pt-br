@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c63abc9971623e0732ae8d973fafcd04c5d9f48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548798"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580346"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Perguntas frequentes do NuGet
 
@@ -166,7 +166,7 @@ O NuGet recomenda que todos os pacotes sejam assinados. Um princípio de design 
 
 Observe que as dependências listadas para seu pacote são geradas automaticamente do próprio pacote e não podem ser editadas.
 
-Além disso, carregar pacotes para [staging.nuget.org](http://staging.nuget.org) é uma ótima maneira de testar e validar seu pacote sem disponibilizá-lo na galeria pública.
+Além disso, carregar pacotes para [int.nugettest.org](https://int.nugettest.org) é uma ótima maneira de testar e validar seu pacote sem disponibilizá-lo na galeria pública.
 
 **É possível reservar nomes para os pacotes que serão publicados no futuro?**
 
@@ -182,9 +182,9 @@ Estimulamos a comunidade do NuGet para trabalhar juntos para resolver as controv
 
 **É recomendável carregar pacotes meu teste para o nuget.org?**
 
-Para fins de teste, você pode usar [staging.nuget.org](http://staging.nuget.org) ou os servidores NuGet públicos alternativos como [myget.org](https://myget.org) ou do [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
+Para fins de teste, você pode usar [int.nugettest.org](https://int.nugettest.org) ou os servidores NuGet públicos alternativos como [myget.org](https://myget.org) ou do [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
 
-Observe que os pacotes carregados para o staging.nuget.org podem não ser preservados. Consulte [Versão prévia do Goodbye](http://blog.nuget.org/20130419/goodbye-preview.html).
+Observe que os pacotes carregados para o int.nugettest.org podem não ser preservados.
 
 **Qual é o tamanho máximo dos pacotes que posso carregar para o nuget.org?**
 

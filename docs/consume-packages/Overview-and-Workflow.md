@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5807a6895a76a7d6660d218b29e1d3a2802ca28
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545042"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580240"
 ---
 # <a name="package-consumption-workflow"></a>Fluxo de trabalho de consumo do pacote
 
@@ -18,7 +18,7 @@ Entre o nuget.org e galerias de pacotes privadas que sua organização pode esta
 
 ![Fluxo de ir para uma origem de pacote, localizar um pacote, instalá-lo em um projeto, adicioná-lo usando uma instrução e chamá-lo para a API de pacote](media/Overview-01-GeneralFlow.png)
 
-\* _Somente Visual Studio e dotnet.ex`. O comando de instalação do nuget não modifica arquivos de projeto ou packages.config; as entradas devem ser gerenciadas manualmente._
+\* _Somente Visual Studio e `dotnet.exe`. O comando `nuget install` não modifica arquivos de projeto ou o arquivo `packages.config`; as entradas precisam ser gerenciadas manualmente._
 
 Para obter mais detalhes, veja [Localizar e escolher pacotes](../consume-packages/finding-and-choosing-packages.md) e [Maneiras diferentes de instalar um pacote do NuGet](ways-to-install-a-package.md).
 
