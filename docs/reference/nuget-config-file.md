@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546909"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303513"
 ---
 # <a name="nugetconfig-reference"></a>referência do NuGet. config
 
 O comportamento do NuGet é controlado pelas configurações em diferentes arquivos `NuGet.Config` conforme descrito em [Configurando o comportamento de NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-`nuget.config` é um arquivo XML que contém um nó `<configuration>` de nível superior, o qual contém os elementos da seção descritos neste tópico. Cada seção contém zero ou mais elementos `<add>` com atributos `key` e `value`. Consulte o [arquivo de configuração de exemplos](#example-config-file). Nomes de configuração não diferenciam maiúsculas de minúsculas e podem usar valores [variáveis de ambiente](#using-environment-variables).
+`nuget.config` é um arquivo XML que contém um nó `<configuration>` de nível superior, o qual contém os elementos da seção descritos neste tópico. Cada seção contém zero ou mais itens. Consulte o [arquivo de configuração de exemplos](#example-config-file). Nomes de configuração não diferenciam maiúsculas de minúsculas e podem usar valores [variáveis de ambiente](#using-environment-variables).
 
 Neste tópico:
 
@@ -30,6 +30,7 @@ Neste tópico:
   - [apikeys](#apikeys)
   - [disabledPackageSources](#disabledpackagesources)
   - [activePackageSource](#activepackagesource)
+- [seção trustedSigners](#trustedsigners-section)
 - [Usando variáveis de ambiente](#using-environment-variables)
 - [Exemplo de arquivo de configuração](#example-config-file)
 
@@ -51,6 +52,7 @@ Contém diversas definições de configurações, que podem ser definidas usando
 | repositoryPath (somente `packages.config`) | O local no qual instalar os pacotes do NuGet em vez da pasta `$(Solutiondir)/packages` padrão. Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
 | defaultPushSource | Identifica a URL ou o caminho da origem do pacote que deve ser usada como o padrão se nenhuma outra origem de pacote for encontrada para uma operação. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Configurações de proxy a serem usadas ao se conectar a origens de pacote; `http_proxy` deve estar no formato `http://<username>:<password>@<domain>`. As senhas são criptografadas e não podem ser adicionadas manualmente. Para `no_proxy`, o valor é uma lista separada por vírgulas de domínios a ignorar no servidor proxy. Como alternativa, você pode usar as variáveis de ambiente http_proxy e no_proxy para esses valores. Para ver detalhes adicionais, consulte [Configurações de proxy do NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
+| signatureValidationMode | Especifica o modo de validação usado para verificar as assinaturas de pacote para instalação do pacote e restauração. Os valores são `accept`, `require`. Assume o padrão de `accept`.
 
 **Exemplo**:
 
@@ -60,6 +62,7 @@ Contém diversas definições de configurações, que podem ser definidas usando
     <add key="globalPackagesFolder" value="c:\packages" />
     <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
+    <add key="signatureValidationMode" value="require" />
 </config>
 ```
 
@@ -115,9 +118,9 @@ Controla se a pasta `packages` de uma solução está incluída no controle do c
 
 ## <a name="package-source-sections"></a>Seções de origem de pacote
 
-O `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource` e `disabledPackageSources` trabalham todos juntos para configurar como o NuGet funciona com repositórios de pacote durante as operações de instalação, restauração e atualização.
+O `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, `disabledPackageSources` e `trustedSigners` trabalham todos juntos para configurar como o NuGet funciona com repositórios de pacote durante a instalação, restauração e operações de atualização.
 
-O [`nuget sources` comando ](../tools/cli-ref-sources.md) geralmente é usado para gerenciar essas configurações, exceto para `apikeys`, que é gerenciado usando o [`nuget setapikey`comando ](../tools/cli-ref-setapikey.md).
+O [ `nuget sources` comando](../tools/cli-ref-sources.md) geralmente é usado para gerenciar essas configurações, exceto para `apikeys` que é gerenciado usando o [ `nuget setapikey` comando](../tools/cli-ref-setapikey.md), e `trustedSigners` que é gerenciado usando o [ `nuget trusted-signers` comando](../tools/cli-ref-trusted-signers.md).
 
 Observe que a URL de origem para nuget.org é `https://api.nuget.org/v3/index.json`.
 
@@ -237,6 +240,35 @@ Identifica a fonte ativa no momento ou indica a agregação de todas as fontes.
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+## <a name="trustedsigners-section"></a>seção trustedSigners
+
+Repositórios confiam signatários usados para permitir que o pacote durante a instalação ou restauração. Essa lista não pode estar vazia quando o usuário define `signatureValidationMode` para `require`. 
+
+Esta seção pode ser atualizada com o [ `nuget trusted-signers` comando](../tools/cli-ref-trusted-signers.md).
+
+**Esquema**:
+
+Um signatário confiável tem uma coleção de `certificate` itens que inscrever-se todos os certificados que identificam um determinado assinante. Um signatário confiável pode ser um `Author` ou um `Repository`.
+
+Um confiável *repositório* também especifica a `serviceIndex` para o repositório (que deve ser válido `https` uri) e, opcionalmente, pode especificar uma lista de delimitada por ponto e vírgula de `owners` para restringir ainda mais que é confiável meio desse repositório específico.
+
+Os algoritmos de hash com suporte usados para uma impressão digital do certificado são `SHA256`, `SHA384` e `SHA512`.
+
+Se um `certificate` especifica `allowUntrustedRoot` como `true` o certificado fornecido é permitido encadear para uma raiz não confiável ao criar a cadeia de certificados como parte da verificação de assinatura.
+
+**Exemplo**:
+
+```xml
+<trustedSigners>
+    <author name="microsoft">
+        <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+    </author>
+    <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+        <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <owners>microsoft;aspnet;nuget</owners>
+    </repository>
+</trustedSigners>
+```
 
 ## <a name="using-environment-variables"></a>Usando variáveis de ambiente
 
@@ -313,5 +345,19 @@ Abaixo está um arquivo `nuget.config` de exemplo que ilustra diversas configura
     <apikeys>
         <add key="https://MyRepo/ES/api/v2/package" value="encrypted_api_key" />
     </apikeys>
+
+    <!--
+        Used to specify trusted signers to allow during signature verification.
+        See: nuget.exe help trusted-signers
+    -->
+    <trustedSigners>
+        <author name="microsoft">
+            <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        </author>
+        <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+            <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <owners>microsoft;aspnet;nuget</owners>
+        </repository>
+    </trustedSigners>
 </configuration>
 ```
