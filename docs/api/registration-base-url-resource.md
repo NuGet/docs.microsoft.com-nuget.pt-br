@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: a64c5844a58213415671ab0d202a75bc0ececc89
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546778"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453553"
 ---
 # <a name="package-metadata"></a>Metadados de pacote
 
@@ -150,7 +150,9 @@ requireLicenseAcceptance | boolean                    | no       |
 resumo                  | cadeia de caracteres                     | no       | 
 marcações                     | cadeia de caracteres ou uma matriz de cadeia de caracteres  | no       | 
 título                    | cadeia de caracteres                     | no       | 
-version                  | cadeia de caracteres                     | sim      | A versão do pacote
+version                  | cadeia de caracteres                     | sim      | A cadeia de caracteres de versão completa após a normalização
+
+O pacote `version` propriedade é a cadeia de caracteres de versão completa após a normalização. Isso significa que os dados de criação de SemVer 2.0.0 podem ser incluídos aqui.
 
 O `dependencyGroups` propriedade é uma matriz de objetos que representam as dependências do pacote, agrupados por estrutura de destino. Se o pacote não tem dependências, o `dependencyGroups` propriedade estiver ausente, uma matriz vazia, ou o `dependencies` propriedade de todos os grupos está vazio ou ausente.
 

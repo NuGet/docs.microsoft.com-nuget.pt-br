@@ -5,12 +5,12 @@ author: zhili1208
 ms.author: lzhi
 ms.date: 07/12/2018
 ms.topic: reference
-ms.openlocfilehash: 7cd387e3eb05d149da9a88cc1c76dc08588d04b5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 42b5b7d863d22d7aad99a65700ca11bcc2861db1
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547820"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453488"
 ---
 # <a name="long-path-support-nuget-cli"></a>Suporte a caminhos longos (CLI do NuGet)
 
@@ -39,6 +39,6 @@ Etapas:
 > Habilitando a outras ferramentas do NuGet dar suporte a caminhos longos
 >
 > -   Dotnet CLI dá suporte a caminhos longos, independentemente do sistema operacional ou versão.
-> -   Ainda não há suporte para caminhos longos no Visual Studio ou o msbuild /t: Restore.
+> -   Visual Studio ou o msbuild - t: restauração ainda não dá suporte a caminhos longos.
 > -   Software que usa bibliotecas NuGet para executar outros comandos, e a restauração será dão suporte a caminhos longos nos mesmos sistemas que NuGet.exe funciona no, se eles também definem longPathAware em suas janelas de manifesto e configurar o UseLegacyPathHandling como falso por meio do App. config [ Obter mais informações](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
 

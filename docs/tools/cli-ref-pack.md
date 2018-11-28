@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b5bd8bd30ad134f36433b8e4721ce131425a1483
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580305"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453358"
 ---
 # <a name="pack-command-nuget-cli"></a>Commando pack (NuGet CLI)
 
 **Aplica-se a:** criação do pacote &bullet; **versões com suporte:** 2.7 ou superior
 
-Cria um pacote do NuGet com base em especificado `.nuspec` ou arquivo de projeto. O `dotnet pack` comando (consulte [comandos dotnet](dotnet-Commands.md)) e `msbuild /t:pack` (consulte [destinos do MSBuild](../reference/msbuild-targets.md)) pode ser usado como alternativas.
+Cria um pacote do NuGet com base em especificado `.nuspec` ou arquivo de projeto. O `dotnet pack` comando (consulte [comandos dotnet](dotnet-Commands.md)) e `msbuild -t:pack` (consulte [destinos do MSBuild](../reference/msbuild-targets.md)) pode ser usado como alternativas.
 
 > [!Important]
 > Em Mono, criando um pacote em um arquivo de projeto não é suportado. Você também precisará ajustar os caminhos de local não no `.nuspec` de arquivo para caminhos no estilo Unix, como nuget.exe não converte nomes de caminhos do Windows em si.
@@ -49,7 +49,7 @@ em que `<nuspecPath>` e `<projectPath>` especifique o `.nuspec` ou projeto de ar
 | OutputDirectory | Especifica a pasta na qual o pacote criado é armazenado. Se nenhuma pasta for especificada, a pasta atual será usada. |
 | Propriedades | Deve aparecer por último na linha de comando após outras opções. Especifica uma lista de propriedades que substituem os valores no arquivo de projeto; ver [propriedades de projeto comuns do MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) para nomes de propriedade. O argumento de propriedades aqui está uma lista de token = pares de valor, separados por ponto e vírgula, onde cada ocorrência de `$token$` no `.nuspec` arquivo será substituído com o valor fornecido. Valores podem ser cadeias de caracteres entre aspas. Observe que para a propriedade de "Configuração", o padrão é "Debug". Para alterar para uma configuração de versão, use `-Properties Configuration=Release`. |
 | Sufixo | *(3.4.4+)*  Anexa um sufixo para o número de versão gerado internamente, normalmente usado para acrescentar o build ou outros identificadores de pré-lançamento. Por exemplo, usando `-suffix nightly` criará um pacote com um tipo de número de versão `1.2.3-nightly`. Sufixos devem começar com uma letra para evitar possíveis incompatibilidades com diferentes versões do NuGet e o Gerenciador de pacotes do NuGet, erros e avisos. |
-| Símbolos | Especifica que o pacote contém fontes e símbolos. Quando usado com um `.nuspec` arquivo, isso cria um arquivo de pacote do NuGet regular e correspondente símbolos de pacote. Por padrão, ele cria um [pacote de símbolos herdados](../create-packages/Symbol-Packages.md). O novo formato recomendado para pacotes de símbolos é .snupkg. Ver [criação de pacotes de símbolo (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
+| Símbolos | Especifica que o pacote contém fontes e símbolos. Quando usado com um `.nuspec` arquivo, isso cria um arquivo de pacote do NuGet regular e correspondente símbolos de pacote. Por padrão, ele cria um [pacote de símbolos herdados](../create-packages/Symbol-Packages.md). O novo formato recomendado para pacotes de símbolos é .snupkg. Veja [Criando pacotes de símbolos (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
 | Ferramenta | Especifica que os arquivos de saída do projeto devem ser colocados no `tool` pasta. |
 | Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 | Versão | Substitui o número de versão dos `.nuspec` arquivo. |

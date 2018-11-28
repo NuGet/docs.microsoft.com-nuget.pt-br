@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d4c13200494ed3c6fa897ce0083a52c13688b44b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547387"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453579"
 ---
 # <a name="catalog"></a>Catálogo
 
@@ -213,7 +213,7 @@ marcações                    | matriz de cadeias de caracteres           | no 
 título                   | cadeia de caracteres                     | no       |
 verbatimVersion         | cadeia de caracteres                     | no       | A cadeia de caracteres de versão como ele originalmente encontra o. NuSpec
 
-O pacote `version` propriedade é a cadeia de caracteres de versão completo, normalizado. Isso significa que os dados de criação de SemVer 2.0.0 podem ser incluídos aqui.
+O pacote `version` propriedade é a cadeia de caracteres de versão completa após a normalização. Isso significa que os dados de criação de SemVer 2.0.0 podem ser incluídos aqui.
 
 O `created` carimbo de hora é quando o pacote foi recebido pela origem do pacote, que normalmente é um breve período antes do carimbo de hora de confirmação do item do catálogo.
 
