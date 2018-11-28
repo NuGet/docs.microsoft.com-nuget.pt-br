@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 07296ce5a9ba85d68eca5f4915d6efea00dc8980
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548866"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453540"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -37,7 +37,7 @@ Da mesma forma, você pode gravar uma tarefa do MSBuild, escrever seu próprio d
 
 ## <a name="pack-target"></a>pack target
 
-Para projetos do .NET Standard usando o formato PackageReference, `msbuild /t:pack` extrai as entradas do arquivo de projeto para usar na criação de um pacote do NuGet.
+Para projetos do .NET Standard usando o formato PackageReference, `msbuild -t:pack` extrai as entradas do arquivo de projeto para usar na criação de um pacote do NuGet.
 
 A tabela abaixo descreve as propriedades do MSBuild que podem ser adicionadas a um arquivo do projeto dentro do primeiro nó `<PropertyGroup>`. Você pode fazer essas edições facilmente no Visual Studio 2017 e posterior clicando com o botão direito do mouse no projeto e selecionando **Editar {project_name}** no menu de contexto. Para sua conveniência, a tabela é organizada pela propriedade equivalente em um arquivo [`.nuspec` ](../reference/nuspec.md).
 
@@ -55,7 +55,9 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 | Descrição | Descrição | “Package Description” | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| LicenseUrl | PackageLicenseUrl | empty | |
+| licença | PackageLicenseExpression | empty | Corresponde a `<license type="expression">` |
+| licença | PackageLicenseFile | empty | Corresponde ao `<license type="file">`. Talvez você precise explicitamente o arquivo de licença referenciado do pacote. |
+| LicenseUrl | PackageLicenseUrl | empty | `licenseUrl` está sendo preterido, use a propriedade PackageLicenseExpression ou PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
 | Marcas | PackageTags | empty | Marcas são delimitadas por ponto e vírgula. |
@@ -77,6 +79,8 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
+- PackageLicenseExpression
+- PackageLicenseFile
 - PackageLicenseUrl
 - PackageProjectUrl
 - PackageIconUrl
@@ -177,7 +181,7 @@ Outros metadados específicos do pacote que pode ser definido em qualquer um dos
 
 ### <a name="includesymbols"></a>IncludeSymbols
 
-Ao usar o `MSBuild /t:pack /p:IncludeSymbols=true`, os arquivos `.pdb` correspondentes são copiados junto com outros arquivos de saída (`.dll`, `.exe`, `.winmd`, `.xml`, `.json`, `.pri`). Observe que a configuração `IncludeSymbols=true` cria um pacote regular *e* um pacote de símbolos.
+Ao usar o `MSBuild -t:pack -p:IncludeSymbols=true`, os arquivos `.pdb` correspondentes são copiados junto com outros arquivos de saída (`.dll`, `.exe`, `.winmd`, `.xml`, `.json`, `.pri`). Observe que a configuração `IncludeSymbols=true` cria um pacote regular *e* um pacote de símbolos.
 
 ### <a name="includesource"></a>IncludeSource
 
@@ -185,28 +189,46 @@ Isso é o mesmo que `IncludeSymbols`, exceto que também copia os arquivos de or
 
 Se um arquivo do tipo Compilação estiver fora da pasta de projeto, ele será adicionado apenas a `src\<ProjectName>\`.
 
+### <a name="packing-a-license-expression-or-a-license-file"></a>Uma expressão de licença ou um arquivo de licença de remessa
+
+Ao usar uma expressão de licença, a propriedade PackageLicenseExpression deve ser usada. 
+[Exemplo de expressão de licença](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+
+Ao empacotar um arquivo de licença, você precisa usar a propriedade PackageLicenseFile para especificar o caminho do pacote, relativo à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. Por exemplo:
+
+```xml
+<PropertyGroup>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+</PropertyGroup>
+
+<ItemGroup>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+</ItemGroup>
+```
+[Exemplo de vida da licença](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+
 ### <a name="istool"></a>IsTool
 
-Ao usar `MSBuild /t:pack /p:IsTool=true`, todos os arquivos de saída, conforme especificado no cenário [Assemblies de saída](#output-assemblies), são copiados para a pasta `tools` em vez da pasta `lib`. Observe que isso é diferente de um `DotNetCliTool` que é especificado pela configuração do `PackageType` no arquivo `.csproj`.
+Ao usar `MSBuild -t:pack -p:IsTool=true`, todos os arquivos de saída, conforme especificado no cenário [Assemblies de saída](#output-assemblies), são copiados para a pasta `tools` em vez da pasta `lib`. Observe que isso é diferente de um `DotNetCliTool` que é especificado pela configuração do `PackageType` no arquivo `.csproj`.
 
 ### <a name="packing-using-a-nuspec"></a>Empacotamento usando um .nuspec
 
 Você pode usar um `.nuspec` arquivo para empacotar seu projeto desde que você tenha um arquivo de projeto do SDK para importar `NuGet.Build.Tasks.Pack.targets` para que a tarefa de pacote pode ser executada. Você ainda precisará restaurar o projeto antes que você pode empacotar um arquivo nuspec. A estrutura de destino do arquivo de projeto é irrelevante e não usados ao empacotar um nuspec. As três propriedades MSBuild a seguir são relevantes para empacotamento usando um `.nuspec`:
 
 1. `NuspecFile`: caminho relativo ou absoluto para o arquivo `.nuspec` que está sendo usado para o empacotamento.
-1. `NuspecProperties`: uma lista separada por ponto e vírgula de pares chave/valor. Devido à maneira como a análise de linha de comando do MSBuild funciona, várias propriedades precisam ser especificadas da seguinte maneira: `/p:NuspecProperties=\"key1=value1;key2=value2\"`.  
+1. `NuspecProperties`: uma lista separada por ponto e vírgula de pares chave/valor. Devido à maneira como a análise de linha de comando do MSBuild funciona, várias propriedades precisam ser especificadas da seguinte maneira: `-p:NuspecProperties=\"key1=value1;key2=value2\"`.  
 1. `NuspecBasePath`: o caminho base para o arquivo `.nuspec`.
 
 Se estiver usando `dotnet.exe` para empacotar seu projeto, use um comando como o seguinte:
 
 ```cli
-dotnet pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
+dotnet pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
 Se estiver usando o MSBuild para empacotar seu projeto, use um comando como o seguinte:
 
 ```cli
-msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
+msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
 Observe que um nuspec de remessa usando dotnet.exe ou msbuild também leva para compilar o projeto por padrão. Isso pode ser evitado, passando ```--no-build``` dotnet.exe, que é o equivalente da configuração de propriedade ```<NoBuild>true</NoBuild> ``` em seu arquivo de projeto, juntamente com a configuração ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` no arquivo de projeto
@@ -283,7 +305,7 @@ Um exemplo:
 
 ## <a name="restore-target"></a>restore target
 
-`MSBuild /t:restore` (que `nuget restore` e `dotnet restore` usam com projetos do .NET Core), restaura pacotes referenciados no arquivo de projeto da seguinte maneira:
+`MSBuild -t:restore` (que `nuget restore` e `dotnet restore` usam com projetos do .NET Core), restaura pacotes referenciados no arquivo de projeto da seguinte maneira:
 
 1. Ler todas as referências projeto a projeto
 1. Ler as propriedades do projeto para localizar a pasta intermediária e as estruturas de destino
@@ -296,7 +318,7 @@ O `restore` destino works **somente** para projetos que usam o formato PackageRe
 
 ### <a name="restore-properties"></a>Restaurar propriedades
 
-Configurações de restauração adicionais podem vir de propriedades MSBuild no arquivo de projeto. Os valores também podem ser definidos na linha de comando usando a opção `/p:` (consulte os Exemplos abaixo).
+Configurações de restauração adicionais podem vir de propriedades MSBuild no arquivo de projeto. Os valores também podem ser definidos na linha de comando usando a opção `-p:` (consulte os Exemplos abaixo).
 
 | Propriedade | Descrição |
 |--------|--------|
@@ -315,7 +337,7 @@ Configurações de restauração adicionais podem vir de propriedades MSBuild no
 Linha de comando:
 
 ```cli
-msbuild /t:restore /p:RestoreConfigFile=<path>
+msbuild -t:restore -p:RestoreConfigFile=<path>
 ```
 
 Arquivo de projeto:
