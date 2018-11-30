@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 51dd78ef7cc427232982df15657d76d117146853
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b85b586e76e424442dc0ba3acfecbee1e8755345
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580344"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453462"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Solução de problemas de erros de restauração de pacote
 
@@ -57,7 +57,7 @@ Use um dos seguintes métodos para restaurar os pacotes:
 - No Visual Studio, habilite a restauração de pacote selecionando o comando de menu **Ferramentas > Gerenciador de Pacotes do NuGet > Configurações do Gerenciador de Pacotes** marcando ambas as opções em **Restauração de Pacote** e selecionando **OK**. Em seguida, compile a solução novamente.
 - Para projetos do .NET Core, execute `dotnet restore` ou `dotnet build` (que executa automaticamente a restauração).
 - Na linha de comando, execute `nuget restore` (exceto para projetos criados com `dotnet`, caso em que `dotnet restore` deverá ser usado).
-- Na linha de comando com projetos usando o formato PackageReference, execute `msbuild /t:restore`.
+- Na linha de comando com projetos usando o formato PackageReference, execute `msbuild -t:restore`.
 
 Após uma restauração bem-sucedida, o pacote deve estar presente na pasta *global-packages*. Em caso de projetos que usam PackageReference, uma restauração deve recriar o arquivo `obj/project.assets.json`; em projetos que usam `packages.config`, o pacote deve aparecer na pasta `packages` do projeto. Nesse momento, o projeto deverá ser compilado com êxito. Caso contrário, [envie um problema no GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) para que possamos acompanhá-lo com você.
 
@@ -73,7 +73,7 @@ Assets file '<path>\project.assets.json' not found. Run a NuGet package restore 
 
 O arquivo `project.assets.json` mantém um grafo de dependência do projeto quando ocorre o uso do formato de gerenciamento PackageReference, que é usado para garantir que todos os pacotes necessários sejam instalados no computador. Como esse arquivo é gerado de modo dinâmico por meio da restauração do pacote, ele geralmente não é adicionado ao controle do código-fonte. Como resultado, esse erro ocorre ao compilar um projeto com uma ferramenta como o `msbuild`, que não restaura os pacotes automaticamente.
 
-Nesse caso, execute `msbuild /t:restore` seguido por `msbuild` ou use `dotnet build` (que restaura automaticamente os pacotes). Também é possível usar algum dos métodos de restauração de pacote descritos na [seção anterior](#missing).
+Nesse caso, execute `msbuild -t:restore` seguido por `msbuild` ou use `dotnet build` (que restaura automaticamente os pacotes). Também é possível usar algum dos métodos de restauração de pacote descritos na [seção anterior](#missing).
 
 <a name="consent"></a>
 

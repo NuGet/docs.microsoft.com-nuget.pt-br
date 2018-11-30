@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: f911e24da76880410f8dfaa2891b609c7beb4a61
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
+ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547883"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52615750"
 ---
 # <a name="package-creation-workflow"></a>Fluxo de trabalho de criação de pacote
 
@@ -36,7 +36,7 @@ A partir daí, você pode considerar diversas outras opções para seu pacote:
 - [Criando pacotes localizados](../create-packages/creating-localized-packages.md) descreve como estruturar um pacote com vários recursos de linguagem e como usar pacotes satélite localizados separados.
 - [Pacotes de pré-lançamento](../create-packages/prerelease-packages.md) demonstra como lançar pacotes de versão alfa, beta e rc para os clientes que estejam interessados.
 - [Origem e transformações do arquivo de configuração](../create-packages/source-and-config-file-transformations.md) descreve como você pode fazer as duas substituições de token unidirecionais em arquivos que são adicionados a um projeto e modificam `web.config` e `app.config` com configurações que também são recuperadas quando o pacote é desinstalado.
-- [Pacotes de símbolos](../create-packages/symbol-packages.md) oferece diretrizes para o fornecimento de símbolos para a biblioteca que permite aos consumidores intervir no seu código durante a depuração.
+- [Pacotes de símbolos](../create-packages/symbol-packages-snupkg.md) oferece diretrizes para o fornecimento de símbolos para a biblioteca que permite aos consumidores intervir no seu código durante a depuração.
 - [Controle de versão do pacote](../reference/package-versioning.md) aborda como identificar as versões exatas que você permite para as suas dependências (outros pacotes que você consume do seu pacote).
 - [Pacotes nativos](../create-packages/native-packages.md) descrevem o processo para criar um pacote para os consumidores do C++.
 - [Assinando pacotes](../create-packages/sign-a-package.md) descreve o processo para adicionar uma assinatura digital a um pacote.

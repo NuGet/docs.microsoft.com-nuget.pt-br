@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 7b30fce4a2d9ad0bd7bc2b97f69b8d5d25101b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545220"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671169"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Início Rápido: Instalar e usar um pacote no Visual Studio
 
@@ -64,7 +64,7 @@ Para instalar o pacote, use a IU do Gerenciador de Pacotes ou o Console do Geren
 
     ![Localizando o pacote Newtonsoft.Json](media/QS_Use-08-Console1.png)
 
-1. Insira o comando `Install-Package Newtonsoft.json` (veja [Install-Package](../tools/ps-ref-install-package.md)). A janela do console mostra a saída do comando. Os erros indicam que o pacote não é compatível com a estrutura de destino do projeto.
+1. Insira o comando `Install-Package Newtonsoft.Json` (veja [Install-Package](../tools/ps-ref-install-package.md)). A janela do console mostra a saída do comando. Os erros indicam que o pacote não é compatível com a estrutura de destino do projeto.
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Use a API Newtonsoft.Json no aplicativo
 
@@ -107,7 +107,7 @@ Com o pacote Newtonsoft.Json no projeto, você pode chamar seu método `JsonConv
 1. Mesmo que você tenha adicionado o pacote Newtonsoft.Json ao projeto, o sublinhado vermelho aparecerá sob `JsonConvert` porque você precisa de uma instrução `using` no topo do arquivo de código:
 
     ```cs
-    using Newtonsoft.json;
+    using Newtonsoft.Json;
     ```
 
 1. Compile e execute o aplicativo pressionando F5 ou selecionando **Depurar > Iniciar a Depuração**:
