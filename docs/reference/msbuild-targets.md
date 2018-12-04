@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
+ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453540"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52831014"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -192,7 +192,7 @@ Se um arquivo do tipo Compilação estiver fora da pasta de projeto, ele será a
 ### <a name="packing-a-license-expression-or-a-license-file"></a>Uma expressão de licença ou um arquivo de licença de remessa
 
 Ao usar uma expressão de licença, a propriedade PackageLicenseExpression deve ser usada. 
-[Exemplo de expressão de licença](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+[Exemplo de expressão de licença](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
 
 Ao empacotar um arquivo de licença, você precisa usar a propriedade PackageLicenseFile para especificar o caminho do pacote, relativo à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. Por exemplo:
 
@@ -205,7 +205,7 @@ Ao empacotar um arquivo de licença, você precisa usar a propriedade PackageLic
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
 </ItemGroup>
 ```
-[Exemplo de vida da licença](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+[Exemplo de arquivo de licença](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
 ### <a name="istool"></a>IsTool
 
