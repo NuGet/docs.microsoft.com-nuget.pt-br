@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 81672abf0362e053da2b71c8bd39bd7f96ddf73b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c86a07c30631b7ee99526b014ac9c3b9f136aa81
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549409"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671182"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Localizando e avaliando pacotes do NuGet para o seu projeto
 
@@ -100,6 +100,21 @@ Por outro lado, usar um pacote do NuGet significa assumir uma dependência, por 
 
 > [!Note]
 > Sempre preste atenção aos termos de licença de um pacote, que você pode ver selecionando **Informações de Licença** na página de listagem do pacote no nuget.org. Se um pacote não especificar os termos de licença, entre em contato com o proprietário do pacote diretamente usando o link **Contatar os proprietários** na página do pacote. A Microsoft não licencia nenhuma propriedade intelectual para você de provedores de pacotes de terceiros, nem é responsável pelas informações fornecidas por terceiros.
+
+## <a name="license-url-deprecation"></a>Substituição da URL da licença
+Com a transição de [licenseUrl](../reference/nuspec#licenseurl) para [license](../reference/nuspec#license), alguns clientes do NuGet e feeds do NuGet podem não ter a capacidade de exibir as informações de licenciamento em alguns casos. Para manter a compatibilidade com versões anteriores, a URL da licença aponta para este documento que fala sobre como recuperar as informações da licença nesses casos.
+
+Se você foi direcionado para esta página depois de clicar na URL, significa que o pacote contém um arquivo de licença e
+* Você está conectado a um feed que ainda não sabe como interpretar e revelar novas informações de licença para o cliente **OU**
+* Você está usando um cliente que ainda não sabe como interpretar e ler as novas informações de licença que são potencialmente fornecidas pelo feed **OU**
+* Uma combinação de ambos os casos
+
+Veja como você pode ler as informações contidas no arquivo de licença dentro do pacote:
+1. Baixe o pacote NuGet e descompacte o conteúdo para uma pasta.
+1. Abra o arquivo `.nuspec` que estaria na raiz da pasta.
+1. Ele deve ter uma marca como `<license type="file">license\license.txt</license>`. Isso significa que o arquivo de licença se chama `license.txt` e está dentro de uma pasta denominada `license` que também estaria na raiz dessa pasta.
+1. Navegue até a pasta `license` e abra o aquivo `license.txt`.
+
 
 ## <a name="search-syntax"></a>Sintaxe de pesquisa
 

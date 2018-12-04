@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/09/2018
 ms.topic: quickstart
-ms.openlocfilehash: b3be75a5af85bd3048c8b0eb71d90238b9349e09
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e8aa2250c6fc2843f74a925c56f953be5d48221
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549716"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671130"
 ---
 # <a name="installing-nuget-client-tools"></a>Instalar as ferramentas de cliente do NuGet
 
@@ -75,27 +75,25 @@ Instalação:
 | Recurso | CLI do dotnet | CLI do nuget (Windows) | CLI do nuget (Mono) | Visual Studio (Windows) | Visual Studio para Mac |
 | --- | --- | --- | --- | --- | --- |
 | Pesquisar pacotes |  | &#10004; | &#10004; | &#10004; | &#10004; |
-| Instalar/desinstalar pacotes | &#10004;(1) | &#10004;(2) | &#10004; | &#10004; | &#10004; |
+| Instalar/desinstalar pacotes | &#10004; | &#10004;(1) | &#10004; | &#10004; | &#10004; |
 | Atualizar pacotes | &#10004; | &#10004; | | &#10004; | &#10004; |
-| Restaurar pacotes | &#10004; | &#10004; | &#10004;(3) | &#10004; | &#10004; |
+| Restaurar pacotes | &#10004; | &#10004; | &#10004;(2) | &#10004; | &#10004; |
 | Gerenciar feeds de pacote (origens) | | &#10004; | &#10004; | &#10004; | &#10004; |
-| Gerenciar pacotes em um feed | &#10004;(1) | &#10004; | &#10004; | | |
+| Gerenciar pacotes em um feed | &#10004; | &#10004; | &#10004; | | |
 | Definir chaves de API para feeds | | &#10004; | &#10004; | | |
-| Criar pacotes (4) | &#10004; | &#10004; | &#10004;(5) | &#10004; | |
-| Publicar pacotes | &#10004;(1) | &#10004; | &#10004; | &#10004; |  |
+| Criar pacotes(3) | &#10004; | &#10004; | &#10004;(4) | &#10004; | |
+| Publicar pacotes | &#10004; | &#10004; | &#10004; | &#10004; |  |
 | Replicar pacotes |  | &#10004; | &#10004; | | |
 | Gerenciar *global-package* e pastas de cache | &#10004; | &#10004; | &#10004; | | |
 | Gerenciar a configuração do NuGet | | &#10004; | &#10004; | | |
 
-(1) Pacotes em nuget.org apenas
+(1) Não afeta os arquivos de projeto; em vez disso, use `dotnet.exe`.
 
-(2) Não afeta os arquivos de projeto, em vez disso use `dotnet.exe`.
+(2) Funciona somente com o arquivo `packages.config` e não com os arquivos de solução (`.sln`).
 
-(3) Funciona somente com o arquivo `packages.config` e não com os arquivos de solução (`.sln`).
+(3) Vários recursos avançados de pacote são disponibilizados por meio da CLI apenas quando não são representados nas ferramentas de interface do usuário do Visual Studio.
 
-(4) Vários recursos avançados de pacote são disponibilizados por meio da CLI apenas quando não são representados nas ferramentas de interface do usuário do Visual Studio.
-
-(5) Funciona com arquivos `.nuspec`, mas não com arquivos de projeto.
+(4) Funciona com arquivos `.nuspec`, mas não com arquivos de projeto.
 
 ### <a name="related-topics"></a>Tópicos relacionados
 

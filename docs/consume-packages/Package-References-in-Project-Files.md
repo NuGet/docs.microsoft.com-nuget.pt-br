@@ -5,22 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981022"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453566"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
-As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). Usar o PackageReference, como ele é chamado, não afeta os outros aspectos do NuGet; por exemplo, as configurações
-
-
-
-
-
-nos arquivos `NuGet.fig` (inclusive nas origens de pacote) ainda são aplicadas, conforme explicado em [Como configurar o comportamento do NuGet](configuring-nuget-behavior.md).
+As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). Usar o PackageReference, como ele é chamado, não afeta os outros aspectos do NuGet; por exemplo, as configurações nos arquivos `NuGet.config` (inclusive nas origens de pacote) ainda são aplicadas, conforme explicado em [Configurando o comportamento do NuGet](configuring-nuget-behavior.md).
 
 Com o PackageReference, você também pode usar condições do MSBuild para escolher as referências de pacote por estrutura de destino, por configuração, por plataforma ou por outros agrupamentos. Ele também proporciona um controle refinado sobre as dependências e o fluxo de conteúdo. (Para obter mais detalhes, veja [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).)
 
@@ -163,7 +157,7 @@ As condições também podem ser aplicadas no nível de `ItemGroup` e serão apl
 ## <a name="locking-dependencies"></a>Bloqueio de dependências
 *Esse recurso está disponível no NuGet **4.9** ou superior e no Visual Studio 2017 **15.9 Preview 5** ou superior.*
 
-A entrada da restauração do NuGet é um conjunto de Referências de pacote do arquivo de projeto (dependências de nível superior ou diretas) e a saída é um fechamento completo de todas as dependências do pacote, incluindo as dependências transitivas. Se a lista PackageReference de entrada não tiver sido alterada, o NuGet tenta sempre produzir o mesmo fechamento completo das dependências de pacotes. No entanto, em alguns cenários, isso não poderá ser feito. Por exemplo:
+A entrada da restauração do NuGet é um conjunto de Referências de pacote do arquivo de projeto (dependências de nível superior ou diretas), e a saída é um fechamento completo de todas as dependências do pacote, incluindo as dependências transitivas. Se a lista PackageReference de entrada não tiver sido alterada, o NuGet tenta sempre produzir o mesmo fechamento completo das dependências de pacotes. No entanto, em alguns cenários, isso não poderá ser feito. Por exemplo:
 
 * Quando você usa versões flutuantes como `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Embora a intenção aqui seja derivar para a versão mais recente sempre que uma restauração de pacotes ocorrer, há cenários em que os usuários exigem que o grafo seja bloqueado em uma determinada versão mais recente e derive para uma versão posterior, se disponível, mediante um gesto explícito.
 * Uma versão mais recente do pacote que corresponde aos requisitos de versão do PackageReference é publicada. Por exemplo, 
@@ -195,7 +189,7 @@ Se houver um arquivo de bloqueio para o projeto, o NuGet usará esse arquivo de 
 
 Se o NuGet detectar uma alteração nas dependências definidas, conforme mencionado nos arquivos de projeto, ele reavaliará o grafo do pacote e atualizará o arquivo de bloqueio para refletir o novo fechamento do pacote para o projeto.
 
-Para CI/CD e outros cenários, onde você não deseja alterar as dependências de pacote rapidamente, é possível configurar o `lockedmode` como `true`:
+Para CI/CD e outros cenários, em que você não deseja alterar as dependências de pacote rapidamente, é possível configurar o `lockedmode` como `true`:
 
 Para dotnet.exe, execute:
 ```
@@ -204,7 +198,7 @@ Para dotnet.exe, execute:
 
 Para msbuild.exe, execute:
 ```
-> msbuild.exe /t:restore /p:RestoreLockedMode=true
+> msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 Você também pode definir essa propriedade condicional do MSBuild em seu arquivo de projeto:
@@ -238,6 +232,6 @@ Você pode controlar vários comportamentos de restauração com o arquivo de bl
 | Opção | Opção equivalente do MSBuild | 
 |:---  |:--- |
 | `--use-lock-file` | Uso do arquivo de bloqueio de um projeto pelas inicializações. Como alternativa, você pode definir a propriedade `RestorePackagesWithLockFile` no arquivo de projeto | 
-| `--locked-mode` | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você gostaria de obter as compilações irreversíveis. Isso também pode ser feito através da definição da propriedade `RestoreLockedMode` do MSBuild como `true` |  
+| `--locked-mode` | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você gostaria de obter os builds repetidos. Isso também pode ser feito através da definição da propriedade `RestoreLockedMode` do MSBuild como `true` |  
 | `--force-evaluate` | Esta opção é útil com pacotes que têm a versão flutuante definida no projeto. Por padrão, a restauração do NuGet não atualizará automaticamente a versão do pacote em cada restauração, a menos que você execute a restauração com a opção `--force-evaluate`. |
 | `--lock-file-path` | Define o local de um arquivo de bloqueio personalizado para um projeto. Isso também pode ser feito através da definição da propriedade `NuGetLockFilePath` do MSBuild. Por padrão, o NuGet é compatível com `packages.lock.json` no diretório raiz. Se você tiver vários projetos no mesmo diretório, o NuGet oferecerá suporte ao arquivo de bloqueio `packages.<project_name>.lock.json` específico do projeto |
