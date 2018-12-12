@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580331"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248423"
 ---
 # <a name="nuget-api"></a>API do NuGet
 
@@ -62,6 +62,8 @@ Nome do recurso                                                           | Nece
 [`SymbolPackagePublish`](symbol-package-publish-resource.md)            | no      | Enviar por push pacotes de símbolos.
 
 Em geral, todos os dados não binários retornados por um recurso de API são serializados usando JSON. O esquema de resposta retornado por cada recurso no índice de serviço é definido individualmente para esse recurso. Para obter mais informações sobre cada recurso, consulte os tópicos listados acima.
+
+No futuro, à medida que o protocolo evolui, novas propriedades podem ser adicionadas para respostas em JSON. Para o cliente ser à prova de obsolescência, a implementação não deve presumir que o esquema de resposta é final e não pode incluir dados extras. Todas as propriedades que não entende a implementação devem ser ignoradas.
 
 > [!Note]
 > Quando uma fonte não implementa `SearchAutocompleteService` qualquer comportamento de preenchimento automático deve ser desabilitado normalmente. Quando `ReportAbuseUriTemplate` não for implementado, o cai de cliente do NuGet oficial para do nuget.org relatar abuso URL (controladas pelo [NuGet/Home #4924](https://github.com/NuGet/Home/issues/4924)). Outros clientes podem optar por simplesmente mostra uma URL para relatar abuso para o usuário.

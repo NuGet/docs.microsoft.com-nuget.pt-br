@@ -8,21 +8,18 @@ description: O recurso de assinaturas do repositório permite que os clientes or
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50f309b99d4bf59e14f3e29b6b0421d8c3e8aa5a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 81d32a7011268e45136e00cdb7345a95070aae06
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547975"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248436"
 ---
 # <a name="repository-signatures"></a>Assinaturas de repositório
 
 Se uma origem de pacote dá suporte a assinaturas de repositório de adição para pacotes publicados, é possível que um cliente para determinar os certificados de autenticação que são usados por origem do pacote. Esse recurso permite que os clientes detectar se um repositório assinado o pacote foi violado ou tem um certificado de autenticação inesperado.
 
 O recurso usado para buscar informações de assinatura esse repositório é o `RepositorySignatures` recurso encontrado na [índice de serviço](service-index.md).
-
-> [!Note]
-> NuGet.org iniciará anunciando o `RepositorySignatures` recursos em um futuro próximo.
 
 ## <a name="versioning"></a>Controle de versão
 
@@ -31,6 +28,7 @@ O seguinte `@type` valor é usado:
 Valor @type                | Observações
 -------------------------- | -----
 RepositorySignatures/4.7.0 | A versão inicial
+RepositorySignatures/4.9.0 | Permite habilitar `allRepositorySigned`
 
 ## <a name="base-url"></a>URL Base
 
@@ -59,12 +57,15 @@ A seguinte solicitação de busca de índice de assinaturas do repositório.
 
 O índice de assinatura do repositório é um documento JSON que contém um objeto com as seguintes propriedades:
 
-Nome                | Tipo             | Necessária
-------------------- | ---------------- | --------
-allRepositorySigned | boolean          | sim
-signingCertificates | matriz de objetos | sim
+Nome                | Tipo             | Necessária | Observações
+------------------- | ---------------- | -------- | -----
+allRepositorySigned | boolean          | sim      | Deve ser `false` em 4.7.0 recursos
+signingCertificates | matriz de objetos | sim      | 
 
 O `allRepositorySigned` booliano é definido como false se a origem do pacote tem alguns pacotes que não têm a nenhuma assinatura do repositório. Se o valor booliano é definido como true, todos os pacotes disponíveis na fonte de deve ter uma assinatura de repositório produzida por um dos certificados de autenticação mencionados no `signingCertificates`.
+
+> [!Warning]
+> O `allRepositorySigned` booliano deve ser falsa no 4.7.0 recursos. Os clientes v4.7 e v 4.8 do NuGet não é possível instalar pacotes de fontes que têm `allRepositorySigned` definido como true.
 
 Deve haver um ou mais certificados de autenticação na `signingCertificates` matriz se o `allRepositorySigned` booliano é definido como true. Se a matriz está vazia e `allRepositorySigned` é definido como true, todos os pacotes da origem devem ser considerados inválidos, embora uma política de cliente ainda pode permitir que o consumo de pacotes. Cada elemento desta matriz é um objeto JSON com as propriedades a seguir.
 
