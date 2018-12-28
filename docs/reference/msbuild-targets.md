@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
-ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
+ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52831014"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645666"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -117,8 +117,8 @@ O `nuget pack` copia arquivos de saída com extensões `.exe`, `.dll`, `.xml`, `
 
 Há duas propriedades de MSBuild que você pode usar em seu arquivo de projeto ou a linha de comando para controlar onde ficam os assemblies de saída:
 
-- `IncludeBuildOutput`: um valor booliano que determina se os assemblies de saída de build devem ser incluídos no pacote.
-- `BuildOutputTargetFolder`: especifica a pasta na qual os assemblies de saída devem ser colocados. Os assemblies de saída (e outros arquivos de saída) são copiados para suas respectivas pastas de estrutura.
+- `IncludeBuildOutput`: Um booliano que determina se os assemblies de saída de compilação devem ser incluídos no pacote.
+- `BuildOutputTargetFolder`: Especifica a pasta na qual os assemblies de saída devem ser colocados. Os assemblies de saída (e outros arquivos de saída) são copiados para suas respectivas pastas de estrutura.
 
 ### <a name="package-references"></a>Referências de pacote
 
@@ -202,7 +202,7 @@ Ao empacotar um arquivo de licença, você precisa usar a propriedade PackageLic
 </PropertyGroup>
 
 <ItemGroup>
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
 [Exemplo de arquivo de licença](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
@@ -217,7 +217,7 @@ Você pode usar um `.nuspec` arquivo para empacotar seu projeto desde que você 
 
 1. `NuspecFile`: caminho relativo ou absoluto para o arquivo `.nuspec` que está sendo usado para o empacotamento.
 1. `NuspecProperties`: uma lista separada por ponto e vírgula de pares chave/valor. Devido à maneira como a análise de linha de comando do MSBuild funciona, várias propriedades precisam ser especificadas da seguinte maneira: `-p:NuspecProperties=\"key1=value1;key2=value2\"`.  
-1. `NuspecBasePath`: o caminho base para o arquivo `.nuspec`.
+1. `NuspecBasePath`: Caminho base para o `.nuspec` arquivo.
 
 Se estiver usando `dotnet.exe` para empacotar seu projeto, use um comando como o seguinte:
 
@@ -252,7 +252,7 @@ Um exemplo de um arquivo csproj para empacotar um arquivo nuspec é:
 
 O `pack` destino fornece dois pontos de extensão que são executados na interna, target framework compilação específica. Suportam os pontos de extensão incluindo conteúdo específico do framework de destino e assemblies em um pacote:
 
-- `TargetsForTfmSpecificBuildOutput` destino: Use para arquivos dentro de `lib` pasta ou uma pasta especificada usando `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificBuildOutput` destino: Use arquivos de dentro de `lib` pasta ou uma pasta especificada usando `BuildOutputTargetFolder`.
 - `TargetsForTfmSpecificContentInPackage` destino: Use para arquivos fora do `BuildOutputTargetFolder`.
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
@@ -260,7 +260,7 @@ O `pack` destino fornece dois pontos de extensão que são executados na interna
 Escrever um destino personalizado e especificá-lo como o valor da `$(TargetsForTfmSpecificBuildOutput)` propriedade. Para todos os arquivos que precisam ir para o `BuildOutputTargetFolder` lib (por padrão), o destino deve gravar esses arquivos no ItemGroup `BuildOutputInPackage` e defina os seguintes dois valores de metadados:
 
 - `FinalOutputPath`: O caminho absoluto do arquivo. Se não for fornecido, a identidade é usada para avaliar o caminho de origem.
-- `TargetPath`: (Opcional) defina quando o arquivo deve ir para uma subpasta dentro do `lib\<TargetFramework>` , como assemblies de satélite que vão em suas pastas de cultura respectivo. O padrão é o nome do arquivo.
+- `TargetPath`:  (Opcional) Definido quando o arquivo deve ir para uma subpasta dentro do `lib\<TargetFramework>` , como assemblies de satélite que vão em suas pastas de cultura respectivo. O padrão é o nome do arquivo.
 
 Exemplo:
 
@@ -282,7 +282,7 @@ Exemplo:
 
 Escrever um destino personalizado e especificá-lo como o valor da `$(TargetsForTfmSpecificContentInPackage)` propriedade. Para todos os arquivos incluir no pacote, o destino deve gravar esses arquivos no ItemGroup `TfmSpecificPackageFile` e defina os seguintes metadados opcionais:
 
-- `PackagePath`: O caminho onde o arquivo deve ser gerado no pacote. O NuGet emitirá um aviso se mais de um arquivo for adicionado no mesmo caminho de pacote.
+- `PackagePath`: Caminho onde o arquivo deve ser gerado no pacote. O NuGet emitirá um aviso se mais de um arquivo for adicionado no mesmo caminho de pacote.
 - `BuildAction`: A ação de compilação a ser atribuído ao arquivo, é necessário somente se o caminho do pacote está no `contentFiles` pasta. O padrão é "None".
 
 Um exemplo:
