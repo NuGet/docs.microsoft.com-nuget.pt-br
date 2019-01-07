@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a47a3a56e1c290c9a2f228ce1d0313cbdf0c4c34
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d6925df63daf3096455a8205d6aeb07b4475f715
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549200"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645627"
 ---
 # <a name="building-pre-release-packages"></a>Compilando pacotes de pré-lançamento
 
@@ -44,15 +44,15 @@ Quando você estiver pronto para lançar uma versão estável, basta remover o s
 
 Por padrão, o NuGet não inclui as versões de pré-lançamento ao trabalhar com pacotes, mas você pode alterar esse comportamento da seguinte maneira:
 
-- **Interface do usuário do Gerenciador de Pacotes no Visual Studio**: na interface do usuário **Gerenciar pacotes do NuGet**, marque a caixa **Incluir pré-lançamento**:
+- **Interface do Usuário do Gerenciador de Pacotes no Visual Studio**: na Interface do Usuário **Gerenciar pacotes NuGet**, marque a caixa de seleção **Incluir pré-lançamento**:
 
     ![A caixa de seleção Incluir pré-lançamento no Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
     Definir ou desmarcar esta caixa atualizará a interface do usuário do Gerenciador de Pacotes e a lista de versões disponíveis que você pode instalar.
 
-- **Console do Gerenciador de Pacotes**: use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../tools/powershell-reference.md).
+- **Console do Gerenciador de Pacotes**: Use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../tools/powershell-reference.md).
 
-- **CLI do NuGet**: use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../tools/nuget-exe-cli-reference.md)
+- **CLI do NuGet**: Use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../tools/nuget-exe-cli-reference.md)
 
 ## <a name="semantic-versioning"></a>Controle de versão semântico
 
@@ -60,17 +60,17 @@ O [Controle de versão semântico ou convenção de SemVer](http://semver.org/sp
 
 Nesta convenção, cada versão tem três partes, `Major.Minor.Patch`, com o seguinte significado:
 
-- `Major`: alterações significativas
-- `Minor`: novos recursos, mas compatível com versões anteriores
-- `Patch`: somente correções de bug compatíveis com versões anteriores
+- `Major`: alterações da falha
+- `Minor`: Novos recursos, mas compatível com versões anteriores
+- `Patch`: Somente correções de bug compatíveis com versões anteriores
 
-As versões de pré-lançamento são indicadas acrescentando um hífen e uma cadeia de caracteres após o número de patch. Tecnicamente, você pode usar *qualquer* cadeia de caracteres após o hífen e o NuGet tratará o pacote como a versão de pré-lançamento. O NuGet exibe, então, o número de versão completa na interface do usuário aplicável, deixando os consumidores para interpretar o significado por si mesmos.
+As versões de pré-lançamento são indicadas acrescentando um hífen e uma cadeia de caracteres após o número de patch. Tecnicamente, é possível usar *qualquer* cadeia de caracteres após o hífen e o NuGet tratará o pacote como a versão de pré-lançamento. O NuGet exibe, então, o número de versão completa na interface do usuário aplicável, deixando os consumidores para interpretar o significado por si mesmos.
 
 Considerando isso, geralmente é aconselhável seguir as convenções de nomenclatura reconhecidas como a seguinte:
 
-- `-alpha`: versão alfa, normalmente usado para o trabalho e experimentação em andamento
-- `-beta`: versão beta, normalmente uma completa com recursos para a próxima versão planejada, mas pode conter erros conhecidos.
-- `-rc`: versão Release candidate, normalmente uma versão que é potencialmente a final (estável), a menos que surjam bugs significativos.
+- `-alpha`: Versão alfa, normalmente usada para o trabalho e experimentação em andamento
+- `-beta`: Versão beta, normalmente uma completa com recursos para a próxima versão planejada, mas pode conter erros conhecidos.
+- `-rc`: Versão Release Candidate, normalmente uma versão que é potencialmente a final (estável), a menos que surjam bugs significativos.
 
 > [!Note]
 > O NuGet 4.3.0+ é compatível com o [Semantic Versioning v2.0.0](http://semver.org/spec/v2.0.0.html), que oferece compatibilidade com números com notação de ponto pré-lançamento, como no `1.0.1-build.23`. A notação de ponto não e compatível com as versões do NuGet anteriores à 4.3.0. Em versões anteriores do NuGet, você poderia usar um formulário como `1.0.1-build23`, mas ela sempre foi considerada uma versão de pré-lançamento.
