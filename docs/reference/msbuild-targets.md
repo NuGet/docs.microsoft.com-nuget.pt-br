@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645666"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324845"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -55,8 +55,8 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 | Descrição | Descrição | “Package Description” | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| licença | PackageLicenseExpression | empty | Corresponde a `<license type="expression">` |
-| licença | PackageLicenseFile | empty | Corresponde ao `<license type="file">`. Talvez você precise explicitamente o arquivo de licença referenciado do pacote. |
+| Licença | PackageLicenseExpression | empty | Corresponde a `<license type="expression">` |
+| Licença | PackageLicenseFile | empty | Corresponde ao `<license type="file">`. Talvez você precise explicitamente o arquivo de licença referenciado do pacote. |
 | LicenseUrl | PackageLicenseUrl | empty | `licenseUrl` está sendo preterido, use a propriedade PackageLicenseExpression ou PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
@@ -72,6 +72,7 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 ### <a name="pack-target-inputs"></a>pack target inputs
 
 - IsPackable
+- SuppressDependenciesWhenPacking
 - PackageVersion
 - PackageId
 - Autores
@@ -106,6 +107,10 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 - NuspecProperties
 
 ## <a name="pack-scenarios"></a>pack scenarios
+
+### <a name="suppress-dependencies"></a>Suprimir as dependências
+
+Para suprimir as dependências do pacote do pacote do NuGet gerado, defina `SuppressDependenciesWhenPacking` para `true` que permitirá ignorando todas as dependências de arquivo nupkg gerado.
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
@@ -193,6 +198,14 @@ Se um arquivo do tipo Compilação estiver fora da pasta de projeto, ele será a
 
 Ao usar uma expressão de licença, a propriedade PackageLicenseExpression deve ser usada. 
 [Exemplo de expressão de licença](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+
+```xml
+<PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+</PropertyGroup>
+```
+
+[Saiba mais sobre expressões de licença e licenças que são aceitos pelo NuGet.org](nuspec.md#license).
 
 Ao empacotar um arquivo de licença, você precisa usar a propriedade PackageLicenseFile para especificar o caminho do pacote, relativo à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. Por exemplo:
 

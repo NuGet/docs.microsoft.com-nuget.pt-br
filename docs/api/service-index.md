@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 478b74f98caafdc7c6b69423b9f9d72890c8d7cb
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1dcfb87690b728280b494d4434f9c1d7ee7a7e74
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545251"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324715"
 ---
 # <a name="service-index"></a>Índice de serviço
 
@@ -59,7 +59,7 @@ Não há nenhum requisito de que cada recurso tem um único `@id` ou `@type`. Ca
 
 ### <a name="sample-request"></a>Exemplo de solicitação
 
-OBTER https://api.nuget.org/v3/index.json
+    GET https://api.nuget.org/v3/index.json
 
 ### <a name="sample-response"></a>Resposta de exemplo
 

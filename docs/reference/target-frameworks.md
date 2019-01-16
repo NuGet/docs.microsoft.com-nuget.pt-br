@@ -6,29 +6,29 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 047ede14c7935844cb4f6d0315772c2a1190e5b8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 0c76ea43e871009223cc4328449e21e5d02129bb
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547253"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324871"
 ---
 # <a name="target-frameworks"></a>Frameworks de destino
 
 O NuGet usa referências de estrutura de destino em uma variedade de locais para identificar e isolar especificamente os componentes dependentes de estrutura de um pacote:
 
-- [Manifesto do .nuspec](../reference/nuspec.md): um pacote pode indicar pacotes distintos a serem incluídos em um projeto dependendo da estrutura de destino dele.
-- [Nome da pasta .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): as pastas dentro de uma pasta `lib` do pacote pode ser nomeada de acordo com a estrutura de destino, cada uma delas contém as DLLs e outros tipos de conteúdo apropriado para essa estrutura.
-- [packages.config](../reference/packages-config.md): o atributo `targetframework` de uma dependência especifica a variante de um pacote a ser instalado.
+- [manifesto do. NuSpec](../reference/nuspec.md): Um pacote pode indicar pacotes distintos a serem incluídos em um projeto dependendo da estrutura de destino do projeto.
+- [nome da pasta. nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): As pastas dentro de um pacote `lib` pasta pode ser nomeada de acordo com a estrutura de destino, cada uma delas contém as DLLs e outros tipos de conteúdo apropriado para essa estrutura.
+- [packages.config](../reference/packages-config.md): O `targetframework` atributo de uma dependência Especifica a variante de um pacote para instalar.
 
 > [!Note]
 > O código-fonte do cliente do NuGet que calcula as tabelas abaixo é encontrado nos seguintes locais:
 > - Suporte para nomes de estrutura: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Precedência e mapeamento do Framework: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Precedência de Framework e o mapeamento: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Estruturas com suporte
 
-Normalmente, uma estrutura é referenciada por um moniker curto de estrutura de destino ou TFM. No .NET Standard, isso também é generalizado para *TxM* a fim de permitir uma única referência para várias estruturas.
+Normalmente, uma estrutura é referenciada por um moniker curto de estrutura de destino ou TFM. No .NET Standard isso também é generalizado para *TxM* para permitir que uma única referência para várias estruturas.
 
 Os clientes do NuGet são compatíveis com as estruturas indicadas na tabela abaixo. Equivalentes são mostrados entre colchetes []. Observe que algumas ferramentas, como `dotnet`, podem usar as variações de TFMs canônicos em alguns arquivos. Por exemplo, `dotnet pack` usa `.NETCoreApp2.0` em um arquivo `.nuspec` em vez de `netcoreapp2.0`. As várias ferramentas de cliente do NuGet manipulam essas variações corretamente, mas você sempre deve usar TFMs canônicos ao editar arquivos diretamente.
 

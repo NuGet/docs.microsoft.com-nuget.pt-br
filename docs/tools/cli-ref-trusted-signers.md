@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ffd0cf5d50a2deed16e1722b32e43047bc81df2f
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303682"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324702"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>comando de signatários confiáveis (CLI do NuGet)
 
-**Aplica-se a:** consumo do pacote &bullet; **versões com suporte:** 4.9 +
+**Aplica-se a:** consumo do pacote &bullet; **versões com suporte:** 4.9.1+
 
 Obtém ou define os signatários confiáveis na configuração do NuGet. Para uso adicional, consulte [Configurando o comportamento do NuGet](../consume-packages/configuring-nuget-behavior.md). Para obter detalhes sobre como o esquema do NuGet. config se parece, consulte o [referência de arquivo de configuração do NuGet](../reference/nuget-config-file.md).
 
@@ -80,7 +80,7 @@ Fornecendo `-Author` e `-Repository` ao mesmo tempo não tem suporte.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Observação_: essa opção só será adicionar repositórios confiáveis. 
+_Observação_: Essa opção só será adicionar repositórios confiáveis. 
 
 | Opção | Descrição |
 | --- | --- |
@@ -94,7 +94,7 @@ _Observação_: essa opção só será adicionar repositórios confiáveis.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Observação_: se um signatário confiável com o nome fornecido já existir, o item de certificado será adicionado para esse assinante. Caso contrário, um autor confiável será criado com um item de certificado de determinadas informações do certificado.
+_Observação_: Se um signatário confiável com o nome fornecido já existir, o item de certificado será adicionado para esse assinante. Caso contrário, um autor confiável será criado com um item de certificado de determinadas informações do certificado.
 
 | Opção | Descrição |
 | --- | --- |
@@ -110,7 +110,7 @@ Remove qualquer signatários confiáveis que correspondem ao nome fornecido.
 
 Solicita a lista mais recente de certificados usados em um repositório confiável no momento para atualizar a lista de certificados existentes em um signatário confiável.
 
-_Observação_: esse gesto excluirá a lista atual de certificados e substituí-los com uma lista atualizada do repositório.
+_Observação_: Esse gesto excluirá a lista atual de certificados e substituí-los com uma lista atualizada do repositório.
 
 ## <a name="options"></a>Opções
 

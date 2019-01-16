@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248423"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324832"
 ---
 # <a name="nuget-api"></a>API do NuGet
 
 A API do NuGet é um conjunto de pontos de extremidade HTTP que pode ser usado para baixar os pacotes, buscar metadados, publicar novos pacotes e executar a maioria das outras operações disponíveis em que os clientes do NuGet oficiais.
 
-Essa API é usada pelo cliente do NuGet no Visual Studio, nuget.exe e a CLI do .NET para executar operações do NuGet, como [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), pesquisa na IU do Visual Studio, e [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Essa API é usada pelo cliente do NuGet no Visual Studio, nuget.exe e a CLI do .NET para executar operações do NuGet, como [ `dotnet restore` ](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), pesquisa na IU do Visual Studio, e [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Observe que em alguns casos, nuget.org tem requisitos adicionais que não são impostos por outras fontes de pacote. Essas diferenças são documentadas pela [protocolos nuget.org](nuget-protocols.md).
 
@@ -35,7 +35,7 @@ Para obter mais informações sobre o índice de serviço, consulte [sua referê
 
 ## <a name="versioning"></a>Controle de versão
 
-A API é a versão 3 do protocolo HTTP do NuGet. Às vezes, esse protocolo é conhecido como "a API V3". Esses documentos de referência fará referência a esta versão do protocolo simplesmente como "API".
+A API é a versão 3 do protocolo HTTP do NuGet. Esse protocolo é, às vezes, conhecido como "a API V3". Esses documentos de referência fará referência a esta versão do protocolo simplesmente como "API".
 
 O serviço de versão de esquema de índice é indicado pela `version` propriedade no índice de serviço. A API exige que a cadeia de caracteres de versão tem um número de versão principal `3`. Como o esquema de índice de serviço forem feitas alterações sem interrupções, versão secundária da cadeia de caracteres de versão será aumentado.
 
@@ -43,7 +43,7 @@ Os clientes mais antigos (como nuget.exe 2. x) não suportam a API V3 e só há 
 
 A API do NuGet V3 é chamada assim porque é a sucessora da API V2, que era o protocolo OData-based implementado pela versão 2.x do cliente do NuGet oficial. A API V3 primeiro era compatível com a versão 3.0 do cliente do NuGet oficial e é ainda a versão mais recente principal protocolo com suporte pelo cliente do NuGet, 4.0 e no. 
 
-As alterações do protocolo não significativas foram feitas para a API desde a primeira versão.
+Alterações de protocolo de interrupção não foram feitas para a API, pois ele foi lançado pela primeira vez.
 
 ## <a name="resources-and-schema"></a>Recursos e esquema
 
@@ -68,7 +68,7 @@ No futuro, à medida que o protocolo evolui, novas propriedades podem ser adicio
 > [!Note]
 > Quando uma fonte não implementa `SearchAutocompleteService` qualquer comportamento de preenchimento automático deve ser desabilitado normalmente. Quando `ReportAbuseUriTemplate` não for implementado, o cai de cliente do NuGet oficial para do nuget.org relatar abuso URL (controladas pelo [NuGet/Home #4924](https://github.com/NuGet/Home/issues/4924)). Outros clientes podem optar por simplesmente mostra uma URL para relatar abuso para o usuário.
 
-## <a name="timestamps"></a>Carimbos de hora
+## <a name="timestamps"></a>Carimbos de data/hora
 
 Todos os carimbos de hora retornados pela API são UTC ou caso contrário, são especificados usando [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) representação. 
 

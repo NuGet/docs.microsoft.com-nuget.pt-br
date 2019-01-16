@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453553"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324858"
 ---
 # <a name="package-metadata"></a>Metadados de pacote
 
@@ -26,8 +26,8 @@ O seguinte `@type` valores são usados:
 Valor @type                     | Observações
 ------------------------------- | -----
 RegistrationsBaseUrl            | A versão inicial
-RegistrationsBaseUrl/3.0.0-beta | Alias de `RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-rc   | Alias de `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-beta | Alias of `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-rc   | Alias of `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | Gzip respostas
 RegistrationsBaseUrl/3.6.0      | Inclui pacotes de SemVer 2.0.0
 
@@ -103,7 +103,7 @@ Nome   | Tipo             | Necessária | Observações
 count  | inteiro          | sim      | O número de registro deixa na página
 Itens  | matriz de objetos | no       | A matriz de folhas de registro e seus metadados associados
 inferior  | cadeia de caracteres           | sim      | A versão mais antiga do SemVer 2.0.0 na página (inclusiva)
-Pai | cadeia de caracteres           | no       | A URL para o índice do registro
+parent | cadeia de caracteres           | no       | A URL para o índice do registro
 superior  | cadeia de caracteres           | sim      | A versão mais recente do SemVer 2.0.0 na página (inclusiva)
 
 O `lower` e `upper` dos limites do objeto page são úteis quando os metadados para uma versão de página específica é necessária.
@@ -141,7 +141,8 @@ dependencyGroups         | matriz de objetos           | no       | As dependên
 descrição              | cadeia de caracteres                     | no       | 
 iconUrl                  | cadeia de caracteres                     | no       | 
 id                       | cadeia de caracteres                     | sim      | A ID do pacote
-licenseUrl               | cadeia de caracteres                     | no       | 
+licenseUrl               | cadeia de caracteres                     | no       |
+licenseExpression        | cadeia de caracteres                     | no       | 
 listados                   | boolean                    | no       | Deve ser considerado como caso esteja ausente, listado
 minClientVersion         | cadeia de caracteres                     | no       | 
 projectUrl               | cadeia de caracteres                     | no       | 
@@ -155,6 +156,8 @@ version                  | cadeia de caracteres                     | sim      |
 O pacote `version` propriedade é a cadeia de caracteres de versão completa após a normalização. Isso significa que os dados de criação de SemVer 2.0.0 podem ser incluídos aqui.
 
 O `dependencyGroups` propriedade é uma matriz de objetos que representam as dependências do pacote, agrupados por estrutura de destino. Se o pacote não tem dependências, o `dependencyGroups` propriedade estiver ausente, uma matriz vazia, ou o `dependencies` propriedade de todos os grupos está vazio ou ausente.
+
+O valor da `licenseExpression` obedece a propriedade [sintaxe de expressão de licença do NuGet](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license).
 
 #### <a name="package-dependency-group"></a>Grupo de dependência de pacote
 
@@ -203,7 +206,7 @@ Nome   | Tipo             | Necessária | Observações
 count  | inteiro          | sim      | O número de registro deixa na página
 Itens  | matriz de objetos | sim      | A matriz de folhas de registro e seus metadados associados
 inferior  | cadeia de caracteres           | sim      | A versão mais antiga do SemVer 2.0.0 na página (inclusiva)
-Pai | cadeia de caracteres           | sim      | A URL para o índice do registro
+parent | cadeia de caracteres           | sim      | A URL para o índice do registro
 superior  | cadeia de caracteres           | sim      | A versão mais recente do SemVer 2.0.0 na página (inclusiva)
 
 A forma dos objetos de folha de registro é o mesmo o índice do registro [acima](#registration-leaf-object-in-a-page).

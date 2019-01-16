@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: 009be99a1c6623a00b4bdbe6db3164ca70782212
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944074"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324897"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -105,6 +105,9 @@ Se você estiver usando uma licença que não tenha sido atribuída a um identif
   </files>
 </package>
 ```
+
+Para o equivalente do MSBuild, dar uma olhada [uma expressão de licença ou um arquivo de licença de remessa](msbuild-targets.md#packing-a-license-expression-or-a-license-file).
+
 A sintaxe exata de expressões de licença do NuGet é descrita abaixo em [ABNF](https://tools.ietf.org/html/rfc5234).
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
@@ -149,7 +152,7 @@ Especifica a versão mínima do cliente NuGet que pode instalar esse pacote, imp
 
 #### <a name="collection-elements"></a>Elementos de coleção
 
-#### <a name="packagetypes"></a>PackageTypes
+#### <a name="packagetypes"></a>packageTypes
 *(3.5 ou superior)* Uma coleção de zero ou mais elementos `<packageType>` que especificam o tipo do pacote se for diferente de um pacote de dependência tradicional. Cada packageType tem os atributos de *name* e *version*. Consulte [Definindo um tipo de pacote](../create-packages/creating-a-package.md#setting-a-package-type).
 #### <a name="dependencies"></a>dependências
 Uma coleção de zero ou mais elementos `<dependency>` que especificam as dependências do pacote. Cada dependência tem atributos de *id*, *version*, *include* (3.x ou superior) e *exclude* (3.x ou superior). Consulte [Dependências](#dependencies-element) abaixo.
@@ -189,8 +192,8 @@ Com exceção de `$configuration$`, os valores do projeto são usados como prefe
 | --- | --- | ---
 | **$id$** | Arquivo de projeto | AssemblyName (título) do arquivo de projeto |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion se existir, caso contrário AssemblyVersion |
-| **$ $authors** | AssemblyInfo | AssemblyCompany |
-| **$ $title** | AssemblyInfo | AssemblyTitle |
+| **$authors$** | AssemblyInfo | AssemblyCompany |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | DLL de assembly | Configuração usada para compilar o assembly, com Depuração como padrão. Observe que, para criar um pacote usando uma configuração de Versão, você sempre usará `-properties Configuration=Release` na linha de comando. |
@@ -250,7 +253,7 @@ As linhas a seguir indicam dependências nos mesmos pacotes, mas especificam a i
 </dependencies>
 ```
 
-Observação: ao criar um `.nuspec` de um projeto usando `nuget spec`, as dependências que existem no projeto são incluídas automaticamente no arquivo `.nuspec` resultante.
+Observação: Ao criar uma `.nuspec` de um projeto usando `nuget spec`, as dependências que existem no projeto são incluídas automaticamente no resultante `.nuspec` arquivo.
 
 ### <a name="dependency-groups"></a>Grupos de dependência
 
