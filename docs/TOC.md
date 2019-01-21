@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: c5b0a8efeaadbfb0cbebf72e818683c1ec9a5077
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403171"
+---
 # [O que é o NuGet?](what-is-nuget.md)
 # [Instalar as ferramentas de cliente do NuGet](install-nuget-client-tools.md)
 # Guias de Início Rápido
@@ -239,7 +247,6 @@
 ## [Suporte do sistema de projeto](visual-studio-extensibility/project-system-support.md)
 ## [Modelos do Visual Studio](visual-studio-extensibility/visual-studio-templates.md)
 # Políticas
-## [Perguntas frequentes do NuGet](policies/nuget-faq.md)
 ## [Governança](policies/governance.md)
 ## [Ecossistema](policies/ecosystem.md)
 ## [Solicitações de dados](policies/Data-requests.md)
@@ -305,3 +312,4 @@
 ## [NuGet 1.3](release-notes/NuGet-1.3.md)
 ## [NuGet 1.2](release-notes/NuGet-1.2.md)
 ## [NuGet 1.1](release-notes/NuGet-1.1.md)
+# [Perguntas frequentes](faqs/nuget-faq.md)
