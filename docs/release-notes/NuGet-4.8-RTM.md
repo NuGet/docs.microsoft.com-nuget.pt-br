@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 641304059c90e360fae4d0956d7b922e34bc6501
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: cf15c4f6a2e3e9f6ce7b6acb2304648041043685
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981113"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324819"
 ---
 # <a name="nuget-48-rtm-release-notes"></a>Notas sobre a versão do NuGet 4.8 RTM
 
@@ -22,7 +22,7 @@ Versões de linha de comando da mesma funcionalidade também estão disponíveis
 * DotNet.exe – [SDK do .NET Core 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-this-release"></a>Resumo: novidades desta versão
+## <a name="summary-whats-new-in-this-release"></a>Resumo: O que há de novo nesta versão
 * NuGet.exe agora dá suporte a longfilenames no Windows 10 – [#6937](https://github.com/NuGet/Home/issues/6937)
 * Plug-ins de autenticação agora funcionam em MsBuild, DotNet.exe, NuGet.exe e Visual Studio, incluindo multiplataforma. A primeira geração de plug-ins de autenticação não tinha suporte no MsBuild, DotNet.exe. Observação: builds de Versão Prévia do VS 2017 15.9 têm um plug-in de autenticação do VSTS incluído. [#6486](https://github.com/NuGet/Home/issues/6486)
 * O Resolvedor de SDK do MsBuild agora compila como parte do NuGet e é instalado com as ferramentas do NuGet para VS. Isso evitará que as versões saiam de sincronia. [#6799](https://github.com/NuGet/Home/issues/6799)
@@ -62,7 +62,7 @@ Observação: isso foi corrigido no VS 2017 15.9 Versão Prévia 3
 
 ### <a name="bugs"></a>Bugs
 #### <a name="signing"></a>Assinatura
-* Assinatura: Como instalar um pacote assinado em um ambiente offline [#7008](https://github.com/NuGet/Home/issues/7008) – corrigido na 4.8.1
+* Assinatura: como instalar um pacote assinado em um ambiente offline [#7008](https://github.com/NuGet/Home/issues/7008) – corrigido na 4.8.1
 * Assinatura: verificação de URL incorreta – [#7174](https://github.com/NuGet/Home/issues/7174)
 * Assinatura: verificar a integridade de pacote em RepositorySignatureVerifier quando o pacote for referendado pelo repositório – [#6926](https://github.com/NuGet/Home/issues/6926)
 * "Falha na verificação de integridade do pacote." deve ter a ID do pacote na mensagem (e código de erro) – [#6944](https://github.com/NuGet/Home/issues/6944)
@@ -72,7 +72,7 @@ Observação: isso foi corrigido no VS 2017 15.9 Versão Prévia 3
 * A memória é inválida ao atualizar as informações de signatário ao adicionar o carimbo de data/hora à referenda – [#6840](https://github.com/NuGet/Home/issues/6840)
 * Assinatura: remover exceções CTL – [#6794](https://github.com/NuGet/Home/issues/6794)
 * Assinatura: contentUrl DEVE ser HTTPS – [#6777](https://github.com/NuGet/Home/issues/6777)
-* Assinatura: SignedPackageVerifierSettings.VSClientDefaultPolicy não é usado – [#6601](https://github.com/NuGet/Home/issues/6601)
+* Assinatura:  SignedPackageVerifierSettings.VSClientDefaultPolicy não é usado – [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
 #### <a name="pack"></a>Pacote
