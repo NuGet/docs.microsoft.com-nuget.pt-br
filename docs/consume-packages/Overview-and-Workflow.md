@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580240"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403158"
 ---
 # <a name="package-consumption-workflow"></a>Fluxo de trabalho de consumo do pacote
 
@@ -35,7 +35,7 @@ Ao adicionar o código do projeto a um repositório de origem, pacotes do NuGet 
 
 ![Fluxo de restauração de pacotes do NuGet clonando um repositório e usando um comando de restauração](media/Overview-02-RestoreFlow.png)
 
-[Restauração de pacote](../consume-packages/package-restore.md) usa as informações no arquivo de projeto ou `packages.config` para reinstalar todas as dependências. Observe que há diferenças no processo envolvido, conforme descrito em [Resolução de dependências](../consume-packages/dependency-resolution.md). Além disso, o diagrama acima não mostra um comando de restauração para o Console do Gerenciador de Pacotes porque você está no Console e já está no contexto do Visual Studio, o que normalmente restaura pacotes de modo automático e fornece o comando solution-level, conforme mostrado.
+[Restauração de pacote](../consume-packages/package-restore.md) usa as informações no arquivo de projeto ou `packages.config` para reinstalar todas as dependências. Observe que há diferenças no processo envolvido, conforme descrito em [Resolução de dependências](../consume-packages/dependency-resolution.md). Além disso, o diagrama acima não mostra um comando de restauração para o Console do Gerenciador de Pacotes porque estar no Console significa também já estar no contexto do Visual Studio, o que normalmente restaura pacotes de modo automático e fornece o comando no nível da solução, conforme mostrado.
 
 Ocasionalmente, é necessário reinstalar pacotes que já estão incluídos em um projeto, o que também pode reinstalar as dependências. É fácil fazer isso usando o comando `nuget reinstall` ou o Console do Gerenciador de Pacotes do NuGet. Para obter detalhes, consulte [Reinstalando e atualizando pacotes](../consume-packages/reinstalling-and-updating-packages.md).
 
