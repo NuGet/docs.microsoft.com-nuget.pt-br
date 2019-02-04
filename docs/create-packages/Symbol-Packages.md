@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3321cba9082eb35b53ba693e246db18e5d8e187b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 56125516345b2255998c1f734db60b58b9a92a06
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580253"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55046322"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Criando pacotes de símbolos (herdado)
 
@@ -100,7 +100,7 @@ Um pacote de símbolos pode ser compilado por convenções, de uma estrutura de 
 ## <a name="publishing-a-symbol-package"></a>Publicando um pacote de símbolos
 
 > [!Important]
-> Para efetuar push em pacotes para o nuget.org, você precisa usar o [nuget.exe v4.1.0 ou superior](https://www.nuget.org/downloads), que implementa os [protocolos NuGet](../api/nuget-protocols.md) necessários.
+> Para enviar pacotes para o nuget.org, você deve usar o [nuget.exe v4.9.1 ou posterior](https://www.nuget.org/downloads), que implementa os [protocolos NuGet](../api/nuget-protocols.md) necessários.
 
 1. Para sua conveniência, primeiro salve sua chave de API com o NuGet (consulte [publicar um pacote](../create-packages/publish-a-package.md), que aplicará nuget.org e symbolsource.org, pois symbolsource.org verificará nuget.org para confirmar se você é o proprietário do pacote.
 
