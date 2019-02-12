@@ -59,7 +59,7 @@ O NuGet tem suporte completo para uma variedade de modelos de projeto como Windo
 
 **Como fazer para atualizar pacotes que fazem parte dos modelos do Visual Studio?**
 
-Acesse a guia **Atualizações** na interface do usuário do Gerenciador de Pacotes e selecione **Atualizar tudo** ou use o comando [`Update-Package`](../tools/ps-ref-update-package.md) do Console do Gerenciador de Pacotes.
+Acesse a guia **Atualizações** na interface do usuário do Gerenciador de Pacotes e selecione **Atualizar tudo** [ou use o comando `Update-Package`](../tools/ps-ref-update-package.md) do Console do Gerenciador de Pacotes.
 
 Para atualizar o próprio modelo, você precisa atualizar manualmente o repositório de modelos. Consulte o [blog de Xavier Decoster](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) sobre este assunto. Observe que isso é feito por seu próprio risco, pois atualizações manuais podem corromper o modelo se a versão mais recente de todas as dependências não forem compatível entre si.
 
