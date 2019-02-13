@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d39ec8caf94caa767b6c502cc475e278aa718b95
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324780"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145638"
 ---
 # <a name="pack-command-nuget-cli"></a>Commando pack (NuGet CLI)
 
@@ -43,7 +43,7 @@ em que `<nuspecPath>` e `<projectPath>` especifique o `.nuspec` ou projeto de ar
 | IncludeReferencedProjects | Indica que o pacote criado deve incluir nos projetos referenciados como dependências ou como parte do pacote. Se um projeto referenciado tem um correspondente `.nuspec` arquivo que tem o mesmo nome que o projeto, em seguida, esse projeto referenciado é adicionado como uma dependência. Caso contrário, o projeto referenciado é adicionado como parte do pacote. |
 | MinClientVersion | Defina as *minClientVersion* atributo para o pacote criado. Esse valor substituirá o valor existente *minClientVersion* atributo (se houver) no `.nuspec` arquivo. |
 | MSBuildPath | *(4.0 e posteriores)*  Especifica o caminho do MSBuild a usar com o comando, tendo precedência sobre `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 e superior)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15. Por padrão que o MSBuild em seu caminho é escolhido, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
+| MSBuildVersion | *(3.2 e superior)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15.1, 15.3, 15.4, 15,5, 15.6, 15.7, 15,8, 15,9. Por padrão que o MSBuild em seu caminho é escolhido, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
 | NoDefaultExcludes | Impede a exclusão de padrão do NuGet empacotar arquivos e arquivos e pastas que iniciam com um ponto, como `.svn` e `.gitignore`. |
 | NoPackageAnalysis | Especifica que o pacote não deve executar a análise de pacote após a compilação do pacote. |
 | OutputDirectory | Especifica a pasta na qual o pacote criado é armazenado. Se nenhuma pasta for especificada, a pasta atual será usada. |

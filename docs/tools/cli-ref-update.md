@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: fc34550b3669d83466318645987cfd3078bc3c18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545094"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145599"
 ---
 # <a name="update-command-nuget-cli"></a>Commando update (NuGet CLI)
 
@@ -42,10 +42,10 @@ em que `<configPath>` identifica um uma `packages.config` ou arquivo de soluçã
 | Ajuda | Exibe informações de ajuda para o comando. |
 | Id | Especifica uma lista de IDs de atualização de pacote. |
 | MSBuildPath | *(4.0 e posteriores)*  Especifica o caminho do MSBuild a usar com o comando, tendo precedência sobre `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 e superior)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15. Por padrão que o MSBuild em seu caminho é escolhido, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
+| MSBuildVersion | *(3.2 e superior)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15.1, 15.3, 15.4, 15,5, 15.6, 15.7, 15,8, 15,9. Por padrão que o MSBuild em seu caminho é escolhido, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
 | NonInteractive | Suprime a solicitações de entrada do usuário ou confirmações. |
 | Versão de pré-lançamento | Permite a atualização para versões de pré-lançamento. Este sinalizador não é necessário ao atualizar os pacotes de pré-lançamento que já estão instalados. |
-| Caminho do repositório | Especifica a pasta local onde os pacotes são instalados. |
+| RepositoryPath | Especifica a pasta local onde os pacotes são instalados. |
 | Safe | Especifica que atualiza apenas com a versão mais recente disponível dentro da mesma versão principal e secundária como o pacote instalado será instalado. |
 | Self | Nuget.exe atualizações para a versão mais recente; todos os outros argumentos são ignorados. |
 | Origem | Especifica a lista de origens de pacote (como URLs) para usar as atualizações. Se omitido, o comando usa as fontes fornecidas em arquivos de configuração, consulte [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md). |

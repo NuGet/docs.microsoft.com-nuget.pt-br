@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 06e3a26863761b7e7a42752866e7fe369f5be4ef
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550346"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145625"
 ---
 # <a name="restore-command-nuget-cli"></a>Restaurar comando (CLI do NuGet)
 
-**Aplica-se a:** consumo do pacote &bullet; **versões com suporte:** 2.7 ou superior
+**Aplica-se a:** consumo do pacote &bullet; **versões com suporte:** 2.7+
 
 Baixa e instala todos os pacotes ausentes do `packages` pasta. Quando usado com o NuGet 4.0 + e o formato PackageReference, gera uma `<project>.nuget.props` do arquivo, se necessário, o `obj` pasta. (O arquivo pode ser omitido do controle de origem).
 
@@ -39,7 +39,7 @@ em que `<projectPath>` Especifica o local de uma solução ou um `packages.confi
 | ForceEnglishOutput | *(3.5 ou superior)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
 | MSBuildPath | *(4.0 e posteriores)*  Especifica o caminho do MSBuild a usar com o comando, tendo precedência sobre `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 e superior)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15. Por padrão que o MSBuild em seu caminho é escolhido, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
+| MSBuildVersion | *(3.2 e superior)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15.1, 15.3, 15.4, 15,5, 15.6, 15.7, 15,8, 15,9. Por padrão que o MSBuild em seu caminho é escolhido, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
 | NoCache | Impede que o NuGet usando pacotes armazenados em cache. Ver [gerenciar as pastas de cache e de pacotes globais](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NonInteractive | Suprime a solicitações de entrada do usuário ou confirmações. |
 | OutputDirectory | Especifica a pasta na qual os pacotes são instalados. Se nenhuma pasta for especificada, a pasta atual será usada. Necessário quando a restauração com um `packages.config` do arquivo, a menos que `PackagesDirectory` ou `SolutionDirectory` é usado.|
