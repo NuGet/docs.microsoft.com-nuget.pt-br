@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
-ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
+ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648264"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145677"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Perguntas frequentes do NuGet
 
@@ -237,15 +237,13 @@ Se isso falhar, experimente as [dicas mencionadas nesta postagem do StackOverflo
 
 ## <a name="what-is-the-api-endpoint-for-nugetorg"></a>O que é o ponto de extremidade de API para o nuget.org?
 
-Para usar o nuget.org como um repositório de pacotes com clientes do NuGet, você precisa usar o seguinte ponto de extremidade de API V3: 
+Para usar o nuget.org como um repositório de pacotes com os clientes do NuGet, você deve usar o seguinte ponto de extremidade de API V3: 
 
 **`https://api.nuget.org/v3/index.json`**
 
-Os clientes mais antigos ainda podem usar o protocolo v2 para alcançar o nuget.org. No entanto, observe que clientes do NuGet 3.0 ou posteriores terão um serviço mais lento e menos confiável usando o protocolo v2:
+Os clientes mais antigos ainda podem usar o protocolo V2 para acessar o nuget.org. No entanto, observe que, para os clientes do NuGet 3.0 ou posterior, o serviço será mais lento e menos confiável usando o protocolo V2:
 
-`https://www.nuget.org/api/v2/` (PRETERIDO!!!) **Observação:** o "www." é importante.
-
-Além disso, *NuGet.exe List* só funciona com o protocolo v2.
+`https://www.nuget.org/api/v2` (PRETERIDO!!!) **Observação:** use "www." para obter a melhor confiabilidade possível.
 
 ## <a name="nugetorg-account-management"></a>gerenciamento de contas do nuget.org
 
