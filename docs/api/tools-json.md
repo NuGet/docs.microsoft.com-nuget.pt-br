@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 6184fe8e987e0637cb912999f2e3fa3a3dc9b4ba
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546929"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852527"
 ---
 # <a name="toolsjson-for-discovering-nugetexe-versions"></a>Tools.JSON para descobrir as versões nuget.exe
 
@@ -48,11 +48,11 @@ Nome     | Tipo   | Necessária | Observações
 version  | cadeia de caracteres | sim      | Uma cadeia de caracteres SemVer 2.0.0
 url      | cadeia de caracteres | sim      | Uma URL absoluta para baixar essa versão do nuget.exe
 estágio    | cadeia de caracteres | sim      | Uma cadeia de caracteres de enum
-carregado | cadeia de caracteres | sim      | Um carimbo de hora aproximado de quando a versão foi disponibilizada
+carregado | cadeia de caracteres | sim      | Um carimbo de hora ISO 8601 aproximado de quando a versão foi disponibilizada
 
-Os itens na matriz serão classificados em ordem decrescente de, SemVer 2.0.0. Essa garantia é destinada a aliviar a carga em um cliente procurando a versão mais recente. 
+Os itens na matriz serão classificados em ordem decrescente de, SemVer 2.0.0. Essa garantia destina-se para reduzir a carga de um cliente que está interessado no maior número de versão. No entanto, isso significa que a lista não é classificada em ordem cronológica. Por exemplo, se uma versão principal inferior é atendida em uma data posterior uma versão principal superior, essa versão de serviço não aparecerá na parte superior da lista. Se você quiser que a versão mais recente lançada pela *timestamp*, simplesmente classifique matriz pelo `uploaded` cadeia de caracteres. Isso funciona porque o `uploaded` carimbo de hora está no [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) formato que pode ser classificado em ordem cronológica, usando uma classificação lexicográfica (ou seja, uma classificação de cadeia de caracteres simples).
 
-O `stage` propriedade indica como vettect esta versão da ferramenta. 
+O `stage` propriedade indica que esta versão da ferramenta de lojas como está. 
 
 Estágio              | Significado
 ------------------ | ------
@@ -60,7 +60,7 @@ EarlyAccessPreview | Ainda não estiver visível na [baixar a página da web](ht
 Liberado           | Disponível no site de download, mas ainda não tiver sido recomendado para consumo ampla
 ReleasedAndBlessed | Disponível no site de download e é recomendado para consumo
 
-Uma abordagem simples para ter a versão mais recente, versão recomendada é tirar a primeira versão na lista que tem o `stage` valor de `ReleasedAndBlessed`.
+Uma abordagem simples para ter a versão mais recente, versão recomendada é tirar a primeira versão na lista que tem o `stage` valor de `ReleasedAndBlessed`. Isso funciona porque as versões são classificadas em ordem de SemVer 2.0.0.
 
 O `NuGet.CommandLine` pacote em nuget.org normalmente é atualizada apenas com `ReleasedAndBlessed` versões.
 

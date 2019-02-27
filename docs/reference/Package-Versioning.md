@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: b980c1084fe8e31573053a4dcf38bbfa6146e6de
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6407cd2ea5e5e7a9c9e2be679764a8a0d5dd9260
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549767"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852462"
 ---
 # <a name="package-versioning"></a>Controle de versão do pacote
 
@@ -29,9 +29,9 @@ Neste tópico:
 
 Um número de versão específico está no formato *Major [-sufixo]*, onde os componentes têm os seguintes significados:
 
-- *Principais*: alterações significativas
-- *Pequenas*: novos recursos, mas compatível com versões anteriores
-- *Patch*: correções de bug compatíveis com versões anteriores só
+- *Principais*: Alterações da falha
+- *Pequenas*: Novos recursos, mas compatível com versões anteriores
+- *Patch*: Somente correções de bug compatíveis com versões anteriores
 - *-Sufixo* (opcional): um hífen seguido por uma cadeia de caracteres que indica uma versão de pré-lançamento (seguir as [convenção de SemVer 1.0 ou de controle de versão semântico](http://semver.org/spec/v1.0.0.html)).
 
 **Exemplos:**
@@ -51,8 +51,8 @@ Tecnicamente falando, criadores de pacote podem usar qualquer cadeia de caracter
 Dito isso, os desenvolvedores de pacote geralmente seguem as convenções de nomenclatura reconhecidas:
 
 - `-alpha`: Versão alfa, normalmente usado para em andamento e experimentação.
-- `-beta`: versão beta, normalmente uma completa com recursos para a próxima versão planejada, mas pode conter erros conhecidos.
-- `-rc`: versão Release candidate, normalmente uma versão que é potencialmente a final (estável), a menos que surjam bugs significativos.
+- `-beta`: Versão beta, normalmente uma completa com recursos para a próxima versão planejada, mas pode conter erros conhecidos.
+- `-rc`: Versão Release Candidate, normalmente uma versão que é potencialmente a final (estável), a menos que surjam bugs significativos.
 
 > [!Note]
 > Dá suporte a NuGet 4.3.0 [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), que oferece suporte a números de versão de pré-lançamento com a notação de ponto, como em *1.0.1-build.23*. A notação de ponto não e compatível com as versões do NuGet anteriores à 4.3.0. Você pode usar um formulário como *1.0.1-build23*.
@@ -88,7 +88,7 @@ Se você carregar um pacote do SemVer v2.0.0 específicas para o nuget.org, o pa
 - Visual Studio 2017 versão 15.3 ou superior
 - Visual Studio 2015 com [v3.6.0 VSIX NuGet](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet
-  - dotnetcore.exe (2.0.0+ do SDK do .NET)
+  - dotnetcore.exe (.NET SDK 2.0.0+)
 
 Clientes de terceiros:
 
@@ -187,9 +187,6 @@ O `version` de atributo em um `<dependency>` elemento descreve as versões de in
 ```xml
 <!-- Accepts any version 6.1 and above. -->
 <dependency id="ExamplePackage" version="6.1" />
-
-<!-- Accepts any 6.x.y version. -->
-<dependency id="ExamplePackage" version="6.*" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
      used to guarantee a dependency with a specific bug fix. -->

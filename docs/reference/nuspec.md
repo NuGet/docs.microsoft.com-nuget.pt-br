@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: fec6dd0fb97b565b364a7ffcb192d2eb99187e83
-ms.sourcegitcommit: b15fdd101aec13ea5fe9dd12845051d648034abd
+ms.openlocfilehash: a8be66f5871df260581b6baca8eb7959279d66cd
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480134"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852579"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -192,7 +192,7 @@ Com exceção de `$configuration$`, os valores do projeto são usados como prefe
 | --- | --- | ---
 | **$id$** | Arquivo de projeto | AssemblyName (título) do arquivo de projeto |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion se existir, caso contrário AssemblyVersion |
-| **$authors$** | AssemblyInfo | AssemblyCompany |
+| **$author$** | AssemblyInfo | AssemblyCompany |
 | **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
