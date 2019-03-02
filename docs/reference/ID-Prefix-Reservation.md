@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: e8b902c89427333afb7a27ee9de0eeb99a92f391
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980996"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225869"
 ---
 # <a name="package-id-prefix-reservation"></a>Reserva de prefixo de ID de pacote
 
@@ -31,7 +31,7 @@ Quando um prefixo é reservado [nuget.org](https://www.nuget.org/), acontecerá 
 
 1. Sempre que um pacote é enviado para o [nuget.org](https://www.nuget.org/) com uma ID que corresponde ao prefixo de ID reservado, o pacote é rejeitado, a menos que originou o proprietário que reservou o prefixo de ID.
 
-1. Qualquer pacote que corresponde ao prefixo de ID reservado e o proprietário que o prefixo de ID de reservado é proveniente terá um indicador visual no Visual Studio 2017 versão 15.4 ou posterior e no [nuget.org](https://www.nuget.org/) indicando que o pacote está em um prefixo de ID reservado. Isso é verdadeiro para novos envios de pacote, bem como os pacotes existentes sob o proprietário. **Observação:** o indicador no Visual Studio é exibida somente se um único feed é selecionado como a origem do pacote.
+1. Qualquer pacote que corresponde ao prefixo de ID reservado e o proprietário que o prefixo de ID de reservado é proveniente terá um indicador visual no Visual Studio 2017 versão 15.4 ou posterior e no [nuget.org](https://www.nuget.org/) indicando que o pacote está em um prefixo de ID reservado. Isso é verdadeiro para novos envios de pacote, bem como os pacotes existentes sob o proprietário. **Observação:** O indicador no Visual Studio é exibida somente se um único feed é selecionado como a origem do pacote.
 
 1. Todos os pacotes existentes anteriormente que corresponde ao prefixo de ID reservado, mas são *não* pertencem ao proprietário do reservado prefixo permanecerá inalterado (não será removido da lista, mas eles também terão o indicador visual não). Além disso, os proprietários desses pacotes ainda poderão enviar novas versões para o pacote.
 
@@ -84,6 +84,8 @@ Ao revisar qualquer aplicativo de reserva de prefixo de ID, o [nuget.org](https:
 1. Seria *não* reservar o prefixo de ID de pacote causar ambiguidade e confusão para a comunidade?
 
 1. São as propriedades de identifica dos pacotes que correspondem ao pacote ID prefixo claro e consistente (especialmente o autor do pacote)?
+
+1. Os pacotes têm uma licença (usando o [licença](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license) metadados elemento e não o licenseUrl que está sendo preterido)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Cenários do provedor de feed de terceiros
 
