@@ -75,7 +75,7 @@ namespace AppLogger
 
 ## <a name="run-the-pack-command"></a>Executar o comando pack
 
-1. Defina a configuração como **Versão**.
+1. Defina a configuração da solução como **Release**.
 
 1. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione o comando **Pack**:
 
