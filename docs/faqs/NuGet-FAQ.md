@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852540"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196207"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Perguntas frequentes do NuGet
 
@@ -158,7 +158,7 @@ Cada pacote é regido pelos termos incluídos no pacote. Você deve examinar os 
 
 Se um pacote não especificar os termos de licença, entre em contato com o proprietário do pacote diretamente usando o link **Contatar os proprietários** na página do pacote em nuget.org. A Microsoft não licencia nenhuma propriedade intelectual para você de provedores de pacotes de terceiros, nem é responsável pelas informações fornecidas por terceiros.
 
-## <a name="managing-packages-on-nugetorg"></a>Gerenciando pacotes em nuget.org
+## <a name="managing-packages-on-nugetorg"></a>Gerenciando pacotes no NuGet.org
 
 **Posso editar os metadados do pacote depois que ele é carregado?**
 
@@ -167,6 +167,10 @@ O NuGet recomenda que todos os pacotes sejam assinados. Um princípio de design 
 Observe que as dependências listadas para seu pacote são geradas automaticamente do próprio pacote e não podem ser editadas.
 
 Além disso, carregar pacotes para [int.nugettest.org](https://int.nugettest.org) é uma ótima maneira de testar e validar seu pacote sem disponibilizá-lo na galeria pública. Ponto de Extremidade de API: https://apiint.nugettest.org/v3/index.json
+
+**Posso excluir um pacote publicado no NuGet.org?**
+
+Em geral, não damos suporte à exclusão de um pacote publicado no NuGet.org. Leia mais sobre nossa [política de exclusão de pacotes](../policies/deleting-packages).
 
 **É possível reservar nomes para os pacotes que serão publicados no futuro?**
 

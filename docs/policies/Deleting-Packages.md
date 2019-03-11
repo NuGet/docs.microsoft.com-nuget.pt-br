@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 901eb09711a6e32740c70829028da66b782870a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548122"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196181"
 ---
 # <a name="deleting-packages"></a>Excluindo pacotes
 
@@ -23,7 +23,7 @@ O nuget.org é compatível com a *remoção* de um pacote da lista, o que pode s
 
 ## <a name="exceptions"></a>Exceções
 
-Em situações excepcionais como violação de direitos autorais e conteúdo potencialmente prejudicial, os pacotes podem ser excluídos manualmente pela equipe do NuGet. Envie uma solicitação de suporte por meio da [Galeria NuGet](http://www.nuget.org) para iniciar o processo.
+Em situações excepcionais como violação de direitos autorais e conteúdo potencialmente prejudicial, os pacotes podem ser excluídos manualmente pela equipe do NuGet. Você pode relatar um pacote usando o botão "Relatar abuso" na página de detalhes do pacote NuGet.org. Se você for o proprietário do pacote, faça logon em sua conta do NuGet.org para acessar o suporte do NuGet usando o botão "Entrar em contato com o suporte" na página de detalhes do pacote do NuGet.org.
 
 ## <a name="prohibited-use"></a>Uso proibido
 
