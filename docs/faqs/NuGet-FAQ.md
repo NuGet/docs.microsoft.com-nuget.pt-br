@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 3b6257287c1f8c6345765e0a081bac11b34e05cb
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196207"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432576"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Perguntas frequentes do NuGet
 
@@ -346,8 +346,8 @@ Siga as etapas na seção [Não é possível usar o logon da Microsoft. Como rec
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Não é possível usar o logon da Microsoft. Como recuperar minha conta do nuget.org?
 
 Se você tentou usar o recurso [assistência para entrada](#which-microsoft-account-is-linked-to-my-nugetorg-account) e não teve acesso à conta Microsoft associada à conta do nuget.org, siga as etapas abaixo para vincular uma nova conta Microsoft à conta do nuget.org.
-1. **Requisito**: Você precisará de acesso a uma conta Microsoft (que não esteja associado a nenhuma conta do nuget.org existente). Se não tiver uma ID da Apple, [crie](https://signup.live.com) uma.
-2. Siga os [passos para recuperar seu logon por senha](#how-to-recover-nugetorg-password-login). Se você já tem o logon por senha, ignore esta etapa.
+1. **Requisito**: Você precisará de acesso a uma conta Microsoft (que não esteja associada a uma conta do nuget.org existente). Se não tiver uma ID da Apple, [crie](https://signup.live.com) uma.
+2. Se você esqueceu seu nome de usuário e sua senha para a conta do nuget.org, siga as [etapas para recuperar a senha de logon](#how-to-recover-nugetorg-password-login).
 3. [Faça logon no nuget.org](https://www.nuget.org/users/account/LogOnNuGetAccount) usando o logon por nome de usuário e senha.
 4. Depois de conectado, você verá a caixa de diálogo pop-up ser exibida conforme demonstrado abaixo. Essa é a caixa de diálogo de descontinuação de senha.
 5. **OBSERVAÇÃO**: Ignore as instruções para fazer logon com a conta Microsoft especificada. Agora você pode vincular sua conta do nuget.org a qualquer outro logon da Microsoft.

@@ -6,16 +6,26 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 9ea11ad5476b02940b171fdc69ac0bf56598418d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548408"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432563"
 ---
-# <a name="nuget-44-rtm-release-notes"></a>Notas de Versão do NuGet 4.4 RTM
+# <a name="nuget-44-release-notes"></a>Notas sobre a versão do NuGet 4.4
 
 O [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) vem com o NuGet 4.4 RTM.
+
+## <a name="summary-whats-new-in-440"></a>Resumo: Novidades na versão 4.4.0
+
+## <a name="summary-whats-new-in-442"></a>Resumo: Novidades na versão 4.4.2
+
+* Correção de segurança: Permissões em arquivos criados dentro de ~/.nuget são muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+
+## <a name="summary-whats-new-in-443"></a>Resumo: Novidades na versão 4.4.3
+
+* Correção de segurança: Arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -73,7 +83,7 @@ Não há nenhuma solução alternativa no momento.
 
 - O destino do pacote msbuild deve ter um gancho público para destinos de usuário em execução antes de si mesmo – [#5143](https://github.com/NuGet/Home/issues/5143)
 
-- Recurso: adicionar a opção dependencyVersion à instalação do nuget – [#1806](https://github.com/NuGet/Home/issues/1806)
+- Recurso: Adicionar a opção dependencyVersion à instalação do nuget – [#1806](https://github.com/NuGet/Home/issues/1806)
 
 - uap10.0.TODO.0 deve ser mapeado para o .NET Standard 2.0 para NuGet – [#5684](https://github.com/NuGet/Home/issues/5684)
 
@@ -165,9 +175,9 @@ Não há nenhuma solução alternativa no momento.
 
 - [Avisos e erros] NoWarn não flui transitivamente por referências P2P – [#5501](https://github.com/NuGet/Home/issues/5501)
 
-- Carga de Solução Leve: núcleo comum para interface do usuário de PM, PMC e IVs – [#5057](https://github.com/NuGet/Home/issues/5057)
+- Carga de Solução Leve: Núcleo comum para interface do usuário de PM, PMC e IVs – [#5057](https://github.com/NuGet/Home/issues/5057)
 
-- Lightweight Solution Load: suporte – PMC – [#5053](https://github.com/NuGet/Home/issues/5053)
+- Carga de Solução Leve: Suporte – PMC – [#5053](https://github.com/NuGet/Home/issues/5053)
 
 - Adicionar suporte para o destino do MSBuild pré-restauração que o Visual Studio dispara – [#4781](https://github.com/NuGet/Home/issues/4781)
 
