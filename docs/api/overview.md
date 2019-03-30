@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: bb15b4decef104f1aefe37fd18f3358181a848af
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145651"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637656"
 ---
 # <a name="nuget-api"></a>API do NuGet
 
@@ -49,17 +49,18 @@ Alterações de protocolo de interrupção não foram feitas para a API, pois el
 
 O **índice de serviço** descreve uma variedade de recursos. O conjunto atual de recursos com suporte são os seguintes:
 
-Nome do recurso                                                          | Necessária | Descrição
----------------------------------------------------------------------- | -------- | -----------
-[`PackagePublish`](package-publish-resource.md)                        | sim      | Enviar por push e excluir (ou remover da lista) pacotes.
-[`SearchQueryService`](search-query-service-resource.md)               | sim      | Filtrar e pesquisar pacotes pela palavra-chave.
-[`RegistrationsBaseUrl`](registration-base-url-resource.md)            | sim      | Obter metadados de pacote.
-[`PackageBaseAddress`](package-base-address-resource.md)               | sim      | Obter o conteúdo do pacote (. nupkg).
-[`SearchAutocompleteService`](search-autocomplete-service-resource.md) | no       | Descubra os IDs de pacote e versões pela subcadeia de caracteres.
-[`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | no       | Construa uma URL para acessar uma página da web de "relatar abuso".
-[`RepositorySignatures`](repository-signatures-resource.md)            | no       | Obter certificados usados na assinatura do repositório.
-[`Catalog`](catalog-resource.md)                                       | no       | Registro completo de todos os eventos de pacote.
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | no       | Enviar por push pacotes de símbolos.
+Nome do recurso                                                        | Necessária | Descrição
+-------------------------------------------------------------------- | -------- | -----------
+[Catálogo](catalog-resource.md)                                       | no       | Registro completo de todos os eventos de pacote.
+[PackageBaseAddress](package-base-address-resource.md)               | sim      | Obter o conteúdo do pacote (. nupkg).
+[PackageDetailsUriTemplate](package-details-template-resource.md)    | no       | Construa uma URL para acessar uma página da web de detalhes do pacote.
+[PackagePublish](package-publish-resource.md)                        | sim      | Enviar por push e excluir (ou remover da lista) pacotes.
+[RegistrationsBaseUrl](registration-base-url-resource.md)            | sim      | Obter metadados de pacote.
+[ReportAbuseUriTemplate](report-abuse-resource.md)                   | no       | Construa uma URL para acessar uma página de web de abuso de relatório.
+[RepositorySignatures](repository-signatures-resource.md)            | no       | Obter certificados usados na assinatura do repositório.
+[SearchAutocompleteService](search-autocomplete-service-resource.md) | no       | Descubra os IDs de pacote e versões pela subcadeia de caracteres.
+[SearchQueryService](search-query-service-resource.md)               | sim      | Filtrar e pesquisar pacotes pela palavra-chave.
+[SymbolPackagePublish](symbol-package-publish-resource.md)           | no       | Enviar por push pacotes de símbolos.
 
 Em geral, todos os dados não binários retornados por um recurso de API são serializados usando JSON. O esquema de resposta retornado por cada recurso no índice de serviço é definido individualmente para esse recurso. Para obter mais informações sobre cada recurso, consulte os tópicos listados acima.
 
@@ -123,7 +124,9 @@ Nome                     | Descrição
 X-NuGet-ApiKey           | Necessário para envio por push e delete, consulte [ `PackagePublish` recursos](package-publish-resource.md)
 X-NuGet-Client-Version   | **Preterido** e substituído por `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | Obrigatório em certos casos somente em nuget.org, consulte [protocolos nuget.org](NuGet-Protocols.md)
-X-NuGet-Session-Id       | *Opcional*. NuGet clientes v4.7 + identificar solicitações HTTP que fazem parte da mesma sessão de cliente do NuGet. Para `PackageReference` operações de restauração existe é uma id de sessão único, para outros cenários, como preenchimento, automático e `packages.config` restauração, pode haver vários diferentes id de sessão devido a como o código é acrescentado.
+X-NuGet-Session-Id       | *Opcional*. NuGet clientes v4.7 + identificar solicitações HTTP que fazem parte da mesma sessão de cliente do NuGet.
+
+O `X-NuGet-Session-Id` tem um valor único para todas as operações relacionadas a uma restauração única no `PackageReference`. Para outros cenários, como preenchimento automático e `packages.config` IDs de restauração, pode haver vários sessão diferente devido a como o código é acrescentado.
 
 ## <a name="authentication"></a>Autenticação
 

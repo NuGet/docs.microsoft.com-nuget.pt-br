@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981178"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637617"
 ---
 # <a name="nuget-package-manager-ui"></a>Interface do usuário de Gerenciador de pacotes do NuGet
 
@@ -72,7 +72,7 @@ Neste tópico:
 
 1. <a name="implicit_reference"></a>Para alguns pacotes, o **atualização** botão será desabilitado e será exibida uma mensagem dizendo que ele é "implicitamente referenciado por um SDK" (ou "AutoReferenced"). Esta mensagem indica que o pacote faz parte de uma estrutura ou o SDK maior e não deve ser atualizado de forma independente. (Internamente, esses pacotes são marcados com `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Por exemplo, `Microsoft.NETCore.App` faz parte do SDK do .NET Core e a versão do pacote não é igual à versão do framework de tempo de execução usado pelo aplicativo. Você precisará [atualizar sua instalação do .NET Core](https://aka.ms/dotnet-download) para obter novas versões do tempo de execução do ASP.NET Core e .NET Core. [Consulte este documento para obter mais detalhes sobre metapacotes .NET Core e o controle de versão](/dotnet/core/packages). Isso se aplica aos seguintes pacotes comumente usados:
     * Microsoft.AspNetCore.All
-    * Microsoft
+    * Microsoft.AspNetCore.App
     * Microsoft.NETCore.App
     * NETStandard.Library
 
@@ -127,7 +127,7 @@ Para gerenciar fontes de pacote:
 1. Para alterar uma origem de pacote, selecione-o, fazer edições na **nome** e **fonte** caixas e selecione **atualização**.
 1. Para desabilitar uma origem de pacote, desmarque a caixa à esquerda do nome na lista.
 1. Para remover uma origem de pacote, selecione-o e, em seguida, selecione a **X** botão.
-1. Use a para cima e para baixo de botões de seta para alterar a ordem de prioridade das fontes de pacote. Visual Studio procura essas fontes na ordem de prioridade ao restaurar pacotes para um projeto. Para obter mais informações, consulte [restauração do pacote](../consume-packages/package-restore.md).
+1. Usando cima e seta para baixo botões não alteram a ordem de prioridade das fontes de pacote. Visual Studio ignora a ordem das origens de pacotes, usando o pacote de qualquer origem primeiro para responder às solicitações. Para obter mais informações, consulte [restauração do pacote](../consume-packages/package-restore.md).
 
 > [!Tip]
 > Se uma origem de pacote for exibida novamente após a exclusão, ele pode estar listado em um nível de computador ou usuário `NuGet.Config` arquivos. Ver [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md) para o local desses arquivos, em seguida, remover a fonte editando os arquivos manualmente ou usando o [nuget fontes de comando](../tools/nuget-exe-CLI-reference.md).

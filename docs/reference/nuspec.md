@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8be66f5871df260581b6baca8eb7959279d66cd
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 21678cc36fd9bf1ed49143bee3f35208640fc8a7
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852579"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637643"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -84,13 +84,13 @@ Uma URL para a home page do pacote, geralmente mostrada em exibições de interf
 
 Uma URL para a licença do pacote, geralmente mostrada em exibições de interface do usuário, bem como no nuget.org.
 #### <a name="license"></a>licença
-Uma expressão de licença SPDX ou o caminho para um arquivo de licença dentro do pacote, geralmente mostrado em exibições IU bem como em nuget.org. Se você esteja licenciando o pacote sob uma licença comuns, como a cláusula de 2 BSD ou MIT, use o identificador de licença SPDX associado.<br>Por exemplo: `<license type="expression">MIT</license>`
+Uma expressão de licença SPDX ou caminho até um arquivo de licença dentro do pacote, geralmente mostrado em interfaces do usuário bem como em nuget.org. Se você esteja licenciando o pacote sob uma licença comuns, como a cláusula de 2 BSD ou MIT, use o identificador de licença SPDX associado.<br>Por exemplo: `<license type="expression">MIT</license>`
 
-Aqui está a lista completa dos [identificadores de licença SPDX](https://spdx.org/licenses/). NuGet.org aceita apenas OSI ou licenças FSF aprovado ao usar expressão de tipo de licença.
+Aqui está a lista completa dos [identificadores de licença SPDX](https://spdx.org/licenses/). O NuGet.org aceita apenas licenças aprovadas por OSI ou FSF ao usar expressão de tipo de licença.
 
 Se o pacote é licenciado sob várias licenças comuns, você pode especificar uma licença de composição usando o [SPDX versão 2.0 da sintaxe de expressão](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Por exemplo: `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-Se você estiver usando uma licença que não tenha sido atribuída a um identificador SPDX ou é uma licença personalizada, você pode empacotar um arquivo (somente `.txt.` ou `.md`) com o texto de licença. Por exemplo:
+Se você estiver usando uma licença que não tenha sido atribuída a um identificador SPDX ou é uma licença personalizada, você pode empacotar um arquivo (somente `.txt` ou `.md`) com o texto de licença. Por exemplo:
 ```xml
 <package>
   <metadata>
