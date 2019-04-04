@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 2d2b20c1ea439ec0a3225cf983d9a4d2eedb0333
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324754"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911043"
 ---
 # <a name="autocomplete"></a>Preenchimento Automático
 
@@ -114,7 +114,7 @@ Nome      | Tipo             | Necessária | Observações
 --------- | ---------------- | -------- | -----
 Dados      | matriz de cadeias de caracteres | sim      | As versões do pacote correspondidas pela solicitação
 
-As versões do pacote a `data` matriz pode conter metadados de compilação de SemVer 2.0.0 (por exemplo, `1.0.0+metadata`) se o `semVerLevel=2.0.0` foi fornecido na cadeia de caracteres de consulta.
+As versões do pacote a `data` matriz pode conter metadados de compilação de SemVer 2.0.0 (por exemplo, `1.0.0+metadata`) se o `semVerLevel=2.0.0` é fornecido na cadeia de caracteres de consulta.
 
 ### <a name="sample-request"></a>Exemplo de solicitação
 

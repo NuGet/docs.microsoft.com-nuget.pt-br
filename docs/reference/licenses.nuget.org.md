@@ -1,8 +1,19 @@
+---
+title: licenses.nuget.org
+author: agr
+ms.date: 02/22/2019
+ms.openlocfilehash: 4a40cc1f7d333e8d35a721f3eed2e6b9365faf7b
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921553"
+---
 # <a name="licensesnugetorg"></a>licenses.nuget.org
 
 ## <a name="rationale"></a>Racional
 
-Com a introdução do [expressões de licença](nuspec.md#license) surgiu de um requisito para que um serviço confiável que deveria fornecer um texto de referência para os identificadores de licença individual, os identificadores de exceção ou expressões de licença.
+Com a introdução do [expressões de licença](nuspec.md#license), um requisito surgiu para ter um serviço confiável que deveria fornecer um texto de referência para os identificadores de licença individual, os identificadores de exceção ou expressões de licença.
 Um requisito adicional para esse serviço é ter um esquema de URL estável, que não é suscetível a vincular corrompidos, para que podemos pode usá-lo com segurança para fornecer compatibilidade com versões anteriores de clientes mais antigos.
 
 Licenses.NuGet.org atende a essa função. NuGet.org usa para fornecer a referência de texto de licença para pacotes que especificam a licença usando uma expressão de licença. `nuget pack` ou embalagem com os outros [ferramentas de cliente](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools) defina o [ `licenseUrl` ](nuspec.md#licenseurl) elemento para apontar para licenses.nuget.org para proporcionar compatibilidade com clientes mais antigos que não dão suporte a `license` elemento.
@@ -21,15 +32,16 @@ Expressões de licença (incluindo os casos triviais quando a expressão consist
 
 | Expressão de licença | URL a ser usada |
 |:---|:---|
-MIT                                                | https://licenses.nuget.org/MIT
-(MIT)                                              | https://licenses.nuget.org/(MIT)
-(LGPL 2.0-somente com o Apache FLTK exceção OR-2.0 +) | https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)
+| MIT                                                | <https://licenses.nuget.org/MIT> |
+| (MIT)                                              | <https://licenses.nuget.org/(MIT)> |
+| (LGPL 2.0-somente com o Apache FLTK exceção OR-2.0 +) | <https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)> |
 
 O serviço oferece suporte somente a identificadores de licença e identificadores de exceção de licença são aceitos pelo nuget.org. Todas as expressões de licença que contêm os identificadores de licença sem suporte ou identificadores de exceção de licença ou que não estão em conformidade com a sintaxe de expressão de licença são consideradas inválidas.
 
 #### <a name="response"></a>Resposta
 
 Licenses.NuGet.org responde às solicitações que contêm expressões de licença válida com um código de status HTTP 200 e uma página da web que contém uma descrição da expressão de licença:
+
 * Se for fornecido a expressão de licença contém um identificador de licença única que uma página da web é retornado que contém o texto de referência dessa licença;
 * Se for fornecido expressão de licença é uma expressão de licença de composição, uma página da web é retornado que contém a expressão de licença com links para referências de exceção de licença ou licença individual.
 
@@ -43,8 +55,8 @@ Identificadores de exceção de licença devem ser codificados de URL e é usada
 
 | Identificador de exceção de licença | URL a ser usada |
 |:---|:---|
-FLTK-exception            | https://licenses.nuget.org/FLTK-exception
-openvpn-openssl-exception | https://licenses.nuget.org/openvpn-openssl-exception
+|FLTK-exception            | <https://licenses.nuget.org/FLTK-exception> |
+|openvpn-openssl-exception | <https://licenses.nuget.org/openvpn-openssl-exception> |
 
 #### <a name="response"></a>Resposta
 
