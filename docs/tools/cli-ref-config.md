@@ -38,9 +38,9 @@ No NuGet 3.4 ou superior `<value>` pode usar [variáveis de ambiente](cli-ref-en
 | AsPath | Retorna a configuração de valor como um caminho, ignorados quando `-Set` é usado. |
 | ConfigFile | O arquivo de configuração do NuGet para modificar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
 | ForceEnglishOutput | *(3.5 ou superior)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
-| Ajuda | Exibe informações de ajuda para o comando. |
+| Help | Exibe informações de ajuda para o comando. |
 | NonInteractive | Suprime a solicitações de entrada do usuário ou confirmações. |
-| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
+| Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 
