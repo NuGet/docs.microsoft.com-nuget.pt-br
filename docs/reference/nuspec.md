@@ -10,7 +10,7 @@ ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
 ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59509094"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
@@ -84,13 +84,11 @@ Uma URL para a home page do pacote, geralmente mostrada em exibições de interf
 
 Uma URL para a licença do pacote, geralmente mostrada em exibições de interface do usuário, bem como no nuget.org.
 #### <a name="license"></a>licença
-Uma expressão de licença SPDX ou caminho até um arquivo de licença dentro do pacote, geralmente mostrado em interfaces do usuário bem como em nuget.org. Se você esteja licenciando o pacote sob uma licença comuns, como a cláusula de 2 BSD ou MIT, use o identificador de licença SPDX associado.<br>Por exemplo:
-`<license type="expression">MIT</license>`
+Uma expressão de licença SPDX ou caminho até um arquivo de licença dentro do pacote, geralmente mostrado em interfaces do usuário bem como em nuget.org. Se você esteja licenciando o pacote sob uma licença comuns, como a cláusula de 2 BSD ou MIT, use o identificador de licença SPDX associado.<br>Por exemplo: `<license type="expression">MIT</license>`
 
 Aqui está a lista completa dos [identificadores de licença SPDX](https://spdx.org/licenses/). O NuGet.org aceita apenas licenças aprovadas por OSI ou FSF ao usar expressão de tipo de licença.
 
-Se o pacote é licenciado sob várias licenças comuns, você pode especificar uma licença de composição usando o [SPDX versão 2.0 da sintaxe de expressão](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Por exemplo:
-`<license type="expression">BSD-2-Clause OR MIT</license>`
+Se o pacote é licenciado sob várias licenças comuns, você pode especificar uma licença de composição usando o [SPDX versão 2.0 da sintaxe de expressão](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Por exemplo: `<license type="expression">BSD-2-Clause OR MIT</license>`
 
 Se você estiver usando uma licença que não tenha sido atribuída a um identificador SPDX ou é uma licença personalizada, você pode empacotar um arquivo (somente `.txt` ou `.md`) com o texto de licença. Por exemplo:
 ```xml
@@ -161,7 +159,7 @@ Uma coleção de zero ou mais elementos `<dependency>` que especificam as depend
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2 ou superior)* Uma coleção de zero ou mais elementos `<frameworkAssembly>` identifica as referências de assembly do .NET Framework que este pacote requer, o que garante que elas sejam adicionadas aos projetos que consomem o pacote. Cada frameworkAssembly tem os atributos *assemblyName* e *targetFramework*. Consulte [Especificando as referências GAC de assembly do framework](#specifying-framework-assembly-references-gac) abaixo. |
 #### <a name="references"></a>referências
-*(1.5 ou superior)* Uma coleção de zero ou mais assemblies de nomenclatura de elementos `<reference>` na pasta `lib` do pacote que são adicionados como referências de projeto. Cada referência tem um atributo *file*. `<references>` também pode conter um `<group>` elemento com um *targetFramework* atributo, que contém, em seguida, `<reference>` elementos. Se omitido, todas as referências no `lib` são incluídas. Consulte [Especificando referências de assembly explícitas](#specifying-explicit-assembly-references) abaixo.
+*(1.5 ou superior)* Uma coleção de zero ou mais assemblies de nomenclatura de elementos `<reference>` na pasta `lib` do pacote que são adicionados como referências de projeto. Cada referência tem um atributo *file*. `<references>` também pode conter um elemento `<group>` com um atributo *targetFramework*, que contém elementos `<reference>`. Se omitido, todas as referências no `lib` são incluídas. Consulte [Especificando referências de assembly explícitas](#specifying-explicit-assembly-references) abaixo.
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 ou superior)* Uma coleção de elementos `<files>` que identificam os arquivos de conteúdo para incluir o projeto consumidor. Esses arquivos são especificados com um conjunto de atributos que descrevem como eles devem ser usados dentro do sistema de projeto. Consulte [Especificando arquivos a serem incluídos no pacote](#specifying-files-to-include-in-the-package) abaixo.
 #### <a name="files"></a>arquivos 
@@ -193,9 +191,9 @@ Com exceção de `$configuration$`, os valores do projeto são usados como prefe
 | Token | Origem do valor | Valor
 | --- | --- | ---
 | **$id$** | Arquivo de projeto | AssemblyName (título) do arquivo de projeto |
-| **$ $version** | AssemblyInfo | AssemblyInformationalVersion se existir, caso contrário AssemblyVersion |
+| **$version$** | AssemblyInfo | AssemblyInformationalVersion se existir, caso contrário AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
-| **$ $title** | AssemblyInfo | AssemblyTitle |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | DLL de assembly | Configuração usada para compilar o assembly, com Depuração como padrão. Observe que, para criar um pacote usando uma configuração de Versão, você sempre usará `-properties Configuration=Release` na linha de comando. |
@@ -387,7 +385,7 @@ Cada elemento `<file>` especifica os seguintes atributos:
 | Atributo | Descrição |
 | --- | --- |
 | **src** | O local do arquivo ou arquivos a serem incluídos, sujeito a exclusões especificadas pelo atributo `exclude`. O caminho é relativo ao arquivo `.nuspec`, a menos que um caminho absoluto seja especificado. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
-| **destino** | O caminho relativo para a pasta dentro do pacote em que os arquivos de origem são colocados, os quais devem começar com `lib`, `content`, `build` ou `tools`. Consulte [Criando um .nuspec de um diretório de trabalho baseado em convenção](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
+| **target** | O caminho relativo para a pasta dentro do pacote em que os arquivos de origem são colocados, os quais devem começar com `lib`, `content`, `build` ou `tools`. Consulte [Criando um .nuspec de um diretório de trabalho baseado em convenção](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
 | **exclude** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 
 ### <a name="examples"></a>Exemplos
@@ -414,7 +412,7 @@ Cada elemento `<file>` especifica os seguintes atributos:
     Packaged result:
         lib\net40\library.dll
 
-**Conjunto de DLLs usando um caractere curinga**
+**Conjunto de DLLs que usam um caractere curinga**
 
     Source files:
         bin\release\libraryA.dll
@@ -511,7 +509,7 @@ Para arquivos de conteúdo, basta usar o mesmo formato que os arquivos do assemb
     Packaged result:
         content\style.css
 
-**Copiado para uma pasta com o ponto no nome do arquivo de conteúdo**
+**Arquivo de conteúdo copiado para uma pasta com ponto no nome**
 
 Nesse caso, o NuGet vê que a extensão em `target` não corresponde à extensão em `src` e, portanto, trata essa parte do nome no `target` como uma pasta:
 
@@ -595,7 +593,7 @@ Esses arquivos são especificados com um conjunto de atributos que descrevem com
 | **exclude** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 | **buildAction** | A ação de build para atribuir ao item de conteúdo para o MSBuild, como `Content`, `None`, `Embedded Resource`, `Compile`, etc. O padrão é `Compile`. |
 | **copyToOutput** | Um booliano que indica se a pasta de saída copiar itens de conteúdo para a compilação (ou publicar). O padrão é falso. |
-| **Mesclar** | Um valor booliano que indica se os itens de conteúdo devem ser copiados para uma única pasta na saída do build (verdadeiro) ou preservar a estrutura de pasta no pacote (falso). Esse sinalizador só funciona quando o sinalizador copyToOutput está definido como true. O padrão é falso. |
+| **flatten** | Um valor booliano que indica se os itens de conteúdo devem ser copiados para uma única pasta na saída do build (verdadeiro) ou preservar a estrutura de pasta no pacote (falso). Esse sinalizador só funciona quando o sinalizador copyToOutput está definido como true. O padrão é falso. |
 
 Ao instalar um pacote, o NuGet aplicará os elementos filho de `<contentFiles>` de cima para baixo. Se várias entradas corresponderem ao mesmo arquivo, todas as entradas serão aplicadas. A entrada superior substitui as entradas mais baixas em caso de conflito para o mesmo atributo.
 
@@ -605,8 +603,8 @@ O projeto do pacote deve estruturar o conteúdo usando o seguinte padrão:
 
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
-- `codeLanguages` pode ser `cs`, `vb`, `fs`, `any`, ou o equivalente em minúsculas de um determinado `$(ProjectLanguage)`
-- `TxM` é qualquer moniker da estrutura de destino legal compatível com o NuGet (consulte [estruturas de destino](../reference/target-frameworks.md)).
+- `codeLanguages` pode ser `cs`, `vb`, `fs`, `any` ou o equivalente em letras minúsculas de determinado `$(ProjectLanguage)`
+- `TxM` é qualquer moniker da estrutura de destino legal compatível com o NuGet (consulte [Estruturas de destino](../reference/target-frameworks.md)).
 - Qualquer estrutura de pasta pode ser acrescentada ao final dessa sintaxe.
 
 Por exemplo:
@@ -701,7 +699,7 @@ As pastas vazias podem usar `.` para recusar o fornecimento de conteúdo para ce
 </package>
 ```
 
-**Um `.nuspec` com assemblies do framework**
+**Um `.nuspec` com assemblies de estrutura**
 
 ```xml
 <?xml version="1.0"?>
@@ -728,6 +726,6 @@ As pastas vazias podem usar `.` para recusar o fornecimento de conteúdo para ce
 Neste exemplo, os seguintes itens são instalados em destinos específicos do projeto:
 
 - .NET4 -> `System.Web`, `System.Net`
-- .NET4 Client Profile -> `System.Net`
+- Perfil de Cliente do .NET4 -> `System.Net`
 - Silverlight 3 -> `System.Json`
 - WindowsPhone -> `Microsoft.Devices.Sensors`

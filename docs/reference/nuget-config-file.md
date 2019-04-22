@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
 ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58911082"
 ---
 # <a name="nugetconfig-reference"></a>referência do NuGet. config
 
 O comportamento do NuGet é controlado pelas configurações em diferentes arquivos `NuGet.Config` conforme descrito em [Configurando o comportamento de NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-`nuget.config` é um arquivo XML que contém um nível superior `<configuration>` nó, que contém os elementos da seção descritos neste tópico. Cada seção contém zero ou mais itens. Consulte o [arquivo de configuração de exemplos](#example-config-file). Nomes de configuração não diferenciam maiúsculas de minúsculas e podem usar valores [variáveis de ambiente](#using-environment-variables).
+`nuget.config` é um arquivo XML que contém um nó `<configuration>` de nível superior, o qual contém os elementos da seção descritos neste tópico. Cada seção contém zero ou mais itens. Consulte o [arquivo de configuração de exemplos](#example-config-file). Nomes de configuração não diferenciam maiúsculas de minúsculas e podem usar valores [variáveis de ambiente](#using-environment-variables).
 
 Neste tópico:
 
