@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1e89aeb46f2538d46c013561a51a41702b2472d8
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324845"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59932093"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -55,8 +55,8 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 | Descrição | Descrição | “Package Description” | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| Licença | PackageLicenseExpression | empty | Corresponde a `<license type="expression">` |
-| Licença | PackageLicenseFile | empty | Corresponde ao `<license type="file">`. Talvez você precise explicitamente o arquivo de licença referenciado do pacote. |
+| licença | PackageLicenseExpression | empty | Corresponde a `<license type="expression">` |
+| licença | PackageLicenseFile | empty | Corresponde ao `<license type="file">`. Talvez você precise explicitamente o arquivo de licença referenciado do pacote. |
 | LicenseUrl | PackageLicenseUrl | empty | `licenseUrl` está sendo preterido, use a propriedade PackageLicenseExpression ou PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
@@ -322,7 +322,7 @@ Um exemplo:
 
 1. Ler todas as referências projeto a projeto
 1. Ler as propriedades do projeto para localizar a pasta intermediária e as estruturas de destino
-1. Passar dados do msbuild para NuGet.Build.Tasks.dll
+1. Passar dados do MSBuild para NuGet.Build.Tasks.dll
 1. Executar restauração
 1. Baixar os pacotes
 1. Gravar arquivo de ativos, destinos e objetos
@@ -341,9 +341,14 @@ Configurações de restauração adicionais podem vir de propriedades MSBuild no
 | RestoreConfigFile | Caminho para um arquivo `Nuget.Config` a ser aplicado. |
 | RestoreNoCache | Se verdadeiro, evita o uso de pacotes armazenados em cache. Ver [gerenciar as pastas de cache e de pacotes globais](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | Se verdadeiro, ignora origens de pacote com falha ou ausentes. |
+| RestoreFallbackFolders | Pastas de fallback usada da mesma maneira os pacotes de usuário pasta é usada. |
+| RestoreAdditionalProjectSources | Fontes adicionais para usar durante a restauração. |
+| RestoreAdditionalProjectFallbackFolders | Pastas adicionais de fallback para usar durante a restauração. |
+| RestoreAdditionalProjectFallbackFoldersExcludes | Exclui pastas de fallback especificadas em `RestoreAdditionalProjectFallbackFolders` |
 | RestoreTaskAssemblyFile | Caminho para `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Lista separada por ponto e vírgula de projetos a serem restaurados, que devem conter caminhos absolutos. |
-| RestoreOutputPath | Pasta de saída que usa a pasta `obj` como padrão. |
+| RestoreUseSkipNonexistentTargets  | Quando os projetos são coletados por meio do MSBuild, ele determina se eles são coletados usando o `SkipNonexistentTargets` otimização. Quando não definido, o padrão é `true`. A consequência é um comportamento de fail-fast quando os destinos do projeto não podem ser importados. |
+| MSBuildProjectExtensionsPath | Pasta de saída, usando como padrão `BaseIntermediateOutputPath` e o `obj` pasta. |
 
 #### <a name="examples"></a>Exemplos
 
@@ -370,6 +375,23 @@ A restauração cria os seguintes arquivos na pasta `obj` de build:
 | `project.assets.json` | Contém o grafo de dependência de todas as referências de pacote. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Referências a objetos do MSBuild contidos em pacotes |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Referências a destinos do MSBuild contidos em pacotes |
+
+### <a name="restoring-and-building-with-one-msbuild-command"></a>Restauração e criação de um comando do MSBuild
+
+Devido ao fato de que o NuGet poderá restaurar pacotes que desativar objetos e destinos do MSBuild, a restauração e avaliações de compilação são executadas com propriedades globais diferentes.
+Isso significa que a seguir terá um comportamento imprevisível e geralmente está incorreto.
+
+```cli
+msbuild -t:restore,build
+```
+
+ Em vez disso, a abordagem recomendada é:
+
+```cli
+msbuild -t:build -restore
+```
+
+A mesma lógica se aplica a outros destinos semelhantes ao `build`.
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 

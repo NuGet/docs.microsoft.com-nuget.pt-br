@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145625"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59931989"
 ---
 # <a name="restore-command-nuget-cli"></a>Restaurar comando (CLI do NuGet)
 
@@ -37,7 +37,7 @@ em que `<projectPath>` Especifica o local de uma solução ou um `packages.confi
 | DisableParallelProcessing | Desabilita a restauração de vários pacotes em paralelo. |
 | FallbackSource | *(3.2 e superior)*  Uma lista de origens de pacote a ser usado como fallbacks no caso do pacote não for encontrado no primário ou a fonte padrão. |
 | ForceEnglishOutput | *(3.5 ou superior)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
-| Ajuda | Exibe informações de ajuda para o comando. |
+| Help | Exibe informações de ajuda para o comando. |
 | MSBuildPath | *(4.0 e posteriores)*  Especifica o caminho do MSBuild a usar com o comando, tendo precedência sobre `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 e superior)*  Especifica a versão do MSBuild a ser usado com este comando. Valores com suporte são 4, 12, 14, 15.1, 15.3, 15.4, 15,5, 15.6, 15.7, 15,8, 15,9. Por padrão que o MSBuild em seu caminho é escolhido, caso contrário, o padrão é a versão mais recente instalada do MSBuild. |
 | NoCache | Impede que o NuGet usando pacotes armazenados em cache. Ver [gerenciar as pastas de cache e de pacotes globais](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
@@ -49,8 +49,8 @@ em que `<projectPath>` Especifica o local de uma solução ou um `packages.confi
 | Recursiva | *(4.0 e posteriores)*  Restaura todas as referências de projetos para projetos UWP e .NET Core. Não se aplica a projetos que usam `packages.config`. |
 | RequireConsent | Verifica se a restauração de pacotes está habilitado antes de baixar e instalar os pacotes. Para obter detalhes, consulte [restauração de pacote](../consume-packages/package-restore.md). |
 | SolutionDirectory | Especifica a pasta de solução. Não é válido ao restaurar pacotes para uma solução. Necessário quando a restauração com um `packages.config` do arquivo, a menos que `PackagesDirectory` ou `OutputDirectory` é usado. |
-| Origem | Especifica a lista de origens de pacote (como URLs) para usar para a restauração. Se omitido, o comando usa as fontes fornecidas em arquivos de configuração, consulte [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md). |
-| Detalhamento |> especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
+| Source | Especifica a lista de origens de pacote (como URLs) para usar para a restauração. Se omitido, o comando usa as fontes fornecidas em arquivos de configuração, consulte [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity |> especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 

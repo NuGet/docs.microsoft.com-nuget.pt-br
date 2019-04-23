@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 87f7494ea97a4fa65be04b2692d7b894938c3fe5
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580318"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59509120"
 ---
 # <a name="an-introduction-to-nuget"></a>Uma introdução ao NuGet
 
@@ -37,7 +37,7 @@ Um pacote “compatível” significa que ele contém os assemblies criados para
 Por outro lado, os desenvolvedores de pacote que precisam de APIs fora do .NET Standard, criam assemblies separados para as estruturas de destino diferentes para as quais desejam dar suporte e incluem todos os assemblies no mesmo pacote (que é chamado de "multidirecionamento"). Quando um consumidor instalado um pacote como esse, o NuGet extrai apenas os assemblies que são necessárias para o projeto. Isso minimiza a superfície do pacote no aplicativo final e/ou assemblies produzidos pelo projeto. Um pacote multidirecionamento é, obviamente, mais difícil para o criador manter.
 
 > [!Note]
-> O direcionamento para .NET Standard substitui a abordagem anterior de usar vários destinos de bibliotecas de classes portáteis (PCL). Portanto, esta documentação se concentra na criação de pacotes para .NET Standard.
+> O direcionamento para o .NET Standard substitui a abordagem anterior de usar vários destinos PCL (biblioteca de classes portátil). Portanto, esta documentação se concentra na criação de pacotes para .NET Standard.
 
 ## <a name="nuget-tools"></a>Ferramentas do NuGet
 
@@ -82,7 +82,7 @@ O computador que recebe um projeto, como um servidor de build obtendo uma cópia
 
 Claramente, a função primária do NuGet, no que diz respeito aos desenvolvedores, é manter essa lista de referência em nome do seu projeto e fornecer os meios para restaurar (e atualizar) com eficiência os pacotes referenciados. Essa lista é mantida em um dos dois *formatos de gerenciamento de pacote*, como são chamados:
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 ou superior)* Como um arquivo XML que mantém uma lista simples de todas as dependências do projeto, incluindo as dependências de outros pacotes instalados. Os pacotes instalados ou restaurados são armazenados em uma pasta `packages`.
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 ou posterior)* Um arquivo XML que mantém uma lista plana de todas as dependências do projeto, incluindo as dependências de outros pacotes instalados. Os pacotes instalados ou restaurados são armazenados em uma pasta `packages`.
 
 - [PackageReference](consume-packages/package-references-in-project-files.md) (ou "referências de pacote em arquivos de projeto") |*(NuGet 4.0 ou superior)* Mantém uma lista de dependências de nível superior do projeto diretamente no arquivo de projeto, portanto, nenhum arquivo separado é necessário. Um arquivo associado, `obj/project.assets.json`, é gerado dinamicamente para gerenciar o grafo de dependência geral dos pacotes que um projeto usa juntamente com todas as dependências de nível inferior. PackageReference é sempre usado por projetos do .NET Core.
 
