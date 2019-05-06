@@ -7,7 +7,7 @@ ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: eafdedc3ad022a6794dbeb390de87d7f317e28f1
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43551492"
@@ -47,7 +47,7 @@ Isso é a primeira versão do cliente nuget.exe que dá suporte a servidores NuG
 
 * Comando Push não faz mais um GET antes de um PUT em relação a uma origem de pacote - [1237](https://github.com/NuGet/Home/issues/1237)
 * Comando list não repete os números de versão - [1185](https://github.com/NuGet/Home/issues/1185)
-* Pacote com o argumento - build agora corretamente dá suporte a c# 6.0 - [1107](https://github.com/NuGet/Home/issues/1107)
+* Pacote com o argumento - build agora corretamente dá suporte a C# 6.0 - [1107](https://github.com/NuGet/Home/issues/1107)
 * Problemas corrigidos tentando empacotar um projeto F # compilados com o Visual Studio 2015 - [1048](https://github.com/NuGet/Home/issues/1048)
 * Restaurar agora não funciona quando já existem pacotes - [1040](https://github.com/NuGet/Home/issues/1040)
 * Mensagens de erro aprimoradas quando `packages.config` o arquivo está malformado - [1034](https://github.com/NuGet/Home/issues/1034)
