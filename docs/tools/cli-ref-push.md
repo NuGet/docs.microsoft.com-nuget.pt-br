@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 125671ca3f695f82bd74f8097e590c3972003e22
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4a9460944e2c232e2a72195434a491d26eee3559
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548337"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877951"
 ---
 # <a name="push-command-nuget-cli"></a>envio por push de comando (CLI do NuGet)
 
@@ -39,14 +39,14 @@ onde `<packagePath>` identifica o pacote para enviar por push para o servidor.
 | ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
 | DisableBuffering | Desabilita o armazenamento em buffer ao enviar por push a um servidor HTTP (s) para diminuir o uso de memória. Cuidado: quando esta opção for usada, a autenticação integrada do Windows pode não funcionar. |
 | ForceEnglishOutput | *(3.5 ou superior)*  Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
-| Ajuda | Exibe informações de ajuda para o comando. |
+| Help | Exibe informações de ajuda para o comando. |
 | NonInteractive | Suprime a solicitações de entrada do usuário ou confirmações. |
 | NoSymbols | *(3.5 ou superior)*  Se existe um pacote de símbolos, ele não será enviado a um servidor de símbolos. |
 | Origem | Especifica a URL do servidor. O NuGet identifica um UNC ou uma fonte de pasta local e simplesmente copia o arquivo em vez de enviá-la usando HTTP.  Além disso, começando com o NuGet 3.4.2, este parâmetro é obrigatório, a menos que o `NuGet.Config` arquivo Especifica um *DefaultPushSource* valor (consulte [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md)). |
 | SymbolSource | *(3.5 ou superior)*  Especifica a URL do servidor de símbolo; nuget.smbsrc.net é usado ao enviar por push para nuget.org |
 | SymbolApiKey | *(3.5 ou superior)*  Especifica a chave de API para a URL especificada no `-SymbolSource`. |
 | Tempo limite | Especifica o tempo limite, em segundos, para enviar por push a um servidor. O padrão é 300 segundos (5 minutos). |
-| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
+| Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 
@@ -67,5 +67,5 @@ nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -Source https://api.nu
 
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a
 
-nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -s https://customsource/
+nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://customsource/
 ```
