@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: ac1bf2b65ab6ec4e8cf864810181fc661236262a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 9f26f75a70a996cad158fd125e86d98e10c3dac1
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931976"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610640"
 ---
 # <a name="nuget-cli-environment-variables"></a>Variáveis de ambiente da CLI do NuGet
 
@@ -33,7 +33,7 @@ A lista de propriedades documentados em [NuGet empacotamento e restauração com
 | NUGET_HTTP_CACHE_PATH | Caminho a ser usado para o *http-cache* pasta conforme descrito em [gerenciar as pastas de cache e de pacotes globais](../consume-packages/managing-the-global-packages-and-cache-folders.md). | Especificado como o caminho absoluto. |
 | NUGET_PERSIST_DG | Sinalizador que indica se os arquivos de dg (dados coletados do MSBuild) devem ser persistentes. | Especificado como *verdadeira* ou *falso* será armazenado (padrão), se NUGET_PERSIST_DG_PATH não definida para o diretório temporário (NuGetScratch pasta no diretório temporário do atual ambiente). |
 | NUGET_PERSIST_DG_PATH | Caminho para manter os arquivos de GD. | Especificado como o caminho absoluto, essa opção é usada apenas quando *NUGET_PERSIST_DG* é definido como true. |
-| NUGET_RESTORE_MSBUILD_ARGS | Define os argumentos adicionais do MSBuild. | |
+| NUGET_RESTORE_MSBUILD_ARGS | Define os argumentos adicionais do MSBuild. | Passe argumentos idênticos como você faria passá-los para msbuild.exe. Um exemplo de como definir uma propriedade de projeto Foo na linha de comando à barra de valor seria /p:Foo = barra |
 | NUGET_RESTORE_MSBUILD_VERBOSITY | Define o nível de detalhes de log do MSBuild. | O padrão é *silencioso* ("/ v: q"). Os valores possíveis *q [uiet]*, *Minimal*, *n [ormal]*, *Detailed*, e *diag [nostic]*. |
 | NUGET_SHOW_STACK | Determina se a exceção completa (incluindo o rastreamento de pilha) deve ser exibida ao usuário. | Especificado como *verdadeira* ou *falso* (padrão). |
 | NUGET_XMLDOC_MODE | Determina como a extração do arquivo de documentação de XML de assemblies deve ser tratada. | Os modos suportados são *ignore* (não extraia os arquivos de documentação XML), *compactar* (armazenar arquivos de documento XML como um arquivo zip) ou *none* (padrão, trate os arquivos de documento XML como normal arquivos). |
