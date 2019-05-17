@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: db02089bec3d2b8c001518fa0542375dc5418eb8
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944061"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610581"
 ---
 # <a name="creating-nuget-packages"></a>Criando pacotes do NuGet
 
@@ -166,7 +166,7 @@ Como um pacote do NuGet é apenas um arquivo ZIP que foi renomeado com a extens�
 A vantagem dessa abordagem é que você não precisa especificar no manifesto quais arquivos você deseja incluir no pacote (conforme explicado mais adiante neste tópico). Basta fazer com que o processo de build produza a estrutura de pasta exata que vai para o pacote e incluir facilmente outros arquivos que não podem fazer parte de um projeto, caso contrário:
 
 - O conteúdo e o código-fonte que devem ser inseridos no projeto de destino.
-- Scripts do PowerShell (pacotes usados no NuGet 2.x podem incluir scripts de instalação, o que não é compatível com o NuGet 3.x e posterior).
+- Scripts do PowerShell
 - Transformações em configuração existentes e arquivos de código-fonte em um projeto.
 
 As convenções de pasta são as seguintes:
@@ -250,8 +250,8 @@ O identificador de pacote (elemento `<id>`) e o número de versão (elemento `<v
 
 **Práticas recomendadas para o identificador de pacote:**
 
-- **Exclusividade**: o identificador deve ser exclusivo no nuget.org ou na galeria que hospeda o pacote. Antes de decidir sobre um identificador, pesquise a galeria aplicável para verificar se o nome já está em uso. Para evitar conflitos, um bom padrão é usar o nome da sua empresa como a primeira parte do identificador, como `Contoso.`.
-- **Nomes semelhantes a namespace**: siga um padrão semelhante aos namespaces no .NET, usando a notação de ponto em vez de hifens. Por exemplo, use `Contoso.Utility.UsefulStuff` em vez de `Contoso-Utility-UsefulStuff` ou `Contoso_Utility_UsefulStuff`. Também é útil para os consumidores quando o identificador de pacote corresponde os namespaces usados no código.
+- **Exclusividade**: o identificador deve ser exclusivo no nuget.org ou em qualquer galeria que hospede o pacote. Antes de decidir sobre um identificador, pesquise a galeria aplicável para verificar se o nome já está em uso. Para evitar conflitos, um bom padrão é usar o nome da sua empresa como a primeira parte do identificador, como `Contoso.`.
+- **Nomes semelhante a namespace**: siga um padrão semelhante aos namespaces no .NET, usando a notação de ponto em vez de hifens. Por exemplo, use `Contoso.Utility.UsefulStuff` em vez de `Contoso-Utility-UsefulStuff` ou `Contoso_Utility_UsefulStuff`. Também é útil para os consumidores quando o identificador de pacote corresponde os namespaces usados no código.
 - **Pacotes de exemplo**: se você gerar um pacote de código de exemplo que demonstra como usar outro pacote, anexe `.Sample` como um sufixo ao identificador, como em `Contoso.Utility.UsefulStuff.Sample`. (O pacote de exemplo logicamente teria uma dependência do outro pacote.) Ao criar um pacote de exemplo, use o método de diretório de trabalho baseado em convenção descrito anteriormente. Na pasta `content`, organize o código de exemplo em uma pasta chamada `\Samples\<identifier>` como no `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Práticas recomendadas para a versão de pacote:**
@@ -261,9 +261,9 @@ O identificador de pacote (elemento `<id>`) e o número de versão (elemento `<v
 
 > A seguinte série de breves postagens no blog também é útil para entender o controle de versão:
 >
-> - [Parte 1: assumindo o DLL Hell](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [Parte 2: o algoritmo principal](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [Parte 3: unificação por meio de redirecionamentos de associação](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [Parte 1: Como assumir o DLL Hell](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Parte 2: O algoritmo principal](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [Parte 3: Unificação por meio de redirecionamentos de associação](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
 ## <a name="setting-a-package-type"></a>Definindo um tipo de pacote
 
@@ -357,7 +357,7 @@ Incluindo os arquivos de propriedades e de destinos do MSBuild em um pacote [int
 
 Quando o NuGet instala um pacote com arquivos `\build`, ele adiciona elementos `<Import>` do MSBuild ao arquivo de projeto que aponta para os arquivos `.targets` e `.props`. (`.props` é adicionado à parte superior do arquivo de projeto; `.targets` é adicionado à parte inferior.) Um elemento `<Import>` do MSBuild condicional separado é adicionado para cada estrutura de destino.
 
-É possível colocar os arquivos `.props` e `.targets` do MSBuild na pasta `\buildCrossTargeting` para direcionamento entre estruturas. Durante a instalação do pacote, o NuGet adiciona elementos `<Import>` correspondentes ao arquivo de projeto contanto que a estrutura de destino não esteja definida (a propriedade `$(TargetFramework)` do MSBuild deve estar vazia).
+É possível colocar os arquivos `.props` e `.targets` do MSBuild na pasta `\buildMultiTargeting` para direcionamento entre estruturas. Durante a instalação do pacote, o NuGet adiciona elementos `<Import>` correspondentes ao arquivo de projeto contanto que a estrutura de destino não esteja definida (a propriedade `$(TargetFramework)` do MSBuild deve estar vazia).
 
 Com o NuGet 3.x, os destinos não são adicionados ao projeto, mas são disponibilizados por meio do `project.lock.json`.
 
@@ -413,7 +413,7 @@ Você pode usar várias opções de linha de comando com `nuget pack` para exclu
 
 As opções a seguir são algumas das escolhas comuns nos projetos do Visual Studio:
 
-- **Projetos referenciados**: se o projeto faz referência a outros projetos, você pode adicionar os projetos referenciados como parte do pacote ou como dependências, usando a opção `-IncludeReferencedProjects`:
+- **Projetos referenciados**: se o projeto faz referência a outros projetos, você pode adicionar os projetos referenciados, como parte do pacote ou como dependências, usando a opção `-IncludeReferencedProjects`:
 
     ```cli
     nuget pack MyProject.csproj -IncludeReferencedProjects

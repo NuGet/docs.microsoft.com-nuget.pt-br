@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: c23b464ca39fd8d872f21846a7d6d34edf9dce93
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088909"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610572"
 ---
 # <a name="configuring-nuget-behavior"></a>Configurando o comportamento de NuGet
 
@@ -188,15 +188,15 @@ O NuGet, em seguida, carrega e aplica as configurações como mostrado a seguir,
 
 - **Invocado de disk_drive_1/users**: somente o repositório padrão listado no arquivo de configuração de nível do usuário (A) é usado, pois esse é o único arquivo encontrado em disk_drive_1.
 
-- **Invocado de disk_drive_2/ ou disk_drive_/tmp**: o arquivo no nível do usuário (A) é carregado primeiro, depois o NuGet acessa a raiz de disk_drive_2 e descobre o arquivo (B). O NuGet também procura um arquivo de configuração em /tmp, mas não o encontra. Como resultado, o repositório padrão no nuget.org é usado, a restauração de pacote é habilitada e os pacotes são expandidos em disk_drive_2/tmp.
+- **Invocado de disk_drive_2/ ou disk_drive_ /tmp**: o arquivo no nível do usuário (A) é carregado primeiro, depois o NuGet acessa a raiz de disk_drive_2 e descobre o arquivo (B). O NuGet também procura um arquivo de configuração em /tmp, mas não o encontra. Como resultado, o repositório padrão no nuget.org é usado, a restauração de pacote é habilitada e os pacotes são expandidos em disk_drive_2/tmp.
 
-- **Invocado de disk_drive_2/Project1 ou disk_drive_2/Project1/Source**: o arquivo de nível do usuário (A) é carregado primeiro e então, o NuGet carrega o arquivo (B) da raiz de disk_drive_2, seguido pelo arquivo (C). As configurações em (C) substituirão as de (B) e (A), portanto, o `repositoryPath` em que os pacotes são instalados são disk_drive_2/Project1/External/Packages em vez de *disk_drive_2/tmp*. Além disso, como (C) limpa o `<packageSources>`, o nuget.org não está mais disponível como uma origem, restando apenas `https://MyPrivateRepo/ES/nuget`.
+- **Invocado de disk_drive_2/Project1 ou disk_drive_2/Project1/Source**: o arquivo de nível do usuário (A) é carregado primeiro, depois o NuGet carrega o arquivo (B) da raiz de disk_drive_2, seguido pelo arquivo (C). As configurações em (C) substituirão as de (B) e (A), portanto, o `repositoryPath` em que os pacotes são instalados são disk_drive_2/Project1/External/Packages em vez de *disk_drive_2/tmp*. Além disso, como (C) limpa o `<packageSources>`, o nuget.org não está mais disponível como uma origem, restando apenas `https://MyPrivateRepo/ES/nuget`.
 
-- **Invocado de disk_drive_2/Project2 ou disk_drive_2/Project2/Source**: o arquivo de nível de usuário (A) é carregado primeiro e seguido pelos arquivos (B) e (D). Como `packageSources` não foi apagado, ambos `nuget.org` e `https://MyPrivateRepo/DQ/nuget` estão disponíveis como origens. Pacotes são expandidos em disk_drive_2/tmp conforme especificado em (B).
+- **Invocado de disk_drive_2/Project2 ou disk_drive_2/Project2/Source**: O arquivo de nível de usuário (A) é carregado primeiro, seguido pelos arquivo (B) e (D). Como `packageSources` não foi apagado, ambos `nuget.org` e `https://MyPrivateRepo/DQ/nuget` estão disponíveis como origens. Pacotes são expandidos em disk_drive_2/tmp conforme especificado em (B).
 
 ## <a name="nuget-defaults-file"></a>Arquivo de padrões do NuGet
 
-O arquivo `NuGetDefaults.Config` existe para especificar origens de pacote do qual os pacotes são instalados e atualizados, e para controlar o destino padrão para publicar pacotes com `nuget push`. Como os administradores podem implantar convenientemente (usando a Política de Grupo, por exemplo) arquivos `NuGetDefaults.Config` consistentes em computadores de desenvolvedor e de build, eles podem garantir que todos na organização estejam usando as origens de pacotes corretas, em vez do nuget.org.
+O arquivo `NuGetDefaults.Config` existe para especificar origens de pacote do qual os pacotes são instalados e atualizados, e para controlar o destino padrão para publicar pacotes com `nuget push`. Como os administradores podem implantar com conveniência (usando a Política de Grupo, por exemplo) arquivos `NuGetDefaults.Config` consistentes em computadores de desenvolvedor e de build, eles podem garantir que todos na organização estejam usando as origens de pacotes corretas, em vez do nuget.org.
 
 > [!Important]
 > O arquivo `NuGetDefaults.Config` nunca faz com que a origem do pacote seja removida da configuração do NuGet do desenvolvedor. Isso significa que, se o desenvolvedor já tiver usado o NuGet e, portanto, a origem do pacote no nuget.org está registrada, ele não será removido após a criação de um arquivo `NuGetDefaults.Config`.
@@ -207,7 +207,7 @@ O arquivo `NuGetDefaults.Config` existe para especificar origens de pacote do qu
 
 A tabela a seguir descreve onde o arquivo `NuGetDefaults.Config` deve ser armazenado, dependendo do sistema operacional de destino:
 
-| Plataforma do sistema operacional  | Local de NuGetDefaults.Config |
+| Plataforma do sistema operacional  | Local do NuGetDefaults.Config |
 | --- | --- |
 | Windows      | **Visual Studio 2017 ou NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 e anteriores ou NuGet 3.x e anteriores:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (normalmente `~/.local/share` ou `/usr/local/share`, dependendo da distribuição do SO)|

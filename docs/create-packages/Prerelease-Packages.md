@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
-ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
+ms.openlocfilehash: 845f0ea84bcb92fedf9e5f4fb2b1deee1462a004
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64877938"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610489"
 ---
 # <a name="building-pre-release-packages"></a>Compilando pacotes de pré-lançamento
 
@@ -22,15 +22,9 @@ Uma versão estável é aquela que é considerado confiável suficiente para ser
 
 Para dar suporte ao ciclo de vida de versão de software, o NuGet 1.6 e posterior permite a distribuição de pacotes de pré-lançamento, em que o número de versão inclui um sufixo de controle de versão semântico como `-alpha`, `-beta` ou `-rc`. Para obter mais informações, consulte [Controle de versão de pacote](../reference/package-versioning.md#pre-release-versions).
 
-Você pode especificar essas versões de três maneiras:
+Você pode especificar essas versões usando uma das seguintes maneiras:
 
-- Arquivo `.nuspec`: inclua o sufixo de versão semântico no elemento `version`:
-
-    ```xml
-    <version>1.0.1-alpha</version>
-    ```
-
-- Arquivo `.csproj`: inclua o sufixo de versão semântico no elemento `PackageVersion`:
+- **Se seu projeto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)**: incluir o sufixo de versão semântica no elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) do arquivo `.csproj`:
 
     ```xml
     <PropertyGroup>
@@ -38,13 +32,11 @@ Você pode especificar essas versões de três maneiras:
     </PropertyGroup>
     ```
 
-- Atributos de assembly: especifique a versão usando `AssemblyInformationalVersionAttribute`:
+- **Se seu projeto usa um arquivo [`packages.config`](../reference/packages-config.md)**: incluir o sufixo de versão semântica no elemento [`version`](../reference/nuspec.md#version) do arquivo [`.nuspec`](../reference/nuspec.md):
 
-    ```cs
-    [assembly: AssemblyInformationalVersion("1.0.1-beta")]
+    ```xml
+    <version>1.0.1-alpha</version>
     ```
-
-    O NuGet adota esse valor em vez daquele especificado no atributo `AssemblyVersion`, que não é compatível com o controle de versão semântico.
 
 Quando você estiver pronto para lançar uma versão estável, basta remover o sufixo e o pacote terá precedência sobre as versões de pré-lançamento. Novamente, consulte [Controle de versão do pacote](../reference/package-versioning.md#pre-release-versions).
 
