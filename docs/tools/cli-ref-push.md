@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4a9460944e2c232e2a72195434a491d26eee3559
-ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
+ms.openlocfilehash: bce04864224a66019a52cdfff8355f68dc424204
+ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64877951"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65974998"
 ---
 # <a name="push-command-nuget-cli"></a>envio por push de comando (CLI do NuGet)
 
@@ -43,6 +43,7 @@ onde `<packagePath>` identifica o pacote para enviar por push para o servidor.
 | NonInteractive | Suprime a solicitações de entrada do usuário ou confirmações. |
 | NoSymbols | *(3.5 ou superior)*  Se existe um pacote de símbolos, ele não será enviado a um servidor de símbolos. |
 | Origem | Especifica a URL do servidor. O NuGet identifica um UNC ou uma fonte de pasta local e simplesmente copia o arquivo em vez de enviá-la usando HTTP.  Além disso, começando com o NuGet 3.4.2, este parâmetro é obrigatório, a menos que o `NuGet.Config` arquivo Especifica um *DefaultPushSource* valor (consulte [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md)). |
+| SkipDuplicate | Se já existe um pacote e versão, ignorá-la e continuar com o próximo pacote no envio, se houver. |
 | SymbolSource | *(3.5 ou superior)*  Especifica a URL do servidor de símbolo; nuget.smbsrc.net é usado ao enviar por push para nuget.org |
 | SymbolApiKey | *(3.5 ou superior)*  Especifica a chave de API para a URL especificada no `-SymbolSource`. |
 | Tempo limite | Especifica o tempo limite, em segundos, para enviar por push a um servidor. O padrão é 300 segundos (5 minutos). |
@@ -68,4 +69,7 @@ nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -Source https://api.nu
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a
 
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://customsource/
+
+:: In the example below -SkipDuplicate will skip pushing the package if package "Foo" version "5.0.2" already exists on NuGet.org
+nuget push Foo.5.0.2.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://api.nuget.org/v3/index.json -SkipDuplicate
 ```
