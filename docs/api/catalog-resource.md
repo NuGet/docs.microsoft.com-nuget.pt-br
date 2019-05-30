@@ -6,16 +6,16 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453579"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266352"
 ---
 # <a name="catalog"></a>Catálogo
 
-O **catálogo** é um recurso que registra todas as operações de pacote em uma fonte de pacote, como as criações e exclusões. O recurso de catálogo tem o `Catalog` digite o [índice de serviço](service-index.md).
+O **catálogo** é um recurso que registra todas as operações de pacote em uma fonte de pacote, como as criações e exclusões. O recurso de catálogo tem o `Catalog` digite o [índice de serviço](service-index.md). Você pode usar este recurso para [de consulta para todos os pacotes de publicados](../guides/api/query-for-all-published-packages.md).
 
 > [!Note]
 > Como o catálogo não é usado pelo cliente do NuGet oficial, nem todas as fontes de pacote implementam o catálogo.
@@ -72,7 +72,7 @@ Nome            | Tipo             | Necessária | Observações
 commitId        | cadeia de caracteres           | sim      | Uma ID exclusiva associada com a confirmação mais recente
 commitTimeStamp | cadeia de caracteres           | sim      | Um carimbo de hora da confirmação mais recente
 count           | inteiro          | sim      | O número de páginas no índice
-Itens           | matriz de objetos | sim      | Uma matriz de objetos, cada objeto que representa uma página
+items           | matriz de objetos | sim      | Uma matriz de objetos, cada objeto que representa uma página
 
 Cada elemento no `items` matriz é um objeto com alguns detalhes mínimos sobre cada página. Esses objetos de página não contêm as folhas de catálogo (itens). A ordem dos elementos nesta matriz não está definida. As páginas podem ser solicitadas pelo cliente na memória usando seus `commitTimeStamp` propriedade.
 
@@ -114,8 +114,8 @@ Nome            | Tipo             | Necessária | Observações
 commitId        | cadeia de caracteres           | sim      | Uma ID exclusiva associada com a confirmação mais recente nesta página
 commitTimeStamp | cadeia de caracteres           | sim      | Um carimbo de hora da confirmação mais recente nesta página
 count           | inteiro          | sim      | O número de itens na página
-Itens           | matriz de objetos | sim      | Os itens de catálogo nesta página
-Pai          | cadeia de caracteres           | sim      | Uma URL para o índice do catálogo
+items           | matriz de objetos | sim      | Os itens de catálogo nesta página
+parent          | cadeia de caracteres           | sim      | Uma URL para o índice do catálogo
 
 Cada elemento no `items` matriz é um objeto com alguns detalhes mínimos sobre o item de catálogo. Esses objetos de item não contêm todos os dados do item do catálogo. A ordem dos itens na página de `items` matriz não está definida. Itens podem ser solicitados pelo cliente na memória usando seus `commitTimeStamp` propriedade.
 
@@ -135,8 +135,8 @@ Nome            | Tipo    | Necessária | Observações
 @type           | cadeia de caracteres  | sim      | O tipo de item de catálogo
 commitId        | cadeia de caracteres  | sim      | A ID de confirmação associada a este item de catálogo
 commitTimeStamp | cadeia de caracteres  | sim      | O carimbo de hora de confirmação deste item de catálogo
-NuGet:ID        | cadeia de caracteres  | sim      | A ID do pacote que essa folha está relacionada ao
-NuGet:Version   | cadeia de caracteres  | sim      | A versão do pacote que essa folha está relacionada ao
+nuget:id        | cadeia de caracteres  | sim      | A ID do pacote que essa folha está relacionada ao
+nuget:version   | cadeia de caracteres  | sim      | A versão do pacote que essa folha está relacionada ao
 
 O `@type` valor deve ser um dos dois valores a seguir:
 
@@ -226,7 +226,7 @@ O `published` carimbo de hora é a hora quando o pacote pela última vez foi lis
 
 #### <a name="sample-request"></a>Exemplo de solicitação
 
-OBTER https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 #### <a name="sample-response"></a>Resposta de exemplo
 
@@ -247,7 +247,7 @@ O `published` propriedade é a hora quando o pacote foi excluído, que normalmen
 
 #### <a name="sample-request"></a>Exemplo de solicitação
 
-OBTER https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
 #### <a name="sample-response"></a>Resposta de exemplo
 
@@ -306,7 +306,7 @@ Por exemplo, em nuget.org um pacote publicado recentemente não deve aparecer no
 
 Já que ambos os recursos são criados fora do catálogo, o cursor do cliente catálogo que atualiza o recurso de pesquisa *não deve ultrapassar* o cursor do cliente do catálogo de metadados do pacote.
 
-#### <a name="algorithm"></a>algoritmo
+#### <a name="algorithm"></a>Algoritmo
 
 Para implementar essa restrição, basta modificar o algoritmo acima para ser:
 
