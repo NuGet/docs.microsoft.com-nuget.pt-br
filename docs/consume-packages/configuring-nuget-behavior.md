@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610572"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266347"
 ---
 # <a name="configuring-nuget-behavior"></a>Configurando o comportamento de NuGet
 
@@ -20,7 +20,7 @@ O comportamento do NuGet é controlado pelas configurações acumuladas em um ou
 
 | Escopo | Local do arquivo NuGet.Config | Descrição |
 | --- | --- | --- |
-| Projeto | A pasta atual (também conhecida como pasta do projeto) ou qualquer pasta até a raiz da unidade.| Em uma pasta de projeto, as configurações se aplicam apenas a esse projeto. Em pastas pai que contém várias subpastas de projetos, as configurações se aplicam a todos os projetos nas subpastas. |
+| Solução | A pasta atual (também conhecida como pasta de solução) ou qualquer pasta até a raiz da unidade.| Em uma pasta de solução, as configurações se aplicam a todos os projetos nas subpastas. Observe que, se um arquivo de configuração for colocado em uma pasta de projeto, ele não causará nenhum efeito nesse projeto. |
 | User | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` ou `~/.nuget/NuGet/NuGet.Config` (varia de acordo com a distribuição do SO) | As configurações se aplicam a todas as operações, mas são substituídas por quaisquer configurações de nível de projeto. |
 | Computador | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Se `$XDG_DATA_HOME` for nulo ou vazio, `~/.local/share` ou `/usr/local/share` será usado (varia de acordo com a distribuição do SO)  | As configurações se aplicam a todas as operações, mas são substituídas por qualquer usuário ou por configurações de nível de projeto. |
 
@@ -207,7 +207,7 @@ O arquivo `NuGetDefaults.Config` existe para especificar origens de pacote do qu
 
 A tabela a seguir descreve onde o arquivo `NuGetDefaults.Config` deve ser armazenado, dependendo do sistema operacional de destino:
 
-| Plataforma do sistema operacional  | Local do NuGetDefaults.Config |
+| Plataforma do sistema operacional  | Local de NuGetDefaults.Config |
 | --- | --- |
 | Windows      | **Visual Studio 2017 ou NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 e anteriores ou NuGet 3.x e anteriores:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (normalmente `~/.local/share` ou `/usr/local/share`, dependendo da distribuição do SO)|
