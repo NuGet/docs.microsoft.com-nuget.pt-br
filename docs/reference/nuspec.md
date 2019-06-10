@@ -3,15 +3,15 @@ title: Referência de arquivo. NuSpec para NuGet
 description: O arquivo .nuspec contém metadados de pacote usados ao compilar um pacote e para fornecer informações para os consumidores do pacote.
 author: karann-msft
 ms.author: karann
-ms.date: 08/29/2017
+ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59509094"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812930"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -27,6 +27,16 @@ Neste tópico:
 - [Incluindo arquivos do assembly](#including-assembly-files)
 - [Incluindo arquivos de conteúdo](#including-content-files)
 - [Arquivos de exemplo do nuspec](#example-nuspec-files)
+
+## <a name="project-type-compatibility"></a>Compatibilidade de tipo de projeto
+
+- Use `.nuspec` com `nuget.exe pack` para não-SDK-style projetos que usam `packages.config`.
+
+- Um `.nuspec` arquivo não é necessário para criar pacotes para projetos de estilo do SDK (.NET Core e .NET Standard projetos que usam o [atributo do SDK](/dotnet/core/tools/csproj#additions)). (Observe que um `.nuspec` é gerado quando você cria o pacote.)
+
+   Se você estiver criando um pacote usando `dotnet.exe pack` ou `msbuild pack target`, é recomendável que você [inclui todas as propriedades](../reference/msbuild-targets.md#pack-target) que são geralmente no `.nuspec` do arquivo no arquivo de projeto em vez disso. No entanto, você pode optar por em vez disso [usar um `.nuspec` arquivo de pacote usando `dotnet.exe` ou `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec).
+
+- Para projetos migrados do `packages.config` à [PackageReference](../consume-packages/package-references-in-project-files.md), um `.nuspec` arquivo não é necessário para criar o pacote. Em vez disso, use [pacote msbuild](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 ## <a name="general-form-and-schema"></a>Formato e esquema geral
 
@@ -145,7 +155,7 @@ Uma lista delimitada por espaço de marcas e palavras-chave que descrevem o paco
 #### <a name="serviceable"></a>facilidade de manutenção 
 *(3.3 ou superior)* Somente para uso interno do NuGet.
 #### <a name="repository"></a>repositório
-Repositório de metadados, consiste em quatro atributos opcionais: *tipo* e *url* *(4.0 e posteriores)*, e *branch* e  *confirmação* *(4.6 +)*. Esses atributos permitem que você mapeie o. nupkg ao repositório que criou, com potencial para ficarem conforme detalhado de como a ramificação individual ou a confirmação que criou o pacote. Isso deve ser uma url disponível publicamente que pode ser invocado diretamente por um software de controle de versão. Ele não deve ser uma página html pois destina-se para o computador. Para vincular a página do projeto, use o `projectUrl` campo, em vez disso.
+Repositório de metadados, consiste em quatro atributos opcionais: *tipo* e *url* *(4.0 e posteriores)* , e *branch* e  *confirmação* *(4.6 +)* . Esses atributos permitem que você mapeie o. nupkg ao repositório que criou, com potencial para ficarem conforme detalhado de como a ramificação individual ou a confirmação que criou o pacote. Isso deve ser uma url disponível publicamente que pode ser invocado diretamente por um software de controle de versão. Ele não deve ser uma página html pois destina-se para o computador. Para vincular a página do projeto, use o `projectUrl` campo, em vez disso.
 
 #### <a name="minclientversion"></a>minClientVersion
 Especifica a versão mínima do cliente NuGet que pode instalar esse pacote, imposta pelo nuget.exe e pelo Gerenciador de Pacotes do Visual Studio. Isso é usado sempre que o pacote depender de recursos específicos do arquivo `.nuspec` que foram adicionados em uma versão específica do cliente do NuGet. Por exemplo, um pacote usando o atributo `developmentDependency` deve especificar “2.8” para `minClientVersion`. Da mesma forma, um pacote usando o elemento `contentFiles` (consulte a próxima seção) deve definir `minClientVersion` para “3.3”. Observe também que, como os clientes do NuGet antes de 2.5 não reconhecem esse sinalizador, eles *sempre* recusam instalar o pacote, não importando o que `minClientVersion` contém.
@@ -626,23 +636,29 @@ As pastas vazias podem usar `.` para recusar o fornecimento de conteúdo para ce
 #### <a name="example-contentfiles-section"></a>Exemplo da seção contentFiles
 
 ```xml
-<contentFiles>
-    <!-- Embed image resources -->
-    <files include="any/any/images/dnf.png" buildAction="EmbeddedResource" />
-    <files include="any/any/images/ui.png" buildAction="EmbeddedResource" />
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        ...
+        <contentFiles>
+            <!-- Embed image resources -->
+            <files include="any/any/images/dnf.png" buildAction="EmbeddedResource" />
+            <files include="any/any/images/ui.png" buildAction="EmbeddedResource" />
 
-    <!-- Embed all image resources under contentFiles/cs/ -->
-    <files include="cs/**/*.png" buildAction="EmbeddedResource" />
+            <!-- Embed all image resources under contentFiles/cs/ -->
+            <files include="cs/**/*.png" buildAction="EmbeddedResource" />
 
-    <!-- Copy config.xml to the root of the output folder -->
-    <files include="cs/uap/config/config.xml" buildAction="None" copyToOutput="true" flatten="true" />
+            <!-- Copy config.xml to the root of the output folder -->
+            <files include="cs/uap/config/config.xml" buildAction="None" copyToOutput="true" flatten="true" />
 
-    <!-- Copy run.cmd to the output folder and keep the directory structure -->
-    <files include="cs/commands/run.cmd" buildAction="None" copyToOutput="true" flatten="false" />
+            <!-- Copy run.cmd to the output folder and keep the directory structure -->
+            <files include="cs/commands/run.cmd" buildAction="None" copyToOutput="true" flatten="false" />
 
-    <!-- Include everything in the scripts folder except exe files -->
-    <files include="cs/net45/scripts/*" exclude="**/*.exe"  buildAction="None" copyToOutput="true" />
-</contentFiles>
+            <!-- Include everything in the scripts folder except exe files -->
+            <files include="cs/net45/scripts/*" exclude="**/*.exe"  buildAction="None" copyToOutput="true" />
+        </contentFiles>
+        </metadata>
+</package>
 ```
 
 ## <a name="example-nuspec-files"></a>Arquivos de exemplo do nuspec
