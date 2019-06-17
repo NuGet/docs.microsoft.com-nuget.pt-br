@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671169"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812901"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Início Rápido: Instalar e usar um pacote no Visual Studio
 
@@ -19,7 +19,7 @@ Os pacotes NuGet contém código reutilizável que outros desenvolvedores dispon
 Depois de instalado, consulte o pacote no código com `using <namespace>` em que \<namespace\> é específico para o pacote que você está usando. Depois que a referência é feita, você pode chamar o pacote por meio de sua API.
 
 > [!Tip]
-> **Começar com nuget.org**: normalmente, os desenvolvedores em .NET encontram os componentes que podem reutilizar em seus próprios aplicativos procurando no nuget.org. Você pode pesquisar no nuget.org diretamente ou localizar e instalar pacotes de dentro do Visual Studio, conforme mostrado neste artigo.
+> **Começar no nuget.org**: normalmente, os desenvolvedores em .NET encontram componentes que podem reutilizar em seus próprios aplicativos procurando no nuget.org. Você pode pesquisar no nuget.org diretamente ou localizar e instalar pacotes de dentro do Visual Studio, conforme mostrado neste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,6 +27,8 @@ Depois de instalado, consulte o pacote no código com `using <namespace>` em que
 - Visual Studio 2015 Atualização 3 com Ferramentas para Aplicativos Universais do Windows.
 
 Você pode instalar a edição Community 2017 gratuitamente no [visualstudio.com](https://www.visualstudio.com/) ou usar as edições Professional ou Enterprise.
+
+Se você estiver usando o Visual Studio para Mac, confira [Incluir um pacote do NuGet em seu projeto](/visualstudio/mac/nuget-walkthrough).
 
 ## <a name="create-a-project"></a>Criar um projeto
 

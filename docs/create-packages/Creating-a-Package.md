@@ -3,25 +3,31 @@ title: Como criar um pacote do NuGet
 description: Um guia detalhado para o processo de design e criação de um pacote do NuGet, incluindo os principais pontos de decisão como arquivos e controle de versão.
 author: karann-msft
 ms.author: karann
-ms.date: 12/12/2017
+ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610581"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812911"
 ---
 # <a name="creating-nuget-packages"></a>Criando pacotes do NuGet
 
-Independentemente do que o pacote ou o código que ele contém fazem, use `nuget.exe` para empacotar essa funcionalidade em um componente que pode ser compartilhado e usado por uma infinidade de outros desenvolvedores. Para instalar o `nuget.exe`, consulte [Instalar a CLI do NuGet](../install-nuget-client-tools.md#nugetexe-cli). Observe que o Visual Studio não inclui automaticamente `nuget.exe`.
+Independentemente do pacote ou do código que ele contém, use uma das ferramentas de CLI, seja `nuget.exe` ou `dotnet.exe`, para empacotar essa funcionalidade em um componente que possa ser compartilhado e usado por diversos desenvolvedores. Para instalar as ferramentas de CLI do NuGet, confira [Instalar ferramentas de cliente do NuGet](../install-nuget-client-tools.md). Observe que o Visual Studio não inclui automaticamente uma ferramenta de CLI.
+
+- Para projetos .NET Core e .NET Standard que usam projetos no formato de estilo do SDK ([atributo do SDK](/dotnet/core/tools/csproj#additions)) e quaisquer outros estilos do SDK, o NuGet usa as informações do arquivo de projeto diretamente para criar um pacote. Para obter detalhes, consulte [Criar pacotes do .NET Standard com o Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) e [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).
+
+- Para projetos no estilo não SDK, siga as etapas descritas neste artigo para criar um pacote.
+
+- Para projetos migrados de `packages.config` para [PackageReference](../consume-packages/package-references-in-project-files.md), use [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 Tecnicamente, um pacote do NuGet é apenas um arquivo ZIP que foi renomeado com a extensão `.nupkg` e cujo conteúdo corresponde a certas convenções. Este tópico descreve o processo detalhado da criação de um pacote que cumpre as convenções. Para ver uma explicação passo a passo concentrada, veja [Início rápido: criar e publicar um pacote](../quickstart/create-and-publish-a-package.md).
 
 O empacotamento começa com o código compilado (assemblies), símbolos e/ou outros arquivos que você deseja entregar como um pacote (consulte [Visão geral e o fluxo de trabalho](overview-and-workflow.md)). Esse processo é independente da compilação ou de qualquer outra forma de geração dos arquivos que entram no pacote, embora seja possível extrair informações em um arquivo de projeto para manter os assemblies e pacotes compilados em sincronização.
 
 > [!Note]
-> Este tópico se aplica aos tipos de projeto diferente de projetos .NET Core usando o Visual Studio 2017 e o NuGet 4.0. Nesses projetos .NET Core, o NuGet usa as informações do arquivo do projeto diretamente. Para obter detalhes, consulte [Criar pacotes do .NET Standard com o Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md) e [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).
+> Este tópico se aplica a projetos no estilo não SDK, normalmente projetos que não sejam do .NET Core e do .NET Standard usando o Visual Studio 2017 e o NuGet 4.0 ou superior.
 
 ## <a name="deciding-which-assemblies-to-package"></a>Decidir quais assemblies são empacotados
 
