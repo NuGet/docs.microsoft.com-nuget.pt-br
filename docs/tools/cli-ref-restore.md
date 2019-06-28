@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 3d7a4188de4fb6f812ca19e7f9e302a5a133c58b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931989"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425967"
 ---
 # <a name="restore-command-nuget-cli"></a>Restaurar comando (CLI do NuGet)
 
@@ -49,8 +49,8 @@ em que `<projectPath>` Especifica o local de uma solução ou um `packages.confi
 | Recursiva | *(4.0 e posteriores)*  Restaura todas as referências de projetos para projetos UWP e .NET Core. Não se aplica a projetos que usam `packages.config`. |
 | RequireConsent | Verifica se a restauração de pacotes está habilitado antes de baixar e instalar os pacotes. Para obter detalhes, consulte [restauração de pacote](../consume-packages/package-restore.md). |
 | SolutionDirectory | Especifica a pasta de solução. Não é válido ao restaurar pacotes para uma solução. Necessário quando a restauração com um `packages.config` do arquivo, a menos que `PackagesDirectory` ou `OutputDirectory` é usado. |
-| Source | Especifica a lista de origens de pacote (como URLs) para usar para a restauração. Se omitido, o comando usa as fontes fornecidas em arquivos de configuração, consulte [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md). |
-| Verbosity |> especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
+| Origem | Especifica a lista de origens de pacote (como URLs) para usar para a restauração. Se omitido, o comando usa as fontes fornecidas em arquivos de configuração, consulte [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 

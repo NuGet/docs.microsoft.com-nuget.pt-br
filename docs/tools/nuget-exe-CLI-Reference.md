@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: 2743dde63487124c706f2b1521ef2c6c3b28339d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a257dbbd9d56b5989e050ed4096d096cd1036184
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548072"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426016"
 ---
 # <a name="nuget-cli-reference"></a>Referência da CLI do NuGet
 
@@ -19,6 +19,8 @@ A Interface de linha de comando (CLI do NuGet), `nuget.exe`, fornece toda a exte
 Para usar qualquer comando, abra uma janela de comando ou shell bash, em seguida, execute `nuget` seguido do comando e as opções apropriadas, como `nuget help pack` (para exibir a Ajuda sobre o comando pack).
 
 Esta documentação reflete a versão mais recente da CLI do NuGet. Para obter detalhes exatos para qualquer determinada versão que você está usando, execute `nuget help` para o comando desejado.
+
+Para aprender a usar os comandos básicos com o `nuget.exe` CLI, consulte [instalar e usar pacotes usando a CLI nuget.exe](../consume-packages/install-use-packages-nuget-cli.md).
 
 ## <a name="installing-nugetexe"></a>Instalando nuget.exe
 

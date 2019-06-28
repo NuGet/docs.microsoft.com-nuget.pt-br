@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 486bf4032e156168f9b2fef57ccdae0c372b2eff
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 952256a24246543ecd4c37285cd001622aa2bc46
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977505"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426170"
 ---
 # <a name="signed-packages"></a>Pacotes assinados
 
@@ -20,7 +20,7 @@ ms.locfileid: "52977505"
 Pacotes do NuGet podem incluir uma assinatura digital que fornece proteção contra conteúdo violado. Essa assinatura é produzida a partir de um certificado X.509 que também adiciona provas de autenticidade à origem do pacote real.
 
 Os pacotes assinados fornecem a validação de ponta a ponta mais forte. Há dois tipos diferentes de assinaturas do NuGet:
-- **Criar assinatura**. Uma assinatura do autor garante que o pacote não foi modificado desde que o autor assinou o pacote, não importa de que o repositório ou o que o pacote é entregue de método de transporte. Além disso, pacotes assinados pelo autor fornecem um mecanismo de autenticação extra para o pipeline de publicação do nuget.org, porque o certificado de autenticação deve ser registrado antes do tempo. Para obter mais informações, consulte [registrar certificados](#register-certificate-on-nugetorg).
+- **Criar assinatura**. Uma assinatura do autor garante que o pacote não foi modificado desde que o autor assinou o pacote, não importa de que o repositório ou o que o pacote é entregue de método de transporte. Além disso, pacotes assinados pelo autor fornecem um mecanismo de autenticação extra para o pipeline de publicação do nuget.org, porque o certificado de autenticação deve ser registrado antes do tempo. Para obter mais informações, consulte [registrar certificados](#signature-requirements-on-nugetorg).
 - **Assinatura do repositório**. Assinaturas de repositório fornecem uma garantia de integridade para **todos os** pacotes em um repositório, independentemente de estarem autor assinada ou não, mesmo que esses pacotes sejam obtidos de um local diferente do repositório original em que estavam assinado.   
 
 Para obter detalhes sobre como criar um pacote assinado do autor, consulte [assinatura de pacotes](../create-packages/Sign-a-package.md) e o [comando nuget a entrada](../tools/cli-ref-sign.md).
@@ -57,4 +57,4 @@ NuGet.org tem requisitos adicionais para aceitar um pacote assinado:
 ## <a name="related-articles"></a>Artigos relacionados
 
 - [Assinando pacotes NuGet](../create-packages/Sign-a-Package.md)
-- [Instalando pacotes assinados](../consume-packages/installing-signed-packages.md)
+- [Gerenciar limites de confiança do pacote](../consume-packages/installing-signed-packages.md)

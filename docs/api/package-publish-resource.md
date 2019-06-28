@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ad66d8e0ffda13aaef744104c213863b0e111e0e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6e81055796e20186c5769d2ec39849e6c551ff87
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547515"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426716"
 ---
 # <a name="push-and-delete"></a>Enviar por push e excluir
 
@@ -72,7 +72,7 @@ Implementações de servidor variam de acordo o código de status de êxito reto
 
 ## <a name="delete-a-package"></a>Excluir um pacote
 
-NuGet.org interpreta a solicitação de exclusão do pacote como um "remover da lista". Isso significa que o pacote ainda está disponível para os consumidores existentes do pacote, mas o pacote não aparece nos resultados da pesquisa ou na interface da web. Para obter mais informações sobre essa prática, consulte o [excluído pacotes](../policies/deleting-packages.md) política. Outras implementações de servidor são livres para interpretar esse sinal como uma exclusão de disco rígida, exclusão reversível ou remover da lista. Por exemplo, [NuGet. Server](https://www.nuget.org/packages/NuGet.Server) (uma implementação de servidor somente com suporte a mais antiga API V2) dá suporte a tratamento essa solicitação como um unlist ou uma exclusão de disco rígida com base em uma opção de configuração.
+NuGet.org interpreta a solicitação de exclusão do pacote como um "remover da lista". Isso significa que o pacote ainda está disponível para os consumidores existentes do pacote, mas o pacote não aparece nos resultados da pesquisa ou na interface da web. Para obter mais informações sobre essa prática, consulte o [excluído pacotes](../nuget-org/policies/deleting-packages.md) política. Outras implementações de servidor são livres para interpretar esse sinal como uma exclusão de disco rígida, exclusão reversível ou remover da lista. Por exemplo, [NuGet. Server](https://www.nuget.org/packages/NuGet.Server) (uma implementação de servidor somente com suporte a mais antiga API V2) dá suporte a tratamento essa solicitação como um unlist ou uma exclusão de disco rígida com base em uma opção de configuração.
 
     DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 

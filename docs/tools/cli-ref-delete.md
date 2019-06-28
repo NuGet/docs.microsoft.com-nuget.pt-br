@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 11eea6e806d7bfe364587db9c7ef8374da1819f9
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3ea2dc3e87d0a626704fe5623d39eaf5bd3f3446
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548504"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426117"
 ---
 # <a name="delete-command-nuget-cli"></a>Excluir comando (CLI do NuGet)
 
 **Aplica-se a:** publicação de pacote &bullet; **versões com suporte:** todos os
 
-Exclui ou retira da lista um pacote a partir de uma origem de pacote. Para nuget.org, o comando de exclusão [retira da lista o pacote](../policies/deleting-packages.md).
+Exclui ou retira da lista um pacote a partir de uma origem de pacote. Para nuget.org, o comando de exclusão [retira da lista o pacote](../nuget-org/policies/deleting-packages.md).
 
 ## <a name="usage"></a>Uso
 

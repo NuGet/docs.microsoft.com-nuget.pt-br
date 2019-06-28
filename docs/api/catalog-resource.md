@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266352"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426786"
 ---
 # <a name="catalog"></a>Catálogo
 
@@ -236,8 +236,8 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 Itens com o tipo de catálogo `PackageDelete` contêm um conjunto mínimo de informações que indicam a clientes de catálogo que um pacote foi excluído da origem do pacote e não está mais disponível para qualquer operação de pacote (por exemplo, restauração).
 
-> [!Note]
-> É possível que um pacote a ser excluído e republicadas posteriormente usando a mesma ID de pacote e a versão. Em nuget.org, isso é um caso muito raro, pois ela divide a suposição oficial do cliente que uma ID do pacote e versão implicam um conteúdo de pacote específico. Para obter mais informações sobre a exclusão do pacote em nuget.org, consulte [nossa política](../policies/deleting-packages.md).
+> [!NOTE]
+> É possível que um pacote a ser excluído e republicadas posteriormente usando a mesma ID de pacote e a versão. Em nuget.org, isso é um caso muito raro, pois ela divide a suposição oficial do cliente que uma ID do pacote e versão implicam um conteúdo de pacote específico. Para obter mais informações sobre a exclusão do pacote em nuget.org, consulte [nossa política](../nuget-org/policies/deleting-packages.md).
 
 Itens de catálogo de exclusão do pacote não têm nenhuma propriedade adicional, além daqueles [incluídos em todas as folhas de catálogo](#catalog-leaf).
 

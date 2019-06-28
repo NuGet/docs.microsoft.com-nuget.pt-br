@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b47f73c1c225540226d3780e17053427b8ea4a8a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545681"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426185"
 ---
 # <a name="nuget-12-release-notes"></a>Notas de versão 1.2 do NuGet
 
@@ -54,7 +54,7 @@ Esses assemblies não são incluídos em seu pacote conforme eles são considera
 
 ### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>NuGet.exe agora é capaz de armazenar as credenciais de chave de API
 
-Ao usar a ferramenta de linha de comando nuget.exe, agora você pode usar o comando SetApiKey para armazenar sua chave de API. Dessa forma, você não precisa especificá-lo toda vez que você enviar por push a um pacote. Para obter mais detalhes sobre como salvar sua chave de API com nuget.exe, [leia a documentação sobre publicação de um pacote](../create-packages/publish-a-package.md).
+Ao usar a ferramenta de linha de comando nuget.exe, agora você pode usar o comando SetApiKey para armazenar sua chave de API. Dessa forma, você não precisa especificá-lo toda vez que você enviar por push a um pacote. Para obter mais detalhes sobre como salvar sua chave de API com nuget.exe, [leia a documentação sobre publicação de um pacote](../nuget-org/publish-a-package.md).
 
 ### <a name="package-explorer"></a>Explorador de pacotes
 Explorador de pacotes foi atualizado para dar suporte ao NuGet 1.2. Para obter mais informações, confira a [notas de versão do Explorador de pacotes](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0).
@@ -65,6 +65,6 @@ A lista anterior foram dos muitos recursos que implementamos e bugs, corrigimos 
 
 ## <a name="known-issues"></a>Problemas Conhecidos
 
-* **1.2 incompatibilidade de pacote**: pacotes criados com a versão mais recente da ferramenta de linha de comando, nuget.exe (1.2 >) não funcionará com versões mais antigas do que o suplemento VS do NuGet (como 1.1). Se você tiver uma mensagem de erro dizendo algo sobre o esquema incompatível, você está executando para esse erro. Atualize o NuGet para a versão mais recente.
-* **Incompatibilidade de NuGet. Server**: se você estiver hospedando um feed usando o projeto NuGet. Server interno do NuGet, você precisará atualizar o projeto com a versão mais recente do NuGet. Server.
-* **Erro de incompatibilidade de assinatura**: se você encontrar um erro durante uma atualização com uma mensagem sobre uma incompatibilidade de assinatura, você precisará desinstalar o NuGet primeiro e, em seguida, instalá-lo. Isso está listado em nossa [página de problemas conhecidos](../release-notes/known-issues.md) que fornece mais detalhes. O problema só afeta os que estão executando o Visual Studio 2010 SP1 e tiver uma versão do NuGet 1.0 instalado o que foi assinado incorretamente. Esta versão foi disponibilizada no site CodePlex por um breve período para que esse problema não deve afetar muitas pessoas.
+* **1.2 incompatibilidade de pacote**: Pacotes criados com a versão mais recente da ferramenta de linha de comando, nuget.exe (1.2 >) não funcionará com versões mais antigas do que o suplemento VS do NuGet (como 1.1). Se você tiver uma mensagem de erro dizendo algo sobre o esquema incompatível, você está executando para esse erro. Atualize o NuGet para a versão mais recente.
+* **Incompatibilidade de NuGet. Server**: Se você estiver hospedando um feed usando o projeto NuGet. Server interno do NuGet, você precisará atualizar o projeto com a versão mais recente do NuGet. Server.
+* **Erro de incompatibilidade de assinatura**: Se você tiver um erro durante uma atualização com uma mensagem sobre uma incompatibilidade de assinatura, você precisa desinstalar o NuGet primeiro e, em seguida, instalá-lo. Isso está listado em nossa [página de problemas conhecidos](../release-notes/known-issues.md) que fornece mais detalhes. O problema só afeta os que estão executando o Visual Studio 2010 SP1 e tiver uma versão do NuGet 1.0 instalado o que foi assinado incorretamente. Esta versão foi disponibilizada no site CodePlex por um breve período para que esse problema não deve afetar muitas pessoas.

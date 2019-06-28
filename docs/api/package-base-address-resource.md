@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 740defc34077793b81fb35db73a2eee393ae3bac
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2f0f93e0cee78ea03cbd53194cdc2a10871fd7e1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547148"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426759"
 ---
 # <a name="package-content"></a>Conteúdo do pacote
 
@@ -114,10 +114,10 @@ Se o cliente sabe que uma ID de pacote e a versão e quiser baixar o manifesto d
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
-Nome          | No     | Tipo    | Necessária | Observações
-------------- | ------ | ------- | -------- | -----
-LOWER_ID      | URL    | cadeia de caracteres  | sim      | A ID do pacote, em minúsculas
-LOWER_VERSION | URL    | inteiro | sim      | A versão do pacote, normalizado e em minúscula
+Nome          | No     | Tipo   | Necessária | Observações
+------------- | ------ | ------ | -------- | -----
+LOWER_ID      | URL    | cadeia de caracteres | sim      | A ID do pacote, em minúsculas
+LOWER_VERSION | URL    | cadeia de caracteres | sim      | A versão do pacote, normalizado e em minúscula
 
 Ambos `LOWER_ID` e `LOWER_VERSION` em minúscula usando as regras implementadas pelo. Do NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) método.
 

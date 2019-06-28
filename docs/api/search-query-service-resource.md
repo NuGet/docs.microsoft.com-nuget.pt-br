@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d462b289c39c2dd1418304dabcad47d0d4217f82
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981126"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426739"
 ---
 # <a name="search"></a>Pesquisar
 
@@ -24,8 +24,8 @@ O seguinte `@type` valores são usados:
 Valor @type                   | Observações
 ----------------------------- | -----
 SearchQueryService            | A versão inicial
-SearchQueryService/3.0.0-beta | Alias de `SearchQueryService`
-SearchQueryService/3.0.0-rc   | Alias de `SearchQueryService`
+SearchQueryService/3.0.0-beta | Alias of `SearchQueryService`
+SearchQueryService/3.0.0-rc   | Alias of `SearchQueryService`
 
 ## <a name="base-url"></a>URL Base
 
@@ -97,7 +97,7 @@ resumo        | cadeia de caracteres                     | no       |
 marcações           | cadeia de caracteres ou matriz de cadeias de caracteres | no       | 
 título          | cadeia de caracteres                     | no       | 
 totalDownloads | inteiro                    | no       | Esse valor pode ser inferido pela soma de downloads no `versions` matriz
-Verificado       | boolean                    | no       | Um valor de JSON booliano que indica se o pacote é [verificado](../reference/id-prefix-reservation.md)
+Verificado       | boolean                    | no       | Um valor de JSON booliano que indica se o pacote é [verificado](../nuget-org/id-prefix-reservation.md)
 
 Em nuget.org, um pacote verificado é aquele que tem uma ID de pacote, um prefixo reservado da ID de correspondência e pertencentes a um dos proprietários do prefixo reservado. Para obter mais informações, consulte o [documentação sobre a reserva de prefixo de ID](../reference/id-prefix-reservation.md).
 
@@ -107,7 +107,7 @@ Nome      | Tipo    | Necessária | Observações
 --------- | ------- | -------- | -----
 @id       | cadeia de caracteres  | sim      | A URL absoluta associados [folha registro](registration-base-url-resource.md#registration-leaf)
 version   | cadeia de caracteres  | sim      | A cadeia de caracteres de versão SemVer 2.0.0 completa do pacote (pode conter metadados de compilação)
-Downloads | inteiro | sim      | O número de downloads para esta versão do pacote específico
+downloads | inteiro | sim      | O número de downloads para esta versão do pacote específico
 
 ### <a name="sample-request"></a>Exemplo de solicitação
 

@@ -1,5 +1,5 @@
 ---
-title: Referência de interface do usuário do Gerenciador de pacotes do NuGet
+title: Instalar e gerenciar pacotes NuGet no Visual Studio
 description: Instruções sobre como usar a UI do Gerenciador de pacotes NuGet no Visual Studio para trabalhar com pacotes do NuGet.
 author: karann-msft
 ms.author: karann
@@ -10,30 +10,21 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 97e5de3f07199cd3c6a645749c8f2f1603ca630e
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637617"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426244"
 ---
-# <a name="nuget-package-manager-ui"></a>Interface do usuário de Gerenciador de pacotes do NuGet
+# <a name="install-and-manage-packages-in-visual-studio"></a>Instalar e gerenciar pacotes no Visual Studio
 
 UI do Gerenciador de pacotes NuGet no Visual Studio no Windows permite que você instalar, desinstalar e atualizar pacotes do NuGet em projetos e soluções com facilidade. Para obter a experiência no Visual Studio para Mac, consulte [incluindo um pacote do NuGet em seu projeto](/visualstudio/mac/nuget-walkthrough). A UI do Gerenciador de pacotes não está incluída no Visual Studio Code.
 
-Neste tópico:
-
-- [Localizando e instalando um pacote (guia Browse)](#finding-and-installing-a-package)
-- [Desinstalar um pacote (aba instalado)](#uninstalling-a-package)
-- [Atualizar um pacote (guias instalado e atualizações)](#updating-a-package) (inclui o ["Mencionada implicitamente por um SDK" ou "AutoReferenced" mensagem](#implicit_reference))
-- [Gerenciamento de pacotes para a solução](#managing-packages-for-the-solution) (trabalhando com vários projetos ao mesmo tempo).
-- [Origens de pacote](#package-sources)
-- [Controle de opções do Gerenciador de pacote](#package-manager-options-control)
-
-> [!Note]
+> [!NOTE]
 > Verifique se você está ignorando o Gerenciador de pacotes do NuGet no Visual Studio 2015, **Ferramentas > extensões e atualizações...**  e procure o *NuGet Package Manager* extensão. Se você não puder usar o instalador de extensões no Visual Studio, baixe a extensão diretamente [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
-> No Visual Studio 2017, NuGet e o Gerenciador de pacotes do NuGet são instalados automaticamente com qualquer um. Cargas de trabalho relacionados à rede. Instalá-lo individualmente selecionando o **componentes individuais > Ferramentas de código > Gerenciador de pacotes NuGet** opção no instalador do Visual Studio 2017.
+> A partir do Visual Studio 2017, NuGet e o Gerenciador de pacotes do NuGet são instalados automaticamente com qualquer um. Cargas de trabalho relacionados à rede. Instalá-lo individualmente selecionando o **componentes individuais > Ferramentas de código > Gerenciador de pacotes NuGet** opção no instalador do Visual Studio.
 
 ## <a name="finding-and-installing-a-package"></a>Localizando e instalando um pacote
 
@@ -123,14 +114,14 @@ Para gerenciar fontes de pacote:
 
     ![Opções de fontes de pacote](media/options.png)
 
-1. Para adicionar uma fonte, selecione **+**, edite o nome, insira a URL ou caminho na **fonte** controle e selecione **atualização**. O código-fonte agora aparece no menu suspenso do seletor.
+1. Para adicionar uma fonte, selecione **+** , edite o nome, insira a URL ou caminho na **fonte** controle e selecione **atualização**. O código-fonte agora aparece no menu suspenso do seletor.
 1. Para alterar uma origem de pacote, selecione-o, fazer edições na **nome** e **fonte** caixas e selecione **atualização**.
 1. Para desabilitar uma origem de pacote, desmarque a caixa à esquerda do nome na lista.
 1. Para remover uma origem de pacote, selecione-o e, em seguida, selecione a **X** botão.
 1. Usando cima e seta para baixo botões não alteram a ordem de prioridade das fontes de pacote. Visual Studio ignora a ordem das origens de pacotes, usando o pacote de qualquer origem primeiro para responder às solicitações. Para obter mais informações, consulte [restauração do pacote](../consume-packages/package-restore.md).
 
 > [!Tip]
-> Se uma origem de pacote for exibida novamente após a exclusão, ele pode estar listado em um nível de computador ou usuário `NuGet.Config` arquivos. Ver [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md) para o local desses arquivos, em seguida, remover a fonte editando os arquivos manualmente ou usando o [nuget fontes de comando](../tools/nuget-exe-CLI-reference.md).
+> Se uma origem de pacote for exibida novamente após a exclusão, ele pode estar listado em um nível de computador ou usuário `NuGet.Config` arquivos. Ver [configurações de NuGet comuns](../consume-packages/configuring-nuget-behavior.md) para o local desses arquivos, em seguida, remover a fonte editando os arquivos manualmente ou usando o [nuget fontes de comando](../tools/nuget-exe-CLI-reference.md).
 
 ## <a name="package-manager-options-control"></a>Controle de opções do Gerenciador de pacote
 

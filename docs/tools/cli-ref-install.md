@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8261cdb83af72d9d9379124f4c446c7cd2a50299
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 8088c6dcb7d453650950c219e1cc4dd047a64417
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549130"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425988"
 ---
 # <a name="install-command-nuget-cli"></a>Commando install (NuGet CLI)
 
@@ -21,7 +21,7 @@ Baixa e instala um pacote em um projeto, padronizando para a pasta atual, usando
 > [!Tip]
 > Para baixar o pacote diretamente fora do contexto de um projeto, visite a página do pacote no [nuget.org](https://www.nuget.org) e selecione o **baixar** link.
 
-Se nenhuma fonte forem especificado, aqueles listados no arquivo de configuração global, `%appdata%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), são usados. Ver [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md) para obter mais detalhes.
+Se nenhuma fonte forem especificado, aqueles listados no arquivo de configuração global, `%appdata%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), são usados. Ver [configurações de NuGet comuns](../consume-packages/configuring-nuget-behavior.md) para obter mais detalhes.
 
 Se nenhum pacote específico for especificado, `install` instala todos os pacotes listados no projeto do `packages.config` arquivo, tornando-a semelhante ao [ `restore` ](cli-ref-restore.md).
 
@@ -56,8 +56,8 @@ em que `<packageID>` nomeia o pacote de instalação (usando a versão mais rece
 | Versão de pré-lançamento | Permite que os pacotes de pré-lançamento a serem instalados. Este sinalizador não é necessário ao restaurar os pacotes com `packages.config`. |
 | RequireConsent | Verifica se a restauração de pacotes está habilitado antes de baixar e instalar os pacotes. Para obter detalhes, consulte [restauração de pacote](../consume-packages/package-restore.md). |
 | SolutionDirectory | Especifica a pasta raiz da solução para o qual restaurar os pacotes. |
-| Origem | Especifica a lista de origens de pacote (como URLs) para usar. Se omitido, o comando usa as fontes fornecidas em arquivos de configuração, consulte [o comportamento do NuGet configurando](../consume-packages/configuring-nuget-behavior.md). |
-| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
+| Origem | Especifica a lista de origens de pacote (como URLs) para usar. Se omitido, o comando usa as fontes fornecidas em arquivos de configuração, consulte [configurações de NuGet comuns](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 | Versão | Especifica a versão do pacote a instalar. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)

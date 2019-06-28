@@ -1,24 +1,26 @@
 ---
-title: Guia do Console de Gerenciador de pacotes NuGet
+title: Instalar e gerenciar pacotes NuGet no Visual Studio usando o PowerShell
 description: Instruções sobre como usar o Console do Gerenciador de pacotes NuGet no Visual Studio para trabalhar com pacotes.
 author: karann-msft
 ms.author: karann
-ms.date: 01/23/2018
+ms.date: 06/24/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 88979c67ea7f073f2ea5a02c445186642f77f210
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 11ec25598d3110ba84dec5044642e205e13346af
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546872"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426213"
 ---
-# <a name="package-manager-console"></a>Console do Gerenciador de Pacotes
+# <a name="install-and-manage-packages-using-powershell-in-visual-studio"></a>Instalar e gerenciar pacotes no Visual Studio usando o PowerShell
 
-O NuGet Package Manager Console é criado no Visual Studio no Windows versão 2012 e posterior. (Não é incluído no Visual Studio para Mac ou Visual Studio Code.)
+O NuGet Package Manager Console permite que você use [comandos do PowerShell do NuGet](../tools/powershell-reference.md) para localizar, instalar, desinstalar e atualizar pacotes do NuGet. Usando o console é necessário em casos em que o Gerenciador de pacotes UI não fornece uma maneira de executar uma operação. Para usar `nuget.exe` comandos da CLI no console do, consulte [usando a CLI nuget.exe no console do](#using-the-nugetexe-cli-in-the-console).
 
-O console permite que você use [comandos do PowerShell do NuGet](../tools/powershell-reference.md) para localizar, instalar, desinstalar e atualizar pacotes do NuGet. Usando o console é necessário em casos em que o Gerenciador de pacotes UI não fornece uma maneira de executar uma operação. Para usar `nuget.exe` comandos no console do, consulte [usando a CLI nuget.exe no console do](#using-the-nugetexe-cli-in-the-console).
+O console é criado no Visual Studio no Windows. Não é incluído no Visual Studio para Mac ou Visual Studio Code.
+
+## <a name="find-and-install-a-package"></a>Localizar e instalar um pacote
 
 Por exemplo, localizar e instalar um pacote é feito com três etapas fáceis:
 
@@ -74,7 +76,7 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 Ver [Install-Package](../tools/ps-ref-install-package.md).
 
-Instalação de um pacote no console executa as mesmas etapas conforme descrito em [o que acontece quando um pacote é instalado](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), com as seguintes adições:
+Instalação de um pacote no console executa as mesmas etapas conforme descrito em [o que acontece quando um pacote é instalado](../concepts/package-installation-process.md), com as seguintes adições:
 
 - O Console exibe os termos de licença aplicáveis em sua janela com o contrato implícito. Se você não concordar com os termos, você deve desinstalar o pacote imediatamente.
 - Também uma referência para o pacote é adicionada ao arquivo de projeto e aparece na **Gerenciador de soluções** sob o **referências** nó, você precisa salvar o projeto para ver as alterações no arquivo de projeto diretamente.
@@ -139,7 +141,7 @@ Ver [Find-Package](../tools/ps-ref-find-package.md). No Visual Studio 2013 e ant
 
 ## <a name="availability-of-the-console"></a>Disponibilidade do console
 
-No Visual Studio 2017, NuGet e o Gerenciador de pacotes do NuGet são instalados automaticamente quando você seleciona qualquer um. Cargas de trabalho relacionados à rede; Você também pode instalar individualmente, marcando a **componentes individuais > Ferramentas de código > Gerenciador de pacotes NuGet** opção no instalador do Visual Studio 2017.
+A partir do Visual Studio 2017, NuGet e o Gerenciador de pacotes do NuGet são instalados automaticamente quando você seleciona qualquer um. Cargas de trabalho relacionados à rede; Você também pode instalar individualmente, marcando a **componentes individuais > Ferramentas de código > Gerenciador de pacotes NuGet** opção no instalador do Visual Studio.
 
 Além disso, se estiver faltando o Gerenciador de pacotes do NuGet no Visual Studio 2015 e anteriores, verifique **Ferramentas > extensões e atualizações...**  e pesquise a extensão do Gerenciador de pacotes NuGet. Se você não puder usar o instalador de extensões no Visual Studio, você pode baixar a extensão diretamente [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 

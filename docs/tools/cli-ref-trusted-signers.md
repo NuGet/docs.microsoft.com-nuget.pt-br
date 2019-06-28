@@ -6,18 +6,18 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: c22c7f0a6b6878bec4f8396e02e2d97998170455
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324702"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425975"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>comando de signatários confiáveis (CLI do NuGet)
 
 **Aplica-se a:** consumo do pacote &bullet; **versões com suporte:** 4.9.1+
 
-Obtém ou define os signatários confiáveis na configuração do NuGet. Para uso adicional, consulte [Configurando o comportamento do NuGet](../consume-packages/configuring-nuget-behavior.md). Para obter detalhes sobre como o esquema do NuGet. config se parece, consulte o [referência de arquivo de configuração do NuGet](../reference/nuget-config-file.md).
+Obtém ou define os signatários confiáveis na configuração do NuGet. Para uso adicional, consulte [configurações de NuGet comuns](../consume-packages/configuring-nuget-behavior.md). Para obter detalhes sobre como o esquema do NuGet. config se parece, consulte o [referência de arquivo de configuração do NuGet](../reference/nuget-config-file.md).
 
 ## <a name="usage"></a>Uso
 
@@ -119,7 +119,7 @@ _Observação_: Esse gesto excluirá a lista atual de certificados e substituí-
 | ConfigFile | O arquivo de configuração do NuGet para aplicar. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) é usado.|
 | ForceEnglishOutput | Força nuget.exe para ser executado usando uma cultura invariável, com base em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
-| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
+| Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhadas*. |
 
 ## <a name="examples"></a>Exemplos
 

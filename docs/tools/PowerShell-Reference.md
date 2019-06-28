@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 45c8be9956ceaab844bdcd89f1b96adc256f805c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 977e06d36962366abd69f1c7f21ef33eca4e5029
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546658"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426118"
 ---
 # <a name="powershell-reference"></a>Referência do PowerShell
 
-O Package Manager Console fornece uma interface do PowerShell no Visual Studio no Windows para interagir com o NuGet por meio dos comandos específicos listados abaixo. (O console não está disponível atualmente no Visual Studio para Mac.) Para um guia para usar o console, consulte o [Package Manager Console](../tools/package-manager-console.md) tópico.
+O Package Manager Console fornece uma interface do PowerShell no Visual Studio no Windows para interagir com o NuGet por meio dos comandos específicos listados abaixo. (O console não está disponível atualmente no Visual Studio para Mac.) Para um guia para usar o console, consulte [instalar e gerenciar os pacotes usando o PowerShell](../tools/package-manager-console.md) tópico.
 
 > [!Tip]
 > Todos os comandos do PowerShell referem-se apenas ao consumo de pacote. Nenhum comando do PowerShell estão relacionadas à criação e publicação de pacotes, exceto na medida em que um pacote também pode ser um consumidor de outros pacotes.
@@ -34,7 +34,7 @@ O Package Manager Console fornece uma interface do PowerShell no Visual Studio n
 | [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | Examina todos os assemblies no caminho de saída para um projeto e adiciona redirecionamentos de associação para o `app.config` ou `web.config` onde for necessário. | Todos |
 | [Get-Project](ps-ref-get-project.md) | Exibe informações sobre o padrão ou o projeto especificado. | 3.0+ |
 | [Open-PackagePage](ps-ref-open-packagepage.md) | Inicia o navegador padrão com o projeto, a licença ou a URL para relatar abuso para o pacote especificado. | Preterido no 3.0 ou superior |
-| [Registre-se TabExpansion](ps-ref-register-tabexpansion.md) | Registra uma expansão da tabulação para os parâmetros de um comando, permitindo que você crie expansões personalizados para valores de parâmetro usados. | Todos |
+| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | Registra uma expansão da tabulação para os parâmetros de um comando, permitindo que você crie expansões personalizados para valores de parâmetro usados. | Todos |
 | [Sync-Package](ps-ref-sync-package.md) | Obter a versão do pacote a partir de instalada especificada do projeto e sincroniza a versão para o restante dos projetos na solução. | 3.0+ |
 | [Uninstall-Package](ps-ref-uninstall-package.md) | Remove um pacote de um projeto, opcionalmente, removendo suas dependências. | Todos |
 
