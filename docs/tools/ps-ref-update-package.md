@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: d47e1978ab7d827e0b8b97cd4e7237019185b50f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a5b5a11ee11d9e2cf6a90d56ac63b1f7bad750ea
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546070"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496485"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Console do Gerenciador de Pacotes no Visual Studio)
 
@@ -46,7 +46,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | Reinstalar | Pacotes de Resintalls usando suas versões atualmente instaladas. Confira [Reinstalando e atualizando pacotes](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | A ação a ser tomada quando for solicitado a substituir ou ignorar os arquivos existentes, referenciados pelo projeto. Os valores possíveis são *substituir, ignorar, None, OverwriteAll*, e *IgnoreAll* (3.0 ou superior). |
 | DependencyVersion | A versão dos pacotes de dependência a ser usado, que pode ser um dos seguintes:<br/><ul><li>*Mais baixo* (padrão): a versão mais antiga</li><li>*HighestPatch*: a versão com o patch mais baixa principal, secundária menor, mais alto</li><li>*HighestMinor*: a versão com menor principais, o patch mais alto de pequena, mais alto</li><li>*Mais alto* (padrão para o pacote de atualização sem parâmetros): a versão mais recente</li></ul>Você pode definir o valor padrão usando o [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) definindo no `Nuget.Config` arquivo. |
-| ToHighestPatch | Restringe atualizações para apenas as versões com a mesma versão secundária do pacote atualmente instalado. |
+| ToHighestPatch | equivalente ao - Safe. |
 | ToHighestMinor | Restringe atualizações para apenas as versões com a mesma versão principal que o pacote atualmente instalado. |
 | WhatIf | Mostra o que aconteceria ao executar o comando sem realmente executar a atualização. |
 
@@ -54,7 +54,7 @@ Nenhum desses parâmetros aceitam caracteres curinga ou de entrada do pipeline.
 
 ### <a name="common-parameters"></a>Parâmetros comuns
 
-`Update-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
+`Update-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
 
 ### <a name="examples"></a>Exemplos
 

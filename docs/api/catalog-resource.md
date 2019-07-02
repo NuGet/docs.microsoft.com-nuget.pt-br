@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 8e4fb376e471a207333d241aeb414da7d5c3571e
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426786"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496530"
 ---
 # <a name="catalog"></a>Catálogo
 
@@ -194,7 +194,8 @@ Nome                    | Tipo                       | Necessária | Observaçõ
 ----------------------- | -------------------------- | -------- | -----
 authors                 | cadeia de caracteres                     | no       |
 Criado                 | cadeia de caracteres                     | no       | Um carimbo de hora de quando o pacote foi criado. Propriedade de fallback: `published`.
-dependencyGroups        | matriz de objetos           | no       | Mesmo formato que o [recursos de metadados do pacote](registration-base-url-resource.md#package-dependency-group)
+dependencyGroups        | matriz de objetos           | no       | As dependências do pacote, agrupados por estrutura de destino ([mesmo formato que o recurso de metadados do pacote](registration-base-url-resource.md#package-dependency-group))
+Substituição             | objeto                     | no       | A substituição associada ao pacote ([mesmo formato que o recurso de metadados do pacote](registration-base-url-resource.md#package-deprecation))
 descrição             | cadeia de caracteres                     | no       |
 iconUrl                 | cadeia de caracteres                     | no       |
 isPrerelease            | boolean                    | no       | Se é ou não a versão do pacote pré-lançamento. Podem ser detectados de `version`.

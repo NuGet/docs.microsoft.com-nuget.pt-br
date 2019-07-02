@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 0b35e2bbdde63f7f7a5298bd035c180389cd345d
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324858"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496512"
 ---
 # <a name="package-metadata"></a>Metadados de pacote
 
@@ -89,7 +89,7 @@ A resposta é um documento JSON que tem um objeto raiz com as seguintes propried
 Nome  | Tipo             | Necessária | Observações
 ----- | ---------------- | -------- | -----
 count | inteiro          | sim      | O número de páginas de registro no índice
-Itens | matriz de objetos | sim      | A matriz das páginas de registro
+items | matriz de objetos | sim      | A matriz das páginas de registro
 
 Cada item no objeto de índice `items` matriz é um objeto JSON que representa uma página de registro.
 
@@ -101,7 +101,7 @@ Nome   | Tipo             | Necessária | Observações
 ------ | ---------------- | -------- | -----
 @id    | cadeia de caracteres           | sim      | A URL para a página de registro
 count  | inteiro          | sim      | O número de registro deixa na página
-Itens  | matriz de objetos | no       | A matriz de folhas de registro e seus metadados associados
+items  | matriz de objetos | no       | A matriz de folhas de registro e seus metadados associados
 inferior  | cadeia de caracteres           | sim      | A versão mais antiga do SemVer 2.0.0 na página (inclusiva)
 parent | cadeia de caracteres           | no       | A URL para o índice do registro
 superior  | cadeia de caracteres           | sim      | A versão mais recente do SemVer 2.0.0 na página (inclusiva)
@@ -138,6 +138,7 @@ Nome                     | Tipo                       | Necessária | Observaç�
 @id                      | cadeia de caracteres                     | sim      | A URL a ser usado para produzir esse objeto de documento
 authors                  | cadeia de caracteres ou matriz de cadeias de caracteres | no       | 
 dependencyGroups         | matriz de objetos           | no       | As dependências do pacote, agrupados por estrutura de destino
+Substituição              | objeto                     | no       | A substituição associada ao pacote
 descrição              | cadeia de caracteres                     | no       | 
 iconUrl                  | cadeia de caracteres                     | no       | 
 id                       | cadeia de caracteres                     | sim      | A ID do pacote
@@ -184,6 +185,26 @@ registro | cadeia de caracteres | no       | A URL para o índice do registro pa
 
 Se o `range` propriedade for excluída ou uma cadeia de caracteres vazia, o cliente deve usar como padrão para o intervalo de versão `(, )`. Ou seja, qualquer versão da dependência é permitida.
 
+#### <a name="package-deprecation"></a>Substituição do pacote
+
+Substituição de cada pacote tem as seguintes propriedades:
+
+Nome             | Tipo             | Necessária | Observações
+---------------- | ---------------- | -------- | -----
+motivos          | matriz de cadeias de caracteres | sim      | Os motivos por que o pacote foi preterido
+mensagem          | cadeia de caracteres           | no       | Os detalhes adicionais sobre essa substituição
+alternatePackage | objeto           | no       | A dependência de pacote que deve ser usada em vez disso
+
+O `reasons` propriedade deve conter pelo menos uma cadeia de caracteres e só deve conter cadeias de caracteres da tabela a seguir:
+
+Motivo       | Descrição             
+------------ | -----------
+Herdado       | O pacote não será mais mantido
+CriticalBugs | O pacote tem os bugs que torna inadequados para uso
+Outros        | O pacote está obsoleto devido a um motivo não incluídos nesta lista
+
+Se o `reasons` propriedade contém cadeias de caracteres que não são do conjunto de conhecidos, eles devem ser ignorados. As cadeias de caracteres diferenciam maiusculas de minúsculas, portanto `legacy` deve ser tratado da mesma forma `Legacy`. Não há nenhuma restrição de ordenação na matriz, portanto, as cadeias de caracteres podem ser organizadas em qualquer ordem arbitrária. Além disso, se a propriedade contém apenas a cadeias de caracteres que não sejam do conjunto conhecido, ele deve ser tratado como se ele continha somente a "Outra" cadeia de caracteres.
+
 ### <a name="sample-request"></a>Exemplo de solicitação
 
     GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
@@ -204,7 +225,7 @@ Nome   | Tipo             | Necessária | Observações
 ------ | ---------------- | -------- | -----
 @id    | cadeia de caracteres           | sim      | A URL para a página de registro
 count  | inteiro          | sim      | O número de registro deixa na página
-Itens  | matriz de objetos | sim      | A matriz de folhas de registro e seus metadados associados
+items  | matriz de objetos | sim      | A matriz de folhas de registro e seus metadados associados
 inferior  | cadeia de caracteres           | sim      | A versão mais antiga do SemVer 2.0.0 na página (inclusiva)
 parent | cadeia de caracteres           | sim      | A URL para o índice do registro
 superior  | cadeia de caracteres           | sim      | A versão mais recente do SemVer 2.0.0 na página (inclusiva)
