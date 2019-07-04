@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6aa5c7bcb2a46e5f8dcf8f2c04a91eafe9ca03b6
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 051fcc355fb78c0ab208125c2295b6316236fd46
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66813001"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426358"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Início Rápido: Criar e publicar um pacote (CLI do dotnet)
 
@@ -104,7 +104,7 @@ Depois que você tiver um arquivo `.nupkg`, publique-o em nuget.org usando o com
 ## <a name="related-topics"></a>Tópicos relacionados
 
 - [Criar um pacote](../create-packages/creating-a-package.md)
-- [Publicar um pacote](../create-packages/publish-a-package.md)
+- [Publicar um pacote](../nuget-org/publish-a-package.md)
 - [Pacotes de pré-lançamento](../create-packages/Prerelease-Packages.md)
 - [Suporte a várias estruturas de destino](../create-packages/supporting-multiple-target-frameworks.md)
 - [Controle de versão do pacote](../reference/package-versioning.md)

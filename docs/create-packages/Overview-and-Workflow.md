@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
-ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
+ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52615750"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425726"
 ---
 # <a name="package-creation-workflow"></a>Fluxo de trabalho de criação de pacote
 
@@ -41,6 +41,6 @@ A partir daí, você pode considerar diversas outras opções para seu pacote:
 - [Pacotes nativos](../create-packages/native-packages.md) descrevem o processo para criar um pacote para os consumidores do C++.
 - [Assinando pacotes](../create-packages/sign-a-package.md) descreve o processo para adicionar uma assinatura digital a um pacote.
 
-Quando você estiver pronto para publicar um pacote no nuget.org, siga o processo simples em [Publicar um pacote](../create-packages/publish-a-package.md).
+Quando você estiver pronto para publicar um pacote no nuget.org, siga o processo simples em [Publicar um pacote](../nuget-org/publish-a-package.md).
 
 Se você quiser usar um feed privado em vez do nuget.org, consulte a [Visão geral da hospedagem de pacotes](../hosting-packages/overview.md)

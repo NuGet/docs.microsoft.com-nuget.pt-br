@@ -16,12 +16,12 @@ keywords: Pacotes de símbolos do NuGet, depuração de pacote do NuGet, suporte
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 0d82cf8614b88247bc3a3ba3019c11bf1b5e2593
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610559"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426798"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Criando pacotes de símbolos (.snupkg)
 
@@ -61,7 +61,7 @@ A propriedade [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackage
 
 ## <a name="publishing-a-symbol-package"></a>Publicando um pacote de símbolos
 
-1. Para sua conveniência, primeiro salve sua chave de API com o NuGet (veja [Publicar um pacote](../create-packages/publish-a-package.md)).
+1. Para sua conveniência, primeiro salve sua chave de API com o NuGet (veja [Publicar um pacote](../nuget-org/publish-a-package.md)).
 
     ```cli
     nuget SetApiKey Your-API-Key
@@ -121,6 +121,6 @@ O arquivo .nupkg seria exatamente o mesmo como está hoje, mas o arquivo .snupkg
 4) Se um autor decide usar um nuspec personalizado para compilar seus nupkg e snupkg, o snupkg deve ter a mesma hierarquia de pastas e arquivos detalhados em 2).
 5) O campo ```authors``` e ```owners``` será excluído do nuspec do snupkg.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [NuGet-Package-Debugging-&-Symbols-Improvements](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)

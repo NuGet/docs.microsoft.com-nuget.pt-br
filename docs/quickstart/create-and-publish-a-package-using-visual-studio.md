@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: c75785d361f25564c8a59d7a2d85924c570a7b9a
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812984"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467807"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Início Rápido: Criar e publicar um pacote do NuGet usando o Visual Studio (.NET Standard somente no Windows)
 
@@ -29,7 +29,7 @@ Criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studi
 
    * Instale a CLI do `nuget.exe`, baixe-a em [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), salve o arquivo `.exe` em uma pasta adequada e adicione essa pasta na sua variável de ambiente PATH. A CLI do nuget.exe é usada nas bibliotecas do .NET Standard no formato de estilo não SDK.
 
-1. [Registre-se em uma conta gratuita em nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F), se ainda não tiver uma. Criar uma nova conta envia um email de confirmação. Você deve confirmar a conta antes de poder carregar um pacote.
+1. [Registre-se em uma conta gratuita em nuget.org](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account), se ainda não tiver uma. Criar uma nova conta envia um email de confirmação. Você deve confirmar a conta antes de poder carregar um pacote.
 
 ## <a name="create-a-class-library-project"></a>Criar um projeto de biblioteca de classes
 
@@ -174,7 +174,7 @@ Isso incluirá um arquivo chamado `readme.txt` na raiz do pacote. O Visual Studi
 ## <a name="related-topics"></a>Tópicos relacionados
 
 - [Criar um pacote](../create-packages/creating-a-package.md)
-- [Publicar um pacote](../create-packages/publish-a-package.md)
+- [Publicar um pacote](../nuget-org/publish-a-package.md)
 - [Pacotes de pré-lançamento](../create-packages/Prerelease-Packages.md)
 - [Suporte a várias estruturas de destino](../create-packages/supporting-multiple-target-frameworks.md)
 - [Controle de versão do pacote](../reference/package-versioning.md)

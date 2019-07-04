@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: abdd06642ccc652527a1a005eda2689ce97df74c
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58921566"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426817"
 ---
 # <a name="signing-nuget-packages"></a>Assinando pacotes NuGet
 
@@ -66,7 +66,7 @@ Para publicar um pacote assinado, você deverá primeiro registrar o certificado
 
 ## <a name="publish-the-package"></a>Publicar o pacote
 
-Agora você está pronto para publicar o pacote em NuGet.org. Veja [Publicando pacotes](Publish-a-package.md).
+Agora você está pronto para publicar o pacote em NuGet.org. Veja [Publicando pacotes](../nuget-org/Publish-a-package.md).
 
 ## <a name="create-a-test-certificate"></a>Criar um certificado de teste
 
@@ -103,5 +103,5 @@ Este comando cria um certificado de teste disponível no repositório de certifi
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Instalando pacotes assinados](../consume-packages/installing-signed-packages.md)
+- [Gerenciar os limites de confiança do pacote](../consume-packages/installing-signed-packages.md)
 - [Referência de pacotes assinados](../reference/Signed-Packages-Reference.md)

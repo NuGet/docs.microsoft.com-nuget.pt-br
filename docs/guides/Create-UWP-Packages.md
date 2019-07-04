@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: a4c609b3390748099d85a73f7d168ebe4de2676a
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 52f2057f7d1012b75bba9e8730eacffd99adacfa
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812955"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426871"
 ---
 # <a name="create-uwp-packages"></a>Criar pacotes UWP
 
@@ -26,7 +26,7 @@ Neste passo a passo, você cria um pacote NuGet com um componente UWP nativo (in
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Criar um componente do Tempo de Execução do Windows da UWP
 
-1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, expanda o nó **Visual C++ > Windows > Universal**, selecione o modelo **Componente do Tempo de Execução do Windows (Universal do Windows)**, altere o nome para ImageEnhancer e clique em OK. Aceite os valores padrão para a Versão de Destino e a Versão Mínima quando solicitado.
+1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, expanda o nó **Visual C++ > Windows > Universal**, selecione o modelo **Componente do Tempo de Execução do Windows (Universal do Windows)** , altere o nome para ImageEnhancer e clique em OK. Aceite os valores padrão para a Versão de Destino e a Versão Mínima quando solicitado.
 
     ![Criar um projeto de componente do Tempo de Execução do Windows UWP](media/UWP-NewProject.png)
 
@@ -248,7 +248,7 @@ Isso gera `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`. Ao abrir este arquivo em uma fe
 > [!Tip]
 > O arquivo `.nupkg` é apenas um arquivo ZIP com uma extensão diferente. Também é possível examinar o conteúdo do pacote alterando `.nupkg` para `.zip`, mas lembre-se de restaurar a extensão antes de carregar um pacote para o nuget.org.
 
-Para disponibilizar seu pacote para outros desenvolvedores, siga as instruções em [Publicar um pacote](../create-packages/publish-a-package.md).
+Para disponibilizar seu pacote para outros desenvolvedores, siga as instruções em [Publicar um pacote](../nuget-org/publish-a-package.md).
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
