@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e3a40a521a3b16d9757ef1bbf2511a1537d8bddb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812911"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425811"
 ---
 # <a name="creating-nuget-packages"></a>Criando pacotes do NuGet
 
 Independentemente do pacote ou do código que ele contém, use uma das ferramentas de CLI, seja `nuget.exe` ou `dotnet.exe`, para empacotar essa funcionalidade em um componente que possa ser compartilhado e usado por diversos desenvolvedores. Para instalar as ferramentas de CLI do NuGet, confira [Instalar ferramentas de cliente do NuGet](../install-nuget-client-tools.md). Observe que o Visual Studio não inclui automaticamente uma ferramenta de CLI.
 
-- Para projetos .NET Core e .NET Standard que usam projetos no formato de estilo do SDK ([atributo do SDK](/dotnet/core/tools/csproj#additions)) e quaisquer outros estilos do SDK, o NuGet usa as informações do arquivo de projeto diretamente para criar um pacote. Para obter detalhes, consulte [Criar pacotes do .NET Standard com o Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) e [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).
+- Para projetos .NET Core e .NET Standard que usam projetos no formato de estilo do SDK ([atributo do SDK](/dotnet/core/tools/csproj#additions)) e quaisquer outros estilos do SDK, o NuGet usa as informações do arquivo de projeto diretamente para criar um pacote. Para obter detalhes, confira [Criar pacotes do .NET Standard com o Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md) e [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).
 
 - Para projetos no estilo não SDK, siga as etapas descritas neste artigo para criar um pacote.
 
@@ -27,7 +27,7 @@ Tecnicamente, um pacote do NuGet é apenas um arquivo ZIP que foi renomeado com 
 O empacotamento começa com o código compilado (assemblies), símbolos e/ou outros arquivos que você deseja entregar como um pacote (consulte [Visão geral e o fluxo de trabalho](overview-and-workflow.md)). Esse processo é independente da compilação ou de qualquer outra forma de geração dos arquivos que entram no pacote, embora seja possível extrair informações em um arquivo de projeto para manter os assemblies e pacotes compilados em sincronização.
 
 > [!Note]
-> Este tópico se aplica a projetos no estilo não SDK, normalmente projetos que não sejam do .NET Core e do .NET Standard usando o Visual Studio 2017 e o NuGet 4.0 ou superior.
+> Este tópico se aplica a projetos no estilo não SDK, normalmente projetos que não sejam .NET Core e .NET Standard e que usam o Visual Studio 2017 e versões superiores e o NuGet 4.0 e posterior.
 
 ## <a name="deciding-which-assemblies-to-package"></a>Decidir quais assemblies são empacotados
 
@@ -177,7 +177,7 @@ A vantagem dessa abordagem é que você não precisa especificar no manifesto qu
 
 As convenções de pasta são as seguintes:
 
-| Pasta | Descrição | Ação após a instalação do pacote |
+| Pasta | DESCRIÇÃO | Ação após a instalação do pacote |
 | --- | --- | --- |
 | (raiz) | Local para leiame.txt | O Visual Studio exibe um arquivo Leiame.txt na raiz do pacote quando este é instalado. |
 | lib/{tfm} | Arquivos de assembly (`.dll`), documentação (`.xml`) e símbolo (`.pdb`) para TFM (Moniker de Estrutura de Destino) | Os assemblies são adicionados como referências para a compilação e o tempo de execução também; `.xml` e `.pdb` são copiados para as pastas do projeto. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md) para ver a criação de subpastas específicas de destino da estrutura. |
@@ -408,7 +408,7 @@ Em todos os casos, o `nuget pack` exclui pastas que começam com um ponto, como 
 
 O NuGet indica se há erros no arquivo `.nuspec` que precisam de correção, como se esquecer de alterar os valores de espaço reservado no manifesto.
 
-Depois que o `nuget pack` for bem-sucedido, você tem um arquivo `.nupkg` que pode ser publicado para uma galeria adequada conforme descrito em [Publicar um pacote](../create-packages/publish-a-package.md).
+Depois que o `nuget pack` for bem-sucedido, você tem um arquivo `.nupkg` que pode ser publicado para uma galeria adequada conforme descrito em [Publicar um pacote](../nuget-org/publish-a-package.md).
 
 > [!Tip]
 > Uma maneira útil de examinar um pacote após a criação é abri-lo na ferramenta [Explorador de Pacotes](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer). Isso fornece uma exibição gráfica do conteúdo do pacote e seu manifesto. Você também pode renomear o arquivo `.nupkg` resultante para um arquivo `.zip` e explorar seu conteúdo diretamente.
@@ -445,7 +445,7 @@ As opções a seguir são algumas das escolhas comuns nos projetos do Visual Stu
 
 Antes de publicar um pacote, geralmente é recomendável testar o processo de instalação de um pacote em um projeto. Os testes garantem que os arquivos todos terminem em seus lugares corretos no projeto.
 
-Você pode testar instalações manualmente no Visual Studio ou na linha de comando usando as [etapas de instalação do pacote](../consume-packages/ways-to-install-a-package.md) normais.
+Você pode testar instalações manualmente no Visual Studio ou na linha de comando usando as [etapas de instalação do pacote](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package) normais.
 
 Para testes automatizados, o processo básico é o seguinte:
 
@@ -456,7 +456,7 @@ Para testes automatizados, o processo básico é o seguinte:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de criar um pacote, que é um arquivo `.nupkg`, você pode publicá-lo na galeria de sua escolha conforme descrito em [Publicar um pacote](../create-packages/publish-a-package.md).
+Depois de criar um pacote, que é um arquivo `.nupkg`, você pode publicá-lo na galeria de sua escolha conforme descrito em [Publicar um pacote](../nuget-org/publish-a-package.md).
 
 Você também poderá estender os recursos do seu pacote ou dar suporte a outros cenários conforme descrito nos tópicos a seguir:
 

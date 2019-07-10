@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 556683e5a24c57a6c32d8b4e368bfdccd4d19b48
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: eeae62a09a9f405d27cd113ff586393f6305ba47
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812867"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426709"
 ---
 # <a name="package-consumption-workflow"></a>Fluxo de trabalho de consumo do pacote
 
@@ -20,9 +20,9 @@ Entre o nuget.org e galerias de pacotes privadas que sua organização pode esta
 
 \* _Somente Visual Studio e `dotnet.exe`. O comando `nuget install` não modifica arquivos de projeto ou o arquivo `packages.config`; as entradas precisam ser gerenciadas manualmente._
 
-Para obter mais detalhes, veja [Localizar e escolher pacotes](../consume-packages/finding-and-choosing-packages.md) e [Maneiras diferentes de instalar um pacote do NuGet](ways-to-install-a-package.md).
+Para obter mais detalhes, confira [Como localizar e escolher pacotes](../consume-packages/finding-and-choosing-packages.md) e [O que acontece quando um pacote é instalado?](../concepts/package-installation-process.md).
 
-O NuGet lembra da identidade e do número de versão de cada pacote instalado, gravando-os no arquivo de projeto (usando [PackageReference](../consume-packages/package-references-in-project-files.md)) ou [`packages.config`](../reference/packages-config.md), dependendo do tipo de projeto e da sua versão do NuGet. Com o NuGet 4.0 +, é preferível usar PackageReference, embora ele seja configurável no Visual Studio por meio das [opções de interface do usuário do Gerenciador de Pacotes](../tools/package-manager-ui.md). Em qualquer caso, você pode examinar o arquivo apropriado a qualquer momento para ver a lista completa das dependências para o seu projeto.
+O NuGet lembra da identidade e do número de versão de cada pacote instalado, gravando-os no arquivo de projeto (usando [PackageReference](../consume-packages/package-references-in-project-files.md)) ou [`packages.config`](../reference/packages-config.md), dependendo do tipo de projeto e da sua versão do NuGet. Com o NuGet 4.0 e posterior, é preferível usar PackageReference, embora isso seja configurável no Visual Studio por meio da [interface do usuário do Gerenciador de Pacotes](../tools/package-manager-ui.md). Em qualquer caso, você pode examinar o arquivo apropriado a qualquer momento para ver a lista completa das dependências para o seu projeto.
 
 > [!Tip]
 > É prudente sempre verificar a licença para cada pacote que você pretende usar no software. Em nuget.org, você encontra um link **Informações de licença** do lado direito da página de descrição de cada pacote. Se um pacote não especificar os termos de licença, entre em contato com o proprietário do pacote diretamente usando o link **Contatar os proprietários** na página do pacote. A Microsoft não licencia nenhuma propriedade intelectual para você de provedores de pacotes de terceiros, nem é responsável pelas informações fornecidas por terceiros.
@@ -41,4 +41,13 @@ Ocasionalmente, é necessário reinstalar pacotes que já estão incluídos em u
 
 Por fim, o comportamento do NuGet é orientado por arquivos `Nuget.Config`. Vários arquivos podem ser usados para centralizar determinadas configurações em níveis diferentes, conforme explicado em [Configurando o comportamento do NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-Aproveite sua programação produtiva com pacotes do NuGet.
+## <a name="ways-to-install-a-nuget-package"></a>Maneiras de instalar um pacote NuGet
+
+Os pacotes NuGet são baixados e instalados por meio de um dos métodos descritos na tabela a seguir.
+
+| Ferramenta | DESCRIÇÃO |
+| --- | --- |
+| [CLI do dotnet.exe](install-use-packages-dotnet-cli.md) | (Todas as plataformas) Ferramenta CLI para bibliotecas .NET Core e .NET Standard e projetos no estilo SDK direcionados ao .NET Framework (confira o [Atributo SDK](/dotnet/core/tools/csproj#additions)). Recupera o pacote identificado por \<package_name\> e adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências. |
+| Visual Studio | (Windows e Mac) Fornece uma interface do usuário por meio da qual você pode procurar, selecionar e instalar pacotes e suas dependências em um projeto a partir de uma fonte do pacote especificado. Adicione referências a pacotes instalados ao arquivo de projeto.<ul><li>[Instalar e gerenciar pacotes usando o Visual Studio](../tools/package-manager-ui.md)</li><li>[Incluir um pacote NuGet ao seu projeto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| [PowerShell no Visual Studio](../tools/package-manager-console.md) | (Somente Windows) Recupera e instala o pacote identificado por \<package_name\> de uma fonte selecionada em um projeto especificado na solução, depois adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências. |
+| [CLI do nuget.exe](install-use-packages-dotnet-cli.md) | (Todas as plataformas) Ferramenta CLI para bibliotecas .NET Framework e projetos no estilo não SDK direcionados a bibliotecas .NET Standard. Recupera o pacote identificado por \<package_name\> e expande seu conteúdo em uma pasta no diretório atual; também pode recuperar todos os pacotes listados em um arquivo `packages.config`. Também recupera e instala dependências, mas não altera arquivos de projeto ou `packages.config`. |

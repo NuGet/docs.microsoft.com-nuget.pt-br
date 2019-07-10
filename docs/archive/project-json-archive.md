@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa5cd1a2f3e3a6707a9d68204306db85651b0a18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d43f002b740b669de13f5872844ac0df97fc8fdc
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545194"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467780"
 ---
 # <a name="projectjson-archive"></a>Arquivo project.json
 
@@ -38,9 +38,9 @@ Ferramenta com `project.json`.
 
 ## <a name="constraining-package-versions-with-restore"></a>Restrições de versões de pacote com restauração
 
-*Originalmente em [Restauração do pacote](../consume-packages/package-restore.md#constraining-package-versions-with-restore).*
+*Originalmente em [Restauração do pacote](../consume-packages/package-restore.md#constrain-package-versions-with-restore).*
 
-- `project.json`: especifique um intervalo de versão diretamente com o número de versão da dependência. Por exemplo:
+- `project.json`: Especifique um intervalo de versão diretamente com o número de versão da dependência. Por exemplo:
 
     ```json
     "Newtonsoft.json": "[6, 7)"
@@ -50,7 +50,7 @@ Ferramenta com `project.json`.
 
 - `nuget install` não funciona com `project.json`.
 - `nuget restore`: com projetos usando o `project.json`, gera um arquivo `project.lock.json` e um arquivo `<project>.nuget.props`, se for necessário. (Os dois arquivos podem ser omitidos do controle do código-fonte.) O argumento `<projectPath>` pode apontar um arquivo `project.json` e tem o mesmo comportamento que apontar para um `packages.config` ou arquivo de projeto. Na ordem de prioridade das pastas de pacote, `%userprofile%\.nuget\packages` é pesquisado pela primeira vez ao usar `project.json`.
-- `nuget update`: Em Mono, esse comando não funciona com projetos que usam `project.json`.
+- `nuget update`: No Mono, esse comando não funciona com projetos que usam `project.json`.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Resolução de dependência com PackageReference
 
@@ -93,7 +93,7 @@ Um outro jeito de resolver erros:
 
 *Originalmente em [Estruturas de destino](../reference/target-frameworks.md).*
 
-- [project.json](project-json.md): o nó `frameworks` especifica as versões da estrutura com as quais o projeto pode ser compilado.
+- [project.json](project-json.md): O nó `frameworks` especifica as versões da estrutura nas quais o projeto pode ser compilado.
 
 ## <a name="creating-a-package"></a>Criar um pacote
 
@@ -105,7 +105,7 @@ Com o .NET Core 1.x, quando um pacote DotnetCliTool é instalado, o Visual Studi
 
 Os tipos de pacote são definidos em `project.json`.
 
-- `project.json`: indica o tipo de pacote em um propriedade json `packOptions.packageType`:
+- `project.json`: Indique o tipo de pacote no JSON de uma propriedade `packOptions.packageType`:
 
     ```json
     {

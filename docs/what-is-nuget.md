@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 4ab87f072bdace9dd18cecc4100de52b3547136d
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 087bb043ba4b388b9de6d94cd838915a2e7247f4
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66813002"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426138"
 ---
 # <a name="an-introduction-to-nuget"></a>Uma introdução ao NuGet
 
 Uma ferramenta essencial para qualquer plataforma de desenvolvimento moderna é um mecanismo por meio do qual os desenvolvedores podem criar, compartilhar e consumir código útil. Geralmente, esse código é fornecido em "pacotes" que contêm código compilado (como DLLs) juntamente com outro conteúdo necessário nos projetos que consomem esses pacotes.
 
-Para .NET (incluindo .NET Core), o mecanismo com suporte da Microsoft para compartilhar código é **NuGet**, que define como os pacotes .NET são criados, hospedados e consumidos e fornece as ferramentas para cada uma dessas funções.
+Para o .NET (incluindo o .NET Core), o mecanismo com suporte da Microsoft para compartilhamento de código é o **NuGet**, que define como os pacotes do .NET são criados, hospedados e consumidos e [fornece as ferramentas](install-nuget-client-tools.md) para cada uma dessas funções.
 
 Em suma, um pacote do NuGet é um arquivo ZIP com a extensão `.nupkg` que contém o código compilado (DLLs), outros arquivos relacionados a esse código e um manifesto descritivo que inclui informações como o número de versão do pacote. Os desenvolvedores com código para compartilhar criam pacotes e os publicam em um host público ou privado. Os consumidores de pacote obtêm esses pacotes de hosts adequados, os adicionam aos seus projetos e chamam a funcionalidade de um pacote no código do projeto. Em seguida, o próprio NuGet manipula todos os detalhes de intermediários.
 
@@ -43,10 +43,10 @@ Por outro lado, os desenvolvedores de pacote que precisam de APIs fora do .NET S
 
 Além da compatibilidade com a hospedagem, o NuGet também fornece uma variedade de ferramentas usadas por criadores e por consumidores. Veja [Instalar as ferramentas de cliente do NuGet](install-nuget-client-tools.md) para saber como obter ferramentas específicas.
 
-| Ferramenta | Plataformas | Cenários Aplicáveis | Descrição |
+| Ferramenta | Plataformas | Cenários Aplicáveis | DESCRIÇÃO |
 | --- | --- | --- | --- |
-| [CLI do dotnet](tools/dotnet-Commands.md) | Todos | Criação, Consumo | Ferramenta CLI para bibliotecas .NET Core e .NET Standard, em projetos no estilo SDK que se destinam ao .NET Framework (confira o [atributo do SDK](/dotnet/core/tools/csproj#additions)). Fornece certas funcionalidades da CLI do NuGet diretamente na cadeia de ferramentas do .NET Core. Assim como ocorre com a CLI do NuGet, a CLI do dotnet não interage com projetos do Visual Studio. |
-| [CLI do nuget.exe](tools/nuget-exe-cli-reference.md) | Todos | Criação, Consumo | Ferramenta CLI para bibliotecas do .NET Framework e projetos no estilo não SDK que se destinam a bibliotecas do .NET Standard. Fornece todos os recursos do NuGet, com alguns comandos de que aplicam especificamente aos criadores de pacote, alguns somente aos consumidores e outros a ambos. Por exemplo, os criadores de pacote usam o comando `nuget pack` para criar um pacote de vários assemblies e arquivos relacionados, os consumidores de pacote usam `nuget install` para incluir pacotes em uma pasta do projeto e todos usam `nuget config` para definir as variáveis de configuração do NuGet. Como uma ferramenta independente de plataforma, a CLI do NuGet não interage com projetos do Visual Studio. |
+| [CLI do dotnet](consume-packages/install-use-packages-dotnet-cli.md) | Todos | Criação, Consumo | Ferramenta CLI para bibliotecas .NET Core e .NET Standard, em projetos no estilo SDK que se destinam ao .NET Framework (confira o [atributo do SDK](/dotnet/core/tools/csproj#additions)). Fornece certas funcionalidades da CLI do NuGet diretamente na cadeia de ferramentas do .NET Core. Assim como ocorre com a CLI do NuGet, a CLI do dotnet não interage com projetos do Visual Studio. |
+| [CLI do nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Todos | Criação, Consumo | Ferramenta CLI para bibliotecas do .NET Framework e projetos no estilo não SDK que se destinam a bibliotecas do .NET Standard. Fornece todos os recursos do NuGet, com alguns comandos de que aplicam especificamente aos criadores de pacote, alguns somente aos consumidores e outros a ambos. Por exemplo, os criadores de pacote usam o comando `nuget pack` para criar um pacote de vários assemblies e arquivos relacionados, os consumidores de pacote usam `nuget install` para incluir pacotes em uma pasta do projeto e todos usam `nuget config` para definir as variáveis de configuração do NuGet. Como uma ferramenta independente de plataforma, a CLI do NuGet não interage com projetos do Visual Studio. |
 | [Console do gerenciador de pacotes](tools/package-manager-console.md) | Visual Studio no Windows | Consumo | Fornece [comandos do PowerShell](tools/Powershell-Reference.md) para instalar e gerenciar pacotes em projetos do Visual Studio. |
 | [Interface do usuário do Gerenciador de Pacotes](tools/package-manager-ui.md) | Visual Studio no Windows | Consumo | Fornece uma IU fácil de usar para instalar e gerenciar pacotes em projetos do Visual Studio. |
 | [Gerenciar a interface do usuário do NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio para Mac | Consumo | Fornece uma IU fácil de usar para instalar e gerenciar pacotes em projetos do Visual Studio para Mac. |
@@ -82,7 +82,7 @@ O computador que recebe um projeto, como um servidor de build obtendo uma cópia
 
 Claramente, a função primária do NuGet, no que diz respeito aos desenvolvedores, é manter essa lista de referência em nome do seu projeto e fornecer os meios para restaurar (e atualizar) com eficiência os pacotes referenciados. Essa lista é mantida em um dos dois *formatos de gerenciamento de pacote*, como são chamados:
 
-- [PackageReference](consume-packages/package-references-in-project-files.md) (ou "referências de pacote em arquivos de projeto") |*(NuGet 4.0 ou superior)* Mantém uma lista de dependências de nível superior do projeto diretamente no arquivo de projeto, portanto, nenhum arquivo separado é necessário. Um arquivo associado, `obj/project.assets.json`, é gerado dinamicamente para gerenciar o grafo de dependência geral dos pacotes que um projeto usa juntamente com todas as dependências de nível inferior. PackageReference é sempre usado por projetos do .NET Core.
+- [PackageReference](consume-packages/package-references-in-project-files.md) (ou "referências de pacote em arquivos de projeto") | *(NuGet 4.0 ou superior)* Mantém uma lista de dependências de nível superior do projeto diretamente no arquivo de projeto, portanto, nenhum arquivo separado é necessário. Um arquivo associado, `obj/project.assets.json`, é gerado dinamicamente para gerenciar o grafo de dependência geral dos pacotes que um projeto usa juntamente com todas as dependências de nível inferior. PackageReference é sempre usado por projetos do .NET Core.
 
 - [`packages.config`](reference/packages-config.md): *(NuGet 1.0 ou posterior)* Um arquivo XML que mantém uma lista plana de todas as dependências do projeto, incluindo as dependências de outros pacotes instalados. Os pacotes instalados ou restaurados são armazenados em uma pasta `packages`.
 

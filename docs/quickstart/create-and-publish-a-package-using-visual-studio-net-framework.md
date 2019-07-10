@@ -1,18 +1,18 @@
 ---
 title: Criar e publicar um pacote .NET Framework usando o Visual Studio no Windows
-description: Tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Framework usando o Visual Studio 2017 no Windows.
+description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Framework usando o Visual Studio no Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 68593211da1a34649c7050753a5db0f3a03cb41b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549622"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426334"
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Início Rápido: Criar e publicar um pacote usando o Visual Studio (.NET Framework no Windows)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Início Rápido: Criar e publicar um pacote usando o Visual Studio (.NET Framework, Windows)
 
 Para criar um pacote NuGet em uma Biblioteca de Classes .NET Framework, é necessário criar a DLL no Visual Studio no Windows e, em seguida, usar a ferramenta de linha de comando nuget.exe para criar e publicar o pacote.
 
@@ -31,7 +31,7 @@ Para criar um pacote NuGet em uma Biblioteca de Classes .NET Framework, é neces
 
 Você pode usar um projeto existente da Biblioteca de Classes .NET Framework para o código que desejar empacotar ou criar um projeto simples da seguinte maneira:
 
-1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, selecione o nó **Visual C#**, selecione o modelo “Biblioteca de Classes (.NET Framework)”, nomeie o projeto como AppLogger e clique em **OK**.
+1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, selecione o nó **Visual C#** , selecione o modelo “Biblioteca de Classes (.NET Framework)”, nomeie o projeto como AppLogger e clique em **OK**.
 
 1. Clique com botão direito do mouse no arquivo de projeto resultante e selecione **Build** para verificar se o projeto foi criado corretamente. A DLL é encontrada dentro da pasta de Depuração (ou Versão, se você compilar essa configuração).
 
@@ -70,7 +70,7 @@ Um pacote NuGet contém um manifesto (um arquivo `.nuspec`), que contém metadad
     >
     > Se você tentar publicar um pacote com um nome que já existe, você verá um erro.
 
-1. Selecione o botão **Informações do Assembly...**, que abrirá uma caixa de diálogo na qual será possível inserir outras propriedades contidas no manifesto (veja [Referência do arquivo .nuspec – tokens de substituição](../reference/nuspec.md#replacement-tokens)). Os campos mais usados são **Título**, **Descrição**, **Empresa**, **Direitos autorais** e **Versão do assembly**. Essas propriedades aparecem, por fim, com o pacote em um host, como o nuget.org, portanto deixe-os totalmente descritivos.
+1. Selecione o botão **Informações do Assembly...** , que abrirá uma caixa de diálogo na qual será possível inserir outras propriedades contidas no manifesto (veja [Referência do arquivo .nuspec – tokens de substituição](../reference/nuspec.md#replacement-tokens)). Os campos mais usados são **Título**, **Descrição**, **Empresa**, **Direitos autorais** e **Versão do assembly**. Essas propriedades aparecem, por fim, com o pacote em um host, como o nuget.org, portanto deixe-os totalmente descritivos.
 
     ![Informações do assembly em um projeto do .NET Framework no Visual Studio](media/qs_create-vs-01b-project-properties.png)
 
@@ -175,7 +175,7 @@ Confira [nuget push](../tools/cli-ref-push.md).
 ## <a name="related-topics"></a>Tópicos relacionados
 
 - [Criar um pacote](../create-packages/creating-a-package.md)
-- [Publicar um pacote](../create-packages/publish-a-package.md)
+- [Publicar um pacote](../nuget-org/publish-a-package.md)
 - [Pacotes de pré-lançamento](../create-packages/Prerelease-Packages.md)
 - [Suporte a várias estruturas de destino](../create-packages/supporting-multiple-target-frameworks.md)
 - [Controle de versão do pacote](../reference/package-versioning.md)

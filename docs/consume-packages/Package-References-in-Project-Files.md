@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: c2dfce8de6b28aaee99e3d5ab75cd28950a8cb0f
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 16a14a72f8bb2e5d5a56f6c3c277f0988869273d
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812843"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426691"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
-As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). Usar o PackageReference, como ele é chamado, não afeta os outros aspectos do NuGet; por exemplo, as configurações nos arquivos `NuGet.config` (inclusive nas origens de pacote) ainda são aplicadas, conforme explicado em [Configurando o comportamento do NuGet](configuring-nuget-behavior.md).
+As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). O uso de PackageReference, como ele é chamado, não afeta outros aspectos do NuGet; por exemplo, as configurações nos arquivos `NuGet.config` (incluindo as origens do pacote) ainda são aplicadas, conforme explicado em [Configurações comuns do NuGet](configuring-nuget-behavior.md).
 
 Com o PackageReference, você também pode usar condições do MSBuild para escolher as referências de pacote por estrutura de destino, por configuração, por plataforma ou por outros agrupamentos. Ele também proporciona um controle refinado sobre as dependências e o fluxo de conteúdo. (Para obter mais detalhes, veja [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).)
 
@@ -92,7 +92,7 @@ Você pode estar usando uma dependência puramente como uma estrutura de desenvo
 
 As seguintes marcas de metadados controlam ativos de dependência:
 
-| Marca | Descrição | Valor padrão |
+| Marca | DESCRIÇÃO | Valor padrão |
 | --- | --- | --- |
 | IncludeAssets | Esses ativos serão consumidos | all |
 | ExcludeAssets | Esses ativos não serão consumidos | nenhum |
@@ -100,7 +100,7 @@ As seguintes marcas de metadados controlam ativos de dependência:
 
 Os valores permitidos para essas marcas são os seguintes, com vários valores separados por ponto e vírgula, exceto com `all` e `none`, que devem aparecer sozinhos:
 
-| Valor | Descrição |
+| Valor | DESCRIÇÃO |
 | --- | ---
 | compilar | Conteúdo da pasta `lib` e controles se seu projeto puder compilar em relação aos assemblies dentro da pasta |
 | tempo de execução | Conteúdo da pasta `lib` e `runtimes` pasta e controles se esses assemblies forem copiados para o diretório de saída de compilação |

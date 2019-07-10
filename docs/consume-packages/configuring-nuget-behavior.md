@@ -1,24 +1,24 @@
 ---
-title: Configurando o comportamento do NuGet
+title: Configurações comuns do NuGet
 description: Arquivos NuGet.Config controlam o comportamento do NuGet tanto globalmente quanto em cada projeto e são modificados com o comando nuget config.
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 57b7f29b533a8e6d7db2710c7e42a239f50199a1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266347"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426660"
 ---
-# <a name="configuring-nuget-behavior"></a>Configurando o comportamento de NuGet
+# <a name="common-nuget-configurations"></a>Configurações comuns do NuGet
 
 O comportamento do NuGet é controlado pelas configurações acumuladas em um ou mais arquivos `NuGet.Config` (XML) que podem existir no nível de projeto, usuário e computador. Um arquivo global `NuGetDefaults.Config` também configura as origens de pacote especificamente. As configurações se aplicam a todos os comandos emitidos na CLI, no Console do Gerenciador de Pacotes e na interface do usuário do Gerenciador de Pacotes.
 
 ## <a name="config-file-locations-and-uses"></a>Usos e locais do arquivo de configuração
 
-| Escopo | Local do arquivo NuGet.Config | Descrição |
+| Escopo | Local do arquivo NuGet.Config | DESCRIÇÃO |
 | --- | --- | --- |
 | Solução | A pasta atual (também conhecida como pasta de solução) ou qualquer pasta até a raiz da unidade.| Em uma pasta de solução, as configurações se aplicam a todos os projetos nas subpastas. Observe que, se um arquivo de configuração for colocado em uma pasta de projeto, ele não causará nenhum efeito nesse projeto. |
 | User | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` ou `~/.nuget/NuGet/NuGet.Config` (varia de acordo com a distribuição do SO) | As configurações se aplicam a todas as operações, mas são substituídas por quaisquer configurações de nível de projeto. |

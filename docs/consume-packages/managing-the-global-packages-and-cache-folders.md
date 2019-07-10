@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: c547ae1d46079d040d7c3aa4c7678e70cd199dce
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548007"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426624"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Como gerenciar as pastas de pacotes globais, de cache e temporárias
 
@@ -30,7 +30,7 @@ Ao usar as pastas de cache e *global-packages*, geralmente o NuGet evita o downl
 
 Quando solicitado a recuperar um pacote, o NuGet primeiro examina a pasta *global-packages*. Se a versão exata do pacote não estiver lá, o NuGet verificará todas as origens de pacote não HTTP. Se ainda assim o pacote não for encontrado, o NuGet procurará o pacote no *http-cache*, a menos que você especifique `--no-cache` com comandos `dotnet.exe` ou `-NoCache` com comandos `nuget.exe`. Se o pacote não estiver no cache ou se o cache não for usado, o NuGet recuperará o pacote via HTTP.
 
-Para saber mais, confira [O que acontece quando um pacote é instalado](ways-to-install-a-package.md#what-happens-when-a-package-is-installed).
+Para obter mais informações, confira [O que acontece quando um pacote é instalado?](../concepts/package-installation-process.md).
 
 ## <a name="viewing-folder-locations"></a>Exibir os locais de pastas
 
@@ -100,7 +100,7 @@ nuget locals all -clear
 
 Todos os pacotes usados por projetos que estejam abertos no momento no Visual Studio não serão apagados da pasta *global-packages*.
 
-No Visual Studio 2017, use o comando de menu **Ferramentas > Gerenciador de Pacotes do NuGet > Configurações do Gerenciador de Pacotes** e, em seguida, selecione **Limpar Todos os Caches do NuGet**. O gerenciamento de cache não está disponível atualmente por meio do Console do Gerenciador de Pacotes. No Visual Studio 2015, use os comandos da CLI.
+No Visual Studio 2017 em diante, use o comando de menu **Ferramentas > Gerenciador de Pacotes NuGet > Configurações do Gerenciador de Pacotes** e, em seguida, selecione **Limpar Todos os Caches do NuGet**. O gerenciamento de cache não está disponível atualmente por meio do Console do Gerenciador de Pacotes. No Visual Studio 2015, use os comandos da CLI.
 
 ![Comando de opção do NuGet para limpar caches](media/options-clear-caches.png)
 
@@ -108,14 +108,14 @@ No Visual Studio 2017, use o comando de menu **Ferramentas > Gerenciador de Paco
 
 Os seguintes erros podem ocorrer ao usar `nuget locals` ou `dotnet nuget locals`:
 
-- *Erro: o processo não pode acessar o arquivo <package> porque ele está sendo usado por outro processo* ou *Falha ao limpar os recursos locais: não é possível excluir um ou mais arquivos*
+- *Erro: O processo não pode acessar o arquivo <package> porque ele está sendo usado por outro processo* ou *Falha ao limpar os recursos locais: Não é possível excluir um ou mais arquivos*
 
     Um ou mais arquivos da pasta estão em uso por outro processo. Por exemplo, um projeto do Visual Studio está aberto e se refere aos pacotes da pasta *global-packages*. Feche os processos e tente novamente.
 
-- *Erro: o acesso ao caminho <path> foi negado* ou *O diretório não está vazio*
+- *Erro: O acesso ao caminho <path> foi negado* ou *O diretório não está vazio*
 
     Você não tem permissão para excluir arquivos no cache. Altere as permissões de pasta, se possível, e tente novamente. Senão, entre em contato com o administrador do sistema.
 
-- *Erro: o caminho ou o nome de arquivo especificado, ou ambos, são muito longos. O nome de arquivo totalmente qualificado deve ter menos de 260 caracteres e o nome do diretório, menos de 248 caracteres.*
+- *Erro: O caminho ou o nome de arquivo especificado, ou ambos, são muito longos. O nome de arquivo totalmente qualificado deve ter menos de 260 caracteres e o nome do diretório, menos de 248 caracteres.*
 
     Reduza os nomes de pasta e tente novamente.

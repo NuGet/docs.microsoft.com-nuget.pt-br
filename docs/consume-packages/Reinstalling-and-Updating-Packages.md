@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: c58cf38bab45793bef820e2c52914a91d745ec77
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9b2a7b299a0cb944ad9045684e14cc7b83e1cff4
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551777"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426676"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Como reinstalar e atualizar pacotes
 
@@ -24,6 +24,9 @@ A atualização e reinstalação de pacotes é feita da seguinte maneira:
 | Interface do usuário do Gerenciador de Pacotes | Na guia **Atualizações**, selecione um ou mais pacotes e escolha **Atualizar** | Na guia **Instalado**, selecione um pacote, registre seu nome e escolha **Desinstalar**. Mude para a guia **Procurar**, pesquise pelo nome do pacote, selecione-o e escolha **Instalar**). |
 | CLI do nuget.exe | Comando `nuget update` | Para todos os pacotes, exclua a pasta do pacote e execute `nuget install`. Para um único pacote, exclua a pasta do pacote e usar `nuget install <id>` para reinstalar o mesmo. |
 
+> [!NOTE]
+> Para a CLI do dotnet, o procedimento equivalente não é necessário. Em um cenário semelhante, você pode [restaurar pacotes com a CLI do dotnet](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
+
 Neste artigo:
 
 - [Quando reinstalar um pacote](#when-to-reinstall-a-package)
@@ -31,11 +34,11 @@ Neste artigo:
 
 ## <a name="when-to-reinstall-a-package"></a>Quando reinstalar um pacote
 
-1. **Referências interrompidas após a restauração do pacote**: se você abriu um projeto e restaurou pacotes do NuGet, mas ainda está encontrando referências interrompidas, tente reinstalar todos os pacotes.
-1. **Projeto interrompido devido a arquivos excluídos**: o NuGet não evita que você remova itens adicionados de pacotes, portanto, é fácil modificar inadvertidamente o conteúdo instalado de um pacote e desfazer seu projeto. Para restaurar o projeto, reinstale os pacotes afetados.
-1. **Atualização de pacote interrompeu o projeto**: se uma atualização de um pacote interromper um projeto, a falha será geralmente causada por um pacote de dependências que também pode ter sido atualizado. Para restaurar o estado da dependência, reinstale o pacote específico.
-1. **Redirecionamento ou upgrade do projeto**: isso pode ser útil quando um projeto foi redirecionado ou atualizado e se o pacote exigir a reinstalação devido à alteração na estrutura de destino. O NuGet mostra um erro de build nesses casos imediatamente após o redirecionamento do projeto e os avisos de build subsequentes informam que o pacote pode precisar ser reinstalado. Para upgrade do projeto, o NuGet mostra um erro no Log de Upgrade de Projeto.
-1. **Reinstalar um pacote durante o desenvolvimento**: os autores de pacotes geralmente precisam reinstalar a mesma versão do pacote que está sendo desenvolvido para testar o comportamento. O comando `Install-Package` não oferece uma opção para forçar uma reinstalação, portanto, use `Update-Package -reinstall` em vez disso.
+1. **Referências com problemas após a restauração de pacote**: Se você abriu um projeto e restaurou pacotes NuGet, mas ainda está encontrando referências com problemas, tente reinstalar todos os pacotes.
+1. **Projeto com problemas devido a arquivos excluídos**: O NuGet não impede que você remova itens adicionados de pacotes; portanto, é fácil modificar inadvertidamente o conteúdo instalado de um pacote e fazer com que o projeto fique com problemas. Para restaurar o projeto, reinstale os pacotes afetados.
+1. **A atualização de pacote desfez o projeto**: Caso uma atualização de um pacote cause problemas em um projeto, a falha é geralmente causada por um pacote de dependência que também pode ter sido atualizado. Para restaurar o estado da dependência, reinstale o pacote específico.
+1. **Redirecionamento ou atualização de projeto**: Isso pode ser útil quando um projeto foi redirecionado ou atualizado e se o pacote exige a reinstalação devido à alteração na estrutura de destino. O NuGet mostra um erro de build nesses casos imediatamente após o redirecionamento do projeto e os avisos de build subsequentes informam que o pacote pode precisar ser reinstalado. Para upgrade do projeto, o NuGet mostra um erro no Log de Upgrade de Projeto.
+1. **Reinstalação de um pacote durante seu desenvolvimento**: Os autores de pacotes geralmente precisam reinstalar a mesma versão do pacote que está sendo desenvolvida para testar o comportamento. O comando `Install-Package` não oferece uma opção para forçar uma reinstalação, portanto, use `Update-Package -reinstall` em vez disso.
 
 ## <a name="constraining-upgrade-versions"></a>Restrições de versões de upgrade
 

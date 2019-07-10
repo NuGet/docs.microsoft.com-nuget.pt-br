@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: dfbd6a3e6d59dfcea6394891703ea66bce5e8e92
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 522dbbb2a39eb1cb6f0d23f39a48158b07c9076d
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580266"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426846"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Como criar controles de interface do usuário como pacotes do NuGet
 
-Com o Visual Studio 2017, você pode aproveitar os recursos adicionados para os controles UWP e WPF que você fornecer em pacotes do NuGet. Este guia orientará você quanto a esses recursos no contexto dos controles UWP usando o [exemplo ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). O mesmo se aplica aos controles WPF, salvo indicação em contrário.
+No Visual Studio 2017 em diante, você pode aproveitar as funcionalidades adicionadas dos controles UWP e WPF entregues em pacotes NuGet. Este guia orientará você quanto a esses recursos no contexto dos controles UWP usando o [exemplo ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). O mesmo se aplica aos controles WPF, salvo indicação em contrário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,9 +60,9 @@ A estrutura do arquivo é a seguinte:
 em que:
 
 - *your_package_file*: o nome do arquivo do seu controle, como `ManagedPackage.winmd` (“ManagedPackage” é um nome arbitrário usado para este exemplo e não tem nenhum outro significado).
-- *vs_category*: o rótulo para o grupo no qual o controle deve aparecer na caixa de ferramentas do designer do Visual Studio. Um `VSCategory` é necessário para o controle apareça na caixa de ferramentas.
-- *blend_category*: o rótulo para o grupo no qual o controle deve aparecer no painel Ativos do designer do Blend. Um `BlendCategory` é necessário para o controle apareça em Ativos.
-- *type_full_name_n*: o nome totalmente qualificado para cada controle, incluindo o namespace, como `ManagedPackage.MyCustomControl`. Observe que o formato de ponto é usado tanto para tipos gerenciados quanto para tipos nativos.
+- *vs_category*: O rótulo para o grupo no qual o controle deve ser exibido na caixa de ferramentas do designer do Visual Studio. Um `VSCategory` é necessário para o controle apareça na caixa de ferramentas.
+- *blend_category*: O rótulo para o grupo no qual o controle deve ser exibido no painel Ativos do designer do Blend. Um `BlendCategory` é necessário para o controle apareça em Ativos.
+- *type_full_name_n*: O nome totalmente qualificado para cada controle, incluindo o namespace, como `ManagedPackage.MyCustomControl`. Observe que o formato de ponto é usado tanto para tipos gerenciados quanto para tipos nativos.
 
 Em cenários mais avançados, também é possível incluir vários elementos `<File>` dentro de `<FileList>` quando um único pacote contém vários assemblies de controle. Também é possível ter vários nós `<ToolboxItems>` dentro de um único `<File>` se você quiser organizar os controles em categorias separadas.
 

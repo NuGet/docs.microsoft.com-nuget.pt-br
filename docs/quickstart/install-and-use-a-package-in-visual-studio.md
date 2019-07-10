@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 014b316ea03b45584406c313d46b96ad36340124
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812901"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426225"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Início Rápido: Instalar e usar um pacote no Visual Studio
 
@@ -34,7 +34,7 @@ Se você estiver usando o Visual Studio para Mac, confira [Incluir um pacote do 
 
 É possível instalar pacotes do NuGet em qualquer projeto .NET, desde que o pacote ofereça suporte à mesma estrutura de destino do projeto.
 
-Para este passo a passo, use um aplicativo da UWP (Plataforma Universal do Windows). Crie um projeto no Visual Studio usando **Arquivo > Novo Projeto...** e selecionando **Universal do Windows > Aplicativo em Branco (Universal do Windows)**. Aceite os valores padrão para a Versão de Destino e a Versão Mínima quando solicitado.
+Para este passo a passo, use um aplicativo da UWP (Plataforma Universal do Windows). Crie um projeto no Visual Studio usando **Arquivo > Novo Projeto...** e selecionando **Universal do Windows > Aplicativo em Branco (Universal do Windows)** . Aceite os valores padrão para a Versão de Destino e a Versão Mínima quando solicitado.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Adicionar o pacote do NuGet Newtonsoft.Json
 
@@ -123,6 +123,6 @@ Com o pacote Newtonsoft.Json no projeto, você pode chamar seu método `JsonConv
 ## <a name="related-articles"></a>Artigos relacionados
 
 - [Visão geral e fluxo de trabalho do consumo de pacote](../consume-packages/overview-and-workflow.md)
+- [Instalar e gerenciar pacotes usando o Visual Studio](../tools/package-manager-ui.md)
 - [Localizando e escolhendo pacotes](../consume-packages/finding-and-choosing-packages.md)
-- [Maneiras de instalar um pacote](../consume-packages/ways-to-install-a-package.md)
-- [Configurando o Comportamento de NuGet](../consume-packages/configuring-nuget-behavior.md)
+- [Configurações comuns do NuGet](../consume-packages/configuring-nuget-behavior.md)
