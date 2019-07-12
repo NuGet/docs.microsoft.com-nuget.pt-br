@@ -14,4 +14,5 @@
 # Referência
 ## [API do NuGet](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
-## [PERGUNTAS FREQUENTES](nuget-org-faq.md)
+# Recursos
+## [Perguntas frequentes](nuget-org-faq.md)
