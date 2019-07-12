@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 977e06d36962366abd69f1c7f21ef33eca4e5029
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 425ba736eba4609ebd6b5185ae3f1f976ab07a67
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426118"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842560"
 ---
 # <a name="powershell-reference"></a>Referência do PowerShell
 
-O Package Manager Console fornece uma interface do PowerShell no Visual Studio no Windows para interagir com o NuGet por meio dos comandos específicos listados abaixo. (O console não está disponível atualmente no Visual Studio para Mac.) Para um guia para usar o console, consulte [instalar e gerenciar os pacotes usando o PowerShell](../tools/package-manager-console.md) tópico.
+O Package Manager Console fornece uma interface do PowerShell no Visual Studio no Windows para interagir com o NuGet por meio dos comandos específicos listados abaixo. (O console não está disponível atualmente no Visual Studio para Mac.) Para um guia para usar o console, consulte [instalar e gerenciar os pacotes usando o Console do Gerenciador de pacotes](../tools/package-manager-console.md) tópico.
 
 > [!Tip]
 > Todos os comandos do PowerShell referem-se apenas ao consumo de pacote. Nenhum comando do PowerShell estão relacionadas à criação e publicação de pacotes, exceto na medida em que um pacote também pode ser um consumidor de outros pacotes.

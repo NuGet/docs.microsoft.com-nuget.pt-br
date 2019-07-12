@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 8119664b1bafe9238b12b1819cc46dc1ee7bdd00
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: de0b612e1335cafdcd6a0b802d54f2182d27ad22
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547988"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842258"
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (Console do Gerenciador de Pacotes no Visual Studio)
 
-*Versão 3.0 ou superior; disponível somente dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
+*Versão 3.0 ou superior; disponível somente dentro de [Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
 
 Obtém a versão do pacote instalado do especificado (ou padrão) do projeto e sincroniza a versão para o restante dos projetos na solução.
 
@@ -44,7 +44,7 @@ Nenhum desses parâmetros aceitam caracteres curinga ou de entrada do pipeline.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-`Sync-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
+`Sync-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: e7ddf9ad97cbb4ec9cfc8b01f366511239f41416
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 755c87bbc68d3b688c81e16edbc1faabdc9e0520
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546020"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842495"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Console do Gerenciador de Pacotes no Visual Studio)
 
-*Este tópico descreve o comando dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows. Para o comando do PowerShell Install-Package genérico, consulte o [referência do PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*Este tópico descreve o comando dentro de [Package Manager Console](package-manager-console.md) no Visual Studio no Windows. Para o comando do PowerShell Install-Package genérico, consulte o [referência do PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Instala um pacote e suas dependências em um projeto.
 
@@ -50,7 +50,7 @@ Nenhum desses parâmetros aceitam caracteres curinga ou de entrada do pipeline.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-`Install-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
+`Install-Package` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 

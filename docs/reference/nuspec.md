@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd6ecab05a392a2a0b4ddf1ac15eb108f2653703
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426200"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842406"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -32,7 +32,7 @@ Neste tópico:
 
 - Use `.nuspec` com `nuget.exe pack` para não-SDK-style projetos que usam `packages.config`.
 
-- Um `.nuspec` arquivo não é necessário para criar pacotes para projetos de estilo do SDK (.NET Core e .NET Standard projetos que usam o [atributo do SDK](/dotnet/core/tools/csproj#additions)). (Observe que um `.nuspec` é gerado quando você cria o pacote.)
+- Um `.nuspec` arquivo não é necessário para criar pacotes para [projetos de estilo SDK](../resources/check-project-format.md) (normalmente o .NET Core e .NET Standard projetos que usam o [atributo do SDK](/dotnet/core/tools/csproj#additions)). (Observe que um `.nuspec` é gerado quando você cria o pacote.)
 
    Se você estiver criando um pacote usando `dotnet.exe pack` ou `msbuild pack target`, é recomendável que você [inclui todas as propriedades](../reference/msbuild-targets.md#pack-target) que são geralmente no `.nuspec` do arquivo no arquivo de projeto em vez disso. No entanto, você pode optar por em vez disso [usar um `.nuspec` arquivo de pacote usando `dotnet.exe` ou `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec).
 
@@ -72,7 +72,7 @@ Embora os elementos a seguir sejam os requisitos mínimos para um pacote, consid
 Esses elementos precisam aparecer dentro de um elemento `<metadata>`.
 
 #### <a name="id"></a>id 
-O identificador de pacote que não diferencia maiúsculas de minúsculas, o qual deve ser exclusivo no nuget.org ou em qualquer galeria na qual o pacote reside. IDs podem não conter espaços nem caracteres que não sejam válidos para uma URL e geralmente seguem as regras de namespace do .NET. Consulte [Escolhendo um identificador de pacote exclusivo](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) para ver diretrizes.
+O identificador de pacote que não diferencia maiúsculas de minúsculas, o qual deve ser exclusivo no nuget.org ou em qualquer galeria na qual o pacote reside. IDs podem não conter espaços nem caracteres que não sejam válidos para uma URL e geralmente seguem as regras de namespace do .NET. Consulte [Escolhendo um identificador de pacote exclusivo](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) para ver diretrizes.
 #### <a name="version"></a>version
 A versão do pacote, seguindo o padrão *principal.secundária.patch*. Os números de versão podem incluir um sufixo de pré-lançamento, conforme descrito em [Controle de versões de pré-lançamento](../reference/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>descrição
@@ -82,25 +82,32 @@ Uma lista separada por vírgulas de autores de pacotes, que correspondem aos nom
 
 ### <a name="optional-metadata-elements"></a>Elementos de metadados opcionais
 
-#### <a name="title"></a>título
-Um título amigável do pacote, geralmente usado em exibições de interface do usuário como em nuget.org e no Gerenciador de Pacotes do Visual Studio. Se não for especificado, a ID do pacote será usada. 
 #### <a name="owners"></a>owners
 Uma lista separada por vírgulas de criadores de pacotes que usam nomes de perfil no nuget.org. Essa geralmente é a mesma lista que `authors` e é ignorado ao carregar o pacote no nuget.org. Consulte [Gerenciando os proprietários de pacote no nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
+
 #### <a name="projecturl"></a>projectUrl
 Uma URL para a home page do pacote, geralmente mostrada em exibições de interface do usuário, bem como em nuget.org. 
+
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
 > licenseUrl está sendo preterido. Licença de uso em vez disso.
 
-Uma URL para a licença do pacote, geralmente mostrada em exibições de interface do usuário, bem como no nuget.org.
+Uma URL para a licença do pacote, geralmente mostrada em interfaces do usuário, como o nuget.org.
+
 #### <a name="license"></a>licença
-Uma expressão de licença SPDX ou caminho até um arquivo de licença dentro do pacote, geralmente mostrado em interfaces do usuário bem como em nuget.org. Se você esteja licenciando o pacote sob uma licença comuns, como a cláusula de 2 BSD ou MIT, use o identificador de licença SPDX associado.<br>Por exemplo: `<license type="expression">MIT</license>`
+Uma expressão de licença SPDX ou o caminho para um arquivo de licença dentro do pacote, geralmente mostrado em interfaces do usuário, como o nuget.org. Se você esteja licenciando o pacote em uma licença comuns, como o MIT ou 2 cláusula BSD, use associado [identificador de licença SPDX](https://spdx.org/licenses/). Por exemplo:
 
-Aqui está a lista completa dos [identificadores de licença SPDX](https://spdx.org/licenses/). O NuGet.org aceita apenas licenças aprovadas por OSI ou FSF ao usar expressão de tipo de licença.
+`<license type="expression">MIT</license>`
 
-Se o pacote é licenciado sob várias licenças comuns, você pode especificar uma licença de composição usando o [SPDX versão 2.0 da sintaxe de expressão](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Por exemplo: `<license type="expression">BSD-2-Clause OR MIT</license>`
+> [!Note]
+> NuGet.org só aceita expressões de licença que foram aprovadas pela Open Source Initiative ou a base de Software livre.
 
-Se você estiver usando uma licença que não tenha sido atribuída a um identificador SPDX ou é uma licença personalizada, você pode empacotar um arquivo (somente `.txt` ou `.md`) com o texto de licença. Por exemplo:
+Se o pacote é licenciado sob várias licenças comuns, você pode especificar uma licença de composição usando o [SPDX versão 2.0 da sintaxe de expressão](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Por exemplo:
+
+`<license type="expression">BSD-2-Clause OR MIT</license>`
+
+Se você usar uma licença personalizada que não é compatível com expressões de licença, você pode empacotar uma `.txt` ou `.md` arquivo com o texto da licença. Por exemplo:
+
 ```xml
 <package>
   <metadata>
@@ -140,30 +147,41 @@ Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Um valor booliano que especifica se o cliente precisa solicitar que o consumidor aceite a licença do pacote antes de instalá-lo.
+
 #### <a name="developmentdependency"></a>developmentDependency
 *(2.8 ou superior)* Um valor booliano que especifica se o pacote está marcado como uma dependência somente de desenvolvimento, que impede que o pacote seja incluído como uma dependência em outros pacotes. Com o PackageReference (NuGet 4.8 +), esse sinalizador também significa que ele excluirá os ativos de tempo de compilação da compilação. Consulte [DevelopmentDependency suporte para PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+
 #### <a name="summary"></a>resumo
 Uma breve descrição do pacote para exibição de interface do usuário. Se omitido, uma versão truncada do `description` é usada.
+
 #### <a name="releasenotes"></a>releaseNotes
 *(1.5 ou superior)* Uma descrição das alterações feitas nesta versão do pacote, frequentemente usado na interface do usuário como a guia **Atualizações** do Gerenciador de Pacotes do Visual Studio em vez da descrição do pacote.
+
 #### <a name="copyright"></a>direitos autorais
 *(1.5 ou superior)* Detalhes sobre direitos autorais do pacote.
+
 #### <a name="language"></a>linguagem
 A identificação de localidade para o pacote. Consulte [Criando pacotes localizados](../create-packages/creating-localized-packages.md).
+
 #### <a name="tags"></a>marcações
 Uma lista delimitada por espaço de marcas e palavras-chave que descrevem o pacote e auxiliam na descoberta de pacotes por meio de pesquisa e filtragem. 
+
 #### <a name="serviceable"></a>facilidade de manutenção 
 *(3.3 ou superior)* Somente para uso interno do NuGet.
+
 #### <a name="repository"></a>repositório
 Repositório de metadados, consiste em quatro atributos opcionais: *tipo* e *url* *(4.0 e posteriores)* , e *branch* e  *confirmação* *(4.6 +)* . Esses atributos permitem que você mapeie o. nupkg ao repositório que criou, com potencial para ficarem conforme detalhado de como a ramificação individual ou a confirmação que criou o pacote. Isso deve ser uma url disponível publicamente que pode ser invocado diretamente por um software de controle de versão. Ele não deve ser uma página html pois destina-se para o computador. Para vincular a página do projeto, use o `projectUrl` campo, em vez disso.
 
 #### <a name="minclientversion"></a>minClientVersion
 Especifica a versão mínima do cliente NuGet que pode instalar esse pacote, imposta pelo nuget.exe e pelo Gerenciador de Pacotes do Visual Studio. Isso é usado sempre que o pacote depender de recursos específicos do arquivo `.nuspec` que foram adicionados em uma versão específica do cliente do NuGet. Por exemplo, um pacote usando o atributo `developmentDependency` deve especificar “2.8” para `minClientVersion`. Da mesma forma, um pacote usando o elemento `contentFiles` (consulte a próxima seção) deve definir `minClientVersion` para “3.3”. Observe também que, como os clientes do NuGet antes de 2.5 não reconhecem esse sinalizador, eles *sempre* recusam instalar o pacote, não importando o que `minClientVersion` contém.
 
+#### <a name="title"></a>título
+Exibe um título amigável do pacote que pode ser usado em algumas interfaces do usuário. (nuget.org e o Gerenciador de pacotes no Visual Studio não mostram título)
+
 #### <a name="collection-elements"></a>Elementos de coleção
 
 #### <a name="packagetypes"></a>packageTypes
-*(3.5 ou superior)* Uma coleção de zero ou mais elementos `<packageType>` que especificam o tipo do pacote se for diferente de um pacote de dependência tradicional. Cada packageType tem os atributos de *name* e *version*. Consulte [Definindo um tipo de pacote](../create-packages/creating-a-package.md#setting-a-package-type).
+*(3.5 ou superior)* Uma coleção de zero ou mais elementos `<packageType>` que especificam o tipo do pacote se for diferente de um pacote de dependência tradicional. Cada packageType tem os atributos de *name* e *version*. Consulte [Definindo um tipo de pacote](../create-packages/set-package-type.md).
 #### <a name="dependencies"></a>dependências
 Uma coleção de zero ou mais elementos `<dependency>` que especificam as dependências do pacote. Cada dependência tem atributos de *id*, *version*, *include* (3.x ou superior) e *exclude* (3.x ou superior). Consulte [Dependências](#dependencies-element) abaixo.
 #### <a name="frameworkassemblies"></a>frameworkAssemblies

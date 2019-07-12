@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 0325aa4ddd718a901dd6a09cdf86cae260e326ab
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fd738f15b461051c4e9413b3035456c687979b97
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547162"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842260"
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Console do Gerenciador de Pacotes no Visual Studio)
 
-*Preterido no 3.0 ou superior; disponível somente dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
+*Preterido no 3.0 ou superior; disponível somente dentro de [Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
 
 Inicia o navegador padrão com o projeto, a licença ou a URL para relatar abuso para o pacote especificado.
 
@@ -40,7 +40,7 @@ Nenhum desses parâmetros aceitam caracteres curinga ou de entrada do pipeline.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-`Open-PackagePage` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
+`Open-PackagePage` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 

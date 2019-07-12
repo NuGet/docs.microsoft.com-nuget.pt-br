@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 849261711fafcadbab38bf6fe99340c4b79e1e21
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2ceb1557eafd213c148d3ab870925ef5bbbee145
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550431"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842275"
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (Console do Gerenciador de Pacotes no Visual Studio)
 
-*Disponível somente dentro de [NuGet Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
+*Disponível somente dentro de [Package Manager Console](package-manager-console.md) no Visual Studio no Windows.*
 
 Exibe informações sobre o padrão ou o projeto especificado. `Get-Project` Especificamente, retorna um referentes ao objeto DTE (ambiente de ferramentas de desenvolvimento) do Visual Studio para o projeto.
 
@@ -35,7 +35,7 @@ Nenhum desses parâmetros aceitam caracteres curinga ou de entrada do pipeline.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-`Get-Project` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
+`Get-Project` suporta as seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, detalhado, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 
