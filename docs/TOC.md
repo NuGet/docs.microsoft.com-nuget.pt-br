@@ -15,7 +15,7 @@
 ### [Visual Studio para Mac](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json)
 ### [CLI do dotnet](consume-packages/install-use-packages-dotnet-cli.md)
 ### [CLI do nuget.exe](consume-packages/install-use-packages-nuget-cli.md)
-### [PowerShell](tools/package-manager-console.md)
+### [Console de Gerenciador de pacotes (PowerShell)](tools/package-manager-console.md)
 ## Configurar o NuGet
 ### Opções de restauração de pacote
 #### [Opções de restauração](consume-packages/package-restore.md)
@@ -31,21 +31,23 @@
 ### [packages.config](reference/packages-config.md)
 # Criar pacotes
 ## [Visão geral e fluxo de trabalho](create-packages/overview-and-workflow.md)
-## [Criar um pacote – CLI do nuget.exe](create-packages/creating-a-package.md)
+## [Criar um pacote](create-packages/creating-a-package.md)
 ## [Criar um pacote usando o MSBuild](reference/msbuild-targets.md)
 ## [Suporte a várias estruturas de destino](create-packages/supporting-multiple-target-frameworks.md)
 ## [Compilar um pacote de pré-lançamento](create-packages/prerelease-packages.md)
 ## [Criar um pacote de símbolos](create-packages/symbol-packages-snupkg.md)
 ## Tarefas avançadas
 ### [Modificar o código-fonte e os arquivos de configuração](create-packages/source-and-config-file-transformations.md)
-### [Criar um pacote localizado](create-packages/creating-localized-packages.md)
 ### [Selecionar os assemblies referenciados por projetos](create-packages/select-assemblies-referenced-by-projects.md)
+### [Definir tipo de pacote](create-packages/set-package-type.md)
+### [Criar um pacote localizado](create-packages/creating-localized-packages.md)
 ## Guias de conteúdo específico
 ### [Criar um pacote da UWP](guides/create-uwp-packages.md)
 ### [Criar um pacote nativo](create-packages/native-packages.md)
 ### [Criar controles de interface do usuário como um pacote do NuGet](guides/create-UI-controls.md)
 ### [Criar um analisador como um pacote do NuGet](reference/analyzers-conventions.md)
 ### [Criar um pacote do Xamarin com o Visual Studio 2015](guides/create-packages-for-xamarin.md)
+### [Criar um pacote com assemblies de interoperabilidade COM](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## Assinar os pacotes
 ### [Assinar um pacote](create-packages/sign-a-package.md)
 ### [Requisitos e as assinaturas de pacote assinado](reference/signed-packages-reference.md)
@@ -335,4 +337,5 @@
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
 ## [Perguntas frequentes](faqs/nuget-faq.md)
+## [Formato de projeto](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
