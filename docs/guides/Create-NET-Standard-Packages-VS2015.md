@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: af0c42853a9e407557a010ff2793406499b4b2ef
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 1198a781543e581f55740cc0ae5a212d3f8a8b61
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426876"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842453"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Criar pacotes do .NET Standard e .NET Framework com o Visual Studio 2015
 
@@ -68,7 +68,7 @@ Este guia orienta você durante a criação de um pacote do NuGet direcionado pa
     nuget spec
     ```
 
-1. Abra o `AppLogger.nuspec` em um editor e atualize-o para corresponder ao seguinte, substituindo YOUR_NAME por um valor apropriado. O valor `<id>`, especificamente, precisa ser exclusivo no nuget.org (consulte as convenções de nomenclatura descritas em [Criando um pacote](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)). Observe que você também precisa atualizar as marcas de autor e descrição ou um erro é mostrado durante a etapa de empacotamento.
+1. Abra o `AppLogger.nuspec` em um editor e atualize-o para corresponder ao seguinte, substituindo YOUR_NAME por um valor apropriado. O valor `<id>`, especificamente, precisa ser exclusivo no nuget.org (consulte as convenções de nomenclatura descritas em [Criando um pacote](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). Observe que você também precisa atualizar as marcas de autor e descrição ou um erro é mostrado durante a etapa de empacotamento.
 
     ```xml
     <?xml version="1.0"?>
@@ -167,7 +167,7 @@ Observe que `pack` requer o Mono 4.4.2 no Mac OS X e não funciona em sistemas L
 
 - [Referência do .nuspec](../reference/nuspec.md)
 - [Compatibilidade com várias versões do .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
-- [Incluir objetivos e destinos de MSBuild em um pacote](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [Incluir objetivos e destinos de MSBuild em um pacote](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Criando pacotes localizados](../create-packages/creating-localized-packages.md)
 - [Pacotes de símbolo](../create-packages/symbol-packages.md)
 - [Controle de versão do pacote](../reference/package-versioning.md)
