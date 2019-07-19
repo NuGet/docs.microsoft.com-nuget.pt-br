@@ -1,20 +1,20 @@
 ---
-title: nuget.config File Reference
+title: Referência do arquivo NuGet. config
 description: Referência do arquivo NuGet.Config incluindo as seções config, bindingRedirects, packageRestore, solution e packageSource.
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 2eceb6e94a353cb29b83aea114c6cea2acbac266
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426153"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317214"
 ---
-# <a name="nugetconfig-reference"></a>referência do NuGet. config
+# <a name="nugetconfig-reference"></a>referência de NuGet. config
 
-O comportamento do NuGet é controlado pelas configurações em diferentes `NuGet.Config` arquivos conforme descrito em [configurações de NuGet comuns](../consume-packages/configuring-nuget-behavior.md).
+O comportamento do NuGet é controlado por configurações `NuGet.Config` em arquivos diferentes, conforme descrito em [configurações comuns do NuGet](../consume-packages/configuring-nuget-behavior.md).
 
 `nuget.config` é um arquivo XML que contém um nó `<configuration>` de nível superior, o qual contém os elementos da seção descritos neste tópico. Cada seção contém zero ou mais itens. Consulte o [arquivo de configuração de exemplos](#example-config-file). Nomes de configuração não diferenciam maiúsculas de minúsculas e podem usar valores [variáveis de ambiente](#using-environment-variables).
 
@@ -41,18 +41,18 @@ Neste tópico:
 
 ## <a name="config-section"></a>seção de configuração
 
-Contém diversas definições de configurações, que podem ser definidas usando o comando [`nuget config`](../tools/cli-ref-config.md).
+Contém diversas definições de configurações, que podem ser definidas usando o comando [`nuget config`](../reference/cli-reference/cli-ref-config.md).
 
-`dependencyVersion` e `repositoryPath` se aplicam somente a projetos usando `packages.config`. `globalPackagesFolder` aplica-se somente a projetos usando o formato PackageReference.
+`dependencyVersion`e `repositoryPath` aplicam-se somente `packages.config`a projetos que usam o. `globalPackagesFolder`aplica-se somente a projetos que usam o formato PackageReference.
 
 | Chave | Valor |
 | --- | --- |
 | dependencyVersion (somente `packages.config`) | O valor `DependencyVersion` padrão para a instalação, restauração e atualização do pacote, quando a opção `-DependencyVersion` não tiver sido especificada diretamente. Esse valor também é usado pela interface do usuário do Gerenciador de Pacotes do NuGet. Os valores são `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (projetos que usam PackageReference apenas) | O local da pasta de pacotes global padrão. O padrão é `%userprofile%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
+| globalPackagesFolder (projetos usando apenas PackageReference) | O local da pasta de pacotes global padrão. O padrão é `%userprofile%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
 | repositoryPath (somente `packages.config`) | O local no qual instalar os pacotes do NuGet em vez da pasta `$(Solutiondir)/packages` padrão. Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
 | defaultPushSource | Identifica a URL ou o caminho da origem do pacote que deve ser usada como o padrão se nenhuma outra origem de pacote for encontrada para uma operação. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Configurações de proxy a serem usadas ao se conectar a origens de pacote; `http_proxy` deve estar no formato `http://<username>:<password>@<domain>`. As senhas são criptografadas e não podem ser adicionadas manualmente. Para `no_proxy`, o valor é uma lista separada por vírgulas de domínios a ignorar no servidor proxy. Como alternativa, você pode usar as variáveis de ambiente http_proxy e no_proxy para esses valores. Para ver detalhes adicionais, consulte [Configurações de proxy do NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
-| signatureValidationMode | Especifica o modo de validação usado para verificar as assinaturas de pacote para instalação do pacote e restauração. Os valores são `accept`, `require`. Assume o padrão de `accept`.
+| signatureValidationMode | Especifica o modo de validação usado para verificar assinaturas de pacote para instalação do pacote e restauração. Os valores `accept`são `require`,. Assume o padrão de `accept`.
 
 **Exemplo**:
 
@@ -118,15 +118,15 @@ Controla se a pasta `packages` de uma solução está incluída no controle do c
 
 ## <a name="package-source-sections"></a>Seções de origem de pacote
 
-O `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, `disabledPackageSources` e `trustedSigners` trabalham todos juntos para configurar como o NuGet funciona com repositórios de pacote durante a instalação, restauração e operações de atualização.
+O `packageSources` ,`packageSourceCredentials`, ,`disabledPackageSources` , e todos`trustedSigners` trabalham juntos para configurar como o NuGet funciona com repositórios de pacotes durante operações de instalação, restauração e atualização. `activePackageSource` `apikeys`
 
-O [ `nuget sources` comando](../tools/cli-ref-sources.md) geralmente é usado para gerenciar essas configurações, exceto para `apikeys` que é gerenciado usando o [ `nuget setapikey` comando](../tools/cli-ref-setapikey.md), e `trustedSigners` que é gerenciado usando o [ `nuget trusted-signers` comando](../tools/cli-ref-trusted-signers.md).
+O `apikeys` `trustedSigners` [ `nuget sources` comando](../reference/cli-reference/cli-ref-sources.md) geralmente é usado para gerenciar essas configurações, exceto para o que é gerenciado usando o [ `nuget setapikey` comando](../reference/cli-reference/cli-ref-setapikey.md)e que é gerenciado usando o [ `nuget trusted-signers` comando](../reference/cli-reference/cli-ref-trusted-signers.md).
 
 Observe que a URL de origem para nuget.org é `https://api.nuget.org/v3/index.json`.
 
 ### <a name="packagesources"></a>packageSources
 
-Lista todas as origens de pacotes conhecidas. A ordem é ignorada durante operações de restauração e com qualquer projeto usando o formato PackageReference. NuGet respeita a ordem das fontes para instalar e atualizar operações com projetos usando `packages.config`.
+Lista todas as origens de pacotes conhecidas. A ordem é ignorada durante as operações de restauração e com qualquer projeto usando o formato PackageReference. O NuGet respeita a ordem de fontes para operações de instalação e atualização com `packages.config`projetos usando o.
 
 | Chave | Valor |
 | --- | --- |
@@ -186,7 +186,7 @@ Ao usar senhas não criptografadas:
 
 ### <a name="apikeys"></a>apikeys
 
-Armazena as chaves de origens que usam autenticação de chave de API, conforme definido com o comando [`nuget setapikey`](../tools/cli-ref-setapikey.md).
+Armazena as chaves de origens que usam autenticação de chave de API, conforme definido com o comando [`nuget setapikey`](../reference/cli-reference/cli-ref-setapikey.md).
 
 | Chave | Valor |
 | --- | --- |
@@ -242,19 +242,19 @@ Identifica a fonte ativa no momento ou indica a agregação de todas as fontes.
 ```
 ## <a name="trustedsigners-section"></a>seção trustedSigners
 
-Repositórios confiam signatários usados para permitir que o pacote durante a instalação ou restauração. Essa lista não pode estar vazia quando o usuário define `signatureValidationMode` para `require`. 
+Armazena os assinantes confiáveis usados para permitir o pacote durante a instalação ou restauração. Esta lista não pode estar vazia quando o usuário `signatureValidationMode` define `require`como. 
 
-Esta seção pode ser atualizada com o [ `nuget trusted-signers` comando](../tools/cli-ref-trusted-signers.md).
+Esta seção pode ser atualizada com o [ `nuget trusted-signers` comando](../reference/cli-reference/cli-ref-trusted-signers.md).
 
 **Esquema**:
 
-Um signatário confiável tem uma coleção de `certificate` itens que inscrever-se todos os certificados que identificam um determinado assinante. Um signatário confiável pode ser um `Author` ou um `Repository`.
+Um assinante confiável tem uma coleção `certificate` de itens que inscrevem todos os certificados que identificam um determinado signatário. Um signatário confiável pode ser um `Author` ou um. `Repository`
 
-Um confiável *repositório* também especifica a `serviceIndex` para o repositório (que deve ser válido `https` uri) e, opcionalmente, pode especificar uma lista de delimitada por ponto e vírgula de `owners` para restringir ainda mais que é confiável meio desse repositório específico.
+Um *repositório* confiável também especifica o `serviceIndex` para o repositório (que deve ser um URI válido `https` ) e pode, opcionalmente, especificar uma lista delimitada por ponto- `owners` e-vírgula de para restringir ainda mais o que é confiável daquele específico repositório.
 
-Os algoritmos de hash com suporte usados para uma impressão digital do certificado são `SHA256`, `SHA384` e `SHA512`.
+Os algoritmos de hash com suporte usados para uma `SHA256`impressão `SHA384` digital `SHA512`de certificado são e.
 
-Se um `certificate` especifica `allowUntrustedRoot` como `true` o certificado fornecido é permitido encadear para uma raiz não confiável ao criar a cadeia de certificados como parte da verificação de assinatura.
+Se um `certificate` especifica `allowUntrustedRoot` que `true` o certificado fornecido pode encadear a uma raiz não confiável ao criar a cadeia de certificados como parte da verificação de assinatura.
 
 **Exemplo**:
 
