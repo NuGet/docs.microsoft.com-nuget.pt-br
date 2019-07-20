@@ -6,29 +6,30 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 0b2a4fe45d0311b7540c73b481d6821357c723af
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: ea9f699b202d7f32648f0ccfeac3ceb1ca325b7e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610653"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342434"
 ---
 # <a name="target-frameworks"></a>Frameworks de destino
 
 O NuGet usa referências de estrutura de destino em uma variedade de locais para identificar e isolar especificamente os componentes dependentes de estrutura de um pacote:
 
-- [manifesto do. NuSpec](../reference/nuspec.md): Um pacote pode indicar pacotes distintos a serem incluídos em um projeto dependendo da estrutura de destino do projeto.
-- [nome da pasta. nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): As pastas dentro de um pacote `lib` pasta pode ser nomeada de acordo com a estrutura de destino, cada uma delas contém as DLLs e outros tipos de conteúdo apropriado para essa estrutura.
-- [packages.config](../reference/packages-config.md): O `targetframework` atributo de uma dependência Especifica a variante de um pacote para instalar.
+- [arquivo de projeto](../create-packages/multiple-target-frameworks-project-file.md): Para projetos em estilo SDK, o *. csproj* contém as referências de estrutura de destino.
+- [manifesto. nuspec](../reference/nuspec.md): Um pacote pode indicar pacotes distintos a serem incluídos em um projeto, dependendo da estrutura de destino do projeto.
+- [nome da pasta. nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): As pastas dentro da pasta de `lib` um pacote podem ser nomeadas de acordo com a estrutura de destino, cada uma contendo as DLLs e outros conteúdos apropriados para essa estrutura.
+- [packages.config](../reference/packages-config.md): O `targetframework` atributo de uma dependência especifica a variante de um pacote a ser instalado.
 
 > [!Note]
 > O código-fonte do cliente do NuGet que calcula as tabelas abaixo é encontrado nos seguintes locais:
-> - Suporte para nomes de estrutura: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Precedência de Framework e o mapeamento: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Nomes de estrutura com suporte: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Precedência de estrutura e mapeamento: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Estruturas com suporte
 
-Normalmente, uma estrutura é referenciada por um moniker curto de estrutura de destino ou TFM. No .NET Standard isso também é generalizado para *TxM* para permitir que uma única referência para várias estruturas.
+Normalmente, uma estrutura é referenciada por um moniker curto de estrutura de destino ou TFM. Em .NET Standard isso também é generalizado para *TxM* para permitir uma única referência a várias estruturas.
 
 Os clientes do NuGet são compatíveis com as estruturas indicadas na tabela abaixo. Equivalentes são mostrados entre colchetes []. Observe que algumas ferramentas, como `dotnet`, podem usar as variações de TFMs canônicos em alguns arquivos. Por exemplo, `dotnet pack` usa `.NETCoreApp2.0` em um arquivo `.nuspec` em vez de `netcoreapp2.0`. As várias ferramentas de cliente do NuGet manipulam essas variações corretamente, mas você sempre deve usar TFMs canônicos ao editar arquivos diretamente.
 
@@ -68,7 +69,7 @@ Windows Phone (SL) | wp | wp [wp7] |
 Windows Phone (UWP) | | wpa81 |
 Plataforma Universal do Windows | uap | uap [uap10.0] |
 | | | uap10.0 |
-| | | uap10.0.xxxxx (onde 10.0.xxxxx é a versão mínima de plataforma de destino do aplicativo de consumo) |
+| | | UAP 10.0. xxxxx (em que 10.0. xxxxx é a versão mínima da plataforma de destino do aplicativo de consumo) |
 .NET Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
@@ -120,9 +121,9 @@ Várias estruturas relacionadas e compatíveis entre si, mas não necessariament
 | win (Microsoft Store) | winrt |
 | | |
 
-## <a name="net-platform-standard"></a>NET Platform Standard
+## <a name="net-standard"></a>Padrão NET
 
-O [.NET Platform Standard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) simplifica referências entre estruturas compatíveis com o binário, permitindo que uma estrutura de destino única faça referência a uma combinação de outras. (Para obter informações, consulte o [.NET Primer](/dotnet/articles/standard/index).)
+O [.net Standard](/dotnet/standard/net-standard) simplifica as referências entre estruturas compatíveis com binários, permitindo que uma única estrutura de destino referencie uma combinação de outras. (Para obter informações, consulte o [.NET Primer](/dotnet/articles/standard/index).)
 
 A [Ferramenta Obter a ferramenta de estrutura mais próxima do NuGet](https://aka.ms/s2m3th) simula o que o NuGet usa para a seleção de uma estrutura de muitos ativos de estrutura disponíveis em um pacote baseado na estrutura do projeto.
 
@@ -131,7 +132,7 @@ A série de monikers `dotnet` deve ser usada no NuGet 3.3 e versões anteriores;
 ## <a name="portable-class-libraries"></a>Bibliotecas de Classes Portáteis
 
 > [!Warning]
-> **PCLs não são recomendados**. Embora haja suporte para PCLs, os autores de pacote devem dar suporte ao netstandard em vez disso. É uma evolução de PCLs e representa a portabilidade binária entre plataformas usando um moniker único que não está vinculado a uma biblioteca estática, como o .NET Platform Standard *portátil-a + b + c* monikers.
+> **PCLs não são recomendados**. Embora haja suporte para PCLs, os autores de pacote devem dar suporte ao netstandard em vez disso. O padrão de plataforma .NET é uma evolução do PCLs e representa a portabilidade binária entre plataformas usando um único moniker que não está vinculado a uma biblioteca estática, como os monikers *a + b + c* .
 
 Para definir uma estrutura de destino que se refere a várias estruturas de destino filho, a palavra-chave `portable` é usada para prefixar a lista de estruturas referenciadas. Evite incluir estruturas extras artificialmente que não são diretamente compiladas, pois o erro pode causar efeitos colaterais indesejados nessas estruturas.
 
