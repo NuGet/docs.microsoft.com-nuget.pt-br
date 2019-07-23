@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c2fc11c0f5dd5d98c40c8b97f9d5a72c4a334b79
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd846632e7a1f5c49fa72d75b18e51cfc7539949
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427281"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841953"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Perguntas frequentes sobre o NuGet.org
 
@@ -252,13 +252,15 @@ Siga as etapas fornecidas na seção [excluir sua conta do nuget.org](#how-to-de
 
 Para excluir sua conta, recomendamos que você transfira a propriedade de todos os pacotes dos quais você é o único proprietário. Você pode ler mais sobre como fazê-lo em [gerenciamento dos proprietários de pacote](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg). Isso também ajuda a agilizar sua solicitação.
 
+Se você pretende transformar sua conta em uma organização, siga as etapas fornecidas em [Transformar minha conta do NuGet.org em uma organização.](#how-to-transform-my-nugetorg-account-to-an-organization)
+
 > [!Important]
 > Excluir o usuário resultará no seguinte:
+>  1. Seu nome de usuário será reservado e ninguém poderá usá-lo novamente para criar uma conta individual ou uma conta da organização
 >  1. Revoga as chaves de API associadas. 
->  2. Remova a conta como um proprietário de quaisquer pacotes filho.
->  3. Desassocie todas as reservas de prefixo de ID existentes anteriormente com esta conta.
->  4. Remova a conta como um membro de quaisquer organizações.
->  5. Seu nome de usuário será reservado e ninguém poderá reutilizá-lo sem nossas permissões.
+>  1. Remova a conta como um proprietário de quaisquer pacotes filho.
+>  1. Desassocie todas as reservas de prefixo de ID existentes anteriormente com esta conta.
+>  1. Remova a conta como um membro de quaisquer organizações.
 
 Siga as etapas a seguir para continuar com a exclusão da conta.
 1. [Faça logon no nuget.org](https://www.nuget.org/users/account/LogOn) com a conta que você deseja excluir.

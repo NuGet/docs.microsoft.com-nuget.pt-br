@@ -5,18 +5,18 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: e60bca8fe2f80b044e466db2a100d6c6d167edb7
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a7177b956930835693921163e634321548c22462
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427371"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842363"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Gerenciar pacotes usando a CLI do nuget.exe
 
 A ferramenta CLI permite que você atualize e restaure pacotes NuGet com facilidade em projetos e soluções. Essa ferramenta fornece todas as funcionalidades do NuGet no Windows e também fornece a maioria dos recursos no Mac e no Linux durante a execução no Mono.
 
-A CLI do nuget.exe destina-se a seu projeto .NET Framework e a projetos no estilo não SDK (por exemplo, aqueles direcionados a bibliotecas .NET Standard). Caso esteja usando um projeto no estilo não SDK que foi migrado para `PackageReference`, use a CLI do dotnet. A CLI do NuGet exige um arquivo [packages.config](../reference/packages-config.md) para referências de pacote.
+A CLI do nuget.exe destina-se a seu projeto .NET Framework e a projetos no estilo não SDK (por exemplo, um projeto de estilo não SDK direcionado a bibliotecas .NET Standard). Caso esteja usando um projeto no estilo não SDK que foi migrado para `PackageReference`, use a CLI do dotnet. A CLI do NuGet exige um arquivo [packages.config](../reference/packages-config.md) para referências de pacote.
 
 > [!NOTE]
 > Na maioria dos cenários, recomendamos [migrar os projetos no estilo não SDK](../reference/migrate-packages-config-to-package-reference.md) que usam `packages.config` para PackageReference, assim você poderá usar a CLI do dotnet em vez da CLI do `nuget.exe`. Atualmente, a migração não está disponível para projetos C++ e ASP.NET.
@@ -113,6 +113,8 @@ nuget update
 Use o comando [restore](../tools/cli-ref-restore.md), que baixa e instala os pacotes ausentes da pasta *packages*.
 
 `restore` apenas adiciona pacotes ao disco, mas não altera as dependências do projeto. Para restaurar as dependências do projeto, modifique `packages.config` e, em seguida, use o comando `restore`.
+
+Assim como ocorre com outros comandos CLI do `dotnet`, primeiro abra uma linha de comando e alterne para o diretório que contém o arquivo de projeto.
 
 Para restaurar um pacote usando `restore`:
 

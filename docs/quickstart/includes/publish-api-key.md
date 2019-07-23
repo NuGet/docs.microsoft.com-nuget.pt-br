@@ -1,8 +1,16 @@
+---
+ms.openlocfilehash: 5acdc54726e4cb07794f8ee07d5e0d357ff622a3
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842051"
+---
 1. [Entre em sua conta do nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) ou crie uma conta, se você não tiver uma.
 
 1. Selecione seu nome de usuário (no canto superior direito) e selecione **Chaves de API**.
 
-1. Selecione **Criar**, forneça um nome para sua chave, selecione **Selecionar Escopos > Push**. Em **Chave de API**, digite * em **Padrão glob** e selecione **Criar**. (Veja mais sobre escopos abaixo).
+1. Selecione **Criar**, forneça um nome para sua chave, selecione **Selecionar Escopos > Push**. Digite * para **Padrão Glob** e selecione **Criar**. (Veja mais sobre escopos abaixo).
 
 1. Após a criação da chave, selecione **Copiar** para recuperar a chave de acesso que você precisa na CLI:
 

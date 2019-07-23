@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3be8d1dad6552db2fc04b2f324145ac7ce86acb2
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467767"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842379"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Solução de problemas de erros de restauração de pacote
 
-Este artigo aborda os erros comuns ao restaurar pacotes e as etapas para resolvê-los. Para obter detalhes completos sobre a restauração de pacotes, veja [Restauração de pacote](../consume-packages/package-restore.md#enable-and-disable-package-restore).
+Este artigo aborda os erros comuns ao restaurar pacotes e as etapas para resolvê-los. Para obter detalhes completos sobre a restauração de pacotes, veja [Restauração de pacote](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio).
 
 Se estas instruções não funcionarem para você, [envie um problema no GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) para examinarmos o cenário mais cuidadosamente. Não use o controle “Esta página é útil?” que pode aparecer nesta página, pois ele não nos permite entrar em contato com você para obter mais informações.
 
@@ -29,7 +29,7 @@ Se você estiver usando o Visual Studio, primeiro habilite a restauração de pa
 
 ![Habilitar a restauração de pacote do NuGet em Ferramenta/Opções](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-Essas configurações também podem ser alteradas no arquivo `NuGet.config`; veja a seção de [consentimento](#consent).
+Essas configurações também podem ser alteradas no arquivo `NuGet.config`; veja a seção de [consentimento](#consent). Se seu projeto for um projeto mais antigo que usa a restauração de pacote integrada ao MSBuild, talvez seja [necessário](package-restore.md#migrate-to-automatic-package-restore-visual-studio) migrar para a restauração automática de pacote.
 
 <a name="missing"></a>
 
@@ -54,10 +54,10 @@ O erro também poderá ocorrer se o arquivo de projeto contiver caminhos absolut
 Use um dos seguintes métodos para restaurar os pacotes:
 
 - Se você moveu o arquivo de projeto, edite o arquivo diretamente para atualizar as referências do pacote.
-- No Visual Studio, habilite a restauração de pacote selecionando o comando de menu **Ferramentas > Gerenciador de Pacotes do NuGet > Configurações do Gerenciador de Pacotes** marcando ambas as opções em **Restauração de Pacote** e selecionando **OK**. Em seguida, compile a solução novamente.
-- Para projetos do .NET Core, execute `dotnet restore` ou `dotnet build` (que executa automaticamente a restauração).
-- Na linha de comando, execute `nuget restore` (exceto para projetos criados com `dotnet`, caso em que `dotnet restore` deverá ser usado).
-- Na linha de comando com projetos usando o formato PackageReference, execute `msbuild -t:restore`.
+- (Visual Studio) Habilite a restauração de pacote selecionando o comando de menu **Ferramentas > Gerenciador de Pacotes do NuGet > Configurações do Gerenciador de Pacotes** marcando ambas as opções em **Restauração de Pacote** e selecionando **OK**. Em seguida, compile a solução novamente.
+- (CLI do dotnet) Na linha de comando, alterne para a pasta que contém o projeto e execute `dotnet restore` ou `dotnet build` (que executa a restauração automaticamente).
+- (CLI do nuget.exe) Na linha de comando, alterne para a pasta que contém o projeto e execute `nuget restore` (exceto os projetos criados com a CLI do `dotnet`, nesse caso, use `dotnet restore`).
+- (Projetos migrados para PackageReference) Na linha de comando, execute `msbuild -t:restore`.
 
 Após uma restauração bem-sucedida, o pacote deve estar presente na pasta *global-packages*. Em caso de projetos que usam PackageReference, uma restauração deve recriar o arquivo `obj/project.assets.json`; em projetos que usam `packages.config`, o pacote deve aparecer na pasta `packages` do projeto. Nesse momento, o projeto deverá ser compilado com êxito. Caso contrário, [envie um problema no GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) para que possamos acompanhá-lo com você.
 

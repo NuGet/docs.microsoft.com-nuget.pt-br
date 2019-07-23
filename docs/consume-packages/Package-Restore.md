@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3b64c035886818496339fe1bdd8f9abce060278a
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: e85d8cc3fd9492118bd8f34cfd05f20a9724c281
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467805"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842349"
 ---
-# <a name="package-restore"></a>Restauração de pacote
+# <a name="package-restore-options"></a>Opções de restauração de pacote
 
 Para promover um ambiente de desenvolvimento mais limpo e reduzir o tamanho do repositório, a **Restauração de Pacote** do NuGet instala todas as dependências de um projeto listadas no arquivo de projeto ou em `packages.config`. Os comandos `dotnet build` e `dotnet run` do .NET Core 2.0 e posterior fazem uma restauração de pacote automática. O Visual Studio pode restaurar pacotes automaticamente quando ele cria um projeto, e você pode restaurar pacotes a qualquer momento por meio do Visual Studio, de `nuget restore`, de `dotnet restore` e do xbuild no Mono.
 
@@ -27,25 +27,29 @@ Se um pacote ainda não estiver instalado, primeiro, o NuGet tentará recuperá-
 > [!Note]
 > O NuGet não indicará uma falha na restauração de um pacote enquanto todas as origens não forem verificadas. Nesse momento, o NuGet relatará uma falha somente para a última origem na lista. O erro indica que o pacote não estava presente em *nenhuma* das outras origens, mesmo que os erros não sejam mostrados para cada uma dessas fontes individualmente.
 
+## <a name="restore-packages"></a>Restaurar pacotes
+
 Dispare a Restauração de Pacote usando uma das seguintes maneiras:
 
-- **CLI do dotnet**: Use o comando [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) para restaurar os pacotes listados no arquivo de projeto com [PackageReference](../consume-packages/package-references-in-project-files.md). Com o .NET Core 2.0 e posterior, a restauração ocorre automaticamente com os comandos `dotnet build` e `dotnet run`.  
+- **Visual Studio**: No Visual Studio no Windows, use um dos métodos a seguir.
 
-- **Gerenciador de Pacotes**: No Visual Studio no Windows, a Restauração de Pacote ocorre automaticamente quando você cria um projeto com base em um modelo ou compila um projeto, sujeito às opções em [Habilitar e desabilitar a restauração de pacote](#enable-and-disable-package-restore). No NuGet 4.0 e posterior, a restauração também ocorre automaticamente quando você faz alterações em um projeto baseado no SDK do .NET Core.
+    - Restaurar os pacotes automaticamente. A Restauração de Pacote ocorre automaticamente quando você cria um projeto com base em um modelo ou compila um projeto, sujeito às opções em [Habilitar e desabilitar a restauração de pacote](#enable-and-disable-package-restore-visual-studio). No NuGet 4.0 e posterior, a restauração também ocorre automaticamente quando você faz alterações em um projeto do estilo SDK (normalmente um projeto do .NET Core ou .NET Standard).
 
-    Para restaurar pacotes manualmente, no **Gerenciador de Soluções**, clique com o botão direito do mouse na solução e selecione **Restaurar Pacotes NuGet**. Se um ou mais pacotes individuais ainda não estiverem instalados corretamente, o **Gerenciador de Soluções** mostrará um ícone de erro. Clique com o botão direito do mouse e selecione **Gerenciar Pacotes NuGet** e use o **Gerenciador de Pacotes** para desinstalar e reinstalar os pacotes afetados. Para obter mais informações, confira [Reinstalar e atualizar pacotes](../consume-packages/reinstalling-and-updating-packages.md)
+    - Restaurar os pacotes manualmente. Para restaurar manualmente, clique com o botão direito na solução no **Gerenciador de Soluções** e selecione **Restaurar Pacotes NuGet**. Se um ou mais pacotes individuais ainda não estiverem instalados corretamente, o **Gerenciador de Soluções** mostrará um ícone de erro. Clique com o botão direito do mouse e selecione **Gerenciar Pacotes NuGet** e use o **Gerenciador de Pacotes** para desinstalar e reinstalar os pacotes afetados. Para obter mais informações, confira [Reinstalar e atualizar pacotes](../consume-packages/reinstalling-and-updating-packages.md)
 
-    Se você receber o erro "Este projeto referencia pacotes NuGet que estão ausentes deste computador" ou "Um ou mais pacotes NuGet precisam ser restaurados, mas não foi possível fazer isso, pois o consentimento não foi dado", [habilite a restauração automática](#enable-and-disable-package-restore). Confira também [Solução de problemas da Restauração de Pacote](Package-restore-troubleshooting.md).
+    Se você receber o erro "Este projeto referencia pacotes NuGet que estão ausentes deste computador" ou "Um ou mais pacotes NuGet precisam ser restaurados, mas não foi possível fazer isso, pois o consentimento não foi dado", [habilite a restauração automática](#enable-and-disable-package-restore-visual-studio). Além disso, confira [Migrar para restauração automática de pacote](#migrate-to-automatic-package-restore-visual-studio) e [Solução de problemas de restauração de pacote](Package-restore-troubleshooting.md).
 
-- **CLI do nuget.exe**: Use o comando [nuget restore](../tools/cli-ref-restore.md) para restaurar os pacotes listados em um arquivo de projeto ou de solução ou em `packages.config`. 
+- **CLI do dotnet**: Na linha de comando, alterne para a pasta que contém o projeto e use o comando [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) para restaurar os pacotes listados no arquivo de projeto com [PackageReference](../consume-packages/package-references-in-project-files.md). Com o .NET Core 2.0 e posterior, a restauração ocorre automaticamente com os comandos `dotnet build` e `dotnet run`.  
+
+- **CLI do nuget.exe**: Na linha de comando, alterne para a pasta que contém o projeto e use o comando [nuget restore](../tools/cli-ref-restore.md) para restaurar os pacotes listados em um arquivo de projeto ou solução ou no `packages.config`. 
 
 - **MSBuild**: Use o comando [msbuild -t:restore](../reference/msbuild-targets.md#restore-target) para restaurar os pacotes listados no arquivo de projeto com PackageReference. Esse comando só está disponível no NuGet 4.x e posterior e no MSBuild 15.1 e posterior, que estão incluídos no Visual Studio 2017 e em versões superiores. `nuget restore` e `dotnet restore` usam esse comando para projetos aplicáveis.
 
-- **Azure Pipelines**: Ao criar uma definição de build no Azure Pipelines, inclua a tarefa [restore](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) do NuGet ou a tarefa [restore](/azure/devops/pipelines/tasks/build/dotnet-core#restore-nuget-packages) do .NET Core na definição antes de qualquer tarefa de build. Alguns modelos de build incluem a tarefa de restauração por padrão.
+- **Azure Pipelines**: Ao criar uma definição de build no Azure Pipelines, inclua a tarefa [restore](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) do NuGet ou a tarefa [restore](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) do .NET Core na definição antes de qualquer tarefa de build. Alguns modelos de build incluem a tarefa de restauração por padrão.
 
 - **Azure DevOps Server**: O Azure DevOps Server e o TFS 2013 e posterior restaurarão pacotes automaticamente durante o build se você estiver usando um modelo do Team Build do TFS 2013 ou posterior. Para versões anteriores do TFS, você pode incluir uma etapa de build para executar uma opção de restauração de linha de comando ou, opcionalmente, migrar o modelo de build para uma versão posterior. Para obter mais informações, confira [Configurar a restauração de pacote com o Team Foundation Build](../consume-packages/team-foundation-build.md).
 
-## <a name="enable-and-disable-package-restore"></a>Habilitar e desabilitar a restauração de pacote
+## <a name="enable-and-disable-package-restore-visual-studio"></a>Habilitar e desabilitar a restauração de pacote (Visual Studio)
 
 No Visual Studio, você controla a Restauração de Pacote principalmente por meio de **Ferramentas** > **Opções** > **Gerenciador de Pacotes NuGet**:
 
@@ -120,6 +124,25 @@ Para evitar o uso do cache para origens HTTP, siga um destes procedimentos:
 - Use a opção `-NoCache` com `nuget restore` ou a opção `--no-cache` com `dotnet restore`. Essas opções não afetam as operações de restauração por meio do console ou do Gerenciador de Pacotes do Visual Studio.
 - Limpe o cache usando `nuget locals http-cache -clear` ou `dotnet nuget locals http-cache --clear`.
 - Defina temporariamente a variável de ambiente NUGET_HTTP_CACHE_PATH como outra pasta.
+
+## <a name="migrate-to-automatic-package-restore-visual-studio"></a>Migrar para restauração automática de pacote (Visual Studio)
+
+Para o NuGet 2.6 e anterior, havia suporte para uma restauração de pacote integrada ao MSBuild, mas isso não é mais verdade. Normalmente, ele era habilitado clicando com o botão direito do mouse em uma solução no Visual Studio e selecionando **Habilitar restauração de pacote do NuGet**. Se o seu projeto usa a restauração de pacote integrada do MSBuild preterida, migre para a restauração automática de pacote.
+
+Os projetos que usam a restauração de pacote integrada do MSBuild normalmente contêm uma pasta *.nuget* com três arquivos: *NuGet.config*, *nuget.exe* e *NuGet.targets*. A presença de um *NuGet.targets* determina se o NuGet continuará a usar a abordagem integrada do MSBuild, de modo que esse arquivo deve ser removido durante a migração.
+
+Para migrar para restauração automática de pacote:
+
+1. Feche o Visual Studio.
+2. Exclua *.nuget/nuget.exe* e *.nuget/NuGet.targets*.
+3. Para cada arquivo de projeto, remova o elemento `<RestorePackages>` e qualquer referência a *NuGet.targets*.
+
+Para testar a restauração automática de pacote:
+
+1. Remova a pasta *packages* da solução.
+2. Abra a solução no Visual Studio e inicie uma compilação.
+
+   A restauração automática de pacote deve baixar e instalar cada pacote de dependência, sem adicioná-los ao controle do código-fonte.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
