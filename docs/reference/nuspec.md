@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: cd9e223a4ee93552b67e7357afa2ccb4e6fdb432
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317250"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433365"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -170,7 +170,19 @@ Uma lista delimitada por espaço de marcas e palavras-chave que descrevem o paco
 *(3.3 ou superior)* Somente para uso interno do NuGet.
 
 #### <a name="repository"></a>repositório
-Metadados de repositório, que consistem em quatro atributos opcionais: *Type* e *URL* *(4.0 +)* e *Branch* e *Commit* *(4.6 +)* . Esses atributos permitem mapear o. nupkg para o repositório que o criou, com o potencial de ser detalhado como a ramificação individual ou confirmar que criou o pacote. Essa deve ser uma URL disponível publicamente que pode ser invocada diretamente por um software de controle de versão. Ele não deve ser uma página HTML, pois isso é destinado ao computador. Para vincular à página do projeto, use `projectUrl` o campo, em vez disso.
+Metadados de repositório, que consistem em quatro atributos `type` opcionais: e `url` *(4.0 +)* e `branch` e `commit` *(4.6 +)* . Esses atributos permitem mapear o `.nupkg` para o repositório que o criou, com o potencial de ser detalhado como o nome do Branch individual e/ou confirmar o hash SHA-1 que criou o pacote. Essa deve ser uma URL disponível publicamente que pode ser invocada diretamente por um software de controle de versão. Ele não deve ser uma página HTML, pois isso é destinado ao computador. Para vincular à página do projeto, use `projectUrl` o campo, em vez disso.
+
+Por exemplo:
+```xml
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2016/06/nuspec.xsd">
+    <metadata>
+        ...
+        <repository type="git" url="https://github.com/NuGet/NuGet.Client.git" branch="dev" commit="e1c65e4524cd70ee6e22abe33e6cb6ec73938cb3" />
+        ...
+    </metadata>
+</package>
+```
 
 #### <a name="minclientversion"></a>minClientVersion
 Especifica a versão mínima do cliente NuGet que pode instalar esse pacote, imposta pelo nuget.exe e pelo Gerenciador de Pacotes do Visual Studio. Isso é usado sempre que o pacote depender de recursos específicos do arquivo `.nuspec` que foram adicionados em uma versão específica do cliente do NuGet. Por exemplo, um pacote usando o atributo `developmentDependency` deve especificar “2.8” para `minClientVersion`. Da mesma forma, um pacote usando o elemento `contentFiles` (consulte a próxima seção) deve definir `minClientVersion` para “3.3”. Observe também que, como os clientes do NuGet antes de 2.5 não reconhecem esse sinalizador, eles *sempre* recusam instalar o pacote, não importando o que `minClientVersion` contém.
