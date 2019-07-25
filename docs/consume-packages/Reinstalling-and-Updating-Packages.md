@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 9b2a7b299a0cb944ad9045684e14cc7b83e1cff4
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426676"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316971"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Como reinstalar e atualizar pacotes
 
@@ -61,7 +61,7 @@ Em todo os casos, use a notação descrita em [Controle de versão do pacote](..
 
 ## <a name="using-update-package"></a>Usando o Update-Package
 
-Lembre-se das [Considerações](#considerations) descritas abaixo, é possível reinstalar facilmente qualquer pacote usando o [comando Update-Package](../Tools/ps-ref-update-package.md) no Console do Gerenciador de Pacotes do Visual Studio (**Ferramentas** > **Gerenciador de Pacotes do NuGet** > **Console do Gerenciador de Pacotes**):
+Lembre-se das [Considerações](#considerations) descritas abaixo, é possível reinstalar facilmente qualquer pacote usando o [comando Update-Package](../reference/ps-reference/ps-ref-update-package.md) no Console do Gerenciador de Pacotes do Visual Studio (**Ferramentas** > **Gerenciador de Pacotes do NuGet** > **Console do Gerenciador de Pacotes**):
 
 ```ps
 Update-Package -Id <package_name> –reinstall
@@ -97,7 +97,7 @@ Update-Package
 
 Atualizar pacotes em um projeto ou solução usando [PackageReference](../Consume-Packages/Package-References-in-Project-Files.md) sempre atualiza para a versão mais recente do pacote (excluindo pacotes de pré-lançamento). Projetos que usam `packages.config` podem, se desejado, limitar as versões de atualização conforme descrito abaixo em [Restrições de versões de upgrade](#constraining-upgrade-versions).
 
-Para obter detalhes completos sobre o comando, consulte a referência de [Update-Package](../Tools/ps-ref-update-package.md).
+Para obter detalhes completos sobre o comando, consulte a referência de [Update-Package](../reference/ps-reference/ps-ref-update-package.md).
 
 ### <a name="considerations"></a>Considerações
 

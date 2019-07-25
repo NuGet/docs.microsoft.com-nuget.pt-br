@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: e99d42744ec860976ae098be94e747ec4bc9a7c6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 734f0a609f243c7bdb218a53ed664de68c707dd7
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551950"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317654"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -76,7 +76,7 @@ Quando o `packagesPath` for omitido ou deixado em branco, a pasta de pacotes é 
 
 ## <a name="adding-packages-to-the-feed-externally"></a>Adicionar pacotes ao feed externamente
 
-Quando um site do NuGet.Server está em execução, você pode adicionar pacotes usando o comando [nuget push](../tools/cli-ref-push.md), desde que você defina um valor de chave de API em `web.config`.
+Quando um site do NuGet.Server está em execução, você pode adicionar pacotes usando o comando [nuget push](../reference/cli-reference/cli-ref-push.md), desde que você defina um valor de chave de API em `web.config`.
 
 Depois de instalar o pacote do NuGet.Server, o `web.config` contém um valor `appSetting/apiKey` vazio:
 
@@ -104,7 +104,7 @@ Se o servidor já está protegido ou você não exige uma chave de API (por exem
 
 ## <a name="removing-packages-from-the-feed"></a>Removendo pacotes do feed
 
-Com o NuGet.Server, o comando [nuget delete](../tools/cli-ref-delete.md) remove um pacote do repositório, desde que você inclua a chave de API com o comentário.
+Com o NuGet.Server, o comando [nuget delete](../reference/cli-reference/cli-ref-delete.md) remove um pacote do repositório, desde que você inclua a chave de API com o comentário.
 
 Se, em vez disso, você desejar alterar o comportamento para remover o pacote da lista (deixando-o disponível para a restauração de pacote), altere a chave `enableDelisting` em `web.config` para true.
 

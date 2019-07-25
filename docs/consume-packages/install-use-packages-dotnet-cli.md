@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 64f3a1978cd336064a77c9f3872357e65c37fc10
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: a796c7a7537c3052259c7cf3f17d60981a495442
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842356"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317710"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Instalar e gerenciar pacotes usando a CLI do dotnet
 
@@ -18,7 +18,7 @@ A ferramenta CLI permite que você instale, desinstale e atualize pacotes NuGet 
 
 A CLI do dotnet destina-se ao uso em seu projeto .NET Core e .NET Standard (tipos de projeto no estilo SDK) e a todos os outros projetos no estilo SDK (por exemplo, um projeto no estilo SDK direcionado ao .NET Framework). Para obter mais informações, confira [Atributo SDK](/dotnet/core/tools/csproj#additions).
 
-Este artigo mostra o uso básico de alguns dos comandos mais comuns da CLI do dotnet. Para a maioria desses comandos, a ferramenta CLI procura um arquivo de projeto no diretório atual, a menos que um arquivo de projeto seja especificado no comando (o arquivo de projeto é uma opção facultativa). Para obter uma lista completa de comandos e os argumentos que podem ser usados, confira [Ferramentas da CLI (interface de linha de comando) do .NET Core](../tools/dotnet-commands.md).
+Este artigo mostra o uso básico de alguns dos comandos mais comuns da CLI do dotnet. Para a maioria desses comandos, a ferramenta CLI procura um arquivo de projeto no diretório atual, a menos que um arquivo de projeto seja especificado no comando (o arquivo de projeto é uma opção facultativa). Para obter uma lista completa de comandos e os argumentos que podem ser usados, confira [Ferramentas da CLI (interface de linha de comando) do .NET Core](../reference/dotnet-commands.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

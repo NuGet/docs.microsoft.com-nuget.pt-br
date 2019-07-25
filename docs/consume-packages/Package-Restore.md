@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: e85d8cc3fd9492118bd8f34cfd05f20a9724c281
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 0df2b0ebcf438fba99291558f1cf929dcb32618b
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842349"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316983"
 ---
 # <a name="package-restore-options"></a>Opções de restauração de pacote
 
@@ -41,7 +41,7 @@ Dispare a Restauração de Pacote usando uma das seguintes maneiras:
 
 - **CLI do dotnet**: Na linha de comando, alterne para a pasta que contém o projeto e use o comando [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) para restaurar os pacotes listados no arquivo de projeto com [PackageReference](../consume-packages/package-references-in-project-files.md). Com o .NET Core 2.0 e posterior, a restauração ocorre automaticamente com os comandos `dotnet build` e `dotnet run`.  
 
-- **CLI do nuget.exe**: Na linha de comando, alterne para a pasta que contém o projeto e use o comando [nuget restore](../tools/cli-ref-restore.md) para restaurar os pacotes listados em um arquivo de projeto ou solução ou no `packages.config`. 
+- **CLI do nuget.exe**: Na linha de comando, alterne para a pasta que contém o projeto e use o comando [nuget restore](../reference/cli-reference/cli-ref-restore.md) para restaurar os pacotes listados em um arquivo de projeto ou solução ou no `packages.config`. 
 
 - **MSBuild**: Use o comando [msbuild -t:restore](../reference/msbuild-targets.md#restore-target) para restaurar os pacotes listados no arquivo de projeto com PackageReference. Esse comando só está disponível no NuGet 4.x e posterior e no MSBuild 15.1 e posterior, que estão incluídos no Visual Studio 2017 e em versões superiores. `nuget restore` e `dotnet restore` usam esse comando para projetos aplicáveis.
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8da57dc295ea78f2eb183226fc9b2f4a37e3f5db
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426629"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317765"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gerenciar os limites de confiança do pacote
 
@@ -24,7 +24,7 @@ Os pacotes assinados não exigem nenhuma ação específica para serem instalado
 > [!Note]
 > Requer o NuGet 4.9.0+ e o Visual Studio versão 15.9 e posterior no Windows
 
-Você pode configurar o modo como os clientes do NuGet validam assinaturas de pacote, definindo o `signatureValidationMode` para `require` no arquivo [nuget.config](../reference/nuget-config-file.md) usando o comando [`nuget config`](../tools/cli-ref-config.md).
+Você pode configurar o modo como os clientes do NuGet validam assinaturas de pacote, definindo o `signatureValidationMode` para `require` no arquivo [nuget.config](../reference/nuget-config-file.md) usando o comando [`nuget config`](../reference/cli-reference/cli-ref-config.md).
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ Esse modo vai verificar se todos os pacotes são assinados por qualquer um dos c
 
 ### <a name="trust-package-author"></a>Confiar no autor do pacote
 
-Para confiar em pacotes com base na assinatura do autor, use o comando [`trusted-signers`](../tools/cli-ref-trusted-signers.md) para definir a propriedade `author` no nuget.config.
+Para confiar em pacotes com base na assinatura do autor, use o comando [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) para definir a propriedade `author` no nuget.config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->Use o [comando verify](../tools/cli-ref-verify.md) `nuget.exe` para obter o valor `SHA256` da impressão digital do certificado.
+>Use o [comando verify](../reference/cli-reference/cli-ref-verify.md) `nuget.exe` para obter o valor `SHA256` da impressão digital do certificado.
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>Confiar em todos os pacotes de um repositório
@@ -95,7 +95,7 @@ Em algumas situações, convém habilitar a verificação usando certificados n�
 
 ### <a name="sync-repository-certificates"></a>Sincronizar certificados do repositório
 
-Os repositórios de pacote devem anunciar os certificados que eles usam em seu [índice de serviço](../api/service-index.md). Eventualmente, o repositório atualizará esses certificados, por exemplo, quando o certificado expirar. Quando isso acontecer, os clientes com políticas específicas exigirão uma atualização à configuração a fim de incluir o certificado recém-adicionado. Você pode atualizar facilmente os signatários confiáveis associados a um repositório usando o [comando trusted-signers sync](../tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-) `nuget.exe`.
+Os repositórios de pacote devem anunciar os certificados que eles usam em seu [índice de serviço](../api/service-index.md). Eventualmente, o repositório atualizará esses certificados, por exemplo, quando o certificado expirar. Quando isso acontecer, os clientes com políticas específicas exigirão uma atualização à configuração a fim de incluir o certificado recém-adicionado. Você pode atualizar facilmente os signatários confiáveis associados a um repositório usando o [comando trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-) `nuget.exe`.
 
 ### <a name="schema-reference"></a>Referência de esquema
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8cd7529c4a1ecf659abde03fb1632e26431aebf3
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426747"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317020"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Localizando e avaliando pacotes do NuGet para o seu projeto
 
@@ -40,7 +40,7 @@ Alguns pacotes listam suas estruturas compatíveis diretamente na galeria do nug
 
 Felizmente, é possível determinar estruturas compatíveis por meio de dois outros meios:
 
-1. Tentativa de instalar um pacote em um projeto usando o comando [`Install-Package`](../tools/ps-ref-install-package.md) no Console do Gerenciador de Pacotes do NuGet. Se o pacote for incompatível, este comando mostrará as estruturas compatíveis com o pacote.
+1. Tentativa de instalar um pacote em um projeto usando o comando [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) no Console do Gerenciador de Pacotes do NuGet. Se o pacote for incompatível, este comando mostrará as estruturas compatíveis com o pacote.
 
 1. Baixe o pacote da sua página no nuget.org usando o link de **Download manual** em **Informações**. Altere a extensão de `.nupkg` para `.zip` e abra o arquivo para examinar o conteúdo da sua pasta `lib`. Lá você verá as subpastas para cada estrutura compatível, em que cada subpasta é chamada com um moniker da estrutura de destino (TFM; veja [Estruturas de destino](../reference/target-frameworks.md)). Se você não encontrar nenhuma subpasta em `lib` e apenas uma única DLL, será preciso tentar instalar o pacote no seu projeto para descobrir a compatibilidade dele.
 
@@ -58,9 +58,9 @@ No Visual Studio e ao usar a CLI do NuGet e ferramentas da CLI dotnet, o NuGet n
 
     ![A caixa de seleção Incluir pré-lançamento no Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-- **Console do Gerenciador de Pacotes**: Use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../tools/powershell-reference.md).
+- **Console do Gerenciador de Pacotes**: Use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
 
-- **CLI do nuget.exe**: Use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../tools/nuget-exe-cli-reference.md)
+- **CLI do nuget.exe**: Use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
 
 - **CLI do dotnet.exe**: Especifique a versão de pré-lançamento exata usando o argumento `-v`. Veja a [referência de dotnet add package](/dotnet/core/tools/dotnet-add-package).
 

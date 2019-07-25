@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: abdd06642ccc652527a1a005eda2689ce97df74c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 85a862852761b68db882abdc1ca0e84d83d95f07
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426817"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317634"
 ---
 # <a name="signing-nuget-packages"></a>Assinando pacotes NuGet
 
@@ -36,7 +36,7 @@ Você pode usar certificados emitidos por conta própria para fins de teste. No 
 > [!note]
 > Requer o nuget.exe 4.6.0 ou posterior
 
-Assinar o pacote usando [nuget sign](../tools/cli-ref-sign.md):
+Assinar o pacote usando [nuget sign](../reference/cli-reference/cli-ref-sign.md):
 
 ```cli
 nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
@@ -45,9 +45,9 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 > [!Tip]
 > Geralmente, o provedor de certificado também fornece uma URL de servidor de carimbo de data/hora que pode ser usada para o argumento opcional `Timestamper` mostrado acima. Consulte a documentação e/ou o suporte do seu provedor para essa URL de serviço.
 
-* Você pode usar um certificado disponível no repositório de certificados ou usar um certificado de um arquivo. Consulte a CLI de referência para [nuget sign](../tools/cli-ref-sign.md).
+* Você pode usar um certificado disponível no repositório de certificados ou usar um certificado de um arquivo. Consulte a CLI de referência para [nuget sign](../reference/cli-reference/cli-ref-sign.md).
 * Os pacotes assinados devem incluir um carimbo de data/hora para assegurar que a assinatura permaneça válida quando o certificado de autenticação expira. Caso contrário, a operação de entrada produzirá um [aviso](../reference/errors-and-warnings/NU3002.md).
-* Você pode usar [nuget verify](../tools/cli-ref-verify.md) para ver os detalhes da assinatura de um determinado pacote.
+* Você pode usar [nuget verify](../reference/cli-reference/cli-ref-verify.md) para ver os detalhes da assinatura de um determinado pacote.
 
 ## <a name="register-the-certificate-on-nugetorg"></a>Registrar o certificado em NuGet.org
 
