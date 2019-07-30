@@ -1,16 +1,16 @@
 ---
-title: Criar e publicar um pacote .NET Framework usando o Visual Studio no Windows
+title: Criar e publicar um pacote do NuGet do .NET Framework usando o Visual Studio no Windows
 description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Framework usando o Visual Studio no Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842062"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342514"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Início Rápido: Criar e publicar um pacote usando o Visual Studio (.NET Framework, Windows)
 
@@ -162,7 +162,7 @@ Depois de ter um arquivo `.nupkg`, publique-o no nuget.org usando `nuget.exe` ju
     Your package was pushed.
     ```
 
-Confira [nuget push](../tools/cli-ref-push.md).
+Confira [nuget push](../reference/cli-reference/cli-ref-push.md).
 
 ### <a name="publish-errors"></a>Erros de publicação
 
@@ -172,9 +172,15 @@ Confira [nuget push](../tools/cli-ref-push.md).
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>Tópicos relacionados
+## <a name="next-steps"></a>Próximas etapas
 
-- [Criar um pacote](../create-packages/creating-a-package.md)
+Parabéns por criar seu primeiro pacote do NuGet!
+
+> [!div class="nextstepaction"]
+> [Criar um pacote](../create-packages/creating-a-package.md)
+
+Para ver o que mais o NuGet tem a oferecer, selecione os links abaixo.
+
 - [Publicar um pacote](../nuget-org/publish-a-package.md)
 - [Pacotes de pré-lançamento](../create-packages/Prerelease-Packages.md)
 - [Suporte a várias estruturas de destino](../create-packages/supporting-multiple-target-frameworks.md)

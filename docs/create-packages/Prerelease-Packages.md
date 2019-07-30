@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 845f0ea84bcb92fedf9e5f4fb2b1deee1462a004
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 726f983c2522fdb538dfce858fdf2371ec0ce188
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610489"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433339"
 ---
 # <a name="building-pre-release-packages"></a>Compilando pacotes de pré-lançamento
 
@@ -24,7 +24,7 @@ Para dar suporte ao ciclo de vida de versão de software, o NuGet 1.6 e posterio
 
 Você pode especificar essas versões usando uma das seguintes maneiras:
 
-- **Se seu projeto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)**: incluir o sufixo de versão semântica no elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) do arquivo `.csproj`:
+- **Se seu projeto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)** : incluir o sufixo de versão semântica no elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) do arquivo `.csproj`:
 
     ```xml
     <PropertyGroup>
@@ -32,7 +32,7 @@ Você pode especificar essas versões usando uma das seguintes maneiras:
     </PropertyGroup>
     ```
 
-- **Se seu projeto usa um arquivo [`packages.config`](../reference/packages-config.md)**: incluir o sufixo de versão semântica no elemento [`version`](../reference/nuspec.md#version) do arquivo [`.nuspec`](../reference/nuspec.md):
+- **Se seu projeto usa um arquivo [`packages.config`](../reference/packages-config.md)** : incluir o sufixo de versão semântica no elemento [`version`](../reference/nuspec.md#version) do arquivo [`.nuspec`](../reference/nuspec.md):
 
     ```xml
     <version>1.0.1-alpha</version>
@@ -50,9 +50,9 @@ Por padrão, o NuGet não inclui as versões de pré-lançamento ao trabalhar co
 
     Definir ou desmarcar esta caixa atualizará a interface do usuário do Gerenciador de Pacotes e a lista de versões disponíveis que você pode instalar.
 
-- **Console do Gerenciador de Pacotes**: Use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../tools/powershell-reference.md).
+- **Console do Gerenciador de Pacotes**: Use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
 
-- **CLI do NuGet**: Use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../tools/nuget-exe-cli-reference.md)
+- **CLI do NuGet**: Use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
 
 ## <a name="semantic-versioning"></a>Controle de versão semântico
 
@@ -81,10 +81,12 @@ Qualquer sufixo que você usar, no entanto, receberá precedência do NuGet cem 
     1.0.1-zzz
     1.0.1-rc
     1.0.1-open
-    1.0.1-beta12
-    1.0.1-beta05
+    1.0.1-beta.12
+    1.0.1-beta.5
     1.0.1-beta
-    1.0.1-alpha2
+    1.0.1-alpha.2
     1.0.1-alpha
 
-Conforme mostrado, a versão sem nenhum sufixo sempre terá precedência sobre as versões de pré-lançamento. Observe também que, se você usar sufixos numéricos com marcas de pré-lançamento que podem usar números de dois dígitos (ou mais), use zeros à esquerda como beta01 e beta05 para garantir que eles sejam classificados corretamente quando os números aumentarem.
+Conforme mostrado, a versão sem nenhum sufixo sempre terá precedência sobre as versões de pré-lançamento.
+
+Zeros à esquerda não são necessários com semver2, mas são com o esquema de versão antiga. Se você usar sufixos numéricos com marcas de pré-lançamento que possam vir a usar números de dois dígitos (ou mais), use zeros à esquerda (como “beta.01” e “beta.05”) para garantir que sejam classificados corretamente quando os números aumentarem. Essa recomendação só se aplica ao esquema de versão antiga.

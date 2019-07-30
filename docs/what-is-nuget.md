@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: e11eed5c614a7634fa578ebc84c3ab2068522fe2
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e8e806e0a893d62d9d3189396dc47250ae9c8cf3
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842200"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68420024"
 ---
 # <a name="an-introduction-to-nuget"></a>Uma introdução ao NuGet
 
@@ -45,10 +45,10 @@ Além da compatibilidade com a hospedagem, o NuGet também fornece uma variedade
 
 | Ferramenta | Plataformas | Cenários Aplicáveis | DESCRIÇÃO |
 | --- | --- | --- | --- |
-| [CLI do dotnet](consume-packages/install-use-packages-dotnet-cli.md) | Todos | Criação, Consumo | Ferramenta CLI para bibliotecas .NET Core e .NET Standard, em [projetos no estilo SDK](resources/check-project-format.md) que se destinam ao .NET Framework. Fornece certas funcionalidades da CLI do NuGet diretamente na cadeia de ferramentas do .NET Core. Assim como ocorre com a CLI do NuGet, a CLI do dotnet não interage com projetos do Visual Studio. |
-| [CLI do nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Todos | Criação, Consumo | Ferramenta CLI para bibliotecas do .NET Framework e [projetos no estilo não SDK](resources/check-project-format.md) que se destinam a bibliotecas do .NET Standard. Fornece todos os recursos do NuGet, com alguns comandos de que aplicam especificamente aos criadores de pacote, alguns somente aos consumidores e outros a ambos. Por exemplo, os criadores de pacote usam o comando `nuget pack` para criar um pacote de vários assemblies e arquivos relacionados, os consumidores de pacote usam `nuget install` para incluir pacotes em uma pasta do projeto e todos usam `nuget config` para definir as variáveis de configuração do NuGet. Como uma ferramenta independente de plataforma, a CLI do NuGet não interage com projetos do Visual Studio. |
-| [Console do gerenciador de pacotes](tools/package-manager-console.md) | Visual Studio no Windows | Consumo | Fornece [comandos do PowerShell](tools/Powershell-Reference.md) para instalar e gerenciar pacotes em projetos do Visual Studio. |
-| [Interface do usuário do Gerenciador de Pacotes](tools/package-manager-ui.md) | Visual Studio no Windows | Consumo | Fornece uma IU fácil de usar para instalar e gerenciar pacotes em projetos do Visual Studio. |
+| [CLI do dotnet](consume-packages/install-use-packages-dotnet-cli.md) | Todos | Criação, Consumo | Ferramenta CLI para bibliotecas .NET Core e .NET Standard, em projetos no estilo SDK que se destinam ao .NET Framework (confira o [atributo do SDK](/dotnet/core/tools/csproj#additions)). Fornece certas funcionalidades da CLI do NuGet diretamente na cadeia de ferramentas do .NET Core. Assim como ocorre com a CLI `nuget.exe`, a CLI dotnet não interage com projetos do Visual Studio. |
+| [CLI do nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Todos | Criação, Consumo | Ferramenta CLI para bibliotecas do .NET Framework e projetos no estilo não SDK que se destinam a bibliotecas do .NET Standard. Fornece todos os recursos do NuGet, com alguns comandos de que aplicam especificamente aos criadores de pacote, alguns somente aos consumidores e outros a ambos. Por exemplo, os criadores de pacote usam o comando `nuget pack` para criar um pacote de vários assemblies e arquivos relacionados, os consumidores de pacote usam `nuget install` para incluir pacotes em uma pasta do projeto e todos usam `nuget config` para definir as variáveis de configuração do NuGet. Como uma ferramenta independente de plataforma, a CLI do NuGet não interage com projetos do Visual Studio. |
+| [Console do gerenciador de pacotes](consume-packages/install-use-packages-powershell.md) | Visual Studio no Windows | Consumo | Fornece [comandos do PowerShell](reference/Powershell-Reference.md) para instalar e gerenciar pacotes em projetos do Visual Studio. |
+| [Interface do usuário do Gerenciador de Pacotes](consume-packages/install-use-packages-visual-studio.md) | Visual Studio no Windows | Consumo | Fornece uma IU fácil de usar para instalar e gerenciar pacotes em projetos do Visual Studio. |
 | [Gerenciar a interface do usuário do NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio para Mac | Consumo | Fornece uma IU fácil de usar para instalar e gerenciar pacotes em projetos do Visual Studio para Mac. |
 | [MSBuild](reference/msbuild-targets.md) | Windows | Criação, Consumo | Fornece a capacidade de criar e restaurar os pacotes usados em um projeto diretamente por meio da cadeia de ferramentas do MSBuild. |
 

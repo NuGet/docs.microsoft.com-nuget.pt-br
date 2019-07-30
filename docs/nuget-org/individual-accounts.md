@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e1e31e0534706dab43f8d7b1b0db059cd6f29b80
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427131"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419875"
 ---
 # <a name="individual-accounts"></a>Contas individuais
 
@@ -45,3 +45,27 @@ Para criar uma conta do NuGet.org, você precisa ter uma MSA (conta Microsoft pe
 1. Clique no botão **Registrar**.
 
 Agora você tem uma conta do NuGet.org. Realize o gerenciamento de contas na página de [configurações da conta](https://www.nuget.org/account).
+
+## <a name="enable-two-factor-authentication-2fa"></a>Habilitar a autenticação de dois fatores (2FA)
+
+Para proteger melhor sua conta, habilite a autenticação de dois fatores (recomendada).
+
+1. Depois de entrar em sua conta, abra seu perfil e escolha **Habilitar** em **Conta de logon**.
+
+   ![Habilitar 2FA](media/nuget-org-register-2fa.png)
+
+   Você verá uma mensagem informando que, na próxima vez que entrar em *nuget.org*, serão solicitadas credenciais adicionais.
+
+2. Para concluir a autenticação neste momento, saia e entre novamente.
+
+3. Ao entrar, escolha se deseja receber uma mensagem de texto ou email como uma segunda forma de autenticação.
+
+   Verifique o número de telefone ou email já associados à sua conta Microsoft. Talvez seja necessário inserir um novo número de telefone ou email para sua conta. Nesse caso, insira as informações necessárias como instruído e clique em **Avançar**.
+
+   ![Habilitar 2FA](media/nuget-org-sign-in-2fa.png)
+
+4. Verifique seu dispositivo ou conta de email e insira o código que você acabou de receber.
+
+   ![Habilitar 2FA](media/nuget-org-enter-code-2fa.png)
+
+5. Siga as instruções adicionais para concluir a autenticação de dois fatores.

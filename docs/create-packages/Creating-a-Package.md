@@ -1,24 +1,24 @@
 ---
-title: Como criar um pacote do NuGet
+title: Criar um pacote do NuGet usando a CLI nuget.exe
 description: Um guia detalhado para o processo de design e criação de um pacote do NuGet, incluindo os principais pontos de decisão como arquivos e controle de versão.
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1dce8556448131c36680167fdc3605e4378b9178
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842301"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419819"
 ---
-# <a name="create-nuget-packages"></a>Criar pacotes NuGet
+# <a name="create-a-package-using-the-nugetexe-cli"></a>Criar um pacote usando a CLI nuget.exe
 
 Independentemente do pacote ou do código que ele contém, use uma das ferramentas de CLI, seja `nuget.exe` ou `dotnet.exe`, para empacotar essa funcionalidade em um componente que possa ser compartilhado e usado por diversos desenvolvedores. Para instalar as ferramentas de CLI do NuGet, confira [Instalar ferramentas de cliente do NuGet](../install-nuget-client-tools.md). Observe que o Visual Studio não inclui automaticamente uma ferramenta de CLI.
 
-- Para projetos .NET Core e .NET Standard que usam projetos no [formato de estilo SDK](../resources/check-project-format.md) e quaisquer outros estilos SDK, o NuGet usa as informações do arquivo de projeto diretamente para criar um pacote. Para ver etapas detalhadas, confira [Criar pacotes do .NET Standard Packages com a CLI do dotnet](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md), [Criar pacotes do .NET Standard Packages com o Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md) ou [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).
+- Para projetos no estilo não SDK, normalmente projetos do .NET Framework, siga as etapas descritas neste artigo para criar um pacote. Para saber mais sobre como usar o Visual Studio e a CLI `nuget.exe`, confira [Criar e publicar um pacote do .NET Framework](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md).
 
-- Para projetos no estilo não SDK, normalmente projetos do .NET Framework, siga as etapas descritas neste artigo para criar um pacote. Você também pode seguir as etapas em [Criar e publicar um pacote do .NET Framework](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md) para criar um pacote usando a CLI do `nuget.exe` e o Visual Studio.
+- Para projetos .NET Core e .NET Standard que usam o [formato de estilo SDK](../resources/check-project-format.md) e quaisquer outros projetos de estilo SDK, confira [Criar um pacote do NuGet usando a CLI dotnet](creating-a-package-dotnet-cli.md).
 
 - Para projetos migrados de `packages.config` para [PackageReference](../consume-packages/package-references-in-project-files.md), use [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
@@ -65,7 +65,7 @@ Propriedades opcionais comuns:
 
 - Notas de Versão
 - Informações de direitos autorais
-- Uma breve descrição para a [Interface do usuário do Gerenciador de Pacotes no Visual Studio](../tools/package-manager-ui.md)
+- Uma breve descrição para a [Interface do usuário do Gerenciador de Pacotes no Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - Uma identificação de localidade
 - URL de Projeto
 - Licença como uma expressão ou um arquivo (`licenseUrl` está sendo preterido, use o elemento de metadados de nuspec [`license`](../reference/nuspec.md#license))
@@ -369,7 +369,7 @@ Depois que o `nuget pack` for bem-sucedido, você tem um arquivo `.nupkg` que po
 
 ### <a name="additional-options"></a>Opções adicionais
 
-Você pode usar várias opções de linha de comando com `nuget pack` para excluir arquivos, substituir o número de versão no manifesto e alterar a pasta de saída, entre outros recursos. Para ver uma lista completa, consulte a [referência de comandos do pacote](../tools/cli-ref-pack.md).
+Você pode usar várias opções de linha de comando com `nuget pack` para excluir arquivos, substituir o número de versão no manifesto e alterar a pasta de saída, entre outros recursos. Para ver uma lista completa, consulte a [referência de comandos do pacote](../reference/cli-reference/cli-ref-pack.md).
 
 As opções a seguir são algumas das escolhas comuns nos projetos do Visual Studio:
 
@@ -404,7 +404,7 @@ Você pode testar instalações manualmente no Visual Studio ou na linha de coma
 Para testes automatizados, o processo básico é o seguinte:
 
 1. Copie o arquivo `.nupkg` para uma pasta local.
-1. Adicione a pasta às origens de pacote usando o comando `nuget sources add -name <name> -source <path>` (consulte [origens do nuget](../tools/cli-ref-sources.md)). Observe que é preciso apenas configurar essa origem local uma vez em qualquer computador.
+1. Adicione a pasta às origens de pacote usando o comando `nuget sources add -name <name> -source <path>` (consulte [origens do nuget](../reference/cli-reference/cli-ref-sources.md)). Observe que é preciso apenas configurar essa origem local uma vez em qualquer computador.
 1. Instale o pacote da origem usando `nuget install <packageID> -source <name>` em que `<name>` corresponde ao nome de sua origem conforme fornecido para `nuget sources`. Especificar a origem garante que o pacote seja instalado somente dela.
 1. Examine seu sistema de arquivos para verificar se os arquivos estão instalados corretamente.
 

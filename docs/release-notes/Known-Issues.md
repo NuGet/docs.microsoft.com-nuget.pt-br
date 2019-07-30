@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fc338ba3810a125f638a937cf14456bf519a24a8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548468"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317139"
 ---
 # <a name="known-issues-with-nuget"></a>Problemas conhecidos com o NuGet
 
@@ -29,7 +29,7 @@ $PAT = "Seu token de acesso pessoal" $Feed = "Sua url" .\nuget.exe sources add -
 
 **Solução alternativa:**
 
-Armazenar senhas em texto não criptografado usando a opção [-StorePasswordInClearText](../tools/cli-ref-sources.md).
+Armazenar senhas em texto não criptografado usando a opção [-StorePasswordInClearText](../reference/cli-reference/cli-ref-sources.md).
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>Erro ao instalar pacotes com o NuGet 3.4, 3.4.1
 
@@ -45,7 +45,7 @@ O arquivo `NuGet.Config` na pasta `%AppData%\NuGet\` (Windows) ou `~/.nuget/` (M
 
 **Problema:**
 
-No NuGet 2.7 ou superior, quando você tenta instalar qualquer pacote que contém as referências de assembly, receberá a mensagem de erro **“A cadeia de caracteres de entrada não estava no formato correto.”**, como mostrado abaixo:
+No NuGet 2.7 ou superior, quando você tenta instalar qualquer pacote que contém as referências de assembly, receberá a mensagem de erro **“A cadeia de caracteres de entrada não estava no formato correto.”** , como mostrado abaixo:
 
 ```ps
 install-package log4net
@@ -63,7 +63,7 @@ install-package log4net
 
 Isso é causado pela biblioteca de tipos para o componente COM de `VSLangProj.dll` cujo registro está sendo cancelado no sistema. Isso pode acontecer, por exemplo, quando você tem duas versões do Visual Studio instaladas lado a lado e desinstala a versão mais antiga. Isso pode inadvertidamente cancelar o registro das biblioteca COM acima.
 
-**Solução:**:
+**Solução:** :
 
 Execute este comando de um **prompt com privilégios elevados** para registrar novamente a biblioteca de tipos para `VSLangProj.dll`
 
@@ -75,7 +75,7 @@ Para obter mais informações sobre esse erro, consulte [item de trabalho](https
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Falha de build após a atualização de pacote no VS 2012
 
-O problema: você está usando o VS 2012 RTM. Ao atualizar pacotes do NuGet, você receberá esta mensagem: “não foi possível concluir a desinstalação de um ou mais pacotes”. e é solicitado que você reinicie o Visual Studio. Após a reinicialização do VS, você receberá erros de build estranhos.
+O problema: Você está usando o VS 2012 RTM. Ao atualizar os pacotes do NuGet, recebe esta mensagem: "Não foi possível concluir a desinstalação de um ou mais pacotes." e é solicitado que você reinicie o Visual Studio. Após a reinicialização do VS, você receberá erros de build estranhos.
 
 A causa é que certos arquivos dos pacotes antigo estão bloqueados por um processo do MSBuild em segundo plano. Mesmo depois de reiniciar o VS, o processo de MSBuild em segundo plano ainda usa os arquivos nos pacotes antigos, causando falhas de build.
 
@@ -134,7 +134,7 @@ ou
 
 Entramos em contato com o autor do suplemento em busca de negociarmos uma resolução.
 
-<p class="info">Atualização: verificamos que a versão mais recente do Reflector, 6.5, não causa mais essa exceção no console.</p>
+<p class="info">Atualização: verificamos que a versão mais recente do Reflector, a 6.5, não causa mais essa exceção no console.</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>Falha ao abrir o Console do Gerenciador de Pacotes com a exceção ObjectSecurity
 

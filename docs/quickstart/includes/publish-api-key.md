@@ -1,12 +1,14 @@
 ---
-ms.openlocfilehash: 5acdc54726e4cb07794f8ee07d5e0d357ff622a3
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 20851cd71cc5eb6735fe5e0cd8b0f314f9100be4
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842051"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419905"
 ---
 1. [Entre em sua conta do nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) ou crie uma conta, se você não tiver uma.
+
+   Para saber mais sobre como criar sua conta, confira [Contas individuais](../../nuget-org/individual-accounts.md).
 
 1. Selecione seu nome de usuário (no canto superior direito) e selecione **Chaves de API**.
 
@@ -18,4 +20,4 @@ ms.locfileid: "67842051"
 
 1. **Importante**: salve sua chave em um local seguro, pois não será possível copiar a chave novamente no futuro. Se você retornar à página da chave de API, será necessário gerar novamente a chave para copiá-la. Também é possível remover a chave de API, se você não quiser mais efetuar push de pacotes por meio da CLI.
 
-Os escopos permitem criar chaves de API separadas para finalidades diferentes. Cada chave tem seu período de expiração e pode ter o escopo definido para pacotes específicos (ou padrões glob). Cada chave também pode ter o escopo definido para operações específicas: push de novos pacotes e atualizações, push somente de atualizações ou remoção de lista. Por meio de escopo, é possível criar chaves de API para diferentes pessoas que gerenciam os pacotes para a sua organização, de modo que elas tenham somente as permissões necessárias. Para saber mais, veja [Introdução às chaves de API com escopo](https://blog.nuget.org/20170202/introducing-scoped-api-keys.html) (blogs.nuget.org).
+Os escopos permitem criar chaves de API separadas para finalidades diferentes. Cada chave tem seu período de expiração e pode ter o escopo definido para pacotes específicos (ou padrões glob). Cada chave também pode ter o escopo definido para operações específicas: push de novos pacotes e atualizações, push somente de atualizações ou remoção de lista. Por meio de escopo, é possível criar chaves de API para diferentes pessoas que gerenciam os pacotes para a sua organização, de modo que elas tenham somente as permissões necessárias. Para saber mais, confira [Chaves de API com escopo](../../nuget-org/scoped-api-keys.md).

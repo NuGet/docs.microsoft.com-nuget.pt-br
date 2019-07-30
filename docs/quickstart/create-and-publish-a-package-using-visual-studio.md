@@ -1,16 +1,16 @@
 ---
-title: Criar e publicar um pacote .NET Standard usando o Visual Studio no Windows
+title: Criar e publicar um pacote do NuGet do .NET Standard usando o Visual Studio no Windows
 description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Standard usando o Visual Studio no Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: d9eccfa373a5a283542fd158e76ba74b1872f3d6
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842143"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419907"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Início Rápido: Criar e publicar um pacote do NuGet usando o Visual Studio (.NET Standard somente no Windows)
 
@@ -21,9 +21,9 @@ Criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale qualquer edição do Visual Studio 2017 ou superior de [visualstudio.com](https://www.visualstudio.com/) usando qualquer carga de trabalho relacionada ao .NET. O Visual Studio 2017 e superior incluem automaticamente os recursos do NuGet quando uma carga de trabalho do .NET é instalada.
+1. Instale qualquer edição do Visual Studio 2017 ou superior de [visualstudio.com](https://www.visualstudio.com/) com a carga de trabalho relacionada ao .NET Core.
 
-1. Instale a CLI do `dotnet`.
+1. Instale a CLI `dotnet`, se ainda não estiver instalada.
 
    Para a CLI do `dotnet`, a partir do Visual Studio 2017, a CLI do `dotnet` é instalada automaticamente com qualquer carga de trabalho relacionada ao .NET Core. Caso contrário, instale o [SDK do .NET Core](https://www.microsoft.com/net/download/) para ter a CLI do `dotnet`. A CLI `dotnet` é necessária para projetos do .NET Standard que usam o [formato de estilo SDK](../resources/check-project-format.md) (atributo do SDK). O modelo padrão de biblioteca de classes no Visual Studio 2017 e superior, que é usado neste artigo, usa o atributo SDK.
    
@@ -150,7 +150,7 @@ Esta etapa é uma alternativa ao uso de `dotnet.exe`.
     Your package was pushed.
     ```
 
-Confira [nuget push](../tools/cli-ref-push.md).
+Confira [nuget push](../reference/cli-reference/cli-ref-push.md).
 
 ### <a name="publish-errors"></a>Erros de publicação
 
@@ -185,7 +185,7 @@ Isso incluirá um arquivo chamado `readme.txt` na raiz do pacote. O Visual Studi
 - [Criar um pacote](../create-packages/creating-a-package.md)
 - [Publicar um pacote](../nuget-org/publish-a-package.md)
 - [Pacotes de pré-lançamento](../create-packages/Prerelease-Packages.md)
-- [Suporte a várias estruturas de destino](../create-packages/supporting-multiple-target-frameworks.md)
+- [Suporte a várias estruturas de destino](../create-packages/multiple-target-frameworks-project-file.md)
 - [Controle de versão do pacote](../reference/package-versioning.md)
 - [Criando pacotes localizados](../create-packages/creating-localized-packages.md)
 - [Documentação da Biblioteca do .NET Standard](/dotnet/articles/standard/library)

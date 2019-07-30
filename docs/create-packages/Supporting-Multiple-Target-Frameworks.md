@@ -3,22 +3,22 @@ title: Multiplataforma para pacotes do NuGet
 description: Descrição dos diversos métodos para várias versões do .NET Framework de dentro de um único pacote do NuGet.
 author: karann-msft
 ms.author: karann
-ms.date: 09/27/2017
+ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: d12b12c4670f5dcb4c1e7e475d77926bd5d3935b
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324806"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342504"
 ---
-# <a name="supporting-multiple-net-framework-versions"></a>Suporte a várias versões do .NET Framework
+# <a name="support-multiple-net-versions"></a>Suporte a várias versões do .NET
 
-*Para projetos do .NET Core que usam o NuGet 4.0 ou superior, consulte [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md) para ver detalhes sobre direcionamento cruzado.*
+Muitas bibliotecas se destinam a uma versão específica do .NET Framework. Por exemplo, você pode ter uma versão da biblioteca específica para a UWP e outra versão para aproveitar os recursos no .NET Framework 4.6. Para acomodar isso, o NuGet é compatível com a colocação de várias versões da mesma biblioteca em um único pacote.
 
-Muitas bibliotecas se destinam a uma versão específica do .NET Framework. Por exemplo, você pode ter uma versão da biblioteca específica para a UWP e outra versão para aproveitar os recursos no .NET Framework 4.6.
+Este artigo descreve o layout de um pacote do NuGet, independentemente de como o pacote ou os assemblies são compilados (ou seja, o layout é o mesmo ao usar vários arquivos *.csproj* em estilo não SDK e um arquivo *.nuspec* personalizado ou um único arquivo *.csproj* multidirecionado em estilo SDK). Para um projeto no estilo SDK, os [destinos do pacote](../reference/msbuild-targets.md) do NuGet reconhecem como o pacote deve ser definido e automatiza a colocação dos assemblies nas pastas corretas da biblioteca e a criação de grupos de dependências para cada estrutura de destino (TFM). Para saber mais, confira [Suporte a várias versões de .NET Framework em seu arquivo de projeto](multiple-target-frameworks-project-file.md).
 
-Para acomodar a isso, o NuGet é compatível com a colocação de várias versões na mesma biblioteca em um único pacote ao usar o método de diretório de trabalho baseado em convenção descrito em [Criando um pacote](../create-packages/creating-a-package.md#from-a-convention-based-working-directory).
+Você deve definir manualmente o pacote conforme descrito neste artigo ao usar o método de diretório de trabalho baseado em convenções descrito em [Criar um pacote](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). Para um projeto em estilo SDK, é recomendado o método automatizado, mas você também pode optar por definir manualmente o pacote como descrito neste artigo.
 
 ## <a name="framework-version-folder-structure"></a>Estrutura da pasta de versão do Framework
 

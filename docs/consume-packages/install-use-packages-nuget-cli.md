@@ -5,23 +5,23 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: a7177b956930835693921163e634321548c22462
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 9eefed6f2c1a362f27c4a5d33d07645d743379fa
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842363"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317740"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Gerenciar pacotes usando a CLI do nuget.exe
 
 A ferramenta CLI permite que você atualize e restaure pacotes NuGet com facilidade em projetos e soluções. Essa ferramenta fornece todas as funcionalidades do NuGet no Windows e também fornece a maioria dos recursos no Mac e no Linux durante a execução no Mono.
 
-A CLI do nuget.exe destina-se a seu projeto .NET Framework e a projetos no estilo não SDK (por exemplo, um projeto de estilo não SDK direcionado a bibliotecas .NET Standard). Caso esteja usando um projeto no estilo não SDK que foi migrado para `PackageReference`, use a CLI do dotnet. A CLI do NuGet exige um arquivo [packages.config](../reference/packages-config.md) para referências de pacote.
+A CLI `nuget.exe` destina-se a seu projeto .NET Framework e a projetos no estilo não SDK (por exemplo, um projeto de estilo não SDK direcionado a bibliotecas .NET Standard). Caso esteja usando um projeto no estilo não SDK que foi migrado para `PackageReference`, use a CLI `dotnet`. A CLI `nuget.exe` exige um arquivo [packages.config](../reference/packages-config.md) para referências de pacote.
 
 > [!NOTE]
-> Na maioria dos cenários, recomendamos [migrar os projetos no estilo não SDK](../reference/migrate-packages-config-to-package-reference.md) que usam `packages.config` para PackageReference, assim você poderá usar a CLI do dotnet em vez da CLI do `nuget.exe`. Atualmente, a migração não está disponível para projetos C++ e ASP.NET.
+> Na maioria dos cenários, recomendamos [migrar os projetos no estilo não SDK](../reference/migrate-packages-config-to-package-reference.md) que usam `packages.config` para PackageReference, assim é possível usar a CLI `dotnet` ao invés da CLI `nuget.exe`. Atualmente, a migração não está disponível para projetos C++ e ASP.NET.
 
-Este artigo mostra o uso básico de alguns dos comandos mais comuns da CLI do nuget.exe. Para a maioria desses comandos, a ferramenta CLI procura um arquivo de projeto no diretório atual, a menos que um arquivo de projeto seja especificado no comando. Para obter uma lista completa de comandos e os argumentos que podem ser usados, confira [Referência da CLI do nuget.exe](../tools/nuget-exe-cli-reference.md).
+Este artigo mostra o uso básico de alguns dos comandos mais comuns da CLI `nuget.exe`. Para a maioria desses comandos, a ferramenta CLI procura um arquivo de projeto no diretório atual, a menos que um arquivo de projeto seja especificado no comando. Para obter uma lista completa de comandos e os argumentos que podem ser usados, confira [Referência da CLI do nuget.exe](../reference/nuget-exe-cli-reference.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Este artigo mostra o uso básico de alguns dos comandos mais comuns da CLI do nu
 
 ## <a name="install-a-package"></a>Instalar um pacote
 
-O comando [install](../tools/cli-ref-install.md) baixa e instala um pacote em um projeto, usando como padrão a pasta atual, com as origens do pacote especificadas. Instale novos pacotes na pasta *packages* no diretório raiz do projeto.
+O comando [install](../reference/cli-reference/cli-ref-install.md) baixa e instala um pacote em um projeto, usando como padrão a pasta atual, com as origens do pacote especificadas. Instale novos pacotes na pasta *packages* no diretório raiz do projeto.
 
 > [!IMPORTANT]
 > O `install`comando não modifica um arquivo de projeto nem *packages.config*; dessa forma, ele é semelhante a `restore`, pois apenas adiciona pacotes ao disco, mas não altera as dependências de um projeto. Para adicionar uma dependência, adicione um pacote por meio da interface do usuário do Gerenciador de Pacotes ou do Console no Visual Studio ou modifique *packages.config* e, em seguida, execute `install` ou `restore`.
@@ -56,7 +56,7 @@ nuget install packages.config -OutputDirectory packages
 
 ## <a name="install-a-specific-version-of-a-package"></a>Instalar uma versão específica de um pacote
 
-Se a versão não for especificada quando você usar o comando [install](../tools/cli-ref-install.md), o NuGet instalará a última versão do pacote. Instale também uma versão específica de um pacote NuGet:
+Se a versão não for especificada quando você usar o comando [install](../reference/cli-reference/cli-ref-install.md), o NuGet instalará a última versão do pacote. Instale também uma versão específica de um pacote NuGet:
 
 ```cli
 nuget install <packageID | configFilePath> -Version <version>
@@ -78,7 +78,7 @@ Caso deseje reinstalar pacotes, use o comando `restore` ou `install`.
 
 ## <a name="list-packages"></a>Listar pacotes
 
-Você pode exibir uma lista de pacotes de determinada fonte usando o comando [list](../tools/cli-ref-list.md). Use a opção `-Source` para restringir a pesquisa.
+Você pode exibir uma lista de pacotes de determinada fonte usando o comando [list](../reference/cli-reference/cli-ref-list.md). Use a opção `-Source` para restringir a pesquisa.
 
 ```cli
 nuget list -Source <source>
@@ -102,7 +102,7 @@ O NuGet instala a última versão do pacote quando você usa o comando `install`
 
 ## <a name="update-all-packages"></a>Atualizar todos os pacotes
 
-Use o comando [update](../tools/cli-ref-update.md) para atualizar todos os pacotes. Atualiza todos os pacotes de um projeto (usando `packages.config`) para as últimas versões disponíveis. É recomendável executar `restore` antes de executar `update`.
+Use o comando [update](../reference/cli-reference/cli-ref-update.md) para atualizar todos os pacotes. Atualiza todos os pacotes de um projeto (usando `packages.config`) para as últimas versões disponíveis. É recomendável executar `restore` antes de executar `update`.
 
 ```cli
 nuget update
@@ -110,11 +110,11 @@ nuget update
 
 ## <a name="restore-packages"></a>Restaurar pacotes
 
-Use o comando [restore](../tools/cli-ref-restore.md), que baixa e instala os pacotes ausentes da pasta *packages*.
+Use o comando [restore](../reference/cli-reference/cli-ref-restore.md), que baixa e instala os pacotes ausentes da pasta *packages*.
 
 `restore` apenas adiciona pacotes ao disco, mas não altera as dependências do projeto. Para restaurar as dependências do projeto, modifique `packages.config` e, em seguida, use o comando `restore`.
 
-Assim como ocorre com outros comandos CLI do `dotnet`, primeiro abra uma linha de comando e alterne para o diretório que contém o arquivo de projeto.
+Assim como ocorre com outros comandos CLI do `nuget.exe`, primeiro abra uma linha de comando e alterne para o diretório que contém o arquivo de projeto.
 
 Para restaurar um pacote usando `restore`:
 
