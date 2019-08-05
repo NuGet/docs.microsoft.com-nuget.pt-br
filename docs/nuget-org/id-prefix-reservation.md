@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 94036e3ca7c65e6878f24a5a8514cbb0d8816d9c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 650f570ec65a665e3d452af732ea22337835d8d9
+ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427221"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68616806"
 ---
 # <a name="package-id-prefix-reservation"></a>Reserva de prefixo da ID do pacote
 
@@ -76,6 +76,8 @@ Após o envio da solicitação, você será notificado da aceitação ou da reje
 Ao examinar qualquer solicitação de reserva de prefixo da ID, a equipe do [nuget.org](https://www.nuget.org/) avaliará a solicitação levando em conta os critérios abaixo. Nem todos os critérios precisam ser atendidos para que um prefixo seja reservado, mas a solicitação poderá ser negada se não houver evidência substancial dos critérios atendidos (com uma explicação fornecida):
 
 1. O prefixo da ID do pacote identifica o proprietário do pacote de maneira clara e adequada?
+
+1. O proprietário do pacote [habilitou o 2FA para a conta do NuGet.org](individual-accounts.md#enable-two-factor-authentication-2fa)?
 
 1. Há um número significativo dos pacotes que já foram enviados pelo proprietário com o prefixo da ID do pacote?
 
