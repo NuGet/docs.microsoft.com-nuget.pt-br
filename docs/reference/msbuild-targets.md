@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e662194fffc031d0cfc0aa129a5a15b555a4231
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 8403ae38b5d2e907c6f06b162a18cdcd5425565b
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68420017"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817526"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -18,7 +18,7 @@ ms.locfileid: "68420017"
 
 Com o formato [PackageReference](../consume-packages/package-references-in-project-files.md) , o NuGet 4.0 + pode armazenar todos os metadados do manifesto diretamente dentro de um arquivo de projeto `.nuspec` em vez de usar um arquivo separado.
 
-Com o MSBuild 15.1 ou superior, o NuGet também é um cidadão de primeira classe do MSBuild com os destinos `pack` e `restore`, conforme descrito abaixo. Esses destinos permitem que você trabalhe com o NuGet como faria com qualquer outra tarefa ou destino do MSBuild. (Para NuGet 3.x e anteriores, use os comandos [pack](../reference/cli-reference/cli-ref-pack.md) e [restore](../reference/cli-reference/cli-ref-restore.md) na CLI do NuGet.)
+Com o MSBuild 15.1 ou superior, o NuGet também é um cidadão de primeira classe do MSBuild com os destinos `pack` e `restore`, conforme descrito abaixo. Esses destinos permitem que você trabalhe com o NuGet como faria com qualquer outra tarefa ou destino do MSBuild. Para obter instruções sobre como criar um pacote NuGet usando o MSBuild, consulte [criar um pacote NuGet usando o MSBuild](../create-packages/creating-a-package-msbuild.md). (Para NuGet 3.x e anteriores, use os comandos [pack](../reference/cli-reference/cli-ref-pack.md) e [restore](../reference/cli-reference/cli-ref-restore.md) na CLI do NuGet.)
 
 ## <a name="target-build-order"></a>Ordem de build de destino
 
@@ -55,8 +55,8 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 | Descrição | Descrição | “Package Description” | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| Carteira | PackageLicenseExpression | empty | Corresponde a`<license type="expression">` |
-| Carteira | PackageLicenseFile | empty | Corresponde ao `<license type="file">`. Talvez seja necessário empacotar explicitamente o arquivo de licença referenciado. |
+| carteira | PackageLicenseExpression | empty | Corresponde a`<license type="expression">` |
+| carteira | PackageLicenseFile | empty | Corresponde ao `<license type="file">`. Talvez seja necessário empacotar explicitamente o arquivo de licença referenciado. |
 | LicenseUrl | PackageLicenseUrl | empty | `licenseUrl`está sendo preterido, use a propriedade PackageLicenseExpression ou PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
@@ -329,7 +329,7 @@ Um exemplo:
 1. Baixar os pacotes
 1. Gravar arquivo de ativos, destinos e objetos
 
-O `restore` destino funciona **apenas** para projetos que usam o formato PackageReference. Ele não **funciona para** projetos que usam o `packages.config` formato; em vez disso, use a [restauração do NuGet](../reference/cli-reference/cli-ref-restore.md) .
+O `restore` destino funciona **apenas** para projetos que usam o formato PackageReference. Ele não funciona para projetos que usam o `packages.config` formato; em vez disso, use a [restauração do NuGet](../reference/cli-reference/cli-ref-restore.md) .
 
 ### <a name="restore-properties"></a>Restaurar propriedades
 
