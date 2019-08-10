@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
+ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433365"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912581"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -94,7 +94,7 @@ Uma URL para a home page do pacote, geralmente mostrada em exibições de interf
 
 Uma URL para a licença do pacote, geralmente mostrada em interfaces do tipo nuget.org.
 
-#### <a name="license"></a>Carteira
+#### <a name="license"></a>carteira
 Uma expressão de licença SPDX ou um caminho para um arquivo de licença dentro do pacote, geralmente mostrado em interfaces de grupo como nuget.org. Se você estiver licenciando o pacote em uma licença comum, como MIT ou BSD-2-cláusula, use o [identificador de licença SPDX](https://spdx.org/licenses/)associado. Por exemplo:
 
 `<license type="expression">MIT</license>`
@@ -192,7 +192,7 @@ Um título amigável do pacote que pode ser usado em algumas exibições da inte
 
 #### <a name="collection-elements"></a>Elementos de coleção
 
-#### <a name="packagetypes"></a>PackageTypes
+#### <a name="packagetypes"></a>packageTypes
 *(3.5 ou superior)* Uma coleção de zero ou mais elementos `<packageType>` que especificam o tipo do pacote se for diferente de um pacote de dependência tradicional. Cada packageType tem os atributos de *name* e *version*. Consulte [Definindo um tipo de pacote](../create-packages/set-package-type.md).
 #### <a name="dependencies"></a>dependências
 Uma coleção de zero ou mais elementos `<dependency>` que especificam as dependências do pacote. Cada dependência tem atributos de *id*, *version*, *include* (3.x ou superior) e *exclude* (3.x ou superior). Consulte [Dependências](#dependencies-element) abaixo.
@@ -293,7 +293,8 @@ As linhas a seguir indicam dependências nos mesmos pacotes, mas especificam a i
 </dependencies>
 ```
 
-Observação: Ao criar um `.nuspec` de um projeto usando `nuget spec`, as dependências existentes nesse projeto são incluídas automaticamente no arquivo resultante `.nuspec` .
+> [!Important]
+> Ao criar um `.nuspec` de um projeto usando `nuget spec`, as dependências que existem nesse projeto não são incluídas automaticamente no arquivo `.nuspec` resultante. Em vez disso `nuget pack myproject.csproj`, use e obtenha o arquivo *. nuspec* de dentro do arquivo *. nupkg* gerado. Esse *. nuspec* contém as dependências.
 
 ### <a name="dependency-groups"></a>Grupos de dependência
 
