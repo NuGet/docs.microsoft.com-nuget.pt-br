@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0e12944bdd5d43b8b9e84908be480a5249dd924f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327653"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959731"
 ---
 # <a name="pack-command-nuget-cli"></a>Commando pack (NuGet CLI)
 
 **Aplica-se a:** &bullet; **versões com suporte** para criação de pacote: 2.7+
 
-Cria um pacote NuGet com base no arquivo `.nuspec` de projeto ou especificado. O `dotnet pack` comando (consulte os [comandos dotnet](../dotnet-Commands.md)) `msbuild -t:pack` e (consulte [destinos do MSBuild](../msbuild-targets.md)) pode ser usado como alternativas.
+Cria um pacote NuGet com base no arquivo [. nuspec](../nuspec.md) ou projeto especificado. O `dotnet pack` comando (consulte os [comandos dotnet](../dotnet-Commands.md)) `msbuild -t:pack` e (consulte [destinos do MSBuild](../msbuild-targets.md)) pode ser usado como alternativas.
 
 > [!Important]
 > Em mono, não há suporte para a criação de um pacote a partir de um arquivo de projeto. Você também precisa ajustar caminhos não locais no `.nuspec` arquivo para caminhos em estilo UNIX, pois o NuGet. exe não converte os próprios caminhos do Windows.
@@ -33,7 +33,7 @@ onde `<nuspecPath>` `.nuspec` e `<projectPath>` especifique o arquivo de projeto
 
 | Opção | Descrição |
 | --- | --- |
-| BasePath | Define o caminho base dos arquivos definidos no `.nuspec` arquivo. |
+| BasePath | Define o caminho base dos arquivos definidos no arquivo [. nuspec](../nuspec.md) . |
 | Build | Especifica que o projeto deve ser compilado antes da criação do pacote. |
 | Excluir | Especifica um ou mais padrões de curinga a serem excluídos ao criar um pacote. Para especificar mais de um padrão, repita o sinalizador-Exclude. Consulte o exemplo abaixo. |
 | ExcludeEmptyDirectories | Impede a inclusão de diretórios vazios ao compilar o pacote. |

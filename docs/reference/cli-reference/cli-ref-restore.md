@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 82113d460f7f5ff467b0a0552cc49283de95de25
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 211f24ff67c06da00d6a014e679cc422d493d6d5
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327633"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959737"
 ---
 # <a name="restore-command-nuget-cli"></a>comando Restore (NuGet CLI)
 
@@ -35,7 +35,7 @@ em `<projectPath>` que especifica o local de uma solução ou `packages.config` 
 | ConfigFile | O arquivo de configuração do NuGet a ser aplicado. Se não for especificado `%AppData%\NuGet\NuGet.Config` , (Windows) `~/.nuget/NuGet/NuGet.Config` ou (Mac/Linux) será usado.|
 | DirectDownload | *(4.0 +)* Baixa pacotes diretamente sem preencher os caches com binários ou metadados. |
 | DisableParallelProcessing | Desabilita a restauração de vários pacotes em paralelo. |
-| Fallback | *(3,2 +)* Uma lista de origens do pacote a ser usada como fallbacks caso o pacote não seja encontrado na fonte primária ou padrão. |
+| Fallback | *(3,2 +)* Uma lista de origens do pacote a ser usada como fallbacks caso o pacote não seja encontrado na fonte primária ou padrão. Use um ponto e vírgula para separar entradas de lista. |
 | ForceEnglishOutput | *(3,5 +)* Força o NuGet. exe a ser executado usando uma cultura invariável baseada em inglês. |
 | Help | Exibe informações de ajuda para o comando. |
 | MSBuildPath | *(4.0 +)* Especifica o caminho do MSBuild a ser usado com o comando, tendo precedência sobre `-MSBuildVersion`. |
@@ -46,10 +46,10 @@ em `<projectPath>` que especifica o local de uma solução ou `packages.config` 
 | PackageSaveMode | Especifica os tipos de arquivos a serem salvos após a instalação do pacote `nuspec`: `nupkg`um dos `nuspec;nupkg`, ou. |
 | PackagesDirectory | Mesmo que `OutputDirectory`. Necessário ao restaurar com um `packages.config` arquivo, `OutputDirectory` a `SolutionDirectory` menos que ou seja usado. |
 | Project2ProjectTimeOut | Tempo limite em segundos para resolver referências de projeto para projeto. |
-| recursiva | *(4.0 +)* Restaura todos os projetos de referência para projetos UWP e .NET Core. Não se aplica a projetos que `packages.config`usam o. |
+| Recursiva | *(4.0 +)* Restaura todos os projetos de referência para projetos UWP e .NET Core. Não se aplica a projetos que `packages.config`usam o. |
 | RequireConsent | Verifica se a restauração de pacotes está habilitada antes de baixar e instalar os pacotes. Para obter detalhes, consulte [restauração de pacote](../../consume-packages/package-restore.md). |
 | SolutionDirectory | Especifica a pasta da solução. Não é válido ao restaurar pacotes para uma solução. Necessário ao restaurar com um `packages.config` arquivo, `PackagesDirectory` a `OutputDirectory` menos que ou seja usado. |
-| Origem | Especifica a lista de origens do pacote (como URLs) a serem usadas para a restauração. Se omitido, o comando usará as fontes fornecidas em arquivos de configuração, consulte Configurando o [comportamento do NuGet](../../consume-packages/configuring-nuget-behavior.md). |
+| Origem | Especifica a lista de origens do pacote (como URLs) a serem usadas para a restauração. Se omitido, o comando usará as fontes fornecidas em arquivos de configuração, consulte Configurando o [comportamento do NuGet](../../consume-packages/configuring-nuget-behavior.md). Use um ponto e vírgula para separar entradas de lista. |
 | Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhado*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
