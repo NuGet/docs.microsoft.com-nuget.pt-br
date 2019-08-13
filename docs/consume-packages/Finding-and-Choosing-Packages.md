@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317020"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817578"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Localizando e avaliando pacotes do NuGet para o seu projeto
 
@@ -82,6 +82,10 @@ Por outro lado, usar um pacote do NuGet significa assumir uma dependência, por 
 
     ![Baixar estatísticas em uma página de listagem do pacote](media/Finding-03-Downloads.png)
 
+- *Uso do GitHub*: na página do pacote, a seção **Uso do GitHub** lista os principais repositórios do GitHub que dependem deste pacote. Normalmente, um pacote de que muitos repositórios populares do GitHub dependem é uma opção melhor.
+
+    ![Uso do GitHub](media/GitHub-Usage.png)
+
 - *Histórico de versão*: na página do pacote, procure em **Informações** pela data da atualização mais recente e examine o **Histórico de versão**. Um pacote com boa manutenção tem atualizações recentes e um histórico de versões detalhado. Pacotes inativos têm algumas atualizações e geralmente não foram atualizados há algum tempo.
 
     ![Histórico de versão na página de listagem do pacote](media/Finding-04-VersionHistory.png)
@@ -115,6 +119,7 @@ Veja como você pode ler as informações contidas no arquivo de licença dentro
 1. Ele deve ter uma marca como `<license type="file">license\license.txt</license>`. Isso significa que o arquivo de licença se chama `license.txt` e está dentro de uma pasta denominada `license` que também estaria na raiz dessa pasta.
 1. Navegue até a pasta `license` e abra o aquivo `license.txt`.
 
+Para o MSBuild equivalente a definir a licença no `.nuspec`, confira [Empacotamento de uma expressão de licença ou um arquivo de licença](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file).
 
 ## <a name="search-syntax"></a>Sintaxe de pesquisa
 
