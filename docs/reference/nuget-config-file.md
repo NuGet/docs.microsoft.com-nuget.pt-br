@@ -3,36 +3,20 @@ title: Referência do arquivo NuGet. config
 description: Referência do arquivo NuGet.Config incluindo as seções config, bindingRedirects, packageRestore, solution e packageSource.
 author: karann-msft
 ms.author: karann
-ms.date: 10/25/2017
+ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: a2955617b899bfadab42d1ae98dd20c8fc6ddca9
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317214"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020049"
 ---
 # <a name="nugetconfig-reference"></a>referência de NuGet. config
 
 O comportamento do NuGet é controlado por configurações `NuGet.Config` em arquivos diferentes, conforme descrito em [configurações comuns do NuGet](../consume-packages/configuring-nuget-behavior.md).
 
 `nuget.config` é um arquivo XML que contém um nó `<configuration>` de nível superior, o qual contém os elementos da seção descritos neste tópico. Cada seção contém zero ou mais itens. Consulte o [arquivo de configuração de exemplos](#example-config-file). Nomes de configuração não diferenciam maiúsculas de minúsculas e podem usar valores [variáveis de ambiente](#using-environment-variables).
-
-Neste tópico:
-
-- [seção de configuração](#config-section)
-- [Seção bindingRedirects](#bindingredirects-section)
-- [Seção packageRestore](#packagerestore-section)
-- [solution section](#solution-section)
-- [Seções de origem de pacote](#package-source-sections):
-  - [packageSources](#packagesources)
-  - [packageSourceCredentials](#packagesourcecredentials)
-  - [apikeys](#apikeys)
-  - [disabledPackageSources](#disabledpackagesources)
-  - [activePackageSource](#activepackagesource)
-- [seção trustedSigners](#trustedsigners-section)
-- [Usando variáveis de ambiente](#using-environment-variables)
-- [Exemplo de arquivo de configuração](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -240,6 +224,7 @@ Identifica a fonte ativa no momento ou indica a agregação de todas as fontes.
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+
 ## <a name="trustedsigners-section"></a>seção trustedSigners
 
 Armazena os assinantes confiáveis usados para permitir o pacote durante a instalação ou restauração. Esta lista não pode estar vazia quando o usuário `signatureValidationMode` define `require`como. 
@@ -268,6 +253,50 @@ Se um `certificate` especifica `allowUntrustedRoot` que `true` o certificado for
         <owners>microsoft;aspnet;nuget</owners>
     </repository>
 </trustedSigners>
+```
+
+## <a name="fallbackpackagefolders-section"></a>seção fallbackPackageFolders
+
+*(3,5 +)* Fornece uma maneira de pré-instalar pacotes para que nenhum trabalho precise ser feito se o pacote for encontrado nas pastas de fallback. As pastas de pacote de fallback têm exatamente a mesma estrutura de pasta e arquivo que a pasta de pacote global: *. nupkg* está presente e todos os arquivos são extraídos.
+
+A lógica de pesquisa para essa configuração é:
+
+- Procure na pasta de pacote global para ver se o pacote/versão já foi baixado.
+
+- Procure uma correspondência de pacote/versão nas pastas de fallback.
+
+Se a pesquisa for bem-sucedida, nenhum download será necessário.
+
+Se uma correspondência não for encontrada, o NuGet verificará as fontes de arquivo e, em seguida, as fontes http e baixará os pacotes.
+
+| Chave | Valor |
+| --- | --- |
+| (nome da pasta de fallback) | Caminho para a pasta de fallback. |
+
+**Exemplo**:
+
+```xml
+<fallbackPackageFolders>
+   <add key="XYZ Offline Packages" value="C:\somePath\someFolder\"/>
+</fallbackPackageFolders>
+```
+
+## <a name="packagemanagement-section"></a>seção packageManagement
+
+Define o formato de gerenciamento de pacote padrão, *Packages. config* ou PackageReference. Projetos no estilo SDK sempre usam PackageReference.
+
+| Chave | Valor |
+| --- | --- |
+| formato | Um booliano que indica o formato de gerenciamento de pacote padrão. Se `1`, Format for PackageReference. Se `0`, Format é *Packages. config*. |
+| desabilitado | Um booliano que indica se o prompt deve ser mostrado para selecionar um formato de pacote padrão na instalação do primeiro pacote. `False`oculta o prompt. |
+
+**Exemplo**:
+
+```xml
+<packageManagement>
+   <add key="format" value="1" />
+   <add key="disabled" value="False" />
+</packageManagement>
 ```
 
 ## <a name="using-environment-variables"></a>Usando variáveis de ambiente
