@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 67bc95135f746c4a4685773808756df399cbf01e
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959698"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488677"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -36,7 +36,7 @@ Neste tópico:
 
    Se você estiver criando um pacote usando `dotnet.exe pack` ou `msbuild pack target`, recomendamos que [inclua todas](../reference/msbuild-targets.md#pack-target) as `.nuspec` propriedades que normalmente estão no arquivo no arquivo de projeto. No entanto, você pode optar por [usar `.nuspec` um arquivo para empacotar `msbuild pack target`usando `dotnet.exe` o ou o ](../reference/msbuild-targets.md#packing-using-a-nuspec).
 
-- Para projetos migrados do `packages.config` para o [PackageReference](../consume-packages/package-references-in-project-files.md), `.nuspec` um arquivo não é necessário para criar o pacote. Em vez disso, use o [MSBuild-t:Pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Para projetos migrados do `packages.config` para o [PackageReference](../consume-packages/package-references-in-project-files.md), `.nuspec` um arquivo não é necessário para criar o pacote. Em vez disso, use o [MSBuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 ## <a name="general-form-and-schema"></a>Formato e esquema geral
 
@@ -74,7 +74,7 @@ Esses elementos precisam aparecer dentro de um elemento `<metadata>`.
 #### <a name="id"></a>id 
 O identificador de pacote que não diferencia maiúsculas de minúsculas, o qual deve ser exclusivo no nuget.org ou em qualquer galeria na qual o pacote reside. IDs podem não conter espaços nem caracteres que não sejam válidos para uma URL e geralmente seguem as regras de namespace do .NET. Consulte [Escolhendo um identificador de pacote exclusivo](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) para ver diretrizes.
 #### <a name="version"></a>version
-A versão do pacote, seguindo o padrão *principal.secundária.patch*. Os números de versão podem incluir um sufixo de pré-lançamento, conforme descrito em [Controle de versões de pré-lançamento](../reference/package-versioning.md#pre-release-versions). 
+A versão do pacote, seguindo o padrão *principal.secundária.patch*. Os números de versão podem incluir um sufixo de pré-lançamento, conforme descrito em [Controle de versões de pré-lançamento](../concepts/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>descrição
 Uma descrição longa do pacote para exibição de interface do usuário. 
 #### <a name="authors"></a>authors
@@ -281,7 +281,7 @@ O elemento `<dependencies>` dentro do `<metadata>` contém diversos elementos `<
 | Atributo | Descrição |
 | --- | --- |
 | `id` | (Obrigatório) A ID do pacote de dependência, como "EntityFramework" e "NUnit", que é o nome do pacote nuget.org mostrado em uma página do pacote. |
-| `version` | (Obrigatório) O intervalo de versões aceitáveis como uma dependência. Consulte [Controle de versão do pacote](../reference/package-versioning.md#version-ranges-and-wildcards) para ver a sintaxe exata. Não há suporte para versões curinga (flutuante). |
+| `version` | (Obrigatório) O intervalo de versões aceitáveis como uma dependência. Consulte [Controle de versão do pacote](../concepts/package-versioning.md#version-ranges-and-wildcards) para ver a sintaxe exata. Não há suporte para versões curinga (flutuante). |
 | include | Uma lista delimitada por vírgulas de marcas de inclusão/exclusão (veja abaixo) que indicam a dependência a ser incluída no pacote final. O valor padrão é `all`. |
 | exclude | Uma lista delimitada por vírgulas de marcas de inclusão/exclusão (veja abaixo) que indicam a dependência a ser excluída do pacote final. O valor padrão é `build,analyzers` o que pode ser substituído. Mas `content/ ContentFiles` também são excluídos implicitamente no pacote final que não pode ser substituído. Marcas especificadas com `exclude` têm precedência sobre aquelas especificadas com `include`. Por exemplo, `include="runtime, compile" exclude="compile"` é o mesmo que `include="runtime"`. |
 
@@ -290,7 +290,7 @@ O elemento `<dependencies>` dentro do `<metadata>` contém diversos elementos `<
 | contentFiles | Conteúdo |
 | tempo de execução | Runtime, Resources e FrameworkAssemblies |
 | compilar | lib |
-| build | build (objetos e destinos do MSBuild) |
+| compilar | build (objetos e destinos do MSBuild) |
 | nativa | nativa |
 | nenhum | Nenhuma pasta |
 | all | Todas as pastas |

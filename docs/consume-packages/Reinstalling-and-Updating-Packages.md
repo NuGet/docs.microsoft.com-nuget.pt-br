@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316971"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860535"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Como reinstalar e atualizar pacotes
 
 Há várias situações, descritas abaixo em [Quando reinstalar um pacote](#when-to-reinstall-a-package), em que as referências a um pacote podem ser interrompidas em um projeto do Visual Studio. Nesses casos, desinstalar e depois reinstalar a mesma versão do pacote fará com que essas referências voltem a funcionar corretamente. Atualizar um pacote simplesmente significa instalar uma versão atualizada, o que geralmente faz um pacote voltar a funcionar corretamente.
+
+No Visual Studio, o Console do Gerenciador de Pacotes fornece muitas opções flexíveis para atualizar e reinstalar pacotes.
 
 A atualização e reinstalação de pacotes é feita da seguinte maneira:
 
@@ -25,7 +27,7 @@ A atualização e reinstalação de pacotes é feita da seguinte maneira:
 | CLI do nuget.exe | Comando `nuget update` | Para todos os pacotes, exclua a pasta do pacote e execute `nuget install`. Para um único pacote, exclua a pasta do pacote e usar `nuget install <id>` para reinstalar o mesmo. |
 
 > [!NOTE]
-> Para a CLI do dotnet, o procedimento equivalente não é necessário. Em um cenário semelhante, você pode [restaurar pacotes com a CLI do dotnet](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
+> Para a CLI do dotnet, o procedimento equivalente não é necessário. Em um cenário semelhante, você pode [restaurar pacotes com a CLI do dotnet](package-restore.md#restore-using-the-dotnet-cli).
 
 Neste artigo:
 
@@ -61,7 +63,7 @@ Em todo os casos, use a notação descrita em [Controle de versão do pacote](..
 
 ## <a name="using-update-package"></a>Usando o Update-Package
 
-Lembre-se das [Considerações](#considerations) descritas abaixo, é possível reinstalar facilmente qualquer pacote usando o [comando Update-Package](../reference/ps-reference/ps-ref-update-package.md) no Console do Gerenciador de Pacotes do Visual Studio (**Ferramentas** > **Gerenciador de Pacotes do NuGet** > **Console do Gerenciador de Pacotes**):
+Lembre-se das [Considerações](#considerations) descritas abaixo. É possível reinstalar facilmente qualquer pacote usando o [comando Update-Package](../reference/ps-reference/ps-ref-update-package.md) no Console do Gerenciador de Pacotes do Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**).
 
 ```ps
 Update-Package -Id <package_name> –reinstall

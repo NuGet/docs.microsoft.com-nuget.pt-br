@@ -1,27 +1,27 @@
 ---
 title: Modelo de URL de detalhes do pacote, API do NuGet
-description: O modelo de URL de detalhes do pacote permite que os clientes exibir em sua interface do usuário que um link da web para obter mais detalhes do pacote
+description: O modelo de URL de detalhes do pacote permite que os clientes exibam em sua interface do usuário um link da Web para mais detalhes do pacote
 author: joelverhagen
 ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: c01fd35c5d96c44279c9d0254f89d8b1b9fe59d8
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 6657536ea6c699a834f57494c66b2a7d741dfcb7
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58638066"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488173"
 ---
 # <a name="package-details-url-template"></a>Modelo de URL de detalhes do pacote
 
-É possível que um cliente para criar uma URL que pode ser usada pelo usuário para ver mais detalhes do pacote em seu navegador da web. Isso é útil quando uma origem de pacote que deseja mostrar informações adicionais sobre um pacote que não se encaixam dentro do escopo do que mostra o aplicativo de cliente do NuGet.
+É possível que um cliente crie uma URL que possa ser usada pelo usuário para ver mais detalhes do pacote em seu navegador da Web. Isso é útil quando uma origem de pacote deseja mostrar informações adicionais sobre um pacote que talvez não caibam no escopo do que o aplicativo cliente NuGet mostra.
 
-O recurso usado para criar essa URL é o `PackageDetailsUriTemplate` recurso encontrado na [índice de serviço](service-index.md).
+O recurso usado para criar essa URL é o `PackageDetailsUriTemplate` recurso encontrado no [índice de serviço](service-index.md).
 
 ## <a name="versioning"></a>Controle de versão
 
-O seguinte `@type` valores são usados:
+Os seguintes `@type` valores são usados:
 
 Valor @type                     | Observações
 ------------------------------- | -----
@@ -29,33 +29,33 @@ PackageDetailsUriTemplate/5.1.0 | A versão inicial
 
 ## <a name="url-template"></a>Modelo de URL
 
-A URL para a seguinte API é o valor da `@id` propriedade associada a um do recurso mencionados anteriormente `@type` valores.
+A URL para a API a seguir é o valor da `@id` propriedade associada a um dos valores de recurso `@type` mencionados anteriormente.
 
 ## <a name="http-methods"></a>Métodos HTTP
 
-Embora o cliente não se destina para fazer solicitações para a URL de detalhes do pacote em nome do usuário, a página da web deve oferecer suporte a `GET` método para permitir que uma URL clicada ser aberto facilmente em um navegador da web.
+Embora o cliente não se destine a fazer solicitações para a URL de detalhes do pacote em nome do usuário, a página da Web deve `GET` dar suporte ao método para permitir que uma URL clicada seja aberta facilmente em um navegador da Web.
 
 ## <a name="construct-the-url"></a>Construir a URL
 
-Dada uma ID do pacote conhecidos e versão, a implementação do cliente pode construir uma URL usada para acessar uma interface da web. A implementação do cliente deve exibir esse URL construída (ou um link clicável) para o usuário, permitindo que eles para abrir um navegador da web para a URL e para saber mais sobre o pacote. O conteúdo da página de detalhes do pacote é determinado pela implementação do servidor.
+Dada uma ID de pacote e versão conhecidas, a implementação do cliente pode construir uma URL usada para acessar uma interface da Web. A implementação do cliente deve exibir essa URL construída (ou link clicável) para o usuário, permitindo que ele abra um navegador da Web para a URL e saiba mais sobre o pacote. O conteúdo da página de detalhes do pacote é determinado pela implementação do servidor.
 
-A URL deve ser uma URL absoluta e o esquema (protocol) deve ser HTTPS.
+A URL deve ser uma URL absoluta e o esquema (protocolo) deve ser HTTPS.
 
-O valor da `@id` no serviço de índice é uma cadeia de caracteres de URL que contém qualquer um dos seguintes tokens de espaço reservado:
+O valor de `@id` no índice de serviço é uma cadeia de caracteres de URL que contém qualquer um dos seguintes tokens de espaço reservado:
 
 ### <a name="url-placeholders"></a>Espaços reservados de URL
 
 Nome        | Tipo    | Necessária | Observações
 ----------- | ------- | -------- | -----
-`{id}`      | cadeia de caracteres  | no       | Para obter detalhes para a ID do pacote
-`{version}` | cadeia de caracteres  | no       | Para obter detalhes para a versão do pacote
+`{id}`      | cadeia de caracteres  | no       | A ID do pacote para obter detalhes
+`{version}` | cadeia de caracteres  | no       | A versão do pacote para obter detalhes
 
-O servidor deve aceitar `{id}` e `{version}` valores com qualquer uso de maiusculas e minúsculas. Além disso, o servidor não deve ser sensível a se a versão está [normalizado](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#normalized-version-numbers). Em outras palavras, o servidor deve aceitar também aceitam versões não normalizado.
+O servidor deve aceitar `{id}` e `{version}` valores com maiúsculas e minúsculas. Além disso, o servidor não deve ser sensível a se a versão é [normalizada](https://docs.microsoft.com/en-us/nuget/concepts/package-versioning#normalized-version-numbers). Em outras palavras, o servidor também deve aceitar versões não normalizadas.
 
-Por exemplo, o modelo de detalhes do pacote do nuget.org fica assim:
+Por exemplo, o modelo de detalhes do pacote NuGet. org tem esta aparência:
 
     https://www.nuget.org/packages/{id}/{version}
 
-Se a implementação do cliente precisar exibir um link para os detalhes do pacote para NuGet.Versioning 4.3.0, ele seria produzem a seguinte URL e fornecê-la ao usuário:
+Se a implementação do cliente precisar exibir um link para os detalhes do pacote para NuGet. Versioning 4.3.0, ele produzirá a seguinte URL e a forneceria ao usuário:
 
     https://www.nuget.org/packages/NuGet.Versioning/4.3.0

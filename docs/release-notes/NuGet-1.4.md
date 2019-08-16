@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: de76cf610e580a36014be9274b9c2c762b1015ac
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5f1d3ed6a1b20fb07437f1718faafaac0a193773
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317170"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488703"
 ---
 # <a name="nuget-14-release-notes"></a>Notas de versão do NuGet 1,4
 
@@ -60,7 +60,7 @@ Para obter mais detalhes, consulte o tópico sobre como [gerenciar pacotes para 
 Por padrão, ao executar o `Update-Package` comando em um pacote (ou atualizar o pacote usando a caixa de diálogo), ele será atualizado para a versão mais recente no feed. Com o novo suporte para atualizar todos os pacotes, pode haver casos em que você deseja bloquear um pacote para um intervalo de versão específico. Por exemplo, você pode saber com antecedência que seu aplicativo só funcionará com a versão 2. * de um pacote, mas não 3,0 e acima. Para evitar a atualização acidental do pacote para 3, o NuGet 1,4 adiciona suporte para restringir o intervalo de versões para as quais os pacotes podem ser atualizados manualmente editando `packages.config` o arquivo usando o `allowedVersions` novo atributo.
 
 Por exemplo, o exemplo a seguir mostra como bloquear `SomePackage` o pacote do intervalo de versão 2,0-3,0 (exclusivo).
-O `allowedVersions` atributo aceita valores usando o [formato de intervalo de versão](../reference/package-versioning.md#version-ranges-and-wildcards).
+O `allowedVersions` atributo aceita valores usando o [formato de intervalo de versão](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

@@ -1,23 +1,23 @@
 ---
 title: Conteúdo do pacote, API do NuGet
-description: O endereço base do pacote é uma interface simple para buscar o pacote propriamente dito.
+description: O endereço base do pacote é uma interface simples para buscar o pacote em si.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 2f0f93e0cee78ea03cbd53194cdc2a10871fd7e1
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 5ec6c0e17a3e8b9a3f156a48685bcaafe42c744b
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426759"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488228"
 ---
 # <a name="package-content"></a>Conteúdo do pacote
 
-É possível gerar uma URL para buscar o conteúdo de um pacote arbitrários (o arquivo. nupkg) usando a API V3. O recurso usado para buscar o conteúdo do pacote é o `PackageBaseAddress` recurso encontrado na [índice de serviço](service-index.md). Esse recurso também permite a descoberta de todas as versões de um pacote, listados ou não listado.
+É possível gerar uma URL para buscar o conteúdo de um pacote arbitrário (o arquivo. nupkg) usando a API v3. O recurso usado para buscar o conteúdo do pacote é `PackageBaseAddress` o recurso encontrado no [índice de serviço](service-index.md). Esse recurso também habilita a descoberta de todas as versões de um pacote, listadas ou não listadas.
 
-Esse recurso é conhecido como o o "pacote endereço básico" ou "contêiner simples".
+Esse recurso é comumente conhecido como "endereço base do pacote" ou como "contêiner simples".
 
 ## <a name="versioning"></a>Controle de versão
 
@@ -29,18 +29,18 @@ PackageBaseAddress/3.0.0 | A versão inicial
 
 ## <a name="base-url"></a>URL Base
 
-A URL base para as APIs a seguir é o valor da `@id` propriedade associada ao recurso mencionados anteriormente `@type` valor. O seguinte documento, o espaço reservado de URL de base `{@id}` será usado.
+A URL base para as APIs a seguir é o valor da `@id` propriedade associada ao valor de recurso `@type` mencionado anteriormente. No documento a seguir, a URL `{@id}` base do espaço reservado será usada.
 
 ## <a name="http-methods"></a>Métodos HTTP
 
-Todas as URLs encontradas no suporte a recursos de registro os métodos HTTP `GET` e `HEAD`.
+Todas as URLs encontradas no recurso de registro dão suporte aos `GET` métodos `HEAD`http e.
 
-## <a name="enumerate-package-versions"></a>Enumerar as versões do pacote
+## <a name="enumerate-package-versions"></a>Enumerar versões de pacote
 
-Se o cliente sabe que uma ID de pacote e quer descobrir quais versões do pacote o pacote de origem tem disponível, o cliente pode construir uma URL previsível para enumerar todas as versões do pacote. Essa lista deve ser uma "listagem de diretório" para a API de conteúdo do pacote mencionada a seguir.
+Se o cliente souber uma ID de pacote e quiser descobrir quais versões de pacote a origem do pacote está disponível, o cliente poderá construir uma URL previsível para enumerar todas as versões do pacote. Esta lista deve ser uma "listagem de diretório" para a API de conteúdo do pacote mencionada abaixo.
 
 > [!Note]
-> Esta lista contém ambas as versões de pacote listadas e removido da lista.
+> Essa lista contém as versões de pacote listadas e não listadas.
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -50,33 +50,33 @@ Nome     | No     | Tipo    | Necessária | Observações
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | cadeia de caracteres  | sim      | A ID do pacote, em minúsculas
 
-O `LOWER_ID` valor é a ID do pacote desejado em minúscula usando as regras implementadas pelo. Do NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) método.
+O `LOWER_ID` valor é a ID de pacote desejada com letras minúsculas usando as regras implementadas pelo. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Método net.
 
 ### <a name="response"></a>Resposta
 
-Se a origem do pacote não tiver nenhuma versão da ID do pacote fornecido, um código de 404 status será retornado.
+Se a origem do pacote não tiver nenhuma versão da ID de pacote fornecida, um código de status 404 será retornado.
 
-Se a origem do pacote tem uma ou mais versões, um código de 200 status será retornado. O corpo da resposta é um objeto JSON com a seguinte propriedade:
+Se a origem do pacote tiver uma ou mais versões, um código de status 200 será retornado. O corpo da resposta é um objeto JSON com a seguinte propriedade:
 
 Nome     | Tipo             | Necessária | Observações
 -------- | ---------------- | -------- | -----
-versões | matriz de cadeias de caracteres | sim      | O pacote IDs disponíveis
+versões | matriz de cadeias de caracteres | sim      | As IDs de pacote disponíveis
 
-Cadeias de caracteres a `versions` matriz estão todos em minúscula, [normalizados cadeias de caracteres de versão NuGet](../reference/package-versioning.md#normalized-version-numbers). As cadeias de caracteres de versão contém os metadados de compilação de SemVer 2.0.0.
+As cadeias de `versions` caracteres na matriz são todas as [cadeias de caracteres de versão do NuGet normalizadas](../concepts/package-versioning.md#normalized-version-numbers)e em letras minúsculas. As cadeias de caracteres de versão não contêm nenhum metadado de compilação SemVer 2.0.0.
 
-A intenção é que as cadeias de caracteres de versão encontradas nesta matriz podem ser usadas textual para o `LOWER_VERSION` tokens encontrados nos seguintes pontos de extremidade.
+A intenção é que as cadeias de caracteres de versão encontradas nessa matriz possam ser usadas `LOWER_VERSION` em textual para os tokens encontrados nos pontos de extremidade a seguir.
 
 ### <a name="sample-request"></a>Exemplo de solicitação
 
     GET https://api.nuget.org/v3-flatcontainer/owin/index.json
 
-### <a name="sample-response"></a>Resposta de exemplo
+### <a name="sample-response"></a>Exemplo de resposta
 
 [!code-JSON [package-base-address-index.json](./_data/package-base-address-index.json)]
 
 ## <a name="download-package-content-nupkg"></a>Baixar conteúdo do pacote (. nupkg)
 
-Se o cliente sabe que uma ID de pacote e a versão e quiser baixar o conteúdo do pacote, precisará apenas construir a URL a seguir:
+Se o cliente souber uma ID e uma versão do pacote e quiser baixar o conteúdo do pacote, ele só precisará construir a seguinte URL:
 
     GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 
@@ -85,30 +85,30 @@ Se o cliente sabe que uma ID de pacote e a versão e quiser baixar o conteúdo d
 Nome          | No     | Tipo   | Necessária | Observações
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | URL    | cadeia de caracteres | sim      | A ID do pacote, em minúsculas
-LOWER_VERSION | URL    | cadeia de caracteres | sim      | A versão do pacote, normalizado e em minúscula
+LOWER_VERSION | URL    | cadeia de caracteres | sim      | A versão do pacote, normalizada e minúscula
 
-Ambos `LOWER_ID` e `LOWER_VERSION` em minúscula usando as regras implementadas pelo. Do NET [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
+Ambos `LOWER_ID` e `LOWER_VERSION` estão em letras minúsculas usando as regras implementadas pelo. Da rede[`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
 método.
 
-O `LOWER_VERSION` é a versão do pacote desejado normalizada usando a versão do NuGet [regras de normalização](../reference/package-versioning.md#normalized-version-numbers). Isso significa que os metadados compilação que é permitido pela especificação de SemVer 2.0.0 devem ser excluídos nesse caso.
+O `LOWER_VERSION` é a versão de pacote desejada normalizada usando [as regras](../concepts/package-versioning.md#normalized-version-numbers)de normalização de versão do NuGet. Isso significa que os metadados de compilação permitidos pela especificação SemVer 2.0.0 devem ser excluídos nesse caso.
 
 ### <a name="response-body"></a>Corpo da resposta
 
-Se o pacote existe na origem do pacote, um código de 200 status será retornado. O corpo da resposta será o conteúdo do pacote.
+Se o pacote existir na origem do pacote, um código de status 200 será retornado. O corpo da resposta será o próprio conteúdo do pacote.
 
-Se o pacote não existe na origem do pacote, um código de 404 status será retornado.
+Se o pacote não existir na origem do pacote, um código de status 404 será retornado.
 
 ### <a name="sample-request"></a>Exemplo de solicitação
 
     GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg
 
-### <a name="sample-response"></a>Resposta de exemplo
+### <a name="sample-response"></a>Exemplo de resposta
 
-O fluxo binário que é o. nupkg para newtonsoft. JSON 9.0.1.
+O fluxo binário que é o. nupkg para Newtonsoft. JSON 9.0.1.
 
-## <a name="download-package-manifest-nuspec"></a>Baixe o manifesto do pacote (. NuSpec)
+## <a name="download-package-manifest-nuspec"></a>Baixar o manifesto do pacote (. nuspec)
 
-Se o cliente sabe que uma ID de pacote e a versão e quiser baixar o manifesto do pacote, precisará apenas construir a URL a seguir:
+Se o cliente souber uma ID e uma versão do pacote e quiser baixar o manifesto do pacote, ele só precisará construir a seguinte URL:
 
     GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 
@@ -117,22 +117,22 @@ Se o cliente sabe que uma ID de pacote e a versão e quiser baixar o manifesto d
 Nome          | No     | Tipo   | Necessária | Observações
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | URL    | cadeia de caracteres | sim      | A ID do pacote, em minúsculas
-LOWER_VERSION | URL    | cadeia de caracteres | sim      | A versão do pacote, normalizado e em minúscula
+LOWER_VERSION | URL    | cadeia de caracteres | sim      | A versão do pacote, normalizada e minúscula
 
-Ambos `LOWER_ID` e `LOWER_VERSION` em minúscula usando as regras implementadas pelo. Do NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) método.
+Ambos `LOWER_ID` e `LOWER_VERSION` estão em letras minúsculas usando as regras implementadas pelo. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Método net.
 
-O `LOWER_VERSION` é a versão do pacote desejado normalizada usando a versão do NuGet [regras de normalização](../reference/package-versioning.md#normalized-version-numbers). Isso significa que os metadados compilação que é permitido pela especificação de SemVer 2.0.0 devem ser excluídos nesse caso.
+O `LOWER_VERSION` é a versão de pacote desejada normalizada usando [as regras](../concepts/package-versioning.md#normalized-version-numbers)de normalização de versão do NuGet. Isso significa que os metadados de compilação permitidos pela especificação SemVer 2.0.0 devem ser excluídos nesse caso.
 
 ### <a name="response-body"></a>Corpo da resposta
 
-Se o pacote existe na origem do pacote, um código de 200 status será retornado. O corpo da resposta será o manifesto de pacote, que é o. NuSpec contidos no. nupkg correspondente. O. NuSpec é um documento XML.
+Se o pacote existir na origem do pacote, um código de status 200 será retornado. O corpo da resposta será o manifesto do pacote, que é o. nuspec contido no. nupkg correspondente. O. nuspec é um documento XML.
 
-Se o pacote não existe na origem do pacote, um código de 404 status será retornado.
+Se o pacote não existir na origem do pacote, um código de status 404 será retornado.
 
 ### <a name="sample-request"></a>Exemplo de solicitação
 
     GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/6.0.4/newtonsoft.json.nuspec
 
-### <a name="sample-response"></a>Resposta de exemplo
+### <a name="sample-response"></a>Exemplo de resposta
 
 [!code-XML [newtonsoft.json.6.0.4.xml](./_data/newtonsoft.json.6.0.4.xml)]
