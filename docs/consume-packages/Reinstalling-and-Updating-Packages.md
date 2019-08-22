@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: c48980bc3f955a62962ca6e9619ce09f4a94a835
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860535"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488086"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Como reinstalar e atualizar pacotes
 
@@ -59,7 +59,7 @@ Para definir uma restrição, abra `packages.config` em um editor de texto, loca
 </packages>
 ```
 
-Em todo os casos, use a notação descrita em [Controle de versão do pacote](../reference/package-versioning.md#version-ranges-and-wildcards).
+Em todo os casos, use a notação descrita em [Controle de versão do pacote](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ## <a name="using-update-package"></a>Usando o Update-Package
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 726f983c2522fdb538dfce858fdf2371ec0ce188
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: a7d07da30daf3f94db99476b88d9abaad1bb8a07
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433339"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488861"
 ---
 # <a name="building-pre-release-packages"></a>Compilando pacotes de pré-lançamento
 
@@ -20,7 +20,7 @@ Sempre que você liberar um pacote atualizado com um novo número de versão, o 
 
 Uma versão estável é aquela que é considerado confiável suficiente para ser usada na produção. A versão estável mais recente também é aquela que será instalada como uma atualização de pacote ou durante a restauração do pacote (sujeito a restrições, conforme descrito em [Reinstalando e atualizando pacotes](../consume-packages/reinstalling-and-updating-packages.md)).
 
-Para dar suporte ao ciclo de vida de versão de software, o NuGet 1.6 e posterior permite a distribuição de pacotes de pré-lançamento, em que o número de versão inclui um sufixo de controle de versão semântico como `-alpha`, `-beta` ou `-rc`. Para obter mais informações, consulte [Controle de versão de pacote](../reference/package-versioning.md#pre-release-versions).
+Para dar suporte ao ciclo de vida de versão de software, o NuGet 1.6 e posterior permite a distribuição de pacotes de pré-lançamento, em que o número de versão inclui um sufixo de controle de versão semântico como `-alpha`, `-beta` ou `-rc`. Para obter mais informações, consulte [Controle de versão de pacote](../concepts/package-versioning.md#pre-release-versions).
 
 Você pode especificar essas versões usando uma das seguintes maneiras:
 
@@ -38,7 +38,7 @@ Você pode especificar essas versões usando uma das seguintes maneiras:
     <version>1.0.1-alpha</version>
     ```
 
-Quando você estiver pronto para lançar uma versão estável, basta remover o sufixo e o pacote terá precedência sobre as versões de pré-lançamento. Novamente, consulte [Controle de versão do pacote](../reference/package-versioning.md#pre-release-versions).
+Quando você estiver pronto para lançar uma versão estável, basta remover o sufixo e o pacote terá precedência sobre as versões de pré-lançamento. Novamente, consulte [Controle de versão do pacote](../concepts/package-versioning.md#pre-release-versions).
 
 ## <a name="installing-and-updating-pre-release-packages"></a>Instalando e atualizando pacotes de pré-lançamento
 

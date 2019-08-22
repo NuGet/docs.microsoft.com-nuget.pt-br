@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: e4d8b5b9ab4605516827ead8939f278d110c7a48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547778"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488290"
 ---
 # <a name="projectjson-reference"></a>Referência do project.json
 
@@ -62,7 +62,7 @@ A id do pacote corresponde à id do pacote no nuget.org, que é a mesma usada no
 
 Ao restaurar pacotes, a restrição de versão do `"5.0.0"` implica em `>= 5.0.0`. Ou seja, se 5.0.0 não estiver disponível no servidor, mas o 5.0.1 sim, o NuGet instala o 5.0.1 e avisa sobre o upgrade. Caso contrário, o NuGet escolhe a versão mais antiga possível no servidor correspondente à restrição.
 
-Consulte [Resolução de dependência](../consume-packages/dependency-resolution.md) para obter mais detalhes sobre as regras de resolução.
+Consulte [Resolução de dependência](../concepts/dependency-resolution.md) para obter mais detalhes sobre as regras de resolução.
 
 ### <a name="managing-dependency-assets"></a>Gerenciamento de ativos de dependência
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1397e2f42fd65c3a883c864bd430ba5892c12b2
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.openlocfilehash: fe769f95e3eda4bc07db4369544472c00b35363d
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432515"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488648"
 ---
 # <a name="nuget-47-release-notes"></a>Notas sobre a versão do NuGet 4.7
 
@@ -20,7 +20,7 @@ O [Visual Studio 2017 15.7 RTW](https://www.visualstudio.com/news/releasenotes/v
 
 * Ampliamos a assinatura de pacote para habilitar [pacotes assinados do repositório](https://github.com/NuGet/Home/wiki/Repository-Signatures)
 
-* Com o Visual Studio versão 15.7, apresentamos a capacidade de [migrar os projetos existentes que usam o formato packages.config para usar o PackageReference](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference).
+* Com o Visual Studio versão 15.7, apresentamos a capacidade de [migrar os projetos existentes que usam o formato packages.config para usar o PackageReference](https://docs.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference).
 
 ## <a name="summary-whats-new-in-472"></a>Resumo: Novidades na versão 4.7.2
 

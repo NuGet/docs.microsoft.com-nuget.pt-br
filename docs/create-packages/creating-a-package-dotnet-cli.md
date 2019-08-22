@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8222e1edfa13951d2fda9a2384d93bba38ef4979
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 40a42be91d3848db3e721a674e3fec4096fccd08
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833293"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69489021"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Criar um pacote do NuGet usando a CLI dotnet
 
@@ -66,7 +66,7 @@ Defina também as propriedades opcionais, como `Title`, `PackageDescription` e `
 > [!NOTE]
 > Para pacotes compilados para consumo público, preste atenção especial à propriedade **PackageTags**, à medida que as marcas ajudam outras pessoas a localizar o pacote e entender o que ele faz.
 
-Para obter detalhes sobre como declarar dependências e especificar números de versão, consulte [Referências de pacote em arquivos de projeto](../consume-packages/package-references-in-project-files.md) e [Controle de versão do pacote](../reference/package-versioning.md). Também é possível extrair ativos de dependências diretamente no pacote usando os atributos `<IncludeAssets>` e `<ExcludeAssets>`. Para saber mais, confira [Controlar ativos de dependência](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+Para obter detalhes sobre como declarar dependências e especificar números de versão, consulte [Referências de pacote em arquivos de projeto](../consume-packages/package-references-in-project-files.md) e [Controle de versão do pacote](../concepts/package-versioning.md). Também é possível extrair ativos de dependências diretamente no pacote usando os atributos `<IncludeAssets>` e `<ExcludeAssets>`. Para saber mais, confira [Controlar ativos de dependência](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Escolher um identificador de pacote exclusivo e definir o número de versão
 
@@ -120,7 +120,7 @@ Depois de criar um pacote, que é um arquivo `.nupkg`, você pode publicá-lo na
 
 Você também poderá estender os recursos do seu pacote ou dar suporte a outros cenários conforme descrito nos tópicos a seguir:
 
-- [Controle de versão do pacote](../reference/package-versioning.md)
+- [Controle de versão do pacote](../concepts/package-versioning.md)
 - [Suporte a várias estruturas de destino](../create-packages/multiple-target-frameworks-project-file.md)
 - [Transformações dos arquivos de configuração e de origem](../create-packages/source-and-config-file-transformations.md)
 - [Localização](../create-packages/creating-localized-packages.md)
@@ -130,5 +130,5 @@ Você também poderá estender os recursos do seu pacote ou dar suporte a outros
 
 Por fim, há tipos de pacote adicionais a serem considerados:
 
-- [Pacotes nativos](../create-packages/native-packages.md)
+- [Pacotes nativos](../guides/native-packages.md)
 - [Pacotes de Símbolo](../create-packages/symbol-packages.md)

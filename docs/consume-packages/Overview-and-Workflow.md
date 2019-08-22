@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b3ecb535c07459bff517102b3cf6f4e6dc42195
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: ddd1d163e18ed4ce1e7cbf41ed152acc40c1c423
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317051"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488777"
 ---
 # <a name="package-consumption-workflow"></a>Fluxo de trabalho de consumo do pacote
 
@@ -29,13 +29,13 @@ O NuGet lembra da identidade e do número de versão de cada pacote instalado, g
 
 Ao instalar pacotes, o NuGet normalmente verifica se o pacote já está disponível em seu cache. É possível limpar manualmente esse cache da linha de comando, conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-O NuGet também garante que as estruturas de destino com suporte no pacote sejam compatíveis com o seu projeto. Se o pacote não contiver assemblies compatíveis, o NuGet exibirá um erro. Consulte [Resolvendo erros de pacote incompatível](dependency-resolution.md#resolving-incompatible-package-errors).
+O NuGet também garante que as estruturas de destino com suporte no pacote sejam compatíveis com o seu projeto. Se o pacote não contiver assemblies compatíveis, o NuGet exibirá um erro. Consulte [Resolvendo erros de pacote incompatível](../concepts/dependency-resolution.md#resolving-incompatible-package-errors).
 
 Ao adicionar o código do projeto a um repositório de origem, pacotes do NuGet geralmente não são incluídos. Mais tarde, aqueles que clonarem o repositório ou adquirirem o projeto de outra forma, incluindo os agentes de build em sistemas como o Visual Studio Team Services, precisarão restaurar os pacotes necessários antes de executar um build:
 
 ![Fluxo de restauração de pacotes do NuGet clonando um repositório e usando um comando de restauração](media/Overview-02-RestoreFlow.png)
 
-[Restauração de pacote](../consume-packages/package-restore.md) usa as informações no arquivo de projeto ou `packages.config` para reinstalar todas as dependências. Observe que há diferenças no processo envolvido, conforme descrito em [Resolução de dependências](../consume-packages/dependency-resolution.md). Além disso, o diagrama acima não mostra um comando de restauração para o Console do Gerenciador de Pacotes porque estar no Console significa também já estar no contexto do Visual Studio, o que normalmente restaura pacotes de modo automático e fornece o comando no nível da solução, conforme mostrado.
+[Restauração de pacote](../consume-packages/package-restore.md) usa as informações no arquivo de projeto ou `packages.config` para reinstalar todas as dependências. Observe que há diferenças no processo envolvido, conforme descrito em [Resolução de dependências](../concepts/dependency-resolution.md). Além disso, o diagrama acima não mostra um comando de restauração para o Console do Gerenciador de Pacotes porque estar no Console significa também já estar no contexto do Visual Studio, o que normalmente restaura pacotes de modo automático e fornece o comando no nível da solução, conforme mostrado.
 
 Ocasionalmente, é necessário reinstalar pacotes que já estão incluídos em um projeto, o que também pode reinstalar as dependências. É fácil fazer isso usando o comando `nuget reinstall` ou o Console do Gerenciador de Pacotes do NuGet. Para obter detalhes, consulte [Reinstalando e atualizando pacotes](../consume-packages/reinstalling-and-updating-packages.md).
 

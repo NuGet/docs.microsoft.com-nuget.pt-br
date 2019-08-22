@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c85c1a89469c491c6be1f81961197450744349c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545567"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488193"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impacto do project.json durante a criação de pacotes
 
@@ -25,7 +25,7 @@ Pacotes do NuGet tradicionais são compatíveis com diversos recursos que não s
 
 ### <a name="install-and-uninstall-scripts-are-ignored"></a>Scripts de instalação e desinstalação são ignorados
 
-O modelo de restauração transitiva, descrito em [Resolução de dependência](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference), não tem um conceito de “tempo de instalação do pacote”. Um pacote existe ou não, porém não há nenhum processo consistente que ocorre quando um pacote é instalado.
+O modelo de restauração transitiva, descrito em [Resolução de dependência](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference), não tem um conceito de “tempo de instalação do pacote”. Um pacote existe ou não, porém não há nenhum processo consistente que ocorre quando um pacote é instalado.
 
 Além disso, scripts de instalação são compatíveis apenas com o Visual Studio. Outros IDEs precisavam simular a API de extensibilidade do Visual Studio para tentar ser compatíveis com tais scripts e não há compatibilidade em editores e ferramentas de linha de comando comuns.
 

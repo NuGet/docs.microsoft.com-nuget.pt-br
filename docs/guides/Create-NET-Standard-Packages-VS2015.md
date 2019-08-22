@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 1198a781543e581f55740cc0ae5a212d3f8a8b61
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 11dce27b93c3d09a2d27dc79f8d4fed86df879ba
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842453"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488981"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Criar pacotes do .NET Standard e .NET Framework com o Visual Studio 2015
 
@@ -125,7 +125,7 @@ Se você tiver dependências em outros pacotes NuGet, liste-as no elemento `<dep
 </dependencies>
 ```
 
-A sintaxe do atributo *version* aqui indica que a versão 8.0.3 ou superior é aceitável. Para especificar intervalos de versão diferentes, consulte [Controle de versão do pacote](../reference/package-versioning.md).
+A sintaxe do atributo *version* aqui indica que a versão 8.0.3 ou superior é aceitável. Para especificar intervalos de versão diferentes, consulte [Controle de versão do pacote](../concepts/package-versioning.md).
 
 ### <a name="adding-a-readme"></a>Adicionar um Leiame
 
@@ -170,6 +170,6 @@ Observe que `pack` requer o Mono 4.4.2 no Mac OS X e não funciona em sistemas L
 - [Incluir objetivos e destinos de MSBuild em um pacote](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Criando pacotes localizados](../create-packages/creating-localized-packages.md)
 - [Pacotes de símbolo](../create-packages/symbol-packages.md)
-- [Controle de versão do pacote](../reference/package-versioning.md)
+- [Controle de versão do pacote](../concepts/package-versioning.md)
 - [Documentação da Biblioteca do .NET Standard](/dotnet/articles/standard/library)
 - [Portabilidade para o .NET Core do .NET Framework](/dotnet/articles/core/porting/index)

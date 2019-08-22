@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3d8745ea30115a2d7f3954d171d92b75a434a55b
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: b151547e40e567b38acc2b0b9ee84c50d85000c9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67843438"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488487"
 ---
 # <a name="identify-the-project-format"></a>Identificar o formato do projeto
 
@@ -23,7 +23,7 @@ Se o seu projeto é do tipo SDK ou não depende do método usado para criar o pr
 | .NET Standard | Estilo SDK | [CLI do dotnet](../install-nuget-client-tools.md#dotnetexe-cli) | Os projetos criados antes do Visual Studio 2017 não são do tipo SDK. Use a CLI `nuget.exe`. |
 | .NET Core | Estilo SDK | [CLI do dotnet](../install-nuget-client-tools.md#dotnetexe-cli) | Os projetos criados antes do Visual Studio 2017 não são do tipo SDK. Use a CLI `nuget.exe`. |
 | .NET Framework | Estilo não SDK | [CLI do nuget.exe](../install-nuget-client-tools.md#nugetexe-cli) | Os projetos do .NET Framework criados usando outros métodos podem ser projetos em estilo SDK. Para isso, use o [CLI do dotnet](../install-nuget-client-tools.md#dotnetexe-cli) em vez disso. |
-| Projeto .NET [migrado](../reference/migrate-packages-config-to-package-reference.md) | Estilo não SDK| Para criar pacotes, use [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration). | Para criar pacotes, `msbuild -t:pack` é recomendado. Caso contrário, use o [CLI do dotnet](../install-nuget-client-tools.md#dotnetexe-cli). Projetos migrados não são projetos no estilo SDK. |
+| Projeto .NET [migrado](../consume-packages/migrate-packages-config-to-package-reference.md) | Estilo não SDK| Para criar pacotes, use [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration). | Para criar pacotes, `msbuild -t:pack` é recomendado. Caso contrário, use o [CLI do dotnet](../install-nuget-client-tools.md#dotnetexe-cli). Projetos migrados não são projetos no estilo SDK. |
 
 ## <a name="check-the-project-format"></a>Verificar o formato do projeto
 

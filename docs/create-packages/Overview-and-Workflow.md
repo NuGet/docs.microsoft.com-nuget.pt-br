@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e4b9f6dae3a4be69e523888cc9bd2f212b45829c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842395"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488852"
 ---
 # <a name="package-creation-workflow"></a>Fluxo de trabalho de criação de pacote
 
@@ -35,8 +35,8 @@ A partir daí, você pode considerar diversas outras opções para seu pacote:
 - [Pacotes de pré-lançamento](../create-packages/prerelease-packages.md) demonstra como lançar pacotes de versão alfa, beta e rc para os clientes que estejam interessados.
 - [Origem e transformações do arquivo de configuração](../create-packages/source-and-config-file-transformations.md) descreve como você pode fazer as duas substituições de token unidirecionais em arquivos que são adicionados a um projeto e modificam `web.config` e `app.config` com configurações que também são recuperadas quando o pacote é desinstalado.
 - [Pacotes de símbolos](../create-packages/symbol-packages-snupkg.md) oferece diretrizes para o fornecimento de símbolos para a biblioteca que permite aos consumidores intervir no seu código durante a depuração.
-- [Controle de versão do pacote](../reference/package-versioning.md) aborda como identificar as versões exatas que você permite para as suas dependências (outros pacotes que você consume do seu pacote).
-- [Pacotes nativos](../create-packages/native-packages.md) descrevem o processo para criar um pacote para os consumidores do C++.
+- [Controle de versão do pacote](../concepts/package-versioning.md) aborda como identificar as versões exatas que você permite para as suas dependências (outros pacotes que você consume do seu pacote).
+- [Pacotes nativos](../guides/native-packages.md) descrevem o processo para criar um pacote para os consumidores do C++.
 - [Assinando pacotes](../create-packages/sign-a-package.md) descreve o processo para adicionar uma assinatura digital a um pacote.
 
 Quando você estiver pronto para publicar um pacote no nuget.org, siga o processo simples em [Publicar um pacote](../nuget-org/publish-a-package.md).

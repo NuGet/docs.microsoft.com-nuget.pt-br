@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: f16cc6f66bc12727a4ec8eb5da4ff44a9eeb1764
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 435103b600f14b9bbf606c09f0c870115204d5c7
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833335"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488490"
 ---
 # <a name="an-introduction-to-nuget"></a>Uma introdução ao NuGet
 
@@ -66,7 +66,7 @@ A imagem a seguir mostra um projeto que depende de cinco pacotes, que por sua ve
 
 Observe que alguns pacotes aparecem várias vezes no grafo de dependência. Por exemplo, há três consumidores diferentes do pacote B e cada consumidor também pode especificar uma versão diferente do pacote (não mostrado). Isso é uma ocorrência comum, especialmente para pacotes amplamente usados. Felizmente, o NuGet faz o trabalho duro para determinar exatamente qual versão do Pacote B atende a todos os consumidores. Em seguida, o NuGet faz o mesmo para todos os outros pacotes, independente da profundidade do grafo de dependência.
 
-Para obter mais detalhes sobre como o NuGet executa esse serviço, consulte [Resolução de dependência](consume-packages/dependency-resolution.md).
+Para obter mais detalhes sobre como o NuGet executa esse serviço, consulte [Resolução de dependência](concepts/dependency-resolution.md).
 
 ## <a name="tracking-references-and-restoring-packages"></a>Rastreando referências e restaurando pacotes
 
@@ -103,9 +103,9 @@ Até agora, você aprendeu as seguintes características do NuGet:
 
 Para fazer com que esses processos funcionem com eficiência, o NuGet realiza algumas otimizações nos bastidores. Particularmente, o NuGet gerencia um cache de pacote e uma pasta de pacotes globais para abreviar a instalação e a reinstalação. O cache evita o download de um pacote já instalado no computador. A pasta de pacotes globais permite que vários projetos compartilhem o mesmo pacote instalado, reduzindo, assim, a superfície geral do NuGet no computador. As pastas de cache e de pacotes globais também são muito úteis quando você restaura com frequência um grande número de pacotes, como em um servidor de build. Para obter mais detalhes sobre esses mecanismos, confira [Como gerenciar as pastas de pacotes globais e de cache](consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-Em um projeto individual, o NuGet gerencia o grafo de dependência geral, que inclui novamente a resolução de múltiplas referências para versões diferentes do mesmo pacote. É muito comum que um projeto adote uma dependência de um ou mais pacotes que tenham eles próprios as mesmas dependências. Alguns dos pacotes de utilitário mais úteis no nuget.org são utilizados por muitos outros pacotes. No grafo de dependência inteiro, dez, você poderia ter facilmente ter dez referências diferentes para diferentes versões do mesmo pacote. Para evitar trazer várias versões do pacote para o próprio aplicativo, o NuGet classifica qual versão única pode ser usada por qualquer consumidor. (Para saber mais, confira [Resolução de dependência](consume-packages/dependency-resolution.md).)
+Em um projeto individual, o NuGet gerencia o grafo de dependência geral, que inclui novamente a resolução de múltiplas referências para versões diferentes do mesmo pacote. É muito comum que um projeto adote uma dependência de um ou mais pacotes que tenham eles próprios as mesmas dependências. Alguns dos pacotes de utilitário mais úteis no nuget.org são utilizados por muitos outros pacotes. No grafo de dependência inteiro, dez, você poderia ter facilmente ter dez referências diferentes para diferentes versões do mesmo pacote. Para evitar trazer várias versões do pacote para o próprio aplicativo, o NuGet classifica qual versão única pode ser usada por qualquer consumidor. (Para saber mais, confira [Resolução de dependência](concepts/dependency-resolution.md).)
 
-Além disso, o NuGet mantém todas as especificações relacionadas a como os pacotes são estruturados (incluindo [localização](create-packages/creating-localized-packages.md) e [símbolos de depuração](create-packages/symbol-packages.md)) e como eles são [referenciados](consume-packages/package-references-in-project-files.md) (incluindo [intervalos de versão](reference/package-versioning.md#version-ranges-and-wildcards) e [versões de pré-lançamento](create-packages/prerelease-packages.md)). O NuGet também oferece várias APIs para trabalhar com seus serviços por meio de programação, e fornece suporte para os desenvolvedores que escrevem modelos de projeto e extensões do Visual Studio.
+Além disso, o NuGet mantém todas as especificações relacionadas a como os pacotes são estruturados (incluindo [localização](create-packages/creating-localized-packages.md) e [símbolos de depuração](create-packages/symbol-packages.md)) e como eles são [referenciados](consume-packages/package-references-in-project-files.md) (incluindo [intervalos de versão](concepts/package-versioning.md#version-ranges-and-wildcards) e [versões de pré-lançamento](create-packages/prerelease-packages.md)). O NuGet também oferece várias APIs para trabalhar com seus serviços por meio de programação, e fornece suporte para os desenvolvedores que escrevem modelos de projeto e extensões do Visual Studio.
 
 Reserve um tempo para navegar pelo sumário desta documentação e você verá todos esses recursos representados nele, junto com as notas de versão desde o início do NuGet.
 
