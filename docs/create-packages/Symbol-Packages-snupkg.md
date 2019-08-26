@@ -12,12 +12,12 @@ keywords: Pacotes de símbolos do NuGet, depuração de pacote do NuGet, suporte
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959672"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564537"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Criando pacotes de símbolos (.snupkg)
 
@@ -118,7 +118,7 @@ O arquivo .nupkg seria exatamente o mesmo como está hoje, mas o arquivo .snupkg
 
 4) Se um autor decide usar um nuspec personalizado para compilar seus nupkg e snupkg, o snupkg deve ter a mesma hierarquia de pastas e arquivos detalhados em 2).
 5) O campo ```authors``` e ```owners``` será excluído do nuspec do snupkg.
-6) Não use o elemento <license>. Um .snupkg é coberto pela mesma licença que o .nupk correspondente.
+6) Não use o elemento <license>. Um .snupkg é coberto pela mesma licença que o .nupkg correspondente.
 
 ## <a name="see-also"></a>Veja também
 

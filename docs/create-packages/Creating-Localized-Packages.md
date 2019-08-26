@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: b1c2511c1fbafc7f52029c23521fa55671b0b5c5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dbc3781bd17f815c6b32fc70b275469337148f41
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546889"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488829"
 ---
 # <a name="creating-localized-nuget-packages"></a>Criando pacotes do NuGet localizados
 
@@ -83,8 +83,8 @@ Agrupar todos os idiomas em um único pacote traz algumas desvantagens:
 
 No entanto, isso também traz alguns benefícios:
 
-1. **Simplicidade**: os consumidores do pacote obtém todos os idiomas compatíveis em uma única instalação, em vez de ter que instalar cada idioma separadamente. Também é mais fácil de localizar um único pacote no nuget.org.
-1. **Versões acopladas**: como todos os assemblies de recursos estão no mesmo pacote que o assembly principal, todos eles compartilham o mesmo número de versão e não correm o risco de serem desacopladas inadvertidamente.
+1. **Simplicidade**: os consumidores do pacote obtêm todos os idiomas compatíveis em uma única instalação, em vez de ter que instalar cada idioma separadamente. Também é mais fácil de localizar um único pacote no nuget.org.
+1. **Versões acopladas**: como todos os assemblies de recursos estão no mesmo pacote que o assembly principal, todos eles compartilham o mesmo número de versão e não correm o risco de serem desacoplados inadvertidamente.
 
 ## <a name="localized-satellite-packages"></a>Pacotes satélite localizados
 
@@ -101,7 +101,7 @@ Dessa forma, um assembly satélite usa a convenção de nomenclatura `{identifie
 
 Como esse é um pacote separado, ele tem seu próprio arquivo `.nuspec` que contém metadados localizado. Lembre-se que o idioma no `.nuspec` **precisa** corresponder àquele usado no nome do arquivo.
 
-O assembly satélite também **precisa** declarar uma versão exata do pacote principal como uma dependência, usando a notação de versão [] \(consulte [Controle de versão do pacote](../reference/package-versioning.md)). Por exemplo, `ContosoUtilities.de.1.0.0.nupkg` precisa declarar uma dependência em `ContosoUtilities.1.0.0.nupkg` usando a notação `[1.0.0]`. O pacote satélite pode, obviamente, ter um número de versão diferente do pacote principal.
+O assembly satélite também **precisa** declarar uma versão exata do pacote principal como uma dependência, usando a notação de versão [] \(consulte [Controle de versão do pacote](../concepts/package-versioning.md)). Por exemplo, `ContosoUtilities.de.1.0.0.nupkg` precisa declarar uma dependência em `ContosoUtilities.1.0.0.nupkg` usando a notação `[1.0.0]`. O pacote satélite pode, obviamente, ter um número de versão diferente do pacote principal.
 
 A estrutura do pacote satélite deverá incluir o assembly do recurso e o arquivo XML do IntelliSense em uma subpasta que corresponde a `{language}` no nome de arquivo do pacote:
 
@@ -137,12 +137,12 @@ Assemblies satélite adicionais são criados da mesma forma para cada idioma com
 
 Usar pacotes satélite traz alguns benefícios:
 
-1. **Tamanho do pacote**: a superfície geral do pacote principal é minimizada e os consumidores incorrem somente nos custos de cada idioma que desejam usar.
-1. **Metadados separados**: cada pacote satélite tem seu próprio arquivo `.nuspec` e, portanto, seus próprios metadados localizado porque. Isso pode permitir que alguns consumidores localizem os pacotes mais facilmente pesquisando nuget.org com termos localizados.
+1. **Tamanho do pacote**: a superfície geral do pacote principal é minimizada e os consumidores arcam somente com os custos de cada idioma que desejam usar.
+1. **Metadados separados**: cada pacote satélite tem seu próprio arquivo `.nuspec` e, portanto, seus próprios metadados localizados. Isso pode permitir que alguns consumidores localizem os pacotes mais facilmente pesquisando nuget.org com termos localizados.
 1. **Versões desacopladas**: assemblies satélite podem ser liberados ao longo do tempo, em vez de uma só vez, permitindo que você distribua seus esforços de localização.
 
 No entanto, pacotes satélite trazem seu próprio conjunto de desvantagens:
 
-1. **Desordem**: em vez de um único pacote, você tem muitos pacotes que podem levar a resultados da pesquisa desorganizados no nuget.org e uma longa lista de referências em um projeto do Visual Studio.
+1. **Desordem**: em vez de um único pacote, você tem muitos pacotes que podem levar a resultados da pesquisa desorganizados no nuget.org e a uma longa lista de referências em um projeto do Visual Studio.
 1. **Convenções estritas**. Pacotes satélite devem seguir as convenções com exatidão ou as versões localizadas não serão selecionadas corretamente.
 1. **Controle de versão**: cada pacote satélite precisa ter uma dependência de versão exata do pacote principal. Isso significa que a atualização do pacote principal pode requerer a atualização de todos os pacotes satélite, mesmo se os recursos não foram alterados.

@@ -1,16 +1,16 @@
 ---
-title: Criar e publicar um pacote do NuGet do .NET Standard usando o Visual Studio no Windows
+title: Criar e publicar um pacote NuGet do .NET Standard - Visual Studio no Windows
 description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Standard usando o Visual Studio no Windows.
 author: karann-msft
 ms.author: karann
-ms.date: 07/09/2019
+ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0fc3b15c6d5ffa93eb6e26660f71cea2286ba77d
-ms.sourcegitcommit: aed04cc04b0902403612de6736a900d41c265afd
+ms.openlocfilehash: 9552f6c5291f950430bfb723cb713bf76a79ea66
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68821426"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564598"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Início Rápido: Criar e publicar um pacote do NuGet usando o Visual Studio (.NET Standard somente no Windows)
 
@@ -21,14 +21,14 @@ Criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale qualquer edição do Visual Studio 2017 ou superior de [visualstudio.com](https://www.visualstudio.com/) com a carga de trabalho relacionada ao .NET Core.
+1. Instale qualquer edição do Visual Studio 2019 de [visualstudio.com](https://www.visualstudio.com/) com uma carga de trabalho relacionada ao .NET Core.
 
 1. Instale a CLI `dotnet`, se ainda não estiver instalada.
 
-   Para a CLI do `dotnet`, a partir do Visual Studio 2017, a CLI do `dotnet` é instalada automaticamente com qualquer carga de trabalho relacionada ao .NET Core. Caso contrário, instale o [SDK do .NET Core](https://www.microsoft.com/net/download/) para ter a CLI do `dotnet`. A CLI `dotnet` é necessária para projetos do .NET Standard que usam o [formato de estilo SDK](../resources/check-project-format.md) (atributo do SDK). O modelo padrão de biblioteca de classes no Visual Studio 2017 e superior, que é usado neste artigo, usa o atributo SDK.
+   Para a CLI do `dotnet`, a partir do Visual Studio 2017, a CLI do `dotnet` é instalada automaticamente com qualquer carga de trabalho relacionada ao .NET Core. Caso contrário, instale o [SDK do .NET Core](https://www.microsoft.com/net/download/) para ter a CLI do `dotnet`. A CLI `dotnet` é necessária para projetos do .NET Standard que usam o [formato de estilo SDK](../resources/check-project-format.md) (atributo do SDK). O modelo padrão de biblioteca de classes .NET Standard no Visual Studio 2017 e posterior, que é usado neste artigo, usa o atributo SDK.
    
    > [!Important]
-   > Para este artigo, a CLI do `dotnet` recomendada. Embora você possa publicar qualquer pacote NuGet usando a CLI do `nuget.exe`, algumas das etapas neste artigo são específicas para projetos no estilo SDK e a CLI do dotnet. A CLI do nuget.exe é usada para [projetos de estilo não SDK](../resources/check-project-format.md) (normalmente .NET Framework). Se você estiver trabalhando com um projeto de estilo não SDK, siga os procedimentos em [Criar e publicar um pacote de .NET Framework (Visual Studio](create-and-publish-a-package-using-visual-studio-net-framework.md)) para criar e publicar o pacote.
+   > Se você estiver trabalhando com um projeto de estilo não SDK, siga os procedimentos em [Criar e publicar um pacote de .NET Framework (Visual Studio](create-and-publish-a-package-using-visual-studio-net-framework.md)) para criar e publicar o pacote. Para este artigo, a CLI do `dotnet` recomendada. Embora você possa publicar qualquer pacote NuGet usando a CLI do `nuget.exe`, algumas das etapas neste artigo são específicas para projetos no estilo SDK e a CLI do dotnet. A CLI do nuget.exe é usada para [projetos de estilo não SDK](../resources/check-project-format.md) (normalmente .NET Framework).
 
 1. [Registre-se em uma conta gratuita em nuget.org](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account), se ainda não tiver uma. Criar uma nova conta envia um email de confirmação. Você deve confirmar a conta antes de poder carregar um pacote.
 
@@ -37,6 +37,9 @@ Criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studi
 Você pode usar um projeto existente da Biblioteca de Classes .NET Standard para o código que você deseja empacotar ou criar um simples da seguinte maneira:
 
 1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, expanda o nó **Visual C# > .NET Standard**, selecione o modelo de "Biblioteca de Classes (.NET Standard)", nomeie o projeto como AppLogger e clique em **OK**.
+
+   > [!Tip]
+   > A menos que você tenha um motivo para a escolha de outro jeito, o .NET Standard é o destino preferencial para pacotes NuGet, pois fornece compatibilidade com a mais ampla variedade de projetos de consumo.
 
 1. Clique com botão direito do mouse no arquivo de projeto resultante e selecione **Build** para verificar se o projeto foi criado corretamente. A DLL é encontrada dentro da pasta de Depuração (ou Versão, se você compilar essa configuração).
 
@@ -55,28 +58,25 @@ namespace AppLogger
 }
 ```
 
-> [!Tip]
-> A menos que você tenha um motivo para a escolha de outro jeito, o .NET Standard é o destino preferencial para pacotes NuGet, pois fornece compatibilidade com a mais ampla variedade de projetos de consumo.
-
 ## <a name="configure-package-properties"></a>Configurar propriedades do pacote
 
 1. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha o comando de menu **Propriedades** e selecione a guia **Pacote**.
 
-   A guia **Pacote** é exibida apenas para projetos no estilo SDK no Visual Studio, normalmente .NET Standard ou projetos de biblioteca de classes do .NET Core; se você estiver direcionando para um projeto de estilo não SDK (normalmente, .NET Framework) ou [migre o projeto](../reference/migrate-packages-config-to-package-reference.md) e use a CLI do `dotnet` ou confira [Criar e publicar um pacote do .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) ou [Criar e publicar um pacote de .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) para ver as instruções passo a passo.
+   A guia **Pacote** é exibida apenas para projetos no estilo SDK no Visual Studio, normalmente .NET Standard ou projetos de biblioteca de classes do .NET Core; se você estiver direcionando para um projeto de estilo não SDK (normalmente, .NET Framework), [migre o projeto](../consume-packages/migrate-packages-config-to-package-reference.md) ou confira [Criar e publicar um pacote do .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) para ver as instruções passo a passo.
 
     ![Propriedades do pacote NuGet em um projeto do Visual Studio](media/qs_create-vs-01-package-properties.png)
 
     > [!Note]
     > Para pacotes compilados para consumo público, preste atenção especial à propriedade **Tags**, à medida que as marcas ajudam outras pessoas a localizar o pacote e entender o que ele faz.
 
-1. Dê ao seu pacote um identificador exclusivo e preencha as outras propriedades desejadas. Para obter uma descrição das propriedades diferentes, veja [referência de arquivo .nuspec](../reference/nuspec.md). Todas essas propriedades vão para o manifesto `.nuspec` que o Visual Studio cria para o projeto.
+1. Dê ao seu pacote um identificador exclusivo e preencha as outras propriedades desejadas. Para ver um mapeamento das propriedades do MSBuild (projeto no estilo SDK) para propriedades em um *.nuspec*, confira [alvos de pacote](../reference/msbuild-targets.md#pack-target). Para obter descrições de propriedades, confira a [referência do arquivo .nuspec](../reference/nuspec.md). Todas essas propriedades vão para o manifesto `.nuspec` que o Visual Studio cria para o projeto.
 
     > [!Important]
     > Você precisa dar ao pacote um identificador exclusivo em nuget.org ou qualquer host que você esteja usando. Para este passo a passo, recomendamos incluir o "Sample" ou "Test" no nome, pois a etapa de publicação posterior torna o pacote publicamente visível (embora seja improvável que alguém possa usá-lo).
     >
     > Se você tentar publicar um pacote com um nome que já existe, você verá um erro.
 
-1. Opcional: para ver as propriedades diretamente no arquivo de projeto, clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione **Editar AppLogger.csproj**.
+1. (Opcional) Para ver as propriedades diretamente no arquivo de projeto, clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione **Editar AppLogger.csproj**.
 
    Essa opção só está disponível a partir do Visual Studio 2017 para projetos que usam o atributo de estilo SDK. Caso contrário, clique com o botão direito do mouse no projeto e escolha **Descarregar Projeto**. Em seguida, clique com o botão direito do mouse no projeto descarregado e escolha **Editar AppLogger.csproj**.
 
@@ -88,7 +88,7 @@ namespace AppLogger
 
     ![Comando pack do NuGet no menu de contexto de projeto do Visual Studio](media/qs_create-vs-02-pack-command.png)
 
-    Se você não vir o comando **Pack**, seu projeto provavelmente não será um projeto no estilo SDK e você precisará usar a CLI do `nuget.exe`. Ou [migre o projeto](../reference/migrate-packages-config-to-package-reference.md) e use `dotnet` a CLI, ou confira [Criar e publicar um pacote do .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) para ver instruções passo a passo.
+    Se você não vir o comando **Pack**, seu projeto provavelmente não será um projeto no estilo SDK e você precisará usar a CLI do `nuget.exe`. Ou [migre o projeto](../consume-packages/migrate-packages-config-to-package-reference.md) e use `dotnet` a CLI, ou confira [Criar e publicar um pacote do .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) para ver instruções passo a passo.
 
 1. O Visual Studio compila o projeto e cria o arquivo `.nupkg`. Examine a janela **Saída** para obter detalhes (semelhante ao seguinte), que contém o caminho até o arquivo de pacote. Observe também que o assembly criado está em `bin\Release\netstandard2.0`, como convém ao destino do .NET Standard 2.0.
 
@@ -128,7 +128,11 @@ Depois que você tiver um arquivo `.nupkg`, publique-o em nuget.org usando a CLI
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>Publicar com dotnet nuget push (CLI do dotnet)
+### <a name="publish-with-the-dotnet-cli-or-nugetexe-cli"></a>Publicar com a CLI do dotnet ou a CLI do nuget.exe
+
+Selecione a guia para sua ferramenta CLI, **CLI do .NET Core** (CLI do dotnet) ou **NuGet** (CLI do nuget.exe).
+
+# <a name="net-core-clitabnetcore-cli"></a>[CLI do .NET Core](#tab/netcore-cli)
 
 Esta etapa é a alternativa recomendada para usar o `nuget.exe`.
 
@@ -136,7 +140,7 @@ Antes de publicar o pacote, você deverá primeiro abrir uma linha de comando.
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-### <a name="publish-with-nuget-push-nugetexe-cli"></a>Publicar com nuget push (CLI do nuget.exe)
+# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
 
 Esta etapa é uma alternativa ao uso de `dotnet.exe`.
 
@@ -158,6 +162,8 @@ Esta etapa é uma alternativa ao uso de `dotnet.exe`.
     ```
 
 Confira [nuget push](../reference/cli-reference/cli-ref-push.md).
+
+---
 
 ### <a name="publish-errors"></a>Erros de publicação
 
@@ -189,11 +195,11 @@ Isso incluirá um arquivo chamado `readme.txt` na raiz do pacote. O Visual Studi
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
-- [Criar um pacote](../create-packages/creating-a-package.md)
+- [Criar um pacote](../create-packages/creating-a-package-dotnet-cli.md)
 - [Publicar um pacote](../nuget-org/publish-a-package.md)
 - [Pacotes de pré-lançamento](../create-packages/Prerelease-Packages.md)
 - [Suporte a várias estruturas de destino](../create-packages/multiple-target-frameworks-project-file.md)
-- [Controle de versão do pacote](../reference/package-versioning.md)
+- [Controle de versão do pacote](../concepts/package-versioning.md)
 - [Criando pacotes localizados](../create-packages/creating-localized-packages.md)
 - [Documentação da Biblioteca do .NET Standard](/dotnet/articles/standard/library)
 - [Portabilidade para o .NET Core do .NET Framework](/dotnet/articles/core/porting/index)
