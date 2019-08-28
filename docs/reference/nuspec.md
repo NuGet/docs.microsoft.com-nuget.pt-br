@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
+ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488677"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060249"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -76,7 +76,7 @@ O identificador de pacote que não diferencia maiúsculas de minúsculas, o qual
 #### <a name="version"></a>version
 A versão do pacote, seguindo o padrão *principal.secundária.patch*. Os números de versão podem incluir um sufixo de pré-lançamento, conforme descrito em [Controle de versões de pré-lançamento](../concepts/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>descrição
-Uma descrição longa do pacote para exibição de interface do usuário. 
+Uma descrição do pacote para exibição da interface do usuário.
 #### <a name="authors"></a>authors
 Uma lista separada por vírgulas de autores de pacotes, que correspondem aos nomes de perfil em nuget.org. Eles são exibidos na Galeria do NuGet em nuget.org e são usados para fazer referência cruzada aos pacotes dos mesmos autores. 
 
@@ -152,6 +152,9 @@ Um valor booliano que especifica se o cliente precisa solicitar que o consumidor
 *(2.8 ou superior)* Um valor booliano que especifica se o pacote está marcado como uma dependência somente de desenvolvimento, que impede que o pacote seja incluído como uma dependência em outros pacotes. Com PackageReference (NuGet 4.8 +), esse sinalizador também significa que ele excluirá os ativos de tempo de compilação da compilação. Consulte [suporte do DevelopmentDependency para PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 
 #### <a name="summary"></a>resumo
+> [!Important]
+> `summary`está sendo preterido. Use `description` em seu lugar.
+
 Uma breve descrição do pacote para exibição de interface do usuário. Se omitido, uma versão truncada do `description` é usada.
 
 #### <a name="releasenotes"></a>releaseNotes
