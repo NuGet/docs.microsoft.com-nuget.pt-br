@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488804"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999978"
 ---
 # <a name="restore-packages-using-package-restore"></a>Restaurar pacotes usando a Restauração de Pacote
 
@@ -44,7 +44,7 @@ A Restauração de Pacote tenta instalar todas as dependências de pacotes no es
 
    Para projetos que usam PackageReference, após uma restauração bem-sucedida, o pacote deve estar presente na pasta *global-packages* e o arquivo `obj/project.assets.json` é recriado. Para projetos que usam `packages.config`, o pacote deve aparecer na pasta `packages` do projeto. Nesse momento, o projeto deverá ser compilado com êxito. 
 
-2. Depois de executar a Restauração de Pacote, se ainda houver pacotes ausentes ou erros relacionados a pacotes (como ícones de erro no Gerenciador de Soluções no Visual Studio), poderá ser necessário [Reinstalar e atualizar os pacotes](../consume-packages/reinstalling-and-updating-packages.md).
+2. Depois de executar a Restauração de Pacote, se ainda houver pacotes ausentes ou erros relacionados a pacotes (como ícones de erro no Gerenciador de Soluções do Visual Studio), poderá ser necessário seguir as instruções descritas em [Solução de problemas de restauração de pacote](package-restore-troubleshooting.md) ou, como alternativa, [Reinstalar e atualizar os pacotes](../consume-packages/reinstalling-and-updating-packages.md).
 
    No Visual Studio, o Console do Gerenciador de Pacotes fornece várias opções flexíveis para reinstalar os pacotes. Confira [Usar Update-Package](reinstalling-and-updating-packages.md#using-update-package).
 
