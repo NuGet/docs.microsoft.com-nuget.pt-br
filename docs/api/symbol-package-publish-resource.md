@@ -1,8 +1,6 @@
 ---
-title: Enviar por push pacotes de símbolos, API do NuGet | Microsoft Docs
-author:
-- cristinamanum
-- kraigb
+title: Pacotes de símbolo de push, API do NuGet | Microsoft Docs
+author: cristinamanum
 ms.author:
 - cmanu
 - kraigb
@@ -11,20 +9,20 @@ ms.date: 10/30/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: ''
-description: O serviço de publicação permite que os clientes publicar novos pacotes de símbolo.
-keywords: Pacote de símbolos de envio por push de API do NuGet
+description: O serviço de publicação permite que os clientes publiquem novos pacotes de símbolo.
+keywords: Pacote de símbolos de push da API do NuGet
 ms.reviewer: karann
-ms.openlocfilehash: 514ab3683db81da5b2220b005b8b39f1fec8300d
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 27e557bf15ce31152243a409eddc4112eeb6c38b
+ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580409"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235113"
 ---
-# <a name="push-symbol-packages"></a>Pacotes de símbolos por push
+# <a name="push-symbol-packages"></a>Pacotes de símbolo de push
 
-É possível aos pacotes de símbolos por push ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) usando a API do NuGet V3.
-Essas operações são baseadas fora do `SymbolPackagePublish` recurso encontrado na [índice de serviço](service-index.md).
+É possível enviar por push os pacotes de símbolos ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) usando a API do NuGet v3.
+Essas operações são baseadas `SymbolPackagePublish` no recurso encontrado no índice de [serviço](service-index.md).
 
 ## <a name="versioning"></a>Controle de versão
 
@@ -36,22 +34,22 @@ SymbolPackagePublish/4.9.0  | A versão inicial
 
 ## <a name="base-url"></a>URL Base
 
-A URL base para as APIs a seguir é o valor da `@id` propriedade do `SymbolPackagePublish/4.9.0` recurso na origem do pacote [índice de serviço](service-index.md). Para obter a documentação abaixo, a URL do nuget.org é usado. Considere `https://www.nuget.org/api/v2/symbolpackage` como um espaço reservado para o `@id` valor encontrado no índice de serviço.
+A URL base para as APIs a seguir é o valor da `@id` propriedade `SymbolPackagePublish/4.9.0` do recurso no [índice de serviço](service-index.md)da origem do pacote. Para a documentação abaixo, a URL do NuGet. org é usada. Considere `https://www.nuget.org/api/v2/symbolpackage` como um espaço reservado para `@id` o valor encontrado no índice de serviço.
 
 ## <a name="http-methods"></a>Métodos HTTP
 
-O `PUT` método HTTP tem suporte por esse recurso. 
+Este `PUT` recurso dá suporte ao método http. 
 
-## <a name="push-a-symbol-package"></a>Enviar por push a um pacote de símbolos
+## <a name="push-a-symbol-package"></a>Enviar por push um pacote de símbolos
 
-NuGet.org dá suporte ao novo formato enviar por push de pacotes de símbolo ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) usando a API a seguir. 
+o nuget.org dá suporte ao envio de novo formato de pacotes de símbolo ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) usando a API a seguir. 
 
     PUT https://www.nuget.org/api/v2/symbolpackage
 
-Pacotes de símbolo com a mesma ID e versão podem ser enviados várias vezes. Um pacote de símbolos será rejeitado nos seguintes casos.
-- Não existe um pacote com o mesmo ID e versão.
+Pacotes de símbolos com a mesma ID e versão podem ser enviados várias vezes. Um pacote de símbolos será rejeitado nos casos a seguir.
+- Não existe um pacote com a mesma ID e versão.
 - Um pacote de símbolos com a mesma ID e versão foi enviado por push, mas ainda não foi publicado.
-- O pacote de símbolos ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) é inválido (consulte [restrições de pacote de símbolos](../create-packages/Symbol-Packages-snupkg.md)).
+- O pacote de símbolos ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) é inválido (consulte [restrições de pacote de símbolo](../create-packages/Symbol-Packages-snupkg.md)).
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
@@ -59,20 +57,20 @@ Nome           | No     | Tipo   | Necessária | Observações
 -------------- | ------ | ------ | -------- | -----
 X-NuGet-ApiKey | Cabeçalho | cadeia de caracteres | sim      | Por exemplo, `X-NuGet-ApiKey: {USER_API_KEY}`
 
-A chave de API é uma cadeia de caracteres opaca obtidos de origem do pacote pelo usuário e configurado no cliente. Nenhum formato de cadeia de caracteres específica é obrigatória, mas o comprimento da chave de API não deve exceder um tamanho razoável para valores de cabeçalho HTTP.
+A chave de API é uma cadeia de caracteres opaca proveniente da origem do pacote pelo usuário e configurada no cliente. Nenhum formato de cadeia de caracteres específico é obrigatório, mas o comprimento da chave de API não deve exceder um tamanho razoável para valores de cabeçalho HTTP.
 
 ### <a name="request-body"></a>Corpo da solicitação
 
-O corpo da solicitação para o envio por push do símbolo é o mesmo que com o corpo de solicitação de uma solicitação de envio do pacote (consulte [de pacote por push e excluir](package-publish-resource.md)). 
+O corpo da solicitação para o símbolo Push é o mesmo que com o corpo da solicitação de uma solicitação de push de pacote (consulte [push e Delete do pacote](package-publish-resource.md)). 
 
 ### <a name="response"></a>Resposta
 
 Código de status | Significado
 ----------- | -------
-201         | O pacote de símbolos foi enviado com êxito.
+201         | O pacote de símbolos foi enviado por push com êxito.
 400         | O pacote de símbolos fornecido é inválido.
-401         | O usuário não está autorizado para executar esta ação.
-404         | Um pacote correspondente com a ID e a versão fornecida não existe.
-409         | Um pacote de símbolos com a ID e a versão fornecida foi enviado por push, mas ele ainda não está disponível.
+401         | O usuário não está autorizado a executar esta ação.
+404         | Não existe um pacote correspondente com a ID e a versão fornecidas.
+409         | Um pacote de símbolos com a ID e a versão fornecidas foi enviado por push, mas ainda não está disponível.
 413         | O pacote é muito grande.
 
