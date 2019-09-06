@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: a2be42aeb322cfd0ab43c9cec6ad1b063cbc3089
-ms.sourcegitcommit: f291ff91561a6b58c2aec41c624d798e00ce41fa
-ms.translationtype: HT
+ms.openlocfilehash: d9937a2b087fd88c1e6fd9f07a513b5047bdcf2e
+ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68462511"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235085"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Início Rápido: Instalar e usar um pacote no Visual Studio (somente Windows)
 
@@ -27,7 +27,7 @@ Depois de instalado, consulte o pacote no código com `using <namespace>` em que
 
 É possível instalar a edição Community 2019 gratuitamente em [visualstudio.com](https://www.visualstudio.com/) ou usar as edições Professional ou Enterprise.
 
-Se você estiver usando o Visual Studio para Mac, confira [Incluir um pacote do NuGet em seu projeto](/visualstudio/mac/nuget-walkthrough).
+Se você estiver usando Visual Studio para Mac, consulte [instalar e usar um pacote no Visual Studio para Mac](install-and-use-a-package-in-visual-studio-mac.md).
 
 ## <a name="create-a-project"></a>Criar um projeto
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
-ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
+ms.openlocfilehash: ea40f80a482a290b7399e5a6abc69e0c6fe32b77
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060249"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384455"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -90,7 +90,7 @@ Uma URL para a home page do pacote, geralmente mostrada em exibições de interf
 
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
-> licenseUrl está sendo preterido. Use a licença em vez disso.
+> licenseUrl foi preterido. Use a licença em vez disso.
 
 Uma URL para a licença do pacote, geralmente mostrada em interfaces do tipo nuget.org.
 
@@ -143,7 +143,36 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 ```
 
 #### <a name="iconurl"></a>iconUrl
+
+> [!Important]
+> iconUrl foi preterido. Use o ícone em vez disso.
+
 Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como o ícone do pacote na exibição de interface do usuário. Verifique se esse elemento contém a *URL direta da imagem* e não a URL de uma página da Web que contém a imagem. Por exemplo, para usar uma imagem do GitHub, use a URL do arquivo bruto <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>como. 
+   
+#### <a name="icon"></a>cone
+
+É um caminho para um arquivo de imagem dentro do pacote, geralmente mostrado em UIs como nuget.org como o ícone do pacote. O tamanho do arquivo de imagem é limitado a 1 MB. Os formatos de arquivo com suporte incluem JPEG e PNG. Recomendamos uma resoulution de imagem de 64 x 64.
+
+Por exemplo, você adicionaria o seguinte ao seu nuspec ao criar um pacote usando NuGet. exe:
+
+```xml
+<package>
+  <metadata>
+    ...
+    <icon>images\icon.png</icon>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="..\icon.png" target="images\" />
+    ...
+  </files>
+</package>
+```
+
+[Ícone de pacote exemplo de nuspec.](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
+
+Para o equivalente do MSBuild, dê uma olhada no [empacotamento de um arquivo de imagem de ícone](msbuild-targets.md#packing-an-icon-image-file).
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Um valor booliano que especifica se o cliente precisa solicitar que o consumidor aceite a licença do pacote antes de instalá-lo.
