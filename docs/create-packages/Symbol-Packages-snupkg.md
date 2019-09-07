@@ -12,12 +12,12 @@ keywords: Pacotes de símbolos do NuGet, depuração de pacote do NuGet, suporte
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
-ms.translationtype: HT
+ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
+ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564537"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749035"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Criando pacotes de símbolos (.snupkg)
 
@@ -29,7 +29,30 @@ Os pacotes de símbolos permitem melhorar a experiência de depuração dos paco
 
 ## <a name="creating-a-symbol-package"></a>Criar um pacote de símbolos
 
-Você pode criar um pacote de símbolos snupkg usando o dotnet.exe, o NuGet.exe ou o MSBuild. Se estiver usando o NuGet.exe, use os seguintes comandos para criar um arquivo .snupkg além do arquivo .nupkg:
+Se você estiver usando dotNet. exe ou MSBuild, precisará definir as `IncludeSymbols` Propriedades e `SymbolPackageFormat` para criar um arquivo. snupkg além do arquivo. nupkg.
+
+* Adicione as seguintes propriedades ao seu arquivo. csproj:
+
+   ```xml
+   <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols> 
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat> 
+   </PropertyGroup>
+   ```
+
+* Ou especifique essas propriedades na linha de comando:
+
+     ```cli
+     dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+     ```
+
+  ou
+
+  ```cli
+  msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+  ```
+
+Se estiver usando o NuGet.exe, use os seguintes comandos para criar um arquivo .snupkg além do arquivo .nupkg:
 
 ```
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
@@ -37,20 +60,7 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 ```
 
-Se estiver usando o dotnet.exe ou o MSBuild, siga as seguintes etapas para criar um arquivo .snupkg além do arquivo .nupkg:
-
-1. Adicione as seguintes propriedades ao arquivo .csproj:
-
-    ```xml
-    <PropertyGroup>
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
-    ```
-
-1. Empacote o projeto com `dotnet pack MyPackage.csproj` ou `msbuild -t:pack MyPackage.csproj`.
-
-A propriedade [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) pode ter um destes dois valores: `symbols.nupkg` (o padrão) ou `snupkg`. Se a propriedade [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) não for especificada, um pacote de símbolos herdados será criado.
+A propriedade [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) pode ter um destes dois valores: `symbols.nupkg` (o padrão) ou `snupkg`. Se essa propriedade não for especificada, um pacote de símbolos herdado será criado.
 
 > [!Note]
 > O formato herdado `.symbols.nupkg` ainda é compatível, mas apenas por razões de compatibilidade (veja [Pacotes de símbolos herdados](Symbol-Packages.md)). O servidor de símbolos da NuGet.org aceita apenas o novo formato de pacote de símbolos – `.snupkg`.
@@ -118,8 +128,8 @@ O arquivo .nupkg seria exatamente o mesmo como está hoje, mas o arquivo .snupkg
 
 4) Se um autor decide usar um nuspec personalizado para compilar seus nupkg e snupkg, o snupkg deve ter a mesma hierarquia de pastas e arquivos detalhados em 2).
 5) O campo ```authors``` e ```owners``` será excluído do nuspec do snupkg.
-6) Não use o elemento <license>. Um .snupkg é coberto pela mesma licença que o .nupkg correspondente.
+6) Não use o elemento ```<license>```. Um .snupkg é coberto pela mesma licença que o .nupkg correspondente.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
-[NuGet-Package-Debugging-&-Symbols-Improvements](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+[Aprimoramentos na depuração do pacote NuGet & símbolos](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
