@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 76829d45ea9821da3b7fdaa2f88d30dbb104fea1
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959731"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815355"
 ---
 # <a name="pack-command-nuget-cli"></a>Commando pack (NuGet CLI)
 
@@ -35,6 +35,7 @@ onde `<nuspecPath>` `.nuspec` e `<projectPath>` especifique o arquivo de projeto
 | --- | --- |
 | BasePath | Define o caminho base dos arquivos definidos no arquivo [. nuspec](../nuspec.md) . |
 | Build | Especifica que o projeto deve ser compilado antes da criação do pacote. |
+| Determinista | Especifique se o comando deve criar um pacote determinístico. Várias invocações do comando Pack irão gerar exatamente o mesmo pacote byte a byte. A saída do comando de pacote não é afetada pelo estado de ambiente da máquina. Especificamente, as entradas zip serão marcadas como 1980-01-01. Para obter o determinante completo, os assemblies devem ser compilados com a opção de compilador respectiva, [determinística](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option). |
 | Excluir | Especifica um ou mais padrões de curinga a serem excluídos ao criar um pacote. Para especificar mais de um padrão, repita o sinalizador-Exclude. Consulte o exemplo abaixo. |
 | ExcludeEmptyDirectories | Impede a inclusão de diretórios vazios ao compilar o pacote. |
 | ForceEnglishOutput | *(3,5 +)* Força o NuGet. exe a ser executado usando uma cultura invariável baseada em inglês. |
@@ -52,7 +53,7 @@ onde `<nuspecPath>` `.nuspec` e `<projectPath>` especifique o arquivo de projeto
 | Símbolos | Especifica que o pacote contém fontes e símbolos. Quando usado com um `.nuspec` arquivo, isso cria um arquivo de pacote NuGet regular e o pacote de símbolos correspondente. Por padrão, ele cria um [pacote de símbolos herdado](../../create-packages/Symbol-Packages.md). O novo formato recomendado para pacotes de símbolos é .snupkg. Veja [Criando pacotes de símbolos (.snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
 | Ferramenta | Especifica que os arquivos de saída do projeto devem ser colocados na `tool` pasta. |
 | Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhado*. |
-| Versão | Substitui o número de versão do `.nuspec` arquivo. |
+| Version | Substitui o número de versão do `.nuspec` arquivo. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 

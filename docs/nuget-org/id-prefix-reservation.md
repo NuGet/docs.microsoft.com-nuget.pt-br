@@ -1,17 +1,17 @@
 ---
 title: Reserva de prefixo da ID
 description: Guia do autor e descrição do recurso Reserva de prefixo da ID do pacote.
-author: diverdan92
-ms.author: diverdan92
-ms.date: 10/09/2017
+author: karann-msft
+ms.author: karann
+ms.date: 09/07/2019
 ms.topic: reference
-ms.reviewer: ananguar
-ms.openlocfilehash: 650f570ec65a665e3d452af732ea22337835d8d9
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
-ms.translationtype: HT
+ms.reviewer: karann
+ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616806"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815286"
 ---
 # <a name="package-id-prefix-reservation"></a>Reserva de prefixo da ID do pacote
 
@@ -88,6 +88,8 @@ Ao examinar qualquer solicitação de reserva de prefixo da ID, a equipe do [nug
 1. As propriedades de identificação dos pacotes que correspondem ao prefixo da ID do pacote são claras e consistentes (especialmente o autor do pacote)?
 
 1. Os pacotes têm uma licença (que usa o elemento de metadados [license](../reference/nuspec.md#license) e NÃO licenseUrl, que está sendo preterido)?
+
+1. Se os pacotes tiverem um ícone (usando o elemento de metadados iconUrl), eles também usam o elemento de metadados [Icon](../reference/nuspec.md#icon) (não é um requisito para remover o iconUrl)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Cenários de provedor de feed de terceiros
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
-ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
+ms.openlocfilehash: 16b8ff532b87a3e3f96029e77dd166eb39294c0b
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70385900"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815349"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -109,6 +109,7 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 - NuspecFile
 - NuspecBasePath
 - NuspecProperties
+- Determinista
 
 ## <a name="pack-scenarios"></a>pack scenarios
 
@@ -172,6 +173,18 @@ Você também pode adicionar os seguintes metadados à referência de projeto:
 <IncludeAssets>
 <ExcludeAssets>
 <PrivateAssets>
+```
+
+### <a name="deterministic"></a>Determinista
+
+Ao usar `MSBuild -t:pack -p:Deterministic=true`o, várias invocações do destino do pacote irão gerar exatamente o mesmo pacote.
+A saída do comando de pacote não é afetada pelo estado de ambiente da máquina. Especificamente, as entradas zip serão marcadas como 1980-01-01. Para obter o determinante completo, os assemblies devem ser compilados com a opção de compilador respectiva, [determinística](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option).
+É recomendável que você especifique a propriedade determinística como a seguir, para que o compilador e o NuGet o respeitarão.
+
+```xml
+<PropertyGroup>
+  <Deterministic>true</Deterministic>
+</PropertyGroup>
 ```
 
 ### <a name="including-content-in-a-package"></a>Incluindo o conteúdo em um pacote
