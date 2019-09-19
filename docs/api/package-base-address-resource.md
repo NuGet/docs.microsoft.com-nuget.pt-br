@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5ec6c0e17a3e8b9a3f156a48685bcaafe42c744b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 7aea28d6224a89149aa33be035c82a45db3058f0
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488228"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094122"
 ---
 # <a name="package-content"></a>Conteúdo do pacote
 
@@ -48,7 +48,7 @@ Se o cliente souber uma ID de pacote e quiser descobrir quais versões de pacote
 
 Nome     | No     | Tipo    | Necessária | Observações
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | cadeia de caracteres  | sim      | A ID do pacote, em minúsculas
+LOWER_ID | URL    | cadeia de caracteres  | sim      | A ID do pacote, em letras minúsculas
 
 O `LOWER_ID` valor é a ID de pacote desejada com letras minúsculas usando as regras implementadas pelo. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Método net.
 
@@ -60,7 +60,7 @@ Se a origem do pacote tiver uma ou mais versões, um código de status 200 será
 
 Nome     | Tipo             | Necessária | Observações
 -------- | ---------------- | -------- | -----
-versões | matriz de cadeias de caracteres | sim      | As IDs de pacote disponíveis
+versões | Matriz de cadeias de caracteres | sim      | As versões disponíveis
 
 As cadeias de `versions` caracteres na matriz são todas as [cadeias de caracteres de versão do NuGet normalizadas](../concepts/package-versioning.md#normalized-version-numbers)e em letras minúsculas. As cadeias de caracteres de versão não contêm nenhum metadado de compilação SemVer 2.0.0.
 
@@ -90,7 +90,7 @@ LOWER_VERSION | URL    | cadeia de caracteres | sim      | A versão do pacote, 
 Ambos `LOWER_ID` e `LOWER_VERSION` estão em letras minúsculas usando as regras implementadas pelo. Da rede[`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
 método.
 
-O `LOWER_VERSION` é a versão de pacote desejada normalizada usando [as regras](../concepts/package-versioning.md#normalized-version-numbers)de normalização de versão do NuGet. Isso significa que os metadados de compilação permitidos pela especificação SemVer 2.0.0 devem ser excluídos nesse caso.
+O `LOWER_VERSION` é a versão de pacote desejada normalizada usando [as regras de normalização](../concepts/package-versioning.md#normalized-version-numbers)de versão do NuGet. Isso significa que os metadados de compilação permitidos pela especificação SemVer 2.0.0 devem ser excluídos nesse caso.
 
 ### <a name="response-body"></a>Corpo da resposta
 
@@ -121,7 +121,7 @@ LOWER_VERSION | URL    | cadeia de caracteres | sim      | A versão do pacote, 
 
 Ambos `LOWER_ID` e `LOWER_VERSION` estão em letras minúsculas usando as regras implementadas pelo. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Método net.
 
-O `LOWER_VERSION` é a versão de pacote desejada normalizada usando [as regras](../concepts/package-versioning.md#normalized-version-numbers)de normalização de versão do NuGet. Isso significa que os metadados de compilação permitidos pela especificação SemVer 2.0.0 devem ser excluídos nesse caso.
+O `LOWER_VERSION` é a versão de pacote desejada normalizada usando [as regras de normalização](../concepts/package-versioning.md#normalized-version-numbers)de versão do NuGet. Isso significa que os metadados de compilação permitidos pela especificação SemVer 2.0.0 devem ser excluídos nesse caso.
 
 ### <a name="response-body"></a>Corpo da resposta
 
