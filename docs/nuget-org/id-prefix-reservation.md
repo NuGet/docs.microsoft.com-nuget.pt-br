@@ -6,16 +6,16 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815286"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248123"
 ---
 # <a name="package-id-prefix-reservation"></a>Reserva de prefixo da ID do pacote
 
-Os proprietários de pacotes podem reservar e proteger suas identidades reservando prefixos da ID. Os consumidores de pacotes recebem informações adicionais ao consumir pacotes, indicando que o pacote que estão consumindo não é enganoso em suas propriedades de identificação. 
+Os proprietários de pacotes podem reservar e proteger suas identidades reservando prefixos da ID. Os consumidores de pacote são fornecidos com informações adicionais quando os pacotes que estão consumindo não são enganosos em suas propriedades de identificação. 
 
 O [nuget.org](https://www.nuget.org/) e o Visual Studio 2017 versão 15.4 ou posterior mostram um indicador visual para os pacotes que são enviados por proprietários com um prefixo reservado da ID do pacote, desde que o pacote corresponda ao padrão de nomenclatura de prefixo reservado da ID. A referência abaixo explica o que envolve a reserva de prefixo da ID e como um proprietário pode solicitar um prefixo da ID.
 

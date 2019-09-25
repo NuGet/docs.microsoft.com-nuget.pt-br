@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: f16bfe5481009f7924a61f03233d288d25ac618f
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 96d176beaa6b2f0c4f53488390e585b70c9ba846
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774097"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248165"
 ---
 # <a name="nuget-53-release-notes"></a>Notas de versão do NuGet 5,3
 
@@ -18,11 +18,11 @@ Veículos de distribuição do NuGet:
 
 | Versão do NuGet | Disponível na versão do Visual Studio| Disponível em SDKs do .NET|
 |:---|:---|:---|
-| [**5.3.0-preview3**](https://nuget.org/downloads) | [Visual Studio 2019 versão 16,3 Preview 3](https://visualstudio.microsoft.com/vs/preview/) | [3.0.100-preview9](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 versão 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
 
 <sup>1</sup> Instalado com o Visual Studio 2019 com carga de trabalho do .NET Core
 
-## <a name="summary-whats-new-in-53-preview-3"></a>Resumo: O que há de novo na versão prévia 3 do 5,3
+## <a name="summary-whats-new-in-53"></a>Resumo: O que há de novo no 5,3
 
 * [O ícone de pacote pode ser inserido no pacote](../reference/msbuild-targets.md#packing-an-icon-image-file), em vez de precisar de uma URL externa. - [#352](https://github.com/NuGet/Home/issues/352)
 
@@ -32,6 +32,10 @@ Veículos de distribuição do NuGet:
 
 **•s**
 
+* Os pacotes NuGet produzidos com o SDK 3.0.100-preview9 não podem ser usados por usuários do SDK 2,2... dependendo do seu fuso horário [#8603](https://github.com/NuGet/Home/issues/8603)
+
+* Aspas "os caracteres no caminho causam uma falha de" caracteres ilegais no `nuget restore` caminho "em [#8168](https://github.com/NuGet/Home/issues/8168)
+
 * VS: os assemblies são totalmente baseados em NGen-Ed não parcialmente-Ed- [#8513](https://github.com/NuGet/Home/issues/8513)
 
 * Reduzir o uso de memória (cancelar assinatura de eventos)- [#8471](https://github.com/NuGet/Home/issues/8471)
@@ -40,7 +44,7 @@ Veículos de distribuição do NuGet:
 
 * Aprimoramentos do NU1403 – validar todos os pacotes, incluir os valores de Sha esperados/reais- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Enumeração múltipla em NuGetPackageManager. PreviewUpdatePackagesAsync- [#8401](https://github.com/NuGet/Home/issues/8401)
+* Várias enumerações `NuGetPackageManager.PreviewUpdatePackagesAsync`em  -  [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * Reverter alteração "pública > interna" em PluginProcess- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -64,7 +68,7 @@ Veículos de distribuição do NuGet:
 
 * Fazer com que as configurações sejam lidas em VS Lazy- [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* A regressão em ' adicionar fontes do NuGet ' causa "o caractere ': ', valor hexadecimal 0x3A, não pode ser incluído em um nome" Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
+* A regressão `Nuget sources add` em causa "o caractere": ", valor hexadecimal 0x3A, não pode ser incluído em um nome" erros- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Provedores de credenciais do plug-in NuGet-ocultar a janela processo- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,6 +90,4 @@ Veículos de distribuição do NuGet:
 
 * Adicionar opções-SolutionDirectory e-PackageDirectory ao NuGet. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
 
-* Habilitar o NuGet Pack para ser determinístico- [#6229](https://github.com/NuGet/Home/issues/6229)
-
-**[Lista de todos os problemas corrigidos nesta versão-5,3 Preview 3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+**[Lista de todos os problemas corrigidos nesta versão-5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
