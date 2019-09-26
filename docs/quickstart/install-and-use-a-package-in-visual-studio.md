@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: d9937a2b087fd88c1e6fd9f07a513b5047bdcf2e
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: 92fc78a88733d0308dc26e10c5b0bafb86b78045
+ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235085"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307223"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Início Rápido: Instalar e usar um pacote no Visual Studio (somente Windows)
 
@@ -33,7 +33,7 @@ Se você estiver usando Visual Studio para Mac, consulte [instalar e usar um pac
 
 É possível instalar pacotes do NuGet em qualquer projeto .NET, desde que o pacote ofereça suporte à mesma estrutura de destino do projeto.
 
-Para esta explicação, use um aplicativo WPF simples. Crie um projeto no Visual Studio usando **Arquivo > Novo projeto...** , digitando **.NET** na caixa de pesquisa e, em seguida, selecionando **aplicativo WPF (.NET Framework)** . Clique em **Avançar**. Aceite os valores padrão para **Estrutura** quando solicitado.
+Para esta explicação, use um aplicativo WPF simples. Crie um projeto no Visual Studio usando **arquivo** > **novo projeto**, digitando **.net** na caixa de pesquisa e, em seguida, selecionando o **aplicativo do WPF (.NET Framework)** . Clique em **Avançar**. Aceite os valores padrão para **Estrutura** quando solicitado.
 
 O Visual Studio criará o projeto, que será aberto no Gerenciador de Soluções.
 
@@ -63,7 +63,7 @@ Para instalar o pacote, use o Gerenciador de pacotes do NuGet ou o Console do Ge
 
 ### <a name="package-manager-console"></a>Console do Gerenciador de Pacotes
 
-1. Selecione o comando do menu **Ferramentas > Gerenciador de Pacotes NuGet > Console do Gerenciador de Pacotes**.
+1. Selecione o comando **ferramentas** > Gerenciador de**pacotes** > do NuGet**console do Gerenciador de pacotes** .
 
 1. Após a abertura do console, verifique se a lista suspensa **Projeto padrão** mostra o projeto no qual você deseja instalar o pacote. Se você tiver um único projeto na solução, ele já estará selecionado.
 
@@ -117,7 +117,7 @@ Com o pacote Newtonsoft.Json no projeto, você pode chamar seu método `JsonConv
     using Newtonsoft.Json;
     ```
 
-1. Compile e execute o aplicativo pressionando F5 ou selecionando **Depurar > Iniciar a Depuração**:
+1. Crie e execute o aplicativo pressionando F5 ou selecionando **depurar** > **Iniciar Depuração**:
 
     ![Saída inicial do aplicativo WPF](media/QS_Use-06-AppStart.png)
 
