@@ -5,7 +5,8 @@
 ## [Chaves de API](scoped-api-keys.md)
 # Gerenciar pacotes em NuGet.org
 ## [Publicar um pacote](publish-a-package.md)
-## [Reserva de prefixo da ID de empacotamento](id-prefix-reservation.md)
+## [Reserva de prefixo da ID do pacote](id-prefix-reservation.md)
+## [Reprovação de pacote](deprecate-packages.md)
 # Políticas
 ## [Solicitações de dados](policies/Data-requests.md)
 ## [Solução de controvérsias](policies/dispute-resolution.md)
