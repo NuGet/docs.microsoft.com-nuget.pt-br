@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a965a3049f46af59efcfad2ecf19e0923fda413b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 9512899a4086d17d2584f16833aba33efb321eae
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488950"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380699"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Criar um pacote NuGet usando MSBuild
 
@@ -29,11 +29,11 @@ O comando que cria um pacote, `msbuild -t:pack`, é a funcionalidade equivalente
 
 As propriedades a seguir são necessárias para criar um pacote.
 
-- `PackageId`, o identificador de pacotes, que deve ser exclusivo na galeria que hospeda o pacote. Se esse campo não for especificado, o valor padrão será `AssemblyName`.
+- `PackageId`, o identificador de pacotes, que deve ser exclusivo na galeria que hospeda o pacote. Se não for especificado, o valor padrão será `AssemblyName`.
 - `Version`, um número de versão específico na forma *Principal.Secundário.Patch[-Sufixo]* em que *-Sufixo* identifica as [versões de pré-lançamento](prerelease-packages.md). Se esse campo não for especificado, o valor padrão será 1.0.0.
 - O título do pacote como ele deve aparecer no host (como nuget.org)
-- `Authors`, informações de autor e proprietário. Se esse campo não for especificado, o valor padrão será `AssemblyName`.
-- `Company`, o nome da empresa. Se esse campo não for especificado, o valor padrão será `AssemblyName`.
+- `Authors`, informações de autor e proprietário. Se não for especificado, o valor padrão será `AssemblyName`.
+- `Company`, o nome da empresa. Se não for especificado, o valor padrão será `AssemblyName`.
 
 No Visual Studio, é possível definir esses valores nas propriedades do projeto (clique com o botão direito do mouse no projeto no Gerenciador de Soluções, escolha **Propriedades** e selecione a guia **Pacote**). Você também pode definir essas propriedades diretamente nos arquivos do projeto ( *.csproj*).
 
@@ -181,4 +181,4 @@ Você também poderá estender os recursos do seu pacote ou dar suporte a outros
 Por fim, há tipos de pacote adicionais a serem considerados:
 
 - [Pacotes nativos](../guides/native-packages.md)
-- [Pacotes de Símbolo](../create-packages/symbol-packages.md)
+- [Pacotes de Símbolo](../create-packages/symbol-packages-snupkg.md)

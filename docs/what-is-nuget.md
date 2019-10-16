@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 435103b600f14b9bbf606c09f0c870115204d5c7
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: a08ac24ce6b1d64496c9fc1b20604850e9711dd6
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488490"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380667"
 ---
 # <a name="an-introduction-to-nuget"></a>Uma introdução ao NuGet
 
@@ -24,7 +24,7 @@ Como o NuGet oferece suporte a hosts privados junto com o host público nuget.or
 
 ## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>O fluxo de pacotes entre criadores, hosts e clientes
 
-Em sua função como host público, o próprio NuGet mantém o repositório central de mais de 100.000 pacotes exclusivos em [nuget.org](https://www.nuget.org). Esses pacotes são utilizados por milhões de desenvolvedores de .NET/.NET Core diariamente. O NuGet também permite hospedar pacotes em particular na nuvem (tais como o Azure DevOps), em uma rede privada ou até mesmo apenas nos seu sistema de arquivos local. Ao fazer isso, esses pacotes ficam disponíveis apenas aos desenvolvedores que têm acesso ao host, fornecendo a capacidade de tornar os pacotes disponíveis a um grupo específico de consumidores. As opções são explicadas em [Hospedando seus próprios feeds do NuGet](hosting-packages/overview.md). Por meio de opções de configuração, você também pode controlar exatamente quais hosts podem ser acessados por um determinado computador, garantindo assim que os pacotes sejam obtidos de fontes específicas, em vez de um repositório público como nuget.org.
+Em sua função como um host público, o NuGet em si mantém o repositório central de mais de 100.000 pacotes exclusivos em [NuGet.org](https://www.nuget.org). Esses pacotes são empregados por milhões de desenvolvedores .NET/.NET Core todos os dias. O NuGet também permite hospedar pacotes em particular na nuvem (tais como o Azure DevOps), em uma rede privada ou até mesmo apenas nos seu sistema de arquivos local. Ao fazer isso, esses pacotes ficam disponíveis apenas aos desenvolvedores que têm acesso ao host, fornecendo a capacidade de tornar os pacotes disponíveis a um grupo específico de consumidores. As opções são explicadas em [Hospedando seus próprios feeds do NuGet](hosting-packages/overview.md). Por meio de opções de configuração, você também pode controlar exatamente quais hosts podem ser acessados por um determinado computador, garantindo assim que os pacotes sejam obtidos de fontes específicas, em vez de um repositório público como nuget.org.
 
 Qualquer seja sua natureza, um host que serve como o ponto de conexão entre os *criadores* e os *consumidores* do pacote. Os criadores compilam pacotes do NuGet úteis e os publicam em um host. Os consumidores pesquisam então por pacotes úteis e compatíveis em hosts acessíveis, baixando e incluindo esses pacotes em seus projetos. Depois de instalado em um projeto, as APIs dos pacotes estão disponíveis para o restante do código do projeto.
 
@@ -43,7 +43,7 @@ Por outro lado, os desenvolvedores de pacote que precisam de APIs fora do .NET S
 
 Além da compatibilidade com a hospedagem, o NuGet também fornece uma variedade de ferramentas usadas por criadores e por consumidores. Veja [Instalar as ferramentas de cliente do NuGet](install-nuget-client-tools.md) para saber como obter ferramentas específicas.
 
-| Ferramenta | Plataformas | Cenários Aplicáveis | DESCRIÇÃO |
+| Ferramenta | Plataformas | Cenários Aplicáveis | Descrição |
 | --- | --- | --- | --- |
 | [CLI do dotnet](consume-packages/install-use-packages-dotnet-cli.md) | Todos | Criação, Consumo | Ferramenta CLI para bibliotecas .NET Core e .NET Standard, em projetos no estilo SDK que se destinam ao .NET Framework (confira o [atributo do SDK](/dotnet/core/tools/csproj#additions)). Fornece certas funcionalidades da CLI do NuGet diretamente na cadeia de ferramentas do .NET Core. Assim como ocorre com a CLI `nuget.exe`, a CLI dotnet não interage com projetos do Visual Studio. |
 | [CLI do nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Todos | Criação, Consumo | Ferramenta CLI para bibliotecas do .NET Framework e projetos no estilo não SDK que se destinam a bibliotecas do .NET Standard. Fornece todos os recursos do NuGet, com alguns comandos de que aplicam especificamente aos criadores de pacote, alguns somente aos consumidores e outros a ambos. Por exemplo, os criadores de pacote usam o comando `nuget pack` para criar um pacote de vários assemblies e arquivos relacionados, os consumidores de pacote usam `nuget install` para incluir pacotes em uma pasta do projeto e todos usam `nuget config` para definir as variáveis de configuração do NuGet. Como uma ferramenta independente de plataforma, a CLI do NuGet não interage com projetos do Visual Studio. |
@@ -72,7 +72,7 @@ Para obter mais detalhes sobre como o NuGet executa esse serviço, consulte [Res
 
 Como projetos podem ser movidos facilmente entre os computadores de desenvolvedor, repositórios de controle do código-fonte, servidores de build e assim por diante, é altamente impraticável manter assemblies binários dos pacotes do NuGet diretamente associados a um projeto. Isso tornaria cada cópia do projeto desnecessariamente sobrecarregada (e, assim, desperdiçaria espaço em repositórios de controle do código-fonte). Também dificultaria muito a atualização de binários de pacote para versões mais recentes, pois as atualizações precisariam ser aplicadas em todas as cópias do projeto.
 
-Em vez disso, o NuGet mantém uma lista de referências simples dos pacotes dos quais um projeto depende, incluindo dependências de nível superior e inferior. Ou seja, sempre que você instala um pacote de algum host em um projeto, o NuGet registra o identificador de pacote e o número de versão nesta lista de referência. (Desinstalar um pacote, é claro, remove-o da lista.) O NuGet, em seguida, fornece um meio para restaurar todos os pacotes referenciados mediante solicitação, conforme descrito em [Restauração do pacote](consume-packages/package-restore.md).
+Em vez disso, o NuGet mantém uma lista de referências simples dos pacotes dos quais um projeto depende, incluindo dependências de nível superior e inferior. Ou seja, sempre que você instala um pacote de algum host em um projeto, o NuGet registra o identificador de pacote e o número de versão nesta lista de referência. (A desinstalação de um pacote, é claro, remove-o da lista.) Em seguida, o NuGet fornece um meio para restaurar todos os pacotes referenciados mediante solicitação, conforme descrito em [restauração do pacote](consume-packages/package-restore.md).
 
 ![Uma lista de referências de NuGet é criada na instalação do pacote e pode ser usada para restaurar os pacotes em outro lugar](media/nuget-restore.png)
 
@@ -84,7 +84,7 @@ Claramente, a função primária do NuGet, no que diz respeito aos desenvolvedor
 
 - [PackageReference](consume-packages/package-references-in-project-files.md) (ou "referências de pacote em arquivos de projeto") | *(NuGet 4.0 ou superior)* Mantém uma lista de dependências de nível superior do projeto diretamente no arquivo de projeto, portanto, nenhum arquivo separado é necessário. Um arquivo associado, `obj/project.assets.json`, é gerado dinamicamente para gerenciar o grafo de dependência geral dos pacotes que um projeto usa juntamente com todas as dependências de nível inferior. PackageReference é sempre usado por projetos do .NET Core.
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 ou posterior)* Um arquivo XML que mantém uma lista plana de todas as dependências do projeto, incluindo as dependências de outros pacotes instalados. Os pacotes instalados ou restaurados são armazenados em uma pasta `packages`.
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 ou superior)* Como um arquivo XML que mantém uma lista simples de todas as dependências do projeto, incluindo as dependências de outros pacotes instalados. Os pacotes instalados ou restaurados são armazenados em uma pasta `packages`.
 
 Qual formato de gerenciamento de pacotes é aplicado a um projeto depende do tipo de projeto e a versão disponível do NuGet (e/ou Visual Studio). Para verificar qual formato está sendo usado, simplesmente procure por `packages.config` na raiz do projeto depois de instalar o primeiro pacote. Se você não tiver esse arquivo, procure no arquivo de projeto diretamente por um elemento \<PackageReference\>.
 
@@ -105,7 +105,7 @@ Para fazer com que esses processos funcionem com eficiência, o NuGet realiza al
 
 Em um projeto individual, o NuGet gerencia o grafo de dependência geral, que inclui novamente a resolução de múltiplas referências para versões diferentes do mesmo pacote. É muito comum que um projeto adote uma dependência de um ou mais pacotes que tenham eles próprios as mesmas dependências. Alguns dos pacotes de utilitário mais úteis no nuget.org são utilizados por muitos outros pacotes. No grafo de dependência inteiro, dez, você poderia ter facilmente ter dez referências diferentes para diferentes versões do mesmo pacote. Para evitar trazer várias versões do pacote para o próprio aplicativo, o NuGet classifica qual versão única pode ser usada por qualquer consumidor. (Para saber mais, confira [Resolução de dependência](concepts/dependency-resolution.md).)
 
-Além disso, o NuGet mantém todas as especificações relacionadas a como os pacotes são estruturados (incluindo [localização](create-packages/creating-localized-packages.md) e [símbolos de depuração](create-packages/symbol-packages.md)) e como eles são [referenciados](consume-packages/package-references-in-project-files.md) (incluindo [intervalos de versão](concepts/package-versioning.md#version-ranges-and-wildcards) e [versões de pré-lançamento](create-packages/prerelease-packages.md)). O NuGet também oferece várias APIs para trabalhar com seus serviços por meio de programação, e fornece suporte para os desenvolvedores que escrevem modelos de projeto e extensões do Visual Studio.
+Além disso, o NuGet mantém todas as especificações relacionadas à forma como os pacotes são estruturados (incluindo [símbolos](create-packages/symbol-packages-snupkg.md)de [localização](create-packages/creating-localized-packages.md) e depuração) e como eles são [referenciados](consume-packages/package-references-in-project-files.md) (incluindo [intervalos de versão](concepts/package-versioning.md#version-ranges-and-wildcards) e versões de [pré-lançamento ](create-packages/prerelease-packages.md).) O NuGet também fornece várias APIs para trabalhar com seus serviços de forma programática e fornece suporte para desenvolvedores que escrevem modelos de projeto e extensões do Visual Studio.
 
 Reserve um tempo para navegar pelo sumário desta documentação e você verá todos esses recursos representados nele, junto com as notas de versão desde o início do NuGet.
 

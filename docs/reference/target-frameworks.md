@@ -6,26 +6,26 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ea9f699b202d7f32648f0ccfeac3ceb1ca325b7e
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342434"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380492"
 ---
 # <a name="target-frameworks"></a>Frameworks de destino
 
 O NuGet usa referências de estrutura de destino em uma variedade de locais para identificar e isolar especificamente os componentes dependentes de estrutura de um pacote:
 
-- [arquivo de projeto](../create-packages/multiple-target-frameworks-project-file.md): Para projetos em estilo SDK, o *. csproj* contém as referências de estrutura de destino.
-- [manifesto. nuspec](../reference/nuspec.md): Um pacote pode indicar pacotes distintos a serem incluídos em um projeto, dependendo da estrutura de destino do projeto.
-- [nome da pasta. nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): As pastas dentro da pasta de `lib` um pacote podem ser nomeadas de acordo com a estrutura de destino, cada uma contendo as DLLs e outros conteúdos apropriados para essa estrutura.
-- [packages.config](../reference/packages-config.md): O `targetframework` atributo de uma dependência especifica a variante de um pacote a ser instalado.
+- [arquivo de projeto](../create-packages/multiple-target-frameworks-project-file.md): para projetos no estilo SDK, o *. csproj* contém as referências da estrutura de destino.
+- [Manifesto do .nuspec](../reference/nuspec.md): um pacote pode indicar pacotes distintos a serem incluídos em um projeto dependendo da estrutura de destino dele.
+- [Nome da pasta .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): as pastas dentro de uma pasta `lib` do pacote pode ser nomeada de acordo com a estrutura de destino, cada uma delas contém as DLLs e outros tipos de conteúdo apropriado para essa estrutura.
+- [packages.config](../reference/packages-config.md): o atributo `targetframework` de uma dependência especifica a variante de um pacote a ser instalado.
 
 > [!Note]
 > O código-fonte do cliente do NuGet que calcula as tabelas abaixo é encontrado nos seguintes locais:
-> - Nomes de estrutura com suporte: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Precedência de estrutura e mapeamento: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Suporte para nomes de estrutura: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Precedência e mapeamento do Framework: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Estruturas com suporte
 
@@ -33,7 +33,7 @@ Normalmente, uma estrutura é referenciada por um moniker curto de estrutura de 
 
 Os clientes do NuGet são compatíveis com as estruturas indicadas na tabela abaixo. Equivalentes são mostrados entre colchetes []. Observe que algumas ferramentas, como `dotnet`, podem usar as variações de TFMs canônicos em alguns arquivos. Por exemplo, `dotnet pack` usa `.NETCoreApp2.0` em um arquivo `.nuspec` em vez de `netcoreapp2.0`. As várias ferramentas de cliente do NuGet manipulam essas variações corretamente, mas você sempre deve usar TFMs canônicos ao editar arquivos diretamente.
 
-| Nome | Abreviação de | TFMs/TxMs |
+| Name | Abreviação de | TFMs/TxMs |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -83,6 +83,7 @@ Aplicativos .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
+| | | netcoreapp 3.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -283,7 +284,7 @@ Estruturas adicionais definidas por terceiros fornecem compatibilidade com outro
 
 Além disso, os pacotes do NuGet direcionados ao Xamarin podem usar estruturas adicionais definidas pelo Xamarin. Consulte [Criando pacotes do NuGet para Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Nome | Descrição | .NET Standard |
+| Name | Descrição | .NET Standard |
 | --- | --- | ---
 | monoandroid | Suporte a Mono para o sistema operacional Android | netstandard1.4 |
 | monotouch | Suporte Mono para iOS | netstandard1.4 |

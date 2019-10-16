@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 74b80b1791dcb403c90bb3032c009717c11ffe57
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815309"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380493"
 ---
 # <a name="nuget-cross-platform-plugins"></a>Plug-ins de plataforma cruzada do NuGet
 
@@ -27,7 +27,7 @@ A seguir, a descrição das combinações de cliente/estrutura dos plug-ins.
 | Ferramenta de cliente  | Framework |
 | ------------ | --------- |
 | Visual Studio | .NET Framework |
-| dotnet.exe | .NET Core |
+| dotnet. exe | .NET Core |
 | NuGet. exe | .NET Framework |
 | MSBuild. exe | .NET Framework |
 | NuGet. exe no mono | .NET Framework |
@@ -70,12 +70,12 @@ A comunicação entre as ferramentas de cliente do NuGet e o plug-in é bidireci
 ## <a name="plugin-installation-and-discovery"></a>Instalação e descoberta do plug-in
 
 Os plug-ins serão descobertos por meio de uma estrutura de diretório baseada em convenção.
-Cenários de CI/CD e usuários avançados podem usar variáveis de ambiente para substituir o comportamento. Observe que `NUGET_NETFX_PLUGIN_PATHS` o `NUGET_NETCORE_PLUGIN_PATHS` e o estão disponíveis apenas com a versão 5.3 + das ferramentas do NuGet e posterior.
+Cenários de CI/CD e usuários avançados podem usar variáveis de ambiente para substituir o comportamento. Ao usar variáveis de ambiente, somente caminhos absolutos são permitidos. Observe que `NUGET_NETFX_PLUGIN_PATHS` e `NUGET_NETCORE_PLUGIN_PATHS` estão disponíveis apenas com a versão 5.3 + das ferramentas do NuGet e posterior.
 
-- `NUGET_NETFX_PLUGIN_PATHS`-define os plug-ins que serão usados pelas ferramentas baseadas em .NET Framework (NuGet. exe/MSBuild. exe/Visual Studio). Tem precedência `NUGET_PLUGIN_PATHS`sobre. (Somente NuGet versão 5.3 +)
-- `NUGET_NETCORE_PLUGIN_PATHS`-define os plug-ins que serão usados pelas ferramentas baseadas no .NET Core (dotNet. exe). Tem precedência `NUGET_PLUGIN_PATHS`sobre. (Somente NuGet versão 5.3 +)
-- `NUGET_PLUGIN_PATHS`-define os plug-ins que serão usados para o processo NuGet, prioridade reservada. Se essa variável de ambiente for definida, ela substituirá a descoberta baseada em convenção. Ignorado se uma das variáveis específicas do Framework for especificada.
--  Local do usuário, o local inicial do NuGet `%UserProfile%/.nuget/plugins`em. Esse local não pode ser substituído. Um diretório raiz diferente será usado para os plug-ins .NET Core e .NET Framework.
+- `NUGET_NETFX_PLUGIN_PATHS`-define os plug-ins que serão usados pelas ferramentas baseadas em .NET Framework (NuGet. exe/MSBuild. exe/Visual Studio). Tem precedência sobre `NUGET_PLUGIN_PATHS`. (Somente NuGet versão 5.3 +)
+- `NUGET_NETCORE_PLUGIN_PATHS`-define os plug-ins que serão usados pelas ferramentas baseadas no .NET Core (dotNet. exe). Tem precedência sobre `NUGET_PLUGIN_PATHS`. (Somente NuGet versão 5.3 +)
+- `NUGET_PLUGIN_PATHS`-define os plug-ins que serão usados para esse processo NuGet, prioridade preservada. Se essa variável de ambiente for definida, ela substituirá a descoberta baseada em convenção. Ignorado se uma das variáveis específicas do Framework for especificada.
+-  Local do usuário, o local inicial do NuGet no `%UserProfile%/.nuget/plugins`. Esse local não pode ser substituído. Um diretório raiz diferente será usado para os plug-ins .NET Core e .NET Framework.
 
 | Framework | Local de descoberta raiz  |
 | ------- | ------------------------ |
@@ -123,20 +123,20 @@ Um problema potencial pode surgir com os plug-ins de localização do usuário q
 A verificação de segurança e a instanciação dos plug-ins são dispendiosas. A operação de download ocorre de maneira mais frequente do que a operação de autenticação, no entanto, o usuário NuGet médio provavelmente terá um plug-in de autenticação.
 Para melhorar a experiência, o NuGet armazenará em cache as declarações de operação para a solicitação especificada. Esse cache é por plug-in com a chave do plug-in sendo o caminho do plug-in e a expiração desse cache de recursos é de 30 dias. 
 
-O cache está localizado em `%LocalAppData%/NuGet/plugins-cache` e é substituído pela variável `NUGET_PLUGINS_CACHE_PATH`de ambiente. Para limpar esse [cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md), é possível executar o comando local com a `plugins-cache` opção.
-A `all` opção locais agora também excluirá o cache de plug-ins. 
+O cache está localizado em `%LocalAppData%/NuGet/plugins-cache` e substituído pela variável de ambiente `NUGET_PLUGINS_CACHE_PATH`. Para limpar esse [cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md), é possível executar o comando locals com a opção `plugins-cache`.
+A opção `all` locals também excluirá o cache de plug-ins. 
 
 ## <a name="protocol-messages-index"></a>Índice de mensagens de protocolo
 
 Mensagens da versão *1.0.0* do protocolo:
 
 1.  Fechar
-    * Direção da solicitação:  Plug-in > do NuGet
+    * Direção da solicitação: plugin > do NuGet
     * A solicitação não conterá nenhuma carga
     * Nenhuma resposta é esperada.  A resposta correta é para que o processo do plug-in seja fechado imediatamente.
 
 2.  Copiar arquivos no pacote
-    * Direção da solicitação:  Plug-in > do NuGet
+    * Direção da solicitação: plugin > do NuGet
     * A solicitação conterá:
         * a ID e a versão do pacote
         * o local do repositório de origem do pacote
@@ -147,7 +147,7 @@ Mensagens da versão *1.0.0* do protocolo:
         * um enumerável de caminhos completos para arquivos copiados no diretório de destino se a operação foi bem-sucedida
 
 3.  Copiar arquivo de pacote (. nupkg)
-    * Direção da solicitação:  Plug-in > do NuGet
+    * Direção da solicitação: plugin > do NuGet
     * A solicitação conterá:
         * a ID e a versão do pacote
         * o local do repositório de origem do pacote
@@ -166,7 +166,7 @@ Mensagens da versão *1.0.0* do protocolo:
         * uma senha, se disponível
 
 5.  Obter arquivos no pacote
-    * Direção da solicitação:  Plug-in > do NuGet
+    * Direção da solicitação: plugin > do NuGet
     * A solicitação conterá:
         * a ID e a versão do pacote
         * o local do repositório de origem do pacote
@@ -175,7 +175,7 @@ Mensagens da versão *1.0.0* do protocolo:
         * um enumerável de caminhos de arquivo no pacote se a operação foi bem-sucedida
 
 6.  Obter declarações de operação 
-    * Direção da solicitação:  Plug-in > do NuGet
+    * Direção da solicitação: plugin > do NuGet
     * A solicitação conterá:
         * o Service index. JSON para uma origem de pacote
         * o local do repositório de origem do pacote
@@ -187,7 +187,7 @@ Mensagens da versão *1.0.0* do protocolo:
 > Esta mensagem foi atualizada na versão *2.0.0*. Ele está no cliente para preservar a compatibilidade com versões anteriores.
 
 7.  Obter hash do pacote
-    * Direção da solicitação:  Plug-in > do NuGet
+    * Direção da solicitação: plugin > do NuGet
     * A solicitação conterá:
         * a ID e a versão do pacote
         * o local do repositório de origem do pacote
@@ -197,7 +197,7 @@ Mensagens da versão *1.0.0* do protocolo:
         * um hash de arquivo de pacote usando o algoritmo de hash solicitado se a operação foi bem-sucedida
 
 8.  Obter versões do pacote
-    * Direção da solicitação:  Plug-in > do NuGet
+    * Direção da solicitação: plugin > do NuGet
     * A solicitação conterá:
         * a ID do pacote
         * o local do repositório de origem do pacote
@@ -214,7 +214,7 @@ Mensagens da versão *1.0.0* do protocolo:
         * o índice de serviço se a operação foi bem-sucedida
 
 10.  Handshake
-     * Direção da solicitação:  Plug-in < > do NuGet
+     * Direção da solicitação: plug-in < > do NuGet
      * A solicitação conterá:
          * a versão do protocolo do plugin atual
          * a versão mínima do protocolo de plug-in com suporte
@@ -223,7 +223,7 @@ Mensagens da versão *1.0.0* do protocolo:
          * a versão do protocolo negociado se a operação foi bem-sucedida.  Uma falha resultará no encerramento do plug-in.
 
 11.  Initialize
-     * Direção da solicitação:  Plug-in > do NuGet
+     * Direção da solicitação: plugin > do NuGet
      * A solicitação conterá:
          * a versão da ferramenta do cliente NuGet
          * o idioma efetivo da ferramenta de cliente NuGet.  Isso leva em consideração a configuração ForceEnglishOutput, se usada.
@@ -240,14 +240,14 @@ Mensagens da versão *1.0.0* do protocolo:
          * um código de resposta que indica o resultado da operação.
 
 13.  Monitorar a saída do processo NuGet
-     * Direção da solicitação:  Plug-in > do NuGet
+     * Direção da solicitação: plugin > do NuGet
      * A solicitação conterá:
          * a ID do processo NuGet
      * Uma resposta conterá:
          * um código de resposta que indica o resultado da operação.
 
 14.  Pacote de pré-busca
-     * Direção da solicitação:  Plug-in > do NuGet
+     * Direção da solicitação: plugin > do NuGet
      * A solicitação conterá:
          * a ID e a versão do pacote
          * o local do repositório de origem do pacote
@@ -255,7 +255,7 @@ Mensagens da versão *1.0.0* do protocolo:
          * um código de resposta que indica o resultado da operação
 
 15.  Definir credenciais
-     * Direção da solicitação:  Plug-in > do NuGet
+     * Direção da solicitação: plugin > do NuGet
      * A solicitação conterá:
          * o local do repositório de origem do pacote
          * o último nome de usuário de origem do pacote conhecido, se disponível
@@ -266,7 +266,7 @@ Mensagens da versão *1.0.0* do protocolo:
          * um código de resposta que indica o resultado da operação
 
 16.  Definir nível de log
-     * Direção da solicitação:  Plug-in > do NuGet
+     * Direção da solicitação: plugin > do NuGet
      * A solicitação conterá:
          * o nível de log padrão
      * Uma resposta conterá:
@@ -276,7 +276,7 @@ Mensagens de *2.0.0* de versão de protocolo
 
 17. Obter declarações de operação
 
-* Direção da solicitação:  Plug-in > do NuGet
+* Direção da solicitação: plugin > do NuGet
     * A solicitação conterá:
         * o Service index. JSON para uma origem de pacote
         * o local do repositório de origem do pacote
@@ -288,11 +288,11 @@ Mensagens de *2.0.0* de versão de protocolo
 
 18. Obter credenciais de autenticação
 
-* Direção da solicitação: Plug-in > do NuGet
+* Direção da solicitação: plugin > do NuGet
 * A solicitação conterá:
     * URI
     * isrepetir
-    * NonInteractive
+    * Não interativa
     * Canshowdialog
 * Uma resposta conterá
     * Nome de usuário
