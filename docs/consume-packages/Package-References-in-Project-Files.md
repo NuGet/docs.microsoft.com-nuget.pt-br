@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae80206117eed639140a0c7977043d8330bc37bb
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
-ms.translationtype: HT
+ms.openlocfilehash: 892483760a9f3568da7101663e93c69ce3d70b96
+ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564559"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72510803"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
@@ -51,7 +51,7 @@ A convenção para especificar a versão de um pacote é a mesma que usar `packa
 No exemplo acima, 3.6.0 significa qualquer versão que é >=3.6.0 com preferência para a versão mais antiga, conforme descrito em [Controle de versão do pacote](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Usando PackageReference para um projeto sem PackageReferences
-Avançado: Se você não tem pacotes instalados em um projeto (não tem PackageReferences no arquivo de projeto nem um arquivo packages.config), mas deseja que o projeto seja restaurado como o estilo PackageReference, você pode definir uma propriedade de projeto RestoreProjectStyle como PackageReference em seu arquivo de projeto.
+Avançado: se você não tem pacotes instalados em um projeto (não tem PackageReferences no arquivo de projeto nem um arquivo packages.config), mas deseja que o projeto seja restaurado como o estilo PackageReference, você pode definir uma propriedade de projeto RestoreProjectStyle como PackageReference em seu arquivo de projeto.
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -92,7 +92,7 @@ Você pode estar usando uma dependência puramente como uma estrutura de desenvo
 
 As seguintes marcas de metadados controlam ativos de dependência:
 
-| Marca | DESCRIÇÃO | Valor padrão |
+| Marca | Descrição | Valor padrão |
 | --- | --- | --- |
 | IncludeAssets | Esses ativos serão consumidos | all |
 | ExcludeAssets | Esses ativos não serão consumidos | nenhum |
@@ -100,7 +100,7 @@ As seguintes marcas de metadados controlam ativos de dependência:
 
 Os valores permitidos para essas marcas são os seguintes, com vários valores separados por ponto e vírgula, exceto com `all` e `none`, que devem aparecer sozinhos:
 
-| Valor | DESCRIÇÃO |
+| Valor | Descrição |
 | --- | ---
 | compilar | Conteúdo da pasta `lib` e controles se seu projeto puder compilar em relação aos assemblies dentro da pasta |
 | tempo de execução | Conteúdo da pasta `lib` e `runtimes` pasta e controles se esses assemblies forem copiados para o diretório de saída de compilação |
@@ -173,7 +173,7 @@ A entrada da restauração do NuGet é um conjunto de Referências de pacote do 
 
   * Dia 1: se você tiver especificado `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>`, mas as versões disponíveis nos repositórios do NuGet forem 4.1.0, 4.2.0 e 4.3.0. Nesse caso, o NuGet teria que ser resolvido como 4.1.0 (mais próximo da versão mínima)
 
-  * Dia 2: A versão 4.0.0 é publicada. O NuGet agora encontrará a correspondência exata e iniciará a resolução como 4.0.0
+  * Dia 2: a versão 4.0.0 é publicada. O NuGet agora encontrará a correspondência exata e iniciará a resolução como 4.0.0
 
 * Uma determinada versão de pacote é removida do repositório. Embora nuget.org não permita exclusões de pacotes, nem todos os repositórios de pacotes possuem essas restrições. Isso faz com que o NuGet encontre a melhor correspondência quando não puder resolver a versão excluída.
 
@@ -236,11 +236,12 @@ ProjectA
 Se `ProjectA` tiver uma dependência em uma versão `2.0.0` do `PackageX`, além de referências `ProjectB` que dependem da versão `1.0.0` do `PackageX`, o arquivo de bloqueio de `ProjectB` listará uma dependência na versão `1.0.0` do `PackageX`. No entanto, quando `ProjectA` for criado, seu arquivo de bloqueio conterá uma dependência na versão **`2.0.0`** do `PackageX` e **não** na versão `1.0.0`, conforme listado no arquivo de bloqueio de `ProjectB`. Portanto, o arquivo de bloqueio de um projeto de código comum tem pouco a dizer sobre os pacotes resolvidos de projetos que dependem dele.
 
 ### <a name="lock-file-extensibility"></a>Extensibilidade do arquivo de bloqueio
+
 Você pode controlar vários comportamentos de restauração com o arquivo de bloqueio conforme descrito abaixo:
 
-| Opção | Opção equivalente do MSBuild | 
-|:---  |:--- |
-| `--use-lock-file` | Uso do arquivo de bloqueio de um projeto pelas inicializações. Como alternativa, você pode definir a propriedade `RestorePackagesWithLockFile` no arquivo de projeto | 
-| `--locked-mode` | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você gostaria de obter os builds repetidos. Isso também pode ser feito através da definição da propriedade `RestoreLockedMode` do MSBuild como `true` |  
-| `--force-evaluate` | Esta opção é útil com pacotes que têm a versão flutuante definida no projeto. Por padrão, a restauração do NuGet não atualizará automaticamente a versão do pacote em cada restauração, a menos que você execute a restauração com a opção `--force-evaluate`. |
-| `--lock-file-path` | Define o local de um arquivo de bloqueio personalizado para um projeto. Isso também pode ser feito através da definição da propriedade `NuGetLockFilePath` do MSBuild. Por padrão, o NuGet é compatível com `packages.lock.json` no diretório raiz. Se você tiver vários projetos no mesmo diretório, o NuGet oferecerá suporte ao arquivo de bloqueio `packages.<project_name>.lock.json` específico do projeto |
+| Opção | Opção equivalente do MSBuild | Descrição|
+|:---  |:--- |:--- |
+| `--use-lock-file` | RestorePackagesWithLockFile | Opta pelo uso de um arquivo de bloqueio. | 
+| `--locked-mode` | RestoreLockedMode | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você deseja criar compilações repetíveis.|   
+| `--force-evaluate` | RestoreForceEvaluate | Esta opção é útil com pacotes que têm a versão flutuante definida no projeto. Por padrão, a restauração do NuGet não atualizará a versão do pacote automaticamente após cada restauração, a menos que você execute RESTORE com essa opção. |
+| `--lock-file-path` | NuGetLockFilePath | Define o local de um arquivo de bloqueio personalizado para um projeto. Por padrão, o NuGet é compatível com `packages.lock.json` no diretório raiz. Se você tiver vários projetos no mesmo diretório, o NuGet oferecerá suporte ao arquivo de bloqueio `packages.<project_name>.lock.json` específico do projeto |
