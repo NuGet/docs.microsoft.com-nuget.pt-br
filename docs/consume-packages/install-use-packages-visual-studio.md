@@ -12,7 +12,7 @@ f1_keywords:
 - vs.nuget.packagemanager.ui
 ms.openlocfilehash: 7e4ea59b9954e787e7ab060adc964f3097a8240b
 ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/23/2019
 ms.locfileid: "68419979"

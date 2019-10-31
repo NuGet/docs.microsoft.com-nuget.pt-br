@@ -59,7 +59,7 @@ Pacotes do NuGet usando esse formato tem a seguinte pasta e comportamento bem co
 | Conteúdo | O conteúdo não é copiado automaticamente para o projeto de um usuário. Suporte para inclusão de conteúdo do projeto está planejado para uma versão posterior. |
 | Lib | Para muitos pacotes de `lib` que funcionam da mesma forma que no NuGet 2.x, mas com opções expandidas para que nomes possam ser usados dentro delas e lógica aprimorada para escolher a subpasta correta ao consumir pacotes. No entanto, quando usado junto com `ref`, a pasta `lib` contém os assemblies que implementam a área da superfície definida pelos assemblies na pasta `ref`. |
 | Ref | `ref` é uma pasta opcional que contém os assemblies .NET definindo a superfície pública (tipos e métodos públicos) para compilar um aplicativo. Os assemblies nesta pasta não podem ter nenhuma implementação e são puramente usados para definir a área de superfície para o compilador. Se o pacote não tiver nenhuma pasta `ref`, o `lib` será o assembly de referência e o assembly de implementação. |
-| Tempos de execução | `runtimes` é uma pasta opcional que contém o código específico do sistema operacional, como a arquitetura de CPU e binários do sistema operacional específicos ou dependentes da plataforma. |
+| Runtimes | `runtimes` é uma pasta opcional que contém o código específico do sistema operacional, como a arquitetura de CPU e binários do sistema operacional específicos ou dependentes da plataforma. |
 
 ## <a name="msbuild-targets-and-props-files-in-packages"></a>Arquivos de destino e objetos do MSBuild em pacotes
 
@@ -111,9 +111,9 @@ A estrutura da pasta `ref` é o mesmo que `lib`, por exemplo:
 
 Neste exemplo, os assemblies nos diretórios `ref` serão idênticos.
 
-## <a name="runtimes"></a>Tempos de execução
+## <a name="runtimes"></a>Runtimes
 
-A pasta de tempos de execução contém os assemblies e bibliotecas nativos necessários para executar em “tempos de execução” específicos, que geralmente são definidos pelo sistema operacional e arquitetura de CPU. Esses tempos de execução são identificados usando [RIDs (Identificadores de tempo de execução)](/dotnet/core/rid-catalog) como `win`, `win-x86`, `win7-x86`, `win8-64`, etc.
+A pasta de runtimes contém os assemblies e bibliotecas nativos necessários para executar em “runtimes” específicos, que geralmente são definidos pelo sistema operacional e arquitetura de CPU. Esses tempos de execução são identificados usando [RIDs (Identificadores de tempo de execução)](/dotnet/core/rid-catalog) como `win`, `win-x86`, `win7-x86`, `win8-64`, etc.
 
 ## <a name="native-helpers-to-use-platform-specific-apis"></a>Auxiliares nativo para usar APIs específicas de plataforma
 
@@ -153,7 +153,7 @@ Somente uma pasta `lib` única será escolhida, por isso se houver uma pasta esp
 
 ## <a name="managed-wrapper"></a>Wrapper gerenciado
 
-Outra maneira de usar os tempos de execução é fornecer um pacote que é essencialmente um wrapper gerenciado em um assembly nativo. Neste cenário, você cria um pacote como o seguinte:
+Outra maneira de usar os runtimes é fornecer um pacote que é essencialmente um wrapper gerenciado em um assembly nativo. Neste cenário, você cria um pacote como o seguinte:
 
     └───MyLibrary
          └───runtimes
@@ -179,7 +179,7 @@ Nesse caso não há pasta `lib` de nível superior, pois não há nenhuma implem
 
 Se você deseja criar um pacote que pode ser consumido por projetos usando o `packages.config`, bem como pacotes que usam o `project.json`, o seguinte se aplica:
 
-- REF e tempos de execução só funcionam no NuGet 3. Eles são ambos ignorados pelo NuGet 2.
+- REF e runtimes só funcionam no NuGet 3. Eles são ambos ignorados pelo NuGet 2.
 
 - Você não pode contar que `install.ps1` ou `uninstall.ps1` funcionem. Esses arquivos são executados ao usar `packages.config`, mas são ignorados com `project.json`. Assim, seu pacote precisa ser usado quando eles não estiverem em execução. `init.ps1` ainda é executado no NuGet 3.
 

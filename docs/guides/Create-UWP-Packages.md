@@ -1,6 +1,6 @@
 ---
 title: Criar pacotes do NuGet para a Plataforma Universal do Windows
-description: Uma explicação passo a passo de ponta a ponta da criação de pacotes do NuGet usando um componente do Tempo de Execução do Windows para a Plataforma Universal do Windows.
+description: Uma explicação passo a passo de ponta a ponta da criação de pacotes do NuGet usando um componente do Windows Runtime para a Plataforma Universal do Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
@@ -24,11 +24,11 @@ Neste passo a passo, você cria um pacote NuGet com um componente UWP nativo (in
 
 1. CLI do NuGet. Baixe a versão mais recente do `nuget.exe` de [nuget.org/downloads](https://nuget.org/downloads) e salve-a em um local de sua escolha (o download é o `.exe` diretamente). Em seguida, adicione tal local à sua variável de ambiente PATH, se ainda não tiver feito isso.
 
-## <a name="create-a-uwp-windows-runtime-component"></a>Criar um componente do Tempo de Execução do Windows da UWP
+## <a name="create-a-uwp-windows-runtime-component"></a>Criar um componente do Windows Runtime da UWP
 
 1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, expanda o nó **Visual C++ > Windows > Universal**, selecione o modelo **Componente do Tempo de Execução do Windows (Universal do Windows)** , altere o nome para ImageEnhancer e clique em OK. Aceite os valores padrão para a Versão de Destino e a Versão Mínima quando solicitado.
 
-    ![Criar um projeto de componente do Tempo de Execução do Windows UWP](media/UWP-NewProject.png)
+    ![Criar um projeto de componente do Windows Runtime UWP](media/UWP-NewProject.png)
 
 1. Clique com botão direito do mouse no projeto no Gerenciador de Soluções, selecione **Adicionar > Novo Item**, clique no nó **Visual C++ > XAML**, selecione **Controle modelo**, altere o nome para AwesomeImageControl.cpp e clique em **Adicionar**:
 
@@ -83,7 +83,7 @@ Para criar o arquivo `.nuspec` inicial, execute as três etapas abaixo. As seç�
 
 ### <a name="adding-windows-metadata-to-the-package"></a>Adicionar metadados do Windows ao pacote
 
-Um componente do Tempo de Execução do Windows requer metadados que descrevem todos os seus tipos disponíveis publicamente, o que possibilita outros aplicativos e bibliotecas a consumirem o componente. Esses metadados estão contidos em um arquivo .winmd, que é criado quando você compila o projeto e precisa ser incluído em seu pacote do NuGet. Um arquivo XML com os dados do IntelliSense também é criado ao mesmo tempo e também deve ser incluído.
+Um componente do Windows Runtime requer metadados que descrevem todos os seus tipos disponíveis publicamente, o que possibilita outros aplicativos e bibliotecas a consumirem o componente. Esses metadados estão contidos em um arquivo .winmd, que é criado quando você compila o projeto e precisa ser incluído em seu pacote do NuGet. Um arquivo XML com os dados do IntelliSense também é criado ao mesmo tempo e também deve ser incluído.
 
 Adicione o nó `<files>` a seguir ao arquivo `.nuspec`:
 

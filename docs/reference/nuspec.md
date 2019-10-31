@@ -320,7 +320,7 @@ O elemento `<dependencies>` dentro do `<metadata>` contém diversos elementos `<
 | Marca Incluir/Excluir | Pastas afetadas do destino |
 | --- | --- |
 | contentFiles | Conteúdo |
-| tempo de execução | Runtime, Resources e FrameworkAssemblies |
+| runtime | Runtime, Resources e FrameworkAssemblies |
 | compilar | lib |
 | build | build (objetos e destinos do MSBuild) |
 | nativa | nativa |
