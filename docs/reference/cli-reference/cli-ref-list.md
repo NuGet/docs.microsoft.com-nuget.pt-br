@@ -36,8 +36,8 @@ onde os termos de pesquisa opcionais filtrarão a lista exibida. Os termos de pe
 | Help | Exibe informações de ajuda para o comando. |
 | IncludeDelisted | *(3,2 +)* Exibir pacotes não listados. |
 | NonInteractive | Suprime prompts de entrada ou confirmações do usuário. |
-| Pré-lançamento | Inclui pacotes de pré-lançamento na lista. |
-| Origem | Especifica uma lista de fontes de pacotes a serem pesquisadas. |
+| PreRelease | Inclui pacotes de pré-lançamento na lista. |
+| Source | Especifica uma lista de fontes de pacotes a serem pesquisadas. |
 | Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhado*. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
