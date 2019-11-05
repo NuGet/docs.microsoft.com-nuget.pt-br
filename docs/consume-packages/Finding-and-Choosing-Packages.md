@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
-ms.translationtype: HT
+ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817578"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611080"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Localizando e avaliando pacotes do NuGet para o seu projeto
 
-Ao iniciar qualquer projeto .NET ou sempre que você identificar uma necessidade funcional para seu aplicativo ou serviço, você pode economizar muito tempo e problemas usando os pacotes NuGet existentes que atendem a essa necessidade. Esses pacotes podem vir da coleção pública em [nuget.org](http://www.nuget.org/packages/) ou uma origem privada que é fornecida pela sua empresa ou por terceiros.
+Ao iniciar qualquer projeto .NET ou sempre que você identificar uma necessidade funcional para seu aplicativo ou serviço, você pode economizar muito tempo e problemas usando os pacotes NuGet existentes que atendem a essa necessidade. Esses pacotes podem vir da coleção pública em [nuget.org](https://www.nuget.org/packages/) ou uma origem privada que é fornecida pela sua empresa ou por terceiros.
 
 ## <a name="finding-packages"></a>Localizando os pacotes
 
@@ -54,15 +54,15 @@ Por padrão, o nuget.org mostra pacotes de pré-lançamento nos resultados da pe
 
 No Visual Studio e ao usar a CLI do NuGet e ferramentas da CLI dotnet, o NuGet não inclui as versões de pré-lançamento por padrão. Para alterar esse comportamento, execute as etapas a seguir:
 
-- **Interface do Usuário do Gerenciador de Pacotes no Visual Studio**: Na interface do usuário **Gerenciar Pacotes NuGet**, defina a caixa **Incluir pré-lançamento**. Definir ou desmarcar esta caixa atualiza a interface do usuário do Gerenciador de Pacotes e a lista de versões disponíveis que você pode instalar.
+- **Interface do usuário do Gerenciador de Pacotes no Visual Studio**: na interface do usuário **Gerenciar pacotes do NuGet**, defina a caixa **Incluir pré-lançamento**. Definir ou desmarcar esta caixa atualiza a interface do usuário do Gerenciador de Pacotes e a lista de versões disponíveis que você pode instalar.
 
     ![A caixa de seleção Incluir pré-lançamento no Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-- **Console do Gerenciador de Pacotes**: Use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
+- **Console do Gerenciador de Pacotes**: use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
 
-- **CLI do nuget.exe**: Use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
+- **CLI nuget.exe**: use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
 
-- **CLI do dotnet.exe**: Especifique a versão de pré-lançamento exata usando o argumento `-v`. Veja a [referência de dotnet add package](/dotnet/core/tools/dotnet-add-package).
+- **CLI dotnet.exe**: especifique a versão de pré-lançamento exata usando o argumento `-v`. Veja a [referência de dotnet add package](/dotnet/core/tools/dotnet-add-package).
 
 <a name="native-cpp-packages"></a>
 
@@ -90,7 +90,7 @@ Por outro lado, usar um pacote do NuGet significa assumir uma dependência, por 
 
     ![Histórico de versão na página de listagem do pacote](media/Finding-04-VersionHistory.png)
 
-- *Instalações recentes*: na página do pacote em **Estatísticas**, selecione **Exibir as estatísticas completas**. A página de estatísticas total mostra as instalações do pacote nas últimas seis semanas pelo número de versão. Um pacote que outros desenvolvedores estão usando ativamente normalmente é uma escolha melhor do que aqueles que não estão sendo usados.
+- *Instalações recentes*: na página pacote em **estatísticas**, selecione **exibir estatísticas completas**. A página de estatísticas completas mostra que o pacote é instalado nas últimas seis semanas por número de versão. Um pacote que outros desenvolvedores estão usando ativamente normalmente é uma escolha melhor do que aqueles que não estão sendo usados.
 
 - *Suporte*: na página do pacote em **Informações**, selecione **Site do Projeto** (se disponível) para ver quais opções de suporte o autor oferece. Um projeto com um site dedicado geralmente tem melhor suporte.
 
@@ -103,7 +103,7 @@ Por outro lado, usar um pacote do NuGet significa assumir uma dependência, por 
 - *Prefixos de ID de pacote reservados*: vários proprietários de pacote solicitaram e receberam um [prefixo de ID de pacote reservado](../nuget-org/id-prefix-reservation.md). Quando a marca de seleção visual aparecer ao lado de uma ID de pacote em [nuget.org](https://www.nuget.org/), ou no Visual Studio, isso significará que o proprietário do pacote atingiu nossos [critérios](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) para a reserva de ID de prefixo. Isso significa que o proprietário do pacote está sendo claro ao realizar a sua identificação e a do pacote.
 
 > [!Note]
-> Sempre preste atenção aos termos de licença de um pacote, que você pode ver selecionando **Informações de Licença** na página de listagem do pacote no nuget.org. Se um pacote não especificar os termos de licença, entre em contato com o proprietário do pacote diretamente usando o link **Contatar os proprietários** na página do pacote. A Microsoft não licencia nenhuma propriedade intelectual para você de provedores de pacotes de terceiros, nem é responsável pelas informações fornecidas por terceiros.
+> Sempre fique atento aos termos de licença de um pacote, que você pode ver selecionando **informações de licença** na página de listagem de um pacote em NuGet.org. Se um pacote não especificar os termos de licença, contate o proprietário do pacote diretamente usando o link **proprietários de contato** na página pacote. A Microsoft não licencia nenhuma propriedade intelectual para você de provedores de pacotes de terceiros, nem é responsável pelas informações fornecidas por terceiros.
 
 ## <a name="license-url-deprecation"></a>Substituição da URL da licença
 Com a transição de [licenseUrl](../reference/nuspec.md#licenseurl) para [license](../reference/nuspec.md#license), alguns clientes do NuGet e feeds do NuGet podem não ter a capacidade de exibir as informações de licenciamento em alguns casos. Para manter a compatibilidade com versões anteriores, a URL da licença aponta para este documento que fala sobre como recuperar as informações da licença nesses casos.
@@ -125,9 +125,9 @@ Para o MSBuild equivalente a definir a licença no `.nuspec`, confira [Empacotam
 
 A pesquisa de pacote do NuGet funciona da mesma forma no nuget.org, na CLI do NuGet e dentro da extensão do Gerenciador de Pacotes do NuGet no Visual Studio. Em geral, a pesquisa é aplicada a palavras-chave, bem como descrições de pacote.
 
-- **Palavras-chave**: A pesquisa procura pacotes relevantes que contêm uma das palavras-chaves fornecidas. Exemplo: `modern UI`. Para pesquisar pacotes que contêm todas as palavras-chave fornecidas, use "+" entre os termos, como `modern+UI`.
-- **Frases**: A inserção de termos entre aspas procura a correspondência exata desses termos, sem diferenciar maiúsculas de minúsculas. Exemplo: `"modern UI" package`
-- **Filtragem**: Você pode aplicar um termo de pesquisa a uma propriedade específica usando a sintaxe `<property>:<term>`, em que `<property>` (não diferencia maiúsculas de minúsculas) pode ser `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` e `owner`. Os termos podem estar contidos em aspas, se necessário e você pode pesquisar por várias propriedades ao mesmo tempo. Além disso, a pesquisa na propriedade `id` são correspondências de subcadeia de caracteres, enquanto `packageid` usa uma correspondência exata. Exemplos:
+- **Palavras-chave**: a pesquisa procura pacotes relevantes que contêm qualquer uma das palavras-chaves fornecidas. Exemplo: `modern UI`. Para pesquisar pacotes que contêm todas as palavras-chave fornecidas, use "+" entre os termos, como `modern+UI`.
+- **Frases**: inserir termos entre aspas procura a correspondência exata desses termos, sem diferenciar maiúsculas de minúsculas. Exemplo: `"modern UI" package`
+- **Filtragem**: você pode aplicar um termo de pesquisa a uma propriedade específica usando a sintaxe `<property>:<term>` em que `<property>` (não diferencia maiúsculas de minúsculas) pode ser `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` e `owner`. Os termos podem estar contidos em aspas, se necessário e você pode pesquisar por várias propriedades ao mesmo tempo. Além disso, a pesquisa na propriedade `id` são correspondências de subcadeia de caracteres, enquanto `packageid` usa uma correspondência exata. Exemplos:
 
     ```
     id:NuGet.Core                # Match any part of the id property
