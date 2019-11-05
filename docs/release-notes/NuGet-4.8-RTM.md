@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f85042b8fe1511934d6a3ac7de34da92c575f6e0
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432511"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611361"
 ---
 # <a name="nuget-48-release-notes"></a>Notas sobre a versão do NuGet 4.8
 
@@ -22,21 +22,21 @@ Versões de linha de comando da mesma funcionalidade também estão disponíveis
 * DotNet.exe – [SDK do .NET Core 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-480"></a>Resumo: Novidades na versão 4.8.0
+## <a name="summary-whats-new-in-480"></a>Resumo: o que há de novo no 4.8.0
 * NuGet.exe agora dá suporte a longfilenames no Windows 10 – [#6937](https://github.com/NuGet/Home/issues/6937)
 * Plug-ins de autenticação agora funcionam em MsBuild, DotNet.exe, NuGet.exe e Visual Studio, incluindo multiplataforma. A primeira geração de plug-ins de autenticação não tinha suporte no MsBuild, DotNet.exe. Observação: builds de Versão Prévia do VS 2017 15.9 têm um plug-in de autenticação do VSTS incluído. [#6486](https://github.com/NuGet/Home/issues/6486)
 * O Resolvedor de SDK do MsBuild agora compila como parte do NuGet e é instalado com as ferramentas do NuGet para VS. Isso evitará que as versões saiam de sincronia. [#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference agora dá suporte a metadados DevelopmentDependency – [#4125](https://github.com/NuGet/Home/issues/4125)
 
-## <a name="summary-whats-new-in-482"></a>Resumo: Novidades na versão 4.8.2
+## <a name="summary-whats-new-in-482"></a>Resumo: o que há de novo no 4.8.2
 
-* Correção de segurança: Permissões em arquivos criados dentro de ~/.nuget são muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correção de segurança: as permissões em arquivos criados dentro de ~/.NuGet são muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>Instalar pacotes assinados em um computador de CI ou em um ambiente offline leva mais tempo do que o normal
 
 #### <a name="issue"></a>Problema
-Se o computador tiver acesso restrito à Internet (por exemplo, um computador de build em um cenário de CI/CD), a instalação/restauração de um pacote do nuget com sinal resultará um aviso ([NU3028](https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu3028)), pois os servidores de revogação não estarão acessíveis. Isso é esperado. No entanto, em alguns casos, isso pode ter consequências não intencionais, como a instalação/restauração do pacote levar mais tempo que o normal.
+Se o computador tiver acesso restrito à Internet (por exemplo, um computador de build em um cenário de CI/CD), a instalação/restauração de um pacote do nuget com sinal resultará um aviso ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028)), pois os servidores de revogação não estarão acessíveis. Isso é esperado. No entanto, em alguns casos, isso pode ter consequências não intencionais, como a instalação/restauração do pacote levar mais tempo que o normal.
 
 #### <a name="workaround"></a>Solução alternativa
 Atualizar para o Visual Studio 15.8.4 e NuGet.exe 4.8.1, nos quais introduzimos uma variável de ambiente para alternar o modo de verificação de revogação.
@@ -66,7 +66,7 @@ Observação: isso foi corrigido no VS 2017 15.9 Versão Prévia 3
 
 ### <a name="bugs"></a>Bugs
 #### <a name="signing"></a>Assinatura
-* Assinatura: como instalar um pacote assinado em um ambiente offline [#7008](https://github.com/NuGet/Home/issues/7008) – corrigido na 4.8.1
+* Assinatura: Como instalar um pacote assinado em um ambiente offline [#7008](https://github.com/NuGet/Home/issues/7008) – corrigido na 4.8.1
 * Assinatura: verificação de URL incorreta – [#7174](https://github.com/NuGet/Home/issues/7174)
 * Assinatura: verificar a integridade de pacote em RepositorySignatureVerifier quando o pacote for referendado pelo repositório – [#6926](https://github.com/NuGet/Home/issues/6926)
 * "Falha na verificação de integridade do pacote." deve ter a ID do pacote na mensagem (e código de erro) – [#6944](https://github.com/NuGet/Home/issues/6944)
@@ -76,7 +76,7 @@ Observação: isso foi corrigido no VS 2017 15.9 Versão Prévia 3
 * A memória é inválida ao atualizar as informações de signatário ao adicionar o carimbo de data/hora à referenda – [#6840](https://github.com/NuGet/Home/issues/6840)
 * Assinatura: remover exceções CTL – [#6794](https://github.com/NuGet/Home/issues/6794)
 * Assinatura: contentUrl DEVE ser HTTPS – [#6777](https://github.com/NuGet/Home/issues/6777)
-* Assinatura:  SignedPackageVerifierSettings.VSClientDefaultPolicy não é usado – [#6601](https://github.com/NuGet/Home/issues/6601)
+* Assinatura: SignedPackageVerifierSettings.VSClientDefaultPolicy não é usado – [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
 #### <a name="pack"></a>Pacote

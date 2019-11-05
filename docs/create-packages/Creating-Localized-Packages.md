@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: dbc3781bd17f815c6b32fc70b275469337148f41
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 83414a824676844f9e44eab874e5eac788d50583
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488829"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610946"
 ---
 # <a name="creating-localized-nuget-packages"></a>Criando pacotes do NuGet localizados
 
@@ -71,7 +71,7 @@ Com essas pastas em vigor, você pode fazer referência a todos os arquivos em s
 </package>
 ```
 
-Um pacote de exemplo que usa essa abordagem é [Microsoft.Data.OData 5.4.0](http://nuget.org/packages/Microsoft.Data.OData/5.4.0).
+Um pacote de exemplo que usa essa abordagem é [Microsoft.Data.OData 5.4.0](https://nuget.org/packages/Microsoft.Data.OData/5.4.0).
 
 ### <a name="advantages-and-disadvantages-localized-resource-assemblies"></a>Vantagens e desvantagens (assemblies de recursos localizados)
 
@@ -83,8 +83,8 @@ Agrupar todos os idiomas em um único pacote traz algumas desvantagens:
 
 No entanto, isso também traz alguns benefícios:
 
-1. **Simplicidade**: os consumidores do pacote obtêm todos os idiomas compatíveis em uma única instalação, em vez de ter que instalar cada idioma separadamente. Também é mais fácil de localizar um único pacote no nuget.org.
-1. **Versões acopladas**: como todos os assemblies de recursos estão no mesmo pacote que o assembly principal, todos eles compartilham o mesmo número de versão e não correm o risco de serem desacoplados inadvertidamente.
+1. **Simplicidade**: os consumidores do pacote obtém todos os idiomas compatíveis em uma única instalação, em vez de ter que instalar cada idioma separadamente. Também é mais fácil de localizar um único pacote no nuget.org.
+1. **Versões acopladas**: como todos os assemblies de recursos estão no mesmo pacote que o assembly principal, todos eles compartilham o mesmo número de versão e não correm o risco de serem desacopladas inadvertidamente.
 
 ## <a name="localized-satellite-packages"></a>Pacotes satélite localizados
 
@@ -119,11 +119,11 @@ Quando todas essas convenções são atendidas, o NuGet reconhecerá o pacote co
 
 Assemblies satélite adicionais são criados da mesma forma para cada idioma compatível. Por exemplo, examine o conjunto de pacotes do ASP.NET MVC:
 
-- [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (principal em inglês)
-- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (alemão)
-- [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (japonês)
-- [Microsoft.AspNet.Mvc.zh-Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (chinês (simplificado))
-- [Microsoft.AspNet.Mvc.zh-Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (chinês (tradicional))
+- [Microsoft.AspNet.Mvc](https://nuget.org/packages/Microsoft.AspNet.Mvc) (principal em inglês)
+- [Microsoft.AspNet.Mvc.de](https://nuget.org/packages/Microsoft.AspNet.Mvc.de) (alemão)
+- [Microsoft.AspNet.Mvc.ja](https://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (japonês)
+- [Microsoft.AspNet.Mvc.zh-Hans](https://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (chinês (simplificado))
+- [Microsoft.AspNet.Mvc.zh-Hant](https://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (chinês (tradicional))
 
 ### <a name="summary-of-required-conventions"></a>Resumo das convenções necessárias
 
@@ -137,12 +137,12 @@ Assemblies satélite adicionais são criados da mesma forma para cada idioma com
 
 Usar pacotes satélite traz alguns benefícios:
 
-1. **Tamanho do pacote**: a superfície geral do pacote principal é minimizada e os consumidores arcam somente com os custos de cada idioma que desejam usar.
-1. **Metadados separados**: cada pacote satélite tem seu próprio arquivo `.nuspec` e, portanto, seus próprios metadados localizados. Isso pode permitir que alguns consumidores localizem os pacotes mais facilmente pesquisando nuget.org com termos localizados.
+1. **Tamanho do pacote**: a superfície geral do pacote principal é minimizada e os consumidores incorrem somente nos custos de cada idioma que desejam usar.
+1. **Metadados separados**: cada pacote satélite tem seu próprio arquivo `.nuspec` e, portanto, seus próprios metadados localizado porque. Isso pode permitir que alguns consumidores localizem os pacotes mais facilmente pesquisando nuget.org com termos localizados.
 1. **Versões desacopladas**: assemblies satélite podem ser liberados ao longo do tempo, em vez de uma só vez, permitindo que você distribua seus esforços de localização.
 
 No entanto, pacotes satélite trazem seu próprio conjunto de desvantagens:
 
-1. **Desordem**: em vez de um único pacote, você tem muitos pacotes que podem levar a resultados da pesquisa desorganizados no nuget.org e a uma longa lista de referências em um projeto do Visual Studio.
+1. **Desordem**: em vez de um único pacote, você tem muitos pacotes que podem levar a resultados da pesquisa desorganizados no nuget.org e uma longa lista de referências em um projeto do Visual Studio.
 1. **Convenções estritas**. Pacotes satélite devem seguir as convenções com exatidão ou as versões localizadas não serão selecionadas corretamente.
 1. **Controle de versão**: cada pacote satélite precisa ter uma dependência de versão exata do pacote principal. Isso significa que a atualização do pacote principal pode requerer a atualização de todos os pacotes satélite, mesmo se os recursos não foram alterados.

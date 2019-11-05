@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7c6992d6bf3142eb6aca70f1fa3c46f72efd25a0
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520346"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610984"
 ---
 # <a name="package-versioning"></a>Controle de versão do pacote
 
@@ -29,12 +29,12 @@ Neste tópico:
 
 Um número de versão específico está no formato *Principal.Secundário.Patch [-Sufixo]* , em que os componentes possuem os seguintes significados:
 
-- *Principal*: Alterações da falha
-- *Secundária*: Novos recursos, mas compatível com versões anteriores
-- *Patch*: Somente correções de bug compatíveis com versões anteriores
-- *-Sufixo* (opcional): um hífen seguido por uma cadeia de caracteres denotando uma versão de pré-lançamento (seguindo a [convenção Controle de Versão Semântico ou SemVer 1.0](http://semver.org/spec/v1.0.0.html)).
+- *Principal*: alterações recentes
+- *Secundário*: novos recursos, mas compatível com versões anteriores
+- *Patch*: somente correções de bugs compatíveis com versões anteriores
+- *-Sufixo* (opcional): um hífen seguido por uma cadeia de caracteres denotando uma versão de pré-lançamento (seguindo a [convenção Controle de Versão Semântico ou SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
-**Exemplos:**
+**Disso**
 
     1.0.1
     6.11.1231
@@ -50,12 +50,12 @@ Tecnicamente falando, os criadores de pacotes podem usar qualquer cadeia de cara
 
 Dito isso, os desenvolvedores de pacotes geralmente seguem as convenções de nomenclatura reconhecidas:
 
-- `-alpha`: versão alfa, normalmente usada para trabalho em andamento e experimentação.
-- `-beta`: Versão beta, normalmente uma completa com recursos para a próxima versão planejada, mas pode conter erros conhecidos.
-- `-rc`: Versão Release Candidate, normalmente uma versão que é potencialmente a final (estável), a menos que surjam bugs significativos.
+- `-alpha`: versão Alfa, normalmente usada para trabalho em andamento e experimentação.
+- `-beta`: versão beta, normalmente uma completa com recursos para a próxima versão planejada, mas pode conter erros conhecidos.
+- `-rc`: versão Release candidate, normalmente uma versão que é potencialmente a final (estável), a menos que surjam bugs significativos.
 
 > [!Note]
-> O NuGet 4.3.0+ é compatível com o [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), que oferece suporte para números com notação de ponto pré-lançamento, como no *1.0.1-build.23*. A notação de ponto não e compatível com as versões do NuGet anteriores à 4.3.0. Você pode usar um formulário como *1.0.1-build23*.
+> O NuGet 4.3.0+ é compatível com o [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), que oferece suporte para números com notação de ponto pré-lançamento, como no *1.0.1-build.23*. A notação de ponto não e compatível com as versões do NuGet anteriores à 4.3.0. Você pode usar um formulário como *1.0.1-build23*.
 
 Quando as referências de pacote e várias versões de pacote diferem apenas pelo sufixo, o NuGet escolhe uma versão sem um sufixo primeiro e, em seguida, aplica a precedência às versões de pré-lançamento em ordem alfabética inversa. Por exemplo, as seguintes versões seriam escolhidas na ordem exata mostrada:
 
@@ -70,7 +70,7 @@ Quando as referências de pacote e várias versões de pacote diferem apenas pel
 
 ## <a name="semantic-versioning-200"></a>Controle de Versão Semântico 2.0.0
 
-Com o NuGet 4.3.0+ e o Visual Studio 2017 versão 15.3+, o NuGet oferece suporte ao [Controle de Versão Semântico 2.0.0](http://semver.org/spec/v2.0.0.html).
+Com o NuGet 4.3.0+ e o Visual Studio 2017 versão 15.3+, o NuGet oferece suporte ao [Controle de Versão Semântico 2.0.0](https://semver.org/spec/v2.0.0.html).
 
 Determinadas semânticas do SemVer v2.0.0 não têm suporte em clientes mais antigos. O NuGet considerará uma versão do pacote como SemVer v2.0.0 específica se qualquer uma das seguintes afirmações for verdadeira:
 
@@ -102,7 +102,7 @@ Clientes de terceiros:
 
 Ao se referir a dependências de pacote, o NuGet oferece suporte ao uso de notação de intervalo para especificar intervalos de versão, resumidos da seguinte forma:
 
-| Notation | Regra aplicada | DESCRIÇÃO |
+| Notation | Regra aplicada | Descrição |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | Versão mínima, inclusiva |
 | (1.0,) | x > 1.0 | Versão mínima, exclusiva |

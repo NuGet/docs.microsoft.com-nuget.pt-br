@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 734f0a609f243c7bdb218a53ed664de68c707dd7
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 82b353450ff1da23a17e5b1c6a825ad32782bf75
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317654"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610600"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -34,7 +34,7 @@ Caso tenha outras dúvidas sobre o NuGet.Server, crie um problema no [https://gi
 
 1. Clique com o botão direito do mouse no projeto e escolha **Gerenciar Pacotes NuGet**.
 
-1. Na interface do usuário do Gerenciador de Pacotes, selecione a guia **Procurar** e, em seguida, pesquise e instale a versão mais recente do pacote NuGet.Server se você estiver direcionando para o .NET Framework 4.6. (Também é possível instalá-lo do Console do Gerenciador de Pacotes com `Install-Package NuGet.Server`.) Se solicitado, aceite os termos de licença.
+1. Na interface do usuário do Gerenciador de Pacotes, selecione a guia **Procurar** e, em seguida, pesquise e instale a versão mais recente do pacote NuGet.Server se você estiver direcionando para o .NET Framework 4.6. (Você também pode instalá-lo no console do Gerenciador de pacotes com o `Install-Package NuGet.Server`.) Aceite os termos de licença, se solicitado.
 
     ![Instalando o pacote do NuGet.Server](media/Hosting_02-NuGet.Server-Package.png)
 
@@ -53,7 +53,7 @@ Caso tenha outras dúvidas sobre o NuGet.Server, crie um problema no [https://gi
 
 1. Clique em **aqui** na área descrita acima para ver o feed OData de pacotes.
 
-1. Na primeira vez que você executar o aplicativo, o NuGet.Server reestrutura a pasta `Packages` para conter uma pasta para cada pacote. Isso corresponde ao [layout de armazenamento local](http://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) introduzido no NuGet 3.3 para melhorar o desempenho. Ao adicionar mais pacotes, continue seguindo esta estrutura.
+1. Na primeira vez que você executar o aplicativo, o NuGet.Server reestrutura a pasta `Packages` para conter uma pasta para cada pacote. Isso corresponde ao [layout de armazenamento local](https://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) introduzido no NuGet 3.3 para melhorar o desempenho. Ao adicionar mais pacotes, continue seguindo esta estrutura.
 
 1. Depois de testar sua implantação local, implante o aplicativo para qualquer outro site interno ou externo, conforme necessário.
 

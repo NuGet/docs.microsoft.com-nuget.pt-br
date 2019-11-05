@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4413779361dad3a650da36b3c69bbb55b62804ee
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 69e12ce1c78f8d4d50cbad7a0237d767064193ab
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380729"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610645"
 ---
 # <a name="support-multiple-net-versions"></a>Suporte a várias versões do .NET
 
@@ -65,9 +65,9 @@ Se você tiver assemblies específicos de arquitetura, ou seja, assemblies separ
             \native
             \lib\uap10.0
 
-Esses assemblies só estarão disponíveis no tempo de execução, portanto, se você quiser fornecer o assembly de tempo de compilação correspondente, também terá um assembly `AnyCPU` na pasta `/ref/{tfm}`. 
+Esses assemblies só estarão disponíveis no runtime, portanto, se você quiser fornecer o assembly de tempo de compilação correspondente, também terá um assembly `AnyCPU` na pasta `/ref/{tfm}`. 
 
-O NuGet sempre escolhe esses recursos de compilação ou de tempo de execução de uma pasta, portanto, se houver alguns ativos compatíveis de `/ref`, `/lib` será ignorado para adicionar conjuntos de tempo de compilação. Da mesma forma, se houver alguns ativos compatíveis do `/runtime`, também `/lib` serão ignorados para tempo de execução.
+O NuGet sempre escolhe esses recursos de compilação ou de runtime de uma pasta, portanto, se houver alguns ativos compatíveis de `/ref`, `/lib` será ignorado para adicionar conjuntos de tempo de compilação. Da mesma forma, se houver alguns ativos compatíveis do `/runtime`, também `/lib` serão ignorados para tempo de execução.
 
 Consulte [Criar pacotes de UWP](../guides/create-uwp-packages.md) para obter um exemplo de referência a esses arquivos no manifesto `.nuspec`.
 
@@ -151,8 +151,8 @@ O exemplo a seguir mostra diferentes variações do elemento `<group>`:
 
 Quando pacotes de bibliotecas são direcionados à Biblioteca de Classes Portátil, pode ser difícil determinar qual destino NuGet deve ser usado nos nomes de pastas e no arquivo `.nuspec`, especialmente se o direcionamento for apenas de um subconjunto do PCL. Os seguintes recursos externos ajudarão você com isso:
 
-- [Perfis de Framework no .NET](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
-- [Perfis de Biblioteca de Classes Portátil](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): tabela que enumera os perfis de PCL e suas metas equivalentes do NuGet
+- [Perfis de Framework no .NET](https://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
+- [Perfis de Biblioteca de Classes Portátil](https://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): tabela que enumera os perfis de PCL e suas metas equivalentes do NuGet
 - [Ferramenta de perfis da Biblioteca de Classes Portátil](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com): ferramenta de linha de comando para determinar perfis de PCL disponíveis no sistema
 
 ## <a name="content-files-and-powershell-scripts"></a>Arquivos de conteúdo e scripts do PowerShell

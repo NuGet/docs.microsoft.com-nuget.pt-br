@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 89b5fcbd76b85b77489ab36caa215c3a2fedf032
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317765"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610970"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gerenciar os limites de confiança do pacote
 
@@ -95,7 +95,7 @@ Em algumas situações, convém habilitar a verificação usando certificados n�
 
 ### <a name="sync-repository-certificates"></a>Sincronizar certificados do repositório
 
-Os repositórios de pacote devem anunciar os certificados que eles usam em seu [índice de serviço](../api/service-index.md). Eventualmente, o repositório atualizará esses certificados, por exemplo, quando o certificado expirar. Quando isso acontecer, os clientes com políticas específicas exigirão uma atualização à configuração a fim de incluir o certificado recém-adicionado. Você pode atualizar facilmente os signatários confiáveis associados a um repositório usando o [comando trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-) `nuget.exe`.
+Os repositórios de pacote devem anunciar os certificados que eles usam em seu [índice de serviço](../api/service-index.md). Eventualmente, o repositório atualizará esses certificados, por exemplo, quando o certificado expirar. Quando isso acontecer, os clientes com políticas específicas exigirão uma atualização à configuração a fim de incluir o certificado recém-adicionado. Você pode atualizar facilmente os assinantes confiáveis associados a um repositório usando o `nuget.exe` [comando de sincronização de assinantes confiáveis] (.. /Reference/CLI-Reference/CLI-ref-Trusted-signers.MD # NuGet-Trusted-Signer-Sync--name-Name
 
 ### <a name="schema-reference"></a>Referência de esquema
 

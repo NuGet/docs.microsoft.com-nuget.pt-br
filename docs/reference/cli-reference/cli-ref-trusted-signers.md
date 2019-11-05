@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 197f2eaeed1a4a11f0f3ed426534807a0136271e
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 94c4c6524c1870898893b80be914477af5a14e8b
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327533"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610342"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>comando de assinantes confiáveis (NuGet CLI)
 
-**Aplica-se a:** &bullet; **versões com suporte** de consumo de pacote: 4.9.1 +
+**Aplica-se a: consumo de** pacote &bullet; **versões com suporte:** 4.9.1 +
 
 Obtém ou define os assinantes confiáveis para a configuração do NuGet. Para uso adicional, consulte [configurações comuns do NuGet](../../consume-packages/configuring-nuget-behavior.md). Para obter detalhes sobre como o esquema NuGet. config se parece, consulte a [referência do arquivo de configuração do NuGet](../nuget-config-file.md).
 
@@ -25,11 +25,11 @@ Obtém ou define os assinantes confiáveis para a configuração do NuGet. Para 
 nuget trusted-signers <list|add|remove|sync> [options]
 ```
 
-Se nenhum `list|add|remove|sync` for especificado, o comando usará como `list`padrão.
+Se nenhuma das `list|add|remove|sync` for especificada, o comando usará como padrão `list`.
 
 ## <a name="nuget-trusted-signers-list"></a>lista de assinantes confiáveis do NuGet
 
-Lista todos os assinantes confiáveis na configuração. Essa opção incluirá todos os certificados (com o algoritmo de impressão digital e de impressão digital) que cada signatário tem. Se um certificado tiver um anterior `[U]`, isso significará que a entrada `allowUntrustedRoot` do certificado `true`foi definida como.
+Lista todos os assinantes confiáveis na configuração. Essa opção incluirá todos os certificados (com o algoritmo de impressão digital e de impressão digital) que cada signatário tem. Se um certificado tiver um `[U]`anterior, isso significará que a entrada do certificado tem `allowUntrustedRoot` definido como `true`.
 
 Veja abaixo um exemplo de saída deste comando:
 
@@ -63,16 +63,16 @@ Adiciona um signatário confiável com o nome fornecido para a configuração. E
 nuget trusted-signers add <package(s)> -Name <name> [options]
 ```
 
-onde `<package(s)>` é um ou mais `.nupkg` arquivos.
+onde `<package(s)>` é um ou mais arquivos de `.nupkg`.
 
 | Opção | Descrição |
 | --- | --- |
 | Autor | Especifica que a assinatura de autor dos pacotes deve ser confiável. |
 | Repositório | Especifica que a assinatura do repositório ou a referenda dos pacotes devem ser confiáveis. |
 | AllowUntrustedRoot | Especifica se o certificado para o assinante confiável deve ter permissão para se encadear a uma raiz não confiável. |
-| Proprietários | Lista separada por ponto e vírgula de proprietários confiáveis para restringir ainda mais a confiança de um repositório. Válido somente ao usar a `-Repository` opção. |
+| Proprietários | Lista separada por ponto e vírgula de proprietários confiáveis para restringir ainda mais a confiança de um repositório. Válido somente ao usar a opção `-Repository`. |
 
-`-Author` Fornecer e `-Repository` ao mesmo tempo não é suportado.
+Não há suporte para fornecer `-Author` e `-Repository` ao mesmo tempo.
 
 ## <a name="options-for-add-based-on-a-service-index"></a>Opções para adicionar com base em um índice de serviço
 
@@ -80,11 +80,11 @@ onde `<package(s)>` é um ou mais `.nupkg` arquivos.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Observação_: Esta opção adicionará somente Repositórios confiáveis. 
+_Observação_: esta opção adicionará somente Repositórios confiáveis. 
 
 | Opção | Descrição |
 | --- | --- |
-| Não index | Especifica o índice de serviço V3 do repositório a ser confiável. Este repositório tem que oferecer suporte ao recurso de assinaturas de repositório. Se não for fornecido, o comando procurará uma origem de pacote com o `-Name` mesmo e obterá o índice de serviço a partir daí. |
+| Não index | Especifica o índice de serviço V3 do repositório a ser confiável. Este repositório tem que oferecer suporte ao recurso de assinaturas de repositório. Se não for fornecido, o comando procurará uma origem de pacote com o mesmo `-Name` e obterá o índice de serviço a partir daí. |
 | AllowUntrustedRoot | Especifica se o certificado para o assinante confiável deve ter permissão para se encadear a uma raiz não confiável. |
 | Proprietários | Lista separada por ponto e vírgula de proprietários confiáveis para restringir ainda mais a confiança de um repositório. |
 
@@ -94,32 +94,32 @@ _Observação_: Esta opção adicionará somente Repositórios confiáveis.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Observação_: Se um signatário confiável com o nome fornecido já existir, o item de certificado será adicionado a esse signatário. Caso contrário, um autor confiável será criado com um item de certificado de informações de certificado fornecidas.
+_Observação_: se um signatário confiável com o nome fornecido já existir, o item de certificado será adicionado a esse signatário. Caso contrário, um autor confiável será criado com um item de certificado de informações de certificado fornecidas.
 
 | Opção | Descrição |
 | --- | --- |
-| CertificateFingerprint | Especifica um certificado de impressões digitais de um certificado com o qual os pacotes assinados devem ser assinados. Uma impressão digital de certificado é um hash do certificado. O algoritmo de hash usado para calcular esse hash deve ser especificado na `FingerprintAlgorithm` opção. |
-| FingerprintAlgorithm | Especifica o algoritmo de hash usado para calcular a impressão digital do certificado. Assume o padrão de `SHA256`. Os valores com `SHA256`suporte `SHA384` são e`SHA512` |
+| CertificateFingerprint | Especifica um certificado de impressões digitais de um certificado com o qual os pacotes assinados devem ser assinados. Uma impressão digital de certificado é um hash do certificado. O algoritmo de hash usado para calcular esse hash deve ser especificado na opção `FingerprintAlgorithm`. |
+| FingerprintAlgorithm | Especifica o algoritmo de hash usado para calcular a impressão digital do certificado. Assume o padrão de `SHA256`. Os valores com suporte são `SHA256`, `SHA384` e `SHA512` |
 | AllowUntrustedRoot | Especifica se o certificado para o assinante confiável deve ter permissão para se encadear a uma raiz não confiável. |
 
-## <a name="nuget-trusted-signers-remove--name-name"></a>NuGet confiável-os assinantes removem-Name<name>
+## <a name="nuget-trusted-signers-remove--name-name"></a>o NuGet Trusted-signers remove-Name \<Name\>
 
 Remove os assinantes confiáveis que correspondem ao nome fornecido.
 
-## <a name="nuget-trusted-signers-sync--name-name"></a>NuGet confiável-autenticadores Sync-Name<name>
+## <a name="nuget-trusted-signers-sync--name-name"></a>NuGet confiável-os assinantes Sync-Name \<Name\>
 
 Solicita a lista mais recente de certificados usados em um repositório atualmente confiável para atualizar a lista de certificados existentes no Assinante confiável.
 
-_Observação_: Esse gesto excluirá a lista atual de certificados e os substituirá por uma lista atualizada do repositório.
+_Observação_: esse gesto excluirá a lista atual de certificados e os substituirá por uma lista atualizada do repositório.
 
 ## <a name="options"></a>Opções
 
 | Opção | Descrição |
 | --- | --- |
-| ConfigFile | O arquivo de configuração do NuGet a ser aplicado. Se não for especificado `%AppData%\NuGet\NuGet.Config` , (Windows) `~/.nuget/NuGet/NuGet.Config` ou (Mac/Linux) será usado.|
+| ConfigFile | O arquivo de configuração do NuGet a ser aplicado. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) será usado.|
 | ForceEnglishOutput | Força o NuGet. exe a ser executado usando uma cultura invariável baseada em inglês. |
 | Ajuda | Exibe informações de ajuda para o comando. |
-| Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhado*. |
+| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhado*. |
 
 ## <a name="examples"></a>Exemplos
 

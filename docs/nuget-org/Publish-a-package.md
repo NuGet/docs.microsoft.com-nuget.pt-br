@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 6d183100a8319b517347567f34d276e94eb4e15d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427181"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610609"
 ---
 # <a name="publishing-packages"></a>Publicando pacotes
 
@@ -24,7 +24,7 @@ Este artigo aborda a publicação no nuget.org. Para saber sobre a publicação 
 
 ## <a name="publish-to-nugetorg"></a>Publicar no nuget.org
 
-No nuget.org, entre com uma conta da Microsoft. Será solicitado que você registre essa conta em nuget.org. Você também pode entrar com uma conta de nuget.org criada com versões mais antigas do portal.
+Para nuget.org, você deve entrar com um conta Microsoft, com o qual será solicitado que você registre a conta com nuget.org. Você também pode entrar com uma conta do nuget.org criada usando versões mais antigas do Portal.
 
 ![Localização de entrada do NuGet](media/publish_NuGetSignIn.png)
 
@@ -64,7 +64,7 @@ Para efetuar push em pacotes para o nuget.org, você precisa usar o [nuget.exe v
     nuget setApiKey <your_API_key>
     ```
 
-    Esse comando armazena a chave de API em sua configuração do NuGet para que você não precise repetir essa etapa novamente no mesmo computador.
+    Esse comando armazena sua chave de API na configuração do NuGet para que você não precise repetir essa etapa novamente no mesmo computador.
 
 1. Efetue push do pacote para a Galeria do NuGet usando o seguinte comando:
 
@@ -87,7 +87,7 @@ Quando o pacote tiver passado todas as verificações de validação, pode levar
 
 A validação e indexação do pacote geralmente leva menos de 15 minutos. Se a publicação do pacote estiver demorando mais do que o esperado, visite [status.nuget.org](https://status.nuget.org/) para verificar se o nuget.org está passando por alguma interrupção. Se todos os sistemas estiverem operacionais e o pacote não tiver sido publicado com êxito dentro de uma hora, faça logon no nuget.org e entre em contato conosco usando o link Entre em contato com o suporte na página do pacote.
 
-Para ver o status de um pacote, selecione **Manage packages** (Gerenciar pacotes) em seu nome de conta em nuget.org. Quando a validação estiver concluída, você receberá um email de confirmação.
+Para ver o status de um pacote, selecione **gerenciar pacotes** sob o nome da sua conta em NuGet.org. Você receberá um email de confirmação quando a validação for concluída.
 
 Observe que pode levar algum tempo para o pacote ser indexado e aparecer nos resultados da pesquisa em que outras pessoas podem encontrá-lo e, durante esse período, você verá a seguinte mensagem na página do seu pacote:
 
@@ -115,7 +115,7 @@ Daqui, você tem várias opções:
 1. Adicione um proprietário em **Add Owner** (Adicionar proprietário) inserindo o nome de usuário dele, uma mensagem e selecionando **Add** (Adicionar). Essa ação envia um email ao novo coproprietário com um link de confirmação. Depois de confirmado, essa pessoa tem permissões completas para adicionar e remover os proprietários. (Até a confirmação, a página **Current Owners** (Proprietários atuais) indica “aprovação pendente” para essa pessoa).
 1. Para transferir a propriedade (como quando a propriedade muda ou um pacote foi publicado na conta errada), adicione o novo proprietário e, depois da propriedade ser confirmada, será possível remover você da lista.
 
-Para atribuir a propriedade a uma empresa ou grupo, crie uma conta do nuget.org usando um alias de email que é encaminhado para os membros da equipe apropriada. Por exemplo, vários pacotes do Microsoft ASP.NET são propriedades conjuntas de contas da [microsoft](http://nuget.org/profiles/microsoft) e [aspnet](http://nuget.org/profiles/aspnet), que simplesmente esses aliases.
+Para atribuir a propriedade a uma empresa ou grupo, crie uma conta do nuget.org usando um alias de email que é encaminhado para os membros da equipe apropriada. Por exemplo, vários pacotes do Microsoft ASP.NET são propriedades conjuntas de contas da [microsoft](https://nuget.org/profiles/microsoft) e [aspnet](https://nuget.org/profiles/aspnet), que simplesmente esses aliases.
 
 ### <a name="recovering-package-ownership"></a>Recuperar a propriedade do pacote
 
