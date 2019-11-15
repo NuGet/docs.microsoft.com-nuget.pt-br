@@ -6,12 +6,12 @@ ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
-ms.openlocfilehash: 120b463fda856fe9dd407b6eba32d60e0918f763
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248893"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096877"
 ---
 # <a name="deprecating-packages"></a>Substituição de pacotes
 
@@ -37,7 +37,7 @@ Como Publicador, você pode optar por deslistar, bem como substituir pacotes.
     ![Selecionar motivos da recomendação do pacote alternativo e da mensagem personalizada](media/deprecation-save.png)
 
 > [!Note]
-> A mensagem personalizada só é mostrada em nuget.org, mas não nos clientes. Atualmente, clientes como `dotnet.exe` o e o Gerenciador de pacotes NuGet não mostram a mensagem personalizada.
+> A mensagem personalizada só é mostrada em nuget.org, mas não nos clientes. Atualmente, clientes como `dotnet.exe` e o Gerenciador de pacotes NuGet não mostram a mensagem personalizada.
 
 ## <a name="client-experience-for-deprecated-packages"></a>Experiência do cliente para pacotes preteridos
 Depois que um pacote tiver sido preterido, seus consumidores serão notificados sobre ele das seguintes maneiras (dependendo do cliente usado).
@@ -45,11 +45,11 @@ Depois que um pacote tiver sido preterido, seus consumidores serão notificados 
 ### <a name="visual-studio"></a>Visual Studio 
 *Disponível a partir do Visual Studio 2019 versão 16,3*
 
-O Visual Studio avisa sobre o `Installed` uso de um pacote preterido na guia. Ele levará você para o pacote e suas informações de substituição (incluindo o motivo de ele ter sido preterido e o pacote alternativo a ser usado, se houver).
+O Visual Studio avisa sobre o uso de um pacote preterido na guia `Installed`. Ele mostrará um aviso para o pacote e suas informações de substituição (incluindo o motivo pelo qual ele foi preterido e o pacote alternativo a ser usado, se presente).
 
    ![Pacotes preteridos na guia Visual Studio instalada do Gerenciador de pacotes](media/deprecation-vs.png)
 
-### <a name="dotnetexe"></a>dotnet.exe
+### <a name="dotnetexe"></a>dotnet. exe
 *Disponível a partir do SDK do .NET 3,0*
 
 Se você usar dotnet. exe, poderá executar o comando `dotnet list package --deprecated` na pasta da solução ou do projeto para obter uma lista de pacotes preteridos junto com as informações de substituição:

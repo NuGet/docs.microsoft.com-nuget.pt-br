@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6a49e410617c14e22f0d4a67d8bfe280f64f5505
-ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
+ms.openlocfilehash: 1c2af0b42e88623fa7a1216c17aa269e9b0a58cf
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72510799"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096902"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -59,11 +59,11 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | carteira | PackageLicenseExpression | empty | Corresponde a `<license type="expression">` |
-| carteira | PackageLicenseFile | empty | Corresponde ao `<license type="file">`. Talvez seja necessário empacotar explicitamente o arquivo de licença referenciado. |
+| carteira | PackageLicenseFile | empty | Corresponde ao `<license type="file">`. Você precisa empacotar explicitamente o arquivo de licença referenciado. |
 | LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` for preterido, use a propriedade PackageLicenseExpression ou PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | empty | |
-| Ícone | PackageIcon | empty | Talvez seja necessário empacotar explicitamente o arquivo de imagem do ícone referenciado.|
-| IconUrl | PackageIconUrl | empty | `PackageIconUrl` for preterido, use a propriedade PackageIcon |
+| Ícone | PackageIcon | empty | Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado.|
+| IconUrl | PackageIconUrl | empty | Para obter a melhor experiência de nível mais baixo, `PackageIconUrl` deve ser especificado além de `PackageIcon`. Período mais longo, `PackageIconUrl` será preterido. |
 | Marcas | PackageTags | empty | Marcas são delimitadas por ponto e vírgula. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
 | Repositório/URL | RepositoryUrl | empty | URL do repositório usada para clonar ou recuperar o código-fonte. Exemplo: *https://github.com/NuGet/NuGet.Client.git* |
@@ -118,12 +118,18 @@ Para suprimir as dependências de pacote do pacote NuGet gerado, defina `Suppres
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-> [!Important]
-> O PackageIconUrl foi preterido com o NuGet 5.3 + & Visual Studio 2019 versão 16.3 +. Use [PackageIcon](#packing-an-icon-image-file) em vez disso.
+`PackageIconUrl` será preterido em favor da nova propriedade [`PackageIcon`](#packageicon) .
 
-### <a name="packing-an-icon-image-file"></a>Empacotando um arquivo de imagem de ícone
+A partir do NuGet 5,3 & o Visual Studio 2019 versão 16,3, `pack` gerará um aviso [NU5048](errors-and-warnings/nu5048) se os metadados do pacote especificarem apenas `PackageIconUrl`.
 
-Ao empacotar um arquivo de imagem de ícone, você precisa usar a propriedade PackageIcon para especificar o caminho do pacote, em relação à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. O tamanho do arquivo de imagem é limitado a 1 MB. Os formatos de arquivo com suporte incluem JPEG e PNG. Recomendamos uma resolução de imagem de 64 x 64.
+### <a name="packageicon"></a>PackageIcon
+
+> [!Tip]
+> Você deve especificar `PackageIcon` e `PackageIconUrl` para manter a compatibilidade com versões anteriores com clientes e fontes que ainda não dão suporte ao `PackageIcon`. O Visual Studio dará suporte a `PackageIcon` para pacotes provenientes de uma fonte baseada em pasta em uma versão futura.
+
+#### <a name="packing-an-icon-image-file"></a>Empacotando um arquivo de imagem de ícone
+
+Ao empacotar um arquivo de imagem de ícone, você precisa usar a propriedade `PackageIcon` para especificar o caminho do pacote, em relação à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. O tamanho do arquivo de imagem é limitado a 1 MB. Os formatos de arquivo com suporte incluem JPEG e PNG. Recomendamos uma resolução de imagem de 64 x 64.
 
 Por exemplo:
 

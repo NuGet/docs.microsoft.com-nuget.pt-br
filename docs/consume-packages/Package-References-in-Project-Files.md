@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 892483760a9f3568da7101663e93c69ce3d70b96
-ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
+ms.openlocfilehash: 231947148295e0c06dcec5aa0e1f479d654a8803
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72510803"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096868"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
 As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). O uso de PackageReference, como ele é chamado, não afeta outros aspectos do NuGet; por exemplo, as configurações nos arquivos `NuGet.config` (incluindo as origens do pacote) ainda são aplicadas, conforme explicado em [Configurações comuns do NuGet](configuring-nuget-behavior.md).
 
-Com o PackageReference, você também pode usar condições do MSBuild para escolher as referências de pacote por estrutura de destino, por configuração, por plataforma ou por outros agrupamentos. Ele também proporciona um controle refinado sobre as dependências e o fluxo de conteúdo. (Para obter mais detalhes, veja [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).)
+Com o PackageReference, você também pode usar as condições do MSBuild para escolher as referências de pacote por estrutura de destino ou outros agrupamentos. Ele também proporciona um controle refinado sobre as dependências e o fluxo de conteúdo. (Para obter mais detalhes, veja [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).)
 
 ## <a name="project-type-support"></a>Suporte do tipo de projeto
 
@@ -51,6 +51,7 @@ A convenção para especificar a versão de um pacote é a mesma que usar `packa
 No exemplo acima, 3.6.0 significa qualquer versão que é >=3.6.0 com preferência para a versão mais antiga, conforme descrito em [Controle de versão do pacote](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Usando PackageReference para um projeto sem PackageReferences
+
 Avançado: se você não tem pacotes instalados em um projeto (não tem PackageReferences no arquivo de projeto nem um arquivo packages.config), mas deseja que o projeto seja restaurado como o estilo PackageReference, você pode definir uma propriedade de projeto RestoreProjectStyle como PackageReference em seu arquivo de projeto.
 ```xml
 <PropertyGroup>
@@ -60,6 +61,10 @@ Avançado: se você não tem pacotes instalados em um projeto (não tem PackageR
 </PropertyGroup>    
 ```
 Isso poderá ser útil se você fizer referência a projetos que são do estilo PackageReference (projetos de estilo csproj ou SDK existentes). Isso permitirá que os pacotes aos quais esses projetos fazem referência sejam referenciados "transitivamente" pelo seu projeto.
+
+## <a name="packagereference-and-sources"></a>PackageReference e fontes
+
+Em projetos PackageReference, as versões de dependência transitivas são resolvidas no momento da restauração. Como tal, em projetos PackageReference, todas as fontes precisam estar disponíveis para todas as restaurações. 
 
 ## <a name="floating-versions"></a>Versões flutuantes
 

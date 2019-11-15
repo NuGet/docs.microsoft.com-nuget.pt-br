@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6bd730db16d8e8783f0d949bb04cf3b52c642cd0
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: ff8f988a4d47e18d74945d274be5cca78d3ff8e5
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380549"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096918"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -149,7 +149,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 
 Uma URL para uma imagem 64x64 com a tela de fundo transparente a ser usada como o ícone do pacote na exibição de interface do usuário. Verifique se esse elemento contém a *URL direta da imagem* e não a URL de uma página da Web que contém a imagem. Por exemplo, para usar uma imagem do GitHub, use a URL do arquivo bruto como <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
    
-#### <a name="icon"></a>Cone
+#### <a name="icon"></a>cone
 
 É um caminho para um arquivo de imagem dentro do pacote, geralmente mostrado em UIs como nuget.org como o ícone do pacote. O tamanho do arquivo de imagem é limitado a 1 MB. Os formatos de arquivo com suporte incluem JPEG e PNG. Recomendamos uma resoulution de imagem de 64 x 64.
 
@@ -173,6 +173,9 @@ Por exemplo, você adicionaria o seguinte ao seu nuspec ao criar um pacote usand
 [Ícone de pacote exemplo de nuspec.](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
 
 Para o equivalente do MSBuild, dê uma olhada no [empacotamento de um arquivo de imagem de ícone](msbuild-targets.md#packing-an-icon-image-file).
+
+> [!Tip]
+> Você pode especificar `icon` e `iconUrl` para manter a compatibilidade com versões anteriores com fontes que não dão suporte a `icon`. O Visual Studio dará suporte a `icon` para pacotes provenientes de uma fonte baseada em pasta em uma versão futura.
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Um valor booliano que especifica se o cliente precisa solicitar que o consumidor aceite a licença do pacote antes de instalá-lo.
@@ -236,7 +239,7 @@ O nó `<package>` pode conter um nó `<files>` como um irmão para `<metadata>` 
 
 ### <a name="metadata-attributes"></a>atributos de metadados
 
-#### <a name="minclientversion"></a>MinClientVersion
+#### <a name="minclientversion"></a>minClientVersion
 Especifica a versão mínima do cliente NuGet que pode instalar esse pacote, imposta pelo nuget.exe e pelo Gerenciador de Pacotes do Visual Studio. Isso é usado sempre que o pacote depender de recursos específicos do arquivo `.nuspec` que foram adicionados em uma versão específica do cliente do NuGet. Por exemplo, um pacote usando o atributo `developmentDependency` deve especificar “2.8” para `minClientVersion`. Da mesma forma, um pacote usando o elemento `contentFiles` (consulte a próxima seção) deve definir `minClientVersion` para “3.3”. Observe também que, como os clientes do NuGet antes de 2.5 não reconhecem esse sinalizador, eles *sempre* recusam instalar o pacote, não importando o que `minClientVersion` contém.
 
 ```xml

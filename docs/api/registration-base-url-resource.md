@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e98e8d1258377818b3852762d317750a6b3e59ad
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: eb8d59e253f85fbbb8546a5f71856df842ce94d6
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611042"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096893"
 ---
 # <a name="package-metadata"></a>Metadados de pacote
 
@@ -70,7 +70,7 @@ Embora não seja estritamente necessário para uma implementação de servidor a
 
 O armazenamento de todas as versões do pacote (folhas) no índice de registro salva o número de solicitações HTTP necessárias para buscar metadados do pacote, mas significa que um documento maior deve ser baixado e mais memória do cliente deve ser alocada. Por outro lado, se a implementação do servidor armazenar imediatamente as folhas de registro em documentos de página separados, o cliente deverá executar mais solicitações HTTP para obter as informações necessárias.
 
-A heurística que o nuget.org usa é a seguinte: se houver 128 ou mais versões de um pacote, quebre as folhas em páginas de tamanho 64. Se houver menos de 128 versões, embutidas todas as folhas no índice de registro.
+A heurística que o nuget.org usa é a seguinte: se houver 128 ou mais versões de um pacote, quebre as folhas em páginas de tamanho 64. Se houver menos de 128 versões, embutidas todas as folhas no índice de registro. Observe que isso significa que os pacotes com 65 a 127 versões terão duas páginas no índice, mas as duas páginas serão embutidas.
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -138,14 +138,14 @@ Name                     | Digite                       | Necessária | Anotaç�
 @id                      | cadeia de caracteres                     | sim      | A URL para o documento usado para produzir este objeto
 authors                  | String ou matriz de cadeias de caracteres | no       | 
 dependencyGroups         | matriz de objetos           | no       | As dependências do pacote, agrupadas por estrutura de destino
-Substituição              | objeto                     | no       | A reprovação associada ao pacote
+substituição              | objeto                     | no       | A reprovação associada ao pacote
 descrição              | cadeia de caracteres                     | no       | 
 iconUrl                  | cadeia de caracteres                     | no       | 
 id                       | cadeia de caracteres                     | sim      | A ID do pacote
 licenseUrl               | cadeia de caracteres                     | no       |
 carteira de licença        | cadeia de caracteres                     | no       | 
 listados                   | boolean                    | no       | Deve ser considerado como listado, se ausente
-MinClientVersion         | cadeia de caracteres                     | no       | 
+minClientVersion         | cadeia de caracteres                     | no       | 
 projectUrl               | cadeia de caracteres                     | no       | 
 Checked                | cadeia de caracteres                     | no       | Uma cadeia de caracteres que contém um carimbo de data/hora ISO 8601 de quando o pacote foi publicado
 requireLicenseAcceptance | boolean                    | no       | 
@@ -159,6 +159,9 @@ O pacote `version` propriedade é a cadeia de caracteres de versão completa ap�
 A propriedade `dependencyGroups` é uma matriz de objetos que representa as dependências do pacote, agrupadas por estrutura de destino. Se o pacote não tiver dependências, a propriedade `dependencyGroups` estiver ausente, uma matriz vazia ou a propriedade `dependencies` de todos os grupos estará vazia ou ausente.
 
 O valor da propriedade `licenseExpression` está em conformidade com a [sintaxe de expressão de licença do NuGet](https://docs.microsoft.com/nuget/reference/nuspec#license).
+
+> [!Note]
+> Em nuget.org, o valor `published` é definido como ano 1900 quando o pacote é deslistado.
 
 #### <a name="package-dependency-group"></a>Grupo de dependências do pacote
 
@@ -183,7 +186,7 @@ id           | cadeia de caracteres | sim      | A ID da dependência do pacote
 range        | objeto | no       | O [intervalo de versão](../concepts/package-versioning.md#version-ranges-and-wildcards) permitido da dependência
 registro | cadeia de caracteres | no       | A URL para o índice de registro desta dependência
 
-Se a propriedade `range` for excluída ou uma cadeia de caracteres vazia, o cliente deverá padrão para o intervalo de versão `(, )`. Ou seja, qualquer versão da dependência é permitida.
+Se a propriedade `range` for excluída ou uma cadeia de caracteres vazia, o cliente deverá padrão para o intervalo de versão `(, )`. Ou seja, qualquer versão da dependência é permitida. O valor de `*` não é permitido para a propriedade `range`.
 
 #### <a name="package-deprecation"></a>Substituição de pacote
 
@@ -193,7 +196,7 @@ Name             | Digite             | Necessária | Anotações
 ---------------- | ---------------- | -------- | -----
 motivos          | Matriz de cadeias de caracteres | sim      | Os motivos pelos quais o pacote foi preterido
 mensagem          | cadeia de caracteres           | no       | Os detalhes adicionais sobre essa reprovação
-alternatePackage | objeto           | no       | A dependência do pacote que deve ser usada em vez disso
+alternatePackage | objeto           | no       | O pacote alternativo que deve ser usado em vez disso
 
 A propriedade `reasons` deve conter pelo menos uma cadeia de caracteres e deve incluir apenas as cadeias da tabela a seguir:
 
@@ -204,6 +207,16 @@ CriticalBugs | O pacote tem bugs que o tornam inadequado para uso
 Outros        | O pacote foi preterido devido a um motivo que não está nessa lista
 
 Se a propriedade `reasons` contiver cadeias de caracteres que não sejam do conjunto conhecido, elas deverão ser ignoradas. As cadeias de caracteres não diferenciam maiúsculas de minúsculas, portanto `legacy` devem ser tratados da mesma forma que `Legacy`. Não há nenhuma restrição de ordenação na matriz, portanto, as cadeias de caracteres podem ser organizadas em qualquer ordem arbitrária. Além disso, se a propriedade contiver apenas cadeias de caracteres que não sejam do conjunto conhecido, ela deverá ser tratada como se ela contivesse apenas a "outra" cadeia de caracteres.
+
+#### <a name="alternate-package"></a>Pacote alternativo
+
+O objeto de pacote alternativo tem as seguintes propriedades:
+
+Name         | Digite   | Necessária | Anotações
+------------ | ------ | -------- | -----
+id           | cadeia de caracteres | sim      | A ID do pacote alternativo
+range        | objeto | no       | O [intervalo de versão](../concepts/package-versioning.md#version-ranges-and-wildcards)permitido ou `*` se qualquer versão for permitida
+registro | cadeia de caracteres | no       | A URL para o índice de registro para este pacote alternativo
 
 ### <a name="sample-request"></a>Exemplo de solicitação
 
@@ -217,7 +230,10 @@ Nesse caso em particular, o índice de registro tem a página de registro embuti
 
 ## <a name="registration-page"></a>Página de registro
 
-A página de registro contém folhas de registro. A URL para buscar uma página de registro é determinada pela propriedade `@id` no [objeto de página de registro](#registration-page-object) mencionado acima.
+A página de registro contém folhas de registro. A URL para buscar uma página de registro é determinada pela propriedade `@id` no [objeto de página de registro](#registration-page-object) mencionado acima. A URL não é destinada a ser previsível e sempre deve ser descoberta por meio do documento de índice.
+
+> [!Warning]
+> No nuget.org, a URL do documento da página de registro contém coincidentemente o limite inferior e superior da página. No entanto, essa suposição nunca deve ser feita por um cliente, já que as implementações de servidor são livres para alterar a forma da URL, desde que o documento de índice tenha um link válido.
 
 Quando a matriz de `items` não for fornecida no índice de registro, uma solicitação HTTP GET do valor de `@id` retornará um documento JSON que tem um objeto como sua raiz. O objeto tem as seguintes propriedades:
 
@@ -244,7 +260,10 @@ A forma dos objetos folha do registro é a mesma do índice de registro [acima](
 
 A folha de registro contém informações sobre uma ID e versão do pacote específico. Os metadados sobre a versão específica podem não estar disponíveis neste documento. Os metadados do pacote devem ser buscados no [índice de registro](#registration-index) ou na página de [registro](#registration-page) (que é descoberta usando o índice de registro).
 
-A URL para buscar uma folha de registro é obtida da propriedade `@id` de um objeto folha de registro em um índice de registro ou em uma página de registro.
+A URL para buscar uma folha de registro é obtida da propriedade `@id` de um objeto folha de registro em um índice de registro ou em uma página de registro. Como no documento da página. a URL não é destinada a ser previsível e sempre deve ser descoberta por meio do objeto de página de registro.
+
+> [!Warning]
+> Em nuget.org, a URL para o documento folha de registro contém a versão do pacote. No entanto, essa suposição nunca deve ser feita por um cliente, já que as implementações de servidor são livres para alterar a forma da URL, desde que o documento pai tenha um link válido. 
 
 A folha de registro é um documento JSON com um objeto raiz com as seguintes propriedades:
 

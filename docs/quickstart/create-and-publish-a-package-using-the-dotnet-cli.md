@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: c0e6de2c3b9978538d504f4af6e744ece43b4a4d
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 8727f67608593e6ae8b96daa81b7423782dfc219
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488940"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096939"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Início Rápido: Criar e publicar um pacote (CLI do dotnet)
 
 É um processo simples para criar um pacote NuGet de uma Biblioteca de Classes do .NET e publique-o em nuget.org usando a CLI (interface de linha de comando) `dotnet`.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Instale o [SDK do .NET Core](https://www.microsoft.com/net/download/), que inclui a CLI do `dotnet`. No Visual Studio 2017 em diante, a CLI do dotnet é instalada automaticamente com qualquer carga de trabalho relacionada ao .NET Core.
 
@@ -33,8 +33,6 @@ Você pode usar um projeto existente da Biblioteca de Classes .NET para o códig
 1. Digite `dotnet new classlib`, que usa o nome da pasta atual para o projeto.
 
    Isso cria o novo projeto.
-
-1. Use `dotnet run` para testar se o aplicativo foi criado corretamente.
 
 ## <a name="add-package-metadata-to-the-project-file"></a>Adicionar metadados de pacote ao arquivo de projeto
 
