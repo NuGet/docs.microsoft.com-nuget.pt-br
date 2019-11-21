@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611080"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253942"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Localizando e avaliando pacotes do NuGet para o seu projeto
 
@@ -82,9 +82,12 @@ Por outro lado, usar um pacote do NuGet significa assumir uma dependência, por 
 
     ![Baixar estatísticas em uma página de listagem do pacote](media/Finding-03-Downloads.png)
 
-- *Uso do GitHub*: na página do pacote, a seção **Uso do GitHub** lista os principais repositórios do GitHub que dependem deste pacote. Normalmente, um pacote de que muitos repositórios populares do GitHub dependem é uma opção melhor.
+- *Uso do GitHub*: na página pacote, a seção **uso do GitHub** lista os repositórios GitHub públicos que dependem deste pacote e que têm um número alto de estrelas no github. O número de estrelas de um repositório GitHub geralmente indica o quão popular esse repositório está com os usuários do GitHub (mais estrelas geralmente significa mais popular). Visite a [página de introdução do GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) para obter mais informações sobre o sistema de classificação de estrela e de repositório do github.
 
     ![Uso do GitHub](media/GitHub-Usage.png)
+
+    > [!Note]
+    > A seção de uso do GitHub de um pacote é gerada automaticamente, periodicamente, sem revisão humana de repositórios individuais e unicamente para fins informativos a fim de mostrar os repositórios GitHub que dependem do pacote e que são populares com o GitHub podem.
 
 - *Histórico de versão*: na página do pacote, procure em **Informações** pela data da atualização mais recente e examine o **Histórico de versão**. Um pacote com boa manutenção tem atualizações recentes e um histórico de versões detalhado. Pacotes inativos têm algumas atualizações e geralmente não foram atualizados há algum tempo.
 

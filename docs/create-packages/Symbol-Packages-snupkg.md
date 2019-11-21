@@ -12,12 +12,12 @@ keywords: Pacotes de símbolos do NuGet, depuração de pacote do NuGet, suporte
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0197902e4dbc18893d68833fbcfe4263f185a594
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 03ab4e1f3501055abedf430395de095d773bc9da
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307182"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253922"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Criando pacotes de símbolos (.snupkg)
 
@@ -29,7 +29,7 @@ Os pacotes de símbolos permitem melhorar a experiência de depuração dos paco
 
 ## <a name="creating-a-symbol-package"></a>Criar um pacote de símbolos
 
-Se você estiver usando dotNet. exe ou MSBuild, precisará definir as `IncludeSymbols` Propriedades e `SymbolPackageFormat` para criar um arquivo. snupkg além do arquivo. nupkg.
+Se você estiver usando dotNet. exe ou MSBuild, precisará definir as propriedades `IncludeSymbols` e `SymbolPackageFormat` para criar um arquivo. snupkg além do arquivo. nupkg.
 
 * Adicione as seguintes propriedades ao seu arquivo. csproj:
 
@@ -98,7 +98,7 @@ O NuGet.org dá suporte a seu próprio repositório de servidor de símbolos e a
 
 NuGet.org tem as seguintes restrições para pacotes de símbolo:
 
-- Somente as seguintes extensões de arquivo são permitidas em pacotes `.pdb`de `.nuspec`símbolos `.xml`: `.psmdcp`, `.rels`,,,,`.p7s`
+- Somente as seguintes extensões de arquivo são permitidas em pacotes de símbolos: `.pdb`, `.nuspec`, `.xml`, `.psmdcp`, `.rels`, `.p7s`
 - Somente os [PDBs portáteis](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) gerenciados têm suporte no servidor de símbolos do NuGet. org.
 - O PDBs e suas DLLs. nupkg associadas precisam ser compilados com o compilador no Visual Studio versão 15,9 ou superior (consulte o [hash de criptografia PDB](https://github.com/dotnet/roslyn/issues/24429))
 
