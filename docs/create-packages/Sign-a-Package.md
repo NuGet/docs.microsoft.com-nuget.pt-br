@@ -19,9 +19,9 @@ Os pacotes assinados permitem verificações de integridade do conteúdo que ofe
 
 ## <a name="get-a-code-signing-certificate"></a>Obter um certificado de assinatura de código
 
-Certificados válidos podem ser obtidos de uma autoridade de certificação pública, como [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) etc. A lista completa de autoridades de certificação confiáveis para Windows pode ser obtida de [http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners).
+Certificados válidos podem ser obtidos de uma autoridade de certificação pública como [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Sign global](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certal](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)etc. A lista completa de autoridades de certificação confiáveis pelo Windows pode ser obtida em [http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners).
 
-Você pode usar certificados emitidos por conta própria para fins de teste. No entanto, os pacotes assinados com certificados emitidos por conta própria não são aceitos por NuGet.org. Saiba mais sobre a [criação de um certificado de teste](#create-a-test-certificate)
+Você pode usar certificados emitidos por conta própria para fins de teste. No entanto, os pacotes assinados usando certificados emitidos por conta própria não são aceitos pelo NuGet.org. Saiba mais sobre como [criar um certificado de teste](#create-a-test-certificate)
 
 ## <a name="export-the-certificate-file"></a>Exportar o arquivo do certificado
 
@@ -51,7 +51,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="register-the-certificate-on-nugetorg"></a>Registrar o certificado em NuGet.org
 
-Para publicar um pacote assinado, você deverá primeiro registrar o certificado com NuGet.org. Você precisa do certificado como um arquivo `.cer` em um formato DER binário.
+Para publicar um pacote assinado, você deve primeiro registrar o certificado com NuGet.org. Você precisa do certificado como um arquivo de `.cer` em um formato de DER binário.
 
 1. [Entre](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) em NuGet.org.
 1. Vá para `Account settings` (ou `Manage Organization` **>** `Edit Organziation` se você gostaria de registrar o certificado com uma conta de organização).
@@ -66,7 +66,7 @@ Para publicar um pacote assinado, você deverá primeiro registrar o certificado
 
 ## <a name="publish-the-package"></a>Publicar o pacote
 
-Agora você está pronto para publicar o pacote em NuGet.org. Veja [Publicando pacotes](../nuget-org/Publish-a-package.md).
+Agora você está pronto para publicar o pacote no NuGet.org. Consulte [publicando pacotes](../nuget-org/Publish-a-package.md).
 
 ## <a name="create-a-test-certificate"></a>Criar um certificado de teste
 
