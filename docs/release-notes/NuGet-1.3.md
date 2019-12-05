@@ -1,43 +1,43 @@
 ---
-title: Notas de versão 1.3 do NuGet
-description: Notas de versão para 1.3 de NuGet, incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
+title: Notas de versão do NuGet 1,3
+description: Notas de versão do NuGet 1,3 incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fa89af100096356c2ffb4d6c501c4a34296ad0ea
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 45d5caa46d532670e370b81f675663b3c5aaaa95
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551345"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825255"
 ---
-# <a name="nuget-13-release-notes"></a>Notas de versão 1.3 do NuGet
+# <a name="nuget-13-release-notes"></a>Notas de versão do NuGet 1,3
 
-[Notas de versão do NuGet 1.2](../release-notes/nuget-1.2.md) | [notas de versão do NuGet 1.4](../release-notes/nuget-1.4.md)
+[Notas de versão do nuget 1,2](../release-notes/nuget-1.2.md) | [notas de versão do NuGet 1,4](../release-notes/nuget-1.4.md)
 
-1.3 do NuGet foi lançado em 25 de abril de 2011.
+O NuGet 1,3 foi lançado em 25 de abril de 2011.
 
 ## <a name="new-features"></a>Novos recursos
 
-### <a name="streamlined-package-creation-with-symbol-server-integration"></a>Criação simplificada de pacote com a integração do servidor de símbolo
+### <a name="streamlined-package-creation-with-symbol-server-integration"></a>Criação de pacotes simplificada com integração de servidor de símbolos
 
-A equipe do NuGet em parceria com o pessoal [SymbolSource.org](http://www.symbolsource.org/) para oferecer uma maneira muito simple de publicação de suas fontes e do PDB junto com seu pacote. Isso permite que os consumidores do seu pacote percorrer o código-fonte para o pacote no depurador. Para obter mais detalhes, leia [criando e publicando um pacote de símbolos](../create-packages/symbol-packages.md) a forma mais fácil para publicar pacotes do NuGet com códigos-fonte. Você também pode assistir uma demonstração ao vivo desse recurso como parte do NuGet em profundidade falar em Mix11. Esse recurso totalmente é demonstrado começando na marca de 20 minutos do vídeo.
+A equipe do NuGet fez parceria com o pessoal em [SymbolSource.org](http://www.symbolsource.org/) para oferecer uma maneira realmente simples de publicar suas fontes e PDB junto com seu pacote. Isso permite que os consumidores do seu pacote concorram a fonte do seu pacote no depurador. Para obter mais detalhes, leia [criando e publicando um pacote de símbolos](../create-packages/symbol-packages.md) a maneira fácil de publicar pacotes NuGet com fontes. Você também pode assistir a uma demonstração ao vivo desse recurso como parte do NuGet em profundidade em Mix11. Esse recurso é totalmente demonstrado a partir da marca de 20 minutos do vídeo.
 
 ### <a name="open-packagepage-command"></a>`Open-PackagePage` Comando
 
-Este comando torna fácil chegar à página do projeto para um pacote de dentro do Console do Gerenciador de pacotes. Ele também fornece opções para abrir a URL de licença e a página de abuso de relatório para o pacote.
-A sintaxe do comando é:
+Esse comando facilita a obtenção da página do projeto para um pacote de dentro do console do Gerenciador de pacotes. Ele também fornece opções para abrir a URL da licença e a página relatar abuso para o pacote.
+A sintaxe para o comando é:
 
     Open-PackagePage -Id <string> [-Version] [-Source] [-License] [-ReportAbuse] [-PassThru]
 
-O `-PassThru` opção é usada para retornar o valor da URL especificada.
+A opção `-PassThru` é usada para retornar o valor da URL especificada.
 
 Exemplos:
 
     PM> Open-PackagePage Ninject
 
-Abre um navegador para a URL de projeto especificada no pacote Ninject.
+Abre um navegador para a URL do projeto especificada no pacote Ninject.
 
     PM> Open-PackagePage Ninject -License
 
@@ -45,46 +45,46 @@ Abre um navegador para a URL de licença especificada no pacote Ninject.
 
     PM> Open-PackagePage Ninject -ReportAbuse
 
-Abre um navegador para a URL de origem do pacote atual usada para relatar abuso para o pacote especificado.
+Abre um navegador para a URL na origem do pacote atual usada para relatar abuso para o pacote especificado.
 
     PM> $url = Open-PackagePage Ninject -License -WhatIf -PassThru
 
 Atribui a URL de licença à variável, $url, sem abrir a URL em um navegador.
 
-### <a name="performance-improvements"></a>Melhorias de desempenho
+### <a name="performance-improvements"></a>Aprimoramento de desempenho
 
-1.3 NuGet apresenta muitos dos aprimoramentos de desempenho. 1.3 NuGet evita o download a mesma versão de um pacote várias vezes com a inclusão de um cache local por usuário. O cache pode ser acessado e desmarcado por meio da caixa de diálogo Configurações do Gerenciador de pacotes:
+O NuGet 1,3 apresenta muitas melhorias de desempenho. O NuGet 1,3 evita o download da mesma versão de um pacote várias vezes, incluindo um cache local por usuário. O cache pode ser acessado e limpo por meio da caixa de diálogo Configurações do Gerenciador de pacotes:
 
-![Caixa de diálogo de opções de NuGet com as configurações de Cache do pacote](./media/nuget-options.png)
+![Caixa de diálogo opções do NuGet com configurações de cache do pacote](./media/nuget-options.png)
 
-Outros aprimoramentos de desempenho incluem adicionar suporte à compactação HTTP e melhorar a velocidade de instalação do pacote dentro do Visual Studio.
+Outros aprimoramentos de desempenho incluem adicionar suporte para compactação HTTP e melhorar a velocidade de instalação do pacote no Visual Studio.
 
-### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>O Visual Studio e nuget.exe usa a mesma lista de origens de pacote
+### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>O Visual Studio e o NuGet. exe usam a mesma lista de origens do pacote
 
-Antes do NuGet 1.3, a lista de origens de pacote usado pelo nuget.exe e o NuGet Visual Studio Add-In não foram armazenados no mesmo local. 1.3 NuGet agora usa a mesma lista em ambos os locais. A lista é armazenada em `NuGet.Config` e armazenados na pasta AppData.
+Antes do NuGet 1,3, a lista de origens de pacote usada pelo NuGet. exe e pelo suplemento NuGet do Visual Studio não foi armazenada no mesmo local. O NuGet 1,3 agora usa a mesma lista em ambos os locais. A lista é armazenada em `NuGet.Config` e armazenada na pasta AppData.
 
-### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>NuGet.exe ignora arquivos e pastas que começam com '.' por padrão
+### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>o NuGet. exe ignora arquivos e pastas que começam com '. ' por padrão
 
-Para fazer com que o NuGet funciona bem com sistemas de controle do código-fonte, como o Subversion e o Mercurial, nuget.exe ignora pastas e arquivos que começam com o '.' ao criar pacotes de caracteres. Isso pode ser substituído usando dois sinalizadores novo:
+Para fazer com que o NuGet funcione bem com sistemas de controle do código-fonte, como subversão e Mercurial, o NuGet. exe ignora pastas e arquivos que começam com o caractere '. ' ao criar pacotes. Isso pode ser substituído usando dois novos sinalizadores:
 
 * __-NoDefaultExcludes__ é usado para substituir essa configuração e incluir todos os arquivos.
-* __-Excluir__ é usado para adicionar outros arquivos ou pastas a serem excluídos usando um padrão. Por exemplo, para excluir todos os arquivos com a extensão de arquivo '. bak'
+* __-Exclude__ é usado para adicionar outros arquivos/pastas a serem excluídos usando um padrão. Por exemplo, para excluir todos os arquivos com a extensão de arquivo '. bak '
 
-```
+```cli
 nuget Pack MyPackage.nuspec -Exclude **\*.bak
 ```  
 
-_Observação: o padrão não é recursiva por padrão._
+_Observação: o padrão não é recursivo por padrão._
 
-### <a name="support-for-wix-projects-and-the-net-micro-framework"></a>Suporte para projetos WiX e o .NET Micro Framework
+### <a name="support-for-wix-projects-and-the-net-micro-framework"></a>Suporte para projetos do WiX e para o .NET micro Framework
 
-Graças a contribuições da comunidade, o NuGet inclui suporte para tipos de projeto do WiX, bem como o .NET Micro Framework.
+Graças às contribuições da Comunidade, o NuGet inclui suporte para tipos de projeto do WiX, bem como para o .NET micro Framework.
 
 ## <a name="bug-fixes"></a>Correções de Bug
 
-Para obter uma lista completa de correções de bugs, exibir o [rastreador de problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.3&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+Para obter uma lista completa de correções de bugs, consulte o [rastreador de problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.3&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
-## <a name="bug-fixes-worth-noting"></a>Correções de bugs, vale a pena observar
+## <a name="bug-fixes-worth-noting"></a>Correções de bugs vale a pena observar
 
-* Pacotes com arquivos de origem funcionam em ambos os sites e em projetos de aplicativos Web.
-Para sites, os arquivos de origem são copiados para o `App_Code` pasta
+* Os pacotes com arquivos de origem funcionam em sites e em projetos de aplicativos Web.
+Para sites, os arquivos de origem são copiados para a pasta `App_Code`

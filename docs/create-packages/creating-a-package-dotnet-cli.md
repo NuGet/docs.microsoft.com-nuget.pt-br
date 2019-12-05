@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: ec37057d40ddc9ed1826b0628aaa573c342b92b6
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 535d5a16a559cde065ee0277471edfbaf1aea084
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380749"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825277"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Criar um pacote do NuGet usando a CLI dotnet
 
@@ -27,11 +27,11 @@ Para projetos .NET Core e .NET Standard que usam projetos no [formato de estilo 
 
 As propriedades a seguir são necessárias para criar um pacote.
 
-- `PackageId`, o identificador de pacotes, que deve ser exclusivo na galeria que hospeda o pacote. Se não for especificado, o valor padrão será `AssemblyName`.
+- `PackageId`, o identificador de pacotes, que deve ser exclusivo na galeria que hospeda o pacote. Se esse campo não for especificado, o valor padrão será `AssemblyName`.
 - `Version`, um número de versão específico na forma *Principal.Secundário.Patch[-Sufixo]* em que *-Sufixo* identifica as [versões de pré-lançamento](prerelease-packages.md). Se esse campo não for especificado, o valor padrão será 1.0.0.
 - O título do pacote como ele deve aparecer no host (como nuget.org)
-- `Authors`, informações de autor e proprietário. Se não for especificado, o valor padrão será `AssemblyName`.
-- `Company`, o nome da empresa. Se não for especificado, o valor padrão será `AssemblyName`.
+- `Authors`, informações de autor e proprietário. Se esse campo não for especificado, o valor padrão será `AssemblyName`.
+- `Company`, o nome da empresa. Se esse campo não for especificado, o valor padrão será `AssemblyName`.
 
 No Visual Studio, é possível definir esses valores nas propriedades do projeto (clique com o botão direito do mouse no projeto no Gerenciador de Soluções, escolha **Propriedades** e selecione a guia **Pacote**). Você também pode definir essas propriedades diretamente nos arquivos do projeto (`.csproj`).
 
@@ -76,7 +76,7 @@ Para obter detalhes sobre como declarar dependências e especificar números de 
 
 Para compilar um pacote do NuGet (um arquivo `.nupkg`) do projeto, execute o comando `dotnet pack`, que também compila o projeto automaticamente:
 
-```cli
+```dotnetcli
 # Uses the project file in the current folder by default
 dotnet pack
 ```

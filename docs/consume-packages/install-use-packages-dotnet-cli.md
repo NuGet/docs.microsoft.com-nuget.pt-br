@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: d9e9f0026e4c907351b4b0cd0adced28a4670575
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
-ms.translationtype: HT
+ms.openlocfilehash: 67cca81c48970c7f2e2cf0a64ee5ba57704a31e2
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860611"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825164"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Instalar e gerenciar pacotes usando a CLI do dotnet
 
@@ -20,7 +20,7 @@ A CLI do dotnet destina-se ao uso em seu projeto .NET Core e .NET Standard (tipo
 
 Este artigo mostra o uso básico de alguns dos comandos mais comuns da CLI do dotnet. Para a maioria desses comandos, a ferramenta CLI procura um arquivo de projeto no diretório atual, a menos que um arquivo de projeto seja especificado no comando (o arquivo de projeto é uma opção facultativa). Para obter uma lista completa de comandos e os argumentos que podem ser usados, confira [Ferramentas da CLI (interface de linha de comando) do .NET Core](../reference/dotnet-commands.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - O [SDK do .NET Core](https://www.microsoft.com/net/download/), que fornece a ferramenta de linha de comando `dotnet`. No Visual Studio 2017 em diante, a CLI do dotnet é instalada automaticamente com qualquer carga de trabalho relacionada ao .NET Core.
 
@@ -32,13 +32,13 @@ Este artigo mostra o uso básico de alguns dos comandos mais comuns da CLI do do
 
 2. Use o seguinte comando para instalar um pacote NuGet:
 
-    ```cli
+    ```dotnetcli
     dotnet add package <PACKAGE_NAME>
     ```
 
     Por exemplo, para instalar o pacote `Newtonsoft.Json`, use o comando a seguir
 
-    ```cli
+    ```dotnetcli
     dotnet add package Newtonsoft.Json
     ```
 
@@ -56,13 +56,13 @@ Este artigo mostra o uso básico de alguns dos comandos mais comuns da CLI do do
 
 Se a versão não for especificada, o NuGet instalará a última versão do pacote. Use também o comando [dotnet add package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) para instalar uma versão específica de um pacote NuGet:
 
-```cli
+```dotnetcli
 dotnet add package <PACKAGE_NAME> -v <VERSION>
 ```
 
 Por exemplo, para adicionar a versão 12.0.1 do pacote `Newtonsoft.Json`, use este comando:
 
-```cli
+```dotnetcli
 dotnet add package Newtonsoft.Json -v 12.0.1
 ```
 
@@ -70,7 +70,7 @@ dotnet add package Newtonsoft.Json -v 12.0.1
 
 Liste as referências de pacote para o projeto usando o comando [dotnet list package](/dotnet/core/tools/dotnet-list-package?tabs=netcore2x).
 
-```cli
+```dotnetcli
 dotnet list package
 ```
 
@@ -78,13 +78,13 @@ dotnet list package
 
 Use o comando [dotnet remove package](/dotnet/core/tools/dotnet-remove-package?tabs=netcore2x) para remover uma referência de pacote do arquivo de projeto.
 
-```cli
+```dotnetcli
 dotnet remove package <PACKAGE_NAME>
 ```
 
 Por exemplo, para remover o pacote `Newtonsoft.Json`, use o comando a seguir
 
-```cli
+```dotnetcli
 dotnet remove package Newtonsoft.Json
 ```
 

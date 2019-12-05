@@ -12,18 +12,18 @@ keywords: Pacotes de símbolos do NuGet, depuração de pacote do NuGet, suporte
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 03ab4e1f3501055abedf430395de095d773bc9da
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 8528261f90e75e2dfac8cb746b396d227c3741f4
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253922"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825182"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Criando pacotes de símbolos (.snupkg)
 
 Os pacotes de símbolos permitem melhorar a experiência de depuração dos pacotes NuGet.
 
-## <a name="prerequisites"></a>{1&gt;Pré-requisitos&lt;1}
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 [NuGet.exe v4.9.0 ou superior](https://www.nuget.org/downloads) ou [dotnet.exe v2.2.0 ou acima](https://www.microsoft.com/net/download/dotnet-core/2.2), que implementam os [protocolos NuGet](../api/nuget-protocols.md) necessários.
 
@@ -42,7 +42,7 @@ Se você estiver usando dotNet. exe ou MSBuild, precisará definir as propriedad
 
 * Ou especifique essas propriedades na linha de comando:
 
-     ```cli
+     ```dotnetcli
      dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
      ```
 
@@ -54,7 +54,7 @@ Se você estiver usando dotNet. exe ou MSBuild, precisará definir as propriedad
 
 Se estiver usando o NuGet.exe, use os seguintes comandos para criar um arquivo .snupkg além do arquivo .nupkg:
 
-```
+```cli
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg

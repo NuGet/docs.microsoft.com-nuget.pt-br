@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 231947148295e0c06dcec5aa0e1f479d654a8803
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: b6a009832430ee08f51ea1028feb878a39f45222
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096868"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825144"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
@@ -53,6 +53,7 @@ No exemplo acima, 3.6.0 significa qualquer versão que é >=3.6.0 com preferênc
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Usando PackageReference para um projeto sem PackageReferences
 
 Avançado: se você não tem pacotes instalados em um projeto (não tem PackageReferences no arquivo de projeto nem um arquivo packages.config), mas deseja que o projeto seja restaurado como o estilo PackageReference, você pode definir uma propriedade de projeto RestoreProjectStyle como PackageReference em seu arquivo de projeto.
+
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -60,6 +61,7 @@ Avançado: se você não tem pacotes instalados em um projeto (não tem PackageR
     <!--- ... -->
 </PropertyGroup>    
 ```
+
 Isso poderá ser útil se você fizer referência a projetos que são do estilo PackageReference (projetos de estilo csproj ou SDK existentes). Isso permitirá que os pacotes aos quais esses projetos fazem referência sejam referenciados "transitivamente" pelo seu projeto.
 
 ## <a name="packagereference-and-sources"></a>PackageReference e fontes
@@ -97,25 +99,25 @@ Você pode estar usando uma dependência puramente como uma estrutura de desenvo
 
 As seguintes marcas de metadados controlam ativos de dependência:
 
-| Marca | Descrição | Valor padrão |
+| Marca | Descrição | Valor Padrão |
 | --- | --- | --- |
 | IncludeAssets | Esses ativos serão consumidos | all |
-| ExcludeAssets | Esses ativos não serão consumidos | nenhum |
+| ExcludeAssets | Esses ativos não serão consumidos | none |
 | PrivateAssets | Esses ativos serão consumidos, mas não fluem para o projeto pai | contentfiles;analyzers;build |
 
 Os valores permitidos para essas marcas são os seguintes, com vários valores separados por ponto e vírgula, exceto com `all` e `none`, que devem aparecer sozinhos:
 
-| Valor | Descrição |
+| Value | Descrição |
 | --- | ---
 | compilar | Conteúdo da pasta `lib` e controles se seu projeto puder compilar em relação aos assemblies dentro da pasta |
-| runtime | Conteúdo da pasta `lib` e `runtimes` pasta e controles se esses assemblies forem copiados para o diretório de saída de compilação |
+| Tempo de execução do | Conteúdo da pasta `lib` e `runtimes` pasta e controles se esses assemblies forem copiados para o diretório de saída de compilação |
 | contentFiles | O conteúdo da pasta `contentfiles` |
 | build | `.props` e `.targets` na pasta `build` |
 | buildMultitargeting | *(4.0)* `.props` e `.targets` na pasta `buildMultitargeting`, para direcionamento entre estruturas |
 | buildTransitive | *(5.0+)* `.props` e `.targets` na pasta `buildTransitive`, para ativos que fluem transitivamente para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analisadores | Analisadores de .NET |
-| nativa | O conteúdo da pasta `native` |
-| nenhum | Nenhuma das opções acima é usada. |
+| nativo | O conteúdo da pasta `native` |
+| none | Nenhuma das opções acima é usada. |
 | all | Todas as anteriores (exceto `none`) |
 
 No exemplo a seguir, tudo, exceto os arquivos de conteúdo do pacote, poderia ser consumido pelo projeto e tudo, exceto analisadores e arquivos de conteúdo, fluiria para o projeto pai.
@@ -206,16 +208,19 @@ Se o NuGet detectar uma alteração nas dependências definidas, conforme mencio
 Para CI/CD e outros cenários, em que você não deseja alterar as dependências de pacote rapidamente, é possível configurar o `lockedmode` como `true`:
 
 Para dotnet.exe, execute:
+
 ```
 > dotnet.exe restore --locked-mode
 ```
 
 Para msbuild.exe, execute:
+
 ```
 > msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 Você também pode definir essa propriedade condicional do MSBuild em seu arquivo de projeto:
+
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -232,12 +237,14 @@ Se você estiver compilando um aplicativo, um executável e o projeto em questã
 No entanto, se seu projeto for um projeto de biblioteca que não é enviado ou um projeto de código comum do qual outros projetos dependem, você **não deverá** fazer check-in do arquivo de bloqueio como parte de seu código-fonte. Não há mal nenhum em manter o arquivo de bloqueio. No entanto, as dependências do pacote bloqueado do projeto de código comum não podem ser usadas, conforme listado no arquivo de bloqueio, durante a restauração/compilação de um projeto que depende desse projeto de código comum.
 
 Por exemplo:
+
 ```
 ProjectA
   |------> PackageX 2.0.0
   |------> ProjectB
              |------>PackageX 1.0.0
 ```
+
 Se `ProjectA` tiver uma dependência em uma versão `2.0.0` do `PackageX`, além de referências `ProjectB` que dependem da versão `1.0.0` do `PackageX`, o arquivo de bloqueio de `ProjectB` listará uma dependência na versão `1.0.0` do `PackageX`. No entanto, quando `ProjectA` for criado, seu arquivo de bloqueio conterá uma dependência na versão **`2.0.0`** do `PackageX` e **não** na versão `1.0.0`, conforme listado no arquivo de bloqueio de `ProjectB`. Portanto, o arquivo de bloqueio de um projeto de código comum tem pouco a dizer sobre os pacotes resolvidos de projetos que dependem dele.
 
 ### <a name="lock-file-extensibility"></a>Extensibilidade do arquivo de bloqueio

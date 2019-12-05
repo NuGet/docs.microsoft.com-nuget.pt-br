@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: f5d418fd5b6b9bb88958d6b7e9e3034f40485a7d
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
-ms.translationtype: HT
+ms.openlocfilehash: e2672aa0bf57242526364639f0df74f9d1adb934
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419964"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825212"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Como gerenciar as pastas de pacotes globais, de cache e temporárias
 
 Sempre que você instala, atualiza ou restaura um pacote, o NuGet gerencia pacotes e informações do pacote em várias pastas fora da estrutura do seu projeto:
 
-| Nome | Descrição e localização (por usuário)|
+| Name | Descrição e localização (por usuário)|
 | --- | --- |
 | global&#8209;packages | A pasta *global-packages* é onde o NuGet instala qualquer pacote baixado. Cada pacote é totalmente expandido em uma subpasta que corresponde ao identificador de pacote e ao número de versão. Os projetos que usam o formato [PackageReference](package-references-in-project-files.md) sempre usam pacotes diretamente dessa pasta. Ao usar o [packages.config](../reference/packages-config.md), os pacotes são instalados na pasta *global-packages*, depois são copiados para a pasta `packages` do projeto.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Substitua usando a variável de ambiente NUGET_PACKAGES, as [definições de configuração](../reference/nuget-config-file.md#config-section) de `globalPackagesFolder` ou `repositoryPath` (ao usar PackageReference e `packages.config`, respectivamente) ou a propriedade do MSBuild `RestorePackagesPath` (somente MSBuild). A variável de ambiente tem precedência sobre a definição de configuração.</li></ul> |
 | http&#8209;cache | O Gerenciador de Pacotes do Visual Studio (NuGet 3.x ou posterior) e a ferramenta `dotnet` armazenam cópias de pacotes baixados nesse cache (salvos como arquivos `.dat`), organizados em subpastas para cada origem de pacote. Os pacotes não são expandidos, e o cache tem um tempo de expiração de 30 minutos.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Substitua usando a variável de ambiente NUGET_HTTP_CACHE_PATH.</li></ul> |
@@ -54,7 +54,7 @@ plugins-cache: C:\Users\user1\AppData\Local\NuGet\plugins-cache
 
 Também é possível exibir os locais de pasta usando o [comando dotnet nuget locals](/dotnet/core/tools/dotnet-nuget-locals):
 
-```cli
+```dotnetcli
 dotnet nuget locals all --list
 ```
 
@@ -104,18 +104,18 @@ No Visual Studio 2017 em diante, use o comando de menu **Ferramentas > Gerenciad
 
 ![Comando de opção do NuGet para limpar caches](media/options-clear-caches.png)
 
-## <a name="troubleshooting-errors"></a>Solução de erros
+## <a name="troubleshooting-errors"></a>Solução de problemas de erros
 
 Os seguintes erros podem ocorrer ao usar `nuget locals` ou `dotnet nuget locals`:
 
-- *Erro: O processo não pode acessar o arquivo <package> porque ele está sendo usado por outro processo* ou *Falha ao limpar os recursos locais: Não é possível excluir um ou mais arquivos*
+- *Erro: o processo não pode acessar o arquivo <package> porque ele está sendo usado por outro processo* ou *Falha ao limpar os recursos locais: não é possível excluir um ou mais arquivos*
 
     Um ou mais arquivos da pasta estão em uso por outro processo. Por exemplo, um projeto do Visual Studio está aberto e se refere aos pacotes da pasta *global-packages*. Feche os processos e tente novamente.
 
-- *Erro: O acesso ao caminho <path> foi negado* ou *O diretório não está vazio*
+- *Erro: o acesso ao caminho <path> foi negado* ou *O diretório não está vazio*
 
     Você não tem permissão para excluir arquivos no cache. Altere as permissões de pasta, se possível, e tente novamente. Senão, entre em contato com o administrador do sistema.
 
-- *Erro: O caminho ou o nome de arquivo especificado, ou ambos, são muito longos. O nome de arquivo totalmente qualificado deve ter menos de 260 caracteres e o nome do diretório, menos de 248 caracteres.*
+- *Erro: o caminho especificado, o nome do arquivo ou ambos são muito longos. O nome de arquivo totalmente qualificado deve ter menos de 260 caracteres e o nome do diretório deve ter menos de 248 caracteres.*
 
     Reduza os nomes de pasta e tente novamente.

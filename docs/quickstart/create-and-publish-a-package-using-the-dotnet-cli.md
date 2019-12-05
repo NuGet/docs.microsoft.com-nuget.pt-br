@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8727f67608593e6ae8b96daa81b7423782dfc219
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: 55f9c760ae05f060b748e6fbb82d8e9bd77c4e37
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096939"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825302"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Início Rápido: Criar e publicar um pacote (CLI do dotnet)
 
 É um processo simples para criar um pacote NuGet de uma Biblioteca de Classes do .NET e publique-o em nuget.org usando a CLI (interface de linha de comando) `dotnet`.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 1. Instale o [SDK do .NET Core](https://www.microsoft.com/net/download/), que inclui a CLI do `dotnet`. No Visual Studio 2017 em diante, a CLI do dotnet é instalada automaticamente com qualquer carga de trabalho relacionada ao .NET Core.
 
@@ -59,7 +59,7 @@ Todos os pacotes NuGet precisam de um manifesto que descreve seu conteúdo e sua
 
 Para compilar um pacote do NuGet (um arquivo `.nupkg`) do projeto, execute o comando `dotnet pack`, que também compila o projeto automaticamente:
 
-```cli
+```dotnetcli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
@@ -105,7 +105,7 @@ Depois que você tiver um arquivo `.nupkg`, publique-o em nuget.org usando o com
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Parabéns por criar seu primeiro pacote do NuGet!
 
