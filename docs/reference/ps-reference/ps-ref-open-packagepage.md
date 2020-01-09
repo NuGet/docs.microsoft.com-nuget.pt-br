@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 0237c23d81000a1d58264cc0ab48c73d819d0e5a
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 39199ebfc37756ed40158a1c07afca7709067350
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327373"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384422"
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Console do Gerenciador de Pacotes no Visual Studio)
 
@@ -30,8 +30,8 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
 | Parâmetro | Descrição |
 | --- | --- |
 | Id | A ID do pacote desejado. A opção-ID em si é opcional. |
-| Versão | A versão do pacote, padronizando para a versão mais recente. |
-| Origem | A origem do pacote, padronizando para a origem selecionada na lista suspensa origem. |
+| Versão do | A versão do pacote, padronizando para a versão mais recente. |
+| Source | A origem do pacote, padronizando para a origem selecionada na lista suspensa origem. |
 | Licença | Abre o navegador para a URL de licença do pacote. Se nem-License nem-ReportAbuse for especificado, o navegador abrirá a URL do projeto do pacote. |
 | ReportAbuse | Abre o navegador para a URL de abuso de relatório do pacote. Se nem-License nem-ReportAbuse for especificado, o navegador abrirá a URL do projeto do pacote. |
 | PassThru | Exibe a URL; Use com-WhatIf para suprimir a abertura do navegador. |
@@ -40,7 +40,7 @@ Nenhum desses parâmetros aceita a entrada de pipeline ou caracteres curinga.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-`Open-PackagePage`o oferece suporte aos seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+o `Open-PackagePage` dá suporte aos seguintes [parâmetros comuns do PowerShell](https://go.microsoft.com/fwlink/?LinkID=113216): debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 0b052bd03625172f1b941c365cbedf7629809d6f
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: d6cad228eb052563fe57ea635bff0ea548cedc1f
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383558"
 ---
 # <a name="nugetconfig-reference"></a>referência de NuGet. config
 
@@ -231,7 +231,7 @@ Armazena os assinantes confiáveis usados para permitir o pacote durante a insta
 
 Esta seção pode ser atualizada com o [comando`nuget trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md).
 
-**Schema**:
+**Esquema**:
 
 Um signatário confiável tem uma coleção de `certificate` itens que inscrevem todos os certificados que identificam um determinado assinante. Um signatário confiável pode ser um `Author` ou um `Repository`.
 
@@ -305,7 +305,7 @@ Você pode usar variáveis de ambiente em valores `nuget.config` (NuGet 3.4 ou s
 
 Por exemplo, se a variável de ambiente `HOME` no Windows for definida como `c:\users\username`, o valor de `%HOME%\NuGetRepository` no arquivo de configuração é resolvido para `c:\users\username\NuGetRepository`.
 
-Da mesma forma, se o `HOME` no Mac/Linux for definido como `/home/myStuff`, `%HOME%/NuGetRepository` no arquivo de configuração será resolvido para `/home/myStuff/NuGetRepository`.
+Da mesma forma, se o `HOME` no Mac/Linux for definido como `/home/myStuff`, `$HOME/NuGetRepository` no arquivo de configuração será resolvido para `/home/myStuff/NuGetRepository`.
 
 Se uma variável de ambiente não for encontrada, o NuGet usa o valor literal do arquivo de configuração.
 

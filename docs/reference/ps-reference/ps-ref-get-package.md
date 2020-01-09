@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 431e5f292f069ad5eb0c9f7f511d6b06810c8760
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 1c39fea2131b8f4b8a91314347a19366d5a582c2
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385187"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Console do Gerenciador de Pacotes no Visual Studio)
 
@@ -32,13 +32,13 @@ Sem parâmetros, `Get-Package` exibe a lista de pacotes instalados no projeto pa
 
 | Parâmetro | Descrição |
 | --- | --- |
-| Origem | A URL ou o caminho da pasta do pacote. Os caminhos de pasta local podem ser absolutos ou relativos à pasta atual. Se omitido `Get-Package` , pesquisa a origem do pacote selecionada no momento. Quando usado com-ListAvailable, o padrão é nuget.org. |
+| Source | A URL ou o caminho da pasta do pacote. Os caminhos de pasta local podem ser absolutos ou relativos à pasta atual. Se for omitido, `Get-Package` pesquisará a origem do pacote selecionada no momento. Quando usado com-ListAvailable, o padrão é nuget.org. |
 | ListAvailable | Lista os pacotes disponíveis de uma origem de pacote, padronizando para nuget.org. Mostra um padrão de pacotes 50 a menos que-PageSize e/ou-First sejam especificados. |
 | Atualizações | Lista os pacotes que têm uma atualização disponível na origem do pacote. |
 | ProjectName | O projeto do qual obter os pacotes instalados. Se omitido, retorna projetos instalados para a solução inteira. |
 | Filtro | Uma cadeia de caracteres de filtro usada para restringir a lista de pacotes aplicando-o à ID, descrição e marcas do pacote. |
 | First | O número de pacotes a serem retornados do início da lista. Se não for especificado, o padrão será 50. |
-| Skip | Omite os primeiros &lt;pacotes int&gt; da lista exibida.  |
+| Skip | Omite o primeiro &lt;int&gt; pacotes da lista exibida.  |
 | AllVersions | Exibe todas as versões disponíveis de cada pacote, em vez de apenas a versão mais recente. |
 | IncludePrerelease | Inclui pacotes de pré-lançamento nos resultados. |
 | PageSize | *(3.0 +)* Quando usado com-ListAvailable (obrigatório), o número de pacotes a serem listados antes de dar um aviso para continuar. |
@@ -47,7 +47,7 @@ Nenhum desses parâmetros aceita a entrada de pipeline ou caracteres curinga.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-`Get-Package`o oferece suporte aos seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Depuração, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+o `Get-Package` dá suporte aos seguintes [parâmetros comuns do PowerShell](https://go.microsoft.com/fwlink/?LinkID=113216): debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 

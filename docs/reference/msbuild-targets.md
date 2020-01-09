@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825059"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385008"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -42,7 +42,7 @@ Da mesma forma, você pode gravar uma tarefa do MSBuild, escrever seu próprio d
 
 Para projetos de .NET Standard usando o formato PackageReference, usar `msbuild -t:pack` desenha entradas do arquivo de projeto para usar na criação de um pacote NuGet.
 
-A tabela abaixo descreve as propriedades do MSBuild que podem ser adicionadas a um arquivo do projeto dentro do primeiro nó `<PropertyGroup>`. Você pode fazer essas edições facilmente no Visual Studio 2017 e posterior clicando com o botão direito do mouse no projeto e selecionando **Editar {project_name}** no menu de contexto. Para sua conveniência, a tabela é organizada pela propriedade equivalente em um arquivo [`.nuspec` ](../reference/nuspec.md).
+A tabela abaixo descreve as propriedades do MSBuild que podem ser adicionadas a um arquivo do projeto dentro do primeiro nó `<PropertyGroup>`. Você pode fazer essas edições facilmente no Visual Studio 2017 e posterior clicando com o botão direito do mouse no projeto e selecionando **Editar {project_name}** no menu de contexto. Para sua conveniência, a tabela é organizada pela propriedade equivalente em um arquivo [`.nuspec`](../reference/nuspec.md).
 
 Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatíveis com o MSBuild.
 
@@ -56,7 +56,7 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 | Proprietários | {1&gt;N/A&lt;1} | Não está presente no NuSpec | |
 | Cargo | Cargo | O PackageId| |
 | Descrição | Descrição | “Package Description” | |
-| Direitos autorais | Direitos autorais | vazio | |
+| Copyright | Copyright | vazio | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | licença | PackageLicenseExpression | vazio | Corresponde a `<license type="expression">` |
 | licença | PackageLicenseFile | vazio | Corresponde ao `<license type="file">`. Você precisa empacotar explicitamente o arquivo de licença referenciado. |
@@ -81,7 +81,7 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 - PackageId
 - Autores
 - Descrição
-- Direitos autorais
+- Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
 - PackageLicenseExpression
@@ -120,7 +120,7 @@ Para suprimir dependências de pacote do pacote NuGet gerado, defina `SuppressDe
 
 `PackageIconUrl` será preterido em favor da nova propriedade [`PackageIcon`](#packageicon) .
 
-A partir do NuGet 5,3 & o Visual Studio 2019 versão 16,3, `pack` gerará um aviso [NU5048](errors-and-warnings/nu5048) se os metadados do pacote especificarem apenas `PackageIconUrl`.
+A partir do NuGet 5,3 & o Visual Studio 2019 versão 16,3, `pack` gerará um aviso [NU5048](./errors-and-warnings/nu5048.md) se os metadados do pacote especificarem apenas `PackageIconUrl`.
 
 ### <a name="packageicon"></a>PackageIcon
 

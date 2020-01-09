@@ -1,37 +1,37 @@
 ---
-title: Notas de versão 2.0 do NuGet
-description: Notas de versão do NuGet 2.0, incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
+title: Notas de versão do NuGet 2,0
+description: Notas de versão do NuGet 2,0 incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: f32eea9260ce7e307ff56b7f3e6b48c6d98e6c90
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 01fdbfafcaea009cf119dfa880b2b16539c9b088
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383061"
 ---
-# <a name="nuget-20-release-notes"></a>Notas de versão 2.0 do NuGet
+# <a name="nuget-20-release-notes"></a>Notas de versão do NuGet 2,0
 
-[Notas de versão do NuGet 1.8](../release-notes/nuget-1.8.md) | [notas de versão 2.1 do NuGet](../release-notes/nuget-2.1.md)
+[Notas de versão do nuget 1,8](../release-notes/nuget-1.8.md) | [notas de versão do NuGet 2,1](../release-notes/nuget-2.1.md)
 
-NuGet 2.0 foi lançada em 19 de junho de 2012.
+O NuGet 2,0 foi lançado em 19 de junho de 2012.
 
-## <a name="known-installation-issue"></a>Problema de instalação conhecidos
-Se você estiver executando o VS 2010 SP1, você pode executar em um erro de instalação quando tentar atualizar o NuGet se você tiver uma versão mais antiga instalada.
+## <a name="known-installation-issue"></a>Problema de instalação conhecido
+Se você estiver executando o VS 2010 SP1, poderá encontrar um erro de instalação ao tentar atualizar o NuGet se tiver uma versão mais antiga instalada.
 
-A solução alternativa é simplesmente desinstalar o NuGet e, em seguida, instalá-lo da Galeria de extensão do VS.  Ver [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) para obter mais informações, ou [vá diretamente para o hotfix VS](http://bit.ly/vsixcertfix).
+A solução alternativa é simplesmente desinstalar o NuGet e, em seguida, instalá-lo a partir da Galeria de extensões do VS.  Consulte <https://support.microsoft.com/kb/2581019> para obter mais informações ou [vá diretamente para o hotfix do vs](http://bit.ly/vsixcertfix).
 
-Observação: Se o Visual Studio não permitirão que você desinstale a extensão (o botão Desinstalar está desabilitado), em seguida, é provável que você precisa reiniciar o Visual Studio usando "Executar como administrador".
+Observação: se o Visual Studio não permitir que você desinstale a extensão (o botão desinstalar está desabilitado), provavelmente, você precisará reiniciar o Visual Studio usando "executar como administrador".
 
-## <a name="package-restore-consent-is-now-active"></a>Consentimento de restauração de pacote agora está ativo
+## <a name="package-restore-consent-is-now-active"></a>O consentimento de restauração do pacote agora está ativo
 
-Conforme descrito neste [postar no consentimento de restauração de pacote](http://blog.nuget.org/20120518/package-restore-and-consent.html), NuGet 2.0 agora exigirá que receber consentimento para permitir a restauração de pacote ficar online e baixar os pacotes. Certifique-se de que você forneceu consentimento por meio da caixa de diálogo de configuração de Gerenciador de pacote ou a variável de ambiente EnableNuGetPackageRestore.
+Conforme descrito nesta [postagem no consentimento de restauração de pacote](http://blog.nuget.org/20120518/package-restore-and-consent.html), o NuGet 2,0 agora exigirá que o consentimento seja fornecido para habilitar a restauração do pacote para ficar online e baixar pacotes. Verifique se você forneceu o consentimento por meio da caixa de diálogo configuração do Gerenciador de pacotes ou da variável de ambiente EnableNuGetPackageRestore.
 
-## <a name="group-dependencies-by-target-frameworks"></a>Dependências de grupo por estruturas de destino
+## <a name="group-dependencies-by-target-frameworks"></a>Agrupar dependências por estruturas de destino
 
-Começando com a versão 2.0, o pacote de dependências podem variar com base no perfil da estrutura de projeto de destino. Isso é feito usando atualizada `.nuspec` esquema. O `<dependencies>` elemento agora pode conter um conjunto de `<group>` elementos. Cada grupo contém zero ou mais `<dependency>` elementos e um `targetFramework` atributo. Todas as dependências dentro de um grupo são instaladas juntos, se a estrutura de destino é compatível com o perfil de estrutura de projeto de destino. Por exemplo:
+A partir da versão 2,0, as dependências de pacote podem variar com base no perfil de estrutura do projeto de destino. Isso é feito usando um esquema de `.nuspec` atualizado. O elemento `<dependencies>` agora pode conter um conjunto de elementos `<group>`. Cada grupo contém zero ou mais elementos `<dependency>` e um atributo `targetFramework`. Todas as dependências dentro de um grupo serão instaladas juntas se a estrutura de destino for compatível com o perfil de estrutura do projeto de destino. Por exemplo:
 
 ```xml
 <dependencies>
@@ -49,11 +49,11 @@ Começando com a versão 2.0, o pacote de dependências podem variar com base no
 </dependencies>
 ```
 
-Observe que um grupo pode conter **zero** dependências. No exemplo acima, se o pacote for instalado em um projeto que tem como alvo o Silverlight 3.0 ou posterior, sem dependências serão instaladas. Se o pacote for instalado em um projeto que tem como alvo o .NET 4.0 ou posterior, duas dependências, o jQuery e WebActivator, serão instaladas.  Se o pacote é instalado em um projeto que tem como alvo uma versão anterior dessas 2 estruturas ou qualquer outra estrutura, RouteMagic 1.1.0 será instalado. Não há nenhuma herança entre grupos. Se a estrutura de destino do projeto corresponde a `targetFramework` atributo de um grupo, apenas as dependências dentro desse grupo será instalado.
+Observe que um grupo pode conter **zero** dependências. No exemplo acima, se o pacote for instalado em um projeto direcionado ao Silverlight 3,0 ou posterior, nenhuma dependência será instalada. Se o pacote for instalado em um projeto direcionado ao .NET 4,0 ou posterior, duas dependências, jQuery e webactivator serão instaladas.  Se o pacote for instalado em um projeto direcionado a uma versão anterior dessas duas estruturas, ou qualquer outra estrutura, o RouteMagic 1.1.0 será instalado. Não há herança entre grupos. Se a estrutura de destino de um projeto corresponder ao atributo `targetFramework` de um grupo, somente as dependências dentro desse grupo serão instaladas.
 
-Um pacote pode especificar as dependências do pacote em qualquer um dos dois formatos: o formato antigo de uma lista simples de `<dependency>` elementos ou grupos. Se o `<group>` formato for usado, o pacote não pode ser instalado em versões do NuGet anteriores à 2.0.
+Um pacote pode especificar dependências de pacote em um dos dois formatos: o formato antigo de uma lista simples de elementos de `<dependency>` ou grupos. Se o formato de `<group>` for usado, o pacote não poderá ser instalado em versões do NuGet anteriores a 2,0.
 
-Observe que não é permitido misturar os dois formatos. Por exemplo, é o trecho a seguir **inválido** e serão rejeitadas pelo NuGet.
+Observe que a combinação dos dois formatos não é permitida. Por exemplo, o trecho a seguir é **inválido** e será rejeitado pelo NuGet.
 
 ```xml
 <dependencies>
@@ -66,9 +66,9 @@ Observe que não é permitido misturar os dois formatos. Por exemplo, é o trech
 </dependencies>
 ```
 
-## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>Agrupar arquivos de conteúdo e scripts do PowerShell por estrutura de destino
+## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>Agrupando arquivos de conteúdo e scripts do PowerShell por estrutura de destino
 
-Além das referências de assembly, arquivos de conteúdo e scripts do PowerShell também podem ser agrupados pela estrutura de destino. A mesma estrutura de pasta encontrada na `lib` agora pode ser aplicada a pasta para especificar a estrutura de destino da mesma forma para o `content` e `tools` pastas. Por exemplo:
+Além das referências de assembly, os arquivos de conteúdo e os scripts do PowerShell também podem ser agrupados por estrutura de destino. A mesma estrutura de pastas encontrada na pasta `lib` para especificar a estrutura de destino agora pode ser aplicada da mesma maneira com as pastas `content` e `tools`. Por exemplo:
 
     \content
         \net11
@@ -88,13 +88,13 @@ Além das referências de assembly, arquivos de conteúdo e scripts do PowerShel
             \install.ps1
             \uninstall.ps1
 
-**Observação**: porque `init.ps1` é executada no nível da solução e é independente de qualquer projeto individual, ele deve ser colocado diretamente sob o `tools` pasta. Se colocado dentro de uma pasta específica do framework, ele será ignorado.
+**Observação**: como `init.ps1` é executado no nível da solução e não é dependente de nenhum projeto individual, ele deve ser colocado diretamente na pasta `tools`. Se colocado em uma pasta específica da estrutura, ele será ignorado.
 
-Além disso, um novo recurso do NuGet 2.0 é que uma pasta de framework pode ser *vazio*, caso em que o NuGet adicionará não adicionar referências de assembly, arquivos de conteúdo ou executar scripts do PowerShell para a versão de estrutura específico. No exemplo acima, a pasta `content\net40` está vazio.
+Além disso, um novo recurso no NuGet 2,0 é que uma pasta de estrutura pode estar *vazia*, nesse caso, o NuGet não adicionará referências de assembly, adicionará arquivos de conteúdo ou executará scripts do PowerShell para a versão específica do Framework. No exemplo acima, a pasta `content\net40` está vazia.
 
-## <a name="improved-tab-completion-performance"></a>Desempenho de conclusão de guia aprimorado
-O recurso de preenchimento no Console do Gerenciador de pacotes NuGet atualizou para melhorar significativamente o desempenho. Haverá muito menos atraso entre o momento em que a tecla tab é pressionada até que seja exibida a lista suspensa de sugestões.
+## <a name="improved-tab-completion-performance"></a>Desempenho de preenchimento com Tab aprimorado
+O recurso de preenchimento de guia no console do Gerenciador de pacotes NuGet foi atualizado para melhorar significativamente o desempenho. Haverá muito menos atraso desde o momento em que a tecla Tab é pressionada até que a lista suspensa de sugestões seja exibida.
 
 ## <a name="bug-fixes"></a>Correções de Bug
-NuGet 2.0 inclui muitas correções de bugs com ênfase em consentimento de restauração de pacote e o desempenho.
-Para obter uma lista completa de trabalho itens corrigidos no NuGet 2.0, por favor, modo de exibição de [rastreador de problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.0&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).
+O NuGet 2,0 inclui muitas correções de bugs com ênfase no consentimento e no desempenho da restauração de pacotes.
+Para obter uma lista completa de itens de trabalho corrigidos no NuGet 2,0, consulte o [rastreador de problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.0&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).

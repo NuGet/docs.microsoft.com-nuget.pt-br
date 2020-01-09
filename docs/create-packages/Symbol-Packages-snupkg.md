@@ -12,12 +12,12 @@ keywords: Pacotes de símbolos do NuGet, depuração de pacote do NuGet, suporte
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 8528261f90e75e2dfac8cb746b396d227c3741f4
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: de37cbf1f63da3de07774281eceef99c51abdaa5
+ms.sourcegitcommit: 96aab8a1ad35eca0c029679d0158d9cc93d66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825182"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75676374"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Criando pacotes de símbolos (.snupkg)
 
@@ -35,8 +35,8 @@ Se você estiver usando dotNet. exe ou MSBuild, precisará definir as propriedad
 
    ```xml
    <PropertyGroup>
-      <IncludeSymbols>true</IncludeSymbols> 
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat> 
+      <IncludeSymbols>true</IncludeSymbols>
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
    </PropertyGroup>
    ```
 
@@ -130,7 +130,7 @@ O arquivo .nupkg seria exatamente o mesmo como está hoje, mas o arquivo .snupkg
 5) O campo ```authors``` e ```owners``` será excluído do nuspec do snupkg.
 6) Não use o elemento ```<license>```. Um .snupkg é coberto pela mesma licença que o .nupkg correspondente.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 Considere usar o link de origem para habilitar a depuração de código-fonte de assemblies .NET. Para obter mais informações, consulte as [diretrizes de link de origem](/dotnet/standard/library-guidance/sourcelink).
 

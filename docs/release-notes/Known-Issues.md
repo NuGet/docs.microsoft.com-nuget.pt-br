@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317139"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383652"
 ---
 # <a name="known-issues-with-nuget"></a>Problemas conhecidos com o NuGet
 
@@ -71,11 +71,11 @@ Execute este comando de um **prompt com privilégios elevados** para registrar n
 
 Se o comando falhar, verifique se o arquivo existe no local.
 
-Para obter mais informações sobre esse erro, consulte [item de trabalho](https://nuget.codeplex.com/workitem/3609 "Item de trabalho 3609").
+Para obter mais informações sobre esse erro, consulte este [item de trabalho](https://nuget.codeplex.com/workitem/3609 "Item de trabalho 3609").
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Falha de build após a atualização de pacote no VS 2012
 
-O problema: Você está usando o VS 2012 RTM. Ao atualizar os pacotes do NuGet, recebe esta mensagem: "Não foi possível concluir a desinstalação de um ou mais pacotes." e é solicitado que você reinicie o Visual Studio. Após a reinicialização do VS, você receberá erros de build estranhos.
+O problema: você está usando o VS 2012 RTM. Ao atualizar pacotes do NuGet, você receberá esta mensagem: “não foi possível concluir a desinstalação de um ou mais pacotes”. e é solicitado que você reinicie o Visual Studio. Após a reinicialização do VS, você receberá erros de build estranhos.
 
 A causa é que certos arquivos dos pacotes antigo estão bloqueados por um processo do MSBuild em segundo plano. Mesmo depois de reiniciar o VS, o processo de MSBuild em segundo plano ainda usa os arquivos nos pacotes antigos, causando falhas de build.
 
@@ -90,7 +90,7 @@ Se você estiver executando o VS 2010 SP1, poderá encontrar a seguinte mensagem
 Ao exibir os logs, você poderá ver uma menção de um `SignatureMismatchException`.
 
 Para evitar que isso ocorra, há um [hotfix do Visual Studio 2010 SP1](http://bit.ly/vsixcertfix) que você pode instalar.
-Outra opção é usar a solução alternativa de simplesmente desinstalar o NuGet (enquanto o Visual Studio é executado como Administrador) e, em seguida, instalá-lo da Galeria de Extensões do VS.  Veja [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) para obter mais informações.
+Outra opção é usar a solução alternativa de simplesmente desinstalar o NuGet (enquanto o Visual Studio é executado como Administrador) e, em seguida, instalá-lo da Galeria de Extensões do VS. Consulte <https://support.microsoft.com/kb/2581019> para obter mais informações.
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>O Console do Gerenciador de Pacotes gera uma exceção quando o suplemento do Reflector Visual Studio também é instalado.
 
@@ -134,7 +134,7 @@ ou
 
 Entramos em contato com o autor do suplemento em busca de negociarmos uma resolução.
 
-<p class="info">Atualização: verificamos que a versão mais recente do Reflector, a 6.5, não causa mais essa exceção no console.</p>
+<p class="info">Atualização: verificamos que a versão mais recente do Reflector, 6.5, não causa mais essa exceção no console.</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>Falha ao abrir o Console do Gerenciador de Pacotes com a exceção ObjectSecurity
 
@@ -159,7 +159,7 @@ Se você tentar desinstalar o NuGet por meio do Gerenciador de Extensões do Vis
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>O Console do Gerenciador de Pacotes falha quando eu o abro no Windows XP. Qual é o problema?
 
-O NuGet requer o tempo de execução do Powershell 2.0. O Windows XP, por padrão, não têm o Powershell 2.0. Você pode baixar o tempo de execução do PowerShell 2.0 em [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929). Após a instalação, reinicie o Visual Studio e será possível abrir o Console do Gerenciador de Pacotes.
+O NuGet requer o runtime do Powershell 2.0. O Windows XP, por padrão, não têm o Powershell 2.0. Você pode baixar o tempo de execução do PowerShell 2,0 do <https://support.microsoft.com/kb/968929>. Após a instalação, reinicie o Visual Studio e será possível abrir o Console do Gerenciador de Pacotes.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>O Visual Studio 2010 SP1 Beta falha na saída se o Console de Gerenciador de Pacote estiver aberto.
 
@@ -171,7 +171,7 @@ Se você instalou pacotes compilados com uma versão de pré-lançamento do NuGe
 
 ## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>Tentativa de instalar ou desinstalar resultou no erro "Não é possível criar um arquivo quando ele já existe."
 
-Por algum motivo, as extensões do Visual Studio podem demonstrar certa estranheza se você tiver desinstalado a extensão do VSIX, mas alguns arquivos restaram. Para solucionar esse problema:
+Por algum motivo, as extensões do Visual Studio podem demonstrar certa estranheza se você tiver desinstalado a extensão do VSIX, mas alguns arquivos restaram. Para contornar este problema:
 
 1. Sair do Visual Studio
 1. Abra a pasta a seguir (ela pode estar em uma unidade diferente no seu computador)

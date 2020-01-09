@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 142af9c4f7d25c3b0d986524313851cceb1e4c60
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 2a82b1977265a8f8a15247759bc3de80a5efe228
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385337"
 ---
 # <a name="powershell-reference"></a>Referência do PowerShell
 
@@ -24,19 +24,19 @@ O console do Gerenciador de pacotes fornece uma interface do PowerShell no Visua
 
 | Comandos comuns | Descrição | Versão do NuGet |
 | --- | --- | --- |
-| [Install-Package](ps-reference/ps-ref-install-package.md) | Instala um pacote e suas dependências no projeto. | Todos |
-| [Update-Package](ps-reference/ps-ref-update-package.md) | Atualiza um pacote e suas dependências ou todos os pacotes em um projeto. | Todos |
+| [Install-Package](ps-reference/ps-ref-install-package.md) | Instala um pacote e as suas dependências no projeto. | {1&gt;Todos&lt;1} |
+| [Update-Package](ps-reference/ps-ref-update-package.md) | Atualiza um pacote e suas dependências ou todos os pacotes em um projeto. | {1&gt;Todos&lt;1} |
 | [Find-Package](ps-reference/ps-ref-find-package.md) | Pesquisa uma origem de pacote usando uma ID de pacote ou palavras-chave. | 3.0+ |
-| [Get-Package](ps-reference/ps-ref-get-package.md) | Recupera a lista de pacotes instalados no repositório local ou lista os pacotes disponíveis de uma origem de pacote. | Todos |
+| [Get-Package](ps-reference/ps-ref-get-package.md) | Recupera a lista de pacotes instalados no repositório local ou lista os pacotes disponíveis de uma origem de pacote. | {1&gt;Todos&lt;1} |
 
 | Comandos secundários | Descrição | Versão do NuGet |
 | --- | --- | --- |
-| [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Examina todos os assemblies no caminho de saída de um projeto e adiciona redirecionamentos de associação ao `app.config` ou `web.config` quando necessário. | Todos |
+| [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Examina todos os assemblies no caminho de saída de um projeto e adiciona redirecionamentos de associação ao `app.config` ou `web.config` quando necessário. | {1&gt;Todos&lt;1} |
 | [Get-Project](ps-reference/ps-ref-get-project.md) | Exibe informações sobre o projeto padrão ou especificado. | 3.0+ |
 | [Open-PackagePage](ps-reference/ps-ref-open-packagepage.md) | Inicia o navegador padrão com o projeto, a licença ou a URL de abuso de relatório para o pacote especificado. | Preterido em 3.0 + |
-| [Register-TabExpansion](ps-reference/ps-ref-register-tabexpansion.md) | Registra uma expansão de tabulação para os parâmetros de um comando, permitindo que você crie expansões personalizadas para valores de parâmetro usados com frequência. | Todos |
+| [Register-TabExpansion](ps-reference/ps-ref-register-tabexpansion.md) | Registra uma expansão de tabulação para os parâmetros de um comando, permitindo que você crie expansões personalizadas para valores de parâmetro usados com frequência. | {1&gt;Todos&lt;1} |
 | [Sync-Package](ps-reference/ps-ref-sync-package.md) | Obtenha a versão do pacote instalado do projeto especificado e sincronize a versão para o restante dos projetos na solução. | 3.0+ |
-| [Uninstall-Package](ps-reference/ps-ref-uninstall-package.md) | Remove um pacote de um projeto, removendo opcionalmente suas dependências. | Todos |
+| [Uninstall-Package](ps-reference/ps-ref-uninstall-package.md) | Remove um pacote de um projeto, removendo opcionalmente suas dependências. | {1&gt;Todos&lt;1} |
 
 Para obter ajuda completa e detalhada sobre qualquer um desses comandos no console do, basta executar o seguinte com o nome do comando em questão:
 
@@ -44,16 +44,16 @@ Para obter ajuda completa e detalhada sobre qualquer um desses comandos no conso
 Get-Help <command> -full
 ```
 
-Todos os comandos do console do Gerenciador de pacotes dão suporte aos seguintes [parâmetros comuns do PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216):
+Todos os comandos do console do Gerenciador de pacotes dão suporte aos seguintes [parâmetros comuns do PowerShell](https://go.microsoft.com/fwlink/?LinkID=113216):
 
-- Depurar
+- Depuração
 - ErrorAction
 - ErrorVariable
 - OutBuffer
 - OutVariable
 - PipelineVariable
-- Detalhado
+- Verboso
 - WarningAction
 - WarningVariable
 
-Para obter detalhes, consulte [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216) na documentação do PowerShell.
+Para obter detalhes, consulte [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216) na documentação do PowerShell.
