@@ -49,7 +49,7 @@
 ### [Criar um pacote nativo](guides/native-packages.md)
 ### [Criar controles de interface do usuário como um pacote do NuGet](guides/create-UI-controls.md)
 ### [Criar um analisador como um pacote do NuGet](guides/analyzers-conventions.md)
-### [Criar um pacote do Xamarin com o Visual Studio 2015](guides/create-packages-for-xamarin.md)
+### [Criar um pacote do Xamarin com o Visual Studio 2017 ou 2019](guides/create-packages-for-xamarin.md)
 ### [Criar um pacote com assemblies de interoperabilidade COM](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## Assinar os pacotes
 ### [Assinar um pacote](create-packages/sign-a-package.md)
