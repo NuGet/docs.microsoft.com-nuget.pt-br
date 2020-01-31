@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d2294ef0acb9053e74543204ae6f68b9fbc6fb0a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611062"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813319"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Como o NuGet resolve as dependências do pacote
 
@@ -24,7 +24,7 @@ Quando vários pacotes têm a mesma dependência, a mesma ID de pacote pode apar
 
 Ao instalar os pacotes em projetos usando o formato PackageReference, o NuGet adiciona referências a um grafo de pacote simples no arquivo apropriado e resolve conflitos antecipadamente. Esse processo é chamado de *restauração transitiva*. Reinstalar ou restaurar pacotes é um processo de baixar os pacotes listados no grafo, resultando em builds mais rápidos e mais previsíveis. Você também pode aproveitar as versões curinga (flutuantes), como 2.8. \*, evitando chamadas caras e propensas a erro para `nuget update` em computadores clientes e servidores de build.
 
-Quando o processo de restauração do NuGet for executado antes de um build, ele resolverá as dependências primeiro na memória e, em seguida, gravará o grafo resultante em um arquivo chamado `project.assets.json`. Ele também grava as dependências resolvidas em um arquivo de bloqueio chamado `packages.lock.json`, se a [funcionalidade do arquivo de bloqueio estiver habilitada](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files#locking-dependencies).
+Quando o processo de restauração do NuGet for executado antes de um build, ele resolverá as dependências primeiro na memória e, em seguida, gravará o grafo resultante em um arquivo chamado `project.assets.json`. Ele também grava as dependências resolvidas em um arquivo de bloqueio chamado `packages.lock.json`, se a [funcionalidade do arquivo de bloqueio estiver habilitada](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 O arquivo de ativos está localizado em `MSBuildProjectExtensionsPath`, cujo padrão é a pasta 'obj' do projeto. O MSBuild lê este arquivo e converte-o em um conjunto de pastas em que as referências em potencial podem ser encontradas e as adiciona à árvore de projeto na memória.
 
 O arquivo `project.assets.json` é temporário e não deve ser adicionado ao controle do código-fonte. É listado por padrão em ambos `.gitignore` e `.tfignore`. Consulte [Pacotes e controle do código-fonte](../consume-packages/packages-and-source-control.md).
@@ -156,4 +156,3 @@ Para resolver as incompatibilidades, siga um destes procedimentos:
 
 - Redirecione seu projeto para uma estrutura que é compatível com os pacotes que você deseja usar.
 - Entre em contato com o autor dos pacotes e trabalhe junto a eles para adicionar suporte à estrutura escolhida. Cada página de listagem de pacote no [nuget.org](https://www.nuget.org/) tem um link **Contatar os Proprietários** para essa finalidade.
-

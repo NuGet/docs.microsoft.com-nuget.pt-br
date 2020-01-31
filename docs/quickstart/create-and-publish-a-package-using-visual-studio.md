@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: ef1bda19c5ca3c6b5a4bd9b9d4e3ef41d7dadb53
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610630"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813553"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Início Rápido: Criar e publicar um pacote do NuGet usando o Visual Studio (.NET Standard somente no Windows)
 
@@ -19,7 +19,7 @@ Criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studi
 > [!Note]
 > Se você estiver usando o Visual Studio para Mac, confira [essas informações](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) sobre como criar um pacote NuGet ou use as [ferramentas de CLI do dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 1. Instale qualquer edição do Visual Studio 2019 de [visualstudio.com](https://www.visualstudio.com/) com uma carga de trabalho relacionada ao .NET Core.
 
@@ -30,7 +30,7 @@ Criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studi
    > [!Important]
    > Se você estiver trabalhando com um projeto de estilo não SDK, siga os procedimentos em [Criar e publicar um pacote de .NET Framework (Visual Studio](create-and-publish-a-package-using-visual-studio-net-framework.md)) para criar e publicar o pacote. Para este artigo, a CLI do `dotnet` recomendada. Embora você possa publicar qualquer pacote NuGet usando a CLI do `nuget.exe`, algumas das etapas neste artigo são específicas para projetos no estilo SDK e a CLI do dotnet. A CLI do nuget.exe é usada para [projetos de estilo não SDK](../resources/check-project-format.md) (normalmente .NET Framework).
 
-1. [Registre-se em uma conta gratuita em nuget.org](https://docs.microsoft.com/nuget/nuget-org/individual-accounts#add-a-new-individual-account), se ainda não tiver uma. Criar uma nova conta envia um email de confirmação. Você deve confirmar a conta antes de poder carregar um pacote.
+1. [Registre-se em uma conta gratuita em nuget.org](../nuget-org/individual-accounts.md#add-a-new-individual-account), se ainda não tiver uma. Criar uma nova conta envia um email de confirmação. Você deve confirmar a conta antes de poder carregar um pacote.
 
 ## <a name="create-a-class-library-project"></a>Criar um projeto de biblioteca de classes
 
@@ -82,7 +82,7 @@ namespace AppLogger
 
 ## <a name="run-the-pack-command"></a>Executar o comando pack
 
-1. Defina a configuração da solução como **Release**.
+1. Defina a configuração como **Versão**.
 
 1. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione o comando **Pack**:
 

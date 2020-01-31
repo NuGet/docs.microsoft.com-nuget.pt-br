@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611361"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813761"
 ---
 # <a name="nuget-48-release-notes"></a>Notas sobre a versão do NuGet 4.8
 
@@ -36,7 +36,7 @@ Versões de linha de comando da mesma funcionalidade também estão disponíveis
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>Instalar pacotes assinados em um computador de CI ou em um ambiente offline leva mais tempo do que o normal
 
 #### <a name="issue"></a>Problema
-Se o computador tiver acesso restrito à Internet (por exemplo, um computador de build em um cenário de CI/CD), a instalação/restauração de um pacote do nuget com sinal resultará um aviso ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028)), pois os servidores de revogação não estarão acessíveis. Isso é esperado. No entanto, em alguns casos, isso pode ter consequências não intencionais, como a instalação/restauração do pacote levar mais tempo que o normal.
+Se o computador tiver acesso restrito à Internet (por exemplo, um computador de build em um cenário de CI/CD), a instalação/restauração de um pacote do nuget com sinal resultará um aviso ([NU3028](../reference/errors-and-warnings/nu3028.md)), pois os servidores de revogação não estarão acessíveis. Isso é esperado. No entanto, em alguns casos, isso pode ter consequências não intencionais, como a instalação/restauração do pacote levar mais tempo que o normal.
 
 #### <a name="workaround"></a>Solução alternativa
 Atualizar para o Visual Studio 15.8.4 e NuGet.exe 4.8.1, nos quais introduzimos uma variável de ambiente para alternar o modo de verificação de revogação.
@@ -94,7 +94,7 @@ Observação: isso foi corrigido no VS 2017 15.9 Versão Prévia 3
 * `Update-Package [packagename] -reinstall` reinstala todos os pacotes, em vez de apenas aquele nomeado – [#737](https://github.com/NuGet/Home/issues/737)
 * Pode atualizar para o pacote NuGet não listado no Console do Gerenciador de Pacotes – [#4553](https://github.com/NuGet/Home/issues/4553)
 
-#### <a name="misc"></a>Diversos
+#### <a name="misc"></a>Misc
 * Para corrigir `NuGet update self`, NuGet.CommandLine nupkg não deve ser semver2.0 – [#7116](https://github.com/NuGet/Home/issues/7116)
 * Melhorar as experiências com falhas de instalação NU1107 – [#7107](https://github.com/NuGet/Home/issues/7107)
 * A serialização de GetAuthenticationCredentialRequest está incorreta – [#6983](https://github.com/NuGet/Home/issues/6983)

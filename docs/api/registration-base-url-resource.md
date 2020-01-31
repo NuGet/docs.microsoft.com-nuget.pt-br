@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: eb8d59e253f85fbbb8546a5f71856df842ce94d6
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: c62e5b7b53d30a1b362e87dbbea26355a36b1274
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096893"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813267"
 ---
 # <a name="package-metadata"></a>Metadados de pacote
 
@@ -19,15 +19,15 @@ ms.locfileid: "74096893"
 
 A coleção dos documentos encontrados em `RegistrationsBaseUrl` geralmente é chamada de "registros" ou "blobs de registro". O conjunto de documentos em um único `RegistrationsBaseUrl` é chamado de "hive de registro". Um hive de registro contém todos os metadados sobre cada pacote disponível em uma origem de pacote.
 
-## <a name="versioning"></a>Controle de versão
+## <a name="versioning"></a>{1&gt;Controle de versão&lt;1}
 
 Os seguintes valores de `@type` são usados:
 
-Valor @type                     | Anotações
+Valor @type                     | {1&gt;Observações&lt;1}
 ------------------------------- | -----
 RegistrationsBaseUrl            | A versão inicial
-RegistrationsBaseUrl/3.0.0-beta | Alias de `RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-RC   | Alias de `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-beta | Alias of `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-rc   | Alias of `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | Gzip respostas
 RegistrationsBaseUrl/3.6.0      | Inclui pacotes SemVer 2.0.0
 
@@ -76,9 +76,9 @@ A heurística que o nuget.org usa é a seguinte: se houver 128 ou mais versões 
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação
 
-Name     | No     | Digite    | Necessária | Anotações
+Name     | No     | {1&gt;Tipo&lt;1}    | Necessário | {1&gt;Observações&lt;1}
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | cadeia de caracteres  | sim      | A ID do pacote, em letras minúsculas
+LOWER_ID | {1&gt;URL&lt;1}    | cadeia de caracteres  | sim      | A ID do pacote, em letras minúsculas
 
 O valor `LOWER_ID` é a ID de pacote desejada com letras minúsculas usando as regras implementadas pelo. Método de [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) da rede.
 
@@ -86,10 +86,10 @@ O valor `LOWER_ID` é a ID de pacote desejada com letras minúsculas usando as r
 
 A resposta é um documento JSON que tem um objeto raiz com as seguintes propriedades:
 
-Name  | Digite             | Necessária | Anotações
+Name  | {1&gt;Tipo&lt;1}             | Necessário | {1&gt;Observações&lt;1}
 ----- | ---------------- | -------- | -----
-count | inteiro          | sim      | O número de páginas de registro no índice
-los | matriz de objetos | sim      | A matriz de páginas de registro
+{1&gt;count&lt;1} | integer          | sim      | O número de páginas de registro no índice
+itens | matriz de objetos | sim      | A matriz de páginas de registro
 
 Cada item na matriz de `items` do objeto de índice é um objeto JSON que representa uma página de registro.
 
@@ -97,13 +97,13 @@ Cada item na matriz de `items` do objeto de índice é um objeto JSON que repres
 
 O objeto de página de registro encontrado no índice de registro tem as seguintes propriedades:
 
-Name   | Digite             | Necessária | Anotações
+Name   | {1&gt;Tipo&lt;1}             | Necessário | {1&gt;Observações&lt;1}
 ------ | ---------------- | -------- | -----
 @id    | cadeia de caracteres           | sim      | A URL para a página de registro
-count  | inteiro          | sim      | O número de folhas de registro na página
-los  | matriz de objetos | no       | A matriz de folhas de registro e seus metadados associados
+{1&gt;count&lt;1}  | integer          | sim      | O número de folhas de registro na página
+itens  | matriz de objetos | no       | A matriz de folhas de registro e seus metadados associados
 canto  | cadeia de caracteres           | sim      | A versão mais baixa do SemVer 2.0.0 na página (inclusiva)
-primária | cadeia de caracteres           | no       | A URL para o índice de registro
+pai | cadeia de caracteres           | no       | A URL para o índice de registro
 canto superior  | cadeia de caracteres           | sim      | A versão mais alta do SemVer 2.0.0 na página (inclusiva)
 
 Os limites `lower` e `upper` do objeto Page são úteis quando são necessários os metadados para uma versão de página específica.
@@ -121,10 +121,10 @@ Cada item na matriz de `items` do objeto Page é um objeto JSON que representa u
 
 O objeto folha de registro encontrado em uma página de registro tem as seguintes propriedades:
 
-Name           | Digite   | Necessária | Anotações
+Name           | {1&gt;Tipo&lt;1}   | Necessário | {1&gt;Observações&lt;1}
 -------------- | ------ | -------- | -----
 @id            | cadeia de caracteres | sim      | A URL para a folha de registro
-catalogEntry   | objeto | sim      | A entrada de catálogo que contém os metadados do pacote
+catalogEntry   | Objeto do | sim      | A entrada de catálogo que contém os metadados do pacote
 packageContent | cadeia de caracteres | sim      | A URL para o conteúdo do pacote (. nupkg)
 
 Cada objeto folha de registro representa os dados associados a uma única versão de pacote.
@@ -133,32 +133,32 @@ Cada objeto folha de registro representa os dados associados a uma única versã
 
 A propriedade `catalogEntry` no objeto folha de registro tem as seguintes propriedades:
 
-Name                     | Digite                       | Necessária | Anotações
+Name                     | {1&gt;Tipo&lt;1}                       | Necessário | {1&gt;Observações&lt;1}
 ------------------------ | -------------------------- | -------- | -----
 @id                      | cadeia de caracteres                     | sim      | A URL para o documento usado para produzir este objeto
 authors                  | String ou matriz de cadeias de caracteres | no       | 
 dependencyGroups         | matriz de objetos           | no       | As dependências do pacote, agrupadas por estrutura de destino
-substituição              | objeto                     | no       | A reprovação associada ao pacote
-descrição              | cadeia de caracteres                     | no       | 
+substituição              | Objeto do                     | no       | A reprovação associada ao pacote
+description              | cadeia de caracteres                     | no       | 
 iconUrl                  | cadeia de caracteres                     | no       | 
-id                       | cadeia de caracteres                     | sim      | A ID do pacote
+{1&gt;id&lt;1}                       | cadeia de caracteres                     | sim      | A ID do pacote
 licenseUrl               | cadeia de caracteres                     | no       |
-carteira de licença        | cadeia de caracteres                     | no       | 
+licenseExpression        | cadeia de caracteres                     | no       | 
 listados                   | boolean                    | no       | Deve ser considerado como listado, se ausente
 minClientVersion         | cadeia de caracteres                     | no       | 
 projectUrl               | cadeia de caracteres                     | no       | 
-Checked                | cadeia de caracteres                     | no       | Uma cadeia de caracteres que contém um carimbo de data/hora ISO 8601 de quando o pacote foi publicado
+publicado                | cadeia de caracteres                     | no       | Uma cadeia de caracteres que contém um carimbo de data/hora ISO 8601 de quando o pacote foi publicado
 requireLicenseAcceptance | boolean                    | no       | 
 resumo                  | cadeia de caracteres                     | no       | 
 marcações                     | Cadeia de caracteres ou matriz de cadeia de caracteres  | no       | 
 título                    | cadeia de caracteres                     | no       | 
-version                  | cadeia de caracteres                     | sim      | A cadeia de caracteres de versão completa após a normalização
+versão                  | cadeia de caracteres                     | sim      | A cadeia de caracteres de versão completa após a normalização
 
 O pacote `version` propriedade é a cadeia de caracteres de versão completa após a normalização. Isso significa que os dados de compilação SemVer 2.0.0 podem ser incluídos aqui.
 
 A propriedade `dependencyGroups` é uma matriz de objetos que representa as dependências do pacote, agrupadas por estrutura de destino. Se o pacote não tiver dependências, a propriedade `dependencyGroups` estiver ausente, uma matriz vazia ou a propriedade `dependencies` de todos os grupos estará vazia ou ausente.
 
-O valor da propriedade `licenseExpression` está em conformidade com a [sintaxe de expressão de licença do NuGet](https://docs.microsoft.com/nuget/reference/nuspec#license).
+O valor da propriedade `licenseExpression` está em conformidade com a [sintaxe de expressão de licença do NuGet](../reference/nuspec.md#license).
 
 > [!Note]
 > Em nuget.org, o valor `published` é definido como ano 1900 quando o pacote é deslistado.
@@ -167,7 +167,7 @@ O valor da propriedade `licenseExpression` está em conformidade com a [sintaxe 
 
 Cada objeto de grupo de dependências tem as seguintes propriedades:
 
-Name            | Digite             | Necessária | Anotações
+Name            | {1&gt;Tipo&lt;1}             | Necessário | {1&gt;Observações&lt;1}
 --------------- | ---------------- | -------- | -----
 targetFramework | cadeia de caracteres           | no       | A estrutura de destino à qual essas dependências se aplicam
 dependências    | matriz de objetos | no       |
@@ -180,10 +180,10 @@ A propriedade `dependencies` é uma matriz de objetos, cada um representando uma
 
 Cada dependência de pacote tem as seguintes propriedades:
 
-Name         | Digite   | Necessária | Anotações
+Name         | {1&gt;Tipo&lt;1}   | Necessário | {1&gt;Observações&lt;1}
 ------------ | ------ | -------- | -----
-id           | cadeia de caracteres | sim      | A ID da dependência do pacote
-range        | objeto | no       | O [intervalo de versão](../concepts/package-versioning.md#version-ranges-and-wildcards) permitido da dependência
+{1&gt;id&lt;1}           | cadeia de caracteres | sim      | A ID da dependência do pacote
+range        | Objeto do | no       | O [intervalo de versão](../concepts/package-versioning.md#version-ranges-and-wildcards) permitido da dependência
 registro | cadeia de caracteres | no       | A URL para o índice de registro desta dependência
 
 Se a propriedade `range` for excluída ou uma cadeia de caracteres vazia, o cliente deverá padrão para o intervalo de versão `(, )`. Ou seja, qualquer versão da dependência é permitida. O valor de `*` não é permitido para a propriedade `range`.
@@ -192,15 +192,15 @@ Se a propriedade `range` for excluída ou uma cadeia de caracteres vazia, o clie
 
 Cada substituição de pacote tem as seguintes propriedades:
 
-Name             | Digite             | Necessária | Anotações
+Name             | {1&gt;Tipo&lt;1}             | Necessário | {1&gt;Observações&lt;1}
 ---------------- | ---------------- | -------- | -----
 motivos          | Matriz de cadeias de caracteres | sim      | Os motivos pelos quais o pacote foi preterido
 mensagem          | cadeia de caracteres           | no       | Os detalhes adicionais sobre essa reprovação
-alternatePackage | objeto           | no       | O pacote alternativo que deve ser usado em vez disso
+alternatePackage | Objeto do           | no       | O pacote alternativo que deve ser usado em vez disso
 
 A propriedade `reasons` deve conter pelo menos uma cadeia de caracteres e deve incluir apenas as cadeias da tabela a seguir:
 
-Motivo       | Descrição             
+Reason       | Descrição             
 ------------ | -----------
 Herdado       | O pacote não é mais mantido
 CriticalBugs | O pacote tem bugs que o tornam inadequado para uso
@@ -212,10 +212,10 @@ Se a propriedade `reasons` contiver cadeias de caracteres que não sejam do conj
 
 O objeto de pacote alternativo tem as seguintes propriedades:
 
-Name         | Digite   | Necessária | Anotações
+Name         | {1&gt;Tipo&lt;1}   | Necessário | {1&gt;Observações&lt;1}
 ------------ | ------ | -------- | -----
-id           | cadeia de caracteres | sim      | A ID do pacote alternativo
-range        | objeto | no       | O [intervalo de versão](../concepts/package-versioning.md#version-ranges-and-wildcards)permitido ou `*` se qualquer versão for permitida
+{1&gt;id&lt;1}           | cadeia de caracteres | sim      | A ID do pacote alternativo
+range        | Objeto do | no       | O [intervalo de versão](../concepts/package-versioning.md#version-ranges-and-wildcards)permitido ou `*` se qualquer versão for permitida
 registro | cadeia de caracteres | no       | A URL para o índice de registro para este pacote alternativo
 
 ### <a name="sample-request"></a>Exemplo de solicitação
@@ -237,13 +237,13 @@ A página de registro contém folhas de registro. A URL para buscar uma página 
 
 Quando a matriz de `items` não for fornecida no índice de registro, uma solicitação HTTP GET do valor de `@id` retornará um documento JSON que tem um objeto como sua raiz. O objeto tem as seguintes propriedades:
 
-Name   | Digite             | Necessária | Anotações
+Name   | {1&gt;Tipo&lt;1}             | Necessário | {1&gt;Observações&lt;1}
 ------ | ---------------- | -------- | -----
 @id    | cadeia de caracteres           | sim      | A URL para a página de registro
-count  | inteiro          | sim      | O número de folhas de registro na página
-los  | matriz de objetos | sim      | A matriz de folhas de registro e seus metadados associados
+{1&gt;count&lt;1}  | integer          | sim      | O número de folhas de registro na página
+itens  | matriz de objetos | sim      | A matriz de folhas de registro e seus metadados associados
 canto  | cadeia de caracteres           | sim      | A versão mais baixa do SemVer 2.0.0 na página (inclusiva)
-primária | cadeia de caracteres           | sim      | A URL para o índice de registro
+pai | cadeia de caracteres           | sim      | A URL para o índice de registro
 canto superior  | cadeia de caracteres           | sim      | A versão mais alta do SemVer 2.0.0 na página (inclusiva)
 
 A forma dos objetos folha do registro é a mesma do índice de registro [acima](#registration-leaf-object-in-a-page).
@@ -267,13 +267,13 @@ A URL para buscar uma folha de registro é obtida da propriedade `@id` de um obj
 
 A folha de registro é um documento JSON com um objeto raiz com as seguintes propriedades:
 
-Name           | Digite    | Necessária | Anotações
+Name           | {1&gt;Tipo&lt;1}    | Necessário | {1&gt;Observações&lt;1}
 -------------- | ------- | -------- | -----
 @id            | cadeia de caracteres  | sim      | A URL para a folha de registro
 catalogEntry   | cadeia de caracteres  | no       | A URL para a entrada do catálogo que produziu estas folhas
 listados         | boolean | no       | Deve ser considerado como listado, se ausente
 packageContent | cadeia de caracteres  | no       | A URL para o conteúdo do pacote (. nupkg)
-Checked      | cadeia de caracteres  | no       | Uma cadeia de caracteres que contém um carimbo de data/hora ISO 8601 de quando o pacote foi publicado
+publicado      | cadeia de caracteres  | no       | Uma cadeia de caracteres que contém um carimbo de data/hora ISO 8601 de quando o pacote foi publicado
 registro   | cadeia de caracteres  | no       | A URL para o índice de registro
 
 > [!Note]

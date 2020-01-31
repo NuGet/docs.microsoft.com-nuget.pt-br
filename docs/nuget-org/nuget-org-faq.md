@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 915f6e4cfc0b21d2b10006c62e8230720d07ce74
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610492"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813735"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Perguntas frequentes sobre o NuGet.org
 
@@ -129,14 +129,14 @@ Se você quiser alterar a conta Microsoft para o usuário do NuGet.org, siga as 
 1. Expanda a seção **Conta de Logon**. Clique no botão **Alterar a Conta**.
 1. Agora você será redirecionado à página de logon da Microsoft. Entre com a conta na qual você deseja alterar a associação, ou seja, `account2@outlook.com`. **Observação**: Talvez seja necessário clicar em sair **e entrar com uma conta diferente** durante o fluxo de entrada para poder fazer logon com um conta Microsoft diferente.
 1. Se você vir um erro como o abaixo, confira [A conta Microsoft está vinculada a outra conta do NuGet.org](#microsoft-account-is-linked-with-another-nugetorg-account) para obter mais detalhes.
-    >_Falha ao atualizar o conta Microsoft com ' Account2 <account2@outlook.com> '. Isso pode acontecer se já estiver vinculado a outra conta do NuGet. Contate o suporte para obter mais informações._
+    >_Falha ao atualizar o conta Microsoft com ' Account2 <account2@outlook.com>'. Isso pode acontecer se já estiver vinculado a outra conta do NuGet. Contate o suporte para obter mais informações._
 
 1. Depois que entrar com êxito com sua segunda conta, você será redirecionado para a página de configurações da conta do NuGet.org e deverá ver então a nova conta Microsoft associada como a conta de logon. Prosseguindo, você deverá usar essa conta ao entrar no NuGet.org.
 
 ### <a name="microsoft-account-is-linked-with-another-nugetorg-account"></a>A conta Microsoft está vinculada a outra conta do NuGet.org.
 
 Se você tentou alterar seu logon da Microsoft e viu o erro abaixo:
-> _Falha ao atualizar o conta Microsoft com ' Account2 <account2@outlook.com> '. Isso pode acontecer se já estiver vinculado a outra conta do NuGet. Contate o suporte para obter mais informações._
+> _Falha ao atualizar o conta Microsoft com ' Account2 <account2@outlook.com>'. Isso pode acontecer se já estiver vinculado a outra conta do NuGet. Contate o suporte para obter mais informações._
 
 Digamos que você esteja tentando alterar o logon da conta Microsoft de `account1@outlook.com` para o usuário do NuGet.org com nome de usuário `MyNuGetAccount1` para outra conta Microsoft com o email `account2@outlook.com`. E você vê o erro acima.
 
@@ -175,7 +175,7 @@ Se você tiver tentado entrar com sua conta Microsoft, por exemplo, com o email 
 
 Quando uma conta é criada no NuGet.org, há um endereço de email de comunicação associado a ela. Esse é normalmente o mesmo que o endereço de email usado para a conta Microsoft associada. No entanto, você pode optar por especificar um endereço de email diferente para fins de comunicação. Então, tecnicamente, você pode ter uma conta Microsoft diferente, por exemplo, com `account2@outlook.com`, que esteja vinculada à conta do NuGet.org que usa o endereço de email de comunicação `account1@outlook.com`.
 
-Portanto, o erro acima significa que já existe uma conta do NuGet.org com o endereço de email de comunicação `account1@outlook.com`, mas está associada a outra conta Microsoft com um email **diferente de** `account1@outlook.com`.
+Portanto, o erro acima significa que já existe uma conta NuGet.org com o endereço de email de comunicação `account1@outlook.com` mas está associado a outro conta Microsoft com email **que não está** `account1@outlook.com`.
 
 **Como faço para descobrir qual conta Microsoft está vinculada a esta conta do NuGet.org?**
 
@@ -242,7 +242,7 @@ Você pode [criar](https://www.microsoft.com/account) uma conta Microsoft (com u
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>Como faço para alterar meu nome de usuário da conta do NuGet.org?
 
-Não é possível fazer isso. Por uma questão de política, não permitimos a alteração de nomes de usuário até o momento. A única maneira de alterar seu nome de usuário é criar uma conta com o nome de usuário desejado. Recomendamos que exclua sua conta existente antes de criar uma nova, caso contrário, você não poderá reutilizar sua conta Microsoft registrada.
+Não é possível fazer isso. Como uma questão de política, não permitimos a alteração de nomes de User. Além disso, isso é uma alteração significativa para os usuários que podem ter definido [políticas de confiança de pacote com base no proprietário do pacote](../consume-packages/installing-signed-packages.md#trust-package-owners). A única maneira de alterar seu nome de usuário é criar uma conta com o nome de usuário desejado. Recomendamos que exclua sua conta existente antes de criar uma nova, caso contrário, você não poderá reutilizar sua conta Microsoft registrada.
 > [!Important]
 > Excluir o usuário ainda **reservará** o `username`. Você não poderá reutilizar o mesmo nome de usuário novamente e **isso inclui a alteração do uso de maiúsculas e minúsculas**. Como um exemplo, se você tiver criado um usuário com nome de usuário `mycoolname` e desejar alterá-lo para `MyCoolName` (alterações de maiúsculas e minúsculas), isso não será possível depois de excluir o usuário.
 
@@ -250,7 +250,7 @@ Siga as etapas fornecidas na seção [excluir sua conta do NuGet.org](#how-to-de
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>Como faço para excluir minha conta do NuGet.org?
 
-Para excluir sua conta, recomendamos que você transfira a propriedade de todos os pacotes dos quais você é o único proprietário. Você pode ler mais sobre como fazê-lo em [gerenciamento dos proprietários de pacote](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg). Isso também ajuda a agilizar sua solicitação.
+Para excluir sua conta, recomendamos que você transfira a propriedade de todos os pacotes dos quais você é o único proprietário. Você pode ler mais sobre como fazê-lo em [gerenciamento dos proprietários de pacote](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). Isso também ajuda a agilizar sua solicitação.
 
 Se você pretende transformar sua conta em uma organização, siga as etapas fornecidas em [Transformar minha conta do NuGet.org em uma organização](#how-to-transform-my-nugetorg-account-to-an-organization).
 

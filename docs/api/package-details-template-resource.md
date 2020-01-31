@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 3102cb9a20f354e92a0da8bba6457dc2ad0f0f2d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610951"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76812929"
 ---
 # <a name="package-details-url-template"></a>Modelo de URL de detalhes do pacote
 
@@ -19,11 +19,11 @@ ms.locfileid: "73610951"
 
 O recurso usado para criar essa URL é o `PackageDetailsUriTemplate` recurso encontrado no [índice de serviço](service-index.md).
 
-## <a name="versioning"></a>Controle de versão
+## <a name="versioning"></a>{1&gt;Controle de versão&lt;1}
 
 Os seguintes valores de `@type` são usados:
 
-Valor @type                     | Anotações
+Valor @type                     | {1&gt;Observações&lt;1}
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1.0 | A versão inicial
 
@@ -45,12 +45,12 @@ O valor do `@id` no índice de serviço é uma cadeia de caracteres de URL que c
 
 ### <a name="url-placeholders"></a>Espaços reservados de URL
 
-Name        | Digite    | Necessária | Anotações
+Name        | {1&gt;Tipo&lt;1}    | Necessário | {1&gt;Observações&lt;1}
 ----------- | ------- | -------- | -----
 `{id}`      | cadeia de caracteres  | no       | A ID do pacote para obter detalhes
 `{version}` | cadeia de caracteres  | no       | A versão do pacote para obter detalhes
 
-O servidor deve aceitar `{id}` e `{version}` valores com maiúsculas e minúsculas. Além disso, o servidor não deve ser sensível a se a versão é [normalizada](https://docs.microsoft.com/nuget/concepts/package-versioning#normalized-version-numbers). Em outras palavras, o servidor também deve aceitar versões não normalizadas.
+O servidor deve aceitar `{id}` e `{version}` valores com maiúsculas e minúsculas. Além disso, o servidor não deve ser sensível a se a versão é [normalizada](../concepts/package-versioning.md#normalized-version-numbers). Em outras palavras, o servidor também deve aceitar versões não normalizadas.
 
 Por exemplo, o modelo de detalhes do pacote NuGet. org tem esta aparência:
 

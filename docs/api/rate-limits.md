@@ -1,6 +1,6 @@
 ---
-title: API do NuGet, os limites de taxa
-description: As APIs do NuGet será impuseram limites de taxa para evitar abusos.
+title: Limites de taxa, API do NuGet
+description: As APIs do NuGet terão limites de taxa impostos para evitar abusos.
 author: cmanu
 ms.author: cmanu
 ms.date: 03/20/2018
@@ -9,16 +9,16 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: 70b478ae17cd10b17f9d6ecb0f5776c1effcea58
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e60c0236bd4e6f1374b50a236447faf80dddb38
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548671"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813189"
 ---
 # <a name="rate-limits"></a>Limites de taxa
 
-A API de NuGet.org impõe a limitação de taxa para evitar abusos. Solicitações que excedem o limite de taxa retornarão o seguinte erro: 
+A API NuGet.org impõe a limitação de taxa para evitar abuso. As solicitações que excedem o limite de taxa retornam o seguinte erro: 
 
   ~~~
     {
@@ -27,7 +27,7 @@ A API de NuGet.org impõe a limitação de taxa para evitar abusos. Solicitaçõ
     }
   ~~~
 
-Usando limites de taxa de limitação da solicitação, além de algumas APIs também impõem a cota. As solicitações que excedem a cota de retornar o seguinte erro:
+Além da limitação de solicitação usando limites de taxa, algumas APIs também impõem cotas. As solicitações que excedem a cota retornam o seguinte erro:
 
   ~~~
     {
@@ -36,24 +36,23 @@ Usando limites de taxa de limitação da solicitação, além de algumas APIs ta
     }
   ~~~
 
-As tabelas a seguir listam os limites de taxa para a API do NuGet.org.
+As tabelas a seguir listam os limites de taxa para a API NuGet.org.
 
 ## <a name="package-search"></a>Pesquisa de pacote
 
 > [!Note]
-> Recomendamos o uso do NuGet.org [APIs V3](https://docs.microsoft.com/nuget/api/search-query-service-resource) para pesquisa de alto desempenho e não têm nenhum limite no momento. APIs de pesquisa V1 e V2, os limites de followins se aplicam:
+> É recomendável usar as APIs de [pesquisa v3](search-query-service-resource.md) do NuGet. org, pois a taxa não é limitada no momento. Para APIs de pesquisa v1 e v2, os seguintes limites se aplicam:
 
-
-| API | Tipo de limite | Valor de limite | API usecase |
+| API | Tipo de limite | Valor de limite | UseCase de API |
 |:---|:---|:---|:---|
-**OBTER** `/api/v1/Packages` | PI | 1000 / minuto | Consultar metadados de pacote do NuGet por meio do OData v1 `Packages` coleção |
-**OBTER** `/api/v1/Search()` | PI | 3000 / minuto | Procurar pacotes do NuGet por meio do ponto de extremidade v1 Search | 
-**OBTER** `/api/v2/Packages` | PI | 20000 / minuto | Consultar metadados de pacote do NuGet por meio do OData v2 `Packages` coleção | 
-**OBTER** `/api/v2/Packages/$count` | PI | 100 / minuto | Consultar a contagem de pacotes do NuGet por meio do OData v2 `Packages` coleção | 
+**Obter** `/api/v1/Packages` | PI | 1000/minuto | Consultar metadados do pacote NuGet via coleção de `Packages` do OData v1 |
+**Obter** `/api/v1/Search()` | PI | 3000/minuto | Pesquisar pacotes NuGet por meio do ponto de extremidade de pesquisa v1 | 
+**Obter** `/api/v2/Packages` | PI | 20000/minuto | Consultar metadados do pacote NuGet por meio da coleção de `Packages` OData do v2 | 
+**Obter** `/api/v2/Packages/$count` | PI | 100/minuto | Consultar a contagem de pacotes NuGet por meio da coleção de `Packages` do OData do v2 | 
 
-## <a name="package-push-and-unlist"></a>Pacote de Push e remover da lista
+## <a name="package-push-and-unlist"></a>Enviar por push de pacote e não listar
 
-| API | Tipo de limite | Valor de limite | API usecase | 
+| API | Tipo de limite | Valor de limite | UseCase de API | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | Chave de API | 250 / hora | Carregar um novo pacote de NuGet (versão) por meio do ponto de extremidade de envio por push v2 
-**EXCLUIR** `/api/v2/package/{id}/{version}` | Chave de API | 250 / hora | Remover da lista um pacote do NuGet por meio do ponto de extremidade v2 (versão) 
+**Colocar** `/api/v2/package` | Chave de API | 350/hora | Carregar um novo pacote NuGet (versão) por meio do ponto de extremidade de push v2 
+**Excluir** `/api/v2/package/{id}/{version}` | Chave de API | 250/hora | Deslistar um pacote NuGet (versão) via ponto de extremidade v2 
