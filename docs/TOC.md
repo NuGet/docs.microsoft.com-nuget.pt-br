@@ -1,4 +1,4 @@
-# [Visão rápida dos documentos](index.md)
+# [Visão rápida dos documentos](index.yml)
 # [O que é o NuGet?](what-is-nuget.md)
 # Introdução
 ## [Instalar as ferramentas de cliente do NuGet](install-nuget-client-tools.md)
