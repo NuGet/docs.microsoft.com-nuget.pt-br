@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 922fc0b25664dede59e33c6cd012dfeedcad0397
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385008"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036923"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -46,30 +46,30 @@ A tabela abaixo descreve as propriedades do MSBuild que podem ser adicionadas a 
 
 Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatíveis com o MSBuild.
 
-| Valor de atributo/NuSpec | Propriedade do MSBuild | Padrão | {1&gt;Observações&lt;1} |
+| Valor de atributo/NuSpec | Propriedade do MSBuild | Padrão | Observações |
 |--------|--------|--------|--------|
-| Id | PackageId | AssemblyName | $(AssemblyName) do MSBuild |
-| Versão do | PackageVersion | Versão do | Isso é compatível com semver, por exemplo “1.0.0”, “1.0.0-beta” ou “1.0.0-beta-00345” |
-| VersionPrefix | PackageVersionPrefix | vazio | A configuração PackageVersion substitui PackageVersionPrefix |
-| VersionSuffix | PackageVersionSuffix | vazio | $(VersionSuffix) do MSBuild. A configuração PackageVersion substitui PackageVersionSuffix |
+| ID | PackageId | AssemblyName | $(AssemblyName) do MSBuild |
+| Versão | PackageVersion | Versão | Isso é compatível com semver, por exemplo “1.0.0”, “1.0.0-beta” ou “1.0.0-beta-00345” |
+| VersionPrefix | PackageVersionPrefix | empty | A configuração PackageVersion substitui PackageVersionPrefix |
+| VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) do MSBuild. A configuração PackageVersion substitui PackageVersionSuffix |
 | Autores | Autores | Nome do usuário atual | |
-| Proprietários | {1&gt;N/A&lt;1} | Não está presente no NuSpec | |
-| Cargo | Cargo | O PackageId| |
-| Descrição | Descrição | “Package Description” | |
-| Copyright | Copyright | vazio | |
+| Proprietários | N/D | Não está presente no NuSpec | |
+| Title | Title | O PackageId| |
+| DESCRIÇÃO | DESCRIÇÃO | “Package Description” | |
+| Direitos autorais | Direitos autorais | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| licença | PackageLicenseExpression | vazio | Corresponde a `<license type="expression">` |
-| licença | PackageLicenseFile | vazio | Corresponde ao `<license type="file">`. Você precisa empacotar explicitamente o arquivo de licença referenciado. |
-| LicenseUrl | PackageLicenseUrl | vazio | `PackageLicenseUrl` for preterido, use a propriedade PackageLicenseExpression ou PackageLicenseFile |
-| ProjectUrl | PackageProjectUrl | vazio | |
-| Ícone | PackageIcon | vazio | Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado.|
-| IconUrl | PackageIconUrl | vazio | Para obter a melhor experiência de nível mais baixo, `PackageIconUrl` deve ser especificado além de `PackageIcon`. Período mais longo, `PackageIconUrl` será preterido. |
-| Marcas | PackageTags | vazio | Marcas são delimitadas por ponto e vírgula. |
-| ReleaseNotes | PackageReleaseNotes | vazio | |
-| Repositório/URL | RepositoryUrl | vazio | URL do repositório usada para clonar ou recuperar o código-fonte. Exemplo: *https://github.com/NuGet/NuGet.Client.git* |
-| Repositório/tipo | RepositoryType | vazio | Tipo de repositório. Exemplos: *git*, *TFS*. |
-| Repositório/Branch | RepositoryBranch | vazio | Informações opcionais da ramificação do repositório. *RepositoryUrl* também deve ser especificado para que essa propriedade seja incluída. Exemplo: *Master* (NuGet 4.7.0 +) |
-| Repositório/confirmação | RepositoryCommit | vazio | Confirmação opcional do repositório ou conjunto de alterações para indicar de qual fonte o pacote foi criado. *RepositoryUrl* também deve ser especificado para que essa propriedade seja incluída. Exemplo: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| license | PackageLicenseExpression | empty | Corresponde a `<license type="expression">` |
+| license | PackageLicenseFile | empty | Corresponde ao `<license type="file">`. Você precisa empacotar explicitamente o arquivo de licença referenciado. |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` for preterido, use a propriedade PackageLicenseExpression ou PackageLicenseFile |
+| ProjectUrl | PackageProjectUrl | empty | |
+| ícone | PackageIcon | empty | Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado.|
+| IconUrl | PackageIconUrl | empty | Para obter a melhor experiência de nível mais baixo, `PackageIconUrl` deve ser especificado além de `PackageIcon`. Período mais longo, `PackageIconUrl` será preterido. |
+| Marcas | PackageTags | empty | Marcas são delimitadas por ponto e vírgula. |
+| ReleaseNotes | PackageReleaseNotes | empty | |
+| Repositório/URL | RepositoryUrl | empty | URL do repositório usada para clonar ou recuperar o código-fonte. Exemplo: *https://github.com/NuGet/NuGet.Client.git* |
+| Repositório/tipo | RepositoryType | empty | Tipo de repositório. Exemplos: *git*, *TFS*. |
+| Repositório/Branch | RepositoryBranch | empty | Informações opcionais da ramificação do repositório. *RepositoryUrl* também deve ser especificado para que essa propriedade seja incluída. Exemplo: *Master* (NuGet 4.7.0 +) |
+| Repositório/confirmação | RepositoryCommit | empty | Confirmação opcional do repositório ou conjunto de alterações para indicar de qual fonte o pacote foi criado. *RepositoryUrl* também deve ser especificado para que essa propriedade seja incluída. Exemplo: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Resumo | Sem suporte | | |
 
@@ -80,8 +80,8 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 - PackageVersion
 - PackageId
 - Autores
-- Descrição
-- Copyright
+- DESCRIÇÃO
+- Direitos autorais
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
 - PackageLicenseExpression
@@ -129,7 +129,7 @@ A partir do NuGet 5,3 & o Visual Studio 2019 versão 16,3, `pack` gerará um avi
 
 #### <a name="packing-an-icon-image-file"></a>Empacotando um arquivo de imagem de ícone
 
-Ao empacotar um arquivo de imagem de ícone, você precisa usar a propriedade `PackageIcon` para especificar o caminho do pacote, em relação à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. O tamanho do arquivo de imagem é limitado a 1 MB. Os formatos de arquivo com suporte incluem JPEG e PNG. Recomendamos uma resolução de imagem de 64 x 64.
+Ao empacotar um arquivo de imagem de ícone, você precisa usar a propriedade `PackageIcon` para especificar o caminho do pacote, em relação à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. O tamanho do arquivo de imagem é limitado a 1 MB. Os formatos de arquivo com suporte incluem JPEG e PNG. Recomendamos uma resolução de imagem de 128x128.
 
 Por exemplo:
 
@@ -371,7 +371,7 @@ O destino `restore` funciona **apenas** para projetos que usam o formato Package
 
 Configurações de restauração adicionais podem vir de propriedades MSBuild no arquivo de projeto. Os valores também podem ser definidos na linha de comando usando a opção `-p:` (consulte os Exemplos abaixo).
 
-| propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |--------|--------|
 | RestoreSources | Uma lista delimitada por ponto e vírgula de origens de pacote. |
 | RestorePackagesPath | Caminho da pasta dos pacotes do usuário. |
@@ -413,7 +413,7 @@ Arquivo de projeto:
 
 A restauração cria os seguintes arquivos na pasta `obj` de build:
 
-| File | Descrição |
+| Arquivo | DESCRIÇÃO |
 |--------|--------|
 | `project.assets.json` | Contém o grafo de dependência de todas as referências de pacote. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Referências a objetos do MSBuild contidos em pacotes |

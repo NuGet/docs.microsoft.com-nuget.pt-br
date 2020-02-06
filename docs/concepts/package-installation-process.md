@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 69ef02e3c935287759b4012aadcfb1cb9811367c
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 1ae030c308b14b8884fb608c1683c8c46000b0bd
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488442"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036897"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>O que acontece quando um pacote NuGet é instalado?
 
@@ -25,7 +25,7 @@ O processo geral é o seguinte:
 2. Adquira o pacote:
    - Verifique se o pacote (pelo identificador exato ou pelo número da versão) já está instalado na pasta *global-packages* conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-   - Se o pacote não estiver armazenado na pasta *global-packages*, tente recuperá-lo das fontes listadas nos [arquivos de configuração](../consume-packages/Configuring-NuGet-Behavior.md). Para fontes online, primeiro tente recuperar o pacote do cache HTTP, a menos que `-NoCache` seja especificado com comandos `nuget.exe` ou que `--no-cache` seja especificado com `dotnet restore`. (O Visual Studio e o `dotnet add package` sempre usam o cache). Se for usado um pacote do cache, "CACHE" será exibido na saída. O cache tem um tempo de expiração de 30 minutos.
+   - Se o pacote não estiver na pasta *global-Packages* , tente recuperá-lo das fontes listadas nos [arquivos de configuração](../consume-packages/Configuring-NuGet-Behavior.md). Para fontes online, primeiro tente recuperar o pacote do cache HTTP, a menos que `-NoCache` seja especificado com comandos `nuget.exe` ou que `--no-cache` seja especificado com `dotnet restore`. (O Visual Studio e o `dotnet add package` sempre usam o cache.) Se um pacote for usado do cache, "CACHE" aparecerá na saída. O cache tem um tempo de expiração de 30 minutos.
 
    - Se o pacote não estiver no cache HTTP, tente baixá-lo nas fontes listadas na configuração. Se um pacote for baixado, "GET" e "OK" serão exibidos na saída. O NuGet registra o tráfego HTTP em log no nível de detalhes normal.
 
