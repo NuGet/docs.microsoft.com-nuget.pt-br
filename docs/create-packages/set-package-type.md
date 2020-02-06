@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8a3ba6af19125b75af17cab8c093e89485e20324
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
-ms.translationtype: HT
+ms.openlocfilehash: 22e8ac2e9e2086a1280c5b0c3be8a032b7998b36
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67843488"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036910"
 ---
 # <a name="set-a-nuget-package-type"></a>Definir um tipo de pacote NuGet
 
@@ -18,9 +18,11 @@ Com o NuGet 3.5 ou superior, os pacotes podem ser marcados com um *tipo de pacot
 
 - Pacotes do tipo `Dependency` adicionam ativos de tempo de build ou de execução a bibliotecas e aplicativos e podem ser instalados em qualquer tipo de projeto (supondo que eles sejam compatíveis).
 
-- Pacotes do tipo `DotnetCliTool` são extensões para a [CLI do .NET](/dotnet/articles/core/tools/index) e são invocados na linha de comando. Esses pacotes podem ser instalados somente em projetos do .NET Core e não têm nenhum efeito sobre operações de restauração. Mais detalhes sobre essas extensões por projeto estão disponíveis na documentação da [extensibilidade do .NET Core](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
+- Pacotes do tipo `DotnetTool` são extensões para a [CLI do .NET](/dotnet/articles/core/tools/index) e são invocados na linha de comando. Esses pacotes podem ser instalados somente em projetos do .NET Core e não têm nenhum efeito sobre operações de restauração. Mais detalhes sobre essas extensões por projeto estão disponíveis na documentação da [extensibilidade do .NET Core](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
 
-- Pacotes de tipo personalizado usam um identificador de tipo arbitrário que está em conformidade com as mesmas regras de formato que as IDs de pacote. Qualquer tipo diferente de `Dependency` e `DotnetCliTool`, no entanto, não é reconhecido pelo Gerenciador de Pacotes do NuGet no Visual Studio.
+- pacotes de tipo de `Template` fornecem [modelos personalizados](/dotnet/core/tools/custom-templates) que podem ser usados para criar arquivos ou projetos como um aplicativo, serviço, ferramenta ou biblioteca de classes.
+
+- Pacotes de tipo personalizado usam um identificador de tipo arbitrário que está em conformidade com as mesmas regras de formato que as IDs de pacote. Qualquer tipo diferente de `Dependency` e `DotnetTool`, no entanto, não é reconhecido pelo Gerenciador de Pacotes do NuGet no Visual Studio.
 
 Os tipos de pacote são definidos no arquivo `.nuspec`. É melhor para compatibilidade com versões anteriores *não* definir explicitamente o tipo `Dependency` e, em vez disso, contar com o NuGet, supondo este tipo quando nenhum tipo é especificado.
 
@@ -32,7 +34,7 @@ Os tipos de pacote são definidos no arquivo `.nuspec`. É melhor para compatibi
         <metadata>
         <!-- ... -->
         <packageTypes>
-            <packageType name="DotnetCliTool" />
+            <packageType name="DotnetTool" />
         </packageTypes>
         </metadata>
     </package>

@@ -12,24 +12,24 @@ keywords: Pacotes de símbolos do NuGet, depuração de pacote do NuGet, suporte
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0109aea95ec255b3e0abcdff4cf51b4bfeafbb8c
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 839c38ec165372bab9b93dec25e5c8e8e9439bfa
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813475"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036884"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Criando pacotes de símbolos (.snupkg)
 
-Os pacotes de símbolos permitem melhorar a experiência de depuração dos pacotes NuGet.
+Uma boa experiência de depuração depende da presença de símbolos de depuração, pois eles fornecem informações críticas, como a associação entre o código de origem compilado e o, nomes de variáveis locais, rastreamentos de pilha e muito mais. Você pode usar pacotes de símbolos (. snupkg) para distribuir esses símbolos e melhorar a experiência de depuração de seus pacotes NuGet.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
-[NuGet.exe v4.9.0 ou superior](https://www.nuget.org/downloads) ou [dotnet.exe v2.2.0 ou acima](https://www.microsoft.com/net/download/dotnet-core/2.2), que implementam os [protocolos NuGet](../api/nuget-protocols.md) necessários.
+[NuGet. exe v 4.9.0 ou superior](https://www.nuget.org/downloads) ou [dotnet CLI v 2.2.0 ou superior](https://www.microsoft.com/net/download/dotnet-core/2.2), que implementa os [protocolos NuGet](../api/nuget-protocols.md)necessários.
 
 ## <a name="creating-a-symbol-package"></a>Criar um pacote de símbolos
 
-Se você estiver usando dotNet. exe ou MSBuild, precisará definir as propriedades `IncludeSymbols` e `SymbolPackageFormat` para criar um arquivo. snupkg além do arquivo. nupkg.
+Se você estiver usando a CLI ou o MSBuild da dotnet, precisará definir as propriedades `IncludeSymbols` e `SymbolPackageFormat` para criar um arquivo. snupkg além do arquivo. nupkg.
 
 * Adicione as seguintes propriedades ao seu arquivo. csproj:
 
@@ -108,17 +108,17 @@ Os pacotes de símbolo publicados no NuGet.org falharão na validação se essas
 
 Os pacotes de símbolos publicados no [NuGet.org](https://www.nuget.org/) passam por várias validações, incluindo a verificação de malware. Se um pacote falhar em uma verificação de validação, a página de detalhes do pacote exibirá uma mensagem de erro. Além disso, os proprietários do pacote receberão um email com instruções sobre como corrigir os problemas identificados.
 
-Quando o pacote de símbolos tiver passado por todas as validações, os símbolos serão indexados pelos servidores de símbolos do NuGet. org. Depois de indexar, o símbolo estará disponível para consumo dos servidores de símbolos NuGet.org.
+Quando o pacote de símbolos tiver passado por todas as validações, os símbolos serão indexados pelos servidores de símbolos do NuGet. org e estarão disponíveis para consumo.
 
-A validação e indexação do pacote geralmente leva menos de 15 minutos. Se a publicação do pacote estiver demorando mais do que o esperado, visite [status.nuget.org](https://status.nuget.org/) para verificar se o NuGet.org está passando por alguma interrupção. Se todos os sistemas estiverem operacionais e o pacote não tiver sido publicado com êxito dentro de uma hora, faça logon no nuget.org e entre em contato conosco usando o link Entre em contato com o suporte na página de detalhes do pacote.
+A validação e indexação do pacote geralmente leva menos de 15 minutos. Se a publicação do pacote demorar mais do que o esperado, visite [status.NuGet.org](https://status.nuget.org/) para verificar se o NuGet.org está enfrentando interrupções. Se todos os sistemas estiverem operacionais e o pacote não tiver sido publicado com êxito dentro de uma hora, faça logon no nuget.org e entre em contato conosco usando o link Entre em contato com o suporte na página de detalhes do pacote.
 
 ## <a name="symbol-package-structure"></a>Estrutura do pacote de símbolos
 
-O arquivo .nupkg seria exatamente o mesmo como está hoje, mas o arquivo .snupkg teria as seguintes características:
+O pacote de símbolos (. snupkg) tem as seguintes características:
 
-1) O .snupkg terá a mesma ID e versão que o .nupkg correspondente.
-2) O .snupkg terá exatamente a mesma a estrutura de pasta que o nupkg para todos os arquivos DLL ou EXE, com a diferença que, em vez de DLLs/EXEs, seus PDBs correspondentes serão incluídos na mesma hierarquia de pastas. Arquivos e pastas com extensões que não sejam PDB serão deixados de fora do snupkg.
-3) O arquivo .nuspec no .snupkg também especificará um novo PackageType, conforme mostrado a seguir. Isso deve ser o único PackageType especificado.
+1) O. snupkg tem a mesma ID e versão que seu pacote NuGet correspondente (. nupkg).
+2) O. snupkg tem a mesma estrutura de pastas que o. nupkg correspondente para quaisquer arquivos DLL ou EXE com a distinção que, em vez de DLLs/EXEs, seus PDBs correspondentes serão incluídos na mesma hierarquia de pastas. Arquivos e pastas com extensões que não sejam PDB serão deixados de fora do snupkg.
+3) O arquivo. nuspec do pacote de símbolos tem o tipo de pacote `SymbolsPackage`:
 
    ```xml
    <packageTypes>
@@ -130,7 +130,7 @@ O arquivo .nupkg seria exatamente o mesmo como está hoje, mas o arquivo .snupkg
 5) Os campos a seguir serão excluídos do nuspec: ```authors```, ```owners```, ```requireLicenseAcceptance```, ```license type```, ```licenseUrl```e ```icon```do snupkg.
 6) Não use o elemento ```<license>```. Um .snupkg é coberto pela mesma licença que o .nupkg correspondente.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 Considere usar o link de origem para habilitar a depuração de código-fonte de assemblies .NET. Para obter mais informações, consulte as [diretrizes de link de origem](/dotnet/standard/library-guidance/sourcelink).
 
