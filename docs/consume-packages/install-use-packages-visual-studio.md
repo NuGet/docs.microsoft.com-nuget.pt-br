@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 7e4ea59b9954e787e7ab060adc964f3097a8240b
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419979"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231001"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>Instalar e gerenciar pacotes no Visual Studio usando o Gerenciador de Pacotes do NuGet
 
@@ -28,7 +28,7 @@ A interface do usuário do Gerenciador de Pacotes do NuGet no Visual Studio no W
 
 ## <a name="find-and-install-a-package"></a>Encontrar e instalar um pacote
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** ou em um projeto e selecione **Gerenciar Pacotes do NuGet...** .
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** ou em um projeto e selecione **Gerenciar Pacotes do NuGet...**.
 
     ![Opção de menu Gerenciar Pacotes do NuGet](media/ManagePackagesUICommand.png)
 
@@ -36,16 +36,19 @@ A interface do usuário do Gerenciador de Pacotes do NuGet no Visual Studio no W
 
     ![Guia Procurar da caixa de diálogo Gerenciar Pacotes do NuGet](media/Search.png)
 
-1. Selecione a versão desejada na lista suspensa e selecione **Instalar**. O Visual Studio instala o pacote e suas dependências no projeto. Você pode ser solicitado a aceitar os termos de licença. Quando a instalação for concluída, os pacotes adicionados aparecerão na guia **Instalado**. Os pacotes também são listados no nó **Referências** do Gerenciador de Soluções, indicando que você pode referenciá-los no projeto com instruções `using`.
+1. Selecione a versão desejada na lista suspensa e selecione **Instalar**. O Visual Studio instala o pacote e suas dependências no projeto. Você pode ser solicitado a aceitar os termos de licença. Quando a instalação for concluída, os pacotes adicionados aparecerão na guia **instalado** . os pacotes também são listados no nó **referências** de Gerenciador de soluções, indicando que você pode consultá-los no projeto com instruções `using`.
 
     ![Referências no Gerenciador de Soluções](media/References.png)
 
 > [!Tip]
 > Para incluir versões de pré-lançamento na pesquisa e disponibilizar essas versões na lista suspensa de versões, selecione a opção **Incluir pré-lançamento**.
 
+> [!Note]
+> O NuGet tem dois formatos nos quais um projeto pode usar pacotes: [`PackageReference`](package-references-in-project-files.md) e [`packages.config`](../reference/packages-config.md). [O padrão pode ser definido na janela Opções do Visual Studio](Package-Restore.md#choose-default-package-management-format).
+
 ## <a name="uninstall-a-package"></a>Desinstalar um pacote
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** ou no projeto desejado e selecione **Gerenciar Pacotes do NuGet...** .
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** ou no projeto desejado e selecione **Gerenciar Pacotes do NuGet...**.
 1. Selecione a guia **Instalado**.
 1. Selecione o pacote a desinstalar (usando a pesquisa para filtrar a lista, se necessário) e selecione **Desinstalar**.
 
@@ -55,13 +58,13 @@ A interface do usuário do Gerenciador de Pacotes do NuGet no Visual Studio no W
 
 ## <a name="update-a-package"></a>Atualizar um pacote
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** ou no projeto desejado e selecione **Gerenciar Pacotes do NuGet...** . Em projetos de site, clique com o botão direito do mouse na pasta **Bin**.
+1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **referências** ou projeto desejado e selecione **gerenciar pacotes NuGet...**. (Em projetos de site, clique com o botão direito do mouse na pasta **bin** .)
 1. Selecione a guia **Atualizações** para ver os pacotes que têm atualizações disponíveis das origens de pacotes selecionadas. Selecione **Incluir pré-lançamento** para incorporar pacotes de pré-lançamento à lista de atualizações.
 1. Selecione o pacote a atualizar, escolha a versão desejada na lista suspensa à direita e selecione **Atualizar**.
 
     ![Atualizar um pacote](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>Em alguns pacotes, o botão **Atualizar** fica desabilitado e uma mensagem é exibida informando que é "Referenciado implicitamente por um SDK" (ou "Autorreferenciado"). Essa mensagem indica que o pacote faz parte de uma estrutura ou SDK mais amplo e não deve ser atualizado de forma independente. (Esses pacotes são marcados internamente com `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Por exemplo, o `Microsoft.NETCore.App` faz parte do SDK do .NET Core, e a versão do pacote não é igual à versão da estrutura de tempo de execução usada pelo aplicativo. É preciso [atualizar a instalação do .NET Core](https://aka.ms/dotnet-download) para obter novas versões do ASP.NET Core e do tempo de execução do .NET Core. [Confira este documento para saber mais sobre o controle de versão e os metapacotes do .NET Core](/dotnet/core/packages). Isso se aplica aos seguintes pacotes usados com frequência:
+1. <a name="implicit_reference"></a>Em alguns pacotes, o botão **Atualizar** fica desabilitado e uma mensagem é exibida informando que é "Referenciado implicitamente por um SDK" (ou "Autorreferenciado"). Essa mensagem indica que o pacote faz parte de uma estrutura ou SDK mais amplo e não deve ser atualizado de forma independente. (Esses pacotes são marcados internamente com `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Por exemplo, `Microsoft.NETCore.App` faz parte do SDK do .NET Core, e a versão do pacote não é igual à versão da estrutura de tempo de execução usada pelo aplicativo. É preciso [atualizar a instalação do .NET Core](https://aka.ms/dotnet-download) para obter novas versões do ASP.NET Core e do runtime do .NET Core. [Confira este documento para saber mais sobre o controle de versão e os metapacotes do .NET Core](/dotnet/core/packages). Isso se aplica aos seguintes pacotes usados com frequência:
     * Microsoft.AspNetCore.All
     * Microsoft.AspNetCore.App
     * Microsoft.NETCore.App
@@ -70,13 +73,13 @@ A interface do usuário do Gerenciador de Pacotes do NuGet no Visual Studio no W
     ![Exemplo de pacote marcado como Referenciado implicitamente ou Autorreferenciado](media/PackageManagerUIAutoReferenced.png)
 
 1. Para atualizar vários pacotes para suas versões mais recentes, selecione-os na lista e selecione o botão **Atualizar** acima da lista.
-1. Também é possível atualizar um pacote individual na guia **Instalado**. Nesse caso, os detalhes do pacote incluem um seletor de versão (sujeito à opção **Incluir pré-lançamento**) e um botão **Atualizar**.
+1. Você também pode atualizar um pacote individual na guia **instalado** . Nesse caso, os detalhes do pacote incluem um seletor de versão (sujeito à opção de **pré-lançamento de inclusão** ) e um botão de **atualização** .
 
 ## <a name="manage-packages-for-the-solution"></a>Gerenciar pacotes para a solução
 
 O gerenciamento de pacotes para uma solução é um meio conveniente de trabalhar com vários projetos ao mesmo tempo.
 
-1. Selecione o comando no menu **Ferramentas > Gerenciador de Pacotes do NuGet > Gerenciar Pacotes do NuGet para Solução...** ou clique com o botão direito do mouse na solução e selecione **Gerenciar Pacotes do NuGet...** :
+1. Selecione o comando no menu **Ferramentas > Gerenciador de Pacotes do NuGet > Gerenciar Pacotes do NuGet para Solução...** ou clique com o botão direito do mouse na solução e selecione **Gerenciar Pacotes do NuGet...**:
 
     ![Gerenciar Pacotes do NuGet para a solução](media/ManagePackagesSolutionUICommand.png)
 
@@ -114,7 +117,7 @@ Para gerenciar origens de pacotes:
 
     ![Opções de Origens do Pacote](media/options.png)
 
-1. Para adicionar uma origem, selecione **+** , edite o nome, insira a URL ou o caminho no controle **Origem** e selecione **Atualizar**. A origem agora aparece na lista suspensa do seletor.
+1. Para adicionar uma origem, selecione **+**, edite o nome, insira a URL ou o caminho no controle **Origem** e selecione **Atualizar**. A origem agora aparece na lista suspensa do seletor.
 1. Para alterar uma origem de pacotes, selecione-a, faça as edições nas caixas **Nome** e **Origem** e selecione **Atualizar**.
 1. Para desabilitar uma origem de pacotes, desmarque a caixa à esquerda do nome na lista.
 1. Para remover uma origem de pacotes, selecione-a e, em seguida, selecione o botão **X**.

@@ -6,16 +6,14 @@ ms.author: karann
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 830714269ac422a4784c15b000e374195f02332f
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
-ms.translationtype: HT
+ms.openlocfilehash: 2fefd9cff4d151111023521c31d58878743775bf
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580273"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231169"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformando o código-fonte e os arquivos de configuração
-
-Para projetos que usam `packages.config`, o NuGet dá suporte à capacidade de fazer as transformações no código-fonte e nos arquivos de configuração nos tempos de instalação e desinstalação de pacote. As transformações de código-fonte são aplicadas somente quando um pacote é instalado em um projeto que usa [PackageReference](../consume-packages/package-references-in-project-files.md).
 
 Uma **transformação de código-fonte** aplicará a substituição de token unidirecional aos arquivos na pasta `content` ou `contentFiles` do pacote (`content` para clientes usando `packages.config` e `contentFiles` para `PackageReference`) quando o pacote estiver instalado e quando os tokens fizerem referência às [propriedades do projeto](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) do Visual Studio. Isso permite inserir um arquivo de namespace de projeto ou personalizar código que geralmente iria para `global.asax` em um projeto do ASP.NET.
 
@@ -113,6 +111,9 @@ Para examinar seu arquivo `web.config.transform`, baixe o pacote ELMAH do link a
 Para ver o efeito de instalação e desinstalação do pacote, crie um novo projeto do ASP.NET no Visual Studio (o modelo está em **Visual C# > Web** na caixa de diálogo Novo Projeto) e selecione um aplicativo ASP.NET vazio. Abra `web.config` para ver seu estado inicial. Em seguida, clique com botão direito do mouse no projeto, selecione **Gerenciar pacotes do NuGet**, procurar ELMAH no nuget.org e instalar a versão mais recente. Observe todas as alterações em `web.config`. Agora, desinstale o pacote e você verá o `web.config` reverter para seu estado anterior.
 
 ### <a name="xdt-transforms"></a>Transformações XDT
+
+> [!Note]
+> Conforme mencionado na [seção problemas de compatibilidade do pacote dos documentos para migrar de `packages.config` para `PackageReference`](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), as transformações xdt, conforme descrito abaixo, têm suporte apenas da `packages.config`. Se você adicionar os arquivos abaixo ao seu pacote, os consumidores que usam seu pacote com `PackageReference` não terão as transformações aplicadas (consulte [Este exemplo](https://github.com/NuGet/Samples/tree/master/XDTransformExample) para fazer com que as transformações de xdt funcionem com`PackageReference`).
 
 Você pode modificar os arquivos de configuração usando [sintaxe XDT](https://msdn.microsoft.com/library/dd465326.aspx). Você também pode fazer com que o NuGet substitua os tokens pelas [Propriedades do projeto](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) incluindo o nome da propriedade dentro dos delimitadores `$`(não diferencia maiúsculas de minúsculas).
 

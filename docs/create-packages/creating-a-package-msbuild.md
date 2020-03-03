@@ -3,14 +3,14 @@ title: Criar um pacote NuGet usando MSBuild
 description: Um guia detalhado para o processo de design e criação de um pacote do NuGet, incluindo os principais pontos de decisão como arquivos e controle de versão.
 author: karann-msft
 ms.author: karann
-ms.date: 08/05/2019
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b45c25a92c0134228fb507ab321cb00ce156527f
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610546"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231312"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Criar um pacote NuGet usando MSBuild
 
@@ -29,13 +29,17 @@ O comando que cria um pacote, `msbuild -t:pack`, é a funcionalidade equivalente
 
 As propriedades a seguir são necessárias para criar um pacote.
 
-- `PackageId`, o identificador de pacotes, que deve ser exclusivo na galeria que hospeda o pacote. Se não for especificado, o valor padrão será `AssemblyName`.
+- `PackageId`, o identificador de pacotes, que deve ser exclusivo na galeria que hospeda o pacote. Se esse campo não for especificado, o valor padrão será `AssemblyName`.
 - `Version`, um número de versão específico na forma *Principal.Secundário.Patch[-Sufixo]* em que *-Sufixo* identifica as [versões de pré-lançamento](prerelease-packages.md). Se esse campo não for especificado, o valor padrão será 1.0.0.
 - O título do pacote como ele deve aparecer no host (como nuget.org)
-- `Authors`, informações de autor e proprietário. Se não for especificado, o valor padrão será `AssemblyName`.
-- `Company`, o nome da empresa. Se não for especificado, o valor padrão será `AssemblyName`.
+- `Authors`, informações de autor e proprietário. Se esse campo não for especificado, o valor padrão será `AssemblyName`.
+- `Company`, o nome da empresa. Se esse campo não for especificado, o valor padrão será `AssemblyName`.
 
-No Visual Studio, é possível definir esses valores nas propriedades do projeto (clique com o botão direito do mouse no projeto no Gerenciador de Soluções, escolha **Propriedades** e selecione a guia **Pacote**). Você também pode definir essas propriedades diretamente nos arquivos do projeto ( *.csproj*).
+Além disso, se você estiver empacotando projetos de estilo não-SDK que usam PackageReference, será necessário o seguinte:
+
+- `PackageOutputPath`, a pasta de saída do pacote gerado ao chamar Pack.
+
+No Visual Studio, é possível definir esses valores nas propriedades do projeto (clique com o botão direito do mouse no projeto no Gerenciador de Soluções, escolha **Propriedades** e selecione a guia **Pacote**). Você também pode definir essas propriedades diretamente nos arquivos do projeto (*.csproj*).
 
 ```xml
 <PropertyGroup>
@@ -69,6 +73,10 @@ Defina também as propriedades opcionais, como `Title`, `PackageDescription` e `
 > Para pacotes compilados para consumo público, preste atenção especial à propriedade **PackageTags**, à medida que as marcas ajudam outras pessoas a localizar o pacote e entender o que ele faz.
 
 Para obter detalhes sobre como declarar dependências e especificar números de versão, consulte [Referências de pacote em arquivos de projeto](../consume-packages/package-references-in-project-files.md) e [Controle de versão do pacote](../concepts/package-versioning.md). Também é possível extrair ativos de dependências diretamente no pacote usando os atributos `<IncludeAssets>` e `<ExcludeAssets>`. Para saber mais, confira [Controlar ativos de dependência](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+
+## <a name="add-an-optional-description-field"></a>Adicionar um campo de descrição opcional
+
+[!INCLUDE [add description to package](includes/add-description.md)]
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Escolher um identificador de pacote exclusivo e definir o número de versão
 
@@ -181,4 +189,4 @@ Você também poderá estender os recursos do seu pacote ou dar suporte a outros
 Por fim, há tipos de pacote adicionais a serem considerados:
 
 - [Pacotes nativos](../guides/native-packages.md)
-- [Pacotes de Símbolo](../create-packages/symbol-packages-snupkg.md)
+- [Pacotes de símbolo](../create-packages/symbol-packages-snupkg.md)

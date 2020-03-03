@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: fce3c9a92dfee325f9e914bf3d6444601fb38b6c
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 0cb653bad9e853d908039b3f7a94e1dd7eefdde5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385659"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230896"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Criar pacotes para o Xamarin com Visual Studio 2017 ou 2019
 
@@ -25,7 +25,7 @@ Neste tutorial, você usa o Visual Studio 2017 ou 2019 para criar um pacote NuGe
 1. [Empacotar o componente](#package-the-component)
 1. [Tópicos relacionados](#related-topics)
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 1. Visual Studio 2017 ou 2019 com Plataforma Universal do Windows (UWP) e Xamarin. Instale a edição Community gratuitamente no [visualstudio.com](https://www.visualstudio.com/) e, claro, você também pode usar as edições Professional e Enterprise. Para incluir as ferramentas UWP e Xamarin, selecione uma instalação Personalizada e verifique as opções apropriadas.
 1. CLI do NuGet. Baixe a versão mais recente do nuget.exe de [nuget.org/downloads](https://nuget.org/downloads) e salve-a em um local de sua escolha. Em seguida, adicione tal local à sua variável de ambiente PATH, se ainda não tiver feito isso.
@@ -36,7 +36,7 @@ Neste tutorial, você usa o Visual Studio 2017 ou 2019 para criar um pacote NuGe
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Criar a estrutura do projeto e o código de abstração
 
 1. Baixe e execute a [extensão de modelos de plug-in de .net Standard de plataforma cruzada](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) para o Visual Studio. Esses modelos facilitarão a criação da estrutura de projeto necessária para este passo a passo.
-1. No Visual Studio 2017, **arquivo > novo projeto de >** , procure `Plugin`, selecione o modelo de **plug-in biblioteca de .net Standard de plataforma cruzada** , altere o nome para LoggingLibrary e clique em OK.
+1. No Visual Studio 2017, **arquivo > novo projeto de >**, procure `Plugin`, selecione o modelo de **plug-in biblioteca de .net Standard de plataforma cruzada** , altere o nome para LoggingLibrary e clique em OK.
 
     ![Novo projeto de aplicativo em branco (aplicativos Xamarin. Forms portátil) no VS 2017](media/CrossPlatform-NewProject.png)
 
@@ -52,7 +52,7 @@ A solução resultante contém dois projetos compartilhados, juntamente com uma 
 
 - O projeto `ILoggingLibrary`, que está contido no arquivo `ILoggingLibrary.shared.cs`, define a interface pública (a área de superfície da API) do componente. É aqui que você define a interface para a biblioteca.
 - O outro projeto compartilhado contém código em `CrossLoggingLibrary.shared.cs` que localizará uma implementação específica da plataforma da interface abstrata em tempo de execução. Normalmente não é necessário modificar esse arquivo.
-- Os projetos específicos da plataforma, como `LoggingLibrary.android.cs`, cada um contém uma implementação nativa da interface em seus respectivos arquivos de `LoggingLibraryImplementation.cs` (VS 2017) ou `LoggingLibrary.<PLATFORM>.cs` (VS 2019). É aqui que você compila o código da biblioteca.
+- Os projetos específicos da plataforma, como `LoggingLibrary.android.cs`, cada um contêm uma implementação nativa da interface em seus respectivos arquivos `LoggingLibraryImplementation.cs` (VS 2017) ou `LoggingLibrary.<PLATFORM>.cs` (VS 2019). É aqui que você compila o código da biblioteca.
 
 Por padrão, o arquivo ILoggingLibrary.shared.cs do projeto `ILoggingLibrary` contém uma definição de interface, mas nenhum método. Para os fins deste passo a passo, adicione um método `Log` da seguinte maneira:
 
@@ -281,4 +281,4 @@ Para disponibilizar seu pacote para outros desenvolvedores, siga as instruções
 - [Controle de versão do pacote](../concepts/package-versioning.md)
 - [Suporte a Várias Versões do .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Incluir objetivos e destinos de MSBuild em um pacote](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
-- [Criando Pacotes Localizados](../create-packages/creating-localized-packages.md)
+- [Criando pacotes localizados](../create-packages/creating-localized-packages.md)

@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: e02b2a241008b1b7096f20b351173fd3df7ed172
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317513"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231247"
 ---
 # <a name="signed-packages"></a>Pacotes assinados
 
@@ -26,15 +26,15 @@ Os pacotes assinados fornecem a validação de ponta a ponta mais forte. Há doi
 Para obter detalhes sobre como criar um pacote assinado por autor, consulte [pacotes de assinatura](../create-packages/Sign-a-package.md) e o comando de [sinal do NuGet](../reference/cli-reference/cli-ref-sign.md).
 
 > [!Important]
-> No momento, há suporte para a assinatura de pacote somente ao usar NuGet. exe no Windows. Atualmente, há suporte para a verificação de pacotes assinados somente ao usar NuGet. exe ou Visual Studio no Windows.
+> No momento, há suporte para a assinatura de pacote somente ao usar NuGet. exe no Windows. [Atualmente, há suporte para a verificação de pacotes assinados somente ao usar NuGet. exe](../reference/cli-reference/cli-ref-verify.md) ou Visual Studio no Windows.
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 
-A assinatura de pacote requer um certificado de assinatura de código, que é um tipo especial de certificado válido `id-kp-codeSigning` para a finalidade [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Além disso, o certificado deve ter um comprimento de chave pública RSA de 2048 bits ou mais.
+A assinatura de pacote requer um certificado de assinatura de código, que é um tipo especial de certificado válido para a `id-kp-codeSigning` finalidade [[RFC 5280 seção 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Além disso, o certificado deve ter um comprimento de chave pública RSA de 2048 bits ou mais.
 
 ## <a name="timestamp-requirements"></a>Requisitos de carimbo de hora
 
-Os pacotes assinados devem incluir um carimbo de data/hora RFC 3161 para garantir a validade da assinatura além do período de validade do certificado de assinatura do pacote. O certificado usado para assinar o carimbo de data/hora deve `id-kp-timeStamping` ser válido para a finalidade [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Além disso, o certificado deve ter um comprimento de chave pública RSA de 2048 bits ou mais.
+Os pacotes assinados devem incluir um carimbo de data/hora RFC 3161 para garantir a validade da assinatura além do período de validade do certificado de assinatura do pacote. O certificado usado para assinar o carimbo de data/hora deve ser válido para a `id-kp-timeStamping` finalidade [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Além disso, o certificado deve ter um comprimento de chave pública RSA de 2048 bits ou mais.
 
 Detalhes técnicos adicionais podem ser encontrados no GitHub ( [especificações técnicas](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) ) de assinatura do pacote.
 

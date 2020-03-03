@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 995f15ae2ad823d9c814cb7e78facddee713cc8f
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380492"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230506"
 ---
 # <a name="target-frameworks"></a>Frameworks de destino
 
@@ -33,7 +33,7 @@ Normalmente, uma estrutura é referenciada por um moniker curto de estrutura de 
 
 Os clientes do NuGet são compatíveis com as estruturas indicadas na tabela abaixo. Equivalentes são mostrados entre colchetes []. Observe que algumas ferramentas, como `dotnet`, podem usar as variações de TFMs canônicos em alguns arquivos. Por exemplo, `dotnet pack` usa `.NETCoreApp2.0` em um arquivo `.nuspec` em vez de `netcoreapp2.0`. As várias ferramentas de cliente do NuGet manipulam essas variações corretamente, mas você sempre deve usar TFMs canônicos ao editar arquivos diretamente.
 
-| Name | Abreviação de | TFMs/TxMs |
+| Nome | Abreviação | TFMs/TxMs |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -78,12 +78,14 @@ Plataforma Universal do Windows | uap | uap [uap10.0] |
 | | | netstandard1.5 |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
+| | | netstandard 2.1 |
 Aplicativos .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
 | | | netcoreapp 3.0 |
+| | | netcoreapp 3.1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -284,7 +286,7 @@ Estruturas adicionais definidas por terceiros fornecem compatibilidade com outro
 
 Além disso, os pacotes do NuGet direcionados ao Xamarin podem usar estruturas adicionais definidas pelo Xamarin. Consulte [Criando pacotes do NuGet para Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Name | Descrição | .NET Standard |
+| Nome | DESCRIÇÃO | .NET Standard |
 | --- | --- | ---
 | monoandroid | Suporte a Mono para o sistema operacional Android | netstandard1.4 |
 | monotouch | Suporte Mono para iOS | netstandard1.4 |

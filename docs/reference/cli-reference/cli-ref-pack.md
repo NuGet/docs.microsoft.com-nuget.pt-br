@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 00e2ee760698afd8591909570d76e4bfe475a682
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 2358cedc05520a3ec82a39aef34b6d467e44460b
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383989"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231156"
 ---
 # <a name="pack-command-nuget-cli"></a>Commando pack (NuGet CLI)
 
@@ -22,7 +22,7 @@ Cria um pacote NuGet com base no arquivo [. nuspec](../nuspec.md) ou projeto esp
 > Use [`dotnet pack`](../dotnet-Commands.md) ou [`msbuild -t:pack`](../msbuild-targets.md) para projetos baseados em [PackageReference](../../consume-packages/package-references-in-project-files.md) .
 > Em mono, não há suporte para a criação de um pacote a partir de um arquivo de projeto. Você também precisa ajustar caminhos não locais no arquivo de `.nuspec` para caminhos em estilo UNIX, já que NuGet. exe não converte os próprios caminhos do Windows.
 
-## <a name="usage"></a>Medição de
+## <a name="usage"></a>Uso
 
 ```cli
 nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
@@ -32,10 +32,10 @@ onde `<nuspecPath>` e `<projectPath>` especificam o arquivo de `.nuspec` ou de p
 
 ## <a name="options"></a>Opções
 
-| Opção | Descrição |
+| Opção | DESCRIÇÃO |
 | --- | --- |
 | BasePath | Define o caminho base dos arquivos definidos no arquivo [. nuspec](../nuspec.md) . |
-| {1&gt;Compilação&lt;1} | Especifica que o projeto deve ser compilado antes da criação do pacote. |
+| Build | Especifica que o projeto deve ser compilado antes da criação do pacote. |
 | Excluir | Especifica um ou mais padrões de curinga a serem excluídos ao criar um pacote. Para especificar mais de um padrão, repita o sinalizador-Exclude. Consulte o exemplo a seguir. |
 | ExcludeEmptyDirectories | Impede a inclusão de diretórios vazios ao compilar o pacote. |
 | ForceEnglishOutput | *(3,5 +)* Força o NuGet. exe a ser executado usando uma cultura invariável baseada em inglês. |
@@ -48,12 +48,12 @@ onde `<nuspecPath>` e `<projectPath>` especificam o arquivo de `.nuspec` ou de p
 | NoDefaultExcludes | Impede a exclusão padrão de arquivos de pacote do NuGet e arquivos e pastas que começam com um ponto, como `.svn` e `.gitignore`. |
 | NoPackageAnalysis | Especifica que o pacote não deve executar a análise de pacote após a compilação do pacote. |
 | OutputDirectory | Especifica a pasta na qual o pacote criado é armazenado. Se nenhuma pasta for especificada, a pasta atual será usada. |
-| {1&gt;Propriedades&lt;1} | Deve aparecer por último na linha de comando após outras opções. Especifica uma lista de propriedades que substituem valores no arquivo de projeto; consulte [Propriedades comuns do projeto MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) para nomes de propriedade. O argumento properties aqui é uma lista de pares token = valor, separados por ponto e vírgula, em que cada ocorrência de `$token$` no arquivo `.nuspec` será substituída pelo valor especificado. Os valores podem ser cadeias de caracteres entre aspas. Observe que, para a propriedade "Configuration", o padrão é "debug". Para alterar para uma configuração de versão, use `-Properties Configuration=Release`. |
-| Suffix | *(3.4.4 +)* Acrescenta um sufixo ao número de versão gerado internamente, normalmente usado para anexar Build ou outros identificadores de pré-lançamento. Por exemplo, usar `-suffix nightly` criará um pacote com um número de versão, como `1.2.3-nightly`. Os sufixos devem começar com uma letra para evitar avisos, erros e possíveis incompatibilidades com versões diferentes do NuGet e do Gerenciador de pacotes NuGet. |
+| Propriedades | Deve aparecer por último na linha de comando após outras opções. Especifica uma lista de propriedades que substituem valores no arquivo de projeto; consulte [Propriedades comuns do projeto MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) para nomes de propriedade. O argumento properties aqui é uma lista de pares token = valor, separados por ponto e vírgula, em que cada ocorrência de `$token$` no arquivo `.nuspec` será substituída pelo valor especificado. Os valores podem ser cadeias de caracteres entre aspas. Observe que, para a propriedade "Configuration", o padrão é "debug". Para alterar para uma configuração de versão, use `-Properties Configuration=Release`. **Em geral**, as propriedades devem ser as mesmas que foram usadas durante o `nuget build`correspondente, a fim de evitar um comportamento potencialmente estranho. |
+| Sufixo | *(3.4.4 +)* Acrescenta um sufixo ao número de versão gerado internamente, normalmente usado para anexar Build ou outros identificadores de pré-lançamento. Por exemplo, usar `-suffix nightly` criará um pacote com um número de versão, como `1.2.3-nightly`. Os sufixos devem começar com uma letra para evitar avisos, erros e possíveis incompatibilidades com versões diferentes do NuGet e do Gerenciador de pacotes NuGet. |
 | Símbolos | Especifica que o pacote contém fontes e símbolos. Quando usado com um arquivo `.nuspec`, isso cria um arquivo de pacote NuGet regular e o pacote de símbolos correspondente. Por padrão, ele cria um [pacote de símbolos herdado](../../create-packages/Symbol-Packages.md). O novo formato recomendado para pacotes de símbolos é .snupkg. Veja [Criando pacotes de símbolos (.snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
 | Ferramenta | Especifica que os arquivos de saída do projeto devem ser colocados na pasta `tool`. |
 | Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhado*. |
-| Versão do | Substitui o número de versão do arquivo de `.nuspec`. |
+| Versão | Substitui o número de versão do arquivo de `.nuspec`. |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 
@@ -75,6 +75,14 @@ Por exemplo, considere o seguinte arquivo de `packages.config` no projeto de ori
 ```
 
 Para este projeto, o pacote criado pelo `nuget pack` terá uma dependência de `jQuery` e `microsoft-web-helpers`, mas não `netfx-Guard`.
+
+## <a name="suppressing-pack-warnings"></a>Suprimindo avisos de pacote
+
+Embora seja recomendável que você resolva todos os avisos do NuGet durante suas operações de pacote, em determinadas situações, a supressão deles é garantida.
+
+Você pode conseguir isso da seguinte maneira: 
+
+> pacote NuGet. exe Pack. nuspec – Propriedades nowarn = NU5104
 
 ## <a name="examples"></a>Exemplos
 

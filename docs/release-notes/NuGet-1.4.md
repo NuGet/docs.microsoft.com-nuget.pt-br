@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5f1d3ed6a1b20fb07437f1718faafaac0a193773
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 4b31c02b9251d6d45d952fdf8b111493495d57ba
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488703"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230701"
 ---
 # <a name="nuget-14-release-notes"></a>Notas de versão do NuGet 1,4
 
-[Notas de versão do NuGet 1,3](../release-notes/nuget-1.3.md) | [versões de lançamento do NuGet 1,5](../release-notes/nuget-1.5.md)
+[Notas de versão do nuget 1,3](../release-notes/nuget-1.3.md) | [notas de versão do NuGet 1,5](../release-notes/nuget-1.5.md)
 
 O NuGet 1,4 foi lançado em 17 de junho de 2011.
 
@@ -23,7 +23,7 @@ O NuGet 1,4 foi lançado em 17 de junho de 2011.
 ### <a name="update-package-improvements"></a>Aprimoramentos do pacote de atualização
 O NuGet 1,4 apresenta muitos aprimoramentos no comando Update-Package, facilitando a manutenção de pacotes na mesma versão em vários projetos em uma solução. Por exemplo, ao atualizar um pacote para a versão mais recente, é muito comum que você queira que todos os projetos com o pacote instalado sejam atualizados para o mesmo verision.
 
-O `Update-Package` comando agora torna mais fácil:
+O comando `Update-Package` agora torna mais fácil:
 
 #### <a name="update-all-packages-in-a-single-project"></a>Atualizar todos os pacotes em um único projeto
 
@@ -38,7 +38,7 @@ O `Update-Package` comando agora torna mais fácil:
     Update-Package
 
 #### <a name="perform-a-safe-update-on-all-packages"></a>Executar uma atualização "segura" em todos os pacotes
-O `-Safe` sinalizador restringe atualizações para apenas versões com o mesmo componente de versão principal e secundária. Por exemplo, se a versão 1.0.0 de um pacote estiver instalada e as versões 1.0.1, 1.0.2 e 1,1 estiverem disponíveis no feed, o `-Safe` sinalizador atualizará o pacote para 1.0.2. Atualizar sem o `-Safe` sinalizador atualizaria o pacote para a versão mais recente, 1,1.
+O sinalizador de `-Safe` restringe atualizações para apenas versões com o mesmo componente de versão principal e secundária. Por exemplo, se a versão 1.0.0 de um pacote estiver instalada e as versões 1.0.1, 1.0.2 e 1,1 estiverem disponíveis no feed, o sinalizador de `-Safe` atualizará o pacote para 1.0.2. Atualizar sem o sinalizador de `-Safe` atualizaria o pacote para a versão mais recente, 1,1.
 
     Update-Package -Safe
 
@@ -57,10 +57,10 @@ As operações de pacote agora fornecem uma lista de caixas de seleção com a l
 Para obter mais detalhes, consulte o tópico sobre como [gerenciar pacotes para a solução](../consume-packages/install-use-packages-visual-studio.md#manage-packages-for-the-solution).
 
 ### <a name="constraining-upgrades-to-allowed-versions"></a>Restringindo atualizações para versões permitidas
-Por padrão, ao executar o `Update-Package` comando em um pacote (ou atualizar o pacote usando a caixa de diálogo), ele será atualizado para a versão mais recente no feed. Com o novo suporte para atualizar todos os pacotes, pode haver casos em que você deseja bloquear um pacote para um intervalo de versão específico. Por exemplo, você pode saber com antecedência que seu aplicativo só funcionará com a versão 2. * de um pacote, mas não 3,0 e acima. Para evitar a atualização acidental do pacote para 3, o NuGet 1,4 adiciona suporte para restringir o intervalo de versões para as quais os pacotes podem ser atualizados manualmente editando `packages.config` o arquivo usando o `allowedVersions` novo atributo.
+Por padrão, ao executar o comando `Update-Package` em um pacote (ou atualizar o pacote usando a caixa de diálogo), ele será atualizado para a versão mais recente no feed. Com o novo suporte para atualizar todos os pacotes, pode haver casos em que você deseja bloquear um pacote para um intervalo de versão específico. Por exemplo, você pode saber com antecedência que seu aplicativo só funcionará com a versão 2. * de um pacote, mas não 3,0 e acima. Para evitar a atualização acidental do pacote para 3, o NuGet 1,4 adiciona suporte para restringir o intervalo de versões para as quais os pacotes podem ser atualizados manualmente editando o arquivo de `packages.config` usando o novo atributo `allowedVersions`.
 
-Por exemplo, o exemplo a seguir mostra como bloquear `SomePackage` o pacote do intervalo de versão 2,0-3,0 (exclusivo).
-O `allowedVersions` atributo aceita valores usando o [formato de intervalo de versão](../concepts/package-versioning.md#version-ranges-and-wildcards).
+Por exemplo, o exemplo a seguir mostra como bloquear o pacote de `SomePackage` o intervalo de versão 2,0-3,0 (exclusivo).
+O atributo `allowedVersions` aceita valores usando o [formato de intervalo de versão](../concepts/package-versioning.md#version-ranges).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -69,22 +69,22 @@ O `allowedVersions` atributo aceita valores usando o [formato de intervalo de ve
 </packages>
 ```
 
-Observe que, em 1,4, o bloqueio de um pacote para um intervalo de versão específico deve ser editado manualmente. No NuGet 1,5, planejamos adicionar suporte para colocar esse intervalo por meio `Install-Package` do comando.
+Observe que, em 1,4, o bloqueio de um pacote para um intervalo de versão específico deve ser editado manualmente. No NuGet 1,5, planejamos adicionar suporte para colocar esse intervalo por meio do comando `Install-Package`.
 
 ### <a name="package-visualizer"></a>Visualizador de pacote
-O novo Visualizador de pacote, iniciado por meio da biblioteca de **ferramentas** -> **Gerenciador** -> de pacotes opção de menu do**Visualizador de pacotes** , permite que você visualize facilmente todos os projetos e suas dependências de pacote em um soluções.
+O novo Visualizador de pacote, iniciado por meio da opção de menu **ferramentas** -> **Gerenciador de pacotes de biblioteca** -> Visualizador de **pacotes** , permite que você visualize facilmente todos os projetos e suas dependências de pacote dentro de uma solução.
 
 _**Observação importante:** Esse recurso aproveita o suporte do DGML no Visual Studio. Só há suporte para a criação da visualização no Visual Studio Ultimate. Só há suporte para a exibição de um diagrama DGML no Visual Studio Premium ou superior._
 
 ![Visualizador de pacote](./media/package-visualizer.png)
 
 ### <a name="automatic-update-check-for-the-nuget-dialog"></a>Verificação de atualização automática para a caixa de diálogo do NuGet
-Algumas versões do NuGet introduzem novos recursos expressos `.nuspec` por meio do arquivo que não são compreendidos por versões mais antigas da caixa de diálogo do NuGet.
+Algumas versões do NuGet introduzem novos recursos expressos por meio do arquivo de `.nuspec` que não são compreendidos por versões mais antigas da caixa de diálogo do NuGet.
 Um exemplo é a introdução no NuGet 1,4 para [especificar assemblies de estrutura](../release-notes/nuget-1.2.md#framework-assembly-refs).
 Por isso, é importante usar a versão mais recente do NuGet para garantir que você possa usar pacotes que aproveitam os recursos mais recentes.
 Para tornar as atualizações do NuGet mais visíveis, a caixa de diálogo NuGet contém a lógica para realçar quando uma versão mais recente está disponível.
 
-_**Observação**: A verificação só será feita se a guia **online** tiver sido selecionada na sessão atual._
+_**Observação**: a verificação só será feita se a guia **online** tiver sido selecionada na sessão atual._
 
 ![Caixa de diálogo gerenciar pacotes NuGet com a nova versão disponível](./media/manage-nuget-packages-update-notification.png)
 
@@ -95,26 +95,26 @@ Para desativar a verificação automática de atualizações, vá para a caixa d
 Esse recurso foi realmente adicionado no NuGet 1,3, mas não estaria visível, é claro, até que uma atualização para 1,3, como o NuGet 1,4, fosse disponibilizada.
 
 ### <a name="package-manager-dialog-improvements"></a>Melhorias da caixa de diálogo do Gerenciador de pacotes
-* **Nomes de menu aprimorados**: As opções de menu para iniciar a caixa de diálogo foram renomeadas para fins de clareza. A opção de menu agora é **gerenciar pacotes NuGet**.
-* O **painel de detalhes mostra a data de atualização mais recente**: A caixa de diálogo NuGet exibe a data da última atualização no painel de detalhes de um pacote quando a guia **online** ou **atualizações** é selecionada.
-* **Lista de marcas exibidas**: A caixa de diálogo NuGet exibe marcas.
+* **Nomes de menu aprimorados**: as opções de menu para iniciar a caixa de diálogo foram renomeadas para fins de clareza. A opção de menu agora é **gerenciar pacotes NuGet**.
+* O **painel de detalhes mostra a data de atualização mais recente**: a caixa de diálogo NuGet exibe a data da última atualização no painel de detalhes de um pacote quando a guia **online** ou **atualizações** está selecionada.
+* **Lista de marcas exibidas**: a caixa de diálogo NuGet exibe marcas.
 
 ### <a name="powershell-improvements"></a>Aprimoramentos do PowerShell
-* **Scripts do PowerShell assinados**: O NuGet inclui scripts do PowerShell assinados permitindo o uso em ambientes mais restritivos.
-* **Solicitando suporte**: O console do Gerenciador de pacotes agora dá suporte à `$host.ui.Prompt` solicitação `$host.ui.PromptForChoice` por meio dos comandos e.
-* **Nomes de origem do pacote**: O fornecimento do nome de uma origem de pacote tem suporte ao especificar uma origem de pacote `-Source` usando o sinalizador.
+* **Scripts do PowerShell assinados**: o NuGet inclui scripts do PowerShell assinados que habilitam o uso em ambientes mais restritivos.
+* **Solicitando suporte**: o console do Gerenciador de pacotes agora dá suporte à solicitação por meio dos comandos `$host.ui.Prompt` e `$host.ui.PromptForChoice`.
+* **Nomes de origem de pacote**: o fornecimento do nome de uma origem de pacote tem suporte ao especificar uma origem de pacote usando o sinalizador `-Source`.
 
 ### <a name="nugetexe-command-line-improvements"></a>aprimoramentos na linha de comando do NuGet. exe
 * **Comandos personalizados do NuGet**: o NuGet. exe é extensível por meio de comandos personalizados usando o MEF.
-* **Mais simples o fluxo de trabalho para a criação de pacotes de símbolo**: O `-Symbols` sinalizador pode ser aplicado a uma estrutura de pasta baseada em Convenção normal, criando um pacote de símbolos, incluindo `.pdb` apenas a origem e os arquivos dentro da pasta.
-* **Especificando várias fontes**: O `NuGet install` comando dá suporte à especificação de várias fontes usando ponto e vírgula como um delimitador ou especificando `-Source` várias vezes.
-* **Suporte à autenticação de proxy**: O NuGet 1,4 adiciona suporte para solicitar credenciais de usuário ao usar o NuGet por trás de um proxy que requer autenticação.
-* **alteração significativa na atualização do NuGet. exe**: O `-Self` sinalizador agora é necessário para que o NuGet. exe se atualize. `nuget.exe Update`Agora leva um caminho para o arquivo `packages.config` e tentará atualizar os pacotes. Observe que essa atualização é limitada, pois não irá: * * atualizar, adicionar, remover conteúdo no arquivo de projeto.
-\* * Executar scripts do PowerShell dentro do pacote.
+* **Mais simples o fluxo de trabalho para a criação de pacotes de símbolo**: o sinalizador `-Symbols` pode ser aplicado a uma estrutura de pastas baseada em Convenção normal criando um pacote de símbolos, incluindo apenas os arquivos de origem e de `.pdb` dentro da pasta.
+* **Especificando várias fontes**: o comando `NuGet install` dá suporte à especificação de várias fontes usando ponto e vírgula como um delimitador ou especificando `-Source` várias vezes.
+* **Suporte à autenticação de proxy**: o NuGet 1,4 adiciona suporte para solicitar credenciais de usuário ao usar o NuGet por trás de um proxy que requer autenticação.
+* **alteração significativa na atualização do NuGet. exe**: o sinalizador `-Self` agora é necessário para que o NuGet. exe se atualize. `nuget.exe Update` agora usa um caminho para o arquivo de `packages.config` e tentará atualizar os pacotes. Observe que essa atualização é limitada, pois não irá: * * atualizar, adicionar, remover conteúdo no arquivo de projeto.
+* * Executar scripts do PowerShell dentro do pacote.
 
 ### <a name="nuget-server-support-for-pushing-packages-using-nugetexe"></a>Suporte do servidor NuGet para enviar pacotes por push usando NuGet. exe
-O NuGet inclui uma maneira simples de hospedar um [repositório NuGet baseado na Web leve](../hosting-packages/nuget-server.md) por meio do `NuGet.Server` pacote NuGet. Com o NuGet 1,4, o servidor leve dá suporte ao envio e exclusão de pacotes usando NuGet. exe.
-A versão mais recente `NuGet.Server` do adiciona um `appSetting`novo, `apiKey`chamado. Quando a chave é omitida ou deixada em branco, o envio de pacotes para o feed é desabilitado. Definir o apiKey como um valor (idealmente uma senha forte) permite enviar pacotes por push usando NuGet. exe.
+O NuGet inclui uma maneira simples de hospedar um [repositório NuGet baseado na Web leve](../hosting-packages/nuget-server.md) por meio do pacote NuGet `NuGet.Server`. Com o NuGet 1,4, o servidor leve dá suporte ao envio e exclusão de pacotes usando NuGet. exe.
+A versão mais recente do `NuGet.Server` adiciona um novo `appSetting`, chamado `apiKey`. Quando a chave é omitida ou deixada em branco, o envio de pacotes para o feed é desabilitado. Definir o apiKey como um valor (idealmente uma senha forte) permite enviar pacotes por push usando NuGet. exe.
 
 ```xml
 <appSettings>
@@ -132,21 +132,21 @@ Para desinstalar o NuGet para ferramentas de Windows Phone, execute o comando a 
 
      vsixinstaller.exe /uninstall:NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5
 
-## <a name="bug-fixes"></a>Correções de Bug
+## <a name="bug-fixes"></a>Correções de bugs
 O NuGet 1,4 tinha um total de 88 itens de trabalho corrigidos. 71 deles foram marcados como bugs.
 
-Para obter uma lista completa de itens de trabalho corrigidos no NuGet 1,4, consulte o rastreador de [problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.4&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+Para obter uma lista completa de itens de trabalho corrigidos no NuGet 1,4, consulte o [rastreador de problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.4&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
 ## <a name="bug-fixes-worth-noting"></a>Correções de bugs vale a pena observar:
 
-* [Problema 603](http://nuget.codeplex.com/workitem/603): As dependências de pacote em diferentes repositórios são resolvidas corretamente ao especificar uma origem de pacote específica.
-* [Problema 1036](http://nuget.codeplex.com/workitem/1036): Adicionar `NuGet Pack SomeProject.csproj` ao evento de pós-compilação não causa mais um loop infinito.
-* [Problema 961](http://nuget.codeplex.com/workitem/961): `-Source` o sinalizador dá suporte a caminhos relativos.
+* [Problema 603](http://nuget.codeplex.com/workitem/603): as dependências de pacote em diferentes repositórios são resolvidas corretamente ao especificar uma origem de pacote específica.
+* [Problema 1036](http://nuget.codeplex.com/workitem/1036): a adição de `NuGet Pack SomeProject.csproj` ao evento de pós-compilação não causa mais um loop infinito.
+* [Problema 961](http://nuget.codeplex.com/workitem/961): `-Source` sinalizador dá suporte a caminhos relativos.
 
 ## <a name="nuget-14-update"></a>Atualização do NuGet 1,4
 Logo após o lançamento do NuGet 1,4, encontramos alguns problemas que eram importantes para corrigir.
 O número de versão específico desta atualização para 1,4 é 1.4.20615.9020.
 
-### <a name="bug-fixes"></a>Correções de Bug
-* [Problema 1220](http://nuget.codeplex.com/workitem/1220): Update-Package não é `install.ps1` executado / `uninstall.ps1` em todos os projetos quando há mais de um projeto
-* [Problema 1156](http://nuget.codeplex.com/workitem/1156): O Gerenciador de pacotes console travou no W2K3/XP (quando o PowerShell 2 não está instalado)
+### <a name="bug-fixes"></a>Correções de bugs
+* [Problema 1220](http://nuget.codeplex.com/workitem/1220): Update-Package não executa `install.ps1`/`uninstall.ps1` em todos os projetos quando há mais de um projeto
+* [Problema 1156](http://nuget.codeplex.com/workitem/1156): o Gerenciador de pacotes console paralisado no W2K3/XP (quando o PowerShell 2 não está instalado)

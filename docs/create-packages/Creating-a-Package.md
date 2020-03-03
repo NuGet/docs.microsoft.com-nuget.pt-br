@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12ecfb8374c43a04d57d32575556adebc991d053
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610698"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230948"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Criar um pacote usando a CLI nuget.exe
 
@@ -63,7 +63,7 @@ Propriedades necessárias:
 
 Propriedades opcionais comuns:
 
-- Notas de Versão
+- Notas de versão
 - Informações de direitos autorais
 - Uma breve descrição para a [Interface do usuário do Gerenciador de Pacotes no Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - Uma identificação de localidade
@@ -77,7 +77,7 @@ A seguir está um arquivo `.nuspec` típico (mas fictício), com os comentários
 
 ```xml
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- The identifier that must be unique within the hosting gallery -->
         <id>Contoso.Utility.UsefulStuff</id>
@@ -177,16 +177,16 @@ A vantagem dessa abordagem é que você não precisa especificar no manifesto qu
 
 As convenções de pasta são as seguintes:
 
-| Pasta | Descrição | Ação após a instalação do pacote |
+| Pasta | DESCRIÇÃO | Ação após a instalação do pacote |
 | --- | --- | --- |
 | (raiz) | Local para leiame.txt | O Visual Studio exibe um arquivo Leiame.txt na raiz do pacote quando este é instalado. |
 | lib/{tfm} | Arquivos de assembly (`.dll`), documentação (`.xml`) e símbolo (`.pdb`) para TFM (Moniker de Estrutura de Destino) | Os assemblies são adicionados como referências para a compilação e o runtime também; `.xml` e `.pdb` são copiados para as pastas do projeto. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md) para ver a criação de subpastas específicas de destino da estrutura. |
 | ref/{tfm} | Arquivos de assembly (`.dll`) e símbolo (`.pdb`) para TFM (Moniker de Estrutura de Destino) | Assemblies são adicionados como referências apenas para o tempo de compilação, portanto, nada será copiado para a pasta lixeira do projeto. |
 | runtimes | Arquivos de assembly específico de arquitetura (`.dll`), símbolo (`.pdb`) e recurso nativo (`.pri`) | Assemblies são adicionados como referências apenas para o runtime. Outros arquivos são copiados para as pastas do projeto. Deve sempre haver um assembly específico (TFM) `AnyCPU` correspondente na pasta `/ref/{tfm}` para oferecer o assembly de tempo de compilação correspondente. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md). |
-| conteúdo | Arquivos arbitrários | O conteúdo é copiado para a raiz do projeto. Pense na pasta **content** como a raiz do aplicativo de destino que, enfim, consome o pacote. Para fazer o pacote adicionar uma imagem à pasta */imagens* do aplicativo, coloque-o na pasta *content/images* do pacote. |
-| build | Arquivos `.targets` e `.props` do MSBuild *(3.x+)* | Inserido automaticamente no projeto. |
-| buildMultiTargeting | Arquivos `.targets` e `.props` do MSBuild *(4.0+)* para direcionamento entre estruturas | Inserido automaticamente no projeto. |
-| buildTransitive | Arquivos `.targets` e `.props` do MSBuild *(5.0+)* que fluem para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Inserido automaticamente no projeto. |
+| content | Arquivos arbitrários | O conteúdo é copiado para a raiz do projeto. Pense na pasta **content** como a raiz do aplicativo de destino que, enfim, consome o pacote. Para fazer o pacote adicionar uma imagem à pasta */imagens* do aplicativo, coloque-o na pasta *content/images* do pacote. |
+| compilar | Arquivos *e* do MSBuild `.targets`(3.x+)`.props` | Inserido automaticamente no projeto. |
+| buildMultiTargeting | Arquivos *e* do MSBuild `.targets`(4.0+)`.props` para direcionamento entre estruturas | Inserido automaticamente no projeto. |
+| buildTransitive | Arquivos *e* do MSBuild `.targets`(5.0+)`.props` que fluem para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Inserido automaticamente no projeto. |
 | ferramentas | Scripts e programas do Powershell acessíveis do Console do Gerenciador de Pacotes | A pasta `tools` é adicionada à variável de ambiente `PATH` somente para o Console do Gerenciador de Pacotes (especificamente, *não* para o `PATH` conforme definido para MSBuild ao criar o projeto). |
 
 Como a estrutura de pastas pode conter qualquer número de assemblies para uma infinidade de estruturas de destino, esse método é necessário ao criar pacotes compatíveis com várias estruturas.
@@ -286,7 +286,7 @@ Para especificar diretamente os arquivos a serem incluídos no pacote, use o nó
 
 ```xml
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
     <!-- ... -->
     </metadata>
@@ -344,7 +344,7 @@ Em seguida, no arquivo `.nuspec`, faça referência a esses arquivos no nó `<fi
 
 Incluindo os arquivos de propriedades e de destinos do MSBuild em um pacote [introduzidos com o NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), portanto é recomendado adicionar o atributo `minClientVersion="2.5"` ao elemento `metadata` para indicar a versão mínima necessária do cliente NuGet para consumir o pacote.
 
-Quando o NuGet instala um pacote com arquivos `\build`, ele adiciona elementos `<Import>` do MSBuild ao arquivo de projeto que aponta para os arquivos `.targets` e `.props`. (`.props` é adicionado na parte superior do arquivo de projeto; `.targets` é adicionado na parte inferior.) Um elemento `<Import>` de MSBuild condicional separado é adicionado para cada estrutura de destino.
+Quando o NuGet instala um pacote com arquivos `\build`, ele adiciona elementos `<Import>` do MSBuild ao arquivo de projeto que aponta para os arquivos `.targets` e `.props`. (`.props` é adicionado na parte superior do arquivo de projeto; `.targets` é adicionado na parte inferior.) Um elemento `<Import>` condicional do MSBuild separado é adicionado para cada estrutura de destino.
 
 É possível colocar os arquivos `.props` e `.targets` do MSBuild na pasta `\buildMultiTargeting` para direcionamento entre estruturas. Durante a instalação do pacote, o NuGet adiciona elementos `<Import>` correspondentes ao arquivo de projeto contanto que a estrutura de destino não esteja definida (a propriedade `$(TargetFramework)` do MSBuild deve estar vazia).
 
@@ -434,4 +434,4 @@ Você também poderá estender os recursos do seu pacote ou dar suporte a outros
 Por fim, há tipos de pacote adicionais a serem considerados:
 
 - [Pacotes nativos](../guides/native-packages.md)
-- [Pacotes de Símbolo](../create-packages/symbol-packages-snupkg.md)
+- [Pacotes de símbolo](../create-packages/symbol-packages-snupkg.md)

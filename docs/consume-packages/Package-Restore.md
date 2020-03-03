@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
-ms.translationtype: HT
+ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999978"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231196"
 ---
 # <a name="restore-packages-using-package-restore"></a>Restaurar pacotes usando a Restauração de Pacote
 
@@ -120,6 +120,17 @@ Para habilitar ou desabilitar a Restauração de Pacote para todos os usuários 
 > [!Important]
 > Se você editar as configurações de `packageRestore` diretamente em `nuget.config`, reinicie o Visual Studio para que a caixa de diálogo **Opções** mostre os valores atuais.
 
+### <a name="choose-default-package-management-format"></a>Escolher formato de gerenciamento de pacotes padrão
+
+![Controlar o formato de gerenciamento de pacotes padrão, embora as opções do Gerenciador de pacotes NuGet](media/Restore-02-PackageFormatOptions.png)
+
+O NuGet tem dois formatos nos quais um projeto pode usar pacotes: [`PackageReference`](package-references-in-project-files.md) e [`packages.config`](../reference/packages-config.md). O formato padrão pode ser selecionado na lista suspensa no cabeçalho **Gerenciamento de pacotes** . Uma opção a ser solicitada quando o primeiro pacote é instalado em um projeto também está disponível.
+
+> [!Note]
+> Se um projeto não oferecer suporte aos dois formatos de gerenciamento de pacote, o formato de gerenciamento de pacote usado será o que é compatível com o projeto e, portanto, pode não ser o padrão definido nas opções. Além disso, o NuGet não solicitará seleção na instalação do primeiro pacote, mesmo se a opção estiver selecionada na janela Opções.
+>
+> Se o console do Gerenciador de pacotes for usado para instalar o primeiro pacote em um projeto, o NuGet não solicitará a seleção de formato, mesmo que a opção esteja selecionada na janela Opções.
+
 ## <a name="restore-using-the-dotnet-cli"></a>Restaurar usando a CLI do dotnet
 
 [!INCLUDE [restore-dotnet-cli](includes/restore-dotnet-cli.md)]
@@ -132,7 +143,7 @@ Para habilitar ou desabilitar a Restauração de Pacote para todos os usuários 
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
 
 > [!IMPORTANT]
-> O comando `restore` não modifica um arquivo de projeto ou *packages.config*. Para adicionar uma dependência, adicione um pacote por meio da interface do usuário do Gerenciador de Pacotes ou do Console no Visual Studio ou modifique *packages.config* e, em seguida, execute `install` ou `restore`.
+> O comando `restore`não modifica um arquivo de projeto ou *Packages. config*. Para adicionar uma dependência, adicione um pacote por meio da interface do usuário ou console do Gerenciador de pacotes no Visual Studio ou modifique *Packages. config* e, em seguida, execute `install` ou `restore`.
 
 ## <a name="restore-using-msbuild"></a>Restaurar usando o MSBuild
 
@@ -193,7 +204,7 @@ Para evitar o uso da pasta *global-packages*, siga um destes procedimentos:
 - Altere temporariamente a localização da pasta *global-packages* antes da operação de restauração usando um dos seguintes métodos:
   - Defina a variável de ambiente NUGET_PACKAGES para uma pasta diferente.
   - Crie um arquivo `NuGet.Config` que define `globalPackagesFolder` (se você estiver usando PackageReference) ou `repositoryPath` (se você estiver usando `packages.config`) em outra pasta. Para obter mais informações, confira [Definições de configuração](../reference/nuget-config-file.md#config-section).
-  - Somente no MSBuild: Especifique outra pasta com a propriedade `RestorePackagesPath`.
+  - Somente MSBuild: especifique uma pasta diferente com a propriedade `RestorePackagesPath`.
 
 Para evitar o uso do cache para origens HTTP, siga um destes procedimentos:
 
@@ -205,7 +216,7 @@ Para evitar o uso do cache para origens HTTP, siga um destes procedimentos:
 
 Para o NuGet 2.6 e anterior, havia suporte para uma restauração de pacote integrada ao MSBuild, mas isso não é mais verdade. Normalmente, ele era habilitado clicando com o botão direito do mouse em uma solução no Visual Studio e selecionando **Habilitar restauração de pacote do NuGet**. Se o seu projeto usa a restauração de pacote integrada do MSBuild preterida, migre para a restauração automática de pacote.
 
-Os projetos que usam a restauração de pacote integrada do MSBuild normalmente contêm uma pasta *.nuget* com três arquivos: *NuGet.config*, *nuget.exe* e *NuGet.targets*. A presença de um *NuGet.targets* determina se o NuGet continuará a usar a abordagem integrada do MSBuild, de modo que esse arquivo deve ser removido durante a migração.
+Os projetos que usam a restauração de pacote integrada do MSBuild normalmente contêm uma pasta *. NuGet* com três arquivos: *NuGet. config*, *NuGet. exe*e *NuGet. targets*. A presença de um *NuGet.targets* determina se o NuGet continuará a usar a abordagem integrada do MSBuild, de modo que esse arquivo deve ser removido durante a migração.
 
 Para migrar para restauração automática de pacote:
 
@@ -220,6 +231,6 @@ Para testar a restauração automática de pacote:
 
    A restauração automática de pacote deve baixar e instalar cada pacote de dependência, sem adicioná-los ao controle do código-fonte.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Confira [Solução de problemas de erros de restauração de pacote](package-restore-troubleshooting.md).

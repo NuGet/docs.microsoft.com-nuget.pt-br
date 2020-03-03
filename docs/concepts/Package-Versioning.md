@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610984"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230857"
 ---
 # <a name="package-versioning"></a>Controle de versão do pacote
 
@@ -22,19 +22,19 @@ Ao criar um pacote, você atribui um número de versão específico a um sufixo 
 Neste tópico:
 
 - [Noções básicas sobre versão](#version-basics), incluindo sufixos de pré-lançamento.
-- [Intervalos de versão e curingas](#version-ranges-and-wildcards)
+- [Intervalos de versão](#version-ranges)
 - [Números de versão normalizados](#normalized-version-numbers)
 
 ## <a name="version-basics"></a>Noções básicas sobre versão
 
-Um número de versão específico está no formato *Principal.Secundário.Patch [-Sufixo]* , em que os componentes possuem os seguintes significados:
+Um número de versão específico está no formato *Principal.Secundário.Patch [-Sufixo]*, em que os componentes possuem os seguintes significados:
 
 - *Principal*: alterações recentes
 - *Secundário*: novos recursos, mas compatível com versões anteriores
 - *Patch*: somente correções de bugs compatíveis com versões anteriores
 - *-Sufixo* (opcional): um hífen seguido por uma cadeia de caracteres denotando uma versão de pré-lançamento (seguindo a [convenção Controle de Versão Semântico ou SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
-**Disso**
+**Exemplos:**
 
     1.0.1
     6.11.1231
@@ -80,7 +80,7 @@ Determinadas semânticas do SemVer v2.0.0 não têm suporte em clientes mais ant
 Para nuget.org, um pacote será definido como um pacote SemVer v2.0.0 se qualquer uma das seguintes afirmações for verdadeira:
 
 - A versão do pacote é compatível com SemVer v2.0.0, mas não compatível com SemVer v1.0.0, conforme definido acima.
-- Qualquer um dos intervalos de versão de dependência do pacote tem uma versão mínima ou máxima que é compatível com SemVer v2.0.0, mas não compatível com SemVer v1.0.0, definida acima; por exemplo, *[1.0.0-alpha.1, )* .
+- Qualquer um dos intervalos de versão de dependência do pacote tem uma versão mínima ou máxima que é compatível com SemVer v2.0.0, mas não compatível com SemVer v1.0.0, definida acima; por exemplo, *[1.0.0-alpha.1, )*.
 
 Se você carregar um pacote específico do SemVer v2.0.0 para o nuget.org, o pacote ficará invisível para os clientes mais antigos e estará disponível apenas para os seguintes clientes do NuGet:
 
@@ -98,11 +98,11 @@ Clientes de terceiros:
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
-## <a name="version-ranges-and-wildcards"></a>Intervalos de versão e curingas
+## <a name="version-ranges"></a>Intervalos de versão
 
 Ao se referir a dependências de pacote, o NuGet oferece suporte ao uso de notação de intervalo para especificar intervalos de versão, resumidos da seguinte forma:
 
-| Notation | Regra aplicada | Descrição |
+| Notation | Regra aplicada | DESCRIÇÃO |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | Versão mínima, inclusiva |
 | (1.0,) | x > 1.0 | Versão mínima, exclusiva |
@@ -112,9 +112,9 @@ Ao se referir a dependências de pacote, o NuGet oferece suporte ao uso de nota�
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Intervalo exato, inclusivo |
 | (1.0,2.0) | 1.0 < x < 2.0 | Intervalo exato, exclusivo |
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Versão mínima inclusiva e máxima exclusiva combinadas |
-| (1.0)    | inválidos | inválidos |
+| (1.0)    | inválido | inválido |
 
-Ao usar o formato PackageReference, o NuGet também oferece suporte ao uso de uma notação de curinga, \*, para as partes principal, secundária, patch e de sufixo de pré-lançamento do número. Não há suporte para caracteres curinga com o formato `packages.config`.
+Ao usar o formato PackageReference, o NuGet também dá suporte ao uso de uma notação flutuante, \*, para as partes de sufixo principal, secundária, patch e de pré-lançamento do número. Não há suporte para versões flutuantes com o formato `packages.config`.
 
 > [!Note]
 > Os intervalos de versão no PackageReference incluem versões de pré-lançamento. Por design, versões flutuantes não resolvem as versões de pré-lançamento, a menos que sejam aceitas. Para obter o status da solicitação de recurso relacionada, confira [Problema 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297).

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813553"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231286"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Início Rápido: Criar e publicar um pacote do NuGet usando o Visual Studio (.NET Standard somente no Windows)
 
@@ -19,7 +19,7 @@ Criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studi
 > [!Note]
 > Se você estiver usando o Visual Studio para Mac, confira [essas informações](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) sobre como criar um pacote NuGet ou use as [ferramentas de CLI do dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 1. Instale qualquer edição do Visual Studio 2019 de [visualstudio.com](https://www.visualstudio.com/) com uma carga de trabalho relacionada ao .NET Core.
 
@@ -82,7 +82,7 @@ namespace AppLogger
 
 ## <a name="run-the-pack-command"></a>Executar o comando pack
 
-1. Defina a configuração como **Versão**.
+1. Defina a configuração da solução como **Release**.
 
 1. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione o comando **Pack**:
 
@@ -132,7 +132,7 @@ Depois que você tiver um arquivo `.nupkg`, publique-o em nuget.org usando a CLI
 
 Selecione a guia para sua ferramenta CLI, **CLI do .NET Core** (CLI do dotnet) ou **NuGet** (CLI do nuget.exe).
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI do .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[CLI do .NET Core](#tab/netcore-cli)
 
 Esta etapa é a alternativa recomendada para usar o `nuget.exe`.
 
@@ -140,7 +140,7 @@ Antes de publicar o pacote, você deverá primeiro abrir uma linha de comando.
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
+# <a name="nuget"></a>[NuGet](#tab/nuget)
 
 Esta etapa é uma alternativa ao uso de `dotnet.exe`.
 
@@ -192,6 +192,12 @@ Isso incluirá um arquivo chamado `readme.txt` na raiz do pacote. O Visual Studi
 
 > [!Note]
 > Somente adicionar o readme.txt na raiz do projeto não resultará na inclusão dele no pacote resultante.
+
+## <a name="related-video"></a>Vídeo relacionado
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
+
+Encontre mais vídeos sobre o NuGet no [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e no [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="related-topics"></a>Tópicos relacionados
 

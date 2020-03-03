@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610609"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231338"
 ---
 # <a name="publishing-packages"></a>Publicando pacotes
 
@@ -65,6 +65,10 @@ Para efetuar push em pacotes para o nuget.org, você precisa usar o [nuget.exe v
     ```
 
     Esse comando armazena sua chave de API na configuração do NuGet para que você não precise repetir essa etapa novamente no mesmo computador.
+
+    > [!NOTE]
+    > A chave de API não é usada para autenticação com o feed particular. Consulte [`nuget sources` comando](../reference/cli-reference/cli-ref-sources.md) para gerenciar credenciais para autenticação com a origem.
+    > As chaves de API podem ser obtidas dos servidores NuGet individuais. Para criar e manange APIKeys para nuget.org, consulte [Publish-API-Key](../quickstart/includes/publish-api-key.md)
 
 1. Efetue push do pacote para a Galeria do NuGet usando o seguinte comando:
 

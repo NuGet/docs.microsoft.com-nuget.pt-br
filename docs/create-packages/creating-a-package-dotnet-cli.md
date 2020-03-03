@@ -3,14 +3,14 @@ title: Criar um pacote do NuGet usando a CLI dotnet
 description: Um guia detalhado para o processo de design e criação de um pacote do NuGet, incluindo os principais pontos de decisão como arquivos e controle de versão.
 author: karann-msft
 ms.author: karann
-ms.date: 07/09/2019
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: c198bb73f0e4f5a59826db905eaf4622fe8543bc
-ms.sourcegitcommit: 1799d4ac23c8aacee7498fdc72c40dd1646d267b
+ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77476250"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230563"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Criar um pacote do NuGet usando a CLI dotnet
 
@@ -67,6 +67,10 @@ Defina também as propriedades opcionais, como `Title`, `PackageDescription` e `
 > Para pacotes compilados para consumo público, preste atenção especial à propriedade **PackageTags**, à medida que as marcas ajudam outras pessoas a localizar o pacote e entender o que ele faz.
 
 Para obter detalhes sobre como declarar dependências e especificar números de versão, consulte [Referências de pacote em arquivos de projeto](../consume-packages/package-references-in-project-files.md) e [Controle de versão do pacote](../concepts/package-versioning.md). Também é possível extrair ativos de dependências diretamente no pacote usando os atributos `<IncludeAssets>` e `<ExcludeAssets>`. Para saber mais, confira [Controlar ativos de dependência](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+
+## <a name="add-an-optional-description-field"></a>Adicionar um campo de descrição opcional
+
+[!INCLUDE [add description to package](includes/add-description.md)]
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Escolher um identificador de pacote exclusivo e definir o número de versão
 

@@ -6,12 +6,12 @@ ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 746f7a421bd855b77716388b4af2fecbd5cf5a68
-ms.sourcegitcommit: 96aab8a1ad35eca0c029679d0158d9cc93d66009
+ms.openlocfilehash: e596fd5eb3de8ca4802d9b7b8e7cb623568e3dcb
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75676400"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231117"
 ---
 # <a name="sign-command-nuget-cli"></a>Commando Commando sign (NuGet CLI)
 
@@ -22,7 +22,7 @@ Assina todos os pacotes que correspondem ao primeiro argumento com um certificad
 > [!Note]
 > A assinatura de pacote ainda não tem suporte no .NET Core, em mono ou em plataformas que não são do Windows.
 
-## <a name="usage"></a>Medição de
+## <a name="usage"></a>Uso
 
 ```cli
 nuget sign <package(s)> [options]
@@ -32,7 +32,7 @@ onde `<package(s)>` é um ou mais arquivos de `.nupkg`.
 
 ## <a name="options"></a>Opções
 
-| Opção | Descrição |
+| Opção | DESCRIÇÃO |
 | --- | --- |
 | CertificateFingerprint | Especifica a impressão digital SHA-1 do certificado usado para pesquisar um repositório de certificados local para o certificado. |
 | CertificatePassword | Especifica a senha do certificado, se necessário. Se um certificado for protegido por senha, mas nenhuma senha for fornecida, o comando solicitará uma senha em tempo de execução, a menos que a opção-não interativa seja passada. |
@@ -42,11 +42,11 @@ onde `<package(s)>` é um ou mais arquivos de `.nupkg`.
 | CertificateSubjectName | Especifica o nome da entidade do certificado usado para pesquisar um repositório de certificados local para o certificado.  A pesquisa é uma comparação de cadeias de caracteres que não diferencia maiúsculas de minúsculas usando o valor fornecido, que encontrará todos os certificados com o nome da entidade que contém essa cadeia de caracteres, independentemente de outros valores de entidade.  O repositório de certificados pode ser especificado por opções-CertificateStoreName e-CertificateStoreLocation. |
 | ConfigFile | O arquivo de configuração do NuGet a ser aplicado. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) será usado.|
 | ForceEnglishOutput | Força o NuGet. exe a ser executado usando uma cultura invariável baseada em inglês. |
-| HashAlgorithm | Algoritmo de hash a ser usado para assinar o pacote. O padrão é SHA256. |
+| HashAlgorithm | Algoritmo de hash a ser usado para assinar o pacote. O padrão é SHA256. Os valores possíveis são SHA256, SHA384 e SHA512. |
 | Ajuda | Exibe informações de ajuda para o comando. |
 | NonInteractive | Suprime prompts de entrada ou confirmações do usuário. |
 | OutputDirectory | Especifica o diretório em que o pacote assinado deve ser salvo. Por padrão, o pacote original é substituído pelo pacote assinado. |
-| Substituir | Alterne para indicar se a assinatura atual deve ser substituída. Por padrão, o comando falhará se o pacote já tiver uma assinatura. |
+| Overwrite | Alterne para indicar se a assinatura atual deve ser substituída. Por padrão, o comando falhará se o pacote já tiver uma assinatura. |
 | Timestamper | URL para um servidor de carimbo de data/hora RFC 3161. |
 | TimestampHashAlgorithm | Algoritmo de hash a ser usado pelo servidor de carimbo de data/hora RFC 3161. O padrão é SHA256. |
 | Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhado*. |
