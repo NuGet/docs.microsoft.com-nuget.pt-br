@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
 ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230779"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428719"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Autenticando feeds com provedores de credenciais NuGet. exe
 
@@ -45,7 +45,7 @@ Um provedor deve fazer o seguinte:
 
 ### <a name="input-parameters"></a>Parâmetros de entrada
 
-| Parâmetro/opção |DESCRIÇÃO|
+| Parâmetro/opção |Descrição|
 |----------------|-----------|
 | URI {Value} | O URI de origem do pacote que requer credenciais.|
 | NonInteractive | Se estiver presente, o provedor não emitirá prompts interativos. |
@@ -54,15 +54,15 @@ Um provedor deve fazer o seguinte:
 
 ### <a name="exit-codes"></a>Códigos de saída
 
-| Código |Result | DESCRIÇÃO |
+| Código |Resultado | Descrição |
 |----------------|-----------|-----------|
-| 0 | Sucesso | As credenciais foram adquiridas com êxito e foram gravadas em stdout.|
+| 0 | Êxito | As credenciais foram adquiridas com êxito e foram gravadas em stdout.|
 | 1 | ProviderNotApplicable | O provedor atual não fornece credenciais para o URI fornecido.|
 | 2 | Falha | O provedor é o provedor correto para o URI fornecido, mas não pode fornecer credenciais. Nesse caso, o NuGet. exe não tentará novamente a autenticação e falhará. Um exemplo típico é quando um usuário cancela um logon interativo. |
 
 ### <a name="standard-output"></a>Saída padrão
 
-| Propriedade |Observações|
+| Propriedade |{1&gt;Observações&lt;1}|
 |----------------|-----------|
 | Nome de Usuário | Nome de usuário para solicitações autenticadas.|
 | Senha | Senha para solicitações autenticadas.|

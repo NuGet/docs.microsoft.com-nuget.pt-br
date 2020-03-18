@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231196"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428740"
 ---
 # <a name="restore-packages-using-package-restore"></a>Restaurar pacotes usando a Restauração de Pacote
 
@@ -64,7 +64,7 @@ A Restauração de Pacote ocorre automaticamente quando você cria um projeto co
 
    Para projetos com estilo diferente do SDK, selecione primeiro **Permitir que o NuGet baixe os pacotes ausentes** para habilitar a opção de restauração automática.
 
-1. Compile o projeto.
+1. Crie o projeto.
 
    Se um ou mais pacotes individuais ainda não estiverem instalados corretamente, o **Gerenciador de Soluções** mostrará um ícone de erro. Clique com o botão direito do mouse e selecione **Gerenciar Pacotes NuGet** e use o **Gerenciador de Pacotes** para desinstalar e reinstalar os pacotes afetados. Para obter mais informações, confira [Reinstalar e atualizar pacotes](../consume-packages/reinstalling-and-updating-packages.md)
 
@@ -231,6 +231,6 @@ Para testar a restauração automática de pacote:
 
    A restauração automática de pacote deve baixar e instalar cada pacote de dependência, sem adicioná-los ao controle do código-fonte.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Confira [Solução de problemas de erros de restauração de pacote](package-restore-troubleshooting.md).

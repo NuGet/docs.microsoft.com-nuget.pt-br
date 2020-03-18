@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 940582d5173f5a53dcd04cf1258fc02a2439af4e
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825288"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428712"
 ---
 # <a name="nuget-25-release-notes"></a>Notas de versão do NuGet 2,5
 
@@ -43,14 +43,14 @@ Gostaríamos de agradecer aos seguintes colaboradores externos por suas contribu
 10. [Maxime Brugidou](https://www.codeplex.com/site/users/view/brugidou) ([@brugidou](https://twitter.com/brugidou))
      - [#936](https://nuget.codeplex.com/workitem/936) -tratar dependências do projeto ao empacotar
 11. [Xavier de descusto](https://www.codeplex.com/site/users/view/XavierDecoster) ([@XavierDecoster](https://twitter.com/xavierdecoster))
-     - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) -suporte senha com texto não criptografado ao armazenar credenciais de origem do pacote em arquivos de nuget.cofig
+     - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) -dar suporte à senha de texto não criptografado ao armazenar as credenciais de origem do pacote em arquivos NuGet. cofig
 12. [James Manning Publications](http://www.codeplex.com/site/users/view/jmanning) ([@manningj](https://twitter.com/manningj))
-     - [#3190](http://nuget.codeplex.com/workitem/3190), [#3191](http://nuget.codeplex.com/workitem/3191) -descrição de Ajuda do Get-Package corrigir
+     - [#3190](http://nuget.codeplex.com/workitem/3190), descrição de ajuda do Get-Package do [#3191](http://nuget.codeplex.com/workitem/3191) -Fix
 
 Também apreciamos os seguintes indivíduos para encontrar bugs com o NuGet 2,5 Beta/RC que foram aprovados e corrigidos antes da versão final:
 
 1. [Tony parede](https://www.codeplex.com/site/users/view/CodeChief) ([@CodeChief](https://twitter.com/codechief))
-    - [#3200](https://nuget.codeplex.com/workitem/3200) - MSTest dividido com mais recente NuGet 2.4 e 2.5 compilações
+    - [#3200](https://nuget.codeplex.com/workitem/3200) -MSTest rompido com as compilações mais recentes do NuGet 2,4 e 2,5
 
 ## <a name="notable-features-in-the-release"></a>Recursos notáveis na versão
 

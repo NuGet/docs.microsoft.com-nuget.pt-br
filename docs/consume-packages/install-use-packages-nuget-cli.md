@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488826"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428684"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Gerenciar pacotes usando a CLI do nuget.exe
 
@@ -23,7 +23,7 @@ A CLI `nuget.exe` destina-se a seu projeto .NET Framework e a projetos no estilo
 
 Este artigo mostra o uso básico de alguns dos comandos mais comuns da CLI `nuget.exe`. Para a maioria desses comandos, a ferramenta CLI procura um arquivo de projeto no diretório atual, a menos que um arquivo de projeto seja especificado no comando. Para obter uma lista completa de comandos e os argumentos que podem ser usados, confira [Referência da CLI do nuget.exe](../reference/nuget-exe-cli-reference.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Instale a CLI do `nuget.exe` baixando-a de [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), salvando o arquivo `.exe` em uma pasta adequada e adicionando pasta a variável de ambiente PATH.
 

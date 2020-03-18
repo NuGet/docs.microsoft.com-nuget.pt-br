@@ -7,17 +7,17 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
 ms.openlocfilehash: aacf56a5dc5af9abf6f60d42bc7fd530a128d0d8
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419838"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428705"
 ---
 # <a name="nuget-server-api"></a>API do servidor NuGet
 
 A API do servidor NuGet é um conjunto de pontos de extremidade HTTP que podem ser usados para baixar pacotes, buscar metadados, publicar novos pacotes e executar a maioria das outras operações disponíveis nos clientes NuGet oficiais.
 
-Essa API é usada pelo cliente NuGet no Visual Studio, NuGet. exe e a CLI do .net para executar operações [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)do NuGet, como a pesquisa na interface do usuário do Visual Studio e. [`nuget.exe push`](../reference/cli-reference/cli-ref-push.md)
+Essa API é usada pelo cliente NuGet no Visual Studio, NuGet. exe e a CLI do .NET para executar operações do NuGet, como [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), Pesquisar na interface do usuário do Visual Studio e [`nuget.exe push`](../reference/cli-reference/cli-ref-push.md).
 
 Observe que, em alguns casos, o nuget.org tem requisitos adicionais que não são impostos por outras origens de pacote. Essas diferenças são documentadas pelos [protocolos NuGet.org](nuget-protocols.md).
 
@@ -37,7 +37,7 @@ Para obter mais informações sobre o índice de serviço, consulte [sua referê
 
 A API é a versão 3 do protocolo HTTP do NuGet. Esse protocolo é, às vezes, chamado de "API v3". Esses documentos de referência irão se referir a essa versão do protocolo simplesmente como "a API".
 
-A versão do esquema de índice de serviço é `version` indicada pela propriedade no índice de serviço. A API determina que a cadeia de caracteres de versão tem um número de `3`versão principal de. Como alterações não significativas são feitas no esquema de índice de serviço, a versão secundária da cadeia de caracteres de versão será aumentada.
+A versão do esquema de índice de serviço é indicada pela propriedade `version` no índice de serviço. A API determina que a cadeia de caracteres de versão tem um número de versão principal de `3`. Como alterações não significativas são feitas no esquema de índice de serviço, a versão secundária da cadeia de caracteres de versão será aumentada.
 
 Os clientes mais antigos (como NuGet. exe 2. x) não dão suporte à API v3 e só oferecem suporte à API v2 mais antiga, que não está documentada aqui.
 
@@ -49,7 +49,7 @@ Alterações de protocolo não separáveis foram feitas na API desde que ela foi
 
 O **índice de serviço** descreve uma variedade de recursos. O conjunto atual de recursos com suporte é o seguinte:
 
-Nome do recurso                                                        | Necessária | Descrição
+Nome do recurso                                                        | Obrigatório | Descrição
 -------------------------------------------------------------------- | -------- | -----------
 [Catálogo](catalog-resource.md)                                       | no       | Registro completo de todos os eventos de pacote.
 [PackageBaseAddress](package-base-address-resource.md)               | sim      | Obter conteúdo do pacote (. nupkg).
@@ -67,7 +67,7 @@ Em geral, todos os dados não binários retornados por um recurso de API são se
 No futuro, à medida que o protocolo evolui, novas propriedades podem ser adicionadas às respostas JSON. Para que o cliente seja à prova de obsolescência, a implementação não deve assumir que o esquema de resposta é final e não pode incluir dados adicionais. Todas as propriedades que a implementação não entende devem ser ignoradas.
 
 > [!Note]
-> Quando uma fonte não implementa `SearchAutocompleteService` nenhum comportamento de preenchimento automático deve ser desabilitado normalmente. Quando `ReportAbuseUriTemplate` o não é implementado, o cliente do NuGet oficial volta para a URL de abuso de relatório do NuGet. org (acompanhado pelo [NuGet/Home # 4924](https://github.com/NuGet/Home/issues/4924)). Outros clientes podem optar por simplesmente não mostrar uma URL de abuso de relatório para o usuário.
+> Quando uma origem não implementa `SearchAutocompleteService` qualquer comportamento de preenchimento automático deve ser desabilitado normalmente. Quando `ReportAbuseUriTemplate` não é implementado, o cliente do NuGet oficial volta para a URL de abuso de relatório do NuGet. org (acompanhado pelo [NuGet/Home # 4924](https://github.com/NuGet/Home/issues/4924)). Outros clientes podem optar por simplesmente não mostrar uma URL de abuso de relatório para o usuário.
 
 ### <a name="undocumented-resources-on-nugetorg"></a>Recursos não documentados no nuget.org
 
@@ -76,9 +76,9 @@ O índice de serviço v3 em nuget.org tem alguns recursos que não estão docume
 Primeiro, não Documentamos os recursos usados como um detalhe de implementação de nuget.org. O `SearchGalleryQueryService` se enquadra nessa categoria. O [NuGetGallery](https://github.com/NuGet/NuGetGallery) usa esse recurso para delegar algumas consultas v2 (OData) ao nosso índice de pesquisa em vez de usar o banco de dados. Esse recurso foi introduzido por motivos de escalabilidade e não se destina ao uso externo.
 
 Em segundo lugar, não Documentamos os recursos que nunca foram enviados em uma versão RTM do cliente oficial.
-`PackageDisplayMetadataUriTemplate`e `PackageVersionDisplayMetadataUriTemplate` se enquadram nessa categoria.
+`PackageDisplayMetadataUriTemplate` e `PackageVersionDisplayMetadataUriTemplate` se enquadram nessa categoria.
 
-Em terceiro lugar, não Documentamos os recursos que estão firmemente acoplados com o protocolo v2, que em si é intencionalmente não documentado. O `LegacyGallery` recurso se enquadra nessa categoria. Esse recurso permite que um índice de serviço v3 aponte para uma URL de origem v2 correspondente. Este recurso dá suporte `nuget.exe list`ao.
+Em terceiro lugar, não Documentamos os recursos que estão firmemente acoplados com o protocolo v2, que em si é intencionalmente não documentado. O recurso `LegacyGallery` se enquadra nessa categoria. Esse recurso permite que um índice de serviço v3 aponte para uma URL de origem v2 correspondente. Este recurso dá suporte à `nuget.exe list`.
 
 Se um recurso não estiver documentado aqui, é *altamente* recomendável que você não faça uma dependência deles. Podemos remover ou alterar o comportamento desses recursos não documentados, o que pode interromper sua implementação de maneiras inesperadas.
 
@@ -90,8 +90,8 @@ Todos os carimbos de data/hora retornados pela API são UTC ou, de outra forma, 
 
 Verbo   | Use
 ------ | -----------
-OBTER    | Executa uma operação somente leitura, normalmente recuperando dados.
-HOME   | Busca os cabeçalhos de resposta para a solicitação `GET` correspondente.
+GET    | Executa uma operação somente leitura, normalmente recuperando dados.
+HEAD   | Busca os cabeçalhos de resposta para a solicitação de `GET` correspondente.
 PUT    | Cria um recurso que não existe ou, se existir, o atualiza. Alguns recursos podem não dar suporte à atualização.
 DELETE | Exclui ou deslista um recurso.
 
@@ -113,21 +113,21 @@ Código | Descrição
 500  | O serviço encontrou um erro inesperado.
 503  | O serviço está temporariamente indisponível.
 
-Qualquer `GET` solicitação feita a um ponto de extremidade de API pode retornar um redirecionamento http (301 ou 302). Os clientes devem lidar normalmente com esses redirecionamentos observando o `Location` cabeçalho e emitindo um subseqüente. `GET` A documentação referente a pontos de extremidade específicos não chamará explicitamente onde os redirecionamentos podem ser usados.
+Qualquer `GET` solicitação feita a um ponto de extremidade de API pode retornar um redirecionamento HTTP (301 ou 302). Os clientes devem lidar normalmente com esses redirecionamentos observando o cabeçalho `Location` e emitindo uma `GET`subsequente. A documentação referente a pontos de extremidade específicos não chamará explicitamente onde os redirecionamentos podem ser usados.
 
 No caso de um código de status de nível 500, o cliente pode implementar um mecanismo de repetição razoável. O cliente do NuGet oficial tenta novamente três vezes ao encontrar qualquer código de status de nível 500 ou erro de TCP/DNS.
 
 ## <a name="http-request-headers"></a>Cabeçalhos de solicitação HTTP
 
-Nome                     | Descrição
+{1&gt;Nome&lt;1}                     | Descrição
 ------------------------ | -----------
-X-NuGet-ApiKey           | Necessário para enviar por push e excluir, consulte [ `PackagePublish` recurso](package-publish-resource.md)
-X-NuGet-Client-Version   | Preterido e substituído por`X-NuGet-Protocol-Version`
+X-NuGet-ApiKey           | Necessário para envio por push e exclusão, consulte [`PackagePublish` recurso](package-publish-resource.md)
+X-NuGet-Client-Version   | **Preterido** e substituído por `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | Necessário em determinados casos apenas em nuget.org, consulte [protocolos NuGet.org](NuGet-Protocols.md)
 X-NuGet-Session-Id       | *Opcional*. Clientes NuGet v 4.7 + identificam solicitações HTTP que fazem parte da mesma sessão de cliente NuGet.
 
-O `X-NuGet-Session-Id` tem um único valor para todas as operações relacionadas a uma única restauração `PackageReference`no. Para outros cenários, como preenchimento automático e `packages.config` restauração, pode haver várias IDs de sessão diferentes devido ao modo como o código é fatorado.
+O `X-NuGet-Session-Id` tem um único valor para todas as operações relacionadas a uma única restauração no `PackageReference`. Para outros cenários, como preenchimento automático e `packages.config` restauração, pode haver várias IDs de sessão diferentes devido ao modo como o código é fatorado.
 
 ## <a name="authentication"></a>Autenticação
 
-A autenticação é mantida até a implementação da origem do pacote a ser definida. Para NuGet.org, somente o `PackagePublish` recurso requer autenticação por meio de um cabeçalho de chave de API especial. Consulte recurso para obter detalhes. [ `PackagePublish` ](package-publish-resource.md)
+A autenticação é mantida até a implementação da origem do pacote a ser definida. Para nuget.org, somente o recurso `PackagePublish` requer autenticação por meio de um cabeçalho de chave de API especial. Consulte [`PackagePublish` recurso](package-publish-resource.md) para obter detalhes.

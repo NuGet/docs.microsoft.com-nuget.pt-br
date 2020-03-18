@@ -6,11 +6,11 @@ ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380493"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429104"
 ---
 # <a name="nuget-cross-platform-plugins"></a>Plug-ins de plataforma cruzada do NuGet
 
@@ -27,7 +27,7 @@ A seguir, a descrição das combinações de cliente/estrutura dos plug-ins.
 | Ferramenta de cliente  | Framework |
 | ------------ | --------- |
 | Visual Studio | .NET Framework |
-| dotnet. exe | .NET Core |
+| dotnet.exe | .NET Core |
 | NuGet. exe | .NET Framework |
 | MSBuild. exe | .NET Framework |
 | NuGet. exe no mono | .NET Framework |
@@ -75,7 +75,7 @@ Cenários de CI/CD e usuários avançados podem usar variáveis de ambiente para
 - `NUGET_NETFX_PLUGIN_PATHS`-define os plug-ins que serão usados pelas ferramentas baseadas em .NET Framework (NuGet. exe/MSBuild. exe/Visual Studio). Tem precedência sobre `NUGET_PLUGIN_PATHS`. (Somente NuGet versão 5.3 +)
 - `NUGET_NETCORE_PLUGIN_PATHS`-define os plug-ins que serão usados pelas ferramentas baseadas no .NET Core (dotNet. exe). Tem precedência sobre `NUGET_PLUGIN_PATHS`. (Somente NuGet versão 5.3 +)
 - `NUGET_PLUGIN_PATHS`-define os plug-ins que serão usados para esse processo NuGet, prioridade preservada. Se essa variável de ambiente for definida, ela substituirá a descoberta baseada em convenção. Ignorado se uma das variáveis específicas do Framework for especificada.
--  Local do usuário, o local inicial do NuGet no `%UserProfile%/.nuget/plugins`. Esse local não pode ser substituído. Um diretório raiz diferente será usado para os plug-ins .NET Core e .NET Framework.
+-  Local do usuário, o local inicial do NuGet em `%UserProfile%/.nuget/plugins`. Esse local não pode ser substituído. Um diretório raiz diferente será usado para os plug-ins .NET Core e .NET Framework.
 
 | Framework | Local de descoberta raiz  |
 | ------- | ------------------------ |
@@ -124,13 +124,13 @@ A verificação de segurança e a instanciação dos plug-ins são dispendiosas.
 Para melhorar a experiência, o NuGet armazenará em cache as declarações de operação para a solicitação especificada. Esse cache é por plug-in com a chave do plug-in sendo o caminho do plug-in e a expiração desse cache de recursos é de 30 dias. 
 
 O cache está localizado em `%LocalAppData%/NuGet/plugins-cache` e substituído pela variável de ambiente `NUGET_PLUGINS_CACHE_PATH`. Para limpar esse [cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md), é possível executar o comando locals com a opção `plugins-cache`.
-A opção `all` locals também excluirá o cache de plug-ins. 
+A opção `all` locais agora também excluirá o cache de plug-ins. 
 
 ## <a name="protocol-messages-index"></a>Índice de mensagens de protocolo
 
 Mensagens da versão *1.0.0* do protocolo:
 
-1.  Fechar
+1.  Feche
     * Direção da solicitação: plugin > do NuGet
     * A solicitação não conterá nenhuma carga
     * Nenhuma resposta é esperada.  A resposta correta é para que o processo do plug-in seja fechado imediatamente.
@@ -196,7 +196,7 @@ Mensagens da versão *1.0.0* do protocolo:
         * um código de resposta que indica o resultado da operação
         * um hash de arquivo de pacote usando o algoritmo de hash solicitado se a operação foi bem-sucedida
 
-8.  Obter versões do pacote
+8.  Obter versões de pacote
     * Direção da solicitação: plugin > do NuGet
     * A solicitação conterá:
         * a ID do pacote
@@ -222,7 +222,7 @@ Mensagens da versão *1.0.0* do protocolo:
          * um código de resposta que indica o resultado da operação
          * a versão do protocolo negociado se a operação foi bem-sucedida.  Uma falha resultará no encerramento do plug-in.
 
-11.  Initialize
+11.  Inicializar
      * Direção da solicitação: plugin > do NuGet
      * A solicitação conterá:
          * a versão da ferramenta do cliente NuGet
@@ -254,7 +254,7 @@ Mensagens da versão *1.0.0* do protocolo:
      * Uma resposta conterá:
          * um código de resposta que indica o resultado da operação
 
-15.  Definir credenciais
+15.  Definir as credenciais
      * Direção da solicitação: plugin > do NuGet
      * A solicitação conterá:
          * o local do repositório de origem do pacote
@@ -290,12 +290,12 @@ Mensagens de *2.0.0* de versão de protocolo
 
 * Direção da solicitação: plugin > do NuGet
 * A solicitação conterá:
-    * URI
-    * isrepetir
-    * Não interativa
+    * Uri
+    * Isrepetir
+    * NonInteractive
     * Canshowdialog
 * Uma resposta conterá
-    * Nome de usuário
+    * Nome de Usuário
     * Senha
     * Mensagem
     * Lista de tipos de autenticação

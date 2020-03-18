@@ -7,11 +7,11 @@ ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
 ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230857"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428831"
 ---
 # <a name="package-versioning"></a>Controle de versão do pacote
 
@@ -27,7 +27,7 @@ Neste tópico:
 
 ## <a name="version-basics"></a>Noções básicas sobre versão
 
-Um número de versão específico está no formato *Principal.Secundário.Patch [-Sufixo]*, em que os componentes possuem os seguintes significados:
+Um número de versão específico está no formato *Principal.Secundário.Patch [-Sufixo]* , em que os componentes possuem os seguintes significados:
 
 - *Principal*: alterações recentes
 - *Secundário*: novos recursos, mas compatível com versões anteriores
@@ -80,7 +80,7 @@ Determinadas semânticas do SemVer v2.0.0 não têm suporte em clientes mais ant
 Para nuget.org, um pacote será definido como um pacote SemVer v2.0.0 se qualquer uma das seguintes afirmações for verdadeira:
 
 - A versão do pacote é compatível com SemVer v2.0.0, mas não compatível com SemVer v1.0.0, conforme definido acima.
-- Qualquer um dos intervalos de versão de dependência do pacote tem uma versão mínima ou máxima que é compatível com SemVer v2.0.0, mas não compatível com SemVer v1.0.0, definida acima; por exemplo, *[1.0.0-alpha.1, )*.
+- Qualquer um dos intervalos de versão de dependência do pacote tem uma versão mínima ou máxima que é compatível com SemVer v2.0.0, mas não compatível com SemVer v1.0.0, definida acima; por exemplo, *[1.0.0-alpha.1, )* .
 
 Se você carregar um pacote específico do SemVer v2.0.0 para o nuget.org, o pacote ficará invisível para os clientes mais antigos e estará disponível apenas para os seguintes clientes do NuGet:
 
@@ -102,7 +102,7 @@ Clientes de terceiros:
 
 Ao se referir a dependências de pacote, o NuGet oferece suporte ao uso de notação de intervalo para especificar intervalos de versão, resumidos da seguinte forma:
 
-| Notation | Regra aplicada | DESCRIÇÃO |
+| Notation | Regra aplicada | Descrição |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | Versão mínima, inclusiva |
 | (1.0,) | x > 1.0 | Versão mínima, exclusiva |
@@ -112,7 +112,7 @@ Ao se referir a dependências de pacote, o NuGet oferece suporte ao uso de nota�
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Intervalo exato, inclusivo |
 | (1.0,2.0) | 1.0 < x < 2.0 | Intervalo exato, exclusivo |
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Versão mínima inclusiva e máxima exclusiva combinadas |
-| (1.0)    | inválido | inválido |
+| (1.0)    | invalid | invalid |
 
 Ao usar o formato PackageReference, o NuGet também dá suporte ao uso de uma notação flutuante, \*, para as partes de sufixo principal, secundária, patch e de pré-lançamento do número. Não há suporte para versões flutuantes com o formato `packages.config`.
 

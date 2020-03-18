@@ -7,11 +7,11 @@ ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
 ms.openlocfilehash: 19e7934e2f249056c532369fa5e8ee6e35cc8086
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230597"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429097"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -82,7 +82,7 @@ Uma lista separada por vírgulas de autores de pacotes, que correspondem aos nom
 
 ### <a name="optional-metadata-elements"></a>Elementos de metadados opcionais
 
-#### <a name="owners"></a>owners
+#### <a name="owners"></a>proprietários
 Uma lista separada por vírgulas dos criadores de pacote usando nomes de perfil em nuget.org. Geralmente, essa é a mesma lista que no `authors`e é ignorada ao carregar o pacote em nuget.org. Consulte [Gerenciando proprietários de pacotes em NuGet.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 
 #### <a name="projecturl"></a>projectUrl
@@ -95,18 +95,18 @@ Uma URL para a home page do pacote, geralmente mostrada em exibições de interf
 Uma URL para a licença do pacote, geralmente mostrada em interfaces do tipo nuget.org.
 
 #### <a name="license"></a>license
-Uma expressão de licença SPDX ou um caminho para um arquivo de licença dentro do pacote, geralmente mostrado em interfaces de grupo como nuget.org. Se você estiver licenciando o pacote em uma licença comum, como MIT ou BSD-2-cláusula, use o [identificador de licença SPDX](https://spdx.org/licenses/)associado. Por exemplo: 
+Uma expressão de licença SPDX ou um caminho para um arquivo de licença dentro do pacote, geralmente mostrado em interfaces de grupo como nuget.org. Se você estiver licenciando o pacote em uma licença comum, como MIT ou BSD-2-cláusula, use o [identificador de licença SPDX](https://spdx.org/licenses/)associado. Por exemplo:
 
 `<license type="expression">MIT</license>`
 
 > [!Note]
 > O NuGet.org só aceita expressões de licença que são aprovadas pela iniciativa de software livre ou pela base de softwares gratuita.
 
-Se o pacote for licenciado sob várias licenças comuns, você poderá especificar uma licença composta usando a [sintaxe de expressão SPDX versão 2,0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Por exemplo: 
+Se o pacote for licenciado sob várias licenças comuns, você poderá especificar uma licença composta usando a [sintaxe de expressão SPDX versão 2,0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Por exemplo:
 
 `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-Se você usar uma licença personalizada que não é suportada por expressões de licença, poderá empacotar um `.txt` ou `.md` arquivo com o texto da licença. Por exemplo: 
+Se você usar uma licença personalizada que não é suportada por expressões de licença, poderá empacotar um `.txt` ou `.md` arquivo com o texto da licença. Por exemplo:
 
 ```xml
 <package>
@@ -205,9 +205,9 @@ Uma lista delimitada por espaço de marcas e palavras-chave que descrevem o paco
 *(3.3 ou superior)* Somente para uso interno do NuGet.
 
 #### <a name="repository"></a>repository
-Metadados de repositório, que consistem em quatro atributos opcionais: `type` e `url` *(4.0 +)* e `branch` e `commit` *(4.6 +)*. Esses atributos permitem mapear o `.nupkg` para o repositório que o criou, com o potencial de ser detalhado como o nome da ramificação individual e/ou confirmar o hash SHA-1 que criou o pacote. Essa deve ser uma URL disponível publicamente que pode ser invocada diretamente por um software de controle de versão. Ele não deve ser uma página HTML, pois isso é destinado ao computador. Para vincular à página do projeto, use o campo `projectUrl`, em vez disso.
+Metadados de repositório, que consistem em quatro atributos opcionais: `type` e `url` *(4.0 +)* e `branch` e `commit` *(4.6 +)* . Esses atributos permitem mapear o `.nupkg` para o repositório que o criou, com o potencial de ser detalhado como o nome da ramificação individual e/ou confirmar o hash SHA-1 que criou o pacote. Essa deve ser uma URL disponível publicamente que pode ser invocada diretamente por um software de controle de versão. Ele não deve ser uma página HTML, pois isso é destinado ao computador. Para vincular à página do projeto, use o campo `projectUrl`, em vez disso.
 
-Por exemplo: 
+Por exemplo:
 ```xml
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
@@ -318,15 +318,15 @@ O elemento `<dependencies>` dentro do `<metadata>` contém diversos elementos `<
 | `id` | (Obrigatório) A ID do pacote de dependência, como "EntityFramework" e "NUnit", que é o nome do pacote nuget.org mostrado em uma página do pacote. |
 | `version` | (Obrigatório) O intervalo de versões aceitáveis como uma dependência. Consulte [Controle de versão do pacote](../concepts/package-versioning.md#version-ranges) para ver a sintaxe exata. Não há suporte para versões flutuantes. |
 | include | Uma lista delimitada por vírgulas de marcas de inclusão/exclusão (veja abaixo) que indicam a dependência a ser incluída no pacote final. O valor padrão é `all`. |
-| exclude | Uma lista delimitada por vírgulas de marcas de inclusão/exclusão (veja abaixo) que indicam a dependência a ser excluída do pacote final. O valor padrão é `build,analyzers` que pode ser substituído. Mas os `content/ ContentFiles` também são excluídos implicitamente no pacote final que não pode ser substituído. Marcas especificadas com `exclude` têm precedência sobre aquelas especificadas com `include`. Por exemplo, `include="runtime, compile" exclude="compile"` é o mesmo que `include="runtime"`. |
+| excluir | Uma lista delimitada por vírgulas de marcas de inclusão/exclusão (veja abaixo) que indicam a dependência a ser excluída do pacote final. O valor padrão é `build,analyzers` que pode ser substituído. Mas os `content/ ContentFiles` também são excluídos implicitamente no pacote final que não pode ser substituído. Marcas especificadas com `exclude` têm precedência sobre aquelas especificadas com `include`. Por exemplo, `include="runtime, compile" exclude="compile"` é o mesmo que `include="runtime"`. |
 
 | Marca Incluir/Excluir | Pastas afetadas do destino |
 | --- | --- |
 | contentFiles | Conteúdo |
 | runtime | Runtime, Resources e FrameworkAssemblies |
-| compilar | lib |
+| compilar | {1&gt;lib&lt;1} |
 | compilar | build (objetos e destinos do MSBuild) |
-| nativa | nativa |
+| nativo | nativo |
 | none | Nenhuma pasta |
 | all | Todas as pastas |
 
@@ -461,7 +461,7 @@ Se você seguir as convenções descritas em [Criando um pacote](../create-packa
 > [!Important]
 > Quando um pacote é instalado em um projeto, o NuGet adiciona automaticamente as referências de assembly às DLLs do pacote, *excluindo* aquelas que são nomeados `.resources.dll` porque são considerados assemblies satélites. Por esse motivo, evite usar `.resources.dll` para arquivos que contêm código de pacote essencial.
 
-Para ignorar esse comportamento automático e controlar explicitamente quais arquivos são incluídos em um pacote, coloque uma elemento `<files>` como um filho de `<package>` (e um irmão de `<metadata>`), identificando cada arquivo com um elemento `<file>` separado. Por exemplo: 
+Para ignorar esse comportamento automático e controlar explicitamente quais arquivos são incluídos em um pacote, coloque uma elemento `<files>` como um filho de `<package>` (e um irmão de `<metadata>`), identificando cada arquivo com um elemento `<file>` separado. Por exemplo:
 
 ```xml
 <files>
@@ -702,7 +702,7 @@ O projeto do pacote deve estruturar o conteúdo usando o seguinte padrão:
 - `TxM` é qualquer moniker da estrutura de destino legal compatível com o NuGet (consulte [Estruturas de destino](../reference/target-frameworks.md)).
 - Qualquer estrutura de pasta pode ser acrescentada ao final dessa sintaxe.
 
-Por exemplo: 
+Por exemplo:
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml

@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
 ms.openlocfilehash: ddd1d163e18ed4ce1e7cbf41ed152acc40c1c423
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488777"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428880"
 ---
 # <a name="package-consumption-workflow"></a>Fluxo de trabalho de consumo do pacote
 
@@ -18,7 +18,7 @@ Entre o nuget.org e galerias de pacotes privadas que sua organização pode esta
 
 ![Fluxo de ir para uma origem de pacote, localizar um pacote, instalá-lo em um projeto, adicioná-lo usando uma instrução e chamá-lo para a API de pacote](media/Overview-01-GeneralFlow.png)
 
-\* _Somente Visual Studio e `dotnet.exe`. O comando `nuget install` não modifica arquivos de projeto ou o arquivo `packages.config`; as entradas precisam ser gerenciadas manualmente._
+\* _apenas o Visual Studio e o `dotnet.exe`. O comando `nuget install` não modifica arquivos de projeto ou o arquivo de `packages.config`; as entradas devem ser gerenciadas manualmente._
 
 Para obter mais detalhes, confira [Como localizar e escolher pacotes](../consume-packages/finding-and-choosing-packages.md) e [O que acontece quando um pacote é instalado?](../concepts/package-installation-process.md).
 
@@ -45,9 +45,9 @@ Por fim, o comportamento do NuGet é orientado por arquivos `Nuget.Config`. Vár
 
 Os pacotes NuGet são baixados e instalados por meio de um dos métodos descritos na tabela a seguir.
 
-| Ferramenta | DESCRIÇÃO |
+| Ferramenta | Descrição |
 | --- | --- |
 | [CLI do dotnet.exe](install-use-packages-dotnet-cli.md) | (Todas as plataformas) Ferramenta CLI para bibliotecas .NET Core e .NET Standard e projetos no estilo SDK direcionados ao .NET Framework (confira o [Atributo SDK](/dotnet/core/tools/csproj#additions)). Recupera o pacote identificado por \<package_name\> e adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências. |
-| Visual Studio | (Windows e Mac) Fornece uma interface do usuário por meio da qual você pode procurar, selecionar e instalar pacotes e suas dependências em um projeto a partir de uma fonte do pacote especificado. Adicione referências a pacotes instalados ao arquivo de projeto.<ul><li>[Instalar e gerenciar pacotes usando o Visual Studio](install-use-packages-visual-studio.md)</li><li>[Incluir um pacote NuGet ao seu projeto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| {1&gt;Visual Studio&lt;1} | (Windows e Mac) Fornece uma interface do usuário por meio da qual você pode procurar, selecionar e instalar pacotes e suas dependências em um projeto a partir de uma fonte do pacote especificado. Adicione referências a pacotes instalados ao arquivo de projeto.<ul><li>[Instalar e gerenciar pacotes usando o Visual Studio](install-use-packages-visual-studio.md)</li><li>[Incluir um pacote NuGet ao seu projeto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
 | [Console do Gerenciador de Pacotes (Visual Studio)](install-use-packages-powershell.md) | (Somente Windows) Recupera e instala o pacote identificado por \<package_name\> de uma fonte selecionada em um projeto especificado na solução, depois adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências. |
 | [CLI do nuget.exe](install-use-packages-nuget-cli.md) | (Todas as plataformas) Ferramenta CLI para bibliotecas .NET Framework e projetos no estilo não SDK direcionados a bibliotecas .NET Standard. Recupera o pacote identificado por \<package_name\> e expande seu conteúdo em uma pasta no diretório atual; também pode recuperar todos os pacotes listados em um arquivo `packages.config`. Também recupera e instala dependências, mas não altera arquivos de projeto ou `packages.config`. |

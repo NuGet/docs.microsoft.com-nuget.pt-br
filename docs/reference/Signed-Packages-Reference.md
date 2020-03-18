@@ -7,11 +7,11 @@ ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
 ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231247"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428677"
 ---
 # <a name="signed-packages"></a>Pacotes assinados
 
@@ -54,7 +54,7 @@ o nuget.org tem requisitos adicionais para aceitar um pacote assinado:
   - Não deve ser revogado no momento da assinatura. (Isso pode não ser knowable no momento do envio, portanto, o nuget.org periodicamente verifica novamente o status de revogação).
   
   
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
 
 - [Assinando pacotes NuGet](../create-packages/Sign-a-Package.md)
 - [Gerenciar os limites de confiança do pacote](../consume-packages/installing-signed-packages.md)

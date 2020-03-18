@@ -8,11 +8,11 @@ ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
 ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611105"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428950"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Instalar e gerenciar pacotes com o Console do Gerenciador de Pacotes no Visual Studio (PowerShell)
 

@@ -11,11 +11,11 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
 ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231001"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428691"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>Instalar e gerenciar pacotes no Visual Studio usando o Gerenciador de Pacotes do NuGet
 
@@ -28,7 +28,7 @@ A interface do usuário do Gerenciador de Pacotes do NuGet no Visual Studio no W
 
 ## <a name="find-and-install-a-package"></a>Encontrar e instalar um pacote
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** ou em um projeto e selecione **Gerenciar Pacotes do NuGet...**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** ou em um projeto e selecione **Gerenciar Pacotes do NuGet...** .
 
     ![Opção de menu Gerenciar Pacotes do NuGet](media/ManagePackagesUICommand.png)
 
@@ -48,7 +48,7 @@ A interface do usuário do Gerenciador de Pacotes do NuGet no Visual Studio no W
 
 ## <a name="uninstall-a-package"></a>Desinstalar um pacote
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** ou no projeto desejado e selecione **Gerenciar Pacotes do NuGet...**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** ou no projeto desejado e selecione **Gerenciar Pacotes do NuGet...** .
 1. Selecione a guia **Instalado**.
 1. Selecione o pacote a desinstalar (usando a pesquisa para filtrar a lista, se necessário) e selecione **Desinstalar**.
 
@@ -58,7 +58,7 @@ A interface do usuário do Gerenciador de Pacotes do NuGet no Visual Studio no W
 
 ## <a name="update-a-package"></a>Atualizar um pacote
 
-1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **referências** ou projeto desejado e selecione **gerenciar pacotes NuGet...**. (Em projetos de site, clique com o botão direito do mouse na pasta **bin** .)
+1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **referências** ou projeto desejado e selecione **gerenciar pacotes NuGet...** . (Em projetos de site, clique com o botão direito do mouse na pasta **bin** .)
 1. Selecione a guia **Atualizações** para ver os pacotes que têm atualizações disponíveis das origens de pacotes selecionadas. Selecione **Incluir pré-lançamento** para incorporar pacotes de pré-lançamento à lista de atualizações.
 1. Selecione o pacote a atualizar, escolha a versão desejada na lista suspensa à direita e selecione **Atualizar**.
 
@@ -79,7 +79,7 @@ A interface do usuário do Gerenciador de Pacotes do NuGet no Visual Studio no W
 
 O gerenciamento de pacotes para uma solução é um meio conveniente de trabalhar com vários projetos ao mesmo tempo.
 
-1. Selecione o comando no menu **Ferramentas > Gerenciador de Pacotes do NuGet > Gerenciar Pacotes do NuGet para Solução...** ou clique com o botão direito do mouse na solução e selecione **Gerenciar Pacotes do NuGet...**:
+1. Selecione o comando no menu **Ferramentas > Gerenciador de Pacotes do NuGet > Gerenciar Pacotes do NuGet para Solução...** ou clique com o botão direito do mouse na solução e selecione **Gerenciar Pacotes do NuGet...** :
 
     ![Gerenciar Pacotes do NuGet para a solução](media/ManagePackagesSolutionUICommand.png)
 
@@ -117,7 +117,7 @@ Para gerenciar origens de pacotes:
 
     ![Opções de Origens do Pacote](media/options.png)
 
-1. Para adicionar uma origem, selecione **+**, edite o nome, insira a URL ou o caminho no controle **Origem** e selecione **Atualizar**. A origem agora aparece na lista suspensa do seletor.
+1. Para adicionar uma origem, selecione **+** , edite o nome, insira a URL ou o caminho no controle **Origem** e selecione **Atualizar**. A origem agora aparece na lista suspensa do seletor.
 1. Para alterar uma origem de pacotes, selecione-a, faça as edições nas caixas **Nome** e **Origem** e selecione **Atualizar**.
 1. Para desabilitar uma origem de pacotes, desmarque a caixa à esquerda do nome na lista.
 1. Para remover uma origem de pacotes, selecione-a e, em seguida, selecione o botão **X**.

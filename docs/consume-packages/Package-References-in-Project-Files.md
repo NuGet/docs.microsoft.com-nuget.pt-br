@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230610"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428866"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
@@ -99,7 +99,7 @@ Você pode estar usando uma dependência puramente como uma estrutura de desenvo
 
 As seguintes marcas de metadados controlam ativos de dependência:
 
-| Marca | DESCRIÇÃO | Valor Padrão |
+| Marca | Descrição | Valor padrão |
 | --- | --- | --- |
 | IncludeAssets | Esses ativos serão consumidos | all |
 | ExcludeAssets | Esses ativos não serão consumidos | none |
@@ -107,16 +107,16 @@ As seguintes marcas de metadados controlam ativos de dependência:
 
 Os valores permitidos para essas marcas são os seguintes, com vários valores separados por ponto e vírgula, exceto com `all` e `none`, que devem aparecer sozinhos:
 
-| Valor | DESCRIÇÃO |
+| {1&gt;Valor&lt;1} | Descrição |
 | --- | ---
 | compilar | Conteúdo da pasta `lib` e controles se seu projeto puder compilar em relação aos assemblies dentro da pasta |
 | runtime | Conteúdo da pasta `lib` e `runtimes` pasta e controles se esses assemblies forem copiados para o diretório de saída de compilação |
 | contentFiles | O conteúdo da pasta `contentfiles` |
-| compilar | `.props` e `.targets` na pasta `build` |
+| build | `.props` e `.targets` na pasta `build` |
 | buildMultitargeting | *(4,0)* `.props` e `.targets` na pasta `buildMultitargeting` para direcionamento entre estruturas |
 | buildTransitive | *(5.0 +)* `.props` e `.targets` na pasta `buildTransitive`, para ativos que fluem transitivamente para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analisadores | Analisadores de .NET |
-| nativa | O conteúdo da pasta `native` |
+| nativo | O conteúdo da pasta `native` |
 | none | Nenhuma das opções acima é usada. |
 | all | Todas as anteriores (exceto `none`) |
 
@@ -139,7 +139,7 @@ No exemplo a seguir, tudo, exceto os arquivos de conteúdo do pacote, poderia se
 Observe que, como `build` não está incluído em `PrivateAssets`, destino e objetos *fluirão* para o projeto pai. Considere, por exemplo, que a referência acima é usada em um projeto que compila um pacote do NuGet chamado AppLogger. O AppLogger pode consumir os destinos e objetos de `Contoso.Utility.UsefulStuff`, bem como projetos que consomem AppLogger.
 
 > [!NOTE]
-> Quando `developmentDependency` é definido como `true` em um arquivo `.nuspec`, isso marca um pacote como uma dependência somente de desenvolvimento, o que impede que o pacote seja incluído como uma dependência em outros pacotes. Com PackageReference *(NuGet 4.8+)*, esse sinalizador também significa que ele excluirá os recursos em tempo de compilação. Para obter mais informações, confira [Suporte do DevelopmentDependency para PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
+> Quando `developmentDependency` é definido como `true` em um arquivo `.nuspec`, isso marca um pacote como uma dependência somente de desenvolvimento, o que impede que o pacote seja incluído como uma dependência em outros pacotes. Com PackageReference *(NuGet 4.8+)* , esse sinalizador também significa que ele excluirá os recursos em tempo de compilação. Para obter mais informações, confira [Suporte do DevelopmentDependency para PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
 
 ## <a name="adding-a-packagereference-condition"></a>Adicionar uma condição de PackageReference
 
@@ -273,10 +273,10 @@ Quando no Visual Studio, você também pode [suprimir avisos](/visualstudio/ide/
 
 *Esse recurso está disponível no NuGet **4.9** ou superior e no Visual Studio 2017 **15.9** ou superior.*
 
-A entrada da restauração do NuGet é um conjunto de Referências de pacote do arquivo de projeto (dependências de nível superior ou diretas), e a saída é um fechamento completo de todas as dependências do pacote, incluindo as dependências transitivas. Se a lista PackageReference de entrada não tiver sido alterada, o NuGet tenta sempre produzir o mesmo fechamento completo das dependências de pacotes. No entanto, em alguns cenários, isso não poderá ser feito. Por exemplo: 
+A entrada da restauração do NuGet é um conjunto de Referências de pacote do arquivo de projeto (dependências de nível superior ou diretas), e a saída é um fechamento completo de todas as dependências do pacote, incluindo as dependências transitivas. Se a lista PackageReference de entrada não tiver sido alterada, o NuGet tenta sempre produzir o mesmo fechamento completo das dependências de pacotes. No entanto, em alguns cenários, isso não poderá ser feito. Por exemplo:
 
 * Quando você usa versões flutuantes como `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Embora a intenção aqui seja derivar para a versão mais recente sempre que uma restauração de pacotes ocorrer, há cenários em que os usuários exigem que o grafo seja bloqueado em uma determinada versão mais recente e derive para uma versão posterior, se disponível, mediante um gesto explícito.
-* Uma versão mais recente do pacote que corresponde aos requisitos de versão do PackageReference é publicada. Por ex.: 
+* Uma versão mais recente do pacote que corresponde aos requisitos de versão do PackageReference é publicada. Por exemplo, 
 
   * Dia 1: se você tiver especificado `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>`, mas as versões disponíveis nos repositórios do NuGet forem 4.1.0, 4.2.0 e 4.3.0. Nesse caso, o NuGet teria que ser resolvido como 4.1.0 (mais próximo da versão mínima)
 
@@ -337,7 +337,7 @@ Se você estiver compilando um aplicativo, um executável e o projeto em questã
 
 No entanto, se seu projeto for um projeto de biblioteca que não é enviado ou um projeto de código comum do qual outros projetos dependem, você **não deverá** fazer check-in do arquivo de bloqueio como parte de seu código-fonte. Não há mal nenhum em manter o arquivo de bloqueio. No entanto, as dependências do pacote bloqueado do projeto de código comum não podem ser usadas, conforme listado no arquivo de bloqueio, durante a restauração/compilação de um projeto que depende desse projeto de código comum.
 
-Por exemplo,
+Por exemplo:
 
 ```
 ProjectA
@@ -352,7 +352,7 @@ Se `ProjectA` tiver uma dependência em uma versão `PackageX` do `2.0.0`, além
 
 Você pode controlar vários comportamentos de restauração com o arquivo de bloqueio conforme descrito abaixo:
 
-| Opção NuGet. exe | opção dotnet | Opção equivalente do MSBuild | DESCRIÇÃO |
+| Opção NuGet. exe | opção dotnet | Opção equivalente do MSBuild | Descrição |
 |:--- |:--- |:--- |:--- |
 | `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Opta pelo uso de um arquivo de bloqueio. |
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você deseja criar compilações repetíveis.|   

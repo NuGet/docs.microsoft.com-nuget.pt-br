@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230948"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428943"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Criar um pacote usando a CLI nuget.exe
 
@@ -177,14 +177,14 @@ A vantagem dessa abordagem é que você não precisa especificar no manifesto qu
 
 As convenções de pasta são as seguintes:
 
-| Pasta | DESCRIÇÃO | Ação após a instalação do pacote |
+| Folder | Descrição | Ação após a instalação do pacote |
 | --- | --- | --- |
 | (raiz) | Local para leiame.txt | O Visual Studio exibe um arquivo Leiame.txt na raiz do pacote quando este é instalado. |
 | lib/{tfm} | Arquivos de assembly (`.dll`), documentação (`.xml`) e símbolo (`.pdb`) para TFM (Moniker de Estrutura de Destino) | Os assemblies são adicionados como referências para a compilação e o runtime também; `.xml` e `.pdb` são copiados para as pastas do projeto. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md) para ver a criação de subpastas específicas de destino da estrutura. |
 | ref/{tfm} | Arquivos de assembly (`.dll`) e símbolo (`.pdb`) para TFM (Moniker de Estrutura de Destino) | Assemblies são adicionados como referências apenas para o tempo de compilação, portanto, nada será copiado para a pasta lixeira do projeto. |
 | runtimes | Arquivos de assembly específico de arquitetura (`.dll`), símbolo (`.pdb`) e recurso nativo (`.pri`) | Assemblies são adicionados como referências apenas para o runtime. Outros arquivos são copiados para as pastas do projeto. Deve sempre haver um assembly específico (TFM) `AnyCPU` correspondente na pasta `/ref/{tfm}` para oferecer o assembly de tempo de compilação correspondente. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md). |
-| content | Arquivos arbitrários | O conteúdo é copiado para a raiz do projeto. Pense na pasta **content** como a raiz do aplicativo de destino que, enfim, consome o pacote. Para fazer o pacote adicionar uma imagem à pasta */imagens* do aplicativo, coloque-o na pasta *content/images* do pacote. |
-| compilar | Arquivos *e* do MSBuild `.targets`(3.x+)`.props` | Inserido automaticamente no projeto. |
+| conteúdo | Arquivos arbitrários | O conteúdo é copiado para a raiz do projeto. Pense na pasta **content** como a raiz do aplicativo de destino que, enfim, consome o pacote. Para fazer o pacote adicionar uma imagem à pasta */imagens* do aplicativo, coloque-o na pasta *content/images* do pacote. |
+| build | Arquivos *e* do MSBuild `.targets`(3.x+)`.props` | Inserido automaticamente no projeto. |
 | buildMultiTargeting | Arquivos *e* do MSBuild `.targets`(4.0+)`.props` para direcionamento entre estruturas | Inserido automaticamente no projeto. |
 | buildTransitive | Arquivos *e* do MSBuild `.targets`(5.0+)`.props` que fluem para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Inserido automaticamente no projeto. |
 | ferramentas | Scripts e programas do Powershell acessíveis do Console do Gerenciador de Pacotes | A pasta `tools` é adicionada à variável de ambiente `PATH` somente para o Console do Gerenciador de Pacotes (especificamente, *não* para o `PATH` conforme definido para MSBuild ao criar o projeto). |
@@ -417,7 +417,7 @@ Para testes automatizados, o processo básico é o seguinte:
 1. Instale o pacote da origem usando `nuget install <packageID> -source <name>` em que `<name>` corresponde ao nome de sua origem conforme fornecido para `nuget sources`. Especificar a origem garante que o pacote seja instalado somente dela.
 1. Examine seu sistema de arquivos para verificar se os arquivos estão instalados corretamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Depois de criar um pacote, que é um arquivo `.nupkg`, você pode publicá-lo na galeria de sua escolha conforme descrito em [Publicar um pacote](../nuget-org/publish-a-package.md).
 
