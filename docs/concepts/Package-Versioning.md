@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428831"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80147442"
 ---
 # <a name="package-versioning"></a>Controle de versão do pacote
 
@@ -221,6 +221,10 @@ Ao obter pacotes de um repositório durante a instalação, reinstalação ou re
 
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
+        
+- SemVer os metadados de compilação 2.0.0 são removidos
+
+        1.0.7+r3456 is treated as 1.0.7
 
 As operações `pack` e `restore` normalizam as versões sempre que possível. Para pacotes já compilados, essa normalização não afeta os números de versão nos próprios pacotes; ela afeta apenas como o NuGet faz a correspondência das versões ao resolver dependências.
 

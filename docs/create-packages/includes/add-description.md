@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: fadb6091f9f1e4f380c3896f790fd61ce80e9683
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230562"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80151360"
 ---
-A descrição opcional do pacote, exibida na página NuGet.org do pacote, é extraída do `<description></description` usado no arquivo `.csproj` ou extraído por meio da `$description` no [arquivo. nuspec](../../reference/nuspec.md).
+A descrição opcional do pacote, exibida na página NuGet.org do pacote, é extraída do `<description></description>` usado no arquivo `.csproj` ou extraído por meio da `$description` no [arquivo. nuspec](../../reference/nuspec.md).
 
 Um exemplo de um campo de _Descrição_ é mostrado no seguinte texto XML do arquivo de `.csproj` para um pacote .net:
 
