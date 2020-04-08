@@ -39,7 +39,7 @@
         - name: Políticas
           tocHref: /nuget/policies/
           topicHref: /nuget/policies/governance
-        - name: Notas de Versão
+        - name: Notas de versão
           tocHref: /nuget/release-notes/
           topicHref: /nuget/release-notes/known-issues
         - name: Recursos
