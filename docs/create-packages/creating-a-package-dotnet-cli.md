@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78230563"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Criar um pacote do NuGet usando a CLI dotnet
@@ -68,7 +68,7 @@ Defina também as propriedades opcionais, como `Title`, `PackageDescription` e `
 
 Para obter detalhes sobre como declarar dependências e especificar números de versão, consulte [Referências de pacote em arquivos de projeto](../consume-packages/package-references-in-project-files.md) e [Controle de versão do pacote](../concepts/package-versioning.md). Também é possível extrair ativos de dependências diretamente no pacote usando os atributos `<IncludeAssets>` e `<ExcludeAssets>`. Para saber mais, confira [Controlar ativos de dependência](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
-## <a name="add-an-optional-description-field"></a>Adicionar um campo de descrição opcional
+## <a name="add-an-optional-description-field"></a>Adicione um campo de descrição opcional
 
 [!INCLUDE [add description to package](includes/add-description.md)]
 
@@ -104,7 +104,7 @@ Para executar `dotnet pack` automaticamente ao executar `dotnet build`, adicione
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Ao executar `dotnet pack` em uma solução, isso empacota todos os projetos na solução que são empacotáveis (a propriedade [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) é definida como `true`).
+Quando você `dotnet pack` executa em uma solução, isso embala todos[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) os projetos `true`na solução que são embalados (a propriedade está definida para ).
 
 > [!NOTE]
 > Ao gerar automaticamente o pacote, o tempo de empacotamento aumenta o tempo de compilação do seu projeto.
@@ -126,7 +126,7 @@ Você também poderá estender os recursos do seu pacote ou dar suporte a outros
 
 - [Controle de versão do pacote](../concepts/package-versioning.md)
 - [Suporte a várias estruturas de destino](../create-packages/multiple-target-frameworks-project-file.md)
-- [Ícone Adicionar um pacote](../reference/nuspec.md#icon)
+- [Adicionar um ícone de pacote](../reference/nuspec.md#icon)
 - [Transformações dos arquivos de configuração e de origem](../create-packages/source-and-config-file-transformations.md)
 - [Localização](../create-packages/creating-localized-packages.md)
 - [Versões de pré-lançamento](../create-packages/prerelease-packages.md)
@@ -136,4 +136,4 @@ Você também poderá estender os recursos do seu pacote ou dar suporte a outros
 Por fim, há tipos de pacote adicionais a serem considerados:
 
 - [Pacotes nativos](../guides/native-packages.md)
-- [Pacotes de símbolo](../create-packages/symbol-packages-snupkg.md)
+- [Pacotes de símbolos](../create-packages/symbol-packages-snupkg.md)

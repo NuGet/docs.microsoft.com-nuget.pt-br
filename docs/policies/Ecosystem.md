@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 31243076f36f6ff274c4377c1773ea59dda8c834
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548138"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495496"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Uma visão geral do ecossistema do NuGet
 
@@ -24,7 +24,7 @@ Todos esses projetos são capazes de inovar devido a contribuições do desenvol
 
 O NuGet fornece um sistema de gerenciamento de pacotes de software livre gratuito para a plataforma de desenvolvimento da Microsoft. Ele consiste em algumas ferramentas de cliente, bem como o conjunto de serviços que compõem a [Galeria do NuGet oficial](http://www.nuget.org). Combinados, eles formam o projeto NuGet, que é controlado pelo [.NET Foundation](http://www.dotnetfoundation.org/).
 
-A NuGet Organization contém vários repositórios no GitHub. O [https://github.com/Nuget/Home](https://github.com/Nuget/Home) fornece uma visão geral de todos os repositórios e onde encontrar os vários componentes do NuGet.
+A NuGet Organization contém vários repositórios no GitHub. [https://github.com/Nuget/Home](https://github.com/Nuget/Home)dá uma visão geral de todos os repositórios e onde encontrar os vários componentes do NuGet.
 
 ## <a name="microsoft-projects"></a>Projetos da Microsoft
 
@@ -45,7 +45,7 @@ Muitos outros indivíduos e empresas contribuíram significativamente com o ecos
 - [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
 - [MyGet (ou NuGet como serviço)](http://www.myget.org/)
 - [Explorador de Pacotes do NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-- [NuGet Server](http://nugetserver.net/)
+- [Servidor do NuGet](http://nugetserver.net/)
 - [OctopusDeploy](https://octopus.com/)
 - [Paket](https://fsprojects.github.io/Paket/)
 - [ProGet (Inedo)](http://inedo.com/proget)

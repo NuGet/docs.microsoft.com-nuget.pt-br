@@ -6,11 +6,11 @@ ms.author: anangaur
 ms.date: 03/03/2017
 ms.topic: conceptual
 ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547755"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496602"
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Notas de Versão do NuGet 4.0 RTM
 
@@ -294,7 +294,7 @@ Não há nenhuma solução alternativa no momento.
 
 - A restauração do pacote de instalação duplica os logs da mensagem de restauração de pacotes – [#3785](https://github.com/NuGet/Home/issues/3785)
 
-- Remover as grades de proteção – A restauração da seção “tempos de execução” deve se aplicar somente ao projeto atual – [#3768](https://github.com/NuGet/Home/issues/3768)
+- Remover as grades de proteção – A restauração da seção “runtimes” deve se aplicar somente ao projeto atual – [#3768](https://github.com/NuGet/Home/issues/3768)
 
 - A tarefa do pacote coloca arquivos de conteúdo tanto em 'content/' quanto em 'contentFiles/' – [#3718](https://github.com/NuGet/Home/issues/3718)
 

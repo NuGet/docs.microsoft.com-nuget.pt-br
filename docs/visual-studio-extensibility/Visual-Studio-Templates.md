@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/03/2018
 ms.topic: conceptual
 ms.openlocfilehash: be7c10fb6ce60375f77e38f9b604ec33063e52fc
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550504"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498243"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pacotes em modelos do Visual Studio
 
@@ -35,7 +35,7 @@ Pacotes pré-instalados funcionam usando [assistentes de modelo](/visualstudio/e
 
 Etapas para incluir pacotes em um modelo:
 
-1. No seu arquivo `vstemplate`, adicione uma referência ao assistente de modelo do NuGet adicionando um elemento [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates):
+1. No `vstemplate` seu arquivo, adicione uma referência ao assistente [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) de modelo NuGet adicionando um elemento:
 
     ```xml
     <WizardExtension>
@@ -129,7 +129,7 @@ SDKs que são instalados usando um MSI podem instalar os pacotes do NuGet direta
         </packages>
         ```
 
-## <a name="best-practices"></a>Práticas recomendadas
+## <a name="best-practices"></a>Práticas Recomendadas
 
 1. Declare uma dependência no VSIX NuGet adicionando uma referência a ele no seu manifesto do VSIX:
 
@@ -141,6 +141,6 @@ SDKs que são instalados usando um MSI podem instalar os pacotes do NuGet direta
     <!-- ... -->
     ```
 
-1. Exija que modelos de item/projeto sejam salvos na criação incluindo [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) no arquivo `.vstemplate`.
+1. Exija que os modelos de projeto/item sejam salvos na criação, incluindo [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) no `.vstemplate` arquivo.
 
 1. Os modelos não incluem um arquivo `packages.config`, nem incluem nenhuma referência ou conteúdo que seria adicionada na instalação dos pacotes NuGet.

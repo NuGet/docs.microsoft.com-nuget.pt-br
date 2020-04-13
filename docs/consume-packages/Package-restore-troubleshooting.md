@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: a1f9f1d03e9a6e58466fa92426bd655d5e8ed83d
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "68860621"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Solução de problemas de erros de restauração de pacote
 
 Este artigo aborda os erros comuns ao restaurar pacotes e as etapas para resolvê-los. 
 
-A Restauração de Pacote tenta instalar todas as dependências de pacotes no estado correto correspondente às referências de pacote do arquivo de projeto ( *.csproj*) ou do arquivo *packages.config*. No Visual Studio, as referências aparecem no Gerenciador de Soluções em **Dependências \ NuGet**  ou no nó **Referências**. Para seguir as etapas necessárias de restauração de pacotes, confira [Restaurar pacotes](../consume-packages/package-restore.md#restore-packages). Se as referências de pacote no arquivo de projeto ( *.csproj*) ou no arquivo *packages.config* estiverem incorretas (não corresponderem ao estado desejado após a Restauração de Pacote), instale ou atualize os pacotes em vez de usar a Restauração de Pacote.
+A Restauração de Pacote tenta instalar todas as dependências de pacotes no estado correto correspondente às referências de pacote do arquivo de projeto (*.csproj*) ou do arquivo *packages.config*. (No Visual Studio, as referências aparecem no Solution Explorer sob as **dependências \ NuGet** ou no nó **Referências.)** Para seguir as etapas necessárias para restaurar pacotes, consulte [Restaurar pacotes](../consume-packages/package-restore.md#restore-packages). Se as referências de pacote no arquivo de projeto (*.csproj*) ou no arquivo *packages.config* estiverem incorretas (não corresponderem ao estado desejado após a Restauração de Pacote), instale ou atualize os pacotes em vez de usar a Restauração de Pacote.
 
 Se estas instruções não funcionarem para você, [envie um problema no GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) para examinarmos o cenário mais cuidadosamente. Não use o controle “Esta página é útil?” que pode aparecer nesta página, pois ele não nos permite entrar em contato com você para obter mais informações.
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Esse erro ocorre ao tentar compilar um projeto com referências a um ou mais pacotes do NuGet, mas, no momento, esses pacotes não estão instalados no computador ou no projeto.
 
-- Quando o formato de gerenciamento [PackageReference](package-references-in-project-files.md) é usado, o erro significa que o pacote não está instalado na pasta *global-packages* conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](managing-the-global-packages-and-cache-folders.md).
+- Ao usar o formato de gerenciamento [PackageReference,](package-references-in-project-files.md) o erro significa que o pacote não está instalado na pasta *de pacotes globais,* conforme descrito no [gerenciamento das pastas de pacotes e cache globais](managing-the-global-packages-and-cache-folders.md).
 - Ao usar o [packages.config](../reference/packages-config.md), o erro significa que o pacote não está instalado na pasta `packages` na raiz da solução.
 
 Essa situação geralmente ocorre ao obter o código-fonte do projeto por meio do controle do código-fonte ou de outro download. Os pacotes normalmente são omitidos do controle do código-fonte ou dos downloads, uma vez que podem ser restaurados de feeds de pacotes, como o nuget.org (veja [Pacotes e controle do código-fonte](Packages-and-Source-Control.md)). Por outro lado, a inclusão deles sobrecarregaria o repositório ou criaria arquivos .zip desnecessariamente grandes.
@@ -61,7 +61,7 @@ Use um dos seguintes métodos para restaurar os pacotes:
 - [CLI do nuget.exe](package-restore.md#restore-using-the-nugetexe-cli)
 - [MSBuild](package-restore.md#restore-using-msbuild)
 - [Azure Pipelines](package-restore.md#restore-using-azure-pipelines)
-- [Azure DevOps Server](package-restore.md#restore-using-azure-devops-server)
+- [Servidor Azure DevOps](package-restore.md#restore-using-azure-devops-server)
 
 Após uma restauração bem-sucedida, o pacote deve estar presente na pasta *global-packages*. Em caso de projetos que usam PackageReference, uma restauração deve recriar o arquivo `obj/project.assets.json`; em projetos que usam `packages.config`, o pacote deve aparecer na pasta `packages` do projeto. Nesse momento, o projeto deverá ser compilado com êxito. Caso contrário, [envie um problema no GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) para que possamos acompanhá-lo com você.
 

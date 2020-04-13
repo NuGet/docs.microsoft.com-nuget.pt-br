@@ -6,29 +6,29 @@ ms.author: anangaur
 ms.date: 3/7/2018
 ms.topic: conceptual
 ms.openlocfilehash: eacd29d4c9340a0f015fcdf6c5b9dd41bf781419
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432550"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498679"
 ---
 # <a name="nuget-46-release-notes"></a>Notas sobre a versão do NuGet 4.6
 
 O [Visual Studio 2017 15.6 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) vem com o [NuGet 4.6.0](https://dist.nuget.org/win-x86-commandline/v4.6.0/nuget.exe).
 
-## <a name="summary-whats-new-in-460"></a>Resumo: Novidades na versão 4.6.0
+## <a name="summary-whats-new-in-460"></a>Resumo: O que há de novo em 4.6.0
 
 * Adicionamos compatibilidade com [pacotes de assinatura](../create-packages/sign-a-package.md).
 * O Visual Studio 2017 e o nuget.exe agora verificam a integridade do pacote antes de instalá-lo, restaurando os pacotes para [pacotes assinados](../reference/signed-packages-reference.md).
 * Melhoramos o desempenho das restaurações sucessivas.
 
-## <a name="summary-whats-new-in-463"></a>Resumo: Novidades na versão 4.6.3
+## <a name="summary-whats-new-in-463"></a>Resumo: O que há de novo em 4.6.3
 
-* Correção de segurança: Permissões em arquivos criados dentro de ~/.nuget são muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correção de segurança: permissões em arquivos criados dentro ~/.nuget estão muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-464"></a>Resumo: Novidades na versão 4.6.4
+## <a name="summary-whats-new-in-464"></a>Resumo: O que há de novo em 4.6.4
 
-* Correção de segurança: Arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correção de segurança: arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -44,7 +44,7 @@ O .NET Standard e suas ferramentas foram projetados de modo que os projetos dest
 * A restauração provoca avaliações adicionais do MSBuild quando o TFM dos projetos filho não coincidem com o do projeto pai – [6311](https://github.com/NuGet/Home/issues/6311)
 * Melhorar o desempenho da restauração NoOp otimizando a criação das especificações do grafo de dependência – [6252](https://github.com/NuGet/Home/issues/6252)
 
-**•s**
+**Bugs**
 
 * Efetuar push para a pasta local deixa nupkg bloqueado – [6325](https://github.com/NuGet/Home/issues/6325)
 * Implementação do plug-in do NuGet: vários problemas – [6149](https://github.com/NuGet/Home/issues/6149)

@@ -7,10 +7,10 @@ ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 2fefd9cff4d151111023521c31d58878743775bf
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231169"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformando o código-fonte e os arquivos de configuração
@@ -113,7 +113,7 @@ Para ver o efeito de instalação e desinstalação do pacote, crie um novo proj
 ### <a name="xdt-transforms"></a>Transformações XDT
 
 > [!Note]
-> Conforme mencionado na [seção problemas de compatibilidade do pacote dos documentos para migrar de `packages.config` para `PackageReference`](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), as transformações xdt, conforme descrito abaixo, têm suporte apenas da `packages.config`. Se você adicionar os arquivos abaixo ao seu pacote, os consumidores que usam seu pacote com `PackageReference` não terão as transformações aplicadas (consulte [Este exemplo](https://github.com/NuGet/Samples/tree/master/XDTransformExample) para fazer com que as transformações de xdt funcionem com`PackageReference`).
+> Como mencionado na [seção de problemas de compatibilidade do `packages.config` `PackageReference`pacote dos docs para migração de transformações XDT ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)como descrito abaixo são suportadas apenas por `packages.config`. Se você adicionar os arquivos abaixo ao seu `PackageReference` pacote, os consumidores que usam seu pacote não terão as`PackageReference`transformações aplicadas (consulte esta [amostra](https://github.com/NuGet/Samples/tree/master/XDTransformExample) para fazer com que as transformações xDT funcionem com ).
 
 Você pode modificar os arquivos de configuração usando [sintaxe XDT](https://msdn.microsoft.com/library/dd465326.aspx). Você também pode fazer com que o NuGet substitua os tokens pelas [Propriedades do projeto](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) incluindo o nome da propriedade dentro dos delimitadores `$`(não diferencia maiúsculas de minúsculas).
 

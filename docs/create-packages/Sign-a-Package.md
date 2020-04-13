@@ -7,10 +7,10 @@ ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428999"
 ---
 # <a name="signing-nuget-packages"></a>Assinando pacotes NuGet
@@ -19,9 +19,9 @@ Os pacotes assinados permitem verificações de integridade do conteúdo que ofe
 
 ## <a name="get-a-code-signing-certificate"></a>Obter um certificado de assinatura de código
 
-Certificados válidos podem ser obtidos de uma autoridade de certificação pública como [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Sign global](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certal](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)etc. A lista completa de autoridades de certificação confiáveis pelo Windows pode ser obtida em [http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners).
+Os certificados válidos podem ser obtidos de uma autoridade de certificados públicos como [Symantec,](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3) [DigiCert,](https://www.digicert.com/code-signing/) [Go Daddy,](https://www.godaddy.com/web-security/code-signing-certificate) [Global Sign,](https://www.globalsign.com/en/code-signing-certificate/) [Comodo,](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php) [Certum,](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)etc. A lista completa de autoridades de certificação [http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners)confiáveis pelo Windows pode ser obtida a partir de .
 
-Você pode usar certificados emitidos por conta própria para fins de teste. No entanto, os pacotes assinados usando certificados emitidos por conta própria não são aceitos pelo NuGet.org. Saiba mais sobre como [criar um certificado de teste](#create-a-test-certificate)
+Você pode usar certificados emitidos por conta própria para fins de teste. No entanto, os pacotes assinados usando certificados auto-emitidos não são aceitos pela NuGet.org. Saiba mais sobre [a criação de um certificado de teste](#create-a-test-certificate)
 
 ## <a name="export-the-certificate-file"></a>Exportar o arquivo do certificado
 
@@ -34,7 +34,7 @@ Você pode usar certificados emitidos por conta própria para fins de teste. No 
 ## <a name="sign-the-package"></a>Assinar o pacote
 
 > [!note]
-> Requer NuGet. exe 4.6.0 ou posterior. o suporte a dotnet. exe estará disponível em breve- [#7939](https://github.com/NuGet/Home/issues/7939)
+> Requer nuget.exe 4.6.0 ou posterior. dotnet.exe suporte está chegando - [#7939](https://github.com/NuGet/Home/issues/7939)
 
 Assinar o pacote usando [nuget sign](../reference/cli-reference/cli-ref-sign.md):
 
@@ -51,22 +51,22 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="register-the-certificate-on-nugetorg"></a>Registrar o certificado em NuGet.org
 
-Para publicar um pacote assinado, você deve primeiro registrar o certificado com NuGet.org. Você precisa do certificado como um arquivo de `.cer` em um formato de DER binário.
+Para publicar um pacote assinado, você deve primeiro registrar o certificado com NuGet.org. Você precisa do `.cer` certificado como um arquivo em um formato DER binário.
 
 1. [Entre](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) em NuGet.org.
-1. Vá para `Account settings` (ou `Manage Organization` **>** `Edit Organziation` se desejar registrar o certificado com uma conta da organização).
+1. Vá para `Account settings` (ou `Manage Organization` **>** `Edit Organziation` se você gostaria de registrar o certificado com uma conta de organização).
 1. Expanda a seção `Certificates` e selecione `Register new`.
 1. Procure e selecione o arquivo de certificado que foi exportado anteriormente.
   ![Certificados registrados](../reference/media/registered-certs.png)
 
-**Observação**
+**Nota**
 * Um usuário pode enviar vários certificados e o mesmo certificado pode ser registrado por vários usuários.
 * Depois que um usuário tem um certificado registrado, todos os envios de pacote futuros **precisam** ser assinados com um dos certificados. Veja [Gerenciar os requisitos de assinatura do seu pacote em NuGet.org](#manage-signing-requirements-for-your-package-on-nugetorg)
 * Os usuários também podem remover um certificado registrado da conta. Depois que um certificado é removido, o envio de novos pacotes assinados com esse certificado falhará. Os pacotes existentes não serão afetados.
 
 ## <a name="publish-the-package"></a>Publicar o pacote
 
-Agora você está pronto para publicar o pacote no NuGet.org. Consulte [publicando pacotes](../nuget-org/Publish-a-package.md).
+Agora você está pronto para publicar o pacote para NuGet.org. Consulte [Pacotes de publicação](../nuget-org/Publish-a-package.md).
 
 ## <a name="create-a-test-certificate"></a>Criar um certificado de teste
 
@@ -101,7 +101,7 @@ Este comando cria um certificado de teste disponível no repositório de certifi
 
 * Da mesma forma, se a opção "Qualquer" estiver selecionada para um pacote em que um proprietário tenha um certificado registrado e o outro proprietário não tenha nenhum certificado registrado, o NuGet.org aceitará um pacote assinado com uma assinatura registrada por um de seus proprietários ou então aceitará um pacote não assinado (porque um dos proprietários não tem nenhum certificado registrado).
 
-## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
+## <a name="related-articles"></a>Artigos relacionados
 
 - [Gerenciar os limites de confiança do pacote](../consume-packages/installing-signed-packages.md)
 - [Referência de pacotes assinados](../reference/Signed-Packages-Reference.md)

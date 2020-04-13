@@ -7,11 +7,11 @@ ms.date: 02/03/2017
 ms.topic: conceptual
 ms.reviewer: ananguar
 ms.openlocfilehash: 2d0bb6356c0a20843bdc884b68f5f61838b82e73
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549240"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496638"
 ---
 # <a name="nuget-40-rc-release-notes"></a>Notas de Versão do NuGet 4.0 RC
 
@@ -19,7 +19,7 @@ ms.locfileid: "43549240"
 
 O [NuGet 4.0 RC para Visual Studio 2017](http://blog.nuget.org/20161121/introducing-nuget4.0) se concentra em adicionar suporte para cenários do .NET Core, abordando os principais comentários dos clientes e melhorando o desempenho de uma variedade de cenários. Esta versão proporciona várias melhorias, como suporte para PackageReference, comandos do NuGet como destinos do MSBuild, restauração do pacote em segundo plano e muito mais.
 
-## <a name="bug-fixes"></a>Correções de Bug
+## <a name="bug-fixes"></a>Correções de bugs
 
 - Alterações de comportamento em `dotnet pack --version-suffix foo` - [#3838](https://github.com/NuGet/Home/issues/3838)
 
@@ -50,7 +50,7 @@ O [NuGet 4.0 RC para Visual Studio 2017](http://blog.nuget.org/20161121/introduc
 
 - Falhas do Restore3 são registradas como avisos em vez de erros – [#3503](https://github.com/NuGet/Home/issues/3503)
 
-- Problema do TFS: “O [file] não pode ser encontrado no seu espaço de trabalho ou você não tem permissão para acessá-lo.” – [#2805](https://github.com/NuGet/Home/issues/2805)
+- Problema do TFS: “O [file] não pode ser encontrado no seu workspace ou você não tem permissão para acessá-lo.” – [#2805](https://github.com/NuGet/Home/issues/2805)
 
 - Digitar “nuget <packagename>“ na caixa de pesquisa de início rápido do vs mantém o prefixo “nuget” – [#2719](https://github.com/NuGet/Home/issues/2719)
 

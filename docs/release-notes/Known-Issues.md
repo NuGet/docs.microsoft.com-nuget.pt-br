@@ -1,15 +1,15 @@
 ---
-title: Problemas Conhecidos
+title: Problemas conhecidos
 description: Problemas conhecidos com o NuGet, incluindo autenticação, instalação de pacote e ferramentas.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "75383652"
 ---
 # <a name="known-issues-with-nuget"></a>Problemas conhecidos com o NuGet
@@ -45,7 +45,7 @@ O arquivo `NuGet.Config` na pasta `%AppData%\NuGet\` (Windows) ou `~/.nuget/` (M
 
 **Problema:**
 
-No NuGet 2.7 ou superior, quando você tenta instalar qualquer pacote que contém as referências de assembly, receberá a mensagem de erro **“A cadeia de caracteres de entrada não estava no formato correto.”** , como mostrado abaixo:
+No NuGet 2.7 ou superior, quando você tenta instalar qualquer pacote que contém as referências de assembly, receberá a mensagem de erro **“A cadeia de caracteres de entrada não estava no formato correto.”**, como mostrado abaixo:
 
 ```ps
 install-package log4net
@@ -63,7 +63,7 @@ install-package log4net
 
 Isso é causado pela biblioteca de tipos para o componente COM de `VSLangProj.dll` cujo registro está sendo cancelado no sistema. Isso pode acontecer, por exemplo, quando você tem duas versões do Visual Studio instaladas lado a lado e desinstala a versão mais antiga. Isso pode inadvertidamente cancelar o registro das biblioteca COM acima.
 
-**Solução:** :
+**Solução:**:
 
 Execute este comando de um **prompt com privilégios elevados** para registrar novamente a biblioteca de tipos para `VSLangProj.dll`
 
@@ -159,7 +159,7 @@ Se você tentar desinstalar o NuGet por meio do Gerenciador de Extensões do Vis
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>O Console do Gerenciador de Pacotes falha quando eu o abro no Windows XP. Qual é o problema?
 
-O NuGet requer o runtime do Powershell 2.0. O Windows XP, por padrão, não têm o Powershell 2.0. Você pode baixar o tempo de execução do PowerShell 2,0 do <https://support.microsoft.com/kb/968929>. Após a instalação, reinicie o Visual Studio e será possível abrir o Console do Gerenciador de Pacotes.
+O NuGet requer o runtime do Powershell 2.0. O Windows XP, por padrão, não têm o Powershell 2.0. Você pode baixar o runtime do PowerShell 2.0 em <https://support.microsoft.com/kb/968929>. Após a instalação, reinicie o Visual Studio e será possível abrir o Console do Gerenciador de Pacotes.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>O Visual Studio 2010 SP1 Beta falha na saída se o Console de Gerenciador de Pacote estiver aberto.
 
@@ -171,7 +171,7 @@ Se você instalou pacotes compilados com uma versão de pré-lançamento do NuGe
 
 ## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>Tentativa de instalar ou desinstalar resultou no erro "Não é possível criar um arquivo quando ele já existe."
 
-Por algum motivo, as extensões do Visual Studio podem demonstrar certa estranheza se você tiver desinstalado a extensão do VSIX, mas alguns arquivos restaram. Para contornar este problema:
+Por algum motivo, as extensões do Visual Studio podem demonstrar certa estranheza se você tiver desinstalado a extensão do VSIX, mas alguns arquivos restaram. Para resolver o problema:
 
 1. Sair do Visual Studio
 1. Abra a pasta a seguir (ela pode estar em uma unidade diferente no seu computador)
@@ -201,7 +201,7 @@ Por padrão, FluentNHibernate requer NHibernate 3.0.0.2001. No entanto, por padr
 
 ## <a name="write-error-command-doesnt-work-inside-installps1uninstallps1initps1"></a>O comando Write-Error não funciona em install.ps1/uninstall.ps1/init.ps1
 
-Este é um problema conhecido. Em vez de chamar Write-Error, tente chamar throw.
+Esse é um problema conhecido. Em vez de chamar Write-Error, tente chamar throw.
 
     throw "My error message"
 
@@ -223,6 +223,6 @@ Ferramentas do Windows Phone não são compatíveis com o Gerenciador de Extens�
 
 Conforme discutido em detalhes [neste problema do GitHub](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), é possível alterar as letras minúsculas e maiúsculas de pacotes do NuGet por meio do suporte ao NuGet, mas isso causa complicações durante a restauração de pacote para usuários que têm pacotes existentes com um padrão diferente de maiúsculas e minúsculas na pasta *global-packages*. É recomendável solicitar uma alteração de caso somente quando você tem uma maneira de se comunicar com os usuários existentes do seu pacote sobre a interrupção que pode ocorrer na restauração do pacote de tempo de build.
 
-## <a name="reporting-issues"></a>Relatando problemas
+## <a name="reporting-issues"></a>Problemas de relatórios
 
-Para relatar problemas do NuGet, visite [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).
+Para relatar problemas do [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues)NuGet, visite .

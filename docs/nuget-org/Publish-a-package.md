@@ -7,10 +7,10 @@ ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429020"
 ---
 # <a name="publishing-packages"></a>Publicando pacotes
@@ -24,7 +24,7 @@ Este artigo aborda a publicação no nuget.org. Para saber sobre a publicação 
 
 ## <a name="publish-to-nugetorg"></a>Publicar no nuget.org
 
-Para nuget.org, você deve entrar com um conta Microsoft, com o qual será solicitado que você registre a conta com nuget.org. Você também pode entrar com uma conta do nuget.org criada usando versões mais antigas do Portal.
+Para nuget.org, você deve fazer login com uma conta da Microsoft, com a qual você será solicitado a registrar a conta com nuget.org. Você também pode fazer login com uma conta nuget.org criada usando versões mais antigas do portal.
 
 ![Localização de entrada do NuGet](media/publish_NuGetSignIn.png)
 
@@ -64,11 +64,11 @@ Para efetuar push em pacotes para o nuget.org, você precisa usar o [nuget.exe v
     nuget setApiKey <your_API_key>
     ```
 
-    Esse comando armazena sua chave de API na configuração do NuGet para que você não precise repetir essa etapa novamente no mesmo computador.
+    Este comando armazena sua chave de API na configuração NuGet para que você não precise repetir esse passo novamente no mesmo computador.
 
     > [!NOTE]
-    > A chave de API não é usada para autenticação com o feed particular. Consulte [`nuget sources` comando](../reference/cli-reference/cli-ref-sources.md) para gerenciar credenciais para autenticação com a origem.
-    > As chaves de API podem ser obtidas dos servidores NuGet individuais. Para criar e manange APIKeys para nuget.org, consulte [Publish-API-Key](../quickstart/includes/publish-api-key.md)
+    > A chave API não é usada para autenticar com o feed privado. Consulte o [ `nuget sources` comando](../reference/cli-reference/cli-ref-sources.md) para gerenciar credenciais para autenticação com a fonte.
+    > As chaves de API podem ser obtidas dos servidores NuGet individuais. Para criar e manange APIKeys para nuget.org consulte [publish-api-key](../quickstart/includes/publish-api-key.md)
 
 1. Efetue push do pacote para a Galeria do NuGet usando o seguinte comando:
 
@@ -89,9 +89,9 @@ Os pacotes enviados por push para nuget.org passam por várias validações, com
 
 Quando o pacote tiver passado todas as verificações de validação, pode levar algum tempo para que ele seja indexado e exibido nos resultados da pesquisa. Após a conclusão da indexação, você receberá um email confirmando que o pacote foi publicado com êxito. Se a verificação de validação do pacote falhar, a página de detalhes do pacote será atualizada para exibir o erro associado e você também receberá uma notificação por email.
 
-A validação e indexação do pacote geralmente leva menos de 15 minutos. Se a publicação do pacote estiver demorando mais do que o esperado, visite [status.nuget.org](https://status.nuget.org/) para verificar se o nuget.org está passando por alguma interrupção. Se todos os sistemas estiverem operacionais e o pacote não tiver sido publicado com êxito dentro de uma hora, faça logon no nuget.org e entre em contato conosco usando o link Entre em contato com o suporte na página do pacote.
+A validação e indexação do pacote geralmente leva menos de 15 minutos. Se a publicação do pacote estiver demorando mais do que o esperado, visite [status.nuget.org](https://status.nuget.org/) para verificar se nuget.org está sofrendo interrupções. Se todos os sistemas estiverem operacionais e o pacote não tiver sido publicado com êxito dentro de uma hora, faça logon no nuget.org e entre em contato conosco usando o link Entre em contato com o suporte na página do pacote.
 
-Para ver o status de um pacote, selecione **gerenciar pacotes** sob o nome da sua conta em NuGet.org. Você receberá um email de confirmação quando a validação for concluída.
+Para ver o status de um pacote, **selecione Gerenciar pacotes** com o nome da sua conta em nuget.org. Você recebe um e-mail de confirmação quando a validação estiver concluída.
 
 Observe que pode levar algum tempo para o pacote ser indexado e aparecer nos resultados da pesquisa em que outras pessoas podem encontrá-lo e, durante esse período, você verá a seguinte mensagem na página do seu pacote:
 

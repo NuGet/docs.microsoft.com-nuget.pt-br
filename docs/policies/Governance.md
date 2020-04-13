@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2aaaf41b3fc4ef3621333e5099780b5d7ef393bc
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549444"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64500390"
 ---
 # <a name="nuget-governance"></a>Governança do NuGet
 
@@ -44,7 +44,7 @@ Confirmadores não têm nenhuma autoridade quanto à direção geral do NuGet. N
 
 Colaboradores são membros da comunidade que enviam patches para o NuGet. Esses patches podem ser uma ocorrência única ou ocorrer ao longo do tempo. É esperado que os colaboradores enviem primeiramente patches pequenos que vão crescendo à medida que o colaborador, os confirmadores e o líder do projeto confiam na qualidade dos patches do colaborador. Colaboradores são reconhecidos no documento de notas de versão do produto associado.
 
-Antes do primeiro patch de um colaborador ser colocado no repositório, eles precisam assinar um [Contrato de Licença de Colaborador](http://en.wikipedia.org/wiki/Contributor_License_Agreement) ou um contrato de atribuição com o .NET Foundation. O patch pode ser enviado e discutido, mas não poderá ser realmente confirmado no repositório sem a devida documentação em vigor. Para obter um contrato de licença de colaborador, envie uma solicitação por email para [contributions@nuget.org](mailto:contributions@nuget.org).
+Antes do primeiro patch de um colaborador ser colocado no repositório, eles precisam assinar um [Contrato de Licença de Colaborador](http://en.wikipedia.org/wiki/Contributor_License_Agreement) ou um contrato de atribuição com o .NET Foundation. O patch pode ser enviado e discutido, mas não poderá ser realmente confirmado no repositório sem a devida documentação em vigor. Para obter um contrato de licença de [contributions@nuget.org](mailto:contributions@nuget.org)contribuinte, envie uma solicitação por e-mail para .
 
 Para se tornar um colaborador, envie uma solicitação de pull para um dos seguintes repositórios:
 
@@ -88,7 +88,7 @@ Em situações infelizes como quando o titular de uma conta do NuGet fica incapa
     - Certificado de nascimento do titular da conta, se você for um dos pais ou
     - Documentação de tutela legal se você for o tutor legal do titular da conta.
 
-Se você precisa invocar essa política, envie um email para [support@nuget.org](mailto:support@nuget.org) com a ID e a versão do pacote.
+Se você precisar invocar esta política, envie-nos um [support@nuget.org](mailto:support@nuget.org) e-mail com o ID e a versão do pacote.
 
 ## <a name="transparency"></a>Transparência
 

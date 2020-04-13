@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
 ms.openlocfilehash: 4d337299f725b38981b0121069d5e6295b05e34e
-ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72924633"
 ---
 # <a name="analyzer-nuget-formats"></a>Formatos de NuGet do Analisador
@@ -45,7 +45,7 @@ O uso da pasta `analyzers` é semelhante àquela usada para [estruturas de desti
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
-- **framework_name** e **version**: a área de superfície *opcional* da API do .NET Framework que as DLLs contidas precisam executar. `dotnet` é atualmente o único valor válido porque Roslyn é o único host que pode executar analisadores. Se nenhum destino for especificado, é considerado que as DLLs se aplicam a *todos* os destinos.
+- **framework_name** e **versão:** a área de superfície de API *opcional* do Framework .NET que as DLLs contidas precisam para executar. `dotnet` é atualmente o único valor válido porque Roslyn é o único host que pode executar analisadores. Se nenhum destino for especificado, é considerado que as DLLs se aplicam a *todos* os destinos.
 - **supported_language**: o idioma ao qual a DLL se aplica, um dos `cs` (C#), `vb` (Visual Basic) e `fs` (F#). O idioma indica que o analisador deve ser carregado apenas para um projeto usando o idioma. Se nenhum idioma for especificado, a DLL será aplicada a *todos* os idiomas compatíveis com os analisadores.
 - **analyzer_name**: especifica as DLLs do analisador. Se você precisar de arquivos adicionais além de DLLs, eles deverão ser incluídos por meio de arquivos de destinos ou de propriedades.
 

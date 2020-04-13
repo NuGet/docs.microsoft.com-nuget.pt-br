@@ -8,10 +8,10 @@ ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
 ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428950"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Instalar e gerenciar pacotes com o Console do Gerenciador de Pacotes no Visual Studio (PowerShell)
@@ -143,7 +143,7 @@ Confira [Find-Package](../reference/ps-reference/ps-ref-find-package.md). No Vis
 
 A partir do Visual Studio 2017, o NuGet e o Gerenciador de pacotes do NuGet são instalados automaticamente ao seleciona qualquer carga de trabalho relacionada a .NET. Também é possível instalá-los individualmente marcando a opção **Componentes individuais > Ferramentas de código > Gerenciador de pacotes do NuGet** no instalador do Visual Studio.
 
-Além disso, se você não tem o Gerenciador de pacotes do NuGet no Visual Studio 2015 e anteriores, marque **Ferramentas > Extensões e Atualizações...** e pesquise pela extensão Gerenciador de pacotes do NuGet. Se não é possível usar o instalador de extensões no Visual Studio, baixe a extensão diretamente de [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+Além disso, se você não tem o Gerenciador de pacotes do NuGet no Visual Studio 2015 e anteriores, marque **Ferramentas > Extensões e Atualizações...** e pesquise pela extensão Gerenciador de pacotes do NuGet. Se você não puder usar o instalador de extensões no Visual [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)Studio, você pode baixar a extensão diretamente de .
 
 O Console do Gerenciador de Pacotes não está disponível atualmente no Visual Studio para Mac. No entanto, os comandos equivalentes estão disponíveis por meio da [CLI NuGet](../reference/nuget-exe-CLI-reference.md). O Visual Studio para Mac tem uma interface do usuário para gerenciar pacotes do NuGet. Confira [Incluindo um pacote do NuGet no projeto](/visualstudio/mac/nuget-walkthrough).
 
@@ -172,7 +172,7 @@ Para saber mais, confira [Perfis do Windows PowerShell](https://technet.microsof
 
 ## <a name="use-the-nugetexe-cli-in-the-console"></a>Usar a CLI nuget.exe no console
 
-Para disponibilizar a [CLI `nuget.exe`](../reference/nuget-exe-cli-reference.md) no Console do Gerenciador de Pacotes, instale o pacote [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) pelo console:
+Para disponibilizar [ `nuget.exe` ](../reference/nuget-exe-cli-reference.md) a CLI no console do gerenciador de pacotes, instale o pacote [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) no console:
 
 ```ps
 # Other versions are available, see https://www.nuget.org/packages/NuGet.CommandLine/

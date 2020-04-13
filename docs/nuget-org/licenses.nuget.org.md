@@ -3,15 +3,15 @@ title: licenses.nuget.org
 author: agr
 ms.date: 02/22/2019
 ms.openlocfilehash: 717cf8c47335c620410be71300b07de82799e1d3
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427111"
 ---
 # <a name="licensesnugetorg"></a>licenses.nuget.org
 
-## <a name="rationale"></a>Racional
+## <a name="rationale"></a>Fundamento
 
 Com a introdução das [expressões de licença](../reference/nuspec.md#license), surgiu um requisito de ter um serviço confiável que fornecerá um texto de referência para identificadores de licença individuais, identificadores de exceção ou expressões de licença.
 Um requisito adicional desse serviço é ter um esquema de URL estável, que não seja suscetível a links desfeitos, de modo que possamos usá-lo com segurança para fornecer compatibilidade com versões anteriores a clientes mais antigos.
@@ -36,7 +36,7 @@ As expressões de licença (incluindo os casos triviais em que a expressão cons
 | (MIT)                                              | <https://licenses.nuget.org/(MIT)> |
 | (LGPL-2.0-only WITH FLTK-exception OR Apache-2.0+) | <https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)> |
 
-O serviço dá suporte apenas a identificadores de licença e identificadores de exceção de licença aceitos pelo nuget.org. Todas as expressões de licença que contêm identificadores de licença ou identificadores de exceção de licença sem suporte ou que não estejam em conformidade com a sintaxe da expressão de licença são consideradas inválidas.
+O serviço suporta apenas identificadores de licença e identificadores de exceção de licença que são aceitos por nuget.org. Todas as expressões de licença que contenham identificadores de licença não suportados ou identificadores de exceção de licença ou que não estejam em conformidade com a sintaxe de expressão da licença são consideradas inválidas.
 
 #### <a name="response"></a>Resposta
 
@@ -51,7 +51,7 @@ Qualquer solicitação que contenha uma expressão de licença inválida resulta
 
 #### <a name="request"></a>Solicitação
 
-Os identificadores de exceção de licença precisam ser codificados em URL e usados como um caminho na solicitação para licenses.nuget.org. Somente um único identificador de exceção de licença pode ser fornecido em uma única solicitação. Nenhum caractere adicional além do identificador de exceção de licença pode estar presente na parte do caminho da URL.
+Os identificadores de exceção de licença devem ser codificados por URL e usados como um caminho na solicitação para licenses.nuget.org. Apenas um único identificador de exceção de licença pode ser fornecido em uma única solicitação. Nenhum caractere adicional além do identificador de exceção de licença pode estar presente na parte do caminho da URL.
 
 | Identificador de exceção de licença | URL a ser usada |
 |:---|:---|

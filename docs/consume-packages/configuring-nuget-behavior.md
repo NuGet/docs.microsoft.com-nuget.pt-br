@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
 ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428908"
 ---
 # <a name="common-nuget-configurations"></a>Configurações comuns do NuGet
@@ -25,8 +25,8 @@ O comportamento do NuGet é controlado pelas configurações acumuladas em um ou
 | Computador | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Se `$XDG_DATA_HOME` for nulo ou vazio, `~/.local/share` ou `/usr/local/share` será usado (varia de acordo com a distribuição do SO)  | As configurações se aplicam a todas as operações, mas são substituídas por qualquer usuário ou por configurações de nível de projeto. |
 
 Observações para versões anteriores do NuGet:
-- O NuGet 3.3 e versões anteriores usavam uma pasta `.nuget` para configurações de toda a solução. Esta pasta não é usada no NuGet 3.4 +.
-- Para o NuGet 2.6 a 3.x, o arquivo de configuração de nível de computador no Windows encontra-se em %ProgramData%\NuGet\Config [\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config, em que *{IDE}* pode ser *VisualStudio*, *{Version}* é a versão do Visual Studio como *14.0* e *{SKU}* é *Community*, *Pro* ou *Enterprise*. Para migrar as configurações para o NuGet 4.0 +, basta copiar o arquivo de configuração para% ProgramFiles (x86)% \ NuGet\Config. No Linux, esse local anterior era/etc/opt e, no Mac, o suporte do/library/Application Support.
+- O NuGet 3.3 e versões anteriores usavam uma pasta `.nuget` para configurações de toda a solução. Esta pasta não é usada no NuGet 3.4+.
+- Para o NuGet 2.6 a 3.x, o arquivo de configuração de nível de computador no Windows encontra-se em %ProgramData%\NuGet\Config [\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config, em que *{IDE}* pode ser *VisualStudio*, *{Version}* é a versão do Visual Studio como *14.0* e *{SKU}* é *Community*, *Pro* ou *Enterprise*. Para migrar as configurações para NuGet 4.0+, basta copiar o arquivo de configuração para %ProgramFiles(x86)%\NuGet\Config. No Linux, esse local anterior era /etc/opt, e no Mac, /Library/Application Support.
 
 ## <a name="changing-config-settings"></a>Alterar as definições da configuração
 
@@ -201,15 +201,15 @@ O arquivo `NuGetDefaults.Config` existe para especificar origens de pacote do qu
 > [!Important]
 > O arquivo `NuGetDefaults.Config` nunca faz com que a origem do pacote seja removida da configuração do NuGet do desenvolvedor. Isso significa que, se o desenvolvedor já tiver usado o NuGet e, portanto, a origem do pacote no nuget.org está registrada, ele não será removido após a criação de um arquivo `NuGetDefaults.Config`.
 >
-> Além disso, nem `NuGetDefaults.Config` nem qualquer outro mecanismo no NuGet pode impedir o acesso a fontes de pacote como nuget.org. Se uma organização quiser bloquear tal acesso, ela deverá usar outros meios, como firewalls para fazer isso.
+> Além disso, `NuGetDefaults.Config` nem nenhum outro mecanismo no NuGet pode impedir o acesso a fontes de pacotes como nuget.org. Se uma organização deseja bloquear esse acesso, deve usar outros meios, como firewalls, para fazê-lo.
 
 ### <a name="nugetdefaultsconfig-location"></a>Local do NuGetDefaults.Config
 
 A tabela a seguir descreve onde o arquivo `NuGetDefaults.Config` deve ser armazenado, dependendo do sistema operacional de destino:
 
-| Plataforma do sistema operacional  | Local de NuGetDefaults.Config |
+| Plataforma do SO  | Local de NuGetDefaults.Config |
 | --- | --- |
-| Portal      | **Visual Studio 2017 ou NuGet 4. x +:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 e anterior ou NuGet 3. x e anteriores:** `%PROGRAMDATA%\NuGet` |
+| Windows      | **Visual Studio 2017 ou NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 e anteriores ou NuGet 3.x e anteriores:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (normalmente `~/.local/share` ou `/usr/local/share`, dependendo da distribuição do SO)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>Configurações do NuGetDefaults.Config
@@ -218,7 +218,7 @@ A tabela a seguir descreve onde o arquivo `NuGetDefaults.Config` deve ser armaze
 
 - `disabledPackageSources`: esta coleção também tem o mesmo significado que arquivos `NuGet.Config`, em que cada origem afetada é listada por seu nome e um valor true/false que indica se ela está desabilitada. Isso permite que o nome de origem e a URL permaneçam em `packageSources` sem que ele seja ativado por padrão. Desenvolvedores individuais podem reabilitar a origem definindo o valor dela para falso em outros arquivos `NuGet.Config` sem a necessidade de localizar a URL correta novamente. Isso também é útil para fornecer aos desenvolvedores uma lista completa de URLs de origem interna para uma organização, permitindo somente a origem de uma equipe individual por padrão.
 
-- `defaultPushSource`: especifica o destino padrão para operações de `nuget push`, substituindo o padrão interno de nuget.org. Os administradores podem implantar essa configuração para evitar a publicação de pacotes internos para o nuget.org público por acidente, pois os desenvolvedores precisam especificamente usar `nuget push -Source` para publicar no nuget.org.
+- `defaultPushSource`: especifica o alvo `nuget push` padrão das operações, substituindo o padrão incorporado de nuget.org. Os administradores podem implantar essa configuração para evitar a publicação de pacotes `nuget push -Source` internos para o público nuget.org por acidente, já que os desenvolvedores precisam usar especificamente para publicar para nuget.org.
 
 ### <a name="example-nugetdefaultsconfig-and-application"></a>Exemplo de NuGetDefaults.Config e aplicativo
 

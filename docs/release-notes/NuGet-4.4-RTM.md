@@ -7,25 +7,25 @@ ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432563"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498696"
 ---
 # <a name="nuget-44-release-notes"></a>Notas sobre a versão do NuGet 4.4
 
 O [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) vem com o NuGet 4.4 RTM.
 
-## <a name="summary-whats-new-in-440"></a>Resumo: Novidades na versão 4.4.0
+## <a name="summary-whats-new-in-440"></a>Resumo: O que há de novo no 4.4.0
 
-## <a name="summary-whats-new-in-442"></a>Resumo: Novidades na versão 4.4.2
+## <a name="summary-whats-new-in-442"></a>Resumo: O que há de novo em 4.4.2
 
-* Correção de segurança: Permissões em arquivos criados dentro de ~/.nuget são muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correção de segurança: permissões em arquivos criados dentro ~/.nuget estão muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-443"></a>Resumo: Novidades na versão 4.4.3
+## <a name="summary-whats-new-in-443"></a>Resumo: O que há de novo em 4.4.3
 
-* Correção de segurança: Arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correção de segurança: arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -83,7 +83,7 @@ Não há nenhuma solução alternativa no momento.
 
 - O destino do pacote msbuild deve ter um gancho público para destinos de usuário em execução antes de si mesmo – [#5143](https://github.com/NuGet/Home/issues/5143)
 
-- Recurso: Adicionar a opção dependencyVersion à instalação do nuget – [#1806](https://github.com/NuGet/Home/issues/1806)
+- Recurso: adicionar a opção dependencyVersion à instalação do nuget – [#1806](https://github.com/NuGet/Home/issues/1806)
 
 - uap10.0.TODO.0 deve ser mapeado para o .NET Standard 2.0 para NuGet – [#5684](https://github.com/NuGet/Home/issues/5684)
 
@@ -175,9 +175,9 @@ Não há nenhuma solução alternativa no momento.
 
 - [Avisos e erros] NoWarn não flui transitivamente por referências P2P – [#5501](https://github.com/NuGet/Home/issues/5501)
 
-- Carga de Solução Leve: Núcleo comum para interface do usuário de PM, PMC e IVs – [#5057](https://github.com/NuGet/Home/issues/5057)
+- Carga de solução leve: Núcleo comum para PM UI, PMC e IVs- - [#5057](https://github.com/NuGet/Home/issues/5057)
 
-- Carga de Solução Leve: Suporte – PMC – [#5053](https://github.com/NuGet/Home/issues/5053)
+- Lightweight Solution Load: suporte – PMC – [#5053](https://github.com/NuGet/Home/issues/5053)
 
 - Adicionar suporte para o destino do MSBuild pré-restauração que o Visual Studio dispara – [#4781](https://github.com/NuGet/Home/issues/4781)
 
@@ -195,8 +195,8 @@ Não há nenhuma solução alternativa no momento.
 
 ## <a name="links-to-github-issues-fixed-in-44-rtm"></a>Links para problemas do GitHub corrigidos no RTM 4.4
 
-[Lista de Problemas 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
+[Lista de problemas 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
 
-[Lista de Problemas 2](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F31+through+8%2F18%22)
+[Lista de problemas 2](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F31+through+8%2F18%22)
 
-[Lista de Problemas 3](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F10+through+7%2F28%22)
+[Lista de problemas 3](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F10+through+7%2F28%22)

@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
 ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380638"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Início Rápido: Criar e publicar um pacote usando o Visual Studio (.NET Framework no Windows)
@@ -17,9 +17,9 @@ ms.locfileid: "72380638"
 Para criar um pacote NuGet em uma Biblioteca de Classes .NET Framework, é necessário criar a DLL no Visual Studio no Windows e, em seguida, usar a ferramenta de linha de comando nuget.exe para criar e publicar o pacote.
 
 > [!Note]
-> Este início rápido aplica-se apenas ao Visual Studio 2017 e às versões posteriores para Windows. O Visual Studio para Mac não inclui os recursos descritos aqui. Em vez disso, use as [ferramentas CLI do dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
+> Este Quickstart se aplica ao Visual Studio 2017 e versões mais altas apenas para Windows. O Visual Studio para Mac não inclui os recursos descritos aqui. Em vez disso, use as [ferramentas CLI do dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Instale qualquer edição do Visual Studio 2017 ou superior de [visualstudio.com](https://www.visualstudio.com/) usando qualquer carga de trabalho relacionada ao .NET. O Visual Studio 2017 inclui automaticamente os recursos do NuGet quando uma carga de trabalho do .NET é instalada.
 
@@ -31,7 +31,7 @@ Para criar um pacote NuGet em uma Biblioteca de Classes .NET Framework, é neces
 
 Você pode usar um projeto existente da Biblioteca de Classes .NET Framework para o código que desejar empacotar ou criar um projeto simples da seguinte maneira:
 
-1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, selecione o nó **Visual C#** , selecione o modelo “Biblioteca de Classes (.NET Framework)”, nomeie o projeto como AppLogger e clique em **OK**.
+1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, selecione o nó **Visual C#**, selecione o modelo “Biblioteca de Classes (.NET Framework)”, nomeie o projeto como AppLogger e clique em **OK**.
 
 1. Clique com botão direito do mouse no arquivo de projeto resultante e selecione **Build** para verificar se o projeto foi criado corretamente. A DLL é encontrada dentro da pasta de Depuração (ou Versão, se você compilar essa configuração).
 
@@ -70,7 +70,7 @@ Um pacote NuGet contém um manifesto (um arquivo `.nuspec`), que contém metadad
     >
     > Se você tentar publicar um pacote com um nome que já existe, você verá um erro.
 
-1. Selecione o botão **Informações do Assembly...** , que abrirá uma caixa de diálogo na qual será possível inserir outras propriedades contidas no manifesto (veja [Referência do arquivo .nuspec – tokens de substituição](../reference/nuspec.md#replacement-tokens)). Os campos mais usados são **Título**, **Descrição**, **Empresa**, **Direitos autorais** e **Versão do assembly**. Essas propriedades aparecem, por fim, com o pacote em um host, como o nuget.org, portanto deixe-os totalmente descritivos.
+1. Selecione o botão **Informações do Assembly...**, que abrirá uma caixa de diálogo na qual será possível inserir outras propriedades contidas no manifesto (veja [Referência do arquivo .nuspec – tokens de substituição](../reference/nuspec.md#replacement-tokens)). Os campos mais usados são **Título**, **Descrição**, **Empresa**, **Direitos autorais** e **Versão do assembly**. Essas propriedades aparecem, por fim, com o pacote em um host, como o nuget.org, portanto deixe-os totalmente descritivos.
 
     ![Informações do assembly em um projeto do .NET Framework no Visual Studio](media/qs_create-vs-01b-project-properties.png)
 
@@ -118,7 +118,7 @@ Execute `nuget spec` apenas uma vez para gerar o manifesto inicial. Ao atualizar
     - projectUrl
     - iconUrl
     - releaseNotes
-    - marcações
+    - marcas
 
 1. Para pacotes compilados para consumo público, preste atenção especial à propriedade **Tags**, uma vez que as marcações ajudam outras pessoas a encontrar o pacote em fontes como o nuget.org e a entender o que ele faz.
 
@@ -134,7 +134,7 @@ Execute `nuget spec` apenas uma vez para gerar o manifesto inicial. Ao atualizar
 
 ## <a name="publish-the-package"></a>Publicar o pacote
 
-Quando você tiver um arquivo `.nupkg`, publique-o em nuget.org usando `nuget.exe` com uma chave de API adquirida em nuget.org. Para nuget.org, você deve usar `nuget.exe` 4.1.0 ou superior.
+Depois de `.nupkg` ter um arquivo, publique-o para nuget.org usando `nuget.exe` com uma chave de API adquirida de nuget.org. Para nuget.org você `nuget.exe` deve usar 4.1.0 ou superior.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: c92f6e0c34347ee8555d416140d95ea2df5a3fbb
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610538"
 ---
 O identificador de pacote e o número de versão são os dois valores mais importantes no projeto, pois identificam exclusivamente o código exato que está contido no pacote.
@@ -12,7 +12,7 @@ O identificador de pacote e o número de versão são os dois valores mais impor
 
 - **Exclusividade**: o identificador deve ser exclusivo no nuget.org ou na galeria que hospeda o pacote. Antes de decidir sobre um identificador, pesquise a galeria aplicável para verificar se o nome já está em uso. Para evitar conflitos, um bom padrão é usar o nome da sua empresa como a primeira parte do identificador, como `Contoso.`.
 - **Nomes semelhantes a namespace**: siga um padrão semelhante aos namespaces no .NET, usando a notação de ponto em vez de hifens. Por exemplo, use `Contoso.Utility.UsefulStuff` em vez de `Contoso-Utility-UsefulStuff` ou `Contoso_Utility_UsefulStuff`. Também é útil para os consumidores quando o identificador de pacote corresponde os namespaces usados no código.
-- **Pacotes de exemplo**: se você gerar um pacote de código de exemplo que demonstra como usar outro pacote, anexe `.Sample` como um sufixo ao identificador, como em `Contoso.Utility.UsefulStuff.Sample`. (O pacote de exemplo, obviamente, teria uma dependência do outro pacote.) Ao criar um pacote de exemplo, use o valor `contentFiles` em `<IncludeAssets>`. Na pasta `content`, organize o código de exemplo em uma pasta chamada `\Samples\<identifier>` como no `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Pacotes de exemplo**: se você gerar um pacote de código de exemplo que demonstra como usar outro pacote, anexe `.Sample` como um sufixo ao identificador, como em `Contoso.Utility.UsefulStuff.Sample`. (O pacote de amostra teria, naturalmente, uma dependência do outro pacote.) Ao criar um pacote `contentFiles` de `<IncludeAssets>`exemplo, use o valor em . Na pasta `content`, organize o código de exemplo em uma pasta chamada `\Samples\<identifier>` como no `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Práticas recomendadas para a versão de pacote:**
 

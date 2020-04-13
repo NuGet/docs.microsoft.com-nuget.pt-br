@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 07/17/2017
 ms.topic: conceptual
 ms.openlocfilehash: ac3c137dd0ba50571737093eef11c8ab0ef932b2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548658"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64494362"
 ---
 # <a name="projectjson-and-uwp"></a>project.json e UWP
 
@@ -33,7 +33,7 @@ Nesse caso, será necessário adicionar o moniker da estrutura de destino `uap10
 
 ## <a name="i-dont-need-windows-10-specific-apis-but-want-new-net-features-or-dont-have-netcore45-already"></a>Não preciso de APIs específicas do Windows 10, mas desejo novos recursos do .NET ou ainda não tenho o netcore45
 
-Nesse caso, você adicionaria o `dotnet` TxM ao seu pacote. Ao contrário de outros TxMs, o `dotnet` não implica em uma plataforma ou área da superfície. É informado que seu pacote funciona em qualquer plataforma com as quais suas dependências funcionam. Ao criar um pacote com o `dotnet` TxM, você provavelmente terá muitas outras dependências específicas de TxM no seu `.nuspec`, conforme necessário para definir os pacotes de BCL dos quais você depende, como `System.Text`, `System.Xml`, etc. Os locais em que essas dependências funcionam definem onde seu pacote funciona.
+Nesse caso, você adicionaria o `dotnet` TxM ao seu pacote. Ao contrário de outros TxMs, o `dotnet` não implica em uma plataforma ou área da superfície. É informado que seu pacote funciona em qualquer plataforma com as quais suas dependências funcionam. Ao construir um `dotnet` pacote com o TxM, é provável que você tenha `.nuspec`muito mais dependências específicas de TxM `System.Text`em `System.Xml`seu , pois você precisa definir os pacotes BCL de que você depende, tais , etc. Os locais em que essas dependências trabalham definem onde seu pacote funciona.
 
 ### <a name="how-do-i-find-out-my-dependencies"></a>Como fazer para localizar minhas dependências
 
@@ -41,9 +41,9 @@ Há duas maneiras de descobrir quais dependências listar:
 
 1. Use a ferramenta [Gerador de dependência de NuSpec](https://github.com/onovotny/ReferenceGenerator) **de terceiros**. A ferramenta automatiza o processo e atualiza seu arquivo `.nuspec` com os pacotes dependentes no build. Está disponível por meio de um pacote do NuGet, [NuSpec.ReferenceGenerator](https://www.nuget.org/packages/NuSpec.ReferenceGenerator/).
 
-1. (A maneira mais difícil) Use `ILDasm` para examinar seu `.dll` para ver quais assemblies são realmente necessários no tempo de execução. Em seguida, determine de qual pacote do NuGet cada um deles veio.
+1. (A maneira mais difícil) Use `ILDasm` para examinar seu `.dll` para ver quais assemblies são realmente necessários no runtime. Em seguida, determine de qual pacote do NuGet cada um deles veio.
 
-Consulte o tópico [`project.json`](project-json.md) para obter detalhes sobre os recursos que ajudam na criação de um pacote compatível com o `dotnet` TxM.
+Veja [`project.json`](project-json.md) o tópico para obter detalhes sobre recursos que `dotnet` ajudam na criação de um pacote que suporta o TxM.
 
 > [!Important]
 > Se seu pacote se destina a trabalhar com projetos PCL, é altamente recomendável criar uma pasta `dotnet` para evitar avisos e possíveis problemas de compatibilidade.
@@ -79,7 +79,7 @@ Um exemplo de estrutura de lib:
     └───wp81
             MyLibrary.dll
 
-A pasta `lib` contém os assemblies que são usados no tempo de execução. Para a maioria dos pacotes, tudo o que é necessário é uma pasta em `lib` para cada destino TxMs.
+A pasta `lib` contém os assemblies que são usados no runtime. Para a maioria dos pacotes, tudo o que é necessário é uma pasta em `lib` para cada destino TxMs.
 
 ## <a name="ref"></a>Ref
 
@@ -113,7 +113,7 @@ Neste exemplo, os assemblies nos diretórios `ref` serão idênticos.
 
 ## <a name="runtimes"></a>Runtimes
 
-A pasta de runtimes contém os assemblies e bibliotecas nativos necessários para executar em “runtimes” específicos, que geralmente são definidos pelo sistema operacional e arquitetura de CPU. Esses tempos de execução são identificados usando [RIDs (Identificadores de tempo de execução)](/dotnet/core/rid-catalog) como `win`, `win-x86`, `win7-x86`, `win8-64`, etc.
+A pasta de runtimes contém os assemblies e bibliotecas nativos necessários para executar em “runtimes” específicos, que geralmente são definidos pelo sistema operacional e arquitetura de CPU. Esses tempos de execução são identificados usando [identificadores de tempo de execução (RIDs)](/dotnet/core/rid-catalog) como `win`, `win-x86`, `win7-x86`, `win8-64`, etc.
 
 ## <a name="native-helpers-to-use-platform-specific-apis"></a>Auxiliares nativo para usar APIs específicas de plataforma
 
@@ -147,9 +147,9 @@ Considerando o pacote acima, acontece o seguinte:
 
 - No Windows 8, o `runtimes/win8-<architecture>/lib/MyLibrary.dll` é usado e o `native/MyNativeHelper.dll` é copiado para a saída do build.
 
-No exemplo acima, o assembly `lib/net40` é composto puramente por código gerenciado, embora os assemblies na pasta de tempos de execução serão p/invoke para o assembly auxiliar nativo para chamar as APIs específicas para o Windows 8.
+No exemplo acima, o assembly `lib/net40` é composto puramente por código gerenciado, embora os assemblies na pasta de runtimes serão p/invoke para o assembly auxiliar nativo para chamar as APIs específicas para o Windows 8.
 
-Somente uma pasta `lib` única será escolhida, por isso se houver uma pasta específica do tempo de execução, ela será escolhida em vez do `lib` específico fora do tempo de execução. A pasta nativa é aditiva, se existir, ela é copiada para a saída do build.
+Somente uma pasta `lib` única será escolhida, por isso se houver uma pasta específica do runtime, ela será escolhida em vez do `lib` específico fora do runtime. A pasta nativa é aditiva, se existir, ela é copiada para a saída do build.
 
 ## <a name="managed-wrapper"></a>Wrapper gerenciado
 

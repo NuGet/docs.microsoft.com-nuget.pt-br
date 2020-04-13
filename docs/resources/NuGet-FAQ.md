@@ -6,10 +6,10 @@ ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8cc990e0c9eed07c59c8dffb04d104be47051736
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69999950"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Perguntas frequentes do NuGet
@@ -40,7 +40,7 @@ Para obter mais informações, consulte [Localizando e escolhendo pacotes](../co
 
 - O Visual Studio no Windows é compatível com a [Interface do usuário do Gerenciador de Pacotes](../consume-packages/install-use-packages-visual-studio.md) e o [Console do Gerenciador de Pacotes](../consume-packages/install-use-packages-powershell.md).
 - O Visual Studio para Mac tem recursos internos do NuGet, conforme descrito em [Incluindo um pacote do NuGet em seu projeto](/visualstudio/mac/nuget-walkthrough).
-- O Visual Studio Code (todas as plataformas) não tem nenhuma integração direta do NuGet. Usar a [CLI do NuGet](../reference/nuget-exe-cli-reference.md) ou a [CLI do dotnet](../reference/dotnet-commands.md).
+- O Visual Studio Code (todas as plataformas) não tem nenhuma integração direta do NuGet. Use o [NuGet CLI](../reference/nuget-exe-cli-reference.md) ou o [dotnet CLI](../reference/dotnet-commands.md).
 - O Azure DevOps fornece [uma etapa de build para restaurar os pacotes do NuGet](/vsts/build-release/tasks/package/nuget). Você também pode [hospedar feeds privados de pacote do NuGet no Azure DevOps](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
 
 **Como fazer para verificar a versão exata das ferramentas do NuGet que estão instaladas?**
@@ -61,7 +61,7 @@ O NuGet tem suporte completo para uma variedade de modelos de projeto como Windo
 
 **Como fazer para atualizar pacotes que fazem parte dos modelos do Visual Studio?**
 
-Acesse a guia **Atualizações** na interface do usuário do Gerenciador de Pacotes e selecione **Atualizar tudo** [ou use o comando `Update-Package`](../reference/ps-reference/ps-ref-update-package.md) do Console do Gerenciador de Pacotes.
+Acesse a guia **Atualizações** na interface do usuário do Gerenciador de Pacotes e selecione **Atualizar tudo**[ou use o comando `Update-Package`](../reference/ps-reference/ps-ref-update-package.md) do Console do Gerenciador de Pacotes.
 
 Para atualizar o próprio modelo, você precisa atualizar manualmente o repositório de modelos. Consulte o [blog de Xavier Decoster](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) sobre este assunto. Observe que isso é feito por seu próprio risco, pois atualizações manuais podem corromper o modelo se a versão mais recente de todas as dependências não forem compatível entre si.
 
@@ -89,7 +89,7 @@ Sim, é possível adicionar comandos personalizados para `nuget.exe`, conforme d
 
 O objeto de nível superior no modelo de objeto de automação do Visual Studio é chamado o objeto DTE (Ambiente de Ferramentas de Desenvolvimento). O console fornece isso por meio de uma variável chamada `$DTE`. Para obter mais informações, consulte [Visão geral do modelo de automação](/visualstudio/extensibility/internals/automation-model-overview) na documentação de Extensibilidade do Visual Studio.
 
-**Tento converter a variável $DTE para o tipo DTE2, mas eu recebo um erro: Não é possível converter o valor de "EnvDTE.DTEClass" do tipo "EnvDTE.DTEClass" para o tipo "EnvDTE80.DTE2". Qual é o problema?**
+**Tento lançar a variável $DTE para o tipo DTE2, mas obtenho um erro: Não é possível converter o valor "EnvDTE.DTEClass" do tipo "EnvDTE.DTEClass" para digitar "EnvDTE80.DTE2". Qual é o problema?**
 
 Este é um problema conhecido em como o PowerShell interage com um objeto COM. Experimente o seguinte:
 
@@ -105,7 +105,7 @@ Este é um problema conhecido em como o PowerShell interage com um objeto COM. E
 
 Consulte [Criar e publicar um pacote](../quickstart/create-and-publish-a-package.md).
 
-**Tenho várias versões da minha biblioteca que usam versões diferentes do .NET Framework. Como fazer para compilar um único pacote compatível com isso?**
+**Tenho várias versões da minha biblioteca que têm como alvo diferentes versões do .NET Framework. Como faço para construir um único pacote que suporte isso?**
 
 Consulte [Suporte a várias versões e perfis do .NET Framework](../create-packages/supporting-multiple-target-frameworks.md).
 
@@ -129,11 +129,11 @@ Sim, consulte a postagem no blog de Scott Hanselman [How to access NuGet when nu
 
 **Como fazer para instalar pacotes em um local diferente da pasta de pacotes padrão?**
 
-Defina a configuração [`repositoryPath`](../reference/nuget-config-file.md#config-section) em `Nuget.Config` usando `nuget config -set repositoryPath=<path>`.
+Defina [`repositoryPath`](../reference/nuget-config-file.md#config-section) a `Nuget.Config` `nuget config -set repositoryPath=<path>`configuração usando .
 
 **Como evitar adicionar a pasta de pacotes do NuGet ao controle do código-fonte?**
 
-Defina o [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) em `Nuget.Config` para `true`. Essa chave funciona no nível da solução e, portanto, precisa ser adicionada ao arquivo `$(Solutiondir)\.nuget\Nuget.Config`. Habilitando a restauração do pacote do Visual Studio cria esse arquivo automaticamente.
+Coloque [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) o `Nuget.Config` `true`in para . Essa chave funciona no nível da solução e, portanto, precisa ser adicionada ao arquivo `$(Solutiondir)\.nuget\Nuget.Config`. Habilitando a restauração do pacote do Visual Studio cria esse arquivo automaticamente.
 
 **Como fazer para desligar a restauração do pacote?**
 

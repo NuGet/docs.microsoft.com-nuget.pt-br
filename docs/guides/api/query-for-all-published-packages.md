@@ -7,11 +7,11 @@ ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
 ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551072"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498227"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Consulta para todos os pacotes publicados em nuget.org
 
@@ -32,7 +32,7 @@ Por esse motivo, o guia a seguir pode ser seguido para resolver os cenários men
 
 ## <a name="overview"></a>Visão geral
 
-No centro deste guia está o recurso na [API do NuGet](../../api/overview.md) chamado de **catálogo**. O catálogo é uma API somente de acréscimo que permite que o chamador veja um histórico completo de pacotes adicionados, modificados e excluídos do nuget.org. Se você estiver interessado em todos ou até mesmo em um subconjunto dos pacotes publicados no nuget.org, o catálogo é uma ótima maneira de se manter atualizado com o conjunto de pacotes disponíveis atualmente à medida que o tempo passa.
+No centro deste guia está o recurso na [API do NuGet](../../api/overview.md) chamado de **catálogo**. O catálogo é uma API somente apêndice que permite ao chamador ver um histórico completo de pacotes adicionados, modificados e excluídos de nuget.org. Se você estiver interessado em todos ou mesmo um subconjunto de pacotes publicados para nuget.org, o catálogo é uma ótima maneira de ficar atualizado com o conjunto de pacotes disponíveis atualmente à medida que o tempo passa.
 
 Este guia busca ser uma explicação passo a passo de alto nível, mas se você estiver interessado nos detalhes refinados do catálogo, consulte o [Documento de referência de API](../../api/catalog-resource.md).
 
@@ -56,7 +56,7 @@ A localização de cada recurso (ponto de extremidade) na API do NuGet deve ser 
 
     GET https://api.nuget.org/v3/index.json
 
-O documento de serviço é um documento JSON que contém todos os recursos em nuget.org. Procure o recurso com a propriedade `@type` com valor `Catalog/3.0.0`. O valor da propriedade `@id` associado é a URL para o próprio índice do catálogo. 
+O documento de serviço é documento JSON contendo todos os recursos em nuget.org. Procure o recurso `@type` que tenha `Catalog/3.0.0`o valor da propriedade de . O valor da propriedade `@id` associado é a URL para o próprio índice do catálogo. 
 
 ## <a name="find-new-catalog-leaves"></a>Localizar novas folhas de catálogo
 

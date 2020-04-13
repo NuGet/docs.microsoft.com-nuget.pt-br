@@ -6,19 +6,19 @@ ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
 ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488290"
 ---
 # <a name="projectjson-reference"></a>Referência do project.json
 
-*NuGet 3.x ou superior*
+*NuGet 3.x+*
 
 O arquivo `project.json` mantém uma lista de pacotes usados em um projeto, conhecidos como um formato de gerenciamento de pacote. Ele substitui `packages.config`, mas é, por sua vez substituído por [PackageReference](../consume-packages/package-references-in-project-files.md) com o NuGet 4.0 e superior.
 
-O arquivo [`project.lock.json`](#projectlockjson) (descrito abaixo) também é usado em projetos que empregam o `project.json`.
+O [`project.lock.json`](#projectlockjson) arquivo (descrito abaixo) também é `project.json`usado em projetos de empregabilidade .
 
 `project.json` tem a seguinte estrutura básica, em que cada um dos quatro objetos de nível superior pode ter qualquer número de objetos filho:
 
@@ -71,11 +71,11 @@ Quais ativos do fluxo de dependências para o projeto de nível superior é cont
 | Marca Incluir/Excluir | Pastas afetadas do destino |
 | --- | --- |
 | contentFiles | Conteúdo  |
-| tempo de execução | Runtime, Resources e FrameworkAssemblies  |
+| runtime | Runtime, Resources e FrameworkAssemblies  |
 | compilar | lib |
-| build | build (objetos e destinos do MSBuild) |
+| compilar | build (objetos e destinos do MSBuild) |
 | nativa | nativa |
-| nenhum | Nenhuma pasta |
+| none | Nenhuma pasta |
 | all | Todas as pastas |
 
 Marcas especificadas com `exclude` têm precedência sobre aquelas especificadas com `include`. Por exemplo, `include="runtime, compile" exclude="compile"` é o mesmo que `include="runtime"`.
@@ -118,7 +118,7 @@ Lista as estruturas em que o projeto é executado, como `net45`, `netcoreapp`, `
 
 Somente uma única entrada é permitida na seção `frameworks`. (Uma exceção são os arquivos `project.json` para projetos do ASP.NET compilados com a cadeia de ferramentas DNX preterida, o que permite considerar vários destinos).
 
-## <a name="runtimes"></a>Tempos de execução
+## <a name="runtimes"></a>Runtimes
 
 Lista os sistemas operacionais e arquiteturas nos quais seu aplicativo é executado, como `win10-arm`, `win8-x64`, `win8-x86`.
 
@@ -133,10 +133,10 @@ Lista os sistemas operacionais e arquiteturas nos quais seu aplicativo é execut
 }
 ```
 
-Um pacote que contém um PCL que pode ser executado em qualquer tempo de execução não precisa especificar um tempo de execução. Isso também deve ser verdadeiro para todas as dependências, caso contrário, você precisará especificar tempos de execução.
+Um pacote que contém um PCL que pode ser executado em qualquer runtime não precisa especificar um runtime. Isso também deve ser verdadeiro para todas as dependências, caso contrário, você precisará especificar runtimes.
 
 
-## <a name="supports"></a>Suporte
+## <a name="supports"></a>Suporta
 
 Define um conjunto de verificações para as dependências de pacote. Você pode definir onde você espera que o PCL ou aplicativo seja executado. As definições não são restritivas, visto que seu código pode ser capaz de ser executado em outro lugar. Porém, especificar essas verificações faz o NuGet verificar se todas as dependências são atendidas nos TxMs listados. Exemplos de valores para isso problema são: `net46.app`, `uwp.10.0.app`, etc.
 

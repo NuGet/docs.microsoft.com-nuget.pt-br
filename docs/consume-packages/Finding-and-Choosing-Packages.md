@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9f427005251bc2bf7a8a79285e39b4bd49062dbf
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428852"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Localizando e avaliando pacotes do NuGet para o seu projeto
@@ -40,7 +40,7 @@ Alguns pacotes listam suas estruturas compatíveis diretamente na galeria do nug
 
 Felizmente, é possível determinar estruturas compatíveis por meio de dois outros meios:
 
-1. Tentativa de instalar um pacote em um projeto usando o comando [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) no Console do Gerenciador de Pacotes do NuGet. Se o pacote for incompatível, este comando mostrará as estruturas compatíveis com o pacote.
+1. Tente instalar um pacote em [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) um projeto usando o comando no Console Do Gerenciador de Pacotes NuGet. Se o pacote for incompatível, este comando mostrará as estruturas compatíveis com o pacote.
 
 1. Baixe o pacote da sua página no nuget.org usando o link de **Download manual** em **Informações**. Altere a extensão de `.nupkg` para `.zip` e abra o arquivo para examinar o conteúdo da sua pasta `lib`. Lá você verá as subpastas para cada estrutura compatível, em que cada subpasta é chamada com um moniker da estrutura de destino (TFM; veja [Estruturas de destino](../reference/target-frameworks.md)). Se você não encontrar nenhuma subpasta em `lib` e apenas uma única DLL, será preciso tentar instalar o pacote no seu projeto para descobrir a compatibilidade dele.
 
@@ -58,9 +58,9 @@ No Visual Studio e ao usar a CLI do NuGet e ferramentas da CLI dotnet, o NuGet n
 
     ![A caixa de seleção Incluir pré-lançamento no Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-- **Console do Gerenciador de Pacotes**: use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
+- **Console do gerenciador de**pacotes `Install-Package` `Sync-Package`: `Update-Package` Use o `-IncludePrerelease` interruptor com os `Find-Package`comandos , `Get-Package`e os comandos. Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
 
-- **CLI nuget.exe**: use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
+- **nuget.exe CLI**: `-prerelease` Use `install`o `update` `delete`interruptor `mirror` com os comandos , e comandos. Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
 
 - **CLI dotnet.exe**: especifique a versão de pré-lançamento exata usando o argumento `-v`. Veja a [referência de dotnet add package](/dotnet/core/tools/dotnet-add-package).
 
@@ -82,18 +82,18 @@ Por outro lado, usar um pacote do NuGet significa assumir uma dependência, por 
 
     ![Baixar estatísticas em uma página de listagem do pacote](media/Finding-03-Downloads.png)
 
-- *Uso do GitHub*: na página pacote, a seção **uso do GitHub** lista os repositórios GitHub públicos que dependem deste pacote e que têm um número alto de estrelas no github. O número de estrelas de um repositório GitHub geralmente indica o quão popular esse repositório está com os usuários do GitHub (mais estrelas geralmente significa mais popular). Visite a [página de introdução do GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) para obter mais informações sobre o sistema de classificação de estrela e de repositório do github.
+- *Uso do GitHub*: na página do pacote, a seção Uso do **GitHub** lista repositórios públicos do GitHub que dependem deste pacote e que têm um alto número de estrelas no GitHub. O número de estrelas de um repositório do GitHub geralmente indica o quão popular esse repositório é com os usuários do GitHub (mais estrelas geralmente significam mais popular). Visite a [página Getting Started do GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) para obter mais informações sobre o sistema de classificação de estrelas e repositórios do GitHub.
 
     ![Uso do GitHub](media/GitHub-Usage.png)
 
     > [!Note]
-    > A seção de uso do GitHub de um pacote é gerada automaticamente, periodicamente, sem revisão humana de repositórios individuais e unicamente para fins informativos a fim de mostrar os repositórios GitHub que dependem do pacote e que são populares com o GitHub podem.
+    > A seção de uso do GitHub de um pacote é gerada automaticamente, periodicamente, sem revisão humana de repositórios individuais e exclusivamente para fins informativos, a fim de mostrar-lhe repositórios do GitHub que dependem do pacote e que são populares entre os usuários do GitHub.
 
 - *Histórico de versão*: na página do pacote, procure em **Informações** pela data da atualização mais recente e examine o **Histórico de versão**. Um pacote com boa manutenção tem atualizações recentes e um histórico de versões detalhado. Pacotes inativos têm algumas atualizações e geralmente não foram atualizados há algum tempo.
 
     ![Histórico de versão na página de listagem do pacote](media/Finding-04-VersionHistory.png)
 
-- *Instalações recentes*: na página pacote em **estatísticas**, selecione **exibir estatísticas completas**. A página de estatísticas completas mostra que o pacote é instalado nas últimas seis semanas por número de versão. Um pacote que outros desenvolvedores estão usando ativamente normalmente é uma escolha melhor do que aqueles que não estão sendo usados.
+- *Instalações recentes*: na página do pacote em **Estatísticas,** selecione **Exibir estatísticas completas**. A página de estatísticas completa mostra as instalações do pacote nas últimas seis semanas por número da versão. Um pacote que outros desenvolvedores estão usando ativamente normalmente é uma escolha melhor do que aqueles que não estão sendo usados.
 
 - *Suporte*: na página do pacote em **Informações**, selecione **Site do Projeto** (se disponível) para ver quais opções de suporte o autor oferece. Um projeto com um site dedicado geralmente tem melhor suporte.
 
@@ -106,7 +106,7 @@ Por outro lado, usar um pacote do NuGet significa assumir uma dependência, por 
 - *Prefixos de ID de pacote reservados*: vários proprietários de pacote solicitaram e receberam um [prefixo de ID de pacote reservado](../nuget-org/id-prefix-reservation.md). Quando a marca de seleção visual aparecer ao lado de uma ID de pacote em [nuget.org](https://www.nuget.org/), ou no Visual Studio, isso significará que o proprietário do pacote atingiu nossos [critérios](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) para a reserva de ID de prefixo. Isso significa que o proprietário do pacote está sendo claro ao realizar a sua identificação e a do pacote.
 
 > [!Note]
-> Sempre fique atento aos termos de licença de um pacote, que você pode ver selecionando **informações de licença** na página de listagem de um pacote em NuGet.org. Se um pacote não especificar os termos de licença, contate o proprietário do pacote diretamente usando o link **proprietários de contato** na página pacote. A Microsoft não licencia nenhuma propriedade intelectual para você de provedores de pacotes de terceiros, nem é responsável pelas informações fornecidas por terceiros.
+> Esteja sempre atento aos termos de licença de um pacote, que você pode ver selecionando Informações de **Licença** na página de listagem de um pacote no nuget.org. Se um pacote não especificar os termos da licença, entre em contato diretamente com o proprietário do pacote usando o link **Contatos proprietários** na página do pacote. A Microsoft não licencia nenhuma propriedade intelectual para você de provedores de pacotes de terceiros, nem é responsável pelas informações fornecidas por terceiros.
 
 ## <a name="license-url-deprecation"></a>Substituição da URL da licença
 Com a transição de [licenseUrl](../reference/nuspec.md#licenseurl) para [license](../reference/nuspec.md#license), alguns clientes do NuGet e feeds do NuGet podem não ter a capacidade de exibir as informações de licenciamento em alguns casos. Para manter a compatibilidade com versões anteriores, a URL da licença aponta para este documento que fala sobre como recuperar as informações da licença nesses casos.
@@ -128,7 +128,7 @@ Para o MSBuild equivalente a definir a licença no `.nuspec`, confira [Empacotam
 
 A pesquisa de pacote do NuGet funciona da mesma forma no nuget.org, na CLI do NuGet e dentro da extensão do Gerenciador de Pacotes do NuGet no Visual Studio. Em geral, a pesquisa é aplicada a palavras-chave, bem como descrições de pacote.
 
-- **Filtragem**: você pode aplicar um termo de pesquisa a uma propriedade específica usando a sintaxe `<property>:<term>` em que `<property>` (não diferencia maiúsculas de minúsculas) pode ser `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` e `owner`. Você pode pesquisar várias propriedades ao mesmo tempo. Pesquisas na propriedade `id` são correspondências de subcadeias de caracteres, enquanto `packageid` e `owner` usam uma correspondência exata, que não diferencia maiúsculas de minúsculas. Exemplos:
+- **Filtragem**: Você pode aplicar um termo de pesquisa `<property>:<term>` a `<property>` uma propriedade específica usando `id` `packageid`a `version` `title`sintaxe onde (caso-insensível) pode ser , , , , `tags` `author`, , `description`, , e `summary`. `owner` Você pode procurar por várias propriedades ao mesmo tempo. As pesquisas `id` na propriedade são correspondências de substring, enquanto `packageid` e `owner` usa uma correspondência exata e insensível ao caso. Exemplos:
 
 ```
 PackageId:jquery             # Match the package ID in an exact, case-insensitive manner

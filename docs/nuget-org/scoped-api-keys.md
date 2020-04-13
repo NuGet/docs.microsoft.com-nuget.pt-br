@@ -6,10 +6,10 @@ ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67426941"
 ---
 # <a name="scoped-api-keys"></a>Chaves de API no escopo
@@ -29,7 +29,7 @@ Damos suporte a escopos para chaves de API a fim de permitir que você tenha per
 
 - **Uma chave de API para controlar todos os pacotes**. Com uma única chave de API que é usada para gerenciar todos os pacotes, fica difícil compartilhar a chave com segurança quando vários desenvolvedores estão envolvidos com diferentes pacotes e quando eles compartilham uma conta de editor.
 - **Todas as permissões ou nenhuma**. Qualquer pessoa com acesso à chave de API tem todas as permissões (publicar, efetuar push e remover da lista) nos pacotes. Em geral, isso não é desejável em ambiente com várias equipes.
-- **Ponto único de falha**. Uma única chave de API também significa um ponto único de falha. Se a chave for comprometida, todos os pacotes associados à conta poderão ficar comprometidos. A atualização da chave de API é a única maneira de "conter o vazamento" e evitar uma interrupção no fluxo de trabalho da CI/CD. Além disso, pode haver casos em que você deseje revogar o acesso à chave de API para um indivíduo (por exemplo, quando um funcionário sai da organização). Atualmente, não existe uma forma perfeita para lidar com isso.
+- **Ponto de falha único**. Uma única chave de API também significa um ponto único de falha. Se a chave for comprometida, todos os pacotes associados à conta poderão ficar comprometidos. A atualização da chave de API é a única maneira de "conter o vazamento" e evitar uma interrupção no fluxo de trabalho da CI/CD. Além disso, pode haver casos em que você deseje revogar o acesso à chave de API para um indivíduo (por exemplo, quando um funcionário sai da organização). Atualmente, não existe uma forma perfeita para lidar com isso.
 
 Com as chaves de API no escopo, tentamos resolver esses problemas e, ao mesmo tempo, garantir que nenhum dos fluxos de trabalho existentes sejam interrompidos.
 
@@ -92,11 +92,11 @@ Sim. Você pode – e provavelmente deve – excluir sua chave de API herdada.
 
 ### <a name="can-i-get-back-my-api-key-that-i-deleted-by-mistake"></a>Posso recuperar minha chave de API excluída por engano?
 
-Nº Depois que a chave for excluída, você só poderá criar outras chaves. Não há nenhuma recuperação possível para chaves excluídas acidentalmente.
+Não. Depois que a chave for excluída, você só poderá criar outras chaves. Não há nenhuma recuperação possível para chaves excluídas acidentalmente.
 
 ### <a name="does-the-old-api-key-continue-to-work-upon-api-key-refresh"></a>A chave de API antiga continua funcionando após a atualização da chave de API?
 
-Nº Depois que você atualiza uma chave, é gerada uma nova chave que tem o mesmo escopo, a mesma permissão e a mesma expiração da antiga. A chave antiga deixa de existir.
+Não. Depois que você atualiza uma chave, é gerada uma nova chave que tem o mesmo escopo, a mesma permissão e a mesma expiração da antiga. A chave antiga deixa de existir.
 
 ### <a name="can-i-give-more-permissions-to-an-existing-api-key"></a>Posso conceder mais permissões a uma chave de API existente?
 

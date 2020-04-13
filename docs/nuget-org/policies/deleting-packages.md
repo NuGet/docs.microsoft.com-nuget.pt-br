@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.openlocfilehash: 3abe809d76e75801c2f936aba129d27ba7b64913
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426971"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80581272"
 ---
-# <a name="deleting-packages"></a>Excluindo pacotes
+# <a name="deleting-packages"></a>Excluir pacotes
 
 O nuget.org não é compatível com a exclusão permanente de pacotes. Isso interrompe todos os projetos dependendo da disponibilidade do pacote, especialmente com fluxos de trabalho de build que envolvem a restauração do pacote.
 
-O nuget.org é compatível com a *remoção* de um pacote da lista, o que pode ser feito na página de gerenciamento de pacotes no site. Pacotes não listados não aparecem em nuget.org ou na interface do usuário do Visual Studio e não aparecem nos resultados da pesquisa. Pacotes não listados, no entanto, ainda podem ser baixados e instalados usando um número de versão exata, compatível com a restauração do pacote. Além disso, os pacotes não listados ainda podem ser descobertos nos seguintes cenários específicos:
+nuget.org suporta [a deslistagem de um pacote,](#unlisting-a-package)que pode ser feito na página de gerenciamento de pacotes no site. Pacotes não listados não aparecem em nuget.org ou na interface do usuário do Visual Studio e não aparecem nos resultados da pesquisa. Pacotes não listados, no entanto, ainda podem ser baixados e instalados usando um número de versão exata, compatível com a restauração do pacote. Além disso, os pacotes não listados ainda podem ser descobertos nos seguintes cenários específicos:
 
 - Restauração de pacote usando versões flutuante (por exemplo, `1.0.0-*`), se o pacote mais recente que corresponder às restrições de versão ou de dependência for um pacote não listado.
 - Replicação de pacotes por meio do catálogo (visto que o catálogo também contém os pacotes não listados).
@@ -36,6 +36,20 @@ Pacotes que atendem a qualquer um dos critérios a seguir não são permitidos n
 - Está sendo usado para ocultar identificadores de pacote, incluindo pacotes que não tem nenhum conteúdo produtivo. Os pacotes precisam conter código ou os proprietários precisam conceder o identificador para alguém que realmente tem um produto para enviar.
 - Tenta fazer a galeria fazer algo que ela não foi explicitamente projetada para fazer.
 
-Se você encontrar um pacote que representa uma violação de qualquer um desses itens, clique no link **Relatar Abuso** na página de detalhes do pacote e envie um relatório.
+Se você encontrar um pacote que viole qualquer um desses pacotes, clique no link **Relatar Abuso** na página de detalhes do pacote e envie um relatório.
 
 Observe que a equipe do NuGet e a .NET Foundation reserva o direito de alterar esses critérios a qualquer momento.
+
+## <a name="unlisting-a-package"></a>Deslistagem de um pacote
+A deslistagem de uma versão do pacote esconde-a da pesquisa e da página de detalhes do pacote nuget.org. Isso permite que os usuários existentes do pacote continuem a usá-lo, mas reduz a nova adoção, já que o pacote não é visível na pesquisa.
+
+Etapas para deslistar um pacote:
+
+1. Selecione `Your account name` (no canto superior direito) >`Manage packages` > `Published packages`
+1. Selecione o ícone "Gerenciar pacote"
+1. Expanda a seção "Listagem" e selecione a versão do pacote
+1. Desmarque "Listar resultados de pesquisa" e selecione "Salvar"
+
+A versão específica do pacote não foi listada. Para verificar isso, faça logout da sua conta e navegue até a página https://www.nuget.org/packages/YOUR-PACKAGE-NAME/do pacote (sem a parte da versão), por exemplo: . Você verá todas as versões desse pacote que **não** foram listadas. No entanto, o proprietário do pacote, quando conectado, pode ver todas as versões e seu status de listagem.
+
+Também é possível depreciar uma versão do pacote (caso você não possa excluir uma versão do pacote). Para obter mais informações sobre a depreciação das versões do pacote, consulte [Pacotes de depreciação](../deprecate-packages.md).

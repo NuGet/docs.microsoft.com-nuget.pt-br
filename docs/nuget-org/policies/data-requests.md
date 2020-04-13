@@ -6,15 +6,15 @@ ms.author: karann
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: ef054f741755bccf56eedfd462915b8e9fd6931a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67426981"
 ---
 # <a name="user-data-requests"></a>Solicitações de dados de usuário
 
-Os usuários do nuget.org podem enviar solicitações de exclusão de informações e solicitações de exportação de informações por meio do [nuget.org](https://www.nuget.org). Ambos os tipos são enviados em forma de solicitações de suporte e devem ser executados pelos administradores do nuget.org em até 30 dias.
+nuget.org os usuários podem enviar informações para excluir solicitações e solicitações de exportação de informações através [de nuget.org](https://www.nuget.org). Ambos os tipos são submetidos sob a forma de solicitações de suporte e são executados pelos administradores nuget.org dentro de 30 dias.
 
 Os seguintes dados do usuário podem ser acessados diretamente por meio do nuget.org:
 
@@ -24,11 +24,11 @@ Os seguintes dados do usuário podem ser acessados diretamente por meio do nuget
 
 Esses dados não são incluídos nos dados exportados pela solicitação de suporte.
 
-## <a name="identifying-customer-data"></a>Identificando dados do cliente
+## <a name="identifying-customer-data"></a>Identificando os dados do cliente
 
 Os dados do cliente podem ser identificados como nomes de conta de usuário do nuget.org.
 
-## <a name="deleting-customer-data"></a>Excluindo dados de cliente
+## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
 
 Para solicitar a exclusão de dados de usuário do nuget.org:
 
@@ -48,7 +48,7 @@ Após a exclusão da conta, todos os dados do usuário são removidos do sistema
 
 Os pacotes de propriedade *não* são excluídos. Embora não conste na lista de resultados da pesquisa, eles permanecem disponíveis por meio da restauração de pacote para projetos que dependem deles.
 
-## <a name="exporting-customer-data"></a>Exportando dados do cliente
+## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 
 Depois de entrar no nuget.org, o usuário pode enviar uma solicitação de exportação por meio de [nuget.org/policies/Contact](https://www.nuget.org/policies/Contact)
 

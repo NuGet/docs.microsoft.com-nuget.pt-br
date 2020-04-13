@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610712"
 ---
 # <a name="building-pre-release-packages"></a>Compilando pacotes de pré-lançamento
@@ -24,7 +24,7 @@ Para dar suporte ao ciclo de vida de versão de software, o NuGet 1.6 e posterio
 
 Você pode especificar essas versões usando uma das seguintes maneiras:
 
-- **Se seu projeto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)** : incluir o sufixo de versão semântica no elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) do arquivo `.csproj`:
+- **Se seu projeto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)**: incluir o sufixo de versão semântica no elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) do arquivo `.csproj`:
 
     ```xml
     <PropertyGroup>
@@ -32,7 +32,7 @@ Você pode especificar essas versões usando uma das seguintes maneiras:
     </PropertyGroup>
     ```
 
-- **Se seu projeto usa um arquivo [`packages.config`](../reference/packages-config.md)** : incluir o sufixo de versão semântica no elemento [`version`](../reference/nuspec.md#version) do arquivo [`.nuspec`](../reference/nuspec.md):
+- **Se seu projeto usa um arquivo [`packages.config`](../reference/packages-config.md)**: incluir o sufixo de versão semântica no elemento [`version`](../reference/nuspec.md#version) do arquivo [`.nuspec`](../reference/nuspec.md):
 
     ```xml
     <version>1.0.1-alpha</version>
@@ -50,9 +50,9 @@ Por padrão, o NuGet não inclui as versões de pré-lançamento ao trabalhar co
 
     Definir ou desmarcar esta caixa atualizará a interface do usuário do Gerenciador de Pacotes e a lista de versões disponíveis que você pode instalar.
 
-- **Console do Gerenciador de Pacotes**: use a opção `-IncludePrerelease` com os comandos `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
+- **Console do gerenciador de**pacotes `Install-Package` `Sync-Package`: `Update-Package` Use o `-IncludePrerelease` interruptor com os `Find-Package`comandos , `Get-Package`e os comandos. Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
 
-- **CLI do NuGet**: use a opção `-prerelease` com os comandos `install`, `update`, `delete` e `mirror`. Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
+- **NuGet CLI**: `-prerelease` Use `install`o `update` `delete`interruptor `mirror` com os comandos , e os comandos. Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
 
 ## <a name="semantic-versioning"></a>Controle de versão semântico
 

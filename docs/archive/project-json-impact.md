@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488193"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impacto do project.json durante a criação de pacotes
@@ -45,7 +45,7 @@ Não há compatibilidade para o conteúdo pelos mesmos motivos dos scripts e tra
 
 Arquivos de conteúdo ainda podem ser transportados dentro de pacotes e são ignorados no momento, porém o usuário final ainda pode copiá-los para o ponto certo.
 
-Veja uma da propostas para recuperar arquivos de conteúdo e acompanhar seu andamento aqui: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
+Você pode ver uma das propostas para trazer de volta [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)arquivos de conteúdo, e acompanhar seu progresso, aqui: .
 
 ## <a name="impact-for-package-authors"></a>Impacto para os autores de pacote
 
@@ -65,7 +65,7 @@ Seria possível compilar pacotes para funcionar com ambos os cenários `packages
 
 O formato de pacote 3.x permite usar vários recursos adicionais além do NuGet 2.x:
 
-1. A definição de um assembly de referência usado para compilação e um conjunto de assemblies de implementação usados para o tempo de execução em diferentes plataformas/dispositivos. Isso permite aproveitar APIs específicas da plataforma e fornecer uma área de superfície comum para seus clientes. Especificamente, isso facilita a criação de bibliotecas portáteis intermediárias.
+1. A definição de um assembly de referência usado para compilação e um conjunto de assemblies de implementação usados para o runtime em diferentes plataformas/dispositivos. Isso permite aproveitar APIs específicas da plataforma e fornecer uma área de superfície comum para seus clientes. Especificamente, isso facilita a criação de bibliotecas portáteis intermediárias.
 
 1. Permite que os pacotes circulem entre as plataformas como, por exemplo, sistemas operacionais ou arquiteturas de CPU.
 

@@ -6,25 +6,25 @@ ms.author: anangaur
 ms.date: 12/4/2017
 ms.topic: conceptual
 ms.openlocfilehash: 321aedb471bc6f86e9c03878093b199267e31195
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432498"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496577"
 ---
 # <a name="nuget-45-release-notes"></a>Notas sobre a versão do NuGet 4.5
 
 O [Visual Studio 2017 15.5 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) vem com o [NuGet 4.5 RTM](https://dist.nuget.org/win-x86-commandline/v4.5.0/nuget.exe).
 
-## <a name="summary-whats-new-in-450"></a>Resumo: Novidades na versão 4.5.0
+## <a name="summary-whats-new-in-450"></a>Resumo: O que há de novo no 4.5.0
 
-## <a name="summary-whats-new-in-452"></a>Resumo: Novidades na versão 4.5.2
+## <a name="summary-whats-new-in-452"></a>Resumo: O que há de novo em 4.5.2
 
-* Correção de segurança: Permissões em arquivos criados dentro de ~/.nuget são muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correção de segurança: permissões em arquivos criados dentro ~/.nuget estão muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-453"></a>Resumo: Novidades na versão 4.5.3
+## <a name="summary-whats-new-in-453"></a>Resumo: O que há de novo em 4.5.3
 
-* Correção de segurança: Arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correção de segurança: arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -56,7 +56,7 @@ Faça uma restauração manual.
 
 #### <a name="issue"></a>Problema
 
-Às vezes, quando você usa um pacote que contém um assembly com uma assinatura inválida ou quando a versão do pacote é definida com o ticker 'DateTime', isso faz com que a restauração automática de pacotes seja executada em loop infinito [dotnet/project-system#1457](https://github.com/dotnet/project-system/issues/1457).
+Ocasionalmente, quando você usa um pacote que contém um conjunto com uma assinatura inválida ou quando a versão do pacote é definida com o ticker 'DateTime', isso faz com que a restauração automática do pacote seja executada em um loop infinito [dotnet/project-system#1457](https://github.com/dotnet/project-system/issues/1457).
 
 #### <a name="workaround"></a>Solução alternativa
 

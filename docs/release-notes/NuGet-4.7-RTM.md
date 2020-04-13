@@ -6,29 +6,29 @@ ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2290025d42dcd5704b6b019c17346201fe6a990d
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "76813787"
 ---
 # <a name="nuget-47-release-notes"></a>Notas sobre a versão do NuGet 4.7
 
 O [Visual Studio 2017 15.7 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) vem com o [NuGet 4.7.0](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe).
 
-## <a name="summary-whats-new-in-470"></a>Resumo: o que há de novo no 4.7.0
+## <a name="summary-whats-new-in-470"></a>Resumo: O que há de novo no 4.7.0
 
 * Ampliamos a assinatura de pacote para habilitar [pacotes assinados do repositório](https://github.com/NuGet/Home/wiki/Repository-Signatures)
 
 * Com o Visual Studio versão 15.7, apresentamos a capacidade de [migrar os projetos existentes que usam o formato packages.config para usar o PackageReference](../consume-packages/migrate-packages-config-to-package-reference.md).
 
-## <a name="summary-whats-new-in-472"></a>Resumo: o que há de novo no 4.7.2
+## <a name="summary-whats-new-in-472"></a>Resumo: O que há de novo em 4.7.2
 
-* Correção de segurança: as permissões em arquivos criados dentro de ~/.NuGet são muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correção de segurança: permissões em arquivos criados dentro ~/.nuget estão muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-473"></a>Resumo: o que há de novo no 4.7.3
+## <a name="summary-whats-new-in-473"></a>Resumo: O que há de novo em 4.7.3
 
-* Correção de segurança: os arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correção de segurança: arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

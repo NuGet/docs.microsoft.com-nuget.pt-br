@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 20851cd71cc5eb6735fe5e0cd8b0f314f9100be4
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "68419905"
 ---
 1. [Entre em sua conta do nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) ou crie uma conta, se você não tiver uma.

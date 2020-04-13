@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
 ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429027"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Início Rápido: Criar e publicar um pacote do NuGet usando o Visual Studio (.NET Standard somente no Windows)
@@ -19,7 +19,7 @@ Criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studi
 > [!Note]
 > Se você estiver usando o Visual Studio para Mac, confira [essas informações](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) sobre como criar um pacote NuGet ou use as [ferramentas de CLI do dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Instale qualquer edição do Visual Studio 2019 de [visualstudio.com](https://www.visualstudio.com/) com uma carga de trabalho relacionada ao .NET Core.
 
@@ -82,7 +82,7 @@ namespace AppLogger
 
 ## <a name="run-the-pack-command"></a>Executar o comando pack
 
-1. Defina a configuração da solução como **Release**.
+1. Defina a configuração como **Versão**.
 
 1. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione o comando **Pack**:
 
@@ -114,7 +114,7 @@ Você pode configurar o Visual Studio para gerar automaticamente o pacote NuGet 
 
 ### <a name="optional-pack-with-msbuild"></a>(Opcional) Empacotar com MSBuild
 
-Como uma alternativa ao uso do comando de menu **Pack**, o NuGet 4.x+ e o MSBuild 15.1+ são compatíveis com um destino `pack` quando o projeto contém os dados do pacote necessários. Abra um prompt de comando, navegue até a pasta do projeto e execute o seguinte comando. (Você normalmente deseja iniciar o "Prompt de Comando do Desenvolvedor para Visual Studio" por meio do menu Iniciar, pois ele estará configurado com todos os caminhos necessários para o MSBuild.)
+Como alternativa ao uso do comando **Pacote** menu, NuGet 4.x+ e MSBuild 15.1+ suportam um `pack` alvo quando o projeto contém os dados necessários do pacote. Abra um prompt de comando, navegue até a pasta do projeto e execute o seguinte comando. (Você normalmente deseja iniciar o "Prompt de Comando do Desenvolvedor para Visual Studio" por meio do menu Iniciar, pois ele estará configurado com todos os caminhos necessários para o MSBuild.)
 
 Para saber mais, confira [Criar um pacote usando MSBuild](../create-packages/creating-a-package-msbuild.md).
 
@@ -140,7 +140,7 @@ Antes de publicar o pacote, você deverá primeiro abrir uma linha de comando.
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nuget"></a>[NuGet](#tab/nuget)
+# <a name="nuget"></a>[Nuget](#tab/nuget)
 
 Esta etapa é uma alternativa ao uso de `dotnet.exe`.
 
@@ -197,7 +197,7 @@ Isso incluirá um arquivo chamado `readme.txt` na raiz do pacote. O Visual Studi
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
 
-Encontre mais vídeos sobre o NuGet no [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e no [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Encontre mais vídeos do NuGet no [Canal 9](https://channel9.msdn.com/Series/NuGet-101) e [no YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="related-topics"></a>Tópicos relacionados
 

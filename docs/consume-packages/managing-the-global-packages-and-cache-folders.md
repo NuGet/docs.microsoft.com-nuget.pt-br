@@ -6,19 +6,19 @@ ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: e2672aa0bf57242526364639f0df74f9d1adb934
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428964"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Como gerenciar as pastas de pacotes globais, de cache e temporárias
 
 Sempre que você instala, atualiza ou restaura um pacote, o NuGet gerencia pacotes e informações do pacote em várias pastas fora da estrutura do seu projeto:
 
-| {1&gt;Nome&lt;1} | Descrição e localização (por usuário)|
+| Nome | Descrição e localização (por usuário)|
 | --- | --- |
-| global&#8209;packages | A pasta *global-packages* é onde o NuGet instala qualquer pacote baixado. Cada pacote é totalmente expandido em uma subpasta que corresponde ao identificador de pacote e ao número de versão. Os projetos que usam o formato [PackageReference](package-references-in-project-files.md) sempre usam pacotes diretamente dessa pasta. Ao usar o [packages.config](../reference/packages-config.md), os pacotes são instalados na pasta *global-packages*, depois são copiados para a pasta `packages` do projeto.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Substituir usando a variável de ambiente NUGET_PACKAGES, as definições de [configuração](../reference/nuget-config-file.md#config-section) `globalPackagesFolder` ou `repositoryPath` (ao usar PackageReference e `packages.config`, respectivamente) ou a propriedade `RestorePackagesPath` MSBuild (somente MSBuild). A variável de ambiente tem precedência sobre a definição de configuração.</li></ul> |
+| global&#8209;packages | A pasta *global-packages* é onde o NuGet instala qualquer pacote baixado. Cada pacote é totalmente expandido em uma subpasta que corresponde ao identificador de pacote e ao número de versão. Os projetos que usam o formato [PackageReference](package-references-in-project-files.md) sempre usam pacotes diretamente desta pasta. Ao usar o [packages.config](../reference/packages-config.md), os pacotes são instalados na pasta *global-packages*, depois são copiados para a pasta `packages` do projeto.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Substitua usando a variável de ambiente NUGET_PACKAGES, as  [definições de configuração](../reference/nuget-config-file.md#config-section) de `globalPackagesFolder` ou `repositoryPath` (ao usar PackageReference e `packages.config`, respectivamente) ou a propriedade do MSBuild `RestorePackagesPath` (somente MSBuild). A variável de ambiente tem precedência sobre a definição de configuração.</li></ul> |
 | http&#8209;cache | O Gerenciador de Pacotes do Visual Studio (NuGet 3.x ou posterior) e a ferramenta `dotnet` armazenam cópias de pacotes baixados nesse cache (salvos como arquivos `.dat`), organizados em subpastas para cada origem de pacote. Os pacotes não são expandidos, e o cache tem um tempo de expiração de 30 minutos.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Substitua usando a variável de ambiente NUGET_HTTP_CACHE_PATH.</li></ul> |
 | temp | Uma pasta em que o NuGet armazena arquivos temporários durante suas várias operações.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
 | plugins-cache **4.8+** | Uma pasta na qual o NuGet armazena os resultados da solicitação de declarações de operação.<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>Substitua usando a variável de ambiente NUGET_PLUGINS_CACHE_PATH.</li></ul> |
@@ -104,7 +104,7 @@ No Visual Studio 2017 em diante, use o comando de menu **Ferramentas > Gerenciad
 
 ![Comando de opção do NuGet para limpar caches](media/options-clear-caches.png)
 
-## <a name="troubleshooting-errors"></a>Solução de problemas de erros
+## <a name="troubleshooting-errors"></a>Solucionando erros
 
 Os seguintes erros podem ocorrer ao usar `nuget locals` ou `dotnet nuget locals`:
 
@@ -116,6 +116,6 @@ Os seguintes erros podem ocorrer ao usar `nuget locals` ou `dotnet nuget locals`
 
     Você não tem permissão para excluir arquivos no cache. Altere as permissões de pasta, se possível, e tente novamente. Senão, entre em contato com o administrador do sistema.
 
-- *Erro: o caminho especificado, o nome do arquivo ou ambos são muito longos. O nome de arquivo totalmente qualificado deve ter menos de 260 caracteres e o nome do diretório deve ter menos de 248 caracteres.*
+- *Erro: O caminho especificado, o nome do arquivo ou ambos são muito longos. O nome do arquivo totalmente qualificado deve ter menos de 260 caracteres, e o nome do diretório deve ser inferior a 248 caracteres.*
 
     Reduza os nomes de pasta e tente novamente.

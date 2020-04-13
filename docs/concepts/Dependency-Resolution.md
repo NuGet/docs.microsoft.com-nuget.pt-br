@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428824"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Como o NuGet resolve as dependências do pacote
@@ -22,7 +22,7 @@ Quando vários pacotes têm a mesma dependência, a mesma ID de pacote pode apar
 
 ## <a name="dependency-resolution-with-packagereference"></a>Resolução de dependência com PackageReference
 
-Ao instalar os pacotes em projetos usando o formato PackageReference, o NuGet adiciona referências a um grafo de pacote simples no arquivo apropriado e resolve conflitos antecipadamente. Esse processo é chamado de *restauração transitiva*. Reinstalar ou restaurar pacotes é um processo de baixar os pacotes listados no grafo, resultando em builds mais rápidos e mais previsíveis. Você também pode aproveitar as versões flutuantes, como 2,8.\*, para evitar a modificação do projeto para usar a versão mais recente de um pacote.
+Ao instalar os pacotes em projetos usando o formato PackageReference, o NuGet adiciona referências a um grafo de pacote simples no arquivo apropriado e resolve conflitos antecipadamente. Esse processo é chamado de *restauração transitiva*. Reinstalar ou restaurar pacotes é um processo de baixar os pacotes listados no grafo, resultando em builds mais rápidos e mais previsíveis. Você também pode aproveitar versões flutuantes, como a 2.8. \*, para evitar modificar o projeto para usar a versão mais recente de um pacote.
 
 Quando o processo de restauração do NuGet for executado antes de um build, ele resolverá as dependências primeiro na memória e, em seguida, gravará o grafo resultante em um arquivo chamado `project.assets.json`. Ele também grava as dependências resolvidas em um arquivo de bloqueio chamado `packages.lock.json`, se a [funcionalidade do arquivo de bloqueio estiver habilitada](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 O arquivo de ativos está localizado em `MSBuildProjectExtensionsPath`, cujo padrão é a pasta 'obj' do projeto. O MSBuild lê este arquivo e converte-o em um conjunto de pastas em que as referências em potencial podem ser encontradas e as adiciona à árvore de projeto na memória.
@@ -55,14 +55,14 @@ Quando um aplicativo especifica um número de versão exata, como 1.2, que não 
 
 #### <a name="floating-versions"></a>Versões flutuantes
 
-Uma versão de dependência flutuante é especificada com o caractere de \*. Por exemplo, `6.0.*`. Esta especificação de versão diz "usar a versão mais recente 6.0. x"; `4.*` significa "usar a versão mais recente do 4. x". O uso de uma versão flutuante reduz as alterações no arquivo de projeto, mantendo-se atualizado com a versão mais recente de uma dependência.
+Uma versão flutuante de dependência \* é especificada com o caractere. Por exemplo, `6.0.*`. Esta especificação da versão diz "use a versão 6.0.x mais recente"; `4.*` significa "usar a versão 4.x mais recente". O uso de uma versão flutuante reduz as alterações no arquivo do projeto, mantendo-se atualizado com a versão mais recente de uma dependência.
 
-Ao usar uma versão flutuante, o NuGet resolve a versão mais recente de um pacote que corresponde ao padrão de versão, por exemplo `6.0.*` Obtém a versão mais recente de um pacote que começa com 6,0:
+Ao usar uma versão flutuante, o NuGet resolve a versão mais alta `6.0.*` de um pacote que corresponde ao padrão da versão, por exemplo, obtém a versão mais alta de um pacote que começa com 6.0:
 
 ![Escolher a versão 6.0.1 quando uma versão flutuante 6.0.* é solicitada](media/projectJson-dependency-4.png)
 
 > [!Note]
-> Para obter informações sobre o comportamento de versões flutuantes e versões de pré-lançamento, consulte [controle de versão do pacote](package-versioning.md#version-ranges).
+> Para obter informações sobre o comportamento das versões flutuantes e versões de pré-lançamento, consulte [Versão pacote](package-versioning.md#version-ranges).
 
 
 <a name="nearest-wins"></a>

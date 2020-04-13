@@ -7,15 +7,15 @@ ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
 ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610510"
 ---
 # <a name="package-id-prefix-reservation"></a>Reserva de prefixo da ID do pacote
 
-Os proprietários de pacotes podem reservar e proteger suas identidades reservando prefixos da ID. Os consumidores de pacote são fornecidos com informações adicionais quando os pacotes que estão consumindo não são enganosos em suas propriedades de identificação. 
+Os proprietários de pacotes podem reservar e proteger suas identidades reservando prefixos da ID. Os consumidores de pacotes recebem informações adicionais quando os pacotes que estão consumindo não são enganosos em suas propriedades de identificação. 
 
 O [nuget.org](https://www.nuget.org/) e o Visual Studio 2017 versão 15.4 ou posterior mostram um indicador visual para os pacotes que são enviados por proprietários com um prefixo reservado da ID do pacote, desde que o pacote corresponda ao padrão de nomenclatura de prefixo reservado da ID. A referência abaixo explica o que envolve a reserva de prefixo da ID e como um proprietário pode solicitar um prefixo da ID.
 
@@ -31,7 +31,7 @@ Quando um prefixo for reservado no [nuget.org](https://www.nuget.org/), acontece
 
 1. Sempre que um pacote for enviado ao [nuget.org](https://www.nuget.org/) com uma ID que corresponda ao prefixo reservado da ID, o pacote será rejeitado, a menos que seja proveniente dos proprietários que reservaram o prefixo da ID.
 
-1. Qualquer pacote que corresponda ao prefixo reservado da ID e que seja proveniente dos proprietários que reservaram o prefixo da ID terá um indicador visual no Visual Studio 2017 versão 15.4 ou posterior e no [nuget.org](https://www.nuget.org/), indicando que o pacote contém um prefixo reservado da ID. Esse é o caso de envios de novos pacotes, bem como os pacotes existentes dos proprietários. **Observação:** O indicador no Visual Studio será exibido somente se um único feed for selecionado como a origem do pacote.
+1. Qualquer pacote que corresponda ao prefixo reservado da ID e que seja proveniente dos proprietários que reservaram o prefixo da ID terá um indicador visual no Visual Studio 2017 versão 15.4 ou posterior e no [nuget.org](https://www.nuget.org/), indicando que o pacote contém um prefixo reservado da ID. Esse é o caso de envios de novos pacotes, bem como os pacotes existentes dos proprietários. **Nota:** O indicador no Visual Studio só aparece se uma única ração for selecionada como fonte do pacote.
 
 1. Todos os pacotes anteriormente existentes que correspondem ao prefixo reservado da ID, mas que *não* pertencem ao proprietário do prefixo reservado, permanecerão inalterados (eles não serão removidos da lista, mas também não terão o indicador visual). Além disso, os proprietários desses pacotes ainda poderão enviar novas versões ao pacote.
 
@@ -55,8 +55,8 @@ Há vários cenários mais avançados de reserva de prefixo descritos abaixo, in
 
 Quando um pacote for proveniente de um prefixo reservado, você verá os indicadores visuais abaixo na galeria do [nuget.org](https://www.nuget.org/) e no Visual Studio 2017 versão 15.4 ou posterior:
 
-**Galeria do nuget.org**
-![nuget.org Gallery](media/nuget-gallery-reserved-prefix.png)
+**Galeria nuget.org**![galeria
+nuget.org](media/nuget-gallery-reserved-prefix.png)
 
 **Visual Studio**
 ![Visual Studio](media/visual-studio-reserved-prefix.png)
@@ -67,7 +67,7 @@ Quando um pacote for proveniente de um prefixo reservado, você verá os indicad
 
 2. Determine os prefixos que deseja reservar, além dos [cenários avançados de reserva de prefixo](#advanced-prefix-reservation-scenarios) que possam ser necessários.
 
-3. Envie um email para [account@nuget.org](mailto:account@nuget.org) com o nome de exibição do proprietário no [nuget.org](https://www.nuget.org/), bem como os prefixos reservados que você está solicitando. Se estiver delegando subconjuntos de prefixos a vários proprietários, mencione todos os nomes de exibição dos proprietários e os subconjuntos de prefixos.
+3. Envie um [account@nuget.org](mailto:account@nuget.org) e-mail para o nome de exibição do proprietário no [nuget.org,](https://www.nuget.org/)bem como quaisquer prefixos reservados que você está solicitando. Se estiver delegando subconjuntos de prefixos a vários proprietários, mencione todos os nomes de exibição dos proprietários e os subconjuntos de prefixos.
 
 Após o envio da solicitação, você será notificado da aceitação ou da rejeição (com os critérios que causaram a rejeição). Talvez seja necessário fazer outras perguntas de identificação para confirmar a identidade do proprietário.
 
@@ -89,11 +89,11 @@ Ao examinar qualquer solicitação de reserva de prefixo da ID, a equipe do [nug
 
 1. Os pacotes têm uma licença (que usa o elemento de metadados [license](../reference/nuspec.md#license) e NÃO licenseUrl, que está sendo preterido)?
 
-1. Se os pacotes tiverem um ícone (usando o elemento de metadados iconUrl), eles também usam o elemento de metadados [Icon](../reference/nuspec.md#icon) (não é um requisito para remover o iconUrl)?
+1. Se os pacotes tiverem um ícone (usando o elemento íconeUrl metadata), eles também estão usando [o](../reference/nuspec.md#icon) elemento ícone metadados (não é um requisito remover o íconeUrl)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Cenários de provedor de feed de terceiros
 
-Se um provedor de feed de terceiros estiver interessado em implementar seu próprio serviço para fornecer reservas de prefixo, ele poderá fazer isso modificando o serviço de pesquisa nos provedores de feeds do NuGet v3. A alteração no serviço de pesquisa de feed é adicionar a propriedade `verified`. O cliente do NuGet não dará suporte à propriedade adicionada no feed da V2.
+Se um provedor de feed de terceiros estiver interessado em implementar seu próprio serviço para fornecer reservas de prefixo, ele pode fazê-lo modificando o serviço de pesquisa nos provedores de feed NuGet V3. A mudança no serviço de pesquisa `verified` de feed é adicionar a propriedade. O cliente do NuGet não dará suporte à propriedade adicionada no feed da V2.
 
 Para obter mais informações, confira a [documentação sobre o serviço de pesquisa da API](../api/search-query-service-resource.md).
 

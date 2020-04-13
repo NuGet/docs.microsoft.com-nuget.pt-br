@@ -6,10 +6,10 @@ ms.author: mikejo
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.openlocfilehash: b151547e40e567b38acc2b0b9ee84c50d85000c9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488487"
 ---
 # <a name="identify-the-project-format"></a>Identificar o formato do projeto
@@ -62,7 +62,7 @@ Se você estiver trabalhando no Visual Studio, poderá verificar rapidamente o f
 
    Em seguida, clique com o botão direito do mouse no projeto descarregado e escolha **Editar myprojectname.csproj**.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Criar pacotes do .NET Standard com a CLI do dotnet](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
 - [Criar pacotes do .NET Standard com o Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md)

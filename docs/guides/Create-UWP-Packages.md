@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
 ms.openlocfilehash: 77aa186291122a8d05018ecacd1329da459badad
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380759"
 ---
 # <a name="create-uwp-packages"></a>Criar pacotes UWP
@@ -18,7 +18,7 @@ A [UWP (Plataforma Universal do Windows)](https://developer.microsoft.com/window
 
 Neste passo a passo, você cria um pacote NuGet com um componente UWP nativo (incluindo um controle XAML) que pode ser usado em projetos nativos e gerenciados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Visual Studio 2017 ou 2015. Instale a edição Community 2017 gratuitamente no [visualstudio.com](https://www.visualstudio.com/); você também pode usar as edições Professional e Enterprise.
 
@@ -26,7 +26,7 @@ Neste passo a passo, você cria um pacote NuGet com um componente UWP nativo (in
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Criar um componente do Windows Runtime da UWP
 
-1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, expanda o nó **Visual C++ > Windows > Universal**, selecione o modelo **Componente do Tempo de Execução do Windows (Universal do Windows)** , altere o nome para ImageEnhancer e clique em OK. Aceite os valores padrão para a Versão de Destino e a Versão Mínima quando solicitado.
+1. No Visual Studio, escolha **Arquivo &gt; Novo &gt; Projeto**, expanda o nó **Visual C++ &gt; Windows &gt; Universal**, selecione o modelo **componente do Windows Runtime (Universal do Windows)**, altere o nome para ImageEnhancer e clique em OK. Aceite os valores padrão para a Versão de Destino e a Versão Mínima quando solicitado.
 
     ![Criar um projeto de componente do Windows Runtime UWP](media/UWP-NewProject.png)
 
@@ -34,7 +34,7 @@ Neste passo a passo, você cria um pacote NuGet com um componente UWP nativo (in
 
     ![Adicionar um novo item de Controle Modelo XAML ao projeto](media/UWP-NewXAMLControl.png)
 
-1. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione **Propriedades**. Na página Propriedades, expanda **Propriedades de configuração > C/C++** e clique em **Arquivos de saída**. No painel à direita, altere o valor para **Gerar arquivos de documentação XML** para Sim:
+1. Clique com o botão direito do mouse no projeto no Solution Explorer e selecione **Propriedades.** Na página Propriedades, expanda **Propriedades de configuração > C/C++** e clique em **Arquivos de saída**. No painel à direita, altere o valor para **Gerar arquivos de documentação XML** para Sim:
 
     ![Definindo a geração de arquivos de documentação XML para Sim](media/UWP-GenerateXMLDocFiles.png)
 
@@ -123,7 +123,7 @@ Para incluir um controle XAML no seu componente, você precisa adicionar o arqui
 
 ### <a name="adding-the-native-implementation-libraries"></a>Adicionar as bibliotecas de implementação nativa
 
-No seu componente, a lógica principal do tipo ImageEnhancer está no código nativo, que está contido nos vários assemblies `ImageEnhancer.dll` que são gerados para cada tempo de execução de destino(ARM, x86 e x64). Para incluí-los no pacote, faça referência a eles na seção `<files>` juntamente com seus arquivos de recurso .pri associado:
+No seu componente, a lógica principal do tipo ImageEnhancer está no código nativo, que está contido nos vários assemblies `ImageEnhancer.dll` que são gerados para cada runtime de destino(ARM, x86 e x64). Para incluí-los no pacote, faça referência a eles na seção `<files>` juntamente com seus arquivos de recurso .pri associado:
 
 ```xml
 <?xml version="1.0"?>
@@ -153,7 +153,7 @@ No seu componente, a lógica principal do tipo ImageEnhancer está no código na
 
 ### <a name="adding-targets"></a>Adicionar .targets
 
-Em seguida, projetos C++ e JavaScript que podem consumir seu pacote do NuGet precisam de um arquivo .targets para identificar os arquivos de assembly e winmd necessários. (C# e Visual Basic projetos fazem isso automaticamente.) Crie esse arquivo copiando o texto abaixo em `ImageEnhancer.targets` e salve-o na mesma pasta que o arquivo `.nuspec`. _Observação_: esse arquivo `.targets` precisa ter o mesmo nome que a ID do pacote (por exemplo, o elemento `<Id>` no arquivo `.nupspec`):
+Em seguida, projetos C++ e JavaScript que podem consumir seu pacote do NuGet precisam de um arquivo .targets para identificar os arquivos de assembly e winmd necessários. (C# e projetos Visual Basic fazem isso automaticamente.) Crie este arquivo copiando o `ImageEnhancer.targets` texto abaixo e salve-o na mesma pasta que o `.nuspec` arquivo. _Observação_: esse arquivo `.targets` precisa ter o mesmo nome que a ID do pacote (por exemplo, o elemento `<Id>` no arquivo `.nupspec`):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -252,9 +252,9 @@ Para disponibilizar seu pacote para outros desenvolvedores, siga as instruções
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
-- [Referência do .nuspec](../reference/nuspec.md)
+- [Referência .nuspec](../reference/nuspec.md)
 - [Pacotes de símbolo](../create-packages/symbol-packages-snupkg.md)
 - [Controle de versão do pacote](../concepts/package-versioning.md)
 - [Suporte a Várias Versões do .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Incluir objetivos e destinos de MSBuild em um pacote](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
-- [Criando Pacotes Localizados](../create-packages/creating-localized-packages.md)
+- [Criando pacotes localizados](../create-packages/creating-localized-packages.md)

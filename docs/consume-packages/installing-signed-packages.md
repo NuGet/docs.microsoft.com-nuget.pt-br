@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428978"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gerenciar os limites de confiança do pacote
@@ -40,7 +40,7 @@ Esse modo vai verificar se todos os pacotes são assinados por qualquer um dos c
 
 ### <a name="trust-package-author"></a>Confiar no autor do pacote
 
-Para confiar em pacotes com base na assinatura do autor, use o comando [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) para definir a propriedade `author` no nuget.config.
+Para confiar em pacotes com [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) base na `author` assinatura do autor, use o comando para definir a propriedade no nuget.config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->Use o [comando `nuget.exe` Verify](../reference/cli-reference/cli-ref-verify.md) para obter o valor de `SHA256` da impressão digital do certificado.
+>Use o  [comando verify](../reference/cli-reference/cli-ref-verify.md)`nuget.exe` para obter o valor `SHA256` da impressão digital do certificado.
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>Confiar em todos os pacotes de um repositório
@@ -95,13 +95,13 @@ Em algumas situações, convém habilitar a verificação usando certificados n�
 
 ### <a name="sync-repository-certificates"></a>Sincronizar certificados do repositório
 
-Os repositórios de pacote devem anunciar os certificados que eles usam em seu [índice de serviço](../api/service-index.md). Eventualmente, o repositório atualizará esses certificados, por exemplo, quando o certificado expirar. Quando isso acontecer, os clientes com políticas específicas exigirão uma atualização à configuração a fim de incluir o certificado recém-adicionado. Você pode atualizar facilmente os assinantes confiáveis associados a um repositório usando o comando `nuget.exe` [sincronização de autenticadores confiáveis](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name).
+Os repositórios de pacote devem anunciar os certificados que eles usam em seu [índice de serviço](../api/service-index.md). Eventualmente, o repositório atualizará esses certificados, por exemplo, quando o certificado expirar. Quando isso acontecer, os clientes com políticas específicas exigirão uma atualização à configuração a fim de incluir o certificado recém-adicionado. Você pode atualizar facilmente os signatários confiáveis associados a um repositório usando o  [comando trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name)`nuget.exe`.
 
 ### <a name="schema-reference"></a>Referência de esquema
 
 A referência de esquema completa para as políticas do cliente pode ser encontrada na [referência do nuget.config](../reference/nuget-config-file.md#trustedsigners-section)
 
-## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
+## <a name="related-articles"></a>Artigos relacionados
 
 - [Assinando pacotes NuGet](../create-packages/Sign-a-Package.md)
 - [Referência de pacotes assinados](../reference/Signed-Packages-Reference.md)

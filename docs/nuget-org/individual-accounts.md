@@ -6,10 +6,10 @@ ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429013"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Contas individuais no NuGet.org
@@ -26,7 +26,7 @@ Uma conta da organização tem uma ou mais contas individuais como seus membros.
 
 Para criar uma conta do NuGet.org, você precisa ter uma MSA (conta Microsoft pessoal) ou uma conta do AAD (Azure Active Directory). Se não tiver uma ID da Apple, [crie](https://signup.live.com) uma. Siga as etapas a seguir caso você tenha uma conta MSA ou do AAD.
 
-1. Acesse a [página de logon do NuGet.org](https://www.nuget.org/users/account/LogOn).
+1. Acesse a [página de login NuGet.org](https://www.nuget.org/users/account/LogOn).
 
 1. Clique no botão **Entrar com a conta Microsoft**.
 
@@ -36,19 +36,19 @@ Para criar uma conta do NuGet.org, você precisa ter uma MSA (conta Microsoft pe
 
    ![Como conceder permissões ao NuGet.org](media/nuget-org-permissions.png)
 
-1. Você será redirecionado para *nuget.org* e deverá registrar um nome de usuário.
+1. Você será redirecionado para *nuget.org*e solicitado a registrar um nome de usuário.
 
 1. Especifique o nome de usuário na caixa de entrada. Observe que o nome de usuário **diferencia** maiúsculas de minúsculas e não pode ser alterado ou renomeado mais tarde.
 
    ![Especificar um nome de usuário no NuGet.org](media/nuget-org-register.png) 
 
-1. Clique no botão **Registrar**.
+1. Clique no botão **Registrar.**
 
 Agora você tem uma conta do NuGet.org. Realize o gerenciamento de contas na página de [configurações da conta](https://www.nuget.org/account).
 
 ## <a name="enable-two-factor-authentication-2fa"></a>Habilitar a autenticação de dois fatores (2FA)
 
-A autenticação de dois fatores, ou 2FA, é uma camada extra de segurança usada ao fazer logon em sites ou aplicativos. Com o 2FA, você precisa fazer logon com sua conta da Microsoft (MSA) e fornecer outra forma de autenticação que só você conhece ou tem acesso ao. Para proteger melhor sua conta, habilite a autenticação de dois fatores (recomendada).
+Autenticação de dois fatores, ou 2FA, é uma camada extra de segurança usada ao fazer login em sites ou aplicativos. Com o 2FA, você tem que fazer login com sua Conta Microsoft (MSA) e fornecer outra forma de autenticação que só você conhece ou tem acesso. Para proteger melhor sua conta, habilite a autenticação de dois fatores (recomendada).
 
 1. Depois de entrar em sua conta, abra seu perfil e escolha **Habilitar** em **Conta de logon**.
 
@@ -71,7 +71,7 @@ A autenticação de dois fatores, ou 2FA, é uma camada extra de segurança usad
 5. Siga as instruções adicionais para concluir a autenticação de dois fatores.
 
 > [!Tip]
-> Habilitar o 2FA para sua conta do NuGet.org não afeta as configurações de autenticação para outras contas ou serviços que podem estar vinculados ao conta Microsoft usado para fazer logon no NuGet.org.
+> A habilitação de 2FA para sua conta NuGet.org não afeta as configurações de autenticação de outras contas ou serviços que possam estar vinculados à conta microsoft que você usa para fazer login em NuGet.org.
 
 ## <a name="delete-a-nugetorg-account"></a>Excluir uma conta do NuGet.org
 

@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 34f7c6132ba6050e20114642932ccf29a5ec088d
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429006"
 ---
 # <a name="support-multiple-net-versions"></a>Suporte a várias versões do .NET
 
 Muitas bibliotecas se destinam a uma versão específica do .NET Framework. Por exemplo, você pode ter uma versão da biblioteca específica para a UWP e outra versão para aproveitar os recursos no .NET Framework 4.6. Para acomodar isso, o NuGet é compatível com a colocação de várias versões da mesma biblioteca em um único pacote.
 
-Este artigo descreve o layout de um pacote NuGet, independentemente de como o pacote ou os assemblies são compilados (ou seja, o layout é o mesmo se você estiver usando vários arquivos *. csproj* de estilo não SDK e um arquivo *. nuspec* personalizado, ou um único SDK multiplataforma-Style *. csproj*). Para um projeto no estilo SDK, os [destinos do pacote](../reference/msbuild-targets.md) do NuGet reconhecem como o pacote deve ser definido e automatiza a colocação dos assemblies nas pastas corretas da biblioteca e a criação de grupos de dependências para cada estrutura de destino (TFM). Para saber mais, confira [Suporte a várias versões de .NET Framework em seu arquivo de projeto](multiple-target-frameworks-project-file.md).
+Este artigo descreve o layout de um pacote NuGet, independentemente de como o pacote ou conjuntos são construídos (ou seja, o layout é o mesmo se usando vários arquivos *.csproj* estilo SDK e um arquivo *personalizado .nuspec,* ou um único estilo SDK multi-direcionado *.csproj*). Para um projeto no estilo SDK, os [destinos do pacote](../reference/msbuild-targets.md) do NuGet reconhecem como o pacote deve ser definido e automatiza a colocação dos assemblies nas pastas corretas da biblioteca e a criação de grupos de dependências para cada estrutura de destino (TFM). Para saber mais, confira [Suporte a várias versões de .NET Framework em seu arquivo de projeto](multiple-target-frameworks-project-file.md).
 
 Você deve definir manualmente o pacote conforme descrito neste artigo ao usar o método de diretório de trabalho baseado em convenções descrito em [Criar um pacote](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). Para um projeto em estilo SDK, é recomendado o método automatizado, mas você também pode optar por definir manualmente o pacote como descrito neste artigo.
 
@@ -67,7 +67,7 @@ Se você tiver assemblies específicos de arquitetura, ou seja, assemblies separ
 
 Esses assemblies só estarão disponíveis no runtime, portanto, se você quiser fornecer o assembly de tempo de compilação correspondente, também terá um assembly `AnyCPU` na pasta `/ref/{tfm}`. 
 
-O NuGet sempre escolhe esses recursos de compilação ou de runtime de uma pasta, portanto, se houver alguns ativos compatíveis de `/ref`, `/lib` será ignorado para adicionar conjuntos de tempo de compilação. Da mesma forma, se houver alguns ativos compatíveis de `/runtimes`, então `/lib` serão ignorados para tempo de execução.
+O NuGet sempre escolhe esses recursos de compilação ou de runtime de uma pasta, portanto, se houver alguns ativos compatíveis de `/ref`, `/lib` será ignorado para adicionar conjuntos de tempo de compilação. Da mesma forma, se houver `/runtimes` alguns ativos compatíveis a partir de então também `/lib` serão ignorados por tempo de execução.
 
 Consulte [Criar pacotes de UWP](../guides/create-uwp-packages.md) para obter um exemplo de referência a esses arquivos no manifesto `.nuspec`.
 
@@ -129,7 +129,7 @@ Ao empacotar um arquivo de projeto, o NuGet tenta gerar automaticamente as depen
 
 Cada grupo tem um atributo chamado `targetFramework` e contém zero ou mais elementos `<dependency>`. Essas referências são instaladas juntas quando a estrutura de destino é compatível com o perfil da estrutura do projeto. Consulte [Estruturas de destino](../reference/target-frameworks.md) para ver os identificadores de estrutura exatos.
 
-Recomendamos usar um grupo por TFM (Moniker da Estrutura de Destino) para arquivos nas pastas *lib/* e *ref/* .
+Recomendamos usar um grupo por TFM (Moniker da Estrutura de Destino) para arquivos nas pastas *lib/* e *ref/*.
 
 O exemplo a seguir mostra diferentes variações do elemento `<group>`:
 

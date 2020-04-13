@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
 ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610998"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Configurando a restauração de pacote com o Team Foundation Build
@@ -33,7 +33,7 @@ Uma vantagem de usar o NuGet é que você pode usá-lo para evitar fazer check i
 
 Isso é especialmente interessante se você estiver usando um sistema de [controle de versão distribuída](https://en.wikipedia.org/wiki/Distributed_revision_control) como git porque os desenvolvedores precisam clonar o repositório inteiro, incluindo o histórico completo, para começar a trabalhar localmente. Fazer check-in de binários pode causar sobrecarga significativa no repositório, visto que arquivos binários normalmente são armazenados sem compactação delta.
 
-O NuGet tem sido compatível com a [restauração de pacotes](../consume-packages/package-restore.md) como parte do build há bastante tempo. A implementação anterior tinha umd dilema de causalidade para os pacotes que desejam estender o processo de build porque os pacotes restaurados do NuGet durante a compilação do projeto. No entanto, o MSBuild não permite estender o build durante o build; poderíamos argumentar que isso é um problema no MSBuild, mas eu diria que se trata de um problema inerente. Dependendo de qual aspecto você precisa estender, pode ser muito tarde registrar no momento em que o pacote é restaurado.
+O NuGet tem sido compatível com a [restauração de pacotes](../consume-packages/package-restore.md) como parte do build há bastante tempo. A implementação anterior tinha um problema de ovo e a galinha para os pacotes que desejam estender o processo de build porque os pacotes restaurados do NuGet durante a compilação do projeto. No entanto, o MSBuild não permite estender o build durante o build; poderíamos argumentar que isso é um problema no MSBuild, mas eu diria que se trata de um problema inerente. Dependendo de qual aspecto você precisa estender, pode ser muito tarde registrar no momento em que o pacote é restaurado.
 
 A solução para esse problema é verificar se os pacotes foram restaurados como a primeira etapa no processo de build:
 
@@ -84,7 +84,7 @@ O código-fonte está na pasta `src`. Embora a nossa demonstração use apenas u
 ### <a name="ignore-files"></a>Ignorar arquivos
 
 > [!Note]
-> Atualmente, há um [bug conhecido no cliente do NuGet](https://nuget.codeplex.com/workitem/4072) que faz com que o cliente ainda adicione a pasta `packages` ao controle de versão. Uma solução alternativa é desabilitar a integração de controle do código-fonte. Para fazer isso, você precisa de um arquivo `Nuget.Config ` na pasta `.nuget` paralela à sua solução. Se essa pasta ainda não existir, você precisará criá-la. No [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md), adicione o conteúdo a seguir:
+> Atualmente, há um [bug conhecido no cliente do NuGet](https://nuget.codeplex.com/workitem/4072) que faz com que o cliente ainda adicione a pasta `packages` ao controle de versão. Uma solução alternativa é desabilitar a integração de controle do código-fonte. Para fazer isso, você precisa de um arquivo `Nuget.Config ` na pasta `.nuget` paralela à sua solução. Se essa pasta ainda não existir, você precisará criá-la. Em [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md), adicionar o seguinte conteúdo:
 
 ```xml
 <configuration>
