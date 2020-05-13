@@ -9,12 +9,12 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: 9e60c0236bd4e6f1374b50a236447faf80dddb38
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 372304255bf8849693947b22539e012ccdd48966
+ms.sourcegitcommit: 0a63956bf12aaf1b1b45e680bc8e90f97347988c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813189"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83367928"
 ---
 # <a name="rate-limits"></a>Limites de taxa
 
@@ -43,16 +43,24 @@ As tabelas a seguir listam os limites de taxa para a API NuGet.org.
 > [!Note]
 > É recomendável usar as APIs de [pesquisa v3](search-query-service-resource.md) do NuGet. org, pois a taxa não é limitada no momento. Para APIs de pesquisa v1 e v2, os seguintes limites se aplicam:
 
-| API | Tipo de limite | Valor de limite | UseCase de API |
+| API | Tipo de limite | Valor de limite | Caso de uso da API |
 |:---|:---|:---|:---|
-**Obter** `/api/v1/Packages` | PI | 1000/minuto | Consultar metadados do pacote NuGet via coleção de `Packages` do OData v1 |
-**Obter** `/api/v1/Search()` | PI | 3000/minuto | Pesquisar pacotes NuGet por meio do ponto de extremidade de pesquisa v1 | 
-**Obter** `/api/v2/Packages` | PI | 20000/minuto | Consultar metadados do pacote NuGet por meio da coleção de `Packages` OData do v2 | 
-**Obter** `/api/v2/Packages/$count` | PI | 100/minuto | Consultar a contagem de pacotes NuGet por meio da coleção de `Packages` do OData do v2 | 
+**Obter**`/api/v1/Packages` | IP | 1000/minuto | Consultar metadados do pacote NuGet via coleção de OData v1 `Packages` |
+**Obter**`/api/v1/Search()` | IP | 3000/minuto | Pesquisar pacotes NuGet por meio do ponto de extremidade de pesquisa v1 | 
+**Obter**`/api/v2/Packages` | IP | 20000/minuto | Consultar metadados do pacote NuGet por meio da coleção do OData v2 `Packages` | 
+**Obter**`/api/v2/Packages/$count` | IP | 100/minuto | Consultar contagem de pacotes NuGet por meio da coleção de OData do v2 `Packages` | 
 
 ## <a name="package-push-and-unlist"></a>Enviar por push de pacote e não listar
 
-| API | Tipo de limite | Valor de limite | UseCase de API | 
+| API | Tipo de limite | Valor de limite | Caso de uso da API | 
 |:---|:---|:---|:--- |
-**Colocar** `/api/v2/package` | Chave de API | 350/hora | Carregar um novo pacote NuGet (versão) por meio do ponto de extremidade de push v2 
-**Excluir** `/api/v2/package/{id}/{version}` | Chave de API | 250/hora | Deslistar um pacote NuGet (versão) via ponto de extremidade v2 
+**Put**`/api/v2/package` | Chave de API | 350/hora | Carregar um novo pacote NuGet (versão) por meio do ponto de extremidade de push v2 
+**Excluir**`/api/v2/package/{id}/{version}` | Chave de API | 250/hora | Deslistar um pacote NuGet (versão) via ponto de extremidade v2 
+
+## <a name="nugetorg-website-page-views"></a>exibições de página do site nuget.org
+
+Se você estiver acessando as páginas da Web do nuget.org programaticamente, considere a investigação de nossas [APIs v3](overview.md)documentadas. Esses pontos de extremidade permitem um acesso mais simples aos metadados e ao conteúdo do pacote. A API v3 tem melhor disponibilidade e tem um desempenho maior do que acessar as páginas da Web da galeria do NuGet, que são projetadas para interação com o navegador da Web.
+
+| API | Tipo de limite | Valor de limite | Caso de uso da API | 
+|:---|:---|:---|:--- |
+**Obter**`/package/{id}/{version}` | IP | 50/minuto | Página de detalhes do pacote de exibição (versão). 
