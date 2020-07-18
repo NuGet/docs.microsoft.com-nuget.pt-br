@@ -1,20 +1,20 @@
 ---
-title: Referência do arquivo NuGet. config
+title: Referência de arquivo de nuget.config
 description: Referência do arquivo NuGet.Config incluindo as seções config, bindingRedirects, packageRestore, solution e packageSource.
 author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: cd321084c46709e3d1d22872c37485edacd33afa
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.openlocfilehash: 760bf09cb03608275e2c5406474f572a407a7379
+ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79429125"
+ms.lasthandoff: 07/17/2020
+ms.locfileid: "86451119"
 ---
-# <a name="nugetconfig-reference"></a>referência de NuGet. config
+# <a name="nugetconfig-reference"></a>Referência de nuget.config
 
-O comportamento do NuGet é controlado por configurações em arquivos `NuGet.Config` ou `nuget.config` diferentes, conforme descrito em [configurações comuns do NuGet](../consume-packages/configuring-nuget-behavior.md).
+O comportamento do NuGet é controlado por configurações `NuGet.Config` em `nuget.config` arquivos diferentes ou conforme descrito em [configurações comuns do NuGet](../consume-packages/configuring-nuget-behavior.md).
 
 `nuget.config` é um arquivo XML que contém um nó `<configuration>` de nível superior, o qual contém os elementos da seção descritos neste tópico. Cada seção contém zero ou mais itens. Consulte o [arquivo de configuração de exemplos](#example-config-file). Nomes de configuração não diferenciam maiúsculas de minúsculas e podem usar valores [variáveis de ambiente](#using-environment-variables).
 
@@ -25,9 +25,9 @@ O comportamento do NuGet é controlado por configurações em arquivos `NuGet.Co
 
 ## <a name="config-section"></a>seção de configuração
 
-Contém diversas definições de configurações, que podem ser definidas usando o comando [`nuget config`](../reference/cli-reference/cli-ref-config.md).
+Contém diversas definições de configuração, que podem ser definidas usando o [ `nuget config` comando](../reference/cli-reference/cli-ref-config.md).
 
-`dependencyVersion` e `repositoryPath` se aplicam somente a projetos que usam `packages.config`. `globalPackagesFolder` aplica-se somente a projetos que usam o formato PackageReference.
+`dependencyVersion`e `repositoryPath` aplicam-se somente a projetos que usam o `packages.config` . `globalPackagesFolder`aplica-se somente a projetos que usam o formato PackageReference.
 
 | Chave | Valor |
 | --- | --- |
@@ -36,7 +36,7 @@ Contém diversas definições de configurações, que podem ser definidas usando
 | repositoryPath (somente `packages.config`) | O local no qual instalar os pacotes do NuGet em vez da pasta `$(Solutiondir)/packages` padrão. Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
 | defaultPushSource | Identifica a URL ou o caminho da origem do pacote que deve ser usada como o padrão se nenhuma outra origem de pacote for encontrada para uma operação. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Configurações de proxy a serem usadas ao se conectar a origens de pacote; `http_proxy` deve estar no formato `http://<username>:<password>@<domain>`. As senhas são criptografadas e não podem ser adicionadas manualmente. Para `no_proxy`, o valor é uma lista separada por vírgulas de domínios a ignorar no servidor proxy. Como alternativa, você pode usar as variáveis de ambiente http_proxy e no_proxy para esses valores. Para ver detalhes adicionais, consulte [Configurações de proxy do NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
-| signatureValidationMode | Especifica o modo de validação usado para verificar assinaturas de pacote para instalação do pacote e restauração. Os valores são `accept`, `require`. Usa `accept` como padrão.
+| signatureValidationMode | Especifica o modo de validação usado para verificar assinaturas de pacote para instalação do pacote e restauração. Os valores são `accept` , `require` . O padrão é `accept`.
 
 **Exemplo**:
 
@@ -102,15 +102,15 @@ Controla se a pasta `packages` de uma solução está incluída no controle do c
 
 ## <a name="package-source-sections"></a>Seções de origem de pacote
 
-O `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, `disabledPackageSources` e `trustedSigners` todos trabalham juntos para configurar como o NuGet funciona com repositórios de pacotes durante as operações de instalação, restauração e atualização.
+O `packageSources` , `packageSourceCredentials` , `apikeys` , `activePackageSource` , `disabledPackageSources` e `trustedSigners` todos trabalham juntos para configurar como o NuGet funciona com repositórios de pacotes durante operações de instalação, restauração e atualização.
 
-O [comando`nuget sources`](../reference/cli-reference/cli-ref-sources.md) geralmente é usado para gerenciar essas configurações, exceto pelo `apikeys` que é gerenciado usando o [comando`nuget setapikey`](../reference/cli-reference/cli-ref-setapikey.md)e `trustedSigners` que é gerenciado usando o [comando`nuget trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md).
+O [ `nuget sources` comando](../reference/cli-reference/cli-ref-sources.md) geralmente é usado para gerenciar essas configurações, exceto para o `apikeys` que é gerenciado usando o [ `nuget setapikey` comando](../reference/cli-reference/cli-ref-setapikey.md)e `trustedSigners` que é gerenciado usando o [ `nuget trusted-signers` comando](../reference/cli-reference/cli-ref-trusted-signers.md).
 
 Observe que a URL de origem para nuget.org é `https://api.nuget.org/v3/index.json`.
 
 ### <a name="packagesources"></a>packageSources
 
-Lista todas as origens de pacotes conhecidas. A ordem é ignorada durante as operações de restauração e com qualquer projeto usando o formato PackageReference. O NuGet respeita a ordem de fontes para operações de instalação e atualização com projetos usando `packages.config`.
+Lista todas as origens de pacotes conhecidas. A ordem é ignorada durante as operações de restauração e com qualquer projeto usando o formato PackageReference. O NuGet respeita a ordem de fontes para operações de instalação e atualização com projetos usando o `packages.config` .
 
 | Chave | Valor |
 | --- | --- |
@@ -136,8 +136,8 @@ Armazena os nomes de usuário e senhas para as origens, geralmente especificado 
 | Chave | Valor |
 | --- | --- |
 | Nome de Usuário | O nome de usuário para a origem em texto sem formatação. |
-| password | A senha criptografada para a origem. |
-| cleartextpassword | A senha não criptografada para a origem. |
+| password | A senha criptografada para a origem. As senhas criptografadas só têm suporte no Windows e só podem ser descriptografadas quando usadas no mesmo computador e por meio do mesmo usuário que a criptografia original. |
+| cleartextpassword | A senha não criptografada para a origem. Observação: as variáveis de ambiente podem ser usadas para aumentar a segurança. |
 
 **Exemplo:**
 
@@ -152,6 +152,21 @@ No arquivo de configuração, o elemento `<packageSourceCredentials>` contém n�
     <Test_x0020_Source>
         <add key="Username" value="user" />
         <add key="Password" value="..." />
+    </Test_x0020_Source>
+</packageSourceCredentials>
+```
+
+Ao usar senhas não criptografadas armazenadas em uma variável de ambiente:
+
+```xml
+<packageSourceCredentials>
+    <Contoso>
+        <add key="Username" value="user@contoso.com" />
+        <add key="ClearTextPassword" value="%ContosoPassword%" />
+    </Contoso>
+    <Test_x0020_Source>
+        <add key="Username" value="user" />
+        <add key="ClearTextPassword" value="%TestSourcePassword%" />
     </Test_x0020_Source>
 </packageSourceCredentials>
 ```
@@ -173,7 +188,7 @@ Ao usar senhas não criptografadas:
 
 ### <a name="apikeys"></a>apikeys
 
-Armazena as chaves de origens que usam autenticação de chave de API, conforme definido com o comando [`nuget setapikey`](../reference/cli-reference/cli-ref-setapikey.md).
+Armazena chaves para fontes que usam autenticação de chave de API, conforme definido com o [ `nuget setapikey` comando](../reference/cli-reference/cli-ref-setapikey.md).
 
 | Chave | Valor |
 | --- | --- |
@@ -230,19 +245,19 @@ Identifica a fonte ativa no momento ou indica a agregação de todas as fontes.
 
 ## <a name="trustedsigners-section"></a>seção trustedSigners
 
-Armazena os assinantes confiáveis usados para permitir o pacote durante a instalação ou restauração. Esta lista não pode ficar vazia quando o usuário define `signatureValidationMode` para `require`. 
+Armazena os assinantes confiáveis usados para permitir o pacote durante a instalação ou restauração. Esta lista não pode estar vazia quando o usuário define `signatureValidationMode` como `require` . 
 
-Esta seção pode ser atualizada com o [comando`nuget trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md).
+Esta seção pode ser atualizada com o [ `nuget trusted-signers` comando](../reference/cli-reference/cli-ref-trusted-signers.md).
 
 **Esquema**:
 
-Um signatário confiável tem uma coleção de `certificate` itens que inscrevem todos os certificados que identificam um determinado assinante. Um signatário confiável pode ser um `Author` ou um `Repository`.
+Um assinante confiável tem uma coleção de `certificate` itens que inscrevem todos os certificados que identificam um determinado signatário. Um signatário confiável pode ser um `Author` ou um `Repository` .
 
-Um *repositório* confiável também especifica o `serviceIndex` para o repositório (que deve ser um uri de `https` válido) e, opcionalmente, pode especificar uma lista delimitada por ponto-e-vírgula de `owners` para restringir ainda mais a confiança desse repositório específico.
+Um *repositório* confiável também especifica o `serviceIndex` para o repositório (que deve ser um URI válido `https` ) e pode, opcionalmente, especificar uma lista delimitada por ponto e vírgula de `owners` para restringir ainda mais o que é confiável desse repositório específico.
 
-Os algoritmos de hash com suporte usados para uma impressão digital de certificado são `SHA256`, `SHA384` e `SHA512`.
+Os algoritmos de hash com suporte usados para uma impressão digital de certificado são `SHA256` `SHA384` e `SHA512` .
 
-Se um `certificate` especificar `allowUntrustedRoot` como `true` o certificado fornecido poderá ser encadeado a uma raiz não confiável durante a criação da cadeia de certificados como parte da verificação da assinatura.
+Se um `certificate` especifica `allowUntrustedRoot` que `true` o certificado fornecido pode encadear a uma raiz não confiável ao criar a cadeia de certificados como parte da verificação de assinatura.
 
 **Exemplo**:
 
@@ -286,12 +301,12 @@ Se uma correspondência não for encontrada, o NuGet verificará as fontes de ar
 
 ## <a name="packagemanagement-section"></a>seção packageManagement
 
-Define o formato de gerenciamento de pacote padrão, *Packages. config* ou PackageReference. Projetos no estilo SDK sempre usam PackageReference.
+Define o formato de gerenciamento de pacote padrão, *packages.config* ou PackageReference. Projetos no estilo SDK sempre usam PackageReference.
 
 | Chave | Valor |
 | --- | --- |
-| format | Um booliano que indica o formato de gerenciamento de pacote padrão. Se `1`, o formato será PackageReference. Se `0`, Format será *Packages. config*. |
-| desabilitado | Um booliano que indica se o prompt deve ser mostrado para selecionar um formato de pacote padrão na instalação do primeiro pacote. `False` oculta o prompt. |
+| format | Um booliano que indica o formato de gerenciamento de pacote padrão. Se `1` , Format for PackageReference. Se `0` , o formato é *packages.config*. |
+| desabilitado | Um booliano que indica se o prompt deve ser mostrado para selecionar um formato de pacote padrão na instalação do primeiro pacote. `False`oculta o prompt. |
 
 **Exemplo**:
 
@@ -308,13 +323,13 @@ Você pode usar variáveis de ambiente em valores `nuget.config` (NuGet 3.4 ou s
 
 Por exemplo, se a variável de ambiente `HOME` no Windows for definida como `c:\users\username`, o valor de `%HOME%\NuGetRepository` no arquivo de configuração é resolvido para `c:\users\username\NuGetRepository`.
 
-Observe que você precisa usar variáveis de ambiente no estilo do Windows (começa e termina com%) mesmo no Mac/Linux. Ter `$HOME/NuGetRepository` em um arquivo de configuração não será resolvido. No Mac/Linux, o valor de `%HOME%\NuGetRepository` será resolvido para `/home/myStuff/NuGetRepository`.
+Observe que você precisa usar variáveis de ambiente no estilo do Windows (começa e termina com%) mesmo no Mac/Linux. Ter `$HOME/NuGetRepository` em um arquivo de configuração não será resolvido. No Mac/Linux, o valor de `%HOME%\NuGetRepository` será resolvido para `/home/myStuff/NuGetRepository` .
 
 Se uma variável de ambiente não for encontrada, o NuGet usa o valor literal do arquivo de configuração.
 
 ## <a name="example-config-file"></a>Exemplo de arquivo de configuração
 
-Veja abaixo um exemplo `nuget.config` arquivo que ilustra várias configurações, incluindo as opcionais:
+Abaixo está um `nuget.config` arquivo de exemplo que ilustra várias configurações, incluindo as opcionais:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

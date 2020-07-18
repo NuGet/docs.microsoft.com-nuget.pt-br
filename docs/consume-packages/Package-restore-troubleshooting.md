@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: a1f9f1d03e9a6e58466fa92426bd655d5e8ed83d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: b162990eae2160961f560b6c6ee73e47cb4121d6
+ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "68860621"
+ms.lasthandoff: 07/17/2020
+ms.locfileid: "86451145"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Solução de problemas de erros de restauração de pacote
 
 Este artigo aborda os erros comuns ao restaurar pacotes e as etapas para resolvê-los. 
 
-A Restauração de Pacote tenta instalar todas as dependências de pacotes no estado correto correspondente às referências de pacote do arquivo de projeto (*.csproj*) ou do arquivo *packages.config*. (No Visual Studio, as referências aparecem no Solution Explorer sob as **dependências \ NuGet** ou no nó **Referências.)** Para seguir as etapas necessárias para restaurar pacotes, consulte [Restaurar pacotes](../consume-packages/package-restore.md#restore-packages). Se as referências de pacote no arquivo de projeto (*.csproj*) ou no arquivo *packages.config* estiverem incorretas (não corresponderem ao estado desejado após a Restauração de Pacote), instale ou atualize os pacotes em vez de usar a Restauração de Pacote.
+A Restauração de Pacote tenta instalar todas as dependências de pacotes no estado correto correspondente às referências de pacote do arquivo de projeto (*.csproj*) ou do arquivo *packages.config*. (No Visual Studio, as referências aparecem em Gerenciador de Soluções sob as **dependências \ NuGet** ou o nó **References** .) Para seguir as etapas necessárias para restaurar pacotes, consulte [restaurar pacotes](../consume-packages/package-restore.md#restore-packages). Se as referências de pacote no arquivo de projeto (*.csproj*) ou no arquivo *packages.config* estiverem incorretas (não corresponderem ao estado desejado após a Restauração de Pacote), instale ou atualize os pacotes em vez de usar a Restauração de Pacote.
 
 Se estas instruções não funcionarem para você, [envie um problema no GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) para examinarmos o cenário mais cuidadosamente. Não use o controle “Esta página é útil?” que pode aparecer nesta página, pois ele não nos permite entrar em contato com você para obter mais informações.
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Esse erro ocorre ao tentar compilar um projeto com referências a um ou mais pacotes do NuGet, mas, no momento, esses pacotes não estão instalados no computador ou no projeto.
 
-- Ao usar o formato de gerenciamento [PackageReference,](package-references-in-project-files.md) o erro significa que o pacote não está instalado na pasta *de pacotes globais,* conforme descrito no [gerenciamento das pastas de pacotes e cache globais](managing-the-global-packages-and-cache-folders.md).
+- Ao usar o formato de gerenciamento [PackageReference](package-references-in-project-files.md) , o erro significa que o pacote não está instalado na pasta *global-Packages* , conforme descrito em [Gerenciando os pacotes globais e as pastas de cache](managing-the-global-packages-and-cache-folders.md).
 - Ao usar o [packages.config](../reference/packages-config.md), o erro significa que o pacote não está instalado na pasta `packages` na raiz da solução.
 
 Essa situação geralmente ocorre ao obter o código-fonte do projeto por meio do controle do código-fonte ou de outro download. Os pacotes normalmente são omitidos do controle do código-fonte ou dos downloads, uma vez que podem ser restaurados de feeds de pacotes, como o nuget.org (veja [Pacotes e controle do código-fonte](Packages-and-Source-Control.md)). Por outro lado, a inclusão deles sobrecarregaria o repositório ou criaria arquivos .zip desnecessariamente grandes.
@@ -61,7 +61,7 @@ Use um dos seguintes métodos para restaurar os pacotes:
 - [CLI do nuget.exe](package-restore.md#restore-using-the-nugetexe-cli)
 - [MSBuild](package-restore.md#restore-using-msbuild)
 - [Azure Pipelines](package-restore.md#restore-using-azure-pipelines)
-- [Servidor Azure DevOps](package-restore.md#restore-using-azure-devops-server)
+- [Azure DevOps Server](package-restore.md#restore-using-azure-devops-server)
 
 Após uma restauração bem-sucedida, o pacote deve estar presente na pasta *global-packages*. Em caso de projetos que usam PackageReference, uma restauração deve recriar o arquivo `obj/project.assets.json`; em projetos que usam `packages.config`, o pacote deve aparecer na pasta `packages` do projeto. Nesse momento, o projeto deverá ser compilado com êxito. Caso contrário, [envie um problema no GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) para que possamos acompanhá-lo com você.
 
@@ -114,7 +114,7 @@ Você também pode editar essas configurações diretamente no arquivo `nuget.co
 
 ## <a name="other-potential-conditions"></a>Outras condições possíveis
 
-- Você pode encontrar erros de build devido a arquivos ausentes, com uma mensagem indicando para usar a restauração do NuGet para baixá-los. No entanto, ao executar uma restauração, a seguinte mensagem poderá aparecer: "Todos os pacotes já estão instalados e não há nada para ser restaurado". Nesse caso, exclua a pasta `packages` (ao usar `packages.config`) ou o arquivo `obj/project.assets.json` (ao usar PackageReference) e execute a restauração novamente. Se o erro continuar, use `nuget locals all -clear` ou `dotnet locals all --clear` pela linha de comando para limpar as pastas *global-packages* e de cache, conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](managing-the-global-packages-and-cache-folders.md).
+- Você pode encontrar erros de build devido a arquivos ausentes, com uma mensagem indicando para usar a restauração do NuGet para baixá-los. No entanto, ao executar uma restauração, a seguinte mensagem poderá aparecer: "Todos os pacotes já estão instalados e não há nada para ser restaurado". Nesse caso, exclua a pasta `packages` (ao usar `packages.config`) ou o arquivo `obj/project.assets.json` (ao usar PackageReference) e execute a restauração novamente. Se o erro continuar, use `nuget locals all -clear` ou `dotnet nuget locals all --clear` pela linha de comando para limpar as pastas *global-packages* e de cache, conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](managing-the-global-packages-and-cache-folders.md).
 
 - Ao obter um projeto por meio do controle do código-fonte, as pastas do projeto poderão ser definidas como somente leitura. Altere as permissões de pasta e tente restaurar os pacotes novamente.
 
