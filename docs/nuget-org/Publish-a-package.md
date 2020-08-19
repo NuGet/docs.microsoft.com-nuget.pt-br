@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79429020"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623014"
 ---
 # <a name="publishing-packages"></a>Publicando pacotes
 
@@ -24,7 +24,7 @@ Este artigo aborda a publicação no nuget.org. Para saber sobre a publicação 
 
 ## <a name="publish-to-nugetorg"></a>Publicar no nuget.org
 
-Para nuget.org, você deve fazer login com uma conta da Microsoft, com a qual você será solicitado a registrar a conta com nuget.org. Você também pode fazer login com uma conta nuget.org criada usando versões mais antigas do portal.
+Para nuget.org, você deve entrar com um conta Microsoft, com o qual será solicitado que você registre a conta com nuget.org. Você também pode entrar com uma conta do nuget.org criada usando versões mais antigas do Portal.
 
 ![Localização de entrada do NuGet](media/publish_NuGetSignIn.png)
 
@@ -46,7 +46,8 @@ Em seguida, você poderá carregar o pacote por meio do portal da Web nuget.org,
 
 ### <a name="command-line"></a>Linha de comando
 
-Para efetuar push em pacotes para o nuget.org, você precisa usar o [nuget.exe v4.1.0 ou superior](https://www.nuget.org/downloads), que implementa os [protocolos NuGet](../api/nuget-protocols.md) necessários. Também é preciso ter uma chave de API, que é criada em nuget.org.
+Para enviar pacotes por push para o nuget.org, primeiro você precisa de uma chave de API, que é criada em nuget.org. Você deve usar o dotnet.exe (.NET Core) ou nuget.exe v 4.1.0 ou superior, que implementa os protocolos NuGet necessários.
+Para obter mais informações, consulte [.NET Core](https://docs.microsoft.com/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)e [protocolos NuGet](../api/nuget-protocols.md).
 
 #### <a name="create-api-keys"></a>Criar chaves de API
 
@@ -64,11 +65,11 @@ Para efetuar push em pacotes para o nuget.org, você precisa usar o [nuget.exe v
     nuget setApiKey <your_API_key>
     ```
 
-    Este comando armazena sua chave de API na configuração NuGet para que você não precise repetir esse passo novamente no mesmo computador.
+    Esse comando armazena sua chave de API na configuração do NuGet para que você não precise repetir essa etapa novamente no mesmo computador.
 
     > [!NOTE]
-    > A chave API não é usada para autenticar com o feed privado. Consulte o [ `nuget sources` comando](../reference/cli-reference/cli-ref-sources.md) para gerenciar credenciais para autenticação com a fonte.
-    > As chaves de API podem ser obtidas dos servidores NuGet individuais. Para criar e manange APIKeys para nuget.org consulte [publish-api-key](../quickstart/includes/publish-api-key.md)
+    > A chave de API não é usada para autenticação com o feed particular. Consulte o [ `nuget sources` comando](../reference/cli-reference/cli-ref-sources.md) para gerenciar as credenciais de autenticação com a origem.
+    > As chaves de API podem ser obtidas dos servidores NuGet individuais. Para criar e manange APIKeys para nuget.org, consulte [criar chaves de API](#create-api-keys).
 
 1. Efetue push do pacote para a Galeria do NuGet usando o seguinte comando:
 
@@ -89,9 +90,9 @@ Os pacotes enviados por push para nuget.org passam por várias validações, com
 
 Quando o pacote tiver passado todas as verificações de validação, pode levar algum tempo para que ele seja indexado e exibido nos resultados da pesquisa. Após a conclusão da indexação, você receberá um email confirmando que o pacote foi publicado com êxito. Se a verificação de validação do pacote falhar, a página de detalhes do pacote será atualizada para exibir o erro associado e você também receberá uma notificação por email.
 
-A validação e indexação do pacote geralmente leva menos de 15 minutos. Se a publicação do pacote estiver demorando mais do que o esperado, visite [status.nuget.org](https://status.nuget.org/) para verificar se nuget.org está sofrendo interrupções. Se todos os sistemas estiverem operacionais e o pacote não tiver sido publicado com êxito dentro de uma hora, faça logon no nuget.org e entre em contato conosco usando o link Entre em contato com o suporte na página do pacote.
+A validação e indexação do pacote geralmente leva menos de 15 minutos. Se a publicação do pacote estiver demorando mais do que o esperado, visite [status.NuGet.org](https://status.nuget.org/) para verificar se o NuGet.org está enfrentando interrupções. Se todos os sistemas estiverem operacionais e o pacote não tiver sido publicado com êxito dentro de uma hora, faça logon no nuget.org e entre em contato conosco usando o link Entre em contato com o suporte na página do pacote.
 
-Para ver o status de um pacote, **selecione Gerenciar pacotes** com o nome da sua conta em nuget.org. Você recebe um e-mail de confirmação quando a validação estiver concluída.
+Para ver o status de um pacote, selecione **gerenciar pacotes** sob o nome da sua conta em NuGet.org. Você receberá um email de confirmação quando a validação for concluída.
 
 Observe que pode levar algum tempo para o pacote ser indexado e aparecer nos resultados da pesquisa em que outras pessoas podem encontrá-lo e, durante esse período, você verá a seguinte mensagem na página do seu pacote:
 

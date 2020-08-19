@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 45928e60033959bc8b4f43d1ef3e4c943e7ec057
-ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
+ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87473851"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622974"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Localizando e avaliando pacotes do NuGet para o seu projeto
 
@@ -72,7 +72,7 @@ No Visual Studio e ao usar a CLI do NuGet e ferramentas da CLI dotnet, o NuGet n
 
 - **Console do Gerenciador de pacotes**: Use a `-IncludePrerelease` opção com os `Find-Package` comandos,, `Get-Package` `Install-Package` , `Sync-Package` e `Update-Package` . Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
 
-- **CLI donuget.exe**: Use a `-prerelease` opção com `install` os `update` comandos,, `delete` e `mirror` . Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
+- ** CLI donuget.exe**: Use a `-prerelease` opção com `install` os `update` comandos,, `delete` e `mirror` . Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
 
 - **CLI dotnet.exe**: especifique a versão de pré-lançamento exata usando o argumento `-v`. Veja a [referência de dotnet add package](/dotnet/core/tools/dotnet-add-package).
 
@@ -90,32 +90,41 @@ A melhor maneira de avaliar a utilidade de um pacote é baixá-lo e testá-lo no
 
 Por outro lado, usar um pacote do NuGet significa assumir uma dependência, por isso é útil garantir que ele seja robusto e confiável. Visto que instalar e testar diretamente de um pacote é algo demorado, também é possível aprender muito sobre a qualidade do pacote usando as informações na página de listagem do pacote:
 
-- *Estatísticas de downloads*: na página do pacote em nuget.org, a seção **Estatísticas** mostra o total de downloads, downloads da versão mais recente e média de downloads por dia. Números maiores indicam que muitos outros desenvolvedores adotaram uma dependência no pacote, o que significa que ele já se provou.
+- **Estatísticas de downloads**: na página do pacote em nuget.org, a seção **Estatísticas** mostra o total de downloads, downloads da versão mais recente e média de downloads por dia. Números maiores indicam que muitos outros desenvolvedores adotaram uma dependência no pacote, o que significa que ele já se provou.
 
     ![Baixar estatísticas em uma página de listagem do pacote](media/Finding-03-Downloads.png)
 
-- *Uso do GitHub*: na página pacote, a seção **uso do GitHub** lista os repositórios GitHub públicos que dependem deste pacote e que têm um número alto de estrelas no github. O número de estrelas de um repositório GitHub geralmente indica o quão popular esse repositório está com os usuários do GitHub (mais estrelas geralmente significa mais popular). Visite a [página de introdução do GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) para obter mais informações sobre o sistema de classificação de estrela e de repositório do github.
+- **Usado por**: na página pacote, a seção **usado por** lista os 5 principais pacotes de NuGet.org mais populares e os repositórios populares do GitHub que dependem deste pacote. Os pacotes e repositórios que dependem deste pacote podem ser chamados de "dependentes" deste pacote. Os pacotes dependentes e repositórios podem ser vistos como "endosso" desse pacote, já que os autores de pacotes escolheram confiar e dependem dele.
+  - Um pacote dependente deve depender de *qualquer versão* desse pacote em sua *versão listada mais recente estável*. Essa definição garante que os pacotes dependentes exibidos sejam uma reflexão atualizada da decisão do autor do pacote para confiar e depender deste pacote. Os dependentes de pré-lançamento não estão listados, pois eles não são considerados conhecido endoresements. Consulte a tabela a seguir para ver exemplos:
 
-    ![Uso do GitHub](media/GitHub-Usage.png)
+    | Empacotar uma versão | O pacote A está listado como dependente do pacote B? |
+    |-|-|
+    | v 1.0.0<br>v 1.1.0 (mais recente estável)--> pacote B<br>v 1.2.0-visualização | TRUE, a versão estável mais recente depende do pacote B |
+    | v 1.0.0--pacote de > B<br>v 1.1.0 (mais recente estável)<br>v 1.2.0-visualização | FALSE, a versão estável mais recente não depende do pacote B |
+    | v 1.0.0--pacote de > B<br>v 1.1.0 (mais recente estável)<br>v 1.2.0-Preview--> pacote B | FALSE, a versão estável mais recente não depende do pacote B |
+
+  - O número de estrelas de um repositório GitHub geralmente indica o quão popular esse repositório está com os usuários do GitHub (mais estrelas geralmente significa mais popular). Visite a [página de introdução do GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) para obter mais informações sobre o sistema de classificação de estrela e de repositório do github.
+
+    ![Usado por](media/Used-By-section-Humanizer.png)
 
     > [!Note]
-    > A seção de uso do GitHub de um pacote é gerada automaticamente, periodicamente, sem revisão humana de repositórios individuais e unicamente para fins informativos a fim de mostrar os repositórios do GitHub que dependem do pacote e que são populares com os usuários do GitHub.
+    > Um pacote usado pela seção é gerado automaticamente, periodicamente, sem revisão humana de repositórios individuais e unicamente para fins informativos a fim de mostrar pacotes NuGet.org e repositórios populares do GitHub que dependem do pacote.
 
-- *Histórico de versão*: na página do pacote, procure em **Informações** pela data da atualização mais recente e examine o **Histórico de versão**. Um pacote com boa manutenção tem atualizações recentes e um histórico de versões detalhado. Pacotes inativos têm algumas atualizações e geralmente não foram atualizados há algum tempo.
+- **Histórico de versão**: na página pacote, procure em **informações** a data da atualização mais recente e examine o histórico de **versão**. Um pacote com boa manutenção tem atualizações recentes e um histórico de versões detalhado. Pacotes inativos têm algumas atualizações e geralmente não foram atualizados há algum tempo.
 
     ![Histórico de versão na página de listagem do pacote](media/Finding-04-VersionHistory.png)
 
-- *Instalações recentes*: na página pacote em **estatísticas**, selecione **exibir estatísticas completas**. A página de estatísticas completas mostra que o pacote é instalado nas últimas seis semanas por número de versão. Um pacote que outros desenvolvedores estão usando ativamente normalmente é uma escolha melhor do que aqueles que não estão sendo usados.
+- **Instalações recentes**: na página pacote em **estatísticas**, selecione **exibir estatísticas completas**. A página de estatísticas completas mostra que o pacote é instalado nas últimas seis semanas por número de versão. Um pacote que outros desenvolvedores estão usando ativamente normalmente é uma escolha melhor do que aqueles que não estão sendo usados.
 
-- *Suporte*: na página do pacote em **Informações**, selecione **Site do Projeto** (se disponível) para ver quais opções de suporte o autor oferece. Um projeto com um site dedicado geralmente tem melhor suporte.
+- **Suporte**: na página do pacote em **Informações**, selecione **Site do Projeto** (se disponível) para ver quais opções de suporte o autor oferece. Um projeto com um site dedicado geralmente tem melhor suporte.
 
-- *Histórico de desenvolvedor*: na página do pacote em **Proprietários**, selecione um proprietário para ver quais outros pacotes ele publicou. Aquelas com vários pacotes têm maior probabilidade de serem compatíveis com o trabalho no futuro.
+- **Histórico de desenvolvedor**: na página do pacote em **Proprietários**, selecione um proprietário para ver quais outros pacotes ele publicou. Aquelas com vários pacotes têm maior probabilidade de serem compatíveis com o trabalho no futuro.
 
-- *Contribuições de software livre*: muitos pacotes são mantidos em repositórios de software livre, tornando possível para os desenvolvedores que dependem deles contribuir diretamente com correções de bugs e melhorias de recursos. O histórico de contribuição de qualquer pacote especificado também é um bom indicador de como muitos desenvolvedores estão ativamente envolvidos.
+- **Contribuições de software livre**: muitos pacotes são mantidos em repositórios de software livre, tornando possível para os desenvolvedores que dependem deles contribuir diretamente com correções de bugs e melhorias de recursos. O histórico de contribuição de qualquer pacote especificado também é um bom indicador de como muitos desenvolvedores estão ativamente envolvidos.
 
-- *Entrevistar os proprietários*: novos desenvolvedores certamente podem estar igualmente comprometidos em produzir pacotes ótimos para você usar, é recomendável dar a eles uma chance de trazer novidades para o ecossistema do NuGet. Considerando isso, entre em contato diretamente com os desenvolvedores do pacote por meio da opção **Contatar os Proprietários** em **Informações** na página da listagem. Provavelmente eles terão prazer em trabalhar junto com você para atender as suas necessidades.
+- **Entrevistar os proprietários**: novos desenvolvedores certamente podem estar igualmente comprometidos em produzir pacotes ótimos para você usar, é recomendável dar a eles uma chance de trazer novidades para o ecossistema do NuGet. Considerando isso, entre em contato diretamente com os desenvolvedores do pacote por meio da opção **Contatar os Proprietários** em **Informações** na página da listagem. Provavelmente eles terão prazer em trabalhar junto com você para atender as suas necessidades.
 
-- *Prefixos de ID de pacote reservados*: vários proprietários de pacote solicitaram e receberam um [prefixo de ID de pacote reservado](../nuget-org/id-prefix-reservation.md). Quando a marca de seleção visual aparecer ao lado de uma ID de pacote em [nuget.org](https://www.nuget.org/), ou no Visual Studio, isso significará que o proprietário do pacote atingiu nossos [critérios](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) para a reserva de ID de prefixo. Isso significa que o proprietário do pacote está sendo claro ao realizar a sua identificação e a do pacote.
+- **Prefixos de ID de pacote reservados**: vários proprietários de pacote solicitaram e receberam um [prefixo de ID de pacote reservado](../nuget-org/id-prefix-reservation.md). Quando a marca de seleção visual aparecer ao lado de uma ID de pacote em [nuget.org](https://www.nuget.org/), ou no Visual Studio, isso significará que o proprietário do pacote atingiu nossos [critérios](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) para a reserva de ID de prefixo. Isso significa que o proprietário do pacote está sendo claro ao realizar a sua identificação e a do pacote.
 
 > [!Note]
 > Sempre fique atento aos termos de licença de um pacote, que você pode ver selecionando **informações de licença** na página de listagem de um pacote em NuGet.org. Se um pacote não especificar os termos de licença, contate o proprietário do pacote diretamente usando o link **proprietários de contato** na página pacote. A Microsoft não licencia nenhuma propriedade intelectual para você de provedores de pacotes de terceiros, nem é responsável pelas informações fornecidas por terceiros.

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 5dda56ccd4c959bcbcbd12b7a4771ddff1fe7530
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610712"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623000"
 ---
 # <a name="building-pre-release-packages"></a>Compilando pacotes de pré-lançamento
 
@@ -24,7 +24,7 @@ Para dar suporte ao ciclo de vida de versão de software, o NuGet 1.6 e posterio
 
 Você pode especificar essas versões usando uma das seguintes maneiras:
 
-- **Se seu projeto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)**: incluir o sufixo de versão semântica no elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) do arquivo `.csproj`:
+- **Se seu projeto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)**: incluir o sufixo de versão semântica no elemento [`PackageVersion`](/dotnet/core/tools/csproj#packageversion) do arquivo `.csproj`:
 
     ```xml
     <PropertyGroup>
@@ -50,9 +50,9 @@ Por padrão, o NuGet não inclui as versões de pré-lançamento ao trabalhar co
 
     Definir ou desmarcar esta caixa atualizará a interface do usuário do Gerenciador de Pacotes e a lista de versões disponíveis que você pode instalar.
 
-- **Console do gerenciador de**pacotes `Install-Package` `Sync-Package`: `Update-Package` Use o `-IncludePrerelease` interruptor com os `Find-Package`comandos , `Get-Package`e os comandos. Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
+- **Console do Gerenciador de pacotes**: Use a `-IncludePrerelease` opção com os `Find-Package` comandos,, `Get-Package` `Install-Package` , `Sync-Package` e `Update-Package` . Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
 
-- **NuGet CLI**: `-prerelease` Use `install`o `update` `delete`interruptor `mirror` com os comandos , e os comandos. Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
+- **CLI do NuGet**: Use a `-prerelease` opção com `install` os `update` comandos,, `delete` e `mirror` . Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
 
 ## <a name="semantic-versioning"></a>Controle de versão semântico
 

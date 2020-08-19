@@ -1,20 +1,20 @@
 ---
 title: Comando de configuração da CLI do NuGet
-description: Referência para o comando de configuração NuGet. exe
+description: Referência para o comando de configuração nuget.exe
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 384e708187a747221de103720cc51af07acf713e
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: 7d0c1c51f40cba9a5b69f209ffbd995451bfeb9f
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433313"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622870"
 ---
 # <a name="config-command-nuget-cli"></a>comando config (NuGet CLI)
 
-**Aplica-se a:** todas &bullet; as **versões com suporte**: todas
+**Aplica-se a:** todas as &bullet; **versões com suporte**: todas
 
 Obtém ou define os valores de configuração do NuGet. Para uso adicional, consulte [configurações comuns do NuGet](../../consume-packages/configuring-nuget-behavior.md). Para obter detalhes sobre nomes de chave permitidos, consulte a [referência do arquivo de configuração do NuGet](../nuget-config-file.md).
 
@@ -25,22 +25,42 @@ nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]
 nuget config -AsPath <name> [options]
 ```
 
-onde `<name>` e`<value>` especifique um par chave-valor a ser definido na configuração. Você pode especificar quantos pares desejar. Para remover um valor, especifique o nome e o `=` sinal, mas nenhum valor.
+onde `<name>` e `<value>` especifique um par chave-valor a ser definido na configuração. Você pode especificar quantos pares desejar. Para remover um valor, especifique o nome e o `=` sinal, mas nenhum valor.
 
 Para nomes de chave permitidos, consulte a [referência do arquivo de configuração do NuGet](../nuget-config-file.md).
 
-No NuGet 3.4 +, `<value>` o pode usar [variáveis de ambiente](cli-ref-environment-variables.md).
+No NuGet 3.4 +, o `<value>` pode usar [variáveis de ambiente](cli-ref-environment-variables.md).
 
 ## <a name="options"></a>Opções
 
-| Opção | Descrição |
-| --- | --- |
-| AsPath | Retorna o valor de configuração como um caminho, ignorado `-Set` quando é usado. |
-| ConfigFile | O arquivo de configuração do NuGet a ser modificado. Se não for especificado, o arquivo padrão será usado`%AppData%\NuGet\NuGet.Config` -(Windows) `~/.config/NuGet/NuGet.Config` ou (Mac/Linux) `~/.nuget/NuGet/NuGet.Config` ou (varia de acordo com a distribuição do sistema operacional).|
-| ForceEnglishOutput | *(3,5 +)* Força o NuGet. exe a ser executado usando uma cultura invariável baseada em inglês. |
-| Help | Exibe informações de ajuda para o comando. |
-| NonInteractive | Suprime prompts de entrada ou confirmações do usuário. |
-| Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhado*. |
+
+- **`AsPath`**
+
+  Retorna o valor de configuração como um caminho, ignorado quando `-Set` é usado.
+
+- **`-ConfigFile`**
+
+  O arquivo de configuração do NuGet a ser aplicado. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` ou `~/.config/NuGet/NuGet.Config` (Mac/Linux) será usado.
+
+- **`-ForceEnglishOutput`**
+
+  *(3,5 +)* Força o nuget.exe a ser executado usando uma cultura invariável baseada em inglês.
+
+- **`-?|-help`**
+
+  Exibe informações de ajuda para o comando.
+
+- **`-NonInteractive`**
+
+  Suprime prompts de entrada ou confirmações do usuário.
+
+- **`-Set`**
+
+  Um em mais pares chave-valor a ser definido na configuração.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Especifica a quantidade de detalhes exibidos na saída: `normal` (o padrão), `quiet` ou `detailed` .
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 

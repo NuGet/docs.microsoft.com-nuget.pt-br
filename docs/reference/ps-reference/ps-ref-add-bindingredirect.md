@@ -5,18 +5,21 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: d3d156cf882229260e8cf55f8ece2804aec36dc9
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: f5ba4bd8140fa8cac7da8bf1351ad5448671b768
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384978"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623117"
 ---
-# <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (Console do Gerenciador de Pacotes no Visual Studio)
+# <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (console do Gerenciador de pacotes no Visual Studio)
 
 *Disponível somente dentro do [console do Gerenciador de pacotes](../../consume-packages/install-use-packages-powershell.md) no Visual Studio no Windows.*
 
 Examina todos os assemblies no caminho de saída de um projeto e adiciona redirecionamentos de associação ao aplicativo ou ao arquivo de configuração da Web, quando necessário. Esse comando é executado automaticamente ao instalar um pacote.
+
+> [!NOTE]
+> Isso se aplica somente a cenários que usam um arquivo packages.config. Para obter mais informações, consulte [referência de arquivo NuGet packages.config](~/reference/packages-config.md).
 
 Para obter detalhes sobre redirecionamentos de associação e por que eles são usados, consulte [Redirecionando versões de assembly](/dotnet/framework/configure-apps/redirect-assembly-versions) na documentação do .net.
 
@@ -36,7 +39,7 @@ Nenhum desses parâmetros aceita a entrada de pipeline ou caracteres curinga.
 
 ## <a name="common-parameters"></a>Parâmetros comuns
 
-o `Add-BindingRedirect` dá suporte aos seguintes [parâmetros comuns do PowerShell](https://go.microsoft.com/fwlink/?LinkID=113216): debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Add-BindingRedirect` o oferece suporte aos seguintes [parâmetros comuns do PowerShell](https://go.microsoft.com/fwlink/?LinkID=113216): debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Exemplos
 

@@ -5,19 +5,19 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5c542379318f24ee35ccf25651d0e8de91253ba
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 39a4de4071eec70c88a2add158f2a3a734f7d7b7
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231234"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622922"
 ---
 # <a name="nuget-client-sdk"></a>SDK do cliente NuGet
 
 O *SDK do cliente NuGet* refere-se a um grupo de pacotes NuGet:
 
-* [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) -usado para interagir com http e feeds do NuGet baseados em arquivo
-* [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) -usado para interagir com pacotes NuGet. `NuGet.Protocol` depende deste pacote
+* [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) -Usado para interagir com HTTP e feeds do NuGet baseados em arquivo
+* [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) -Usado para interagir com pacotes NuGet. `NuGet.Protocol` depende deste pacote
 
 Você pode encontrar o código-fonte para esses pacotes no repositório do GitHub [NuGet/NuGet. Client](https://github.com/NuGet/NuGet.Client) .
 
@@ -26,10 +26,12 @@ Você pode encontrar o código-fonte para esses pacotes no repositório do GitHu
 
 ## <a name="getting-started"></a>Introdução
 
-### <a name="install-the-package"></a>Instalar o pacote
+### <a name="install-the-packages"></a>Instalar os pacotes
 
 ```ps1
-dotnet add package NuGet.Protocol
+dotnet add package NuGet.Protocol  # interact with HTTP and folder-based NuGet package feeds, includes NuGet.Packaging
+
+dotnet add package NuGet.Packaging # interact with .nupkg and .nuspec files from a stream
 ```
 
 ## <a name="examples"></a>Exemplos
@@ -38,19 +40,19 @@ Você pode encontrar esses exemplos no projeto [NuGet. Protocol. Samples](https:
 
 ### <a name="list-package-versions"></a>Listar versões de pacote
 
-Localize todas as versões de Newtonsoft. JSON usando a [API de conteúdo do pacote NuGet v3](../api/package-base-address-resource.md#enumerate-package-versions):
+Localize todas as versões do Newtonsoft.Jsusando a [API de conteúdo do pacote NuGet v3](../api/package-base-address-resource.md#enumerate-package-versions):
 
 [!code-csharp[ListPackageVersions](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=ListPackageVersions)]
 
 ### <a name="download-a-package"></a>Baixar um pacote
 
-Baixe o Newtonsoft. JSON v 12.0.1 usando a [API de conteúdo do pacote NuGet v3](../api/package-base-address-resource.md):
+Baixe Newtonsoft.Jsem v 12.0.1 usando a [API de conteúdo do pacote NuGet v3](../api/package-base-address-resource.md):
 
 [!code-csharp[DownloadPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DownloadPackage)]
 
 ### <a name="get-package-metadata"></a>Obter metadados do pacote
 
-Obtenha os metadados para o pacote "Newtonsoft. JSON" usando a [API de metadados do pacote NuGet v3](../api/registration-base-url-resource.md):
+Obtenha os metadados para o pacote "Newtonsoft.Json" usando a [API de metadados do pacote NuGet v3](../api/registration-base-url-resource.md):
 
 [!code-csharp[GetPackageMetadata](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=GetPackageMetadata)]
 
@@ -59,6 +61,23 @@ Obtenha os metadados para o pacote "Newtonsoft. JSON" usando a [API de metadados
 Pesquise pacotes "JSON" usando a [API de pesquisa do NuGet v3](../api/search-query-service-resource.md):
 
 [!code-csharp[SearchPackages](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=SearchPackages)]
+
+### <a name="create-a-package"></a>Criar um pacote
+
+Crie um pacote, defina metadados e adicione dependências usando [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .
+
+> [!IMPORTANT]
+> É altamente recomendável que os pacotes NuGet sejam criados usando as ferramentas oficiais do NuGet e **não** usem essa API de nível baixo. Há uma variedade de características importantes para um pacote bem formado e a versão mais recente das ferramentas ajuda a incorporar essas práticas recomendadas.
+> 
+> Para obter mais informações sobre como criar pacotes NuGet, consulte a visão geral do [fluxo de trabalho de criação de pacote](../create-packages/overview-and-workflow.md) e a documentação para ferramentas de pacote oficial (por exemplo, [usando a CLI do dotnet](../create-packages/creating-a-package-dotnet-cli.md)).
+
+[!code-csharp[CreatePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=CreatePackage)]
+
+### <a name="read-a-package"></a>Ler um pacote
+
+Ler um pacote de um fluxo de arquivos usando [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .
+
+[!code-csharp[ReadPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=ReadPackage)]
 
 ## <a name="third-party-documentation"></a>Documentação de terceiros
 

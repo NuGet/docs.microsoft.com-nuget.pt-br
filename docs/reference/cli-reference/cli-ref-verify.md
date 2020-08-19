@@ -1,21 +1,21 @@
 ---
 title: Comando Verify da CLI do NuGet
-description: Referência para o comando de verificação NuGet. exe
+description: Referência para o comando nuget.exe Verify
 author: dtivel
 ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9510f7323fe0cb860e0dbde51c1eda761846ee27
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 2c501753a16820c5d027441001561c6b637ccda9
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327493"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622597"
 ---
-# <a name="verify-command-nuget-cli"></a>Commando verify (NuGet CLI)
+# <a name="verify-command-nuget-cli"></a>comando VERIFY (NuGet CLI)
 
-**Aplica-se a:** &bullet; **versões com suporte** de consumo de pacote: 4.6 +
+**Aplica-se a:** &bullet; **versões com suporte** do consumo do pacote: 4.6 +
 
 Verifica um pacote.
 
@@ -39,18 +39,31 @@ Especifica que a verificação de assinatura do pacote deve ser executada.
 
 ## <a name="options-for-verify--signatures"></a>Opções para "Verify-Signatures"
 
-| Opção | Descrição |
-| --- | --- |
-| CertificateFingerprint | Especifica uma ou mais impressões digitais do certificado SHA-256 de certificados com os quais os pacotes assinados devem ser assinados. Uma impressão digital SHA-256 do certificado é um hash SHA-256 do certificado. Várias entradas devem ser separadas por ponto e vírgula. |
+- **`-CertificateFingerprint`**
+
+  Especifica uma ou mais impressões digitais do certificado SHA-256 de certificados com os quais os pacotes assinados devem ser assinados. Uma impressão digital SHA-256 do certificado é um hash SHA-256 do certificado. Várias entradas devem ser separadas por ponto e vírgula.
 
 ## <a name="options"></a>Opções
 
-| Opção | Descrição |
-| --- | --- |
-| ConfigFile | O arquivo de configuração do NuGet a ser aplicado. Se não for especificado `%AppData%\NuGet\NuGet.Config` , (Windows) `~/.nuget/NuGet/NuGet.Config` ou (Mac/Linux) será usado.|
-| ForceEnglishOutput | Força o NuGet. exe a ser executado usando uma cultura invariável baseada em inglês. |
-| Ajuda | Exibe informações de ajuda para o comando. |
-| Verbosity | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhado*. |
+- **`-ConfigFile`**
+
+  O arquivo de configuração do NuGet a ser aplicado. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` ou `~/.config/NuGet/NuGet.Config` (Mac/Linux) será usado.
+
+- **`-ForceEnglishOutput`**
+
+  Força o nuget.exe a ser executado usando uma cultura invariável baseada em inglês.
+
+- **`-?|-help`**
+
+  Exibe informações de ajuda para o comando.
+
+- **`-NonInteractive`**
+
+  Suprime prompts de entrada ou confirmações do usuário.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Especifica a quantidade de detalhes exibidos na saída: `normal` (o padrão), `quiet` ou `detailed` .
 
 ## <a name="examples"></a>Exemplos
 

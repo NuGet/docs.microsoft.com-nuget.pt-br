@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 649c440d868c89068a069a396919b58b999369e5
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 0483a75c7ee1fd851f935f44d96a417e2e86bf20
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451132"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622948"
 ---
 # <a name="pack-command-nuget-cli"></a>comando Pack (NuGet CLI)
 
@@ -31,29 +31,109 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 onde `<nuspecPath>` e `<projectPath>` especifique o `.nuspec` arquivo de projeto ou, respectivamente.
 
 ## <a name="options"></a>Opções
+- **`-BasePath`**
 
-| Opção | Descrição |
-| --- | --- |
-| BasePath | Define o caminho base dos arquivos definidos no arquivo [. nuspec](../nuspec.md) . |
-| Build | Especifica que o projeto deve ser compilado antes da criação do pacote. |
-| Excluir | Especifica um ou mais padrões de curinga a serem excluídos ao criar um pacote. Para especificar mais de um padrão, repita o sinalizador-Exclude. Consulte o exemplo a seguir. |
-| ExcludeEmptyDirectories | Impede a inclusão de diretórios vazios ao compilar o pacote. |
-| ForceEnglishOutput | *(3,5 +)* Força o nuget.exe a ser executado usando uma cultura invariável baseada em inglês. |
-| ConfigFile | Especifique o arquivo de configuração para o comando de pacote. |
-| Ajuda | Exibe informações de ajuda para o comando. |
-| IncludeReferencedProjects | Indica que o pacote criado deve incluir projetos referenciados como dependências ou como parte do pacote. Se um projeto referenciado tiver um `.nuspec` arquivo correspondente que tenha o mesmo nome que o projeto, esse projeto referenciado será adicionado como uma dependência. Caso contrário, o projeto referenciado será adicionado como parte do pacote. |
-| MinClientVersion | Defina o atributo *minClientVersion* para o pacote criado. Esse valor substituirá o valor do atributo *minClientVersion* existente (se houver) no `.nuspec` arquivo. |
-| MSBuildPath | *(4.0 +)* Especifica o caminho do MSBuild a ser usado com o comando, tendo precedência sobre `-MSBuildVersion` . |
-| MSBuildVersion | *(3,2 +)* Especifica a versão do MSBuild a ser usada com este comando. Os valores com suporte são 4, 12, 14, 15,1, 15,3, 15,4, 15,5, 15,6, 15,7, 15,8, 15,9. Por padrão, o MSBuild em seu caminho é escolhido; caso contrário, ele usa a versão mais recente instalada do MSBuild. |
-| NoDefaultExcludes | Impede a exclusão padrão de arquivos de pacote do NuGet e arquivos e pastas que começam com um ponto, como `.svn` e `.gitignore` . |
-| NoPackageAnalysis | Especifica que o pacote não deve executar a análise de pacote após a compilação do pacote. |
-| OutputDirectory | Especifica a pasta na qual o pacote criado é armazenado. Se nenhuma pasta for especificada, a pasta atual será usada. |
-| Propriedades | Deve aparecer por último na linha de comando após outras opções. Especifica uma lista de propriedades que substituem valores no arquivo de projeto; consulte [Propriedades comuns do projeto MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) para nomes de propriedade. O argumento properties aqui é uma lista de pares token = valor, separados por ponto e vírgula, em que cada ocorrência de `$token$` no `.nuspec` arquivo será substituída pelo valor especificado. Os valores podem ser cadeias de caracteres entre aspas. Observe que, para a propriedade "Configuration", o padrão é "debug". Para alterar para uma configuração de versão, use `-Properties Configuration=Release` . **Em geral**, as propriedades devem ser as mesmas que foram usadas durante a compilação do projeto correspondente, a fim de evitar um comportamento potencialmente estranho. |
-| Sufixo | *(3.4.4 +)* Acrescenta um sufixo ao número de versão gerado internamente, normalmente usado para anexar Build ou outros identificadores de pré-lançamento. Por exemplo, usar `-suffix nightly` criará um pacote com um número de versão como `1.2.3-nightly` . Os sufixos devem começar com uma letra para evitar avisos, erros e possíveis incompatibilidades com versões diferentes do NuGet e do Gerenciador de pacotes NuGet. |
-| Símbolos | Especifica que o pacote contém fontes e símbolos. Quando usado com um `.nuspec` arquivo, isso cria um arquivo de pacote NuGet regular e o pacote de símbolos correspondente. Por padrão, ele cria um [pacote de símbolos herdado](../../create-packages/Symbol-Packages.md). O novo formato recomendado para pacotes de símbolos é .snupkg. Veja [Criando pacotes de símbolos (.snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
-| Ferramenta | Especifica que os arquivos de saída do projeto devem ser colocados na `tool` pasta. |
-| Detalhamento | Especifica a quantidade de detalhes exibidos na saída: *normal*, *silencioso*, *detalhado*. |
-| Versão | Substitui o número de versão do `.nuspec` arquivo. |
+   Define o caminho base dos arquivos definidos no arquivo [. nuspec](../nuspec.md) .
+
+- **`-Build`**
+
+  Especifica que o projeto deve ser compilado antes da criação do pacote.
+
+- **`-ConfigFile`**
+
+  O arquivo de configuração do NuGet a ser aplicado. Se não for especificado, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` ou `~/.config/NuGet/NuGet.Config` (Mac/Linux) será usado.
+
+- **`-Exclude`**
+
+  Especifica um ou mais padrões de curinga a serem excluídos ao criar um pacote. Para especificar mais de um padrão, repita o sinalizador-Exclude. Consulte o exemplo a seguir.
+
+- **`-ExcludeEmptyDirectories`**
+
+  Impede a inclusão de diretórios vazios ao compilar o pacote.
+
+- **`-ForceEnglishOutput`**
+
+  *(3,5 +)* Força o nuget.exe a ser executado usando uma cultura invariável baseada em inglês.
+
+- **`-?|-help`**
+
+  Exibe informações de ajuda para o comando.
+
+- **`-IncludeReferencedProjects`**
+
+  Indica que o pacote criado deve incluir projetos referenciados como dependências ou como parte do pacote. Se um projeto referenciado tiver um `.nuspec` arquivo correspondente que tenha o mesmo nome que o projeto, esse projeto referenciado será adicionado como uma dependência. Caso contrário, o projeto referenciado será adicionado como parte do pacote.
+
+- **`-InstallPackageToOutputPath`**
+
+  Especifique se o comando deve preparar o diretório de saída do pacote para dar suporte ao compartilhamento como feed.
+
+- **`-MinClientVersion`**
+
+  Defina o atributo *minClientVersion* para o pacote criado. Esse valor substituirá o valor do atributo *minClientVersion* existente (se houver) no `.nuspec` arquivo.
+
+- **`-MSBuildPath`**
+
+  *(4.0 +)* Especifica o caminho do MSBuild a ser usado com o comando, tendo precedência sobre `-MSBuildVersion` .
+
+- **`-MSBuildVersion`**
+
+  *(3,2 +)* Especifica a versão do MSBuild a ser usada com este comando. Os valores com suporte são 4, 12, 14, 15,1, 15,3, 15,4, 15,5, 15,6, 15,7, 15,8, 15,9. Por padrão, o MSBuild em seu caminho é escolhido; caso contrário, ele usa a versão mais recente instalada do MSBuild.
+
+- **`-NoDefaultExcludes`**
+
+  Impede a exclusão padrão de arquivos de pacote do NuGet e arquivos e pastas que começam com um ponto, como `.svn` e `.gitignore` .
+
+- **`-NonInteractive`**
+
+  Suprime prompts de entrada ou confirmações do usuário.
+
+- **`-NoPackageAnalysis`**
+
+  Especifica que o pacote não deve executar a análise de pacote após a compilação do pacote.
+
+- **`-OutputDirectory`**
+
+  Especifica a pasta na qual o pacote criado é armazenado. Se nenhuma pasta for especificada, a pasta atual será usada.
+
+- **`-OutputFileNamesWithoutVersion`**
+
+  Especifique se o comando deve preparar o nome de saída do pacote sem a versão.
+
+- **`-PackagesDirectory`**
+
+  Especifica a pasta de pacotes.
+
+- **`-p|-Properties`**
+
+  Deve aparecer por último na linha de comando após outras opções. Especifica uma lista de propriedades que substituem valores no arquivo de projeto; consulte [Propriedades comuns do projeto MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) para nomes de propriedade. O argumento properties aqui é uma lista de pares token = valor, separados por ponto e vírgula, em que cada ocorrência de `$token$` no `.nuspec` arquivo será substituída pelo valor especificado. Os valores podem ser cadeias de caracteres entre aspas. Observe que, para a propriedade "Configuration", o padrão é "debug". Para alterar para uma configuração de versão, use `-Properties Configuration=Release` . **Em geral**, as propriedades devem ser as mesmas que foram usadas durante a compilação do projeto correspondente, a fim de evitar um comportamento potencialmente estranho.
+
+- **`-SolutionDirectory`**
+
+  Especifica o diretório da solução.
+
+- **`-Suffix`**
+
+  *(3.4.4 +)* Acrescenta um sufixo ao número de versão gerado internamente, normalmente usado para anexar Build ou outros identificadores de pré-lançamento. Por exemplo, usar `-suffix nightly` criará um pacote com um número de versão como `1.2.3-nightly` . Os sufixos devem começar com uma letra para evitar avisos, erros e possíveis incompatibilidades com versões diferentes do NuGet e do Gerenciador de pacotes NuGet.
+
+- **`-SymbolPackageFormat`**
+
+  Ao criar um pacote de símbolos, permite escolher entre o `snupkg` `symbols.nupkg` formato e.
+
+- **`-Symbols`**
+
+  Especifica que o pacote contém fontes e símbolos. Quando usado com um `.nuspec` arquivo, isso cria um arquivo de pacote NuGet regular e o pacote de símbolos correspondente. Por padrão, ele cria um [pacote de símbolos herdado](../../create-packages/Symbol-Packages.md). O novo formato recomendado para pacotes de símbolos é .snupkg. Veja [Criando pacotes de símbolos (.snupkg)](../../create-packages/Symbol-Packages-snupkg.md).
+
+- **`-Tool`**
+
+   Especifica que os arquivos de saída do projeto devem ser colocados na `tool` pasta.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Especifica a quantidade de detalhes exibidos na saída: `normal` (o padrão), `quiet` ou `detailed` .
+
+- **`-Version`**
+
+  Substitui o número de versão do `.nuspec` arquivo.
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 

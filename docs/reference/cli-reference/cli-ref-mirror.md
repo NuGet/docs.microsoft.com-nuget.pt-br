@@ -1,25 +1,25 @@
 ---
 title: Comando de espelhamento da CLI do NuGet
-description: Referência para o comando de espelho NuGet. exe
+description: Referência para o comando nuget.exe Mirror
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 81866172bfbf55c42ee96c213c0117f1f986235c
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: a7247aeb21418e78dbfe9be15c2e7cd152aa3f4a
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959720"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622961"
 ---
-# <a name="mirror-command-nuget-cli"></a>Commando mirror (NuGet CLI)
+# <a name="mirror-command-nuget-cli"></a>comando Mirror (NuGet CLI)
 
 **Aplica-se a:** &bullet; **versões com suporte** para publicação de pacotes: preterida em 3.2 +
 
 Espelha um pacote e suas dependências dos repositórios de origem especificados para o repositório de destino.
 
 > [!NOTE]
-> NuGet. ServerExtensions. dll e NuGet-Signed. exe que anteriormente tinham suporte para esse comando no NuGet 2. x (renomeando NuGet-Signed. exe para NuGet. exe) não estão mais disponíveis para download. Para usar um comando semelhante a este, tente [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/).
+> NuGet.ServerExtensions.dll e NuGet-Signed.exe que anteriormente tinham suporte para esse comando no NuGet 2. x (renomeando NuGet-Signed.exe para nuget.exe) não estão mais disponíveis para download. Para usar um comando semelhante a este, tente [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/).
 
 ## <a name="usage"></a>Uso
 
@@ -27,24 +27,45 @@ Espelha um pacote e suas dependências dos repositórios de origem especificados
 nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [options]
 ```
 
-em `<packageID>` que é o pacote a ser espelhado ou `packages.config` `<configFilePath>` identifica o arquivo que lista os pacotes a serem espelhados.
+em que `<packageID>` é o pacote a ser espelhado ou `<configFilePath>` identifica o `packages.config` arquivo que lista os pacotes a serem espelhados.
 
 O `<listUrlTarget>` especifica o repositório de origem e `<publishUrlTarget>` especifica o repositório de destino.
 
-Se o seu repositório de destino `https://machine/repo` estiver no que está executando o [NuGet. Server](../../hosting-packages/nuget-server.md), a lista e as `https://machine/repo/nuget` URLs `https://machine/repo/api/v2/package`de push serão e, respectivamente.
+Se o seu repositório de destino estiver no `https://machine/repo` que está executando o [NuGet. Server](../../hosting-packages/nuget-server.md), a lista e as URLs de push serão `https://machine/repo/nuget` e `https://machine/repo/api/v2/package` , respectivamente.
 
 ## <a name="options"></a>Opções
 
-| Opção | Descrição |
-| --- | --- |
-| ApiKey | A chave de API para o repositório de destino. Se não estiver presente, o especificado no arquivo de configuração será usado (`%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
-| Ajuda | Exibe informações de ajuda para o comando. |
-| NoCache | Impede que o NuGet use pacotes armazenados em cache. Consulte [Gerenciando os pacotes globais e as pastas de cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| NOOP | Registra o que seria feito, mas não executa as ações; pressupõe êxito para operações de envio por push. |
-| Pré-lançamento | Inclui pacotes de pré-lançamento na operação de espelhamento. |
-| Origem | Uma lista de origens do pacote a ser espelhada. Se nenhuma fonte for especificada, as definidas no arquivo de configuração (consulte ApiKey acima) serão usadas, padronizando para nuget.org se nenhuma for especificada. |
-| Tempo limite | Especifica o tempo limite, em segundos, para envio por push para um servidor. O padrão é 300 segundos (5 minutos). |
-| Versão | A versão do pacote a ser instalado. Se não for especificado, a versão mais recente será espelhada. |
+- **`-ApiKey`**
+
+  A chave de API para o repositório de destino. Se não estiver presente, o especificado no arquivo de configuração será usado ( `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)).
+
+- **`-Help`**
+
+  Exibe informações de ajuda para o comando.
+
+- **`-NoCache`**
+
+  Impede que o NuGet use pacotes armazenados em cache. Consulte [Gerenciando os pacotes globais e as pastas de cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md).
+
+- **`-Noop`**
+
+  Registra o que seria feito, mas não executa as ações; pressupõe êxito para operações de envio por push.
+
+- **`-PreRelease`**
+
+  Inclui pacotes de pré-lançamento na operação de espelhamento.
+
+- **`-Source`**
+
+  Uma lista de origens do pacote a ser espelhada. Se nenhuma fonte for especificada, as definidas no arquivo de configuração (consulte ApiKey acima) serão usadas, padronizando para nuget.org se nenhuma for especificada.
+
+- **`-Timeout`**
+
+  Especifica o tempo limite, em segundos, para envio por push para um servidor.  O padrão é 300 segundos (5 minutos).
+
+- **`-Version`**
+
+  A versão do pacote a ser instalado. Se não for especificado, a versão mais recente será espelhada.
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 

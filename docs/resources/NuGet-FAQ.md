@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8cc990e0c9eed07c59c8dffb04d104be47051736
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 937a0083ca47ba5668059736a7e99f7ca88e8908
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69999950"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622610"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Perguntas frequentes do NuGet
 
@@ -40,7 +40,7 @@ Para obter mais informações, consulte [Localizando e escolhendo pacotes](../co
 
 - O Visual Studio no Windows é compatível com a [Interface do usuário do Gerenciador de Pacotes](../consume-packages/install-use-packages-visual-studio.md) e o [Console do Gerenciador de Pacotes](../consume-packages/install-use-packages-powershell.md).
 - O Visual Studio para Mac tem recursos internos do NuGet, conforme descrito em [Incluindo um pacote do NuGet em seu projeto](/visualstudio/mac/nuget-walkthrough).
-- O Visual Studio Code (todas as plataformas) não tem nenhuma integração direta do NuGet. Use o [NuGet CLI](../reference/nuget-exe-cli-reference.md) ou o [dotnet CLI](../reference/dotnet-commands.md).
+- O Visual Studio Code (todas as plataformas) não tem nenhuma integração direta do NuGet. Use a [CLI do NuGet](../reference/nuget-exe-cli-reference.md) ou a [CLI do dotnet](../reference/dotnet-commands.md).
 - O Azure DevOps fornece [uma etapa de build para restaurar os pacotes do NuGet](/vsts/build-release/tasks/package/nuget). Você também pode [hospedar feeds privados de pacote do NuGet no Azure DevOps](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
 
 **Como fazer para verificar a versão exata das ferramentas do NuGet que estão instaladas?**
@@ -89,7 +89,7 @@ Sim, é possível adicionar comandos personalizados para `nuget.exe`, conforme d
 
 O objeto de nível superior no modelo de objeto de automação do Visual Studio é chamado o objeto DTE (Ambiente de Ferramentas de Desenvolvimento). O console fornece isso por meio de uma variável chamada `$DTE`. Para obter mais informações, consulte [Visão geral do modelo de automação](/visualstudio/extensibility/internals/automation-model-overview) na documentação de Extensibilidade do Visual Studio.
 
-**Tento lançar a variável $DTE para o tipo DTE2, mas obtenho um erro: Não é possível converter o valor "EnvDTE.DTEClass" do tipo "EnvDTE.DTEClass" para digitar "EnvDTE80.DTE2". Qual é o problema?**
+**Tento converter a variável $DTE no tipo DTE2, mas recebo um erro: não é possível converter o valor "EnvDTE. DTEClass" do tipo "EnvDTE. DTEClass" no tipo "EnvDTE80. DTE2". Qual é o problema?**
 
 Este é um problema conhecido em como o PowerShell interage com um objeto COM. Experimente o seguinte:
 
@@ -105,7 +105,7 @@ Este é um problema conhecido em como o PowerShell interage com um objeto COM. E
 
 Consulte [Criar e publicar um pacote](../quickstart/create-and-publish-a-package.md).
 
-**Tenho várias versões da minha biblioteca que têm como alvo diferentes versões do .NET Framework. Como faço para construir um único pacote que suporte isso?**
+**Tenho várias versões da minha biblioteca que visam diferentes versões do .NET Framework. Como fazer criar um único pacote que dá suporte a isso?**
 
 Consulte [Suporte a várias versões e perfis do .NET Framework](../create-packages/supporting-multiple-target-frameworks.md).
 
@@ -119,21 +119,17 @@ Consulte [Publicação de pacotes do NuGet em massa](http://jeffhandley.com/arch
 
 ## <a name="working-with-packages"></a>Trabalhando com pacotes
 
-**Qual é a diferença entre um pacote de nível de projeto e um pacote de nível de solução?**
-
-Um pacote de nível de solução (NuGet 3.x ou superior) é instalado apenas uma vez em uma solução e fica disponível para todos os projetos na solução. Um pacote de nível de projeto está instalado em cada projeto que o utiliza. Um pacote de nível de solução também pode instalar novos comandos que podem ser chamados de dentro do Console do Gerenciador de Pacotes.
-
 **É possível instalar os pacotes do NuGet sem conectividade com a Internet?**
 
 Sim, consulte a postagem no blog de Scott Hanselman [How to access NuGet when nuget.org is down (or you're on a plane) [Como acessar o NuGet quando o nuget.org estiver inativo (ou você estiver a bordo de um avião)]](http://www.hanselman.com/blog/HowToAccessNuGetWhenNuGetorgIsDownOrYoureOnAPlane.aspx) (hanselman.com).
 
 **Como fazer para instalar pacotes em um local diferente da pasta de pacotes padrão?**
 
-Defina [`repositoryPath`](../reference/nuget-config-file.md#config-section) a `Nuget.Config` `nuget config -set repositoryPath=<path>`configuração usando .
+Defina a [`repositoryPath`](../reference/nuget-config-file.md#config-section) configuração em `Nuget.Config` usando `nuget config -set repositoryPath=<path>` .
 
 **Como evitar adicionar a pasta de pacotes do NuGet ao controle do código-fonte?**
 
-Coloque [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) o `Nuget.Config` `true`in para . Essa chave funciona no nível da solução e, portanto, precisa ser adicionada ao arquivo `$(Solutiondir)\.nuget\Nuget.Config`. Habilitando a restauração do pacote do Visual Studio cria esse arquivo automaticamente.
+Defina o [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) em `Nuget.Config` para `true` . Essa chave funciona no nível da solução e, portanto, precisa ser adicionada ao arquivo `$(Solutiondir)\.nuget\Nuget.Config`. Habilitando a restauração do pacote do Visual Studio cria esse arquivo automaticamente.
 
 **Como fazer para desligar a restauração do pacote?**
 

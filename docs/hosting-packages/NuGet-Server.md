@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 098375b2bba13675ba5d80a27e0226dc2ee39e77
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7a806e6b586c63c701642c9e43865cb077d7999c
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79059502"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623039"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -22,25 +22,25 @@ O NuGet.Server é um pacote fornecido pelo .NET Foundation que cria um aplicativ
 
 As seções a seguir abordam esse processo em detalhes usando o C#.
 
-Se você tiver mais perguntas sobre nuGet.server, crie um problema em [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues).
+Se você tiver outras perguntas sobre o NuGet. Server, crie um problema em [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) .
 
 ## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a>Criar e implantar um aplicativo Web ASP.NET com o NuGet.Server
 
-1. No Visual Studio, selecione **Arquivo > Novo Projeto >,** procure "ASP.NET Web Application (.NET Framework)", selecione o modelo correspondente para C#.
+1. No Visual Studio, selecione **arquivo > novo projeto de >**, pesquise "aplicativo Web ASP.NET (.NET Framework)", selecione o modelo de correspondência para **C#**.
 
-    ![Selecione o modelo de projeto web do .NET Framework](media/Hosting_00-NuGet.Server-ProjectType.png)
+    ![Selecione o modelo de projeto Web .NET Framework](media/Hosting_00-NuGet.Server-ProjectType.png)
 
-1. Definir **framework** para ".NET Framework 4.6".
+1. Defina a **estrutura** como ".NET Framework 4,6".
 
     ![Definindo a estrutura de destino para um novo projeto](media/Hosting_01-NuGet.Server-Set4.6.png)
 
 1. Dê um nome adequado ao aplicativo *diferente* de NuGet.Server, selecione OK e, na próxima caixa de diálogo, selecione o modelo **Vazio** e selecione **OK**.
 
-    ![Selecione o projeto web vazio](media/Hosting_02-NuGet.Server-Empty.png)
+    ![Selecione o projeto Web vazio](media/Hosting_02-NuGet.Server-Empty.png)
 
 1. Clique com o botão direito do mouse no projeto e escolha **Gerenciar Pacotes NuGet**.
 
-1. Na interface do usuário do Gerenciador de Pacotes, selecione a guia **Procurar** e, em seguida, pesquise e instale a versão mais recente do pacote NuGet.Server se você estiver direcionando para o .NET Framework 4.6. (Você também pode instalá-lo `Install-Package NuGet.Server`no Console do Gerenciador de Pacotes com .) Aceite os termos da licença se solicitado.
+1. Na interface do usuário do Gerenciador de Pacotes, selecione a guia **Procurar** e, em seguida, pesquise e instale a versão mais recente do pacote NuGet.Server se você estiver direcionando para o .NET Framework 4.6. (Você também pode instalá-lo no console do Gerenciador de pacotes com o `Install-Package NuGet.Server` .) Aceite os termos de licença, se solicitado.
 
     ![Instalando o pacote do NuGet.Server](media/Hosting_03-NuGet.Server-Package.png)
 
@@ -49,7 +49,7 @@ Se você tiver mais perguntas sobre nuGet.server, crie um problema em [https://g
     > [!Important]
     > Inspecione cuidadosamente `web.config` depois que o pacote NuGet.Server tiver concluído as modificações desse arquivo. O NuGet.Server talvez não substituirá os elementos existentes, mas criará elementos duplicados. Essas duplicatas provocarão um "Erro Interno do Servidor" quando você tentar executar o projeto mais tarde. Por exemplo, se o seu `web.config` contiver `<compilation debug="true" targetFramework="4.5.2" />` antes de instalar o NuGet.Server, o pacote não o substituirá, mas sim inserirá um segundo `<compilation debug="true" targetFramework="4.6" />`. Nesse caso, exclua o elemento com a versão mais antiga da estrutura.
 
-1. Execute o site localmente no Visual Studio (usando **Depurar > Iniciar sem Depurar** ou Ctrl + F5). A home page fornece as URLs do feed do pacote, conforme mostrado abaixo. Se você vir erros, `web.config` inspecione cuidadosamente os elementos duplicados, como observado anteriormente.
+1. Execute o site localmente no Visual Studio (usando **Depurar > Iniciar sem Depurar** ou Ctrl + F5). A home page fornece as URLs do feed do pacote, conforme mostrado abaixo. Se você encontrar erros, Inspecione cuidadosamente seus `web.config` elementos duplicados, conforme observado anteriormente.
 
     ![A página inicial padrão de um aplicativo com NuGet.Server](media/Hosting_04-NuGet.Server-FeedHomePage.png)
 
@@ -87,9 +87,9 @@ Para habilitar essa capacidade, defina o `apiKey` para um valor (o ideal é uma 
 
 Se o servidor já está protegido ou você não exige uma chave de API (por exemplo, ao usar um servidor privado em uma rede de equipe local), é possível definir `requireApiKey` para `false`. Todos os usuários com acesso ao servidor poderão efetuar push dos pacotes.
 
-Começando pelo NuGet.Server 3.0.0, a URL para `http://<domain>/nuget`empurrar pacotes foi mudada para . Antes da versão 3.0.0, a `http://<domain>/api/v2/package`URL push era .
+A partir do NuGet. Server 3.0.0, a URL para envio de pacotes foi alterada para `http://<domain>/nuget` . Antes da versão 3.0.0, a URL de push era `http://<domain>/api/v2/package` .
 
-Com o NuGet 3.2.1 e `/api/v2/package` mais novo, essa `/nuget` URL `enableLegacyPushRoute: true` herdada é habilitada, além de por padrão, via opção na configuração de inicialização (por`NuGetODataConfig.cs` padrão). Observe que esse recurso não funciona quando vários feeds são hospedados no mesmo projeto.
+Com o NuGet 3.2.1 e mais recente, essa URL herdada `/api/v2/package` é habilitada além da `/nuget` opção por padrão `enableLegacyPushRoute: true` em sua configuração de inicialização ( `NuGetODataConfig.cs` por padrão). Observe que esse recurso não funciona quando vários feeds são hospedados no mesmo projeto.
 
 ## <a name="removing-packages-from-the-feed"></a>Removendo pacotes do feed
 
@@ -99,7 +99,7 @@ Se, em vez disso, você desejar alterar o comportamento para remover o pacote da
 
 ## <a name="configuring-the-packages-folder"></a>Configurar a pasta Pacotes
 
-Com `NuGet.Server` 1,5 e posterior, você pode `appSettings/packagesPath` personalizar `web.config`a pasta do pacote usando o valor em :
+Com `NuGet.Server` o 1,5 e posterior, você pode personalizar a pasta do pacote usando o `appSettings/packagesPath` valor em `web.config` :
 
 ```xml
 <appSettings>
@@ -112,17 +112,17 @@ Com `NuGet.Server` 1,5 e posterior, você pode `appSettings/packagesPath` person
 
 Quando o `packagesPath` for omitido ou deixado em branco, a pasta de pacotes é o `~/Packages` padrão.
 
-## <a name="making-packages-available-when-you-publish-the-web-app"></a>Disponibilizando pacotes quando você publica o aplicativo web
+## <a name="making-packages-available-when-you-publish-the-web-app"></a>Disponibilizando pacotes quando você publica o aplicativo Web
 
 Para disponibilizar esses pacotes no feed quando você publicar o aplicativo em um servidor, adicione os arquivos `.nupkg` à pasta `Packages` no Visual Studio e, em seguida, defina a **Ação de Build** deles como **Conteúdo** e **Copiar para Diretório de Saída** como **Sempre copiar**:
 
 ![Copiando pacotes para a pasta Pacotes no projeto](media/Hosting_05-NuGet.Server-Package-Folder.png)
 
-## <a name="release-notes"></a>Notas de versão
+## <a name="release-notes"></a>Notas sobre a versão
 
-As notas de versão do NuGet.Server estão disponíveis na página de versão do [GitHub](https://github.com/NuGet/NuGet.Server/releases).
+As notas de versão do NuGet. Server estão disponíveis na [página de versão do GitHub](https://github.com/NuGet/NuGet.Server/releases).
 Isso inclui detalhes sobre correções de bugs e novos recursos que são adicionados.
 
 ## <a name="nugetserver-support"></a>Suporte do NuGet.Server
 
-Para obter ajuda adicional usando nuGet.server, crie um problema em [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues).
+Para obter ajuda adicional usando o NuGet. Server, crie um problema no [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) .
