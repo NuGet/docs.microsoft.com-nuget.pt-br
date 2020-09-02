@@ -5,12 +5,12 @@ author: advay26
 ms.author: t-adtand
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 35e4906960534299418cb2a17c190476708b2634
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 8d63efefb8f14c03fbe3986d8d7eebcc3eb5bcac
+ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623262"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89359676"
 ---
 # <a name="search-command-nuget-cli"></a>comando Search (NuGet CLI)
 
@@ -33,18 +33,16 @@ onde os termos de pesquisa são aplicados aos nomes de pacotes, marcas e descri�
 | Pré-lançamento | Os pacotes de pré-lançamento não são incluídos por padrão, mas podem ser incluídos usando esse argumento | -Pré-lançamento |
 | Fonte | Origem (s) de pacote específico para pesquisar em vez de consultar as fontes padrão no __nuget.config__ | -Origem `<Source URL>`|
 | Take | O número de resultados a serem retornados. O valor padrão é 20. | -Take `<positive integer>` |
-| Detalhamento | O nível de detalhe a ser exibido na saída. O padrão é _normal_. (Consulte a observação abaixo)  | -Detalhes `<quiet\|normal\|detailed>` |
+| Detalhamento | O nível de detalhe a ser exibido na saída. O padrão é _normal_. (Consulte a observação abaixo)  | -Detalhes `<quiet|normal|detailed>` |
 | Ajuda | Exibe informações de ajuda para o comando | -Ajuda |
 
 Consulte também [variáveis de ambiente](cli-ref-environment-variables.md)
 
-__OBSERVAÇÃO__
-
-Níveis de detalhamento:
-
-* _Quiet_ -ID do pacote, versão
-* _normal_ -ID do pacote, versão, downloads, visualização da descrição
-* _detalhado_ -ID do pacote, versão, downloads, descrição completa, outras informações, como a URL de consulta
+> [!NOTE] 
+> Níveis de detalhamento:
+> * _Quiet_ -ID do pacote, versão
+> * _normal_ -ID do pacote, versão, downloads, visualização da descrição
+> * _detalhado_ -ID do pacote, versão, downloads, descrição completa, outras informações, como a URL de consulta
 
 ## <a name="examples"></a>Exemplos
 
