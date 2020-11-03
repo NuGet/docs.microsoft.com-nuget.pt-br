@@ -1,50 +1,50 @@
 ---
-title: Desinstalação do NuGet-referência do PowerShell do pacote
-description: Referência para o comando Uninstall-Package do PowerShell no console do Gerenciador de pacotes NuGet no Visual Studio.
+title: Referência do NuGet Uninstall-Package PowerShell
+description: Referência para Uninstall-Package comando do PowerShell no console do Gerenciador de pacotes NuGet no Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 05b7bf0e8abad0904b9e851ea6b7a5317e74229d
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: d164176355e32e5bbe0a017fc2b291cbc9ef326a
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384409"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237121"
 ---
-# <a name="uninstall-package-package-manager-console-in-visual-studio"></a><span data-ttu-id="e4c1b-103">Uninstall-Package (Console do Gerenciador de Pacotes no Visual Studio)</span><span class="sxs-lookup"><span data-stu-id="e4c1b-103">Uninstall-Package (Package Manager Console in Visual Studio)</span></span>
+# <a name="uninstall-package-package-manager-console-in-visual-studio"></a><span data-ttu-id="080eb-103">Uninstall-Package (console do Gerenciador de pacotes no Visual Studio)</span><span class="sxs-lookup"><span data-stu-id="080eb-103">Uninstall-Package (Package Manager Console in Visual Studio)</span></span>
 
-<span data-ttu-id="e4c1b-104">*Este tópico descreve o comando no [console do Gerenciador de pacotes](../../consume-packages/install-use-packages-powershell.md) no Visual Studio no Windows. Para o comando genérico do PowerShell Uninstall-Package, consulte a [referência do PackageManagement do PowerShell](/powershell/module/packagemanagement/?view=powershell-6).*</span><span class="sxs-lookup"><span data-stu-id="e4c1b-104">*This topic describes the command within the [Package Manager Console](../../consume-packages/install-use-packages-powershell.md) in Visual Studio on Windows. For the generic PowerShell Uninstall-Package command, see the [PowerShell PackageManagement reference](/powershell/module/packagemanagement/?view=powershell-6).*</span></span>
+<span data-ttu-id="080eb-104">*Este tópico descreve o comando no [console do Gerenciador de pacotes](../../consume-packages/install-use-packages-powershell.md) no Visual Studio no Windows. Para o comando genérico Uninstall-Package do PowerShell, consulte a [referência do PackageManagement do PowerShell](/powershell/module/packagemanagement/?view=powershell-6).*</span><span class="sxs-lookup"><span data-stu-id="080eb-104">*This topic describes the command within the [Package Manager Console](../../consume-packages/install-use-packages-powershell.md) in Visual Studio on Windows. For the generic PowerShell Uninstall-Package command, see the [PowerShell PackageManagement reference](/powershell/module/packagemanagement/?view=powershell-6).*</span></span>
 
-<span data-ttu-id="e4c1b-105">Remove um pacote de um projeto, removendo opcionalmente suas dependências.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-105">Removes a package from a project, optionally removing its dependencies.</span></span> <span data-ttu-id="e4c1b-106">Se outros pacotes dependem deste pacote, o comando irá falhar, a não ser que a opção –Force esteja especificada.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-106">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
+<span data-ttu-id="080eb-105">Remove um pacote de um projeto, removendo opcionalmente suas dependências.</span><span class="sxs-lookup"><span data-stu-id="080eb-105">Removes a package from a project, optionally removing its dependencies.</span></span> <span data-ttu-id="080eb-106">Se outros pacotes dependem deste pacote, o comando irá falhar, a não ser que a opção –Force esteja especificada.</span><span class="sxs-lookup"><span data-stu-id="080eb-106">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
 
-## <a name="syntax"></a><span data-ttu-id="e4c1b-107">Sintaxe</span><span class="sxs-lookup"><span data-stu-id="e4c1b-107">Syntax</span></span>
+## <a name="syntax"></a><span data-ttu-id="080eb-107">Syntax</span><span class="sxs-lookup"><span data-stu-id="080eb-107">Syntax</span></span>
 
 ```ps
 Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [-Force]
     [-Version <string>] [-WhatIf] [<CommonParameters>]
 ```
 
-<span data-ttu-id="e4c1b-108">Se outros pacotes dependem deste pacote, o comando irá falhar, a não ser que a opção –Force esteja especificada.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-108">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
+<span data-ttu-id="080eb-108">Se outros pacotes dependem deste pacote, o comando irá falhar, a não ser que a opção –Force esteja especificada.</span><span class="sxs-lookup"><span data-stu-id="080eb-108">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
 
-## <a name="parameters"></a><span data-ttu-id="e4c1b-109">Parâmetros</span><span class="sxs-lookup"><span data-stu-id="e4c1b-109">Parameters</span></span>
+## <a name="parameters"></a><span data-ttu-id="080eb-109">Parâmetros</span><span class="sxs-lookup"><span data-stu-id="080eb-109">Parameters</span></span>
 
-| <span data-ttu-id="e4c1b-110">Parâmetro</span><span class="sxs-lookup"><span data-stu-id="e4c1b-110">Parameter</span></span> | <span data-ttu-id="e4c1b-111">Descrição</span><span class="sxs-lookup"><span data-stu-id="e4c1b-111">Description</span></span> |
+| <span data-ttu-id="080eb-110">Parâmetro</span><span class="sxs-lookup"><span data-stu-id="080eb-110">Parameter</span></span> | <span data-ttu-id="080eb-111">Descrição</span><span class="sxs-lookup"><span data-stu-id="080eb-111">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="e4c1b-112">Id</span><span class="sxs-lookup"><span data-stu-id="e4c1b-112">Id</span></span> | <span data-ttu-id="e4c1b-113">Necessária O identificador do pacote a ser desinstalado.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-113">(Required) The identifier of the package to uninstall.</span></span> <span data-ttu-id="e4c1b-114">A opção-ID em si é opcional.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-114">The -Id switch itself is optional.</span></span> |
-| <span data-ttu-id="e4c1b-115">Versão do</span><span class="sxs-lookup"><span data-stu-id="e4c1b-115">Version</span></span> | <span data-ttu-id="e4c1b-116">A versão do pacote a ser desinstalado, padronizando para a versão instalada no momento.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-116">The version of the package to uninstall, defaulting to the currently installed version.</span></span> |
-| <span data-ttu-id="e4c1b-117">RemoveDependencies</span><span class="sxs-lookup"><span data-stu-id="e4c1b-117">RemoveDependencies</span></span> | <span data-ttu-id="e4c1b-118">Desinstale o pacote e suas dependências não utilizadas.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-118">Uninstall the package and its unused dependencies.</span></span> <span data-ttu-id="e4c1b-119">Ou seja, se alguma dependência tiver outro pacote que dependa dele, ela será ignorada.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-119">That is, if any dependency has another package that depends on it, it's skipped.</span></span> |
-| <span data-ttu-id="e4c1b-120">ProjectName</span><span class="sxs-lookup"><span data-stu-id="e4c1b-120">ProjectName</span></span> | <span data-ttu-id="e4c1b-121">O projeto do qual o pacote será desinstalado, padronizando para o projeto padrão.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-121">The project from which to uninstall the package, defaulting to the default project.</span></span> |
-| <span data-ttu-id="e4c1b-122">Force</span><span class="sxs-lookup"><span data-stu-id="e4c1b-122">Force</span></span> | <span data-ttu-id="e4c1b-123">Força a desinstalação de um pacote, mesmo que outros pacotes dependam dele.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-123">Forces a package to be uninstalled, even if other packages depend on it.</span></span> |
-| <span data-ttu-id="e4c1b-124">WhatIf</span><span class="sxs-lookup"><span data-stu-id="e4c1b-124">WhatIf</span></span> | <span data-ttu-id="e4c1b-125">Mostra o que aconteceria ao executar o comando sem realmente executar a desinstalação.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-125">Shows what would happen when running the command without actually performing the uninstall.</span></span> |
+| <span data-ttu-id="080eb-112">ID</span><span class="sxs-lookup"><span data-stu-id="080eb-112">Id</span></span> | <span data-ttu-id="080eb-113">Necessária O identificador do pacote a ser desinstalado.</span><span class="sxs-lookup"><span data-stu-id="080eb-113">(Required) The identifier of the package to uninstall.</span></span> <span data-ttu-id="080eb-114">A opção-ID em si é opcional.</span><span class="sxs-lookup"><span data-stu-id="080eb-114">The -Id switch itself is optional.</span></span> |
+| <span data-ttu-id="080eb-115">Versão</span><span class="sxs-lookup"><span data-stu-id="080eb-115">Version</span></span> | <span data-ttu-id="080eb-116">A versão do pacote a ser desinstalado, padronizando para a versão instalada no momento.</span><span class="sxs-lookup"><span data-stu-id="080eb-116">The version of the package to uninstall, defaulting to the currently installed version.</span></span> |
+| <span data-ttu-id="080eb-117">RemoveDependencies</span><span class="sxs-lookup"><span data-stu-id="080eb-117">RemoveDependencies</span></span> | <span data-ttu-id="080eb-118">Desinstale o pacote e suas dependências não utilizadas.</span><span class="sxs-lookup"><span data-stu-id="080eb-118">Uninstall the package and its unused dependencies.</span></span> <span data-ttu-id="080eb-119">Ou seja, se alguma dependência tiver outro pacote que dependa dele, ela será ignorada.</span><span class="sxs-lookup"><span data-stu-id="080eb-119">That is, if any dependency has another package that depends on it, it's skipped.</span></span> |
+| <span data-ttu-id="080eb-120">ProjectName</span><span class="sxs-lookup"><span data-stu-id="080eb-120">ProjectName</span></span> | <span data-ttu-id="080eb-121">O projeto do qual o pacote será desinstalado, padronizando para o projeto padrão.</span><span class="sxs-lookup"><span data-stu-id="080eb-121">The project from which to uninstall the package, defaulting to the default project.</span></span> |
+| <span data-ttu-id="080eb-122">Force</span><span class="sxs-lookup"><span data-stu-id="080eb-122">Force</span></span> | <span data-ttu-id="080eb-123">Força a desinstalação de um pacote, mesmo que outros pacotes dependam dele.</span><span class="sxs-lookup"><span data-stu-id="080eb-123">Forces a package to be uninstalled, even if other packages depend on it.</span></span> |
+| <span data-ttu-id="080eb-124">WhatIf</span><span class="sxs-lookup"><span data-stu-id="080eb-124">WhatIf</span></span> | <span data-ttu-id="080eb-125">Mostra o que aconteceria ao executar o comando sem realmente executar a desinstalação.</span><span class="sxs-lookup"><span data-stu-id="080eb-125">Shows what would happen when running the command without actually performing the uninstall.</span></span> |
 
-<span data-ttu-id="e4c1b-126">Nenhum desses parâmetros aceita a entrada de pipeline ou caracteres curinga.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-126">None of these parameters accept pipeline input or wildcard characters.</span></span>
+<span data-ttu-id="080eb-126">Nenhum desses parâmetros aceita a entrada de pipeline ou caracteres curinga.</span><span class="sxs-lookup"><span data-stu-id="080eb-126">None of these parameters accept pipeline input or wildcard characters.</span></span>
 
-## <a name="common-parameters"></a><span data-ttu-id="e4c1b-127">Parâmetros comuns</span><span class="sxs-lookup"><span data-stu-id="e4c1b-127">Common Parameters</span></span>
+## <a name="common-parameters"></a><span data-ttu-id="080eb-127">Parâmetros comuns</span><span class="sxs-lookup"><span data-stu-id="080eb-127">Common Parameters</span></span>
 
-<span data-ttu-id="e4c1b-128">o `Uninstall-Package` dá suporte aos seguintes [parâmetros comuns do PowerShell](https://go.microsoft.com/fwlink/?LinkID=113216): debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.</span><span class="sxs-lookup"><span data-stu-id="e4c1b-128">`Uninstall-Package` supports the following [common PowerShell parameters](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
+<span data-ttu-id="080eb-128">`Uninstall-Package` o oferece suporte aos seguintes [parâmetros comuns do PowerShell](/powershell/module/microsoft.powershell.core/about/about_commonparameters): debug, ação de erro, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.</span><span class="sxs-lookup"><span data-stu-id="080eb-128">`Uninstall-Package` supports the following [common PowerShell parameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
 
-## <a name="examples"></a><span data-ttu-id="e4c1b-129">Exemplos</span><span class="sxs-lookup"><span data-stu-id="e4c1b-129">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="080eb-129">Exemplos</span><span class="sxs-lookup"><span data-stu-id="080eb-129">Examples</span></span>
 
 ```ps
 # Uninstalls the Elmah package from the default project
