@@ -1,22 +1,22 @@
 ---
 title: Suporte a caminhos longos da CLI do NuGet
-description: Referência para o suporte de caminho longo do NuGet. exe
+description: Referência para suporte de caminho longo nuget.exe
 author: zhili1208
 ms.author: lzhi
 ms.date: 07/12/2018
 ms.topic: reference
-ms.openlocfilehash: 9b5a97d963eab7fbbde4aefae1c9b1a8bfcdeb11
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.openlocfilehash: 1143da911c80125a9d60e4b98798b11871e9988a
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77036949"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238186"
 ---
 # <a name="long-path-support-nuget-cli"></a>Suporte a caminho longo (CLI do NuGet)
 
 **Aplica-se a:** todas as &bullet; **versões com suporte:** 4.8 +
 
-O NuGet. exe 4,8 e versões posteriores dão suporte a caminhos longos para arquivos e diretórios para cenários como pacote, restauração, instalação e a maioria dos outros cenários que precisam de caminhos de arquivo.
+NuGet.exe 4,8 e posteriores dão suporte a caminhos longos para arquivos e diretórios para cenários como pacote, restauração, instalação e a maioria dos outros cenários que precisam de caminhos de arquivo.
 
 ## <a name="required-operating-system"></a>Sistema operacional necessário
 
@@ -30,7 +30,7 @@ O NuGet. exe 4,8 e versões posteriores dão suporte a caminhos longos para arqu
 
 Etapas:
 1. Inicie o **Editor de política de grupo** – digite "Editar política de grupo" na barra Iniciar pesquisa ou execute "gpedit. msc" no comando executar (Windows-R).
-2. No **Editor de política de grupo local**, habilite "política do computador local/configuração do computador/Modelos administrativos/todas as configurações/Habilitar caminhos longos do Win32".
+2. No **Editor de política de grupo local** , habilite "política do computador local/configuração do computador/Modelos administrativos/todas as configurações/Habilitar caminhos longos do Win32".
 
 ![Política de caminho longo](media/LongPathPolicy.png)
 
@@ -39,6 +39,5 @@ Etapas:
 > Habilitando outras ferramentas do NuGet para dar suporte a caminhos longos
 >
 > -   A CLI do dotnet dá suporte a caminhos longos, independentemente do sistema operacional ou da versão.
-> -   O Visual Studio ou o `msbuild -t:restore` ainda não dá suporte a caminhos longos.
-> -   O software que usa as bibliotecas do NuGet para executar a restauração e outros comandos oferecerá suporte a caminhos longos nos mesmos sistemas em que o NuGet. exe funciona, se eles também definirem `longPathAware` em seu manifesto do Windows e configurarem `UseLegacyPathHandling` para `false` por meio de App. config, [consulte mais informações](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
-
+> -   O Visual Studio ou `msbuild -t:restore` ainda não dá suporte a caminhos longos.
+> -   O software que usa as bibliotecas do NuGet para executar a restauração e outros comandos oferecerá suporte a caminhos longos nos mesmos sistemas nos quais NuGet.exe funciona, se eles também definirem `longPathAware` em seu manifesto do Windows e configurarem `UseLegacyPathHandling` `false` por meio de App.Config [Ver mais informações](/archive/blogs/jeremykuhne/net-4-6-2-and-long-paths-on-windows-10)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 31243076f36f6ff274c4377c1773ea59dda8c834
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 165587fb64be5a5f4dbfdece7dc3a1e6402b733e
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64495496"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237420"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Uma visão geral do ecossistema do NuGet
 
@@ -24,7 +24,7 @@ Todos esses projetos são capazes de inovar devido a contribuições do desenvol
 
 O NuGet fornece um sistema de gerenciamento de pacotes de software livre gratuito para a plataforma de desenvolvimento da Microsoft. Ele consiste em algumas ferramentas de cliente, bem como o conjunto de serviços que compõem a [Galeria do NuGet oficial](http://www.nuget.org). Combinados, eles formam o projeto NuGet, que é controlado pelo [.NET Foundation](http://www.dotnetfoundation.org/).
 
-A NuGet Organization contém vários repositórios no GitHub. [https://github.com/Nuget/Home](https://github.com/Nuget/Home)dá uma visão geral de todos os repositórios e onde encontrar os vários componentes do NuGet.
+A NuGet Organization contém vários repositórios no GitHub. [https://github.com/Nuget/Home](https://github.com/Nuget/Home) fornece uma visão geral de todos os repositórios e onde encontrar os vários componentes do NuGet.
 
 ## <a name="microsoft-projects"></a>Projetos da Microsoft
 
@@ -68,7 +68,7 @@ Essas são ferramentas e utilitários compilados no NuGet:
 
 ## <a name="training-materials-and-references"></a>Referências e materiais de treinamento
 
-Usar uma nova ferramenta ou tecnologia geralmente requer certa curva de aprendizado. Felizmente, o NuGet não requer nenhuma curva de aprendizado. Na verdade, qualquer pessoa pode [começar a consumir pacotes](../quickstart/use-a-package.md) rapidamente.
+Usar uma nova ferramenta ou tecnologia geralmente requer certa curva de aprendizado. Felizmente, o NuGet não requer nenhuma curva de aprendizado. Na verdade, qualquer pessoa pode [começar a consumir pacotes](../quickstart/install-and-use-a-package-in-visual-studio.md) rapidamente.
 
 Dito isso, criar pacotes – e, especialmente, bons pacotes – juntamente com a adoção do NuGet nos processos de compilação e implantação automatizados, requer dedicar um pouco mais de tempo com os seguintes recursos:
 

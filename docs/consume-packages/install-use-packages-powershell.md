@@ -7,12 +7,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428950"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237394"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Instalar e gerenciar pacotes com o Console do Gerenciador de Pacotes no Visual Studio (PowerShell)
 
@@ -24,7 +24,7 @@ O console é integrado ao Visual Studio no Windows. Ele não está incluído no 
 
 Por exemplo, encontrar e instalar um pacote é feito com três etapas fáceis:
 
-1. Abra o projeto/solução no Visual Studio e abra o console usando o comando **Ferramentas > Gerenciador de pacotes do NuGet > Console do Gerenciador de Pacotes**.
+1. Abra o projeto/solução no Visual Studio e abra o console usando o comando **Ferramentas > Gerenciador de pacotes do NuGet > Console do Gerenciador de Pacotes** .
 
 1. Localize o pacote que você deseja instalar. Se já sabe qual é, pule para a etapa 3.
 
@@ -48,7 +48,7 @@ Por exemplo, encontrar e instalar um pacote é feito com três etapas fáceis:
 
 ## <a name="opening-the-console-and-console-controls"></a>Abrir o console e os controles do console
 
-1. Abra o console no Visual Studio usando o comando **Ferramentas > Gerenciador de pacotes do NuGet > Console do Gerenciador de Pacotes**. O console é uma janela do Visual Studio que pode ser organizada e posicionada como você desejar (confira [Personalizar layouts de janela no Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Abra o console no Visual Studio usando o comando **Ferramentas > Gerenciador de pacotes do NuGet > Console do Gerenciador de Pacotes** . O console é uma janela do Visual Studio que pode ser organizada e posicionada como você desejar (confira [Personalizar layouts de janela no Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 1. Por padrão, os comandos do console operam em relação a um projeto e origem de pacote específicos, como definido no controle na parte superior da janela:
 
@@ -56,7 +56,7 @@ Por exemplo, encontrar e instalar um pacote é feito com três etapas fáceis:
 
 1. A seleção de um projeto e/ou origem de pacote diferente altera esses padrões para os comandos subsequentes. Para substituir essas configurações sem alterar os padrões, a maioria dos comandos é compatível com as opções `-Source` e `-ProjectName`.
 
-1. Para gerenciar as origens dos pacote, selecione o ícone de engrenagem. Este é um atalho para a caixa de diálogo **Ferramentas > Opções > Gerenciador de pacotes do NuGet > Origens do Pacote**, como descrito na página [Interface do usuário do Gerenciador de Pacotes](install-use-packages-visual-studio.md#package-sources). Além disso, o controle à direita do seletor de projeto limpa o conteúdo do console:
+1. Para gerenciar as origens dos pacote, selecione o ícone de engrenagem. Este é um atalho para a caixa de diálogo **Ferramentas > Opções > Gerenciador de pacotes do NuGet > Origens do Pacote** , como descrito na página [Interface do usuário do Gerenciador de Pacotes](install-use-packages-visual-studio.md#package-sources). Além disso, o controle à direita do seletor de projeto limpa o conteúdo do console:
 
     ![Configurações do Console do Gerenciador de pacotes e controles desmarcados](media/PackageManagerConsoleControls2.png)
 
@@ -79,7 +79,7 @@ Confira [Install-Package](../reference/ps-reference/ps-ref-install-package.md).
 A instalação de um pacote no console executa as mesmas etapas, como descrito em [O que acontece quando um pacote é instalado](../concepts/package-installation-process.md), com as seguintes adições:
 
 - O console exibe os termos de licenças aplicáveis em sua janela com o contrato implícito. Se você não concordar com os termos, deverá desinstalar o pacote imediatamente.
-- Além disso, uma referência ao pacote é adicionada ao arquivo de projeto e aparece no **Gerenciador de Soluções** sob o nó **Referências**; é preciso salvar o projeto para ver as alterações diretamente no arquivo de projeto.
+- Além disso, uma referência ao pacote é adicionada ao arquivo de projeto e aparece no **Gerenciador de Soluções** sob o nó **Referências** ; é preciso salvar o projeto para ver as alterações diretamente no arquivo de projeto.
 
 ## <a name="uninstall-a-package"></a>Desinstalar um pacote
 
@@ -98,7 +98,7 @@ Confira [Uninstall-Package](../reference/ps-reference/ps-ref-uninstall-package.m
 
 A desinstalação de um pacote executa as seguintes ações:
 
-- Remove as referências ao pacote do projeto (e qualquer formato de gerenciamento em uso). As referências não aparecem mais no **Gerenciador de Soluções**. (Talvez seja necessário recompilar o projeto para vê-lo removido da pasta **Bin**.)
+- Remove as referências ao pacote do projeto (e qualquer formato de gerenciamento em uso). As referências não aparecem mais no **Gerenciador de Soluções** . (Talvez seja necessário recompilar o projeto para vê-lo removido da pasta **Bin** .)
 - Reverte todas as alterações feitas em `app.config` ou `web.config` quando o pacote foi instalado.
 - Remove as dependências instaladas anteriormente se nenhum pacote restante usa essas dependências.
 
@@ -143,7 +143,7 @@ Confira [Find-Package](../reference/ps-reference/ps-ref-find-package.md). No Vis
 
 A partir do Visual Studio 2017, o NuGet e o Gerenciador de pacotes do NuGet são instalados automaticamente ao seleciona qualquer carga de trabalho relacionada a .NET. Também é possível instalá-los individualmente marcando a opção **Componentes individuais > Ferramentas de código > Gerenciador de pacotes do NuGet** no instalador do Visual Studio.
 
-Além disso, se você não tem o Gerenciador de pacotes do NuGet no Visual Studio 2015 e anteriores, marque **Ferramentas > Extensões e Atualizações...** e pesquise pela extensão Gerenciador de pacotes do NuGet. Se você não puder usar o instalador de extensões no Visual [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)Studio, você pode baixar a extensão diretamente de .
+Além disso, se você não tem o Gerenciador de pacotes do NuGet no Visual Studio 2015 e anteriores, marque **Ferramentas > Extensões e Atualizações...** e pesquise pela extensão Gerenciador de pacotes do NuGet. Se não for possível usar o instalador de extensões no Visual Studio, você poderá baixar a extensão diretamente do [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) .
 
 O Console do Gerenciador de Pacotes não está disponível atualmente no Visual Studio para Mac. No entanto, os comandos equivalentes estão disponíveis por meio da [CLI NuGet](../reference/nuget-exe-CLI-reference.md). O Visual Studio para Mac tem uma interface do usuário para gerenciar pacotes do NuGet. Confira [Incluindo um pacote do NuGet no projeto](/visualstudio/mac/nuget-walkthrough).
 
@@ -168,11 +168,11 @@ $profile
 C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
-Para saber mais, confira [Perfis do Windows PowerShell](https://technet.microsoft.com/library/bb613488.aspx).
+Para saber mais, confira [Perfis do Windows PowerShell](/previous-versions//bb613488(v=vs.85)).
 
 ## <a name="use-the-nugetexe-cli-in-the-console"></a>Usar a CLI nuget.exe no console
 
-Para disponibilizar [ `nuget.exe` ](../reference/nuget-exe-cli-reference.md) a CLI no console do gerenciador de pacotes, instale o pacote [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) no console:
+Para disponibilizar a [ `nuget.exe` CLI](../reference/nuget-exe-cli-reference.md) no console do Gerenciador de pacotes, instale o pacote [NuGet. CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) no console do:
 
 ```ps
 # Other versions are available, see https://www.nuget.org/packages/NuGet.CommandLine/

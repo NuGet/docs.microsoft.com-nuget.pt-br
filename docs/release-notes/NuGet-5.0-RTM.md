@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 52c71c6fe1a1854d5aed229abf2ce7ddc2685ae9
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: e4a6be7fb26e3cc4bd297eaf02999f6ac1389b77
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611336"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93236796"
 ---
 # <a name="nuget-50-release-notes"></a>Notas de versão do NuGet 5,0
 
@@ -27,25 +27,25 @@ Veículos de distribuição do NuGet:
 
 ## <a name="summary-whats-new-in-50"></a>Resumo: o que há de novo no 5,0
 
-* Suporte para restaurar [soluções filtradas](https://docs.microsoft.com/visualstudio/ide/filtered-solutions?view=vs-2019) no Visual Studio 2019- [#5820](https://github.com/NuGet/Home/issues/5820)
-* `BuildTransitive` pasta permite que os pacotes contribuam com destinos/props de forma transitiva para o projeto host- [#6091](https://github.com/NuGet/Home/issues/6091)
+* Suporte para restaurar [soluções filtradas](/visualstudio/ide/filtered-solutions?view=vs-2019) no Visual Studio 2019- [#5820](https://github.com/NuGet/Home/issues/5820)
+* `BuildTransitive` a pasta permite que os pacotes contribuam de forma transitiva destinos/props para o projeto de host- [#6091](https://github.com/NuGet/Home/issues/6091)
 * Melhor suporte para cenários de PackageReference no NuGet IVs APIs- [#7005](https://github.com/NuGet/Home/issues/7005), [#7493](https://github.com/NuGet/Home/issues/7493)
 * `nuget.exe pack project.json` foi preterido- [#7928](https://github.com/NuGet/Home/issues/7928)
-* O plugin do provedor de credenciais Gen 1 foi substituído pela [Gen 2](https://aka.ms/nuget-cross-platform-authentication-plugin) e em breve será preterido- [#7819](https://github.com/NuGet/Home/issues/7819)
+* O plugin do provedor de credenciais Gen 1 foi substituído pela [Gen 2](../reference/extensibility/nuget-cross-platform-authentication-plugin.md) e em breve será preterido- [#7819](https://github.com/NuGet/Home/issues/7819)
 
 ## <a name="issues-fixed-in-this-release"></a>Problemas corrigidos nesta versão
 
-**•s**
+**Bugs**
 
-* Ao fazer uma restauração de NoOp, evite a gravação de *. dgspec. JSON no diretório obj- [#7854](https://github.com/NuGet/Home/issues/7854)
+* Ao fazer uma restauração de NoOp, evite * .dgspec.jsem gravar no diretório obj- [#7854](https://github.com/NuGet/Home/issues/7854)
 
 * As permissões em arquivos criados dentro de ~/.NuGet são muito abertas- [#7673](https://github.com/NuGet/Home/issues/7673)
 
-* `dotnet list package --outdated` não funciona com fontes que precisam de [#7605](https://github.com/NuGet/Home/issues/7605) de autenticação
+* `dotnet list package --outdated`Não funciona com fontes que precisam de [#7605](https://github.com/NuGet/Home/issues/7605) de autenticação
 
-* NuGet. VisualStudio. IVsPackageInstaller-a chamada em um projeto sem referências de pacote sempre usa Packages. config, mesmo que o padrão esteja definido como PackageReference- [#7005](https://github.com/NuGet/Home/issues/7005)
+* NuGet. VisualStudio. IVsPackageInstaller-a chamada em um projeto sem referências de pacote sempre usa packages.config, mesmo que o padrão esteja definido como PackageReference- [#7005](https://github.com/NuGet/Home/issues/7005)
 
-* PMC: atualização-a reinstalação do pacote falha ("não é possível localizar o pacote") em pacotes deslistados. - [#7268](https://github.com/NuGet/Home/issues/7268)
+* PMC: a reinstalação do Update-Package falha ("não é possível localizar o pacote") em pacotes deslistados. - [#7268](https://github.com/NuGet/Home/issues/7268)
 
 * Adicionar aviso de terceiros em nosso repositório e VSIX- [#7409](https://github.com/NuGet/Home/issues/7409)
 
@@ -65,7 +65,7 @@ Veículos de distribuição do NuGet:
 
 * Prefira o caminho para a descoberta do MSBuild se o usuário não solicitar uma versão do MSBuild específica- [#7786](https://github.com/NuGet/Home/issues/7786)
 
-* `nuget.exe /?` deve listar as versões corretas do MSBuild – [#7794](https://github.com/NuGet/Home/issues/7794)
+* `nuget.exe /?` deve listar as versões corretas do MSBuild- [#7794](https://github.com/NuGet/Home/issues/7794)
 
 * NuGet. targets (498, 5): erro: não foi possível encontrar uma parte do caminho '/tmp/NuGetScratch-on mono- [#7793](https://github.com/NuGet/Home/issues/7793)
 
@@ -81,13 +81,13 @@ Veículos de distribuição do NuGet:
 
 * A interface do usuário do NuGet do VS 16.0 tem guias ilegíveis devido a problemas de cor- [#7735](https://github.com/NuGet/Home/issues/7735)
 
-* NuGet. Core & esclarecimento do NuGet. clients. txt- [#7629](https://github.com/NuGet/Home/issues/7629)
+* NuGet. Core & NuGet. clients License.txt esclarecimento- [#7629](https://github.com/NuGet/Home/issues/7629)
 
 * Restauração desnecessariamente enumera a pasta de pacote global em tentativa de determinar o tipo [#7596](https://github.com/NuGet/Home/issues/7596)
 
 * Os erros da imposição de arquivos bloqueados devem aparecer na janela Lista de Erros- [#7429](https://github.com/NuGet/Home/issues/7429)
 
-* Corrigir problemas de NuGet. Configuration- [#7326](https://github.com/NuGet/Home/issues/7326)
+* Corrigir NuGet.Configproblemas de uração- [#7326](https://github.com/NuGet/Home/issues/7326)
 
 * Adaptar ao MSBuild atualizando seu local de instalação- [#7325](https://github.com/NuGet/Home/issues/7325)
 
@@ -97,7 +97,7 @@ Veículos de distribuição do NuGet:
 
 * `dotnet pack` deve preservar o intervalo de versão de dependência no nupkg criado (mesmo se a versão flutuante for usada)- [#7232](https://github.com/NuGet/Home/issues/7232)
 
-* `dotnet restore` falha na fonte autenticada quando a configuração no nível do usuário também tem [#7209](https://github.com/NuGet/Home/issues/7209) de origem
+* `dotnet restore`falha na origem autenticada quando a configuração no nível do usuário também tem [#7209](https://github.com/NuGet/Home/issues/7209) de origem
 
 * O pacote não deve restringir o conjunto de BuildActions para arquivos de conteúdo- [#7155](https://github.com/NuGet/Home/issues/7155)
 
@@ -105,7 +105,7 @@ Veículos de distribuição do NuGet:
 
 * Deadlock devido a problemas de Threading ao chamar o CPS (CommonProjectSystem)- [#7103](https://github.com/NuGet/Home/issues/7103)
 
-* `dotnet add package` não usa credenciais da configuração global para uma origem especificada na configuração local- [#6935](https://github.com/NuGet/Home/issues/6935)
+* `dotnet add package` Não usa credenciais da configuração global para uma origem especificada na configuração local- [#6935](https://github.com/NuGet/Home/issues/6935)
 
 * Problemas de Threading com o MEF sendo chamado em caminhos de código assíncrono- [#6771](https://github.com/NuGet/Home/issues/6771)
 
@@ -121,13 +121,13 @@ Veículos de distribuição do NuGet:
 
 **DCRs**
 
-* Aviso de remoção futura do "dotnet Pack Project. JSON"- [#7928](https://github.com/NuGet/Home/issues/7928)
- 
+* Aviso de futura remoção do "dotnet do project.jsdo pacote"- [#7928](https://github.com/NuGet/Home/issues/7928)
+ 
 * Adicionar um aviso de reprovação para o plug-in de credencial Gen1- [#7819](https://github.com/NuGet/Home/issues/7819)
- 
+ 
 * Assinatura: repositório habilitado para exigir a verificação do cliente de cada pacote como assinado pelo repositório – por meio do recurso RepositorySignatures/5.0.0- [#7759](https://github.com/NuGet/Home/issues/7759)
 
-* limitar o número de solicitação HTTP por origem por meio do NuGet. config- [#4538](https://github.com/NuGet/Home/issues/4538)
+* limitar o número de solicitação HTTP por origem por meio de NuGet.Config- [#4538](https://github.com/NuGet/Home/issues/4538)
 
 * O NuGet deve direcionar Net472 (para ajudar a limpar a compilação 16,0 do VSIX) – [#7143](https://github.com/NuGet/Home/issues/7143)
 
@@ -149,26 +149,26 @@ Veículos de distribuição do NuGet:
 
 * Tempos limite de restauração de solução alternativa em sistemas com 1 [#6742](https://github.com/NuGet/Home/issues/6742) de CPU
 
-* O NuGet prefere a autenticação NTLM mesmo se houver credenciais no NuGet. config – Adicionar opção de configuração para filtrar tipos de autenticação para credenciais- [#5286](https://github.com/NuGet/Home/issues/5286)
+* O NuGet prefere a autenticação NTLM mesmo se houver credenciais na opção NuGet.config-adicionar configuração para filtrar tipos de autenticação para credenciais- [#5286](https://github.com/NuGet/Home/issues/5286)
 
-* Habilitar EmbedInteropTypes para PackageReference (capacidade de pacotes. config correspondente)- [#2365](https://github.com/NuGet/Home/issues/2365)
+* Habilitar EmbedInteropTypes para PackageReference (Packages.Config capacidade de correspondência) – [#2365](https://github.com/NuGet/Home/issues/2365)
 
 **[Lista de todos os problemas corrigidos nesta versão-5,0 RTM](https://github.com/NuGet/Home/milestone/84?closed=1)**
 
 ## <a name="summary-whats-new-in-502"></a>Resumo: o que há de novo no 5.0.2
 
-* Segurança (quando executada via dotnet. exe ou mono. exe)-a pasta obj deve ser criada com as permissões corretas [#7908](https://github.com/NuGet/Home/issues/7908)
+* Segurança (quando executado via dotnet.exe ou mono.exe)-a pasta obj deve ser criada com as permissões corretas [#7908](https://github.com/NuGet/Home/issues/7908)
 
-* a restauração do NuGet. exe no mono/MacOS falha com o NuGet. config e o `PackageSignatureValidity: False`s personalizados [#8011](https://github.com/NuGet/Home/issues/8011)
+* A restauração de nuget.exe em mono/MacOS falha com nuget.config personalizado e `PackageSignatureValidity: False` [#8011](https://github.com/NuGet/Home/issues/8011)
 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>Os pacotes em FallbackFolders instalados pelo SDK .NET Core são instalados de forma personalizada e falham ao validar a assinatura. - [#7414](https://github.com/NuGet/Home/issues/7414)
+### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414"></a>Os pacotes em FallbackFolders instalados pelo SDK .NET Core são instalados de forma personalizada e falham ao validar a assinatura. - [#7414](https://github.com/NuGet/Home/issues/7414)
 #### <a name="issue"></a>Problema
 Ao usar o dotnet.exe 2.x para restaurar um projeto que fará o direcionamento múltiplo para netcoreapp 1.x e netcoreapp 2.x, a pasta de fallback será tratada como um feed de arquivos. Isso significa que, ao restaurar, o NuGet escolherá o pacote da pasta de fallback e tentará instalá-lo na pasta de pacotes globais e fazer a validação de assinatura usual que falha.<br>
 #### <a name="workaround"></a>Solução alternativa
-Desabilite o uso da pasta de fallback definindo o `RestoreAdditionalProjectSources` como Nothing:
+Desabilite o uso da pasta de fallback definindo o `RestoreAdditionalProjectSources` como nada:
 
 `<RestoreAdditionalProjectSources></RestoreAdditionalProjectSources>`
 

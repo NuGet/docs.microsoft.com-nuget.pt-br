@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428866"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237634"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
 As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). O uso de PackageReference, como ele é chamado, não afeta outros aspectos do NuGet; por exemplo, as configurações nos arquivos `NuGet.config` (incluindo as origens do pacote) ainda são aplicadas, conforme explicado em [Configurações comuns do NuGet](configuring-nuget-behavior.md).
 
-Com o PackageReference, você também pode usar as condições do MSBuild para escolher referências de pacote por framework de destino ou outros agrupamentos. Ele também proporciona um controle refinado sobre as dependências e o fluxo de conteúdo. (Para obter mais detalhes, veja [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).)
+Com o PackageReference, você também pode usar as condições do MSBuild para escolher as referências de pacote por estrutura de destino ou outros agrupamentos. Ele também proporciona um controle refinado sobre as dependências e o fluxo de conteúdo. (Para obter mais detalhes, veja [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).)
 
 ## <a name="project-type-support"></a>Suporte do tipo de projeto
 
@@ -64,9 +64,9 @@ Avançado: se você não tem pacotes instalados em um projeto (não tem PackageR
 
 Isso poderá ser útil se você fizer referência a projetos que são do estilo PackageReference (projetos de estilo csproj ou SDK existentes). Isso permitirá que os pacotes aos quais esses projetos fazem referência sejam referenciados "transitivamente" pelo seu projeto.
 
-## <a name="packagereference-and-sources"></a>PacoteReferência e fontes
+## <a name="packagereference-and-sources"></a>PackageReference e fontes
 
-Em projetos PackageReference, as versões de dependência transitiva são resolvidas no momento da restauração. Como tal, em projetos De referência de pacote, todas as fontes precisam estar disponíveis para todas as restaurações. 
+Em projetos PackageReference, as versões de dependência transitivas são resolvidas no momento da restauração. Como tal, em projetos PackageReference, todas as fontes precisam estar disponíveis para todas as restaurações. 
 
 ## <a name="floating-versions"></a>Versões flutuantes
 
@@ -99,10 +99,10 @@ Você pode estar usando uma dependência puramente como uma estrutura de desenvo
 
 As seguintes marcas de metadados controlam ativos de dependência:
 
-| Marca | Descrição | Valor Padrão |
+| Marca | Descrição | Valor padrão |
 | --- | --- | --- |
 | IncludeAssets | Esses ativos serão consumidos | all |
-| ExcludeAssets | Esses ativos não serão consumidos | none |
+| ExcludeAssets | Esses ativos não serão consumidos | nenhum |
 | PrivateAssets | Esses ativos serão consumidos, mas não fluem para o projeto pai | contentfiles;analyzers;build |
 
 Os valores permitidos para essas marcas são os seguintes, com vários valores separados por ponto e vírgula, exceto com `all` e `none`, que devem aparecer sozinhos:
@@ -117,7 +117,7 @@ Os valores permitidos para essas marcas são os seguintes, com vários valores s
 | buildTransitive | *(5.0+)* `.props` e `.targets` na pasta `buildTransitive`, para ativos que fluem transitivamente para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analisadores | Analisadores de .NET |
 | nativa | O conteúdo da pasta `native` |
-| none | Nenhuma das opções acima é usada. |
+| nenhum | Nenhuma das opções acima é usada. |
 | all | Todas as anteriores (exceto `none`) |
 
 No exemplo a seguir, tudo, exceto os arquivos de conteúdo do pacote, poderia ser consumido pelo projeto e tudo, exceto analisadores e arquivos de conteúdo, fluiria para o projeto pai.
@@ -139,7 +139,7 @@ No exemplo a seguir, tudo, exceto os arquivos de conteúdo do pacote, poderia se
 Observe que, como `build` não está incluído em `PrivateAssets`, destino e objetos *fluirão* para o projeto pai. Considere, por exemplo, que a referência acima é usada em um projeto que compila um pacote do NuGet chamado AppLogger. O AppLogger pode consumir os destinos e objetos de `Contoso.Utility.UsefulStuff`, bem como projetos que consomem AppLogger.
 
 > [!NOTE]
-> Quando `developmentDependency` é definido como `true` em um arquivo `.nuspec`, isso marca um pacote como uma dependência somente de desenvolvimento, o que impede que o pacote seja incluído como uma dependência em outros pacotes. Com PackageReference *(NuGet 4.8+)*, esse sinalizador também significa que ele excluirá os recursos em tempo de compilação. Para obter mais informações, confira [Suporte do DevelopmentDependency para PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
+> Quando `developmentDependency` é definido como `true` em um arquivo `.nuspec`, isso marca um pacote como uma dependência somente de desenvolvimento, o que impede que o pacote seja incluído como uma dependência em outros pacotes. Com PackageReference *(NuGet 4.8+)* , esse sinalizador também significa que ele excluirá os recursos em tempo de compilação. Para obter mais informações, confira [Suporte do DevelopmentDependency para PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
 
 ## <a name="adding-a-packagereference-condition"></a>Adicionar uma condição de PackageReference
 
@@ -170,14 +170,14 @@ As condições também podem ser aplicadas no nível de `ItemGroup` e serão apl
 </ItemGroup>
 ```
 
-## <a name="generatepathproperty"></a>GerarPathPropriedade
+## <a name="generatepathproperty"></a>GeneratePathProperty
 
-Este recurso está disponível com NuGet **5.0** ou superior e com visual studio 2019 **16.0** ou superior.
+Esse recurso está disponível com o NuGet **5,0** ou superior e com o Visual Studio 2019 **16,0** ou superior.
 
-Às vezes, é desejável referenciar arquivos em um pacote a partir de um alvo do MSBuild.
-Em `packages.config` projetos baseados, os pacotes são instalados em uma pasta em relação ao arquivo do projeto. No entanto, no PackageReference, os pacotes são [consumidos](../concepts/package-installation-process.md) a partir da pasta *global-packages,* que pode variar de máquina para máquina.
+Às vezes, é desejável referenciar arquivos em um pacote de um destino do MSBuild.
+Em `packages.config` projetos baseados, os pacotes são instalados em uma pasta relativa ao arquivo de projeto. No entanto, no PackageReference, os pacotes são [consumidos](../concepts/package-installation-process.md) a partir da pasta *global-Packages* , que pode variar de máquina para máquina.
 
-Para preencher essa lacuna, a NuGet introduziu uma propriedade que aponta para o local de onde o pacote será consumido.
+Para preencher essa lacuna, o NuGet introduziu uma propriedade que aponta para o local do qual o pacote será consumido.
 
 Exemplo:
 
@@ -191,7 +191,7 @@ Exemplo:
   </Target>
 ````
 
-Além disso, o NuGet gerará automaticamente propriedades para pacotes que contenham uma pasta de ferramentas.
+Além disso, o NuGet gerará automaticamente as propriedades para pacotes que contêm uma pasta de ferramentas.
 
 ```xml
   <ItemGroup>
@@ -203,20 +203,20 @@ Além disso, o NuGet gerará automaticamente propriedades para pacotes que conte
   </Target>
 ````
 
-As propriedades do MSBuild e as identidades do pacote não têm as mesmas restrições, portanto, `Pkg`a identidade do pacote precisa ser alterada para um nome amigável do MSBuild, prefixado pela palavra .
-Para verificar o nome exato da propriedade gerada, consulte o arquivo [nuget.g.props](../reference/msbuild-targets.md#restore-outputs) gerado.
+As propriedades do MSBuild e as identidades do pacote não têm as mesmas restrições para que a identidade do pacote precise ser alterada para um nome amigável do MSBuild, prefixado pela palavra `Pkg` .
+Para verificar o nome exato da propriedade gerada, examine o arquivo [NuGet. g. props](../reference/msbuild-targets.md#restore-outputs) gerado.
 
 ## <a name="nuget-warnings-and-errors"></a>Avisos e erros do NuGet
 
-*Este recurso está disponível com NuGet **4.3** ou superior e com visual studio 2017 **15.3** ou superior.*
+*Esse recurso está disponível com o NuGet **4,3** ou superior e com o Visual Studio 2017 **15,3** ou superior.*
 
-Para muitos cenários de embalagem e restauração, todos os `NU****`avisos e erros do NuGet são codificados e começam com . Todos os avisos e erros do NuGet estão listados na documentação [de referência.](../reference/errors-and-warnings.md)
+Para muitos cenários de pacote e restauração, todos os avisos e erros do NuGet são codificados e começam com `NU****` . Todos os avisos e erros do NuGet são listados na documentação de [referência](../reference/errors-and-warnings.md) .
 
-NuGet observa as seguintes propriedades de aviso:
+O NuGet observa as seguintes propriedades de aviso:
 
-- `TreatWarningsAsErrors`, trate todos os avisos como erros
-- `WarningsAsErrors`, trate avisos específicos como erros
-- `NoWarn`, ocultar avisos específicos, seja em todo o projeto ou em todo o pacote.
+- `TreatWarningsAsErrors`, tratar todos os avisos como erros
+- `WarningsAsErrors`, tratar avisos específicos como erros
+- `NoWarn`, ocultar avisos específicos, em todo o projeto ou em todo o pacote.
 
 Exemplos:
 
@@ -238,10 +238,10 @@ Exemplos:
 </ItemGroup>
 ```
 
-### <a name="suppressing-nuget-warnings"></a>Suprimindo avisos NuGet
+### <a name="suppressing-nuget-warnings"></a>Suprimindo avisos do NuGet
 
-Embora seja recomendável que você resolva todos os avisos nuGet durante suas operações de embalagem e restauração, em certas situações suprimi-los é justificado.
-Para suprimir um projeto de aviso amplo, considere fazer:
+Embora seja recomendável que você resolva todos os avisos do NuGet durante as operações de pacote e restauração, em determinadas situações, a supressão deles é garantida.
+Para suprimir um projeto de aviso em geral, considere:
 
 ```xml
 <PropertyGroup>
@@ -253,7 +253,7 @@ Para suprimir um projeto de aviso amplo, considere fazer:
 </ItemGroup>
 ```
 
-Às vezes, os avisos se aplicam apenas a um determinado pacote no gráfico. Podemos optar por suprimir esse aviso de `NoWarn` forma mais seletiva adicionando um no item PackageReference. 
+Às vezes, os avisos se aplicam apenas a um determinado pacote no grafo. Podemos optar por suprimir esse aviso mais seletivamente adicionando um `NoWarn` no item PackageReference. 
 
 ```xml
 <PropertyGroup>
@@ -267,7 +267,7 @@ Para suprimir um projeto de aviso amplo, considere fazer:
 #### <a name="suppressing-nuget-package-warnings-in-visual-studio"></a>Suprimindo avisos de pacote NuGet no Visual Studio
 
 Quando no Visual Studio, você também pode [suprimir avisos](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
-) através do IDE.
+) por meio do IDE.
 
 ## <a name="locking-dependencies"></a>Bloqueio de dependências
 
@@ -337,7 +337,7 @@ Se você estiver compilando um aplicativo, um executável e o projeto em questã
 
 No entanto, se seu projeto for um projeto de biblioteca que não é enviado ou um projeto de código comum do qual outros projetos dependem, você **não deverá** fazer check-in do arquivo de bloqueio como parte de seu código-fonte. Não há mal nenhum em manter o arquivo de bloqueio. No entanto, as dependências do pacote bloqueado do projeto de código comum não podem ser usadas, conforme listado no arquivo de bloqueio, durante a restauração/compilação de um projeto que depende desse projeto de código comum.
 
-Por exemplo,
+Por exemplo:
 
 ```
 ProjectA
@@ -346,7 +346,7 @@ ProjectA
              |------>PackageX 1.0.0
 ```
 
-Se `ProjectA` tiver uma dependência em uma versão `2.0.0` do `PackageX`, além de referências `ProjectB` que dependem da versão `1.0.0` do `PackageX`, o arquivo de bloqueio de `ProjectB` listará uma dependência na versão `1.0.0` do `PackageX`. No entanto, quando `ProjectA` for construído, seu `PackageX` arquivo **`2.0.0`** de bloqueio conterá uma `ProjectB`dependência da versão e **não** `1.0.0` como listado no arquivo de bloqueio para . Portanto, o arquivo de bloqueio de um projeto de código comum tem pouco a dizer sobre os pacotes resolvidos de projetos que dependem dele.
+Se `ProjectA` tiver uma dependência em uma versão `2.0.0` do `PackageX`, além de referências `ProjectB` que dependem da versão `1.0.0` do `PackageX`, o arquivo de bloqueio de `ProjectB` listará uma dependência na versão `1.0.0` do `PackageX`. No entanto, quando `ProjectA` o é compilado, seu arquivo de bloqueio conterá uma dependência na `PackageX` versão **`2.0.0`** e **não** `1.0.0` conforme listado no arquivo de bloqueio para `ProjectB` . Portanto, o arquivo de bloqueio de um projeto de código comum tem pouco a dizer sobre os pacotes resolvidos de projetos que dependem dele.
 
 ### <a name="lock-file-extensibility"></a>Extensibilidade do arquivo de bloqueio
 
@@ -354,7 +354,7 @@ Você pode controlar vários comportamentos de restauração com o arquivo de bl
 
 | Opção NuGet.exe | opção dotnet | Opção equivalente do MSBuild | Descrição |
 |:--- |:--- |:--- |:--- |
-| `-UseLockFile` |`--use-lock-file` | RestaurarpacotesComLockFile | Opta pelo uso de um arquivo de bloqueio. |
-| `-LockedMode` | `--locked-mode` | Modo de restauraçãobloqueado | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD onde você deseja compilações repetíveis.|   
-| `-ForceEvaluate` | `--force-evaluate` | RestoreForce | Esta opção é útil com pacotes que têm a versão flutuante definida no projeto. Por padrão, a restauração NuGet não atualizará a versão do pacote automaticamente em cada restauração, a menos que você execute a restauração com essa opção. |
+| `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Opta pelo uso de um arquivo de bloqueio. |
+| `-LockedMode` | `--locked-mode` | RestoreLockedMode | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você deseja criar compilações repetíveis.|   
+| `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Esta opção é útil com pacotes que têm a versão flutuante definida no projeto. Por padrão, a restauração do NuGet não atualizará a versão do pacote automaticamente após cada restauração, a menos que você execute RESTORE com essa opção. |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Define o local de um arquivo de bloqueio personalizado para um projeto. Por padrão, o NuGet é compatível com `packages.lock.json` no diretório raiz. Se você tiver vários projetos no mesmo diretório, o NuGet oferecerá suporte ao arquivo de bloqueio `packages.<project_name>.lock.json` específico do projeto |

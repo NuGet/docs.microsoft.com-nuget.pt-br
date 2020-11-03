@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 28fae46a65bd4c2b7050e12568c21123fc8658c1
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623156"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238095"
 ---
 # <a name="nugetconfig-reference"></a>Referência de nuget.config
 
@@ -36,9 +36,9 @@ Contém diversas definições de configuração, que podem ser definidas usando 
 | repositoryPath (somente `packages.config`) | O local no qual instalar os pacotes do NuGet em vez da pasta `$(Solutiondir)/packages` padrão. Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
 | defaultPushSource | Identifica a URL ou o caminho da origem do pacote que deve ser usada como o padrão se nenhuma outra origem de pacote for encontrada para uma operação. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Configurações de proxy a serem usadas ao se conectar a origens de pacote; `http_proxy` deve estar no formato `http://<username>:<password>@<domain>`. As senhas são criptografadas e não podem ser adicionadas manualmente. Para `no_proxy`, o valor é uma lista separada por vírgulas de domínios a ignorar no servidor proxy. Como alternativa, você pode usar as variáveis de ambiente http_proxy e no_proxy para esses valores. Para ver detalhes adicionais, consulte [Configurações de proxy do NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
-| signatureValidationMode | Especifica o modo de validação usado para verificar assinaturas de pacote para instalação do pacote e restauração. Os valores são `accept` , `require` . O padrão é `accept`.
+| signatureValidationMode | Especifica o modo de validação usado para verificar assinaturas de pacote para instalação do pacote e restauração. Os valores são `accept` , `require` . Assume o padrão de `accept`.
 
-**Exemplo**:
+**Exemplo** :
 
 ```xml
 <config>
@@ -56,9 +56,9 @@ Configura se o NuGet realiza redirecionamentos de associação automática quand
 
 | Chave | Valor |
 | --- | --- |
-| skip | Um valor booliano que indica se os redirecionamentos de associação automática devem ser ignorados. O padrão é false. |
+| skip | Um valor booliano que indica se os redirecionamentos de associação automática devem ser ignorados. O padrão é falso. |
 
-**Exemplo**:
+**Exemplo** :
 
 ```xml
 <bindingRedirects>
@@ -75,7 +75,7 @@ Controla a restauração de pacote durante builds.
 | Habilitado | Um valor booliano que indica se o NuGet pode executar uma restauração automática. Você também pode definir a variável de ambiente `EnableNuGetPackageRestore` com um valor de `True` em vez de configurar essa chave no arquivo de configuração. |
 | automático | Um valor booliano que indica se o NuGet deve verificar se há pacotes ausentes durante um build. |
 
-**Exemplo**:
+**Exemplo** :
 
 ```xml
 <packageRestore>
@@ -92,7 +92,7 @@ Controla se a pasta `packages` de uma solução está incluída no controle do c
 | --- | --- |
 | disableSourceControlIntegration | Um booliano que indica se a pasta de pacotes deve ser ignorada ao trabalhar com o controle do código-fonte. O valor padrão é false. |
 
-**Exemplo**:
+**Exemplo** :
 
 ```xml
 <solution>
@@ -116,7 +116,7 @@ Lista todas as origens de pacotes conhecidas. A ordem é ignorada durante as ope
 | --- | --- |
 | (nome a ser atribuído à origem do pacote) | O caminho ou URL da origem do pacote. |
 
-**Exemplo**:
+**Exemplo** :
 
 ```xml
 <packageSources>
@@ -213,7 +213,7 @@ Armazena chaves para fontes que usam autenticação de chave de API, conforme de
 | --- | --- |
 | (URL de origem) | A chave de API criptografada. |
 
-**Exemplo**:
+**Exemplo** :
 
 ```xml
 <apikeys>
@@ -250,7 +250,7 @@ Identifica a fonte ativa no momento ou indica a agregação de todas as fontes.
 | --- | --- |
 | (nome da origem) ou `All` | Se a chave é o nome de uma fonte, o valor é o caminho ou URL da origem. Se `All`, o valor deve ser `(Aggregate source)` para combinar todas as origens de pacote que não foram desabilitadas. |
 
-**Exemplo**:
+**Exemplo** :
 
 ```xml
 <activePackageSource>
@@ -268,7 +268,7 @@ Armazena os assinantes confiáveis usados para permitir o pacote durante a insta
 
 Esta seção pode ser atualizada com o [ `nuget trusted-signers` comando](../reference/cli-reference/cli-ref-trusted-signers.md).
 
-**Esquema**:
+**Esquema** :
 
 Um assinante confiável tem uma coleção de `certificate` itens que inscrevem todos os certificados que identificam um determinado signatário. Um signatário confiável pode ser um `Author` ou um `Repository` .
 
@@ -278,12 +278,13 @@ Os algoritmos de hash com suporte usados para uma impressão digital de certific
 
 Se um `certificate` especifica `allowUntrustedRoot` que `true` o certificado fornecido pode encadear a uma raiz não confiável ao criar a cadeia de certificados como parte da verificação de assinatura.
 
-**Exemplo**:
+**Exemplo** :
 
 ```xml
 <trustedSigners>
     <author name="microsoft">
         <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
     </author>
     <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
         <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
@@ -310,7 +311,7 @@ Se uma correspondência não for encontrada, o NuGet verificará as fontes de ar
 | --- | --- |
 | (nome da pasta de fallback) | Caminho para a pasta de fallback. |
 
-**Exemplo**:
+**Exemplo** :
 
 ```xml
 <fallbackPackageFolders>
@@ -324,10 +325,10 @@ Define o formato de gerenciamento de pacote padrão, *packages.config* ou Packag
 
 | Chave | Valor |
 | --- | --- |
-| format | Um booliano que indica o formato de gerenciamento de pacote padrão. Se `1` , Format for PackageReference. Se `0` , o formato é *packages.config*. |
+| format | Um booliano que indica o formato de gerenciamento de pacote padrão. Se `1` , Format for PackageReference. Se `0` , o formato é *packages.config* . |
 | desabilitado | Um booliano que indica se o prompt deve ser mostrado para selecionar um formato de pacote padrão na instalação do primeiro pacote. `False` oculta o prompt. |
 
-**Exemplo**:
+**Exemplo** :
 
 ```xml
 <packageManagement>
@@ -350,7 +351,7 @@ A tabela abaixo mostra a sintaxe da variável ambiente e o suporte ao separador 
 
 ### <a name="nugetconfig-environment-variable-support"></a>Suporte à variável de ambiente NuGet.Config
 
-| Sintaxe | Separador de dir | nuget.exe do Windows | dotnet.exe do Windows | nuget.exe do Mac (em mono) | dotnet.exe Mac |
+| Syntax | Separador de dir | nuget.exe do Windows | dotnet.exe do Windows | nuget.exe do Mac (em mono) | dotnet.exe Mac |
 |---|---|---|---|---|---|
 | `%MY_VAR%` | `/`  | Sim | Sim | Sim | Sim |
 | `%MY_VAR%` | `\`  | Sim | Sim | Não | Não |
@@ -431,6 +432,7 @@ Abaixo está um `nuget.config` arquivo de exemplo que ilustra várias configura�
     <trustedSigners>
         <author name="microsoft">
             <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
         </author>
         <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
             <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />

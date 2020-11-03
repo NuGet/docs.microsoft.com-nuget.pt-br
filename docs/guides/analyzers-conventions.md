@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 4d337299f725b38981b0121069d5e6295b05e34e
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9de890d14747a74a13a660109a3b6812a5e08acc
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72924633"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237913"
 ---
 # <a name="analyzer-nuget-formats"></a>Formatos de NuGet do Analisador
 
-O .NET Compiler Platform (também conhecido como “Roslyn”) permite aos desenvolvedores criar [analisadores](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) que examinam a árvore de sintaxe e a semântica do código enquanto ele está sendo escrito. Isso fornece aos desenvolvedores uma maneira de criar ferramentas de análise específicas de domínio, como aquelas que ajudam a orientar o uso de determinada API ou biblioteca. Você pode encontrar mais informações no wiki do GitHub do [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Consulte também o artigo [Use o Roslyn para escrever um analisador de código dinâmico para sua API](https://msdn.microsoft.com/magazine/dn879356.aspx) na MSDN Magazine.
+O .NET Compiler Platform (também conhecido como “Roslyn”) permite aos desenvolvedores criar [analisadores](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) que examinam a árvore de sintaxe e a semântica do código enquanto ele está sendo escrito. Isso fornece aos desenvolvedores uma maneira de criar ferramentas de análise específicas de domínio, como aquelas que ajudam a orientar o uso de determinada API ou biblioteca. Você pode encontrar mais informações no wiki do GitHub do [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Consulte também o artigo [Use o Roslyn para escrever um analisador de código dinâmico para sua API](/archive/msdn-magazine/2014/special-issue/csharp-and-visual-basic-use-roslyn-to-write-a-live-code-analyzer-for-your-api) na MSDN Magazine.
 
 Os próprios analisadores normalmente são empacotados e distribuídos como parte dos pacotes do NuGet que implementam a API ou a biblioteca em questão.
 
@@ -45,9 +45,9 @@ O uso da pasta `analyzers` é semelhante àquela usada para [estruturas de desti
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
-- **framework_name** e **versão:** a área de superfície de API *opcional* do Framework .NET que as DLLs contidas precisam para executar. `dotnet` é atualmente o único valor válido porque Roslyn é o único host que pode executar analisadores. Se nenhum destino for especificado, é considerado que as DLLs se aplicam a *todos* os destinos.
-- **supported_language**: o idioma ao qual a DLL se aplica, um dos `cs` (C#), `vb` (Visual Basic) e `fs` (F#). O idioma indica que o analisador deve ser carregado apenas para um projeto usando o idioma. Se nenhum idioma for especificado, a DLL será aplicada a *todos* os idiomas compatíveis com os analisadores.
-- **analyzer_name**: especifica as DLLs do analisador. Se você precisar de arquivos adicionais além de DLLs, eles deverão ser incluídos por meio de arquivos de destinos ou de propriedades.
+- **framework_name** e **versão** : a área de superfície *opcional* da API do .NET Framework que as DLLs contidas precisam executar. `dotnet` é atualmente o único valor válido porque Roslyn é o único host que pode executar analisadores. Se nenhum destino for especificado, é considerado que as DLLs se aplicam a *todos* os destinos.
+- **supported_language** : o idioma ao qual a DLL se aplica, um dos `cs` (C#), `vb` (Visual Basic) e `fs` (F#). O idioma indica que o analisador deve ser carregado apenas para um projeto usando o idioma. Se nenhum idioma for especificado, a DLL será aplicada a *todos* os idiomas compatíveis com os analisadores.
+- **analyzer_name** : especifica as DLLs do analisador. Se você precisar de arquivos adicionais além de DLLs, eles deverão ser incluídos por meio de arquivos de destinos ou de propriedades.
 
 
 ## <a name="install-and-uninstall-scripts"></a>Scripts de instalação e desinstalação

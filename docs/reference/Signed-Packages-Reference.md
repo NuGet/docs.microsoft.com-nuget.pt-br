@@ -7,11 +7,11 @@ ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
 ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428677"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238173"
 ---
 # <a name="signed-packages"></a>Pacotes assinados
 
@@ -20,17 +20,17 @@ ms.locfileid: "79428677"
 Os pacotes NuGet podem incluir uma assinatura digital que fornece proteção contra conteúdo adulterado. Essa assinatura é produzida de um certificado X. 509 que também adiciona provas de autenticidade à origem real do pacote.
 
 Os pacotes assinados fornecem a validação de ponta a ponta mais forte. Há dois tipos diferentes de assinaturas do NuGet:
-- **Assinatura de autor**. Uma assinatura de autor garante que o pacote não foi modificado desde que o autor assinou o pacote, independentemente de qual repositório ou qual método de transporte o pacote é entregue. Além disso, os pacotes assinados por autor fornecem um mecanismo de autenticação extra para o pipeline de publicação nuget.org porque o certificado de autenticação deve ser registrado antecipadamente. Para obter mais informações, consulte [registrar certificados](#signature-requirements-on-nugetorg).
-- **Assinatura do repositório**. As assinaturas de repositório fornecem uma garantia de integridade para **todos os** pacotes em um repositório, independentemente de serem autor ou não assinados, mesmo que esses pacotes sejam obtidos de um local diferente do repositório original em que foram assinados.   
+- **Assinatura de autor** . Uma assinatura de autor garante que o pacote não foi modificado desde que o autor assinou o pacote, independentemente de qual repositório ou qual método de transporte o pacote é entregue. Além disso, os pacotes assinados por autor fornecem um mecanismo de autenticação extra para o pipeline de publicação nuget.org porque o certificado de autenticação deve ser registrado antecipadamente. Para obter mais informações, consulte [registrar certificados](#signature-requirements-on-nugetorg).
+- **Assinatura do repositório** . As assinaturas de repositório fornecem uma garantia de integridade para **todos os** pacotes em um repositório, independentemente de serem autor ou não assinados, mesmo que esses pacotes sejam obtidos de um local diferente do repositório original em que foram assinados.   
 
 Para obter detalhes sobre como criar um pacote assinado por autor, consulte [pacotes de assinatura](../create-packages/Sign-a-package.md) e o comando de [sinal do NuGet](../reference/cli-reference/cli-ref-sign.md).
 
 > [!Important]
-> No momento, há suporte para a assinatura de pacote somente ao usar NuGet. exe no Windows. [Atualmente, há suporte para a verificação de pacotes assinados somente ao usar NuGet. exe](../reference/cli-reference/cli-ref-verify.md) ou Visual Studio no Windows.
+> No momento, há suporte para a assinatura de pacote somente ao usar nuget.exe no Windows. [Atualmente, há suporte para a verificação de pacotes assinados somente ao usar o nuget.exe](../reference/cli-reference/cli-ref-verify.md) ou o Visual Studio no Windows.
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 
-A assinatura de pacote requer um certificado de assinatura de código, que é um tipo especial de certificado válido para a `id-kp-codeSigning` finalidade [[RFC 5280 seção 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Além disso, o certificado deve ter um comprimento de chave pública RSA de 2048 bits ou mais.
+A assinatura de pacote requer um certificado de assinatura de código, que é um tipo especial de certificado válido para a `id-kp-codeSigning` finalidade [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Além disso, o certificado deve ter um comprimento de chave pública RSA de 2048 bits ou mais.
 
 ## <a name="timestamp-requirements"></a>Requisitos de carimbo de hora
 
@@ -54,7 +54,7 @@ o nuget.org tem requisitos adicionais para aceitar um pacote assinado:
   - Não deve ser revogado no momento da assinatura. (Isso pode não ser knowable no momento do envio, portanto, o nuget.org periodicamente verifica novamente o status de revogação).
   
   
-## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
+## <a name="related-articles"></a>Artigos relacionados
 
 - [Assinando pacotes NuGet](../create-packages/Sign-a-Package.md)
 - [Gerenciar os limites de confiança do pacote](../consume-packages/installing-signed-packages.md)

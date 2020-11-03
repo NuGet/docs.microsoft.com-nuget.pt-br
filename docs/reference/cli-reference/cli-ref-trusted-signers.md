@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 2753f92601b3d8b43593762cc07cd8384646feea
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622662"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238147"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>comando de assinantes confiáveis (NuGet CLI)
 
@@ -46,6 +46,7 @@ Registered trusted signers:
  2.   microsoft [author]
       Certificate fingerprint(s):
         SHA256 - 3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE
+        SHA256 - AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27
 
  3.   myUntrustedAuthorSignature [author]
       Certificate fingerprint(s):
@@ -89,7 +90,7 @@ Fornecer `-Author` e `-Repository` ao mesmo tempo não é suportado.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Observação_: esta opção adicionará somente Repositórios confiáveis. 
+_Observação_ : esta opção adicionará somente Repositórios confiáveis. 
 
 - **`-AllowUntrustedRoot`**
 
@@ -109,7 +110,7 @@ _Observação_: esta opção adicionará somente Repositórios confiáveis.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Observação_: se um signatário confiável com o nome fornecido já existir, o item de certificado será adicionado a esse signatário. Caso contrário, um autor confiável será criado com um item de certificado de informações de certificado fornecidas.
+_Observação_ : se um signatário confiável com o nome fornecido já existir, o item de certificado será adicionado a esse signatário. Caso contrário, um autor confiável será criado com um item de certificado de informações de certificado fornecidas.
 
 
 - **`-AllowUntrustedRoot`**
@@ -122,7 +123,7 @@ _Observação_: se um signatário confiável com o nome fornecido já existir, o
 
 - **`-FingerprintAlgorithm`**
 
-  Especifica o algoritmo de hash usado para calcular a impressão digital do certificado. O padrão é `SHA256`. Os valores com suporte são `SHA256` `SHA384` e `SHA512` .
+  Especifica o algoritmo de hash usado para calcular a impressão digital do certificado. Assume o padrão de `SHA256`. Os valores com suporte são `SHA256` `SHA384` e `SHA512` .
 
 ## <a name="nuget-trusted-signers-remove--name-name"></a>NuGet confiável-os assinantes removem-Name \<name\>
 
@@ -132,7 +133,7 @@ Remove os assinantes confiáveis que correspondem ao nome fornecido.
 
 Solicita a lista mais recente de certificados usados em um repositório atualmente confiável para atualizar a lista de certificados existentes no Assinante confiável.
 
-_Observação_: esse gesto excluirá a lista atual de certificados e os substituirá por uma lista atualizada do repositório.
+_Observação_ : esse gesto excluirá a lista atual de certificados e os substituirá por uma lista atualizada do repositório.
 
 ## <a name="options"></a>Opções
 

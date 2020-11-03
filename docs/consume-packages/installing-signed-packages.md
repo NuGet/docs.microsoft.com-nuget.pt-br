@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428978"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237621"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gerenciar os limites de confiança do pacote
 
@@ -40,7 +40,7 @@ Esse modo vai verificar se todos os pacotes são assinados por qualquer um dos c
 
 ### <a name="trust-package-author"></a>Confiar no autor do pacote
 
-Para confiar em pacotes com [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) base na `author` assinatura do autor, use o comando para definir a propriedade no nuget.config.
+Para confiar em pacotes com base na assinatura de autor, use o [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) comando para definir a `author` propriedade no nuget.config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256

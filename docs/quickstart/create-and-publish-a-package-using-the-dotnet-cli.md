@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231299"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237478"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Início Rápido: Criar e publicar um pacote (CLI do dotnet)
 
@@ -53,7 +53,7 @@ Todos os pacotes NuGet precisam de um manifesto que descreve seu conteúdo e sua
 1. Adicione propriedades opcionais descritas em [Propriedades de metadados do NuGet](/dotnet/core/tools/csproj#nuget-metadata-properties).
 
     > [!Note]
-    > Para pacotes compilados para consumo público, preste atenção especial à propriedade **PackageTags**, à medida que as marcas ajudam outras pessoas a localizar o pacote e entender o que ele faz.
+    > Para pacotes compilados para consumo público, preste atenção especial à propriedade **PackageTags** , à medida que as marcas ajudam outras pessoas a localizar o pacote e entender o que ele faz.
 
 ## <a name="run-the-pack-command"></a>Executar o comando pack
 
@@ -109,7 +109,7 @@ Depois que você tiver um arquivo `.nupkg`, publique-o em nuget.org usando o com
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-the-NET-CLI-5-of-5/player]
 
-Encontre mais vídeos do NuGet no [Canal 9](https://channel9.msdn.com/Series/NuGet-101) e [no YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Encontre mais vídeos sobre o NuGet no [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e no [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -124,6 +124,7 @@ Para ver o que mais o NuGet tem a oferecer, selecione os links abaixo.
 - [Pacotes de pré-lançamento](../create-packages/Prerelease-Packages.md)
 - [Suporte a várias estruturas de destino](../create-packages/multiple-target-frameworks-project-file.md)
 - [Controle de versão do pacote](../concepts/package-versioning.md)
+- [Adicionando um arquivo ou expressão de licença](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
 - [Criando pacotes localizados](../create-packages/creating-localized-packages.md)
-- [Criando pacotes de símbolos](../create-packages/symbol-packages-snupkg.md)
+- [Criando pacotes de símbolo](../create-packages/symbol-packages-snupkg.md)
 - [Assinando pacotes](../create-packages/Sign-a-package.md)

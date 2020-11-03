@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428684"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237381"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Gerenciar pacotes usando a CLI do nuget.exe
 
@@ -32,23 +32,23 @@ Este artigo mostra o uso básico de alguns dos comandos mais comuns da CLI `nuge
 O comando [install](../reference/cli-reference/cli-ref-install.md) baixa e instala um pacote em um projeto, usando como padrão a pasta atual, com as origens do pacote especificadas. Instale novos pacotes na pasta *packages* no diretório raiz do projeto.
 
 > [!IMPORTANT]
-> O `install`comando não modifica um arquivo de projeto nem *packages.config*; dessa forma, ele é semelhante a `restore`, pois apenas adiciona pacotes ao disco, mas não altera as dependências de um projeto. Para adicionar uma dependência, adicione um pacote por meio da interface do usuário do Gerenciador de Pacotes ou do Console no Visual Studio ou modifique *packages.config* e, em seguida, execute `install` ou `restore`.
+> O `install`comando não modifica um arquivo de projeto nem *packages.config* ; dessa forma, ele é semelhante a `restore`, pois apenas adiciona pacotes ao disco, mas não altera as dependências de um projeto. Para adicionar uma dependência, adicione um pacote por meio da interface do usuário do Gerenciador de Pacotes ou do Console no Visual Studio ou modifique *packages.config* e, em seguida, execute `install` ou `restore`.
 
 1. Abra uma linha de comando e alterne para o diretório que contém o arquivo de projeto.
 
-2. Use o comando a seguir para instalar um pacote NuGet na pasta *packages*.
+2. Use o comando a seguir para instalar um pacote NuGet na pasta *packages* .
 
     ```cli
     nuget install <packageID> -OutputDirectory packages
     ```
 
-    Para instalar o pacote `Newtonsoft.json` na pasta *packages*, use o seguinte comando:
+    Para instalar o pacote `Newtonsoft.json` na pasta *packages* , use o seguinte comando:
 
     ```cli
     nuget install Newtonsoft.Json -OutputDirectory packages
     ```
 
-Como alternativa, você pode usar o comando a seguir para instalar um pacote NuGet usando um arquivo `packages.config` existente na pasta *packages*. Isso não adiciona o pacote às dependências do projeto, mas o instala localmente.
+Como alternativa, você pode usar o comando a seguir para instalar um pacote NuGet usando um arquivo `packages.config` existente na pasta *packages* . Isso não adiciona o pacote às dependências do projeto, mas o instala localmente.
 
 ```cli
 nuget install packages.config -OutputDirectory packages
@@ -72,7 +72,7 @@ Para obter mais informações sobre as limitações e o comportamento de `instal
 
 ## <a name="remove-a-package"></a>Remover um pacote
 
-Para excluir um ou mais pacotes, exclua os pacotes que deseja remover da pasta *packages*.
+Para excluir um ou mais pacotes, exclua os pacotes que deseja remover da pasta *packages* .
 
 Caso deseje reinstalar pacotes, use o comando `restore` ou `install`.
 
@@ -84,7 +84,7 @@ Você pode exibir uma lista de pacotes de determinada fonte usando o comando [li
 nuget list -Source <source>
 ```
 
-Por exemplo, liste os pacotes da pasta *packages*.
+Por exemplo, liste os pacotes da pasta *packages* .
 
 ```cli
 nuget list -Source C:\Users\username\source\repos\MyProject\packages

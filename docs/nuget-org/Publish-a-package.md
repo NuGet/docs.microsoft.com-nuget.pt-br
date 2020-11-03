@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623014"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237926"
 ---
 # <a name="publishing-packages"></a>Publicando pacotes
 
@@ -24,7 +24,7 @@ Este artigo aborda a publicação no nuget.org. Para saber sobre a publicação 
 
 ## <a name="publish-to-nugetorg"></a>Publicar no nuget.org
 
-Para nuget.org, você deve entrar com um conta Microsoft, com o qual será solicitado que você registre a conta com nuget.org. Você também pode entrar com uma conta do nuget.org criada usando versões mais antigas do Portal.
+No nuget.org, entre com uma conta da Microsoft. Será solicitado que você registre essa conta em nuget.org.
 
 ![Localização de entrada do NuGet](media/publish_NuGetSignIn.png)
 
@@ -47,7 +47,7 @@ Em seguida, você poderá carregar o pacote por meio do portal da Web nuget.org,
 ### <a name="command-line"></a>Linha de comando
 
 Para enviar pacotes por push para o nuget.org, primeiro você precisa de uma chave de API, que é criada em nuget.org. Você deve usar o dotnet.exe (.NET Core) ou nuget.exe v 4.1.0 ou superior, que implementa os protocolos NuGet necessários.
-Para obter mais informações, consulte [.NET Core](https://docs.microsoft.com/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)e [protocolos NuGet](../api/nuget-protocols.md).
+Para obter mais informações, consulte [.NET Core](/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)e [protocolos NuGet](../api/nuget-protocols.md).
 
 #### <a name="create-api-keys"></a>Criar chaves de API
 
