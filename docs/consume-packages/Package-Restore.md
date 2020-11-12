@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0edfa1f61e6b18ef38689ed2272b2c5992a46ae6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 05fa68ad3a0b353117a14e2b3e1cdf13dc806127
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237842"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550382"
 ---
 # <a name="restore-packages-using-package-restore"></a>Restaurar pacotes usando a Restauração de Pacote
 
@@ -29,7 +29,7 @@ Se um pacote ainda não estiver instalado, primeiro, o NuGet tentará recuperá-
 
 ## <a name="restore-packages"></a>Restaurar pacotes
 
-A Restauração de Pacote tenta instalar todas as dependências de pacotes no estado correto correspondente às referências de pacote do arquivo de projeto ( *.csproj* ) ou do arquivo *packages.config* . No Visual Studio, as referências aparecem no Gerenciador de Soluções em **Dependências \ NuGet** ou no nó **Referências** .
+A Restauração de Pacote tenta instalar todas as dependências de pacotes no estado correto correspondente às referências de pacote do arquivo de projeto ( *.csproj* ) ou do arquivo *packages.config*. No Visual Studio, as referências aparecem no Gerenciador de Soluções em **Dependências \ NuGet** ou no nó **Referências**.
 
 1. Se as referências de pacote no arquivo de projeto estiverem corretas, use sua ferramenta preferida para restaurar os pacotes.
 
@@ -60,7 +60,7 @@ No Visual Studio no Windows, siga um destes procedimentos:
 
 A Restauração de Pacote ocorre automaticamente quando você cria um projeto com base em um modelo ou compila um projeto, sujeito às opções em [Habilitar e desabilitar a restauração de pacote](#enable-and-disable-package-restore-in-visual-studio). No NuGet 4.0 e posterior, a restauração também ocorre automaticamente quando você faz alterações em um projeto do estilo SDK (normalmente um projeto do .NET Core ou .NET Standard).
 
-1. Habilite a restauração automática de pacote escolhendo **ferramentas**  >  **Opções**  >  **Gerenciador de pacotes NuGet** e, em seguida, selecionando **verificar automaticamente se há pacotes ausentes durante a compilação no Visual Studio** em **restauração de pacote** .
+1. Habilite a restauração automática de pacote escolhendo **ferramentas**  >  **Opções**  >  **Gerenciador de pacotes NuGet** e, em seguida, selecionando **verificar automaticamente se há pacotes ausentes durante a compilação no Visual Studio** em **restauração de pacote**.
 
    Para projetos com estilo diferente do SDK, selecione primeiro **Permitir que o NuGet baixe os pacotes ausentes** para habilitar a opção de restauração automática.
 
@@ -72,9 +72,9 @@ A Restauração de Pacote ocorre automaticamente quando você cria um projeto co
 
 ### <a name="restore-packages-manually-using-visual-studio"></a>Restaurar pacotes manualmente usando o Visual Studio
 
-1. Habilite a restauração do pacote escolhendo **ferramentas**  >  **Opções**  >  **Gerenciador de pacotes NuGet** . Nas opções de **Restauração de Pacote** , selecione **Permitir que o NuGet baixe os pacotes ausentes** .
+1. Habilite a restauração do pacote escolhendo **ferramentas**  >  **Opções**  >  **Gerenciador de pacotes NuGet**. Nas opções de **Restauração de Pacote** , selecione **Permitir que o NuGet baixe os pacotes ausentes**.
 
-1. No **Gerenciador de Soluções** , clique com o botão direito do mouse na solução e selecione **Restaurar Pacotes NuGet** .
+1. No **Gerenciador de Soluções** , clique com o botão direito do mouse na solução e selecione **Restaurar Pacotes NuGet**.
 
    Se um ou mais pacotes individuais ainda não estiverem instalados corretamente, o **Gerenciador de Soluções** mostrará um ícone de erro. Clique com o botão direito do mouse e selecione **Gerenciar Pacotes NuGet** e use o **Gerenciador de Pacotes** para desinstalar e reinstalar os pacotes afetados. Para obter mais informações, confira [Reinstalar e atualizar pacotes](../consume-packages/reinstalling-and-updating-packages.md)
 
@@ -143,7 +143,7 @@ O NuGet tem dois formatos nos quais um projeto pode usar pacotes: [`PackageRefer
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
 
 > [!IMPORTANT]
-> O `restore` comando não modifica um arquivo de projeto ou *packages.config* . Para adicionar uma dependência, adicione um pacote por meio da interface do usuário ou console do Gerenciador de pacotes no Visual Studio ou modifique *packages.config* e, em seguida, execute um `install` ou o `restore` .
+> O `restore` comando não modifica um arquivo de projeto ou *packages.config*. Para adicionar uma dependência, adicione um pacote por meio da interface do usuário ou console do Gerenciador de pacotes no Visual Studio ou modifique *packages.config* e, em seguida, execute um `install` ou o `restore` .
 
 ## <a name="restore-using-msbuild"></a>Restaurar usando o MSBuild
 
@@ -169,7 +169,7 @@ Para restaurar os pacotes listados no arquivo de projeto com PackageReference, u
    Verifique se a saída de MSBuild indica que a compilação foi concluída com êxito.
    
 > [!Note]
-> o MSBuild tem uma `-restore` opção que será executada `Restore` , recarregará o projeto e, em seguida, compilará. Consulte [restaurando e compilando com um comando do MSBuild](/nuget/reference/msbuild-targets#restoring-and-building-with-one-msbuild-command).
+> o MSBuild tem uma `-restore` opção que será executada `Restore` , recarregará o projeto e, em seguida, compilará. Consulte [restaurando e compilando com um comando do MSBuild](../reference/msbuild-targets.md#restoring-and-building-with-one-msbuild-command).
 
 ```cmd
 # Will restore the project, then build, since build is the default target.
@@ -222,15 +222,15 @@ Para evitar o uso do cache para origens HTTP, siga um destes procedimentos:
 
 ## <a name="migrate-to-automatic-package-restore-visual-studio"></a>Migrar para restauração automática de pacote (Visual Studio)
 
-Para o NuGet 2.6 e anterior, havia suporte para uma restauração de pacote integrada ao MSBuild, mas isso não é mais verdade. Normalmente, ele era habilitado clicando com o botão direito do mouse em uma solução no Visual Studio e selecionando **Habilitar restauração de pacote do NuGet** . Se o seu projeto usa a restauração de pacote integrada do MSBuild preterida, migre para a restauração automática de pacote.
+Para o NuGet 2.6 e anterior, havia suporte para uma restauração de pacote integrada ao MSBuild, mas isso não é mais verdade. Normalmente, ele era habilitado clicando com o botão direito do mouse em uma solução no Visual Studio e selecionando **Habilitar restauração de pacote do NuGet**. Se o seu projeto usa a restauração de pacote integrada do MSBuild preterida, migre para a restauração automática de pacote.
 
-Os projetos que usam MSBuild-Integrated restauração de pacote normalmente contêm uma pasta *. NuGet* com três arquivos: *NuGet.config* , *nuget.exe* e *NuGet. targets* . A presença de um arquivo *NuGet. targets* determina se o NuGet continuará a usar a abordagem integrada ao MSBuild, portanto, esse arquivo deve ser removido durante a migração.
+Os projetos que usam MSBuild-Integrated restauração de pacote normalmente contêm uma pasta *. NuGet* com três arquivos: *NuGet.config* , *nuget.exe* e *NuGet. targets*. A presença de um arquivo *NuGet. targets* determina se o NuGet continuará a usar a abordagem integrada ao MSBuild, portanto, esse arquivo deve ser removido durante a migração.
 
 Para migrar para restauração automática de pacote:
 
 1. Feche o Visual Studio.
-2. Exclua *.nuget/nuget.exe* e *.nuget/NuGet.targets* .
-3. Para cada arquivo de projeto, remova o elemento `<RestorePackages>` e qualquer referência a *NuGet.targets* .
+2. Exclua *.nuget/nuget.exe* e *.nuget/NuGet.targets*.
+3. Para cada arquivo de projeto, remova o elemento `<RestorePackages>` e qualquer referência a *NuGet.targets*.
 
 Para testar a restauração automática de pacote:
 
