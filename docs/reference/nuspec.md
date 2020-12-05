@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f91d47bdf9b957b512d3d83434693ee93de07afb
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 6e5107ac05046ea46cc819ebe2a504ba6b030634
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623130"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738936"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -83,7 +83,7 @@ A versão do pacote, seguindo o padrão *principal.secundária.patch*. Os númer
 
 Ao carregar um pacote no nuget.org, o `version` campo é limitado a 64 caracteres.
 
-#### <a name="description"></a>descrição
+#### <a name="description"></a>description
 Uma descrição do pacote para exibição da interface do usuário.
 
 Ao carregar um pacote no nuget.org, o `description` campo é limitado a 4000 caracteres.
@@ -96,6 +96,9 @@ Ao carregar um pacote no nuget.org, o `authors` campo é limitado a 4000 caracte
 ### <a name="optional-metadata-elements"></a>Elementos de metadados opcionais
 
 #### <a name="owners"></a>owners
+> [!Important]
+> os proprietários são preteridos. Em vez disso, use os autores.
+
 Uma lista separada por vírgulas dos criadores de pacote usando nomes de perfil em nuget.org. Isso geralmente é a mesma lista que em `authors` e é ignorado ao carregar o pacote para o NuGet.org. Consulte [Gerenciando proprietários de pacotes em NuGet.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 
 #### <a name="projecturl"></a>projectUrl
@@ -220,7 +223,7 @@ Ao carregar um pacote no nuget.org, o `summary` campo é limitado a 4000 caracte
 
 Ao carregar um pacote no nuget.org, o `releaseNotes` campo é limitado a 35.000 caracteres.
 
-#### <a name="copyright"></a>copyright
+#### <a name="copyright"></a>direitos autorais
 *(1.5 ou superior)* Detalhes sobre direitos autorais do pacote.
 
 Ao carregar um pacote no nuget.org, o `copyright` campo é limitado a 4000 caracteres.
@@ -519,7 +522,7 @@ Cada elemento `<file>` especifica os seguintes atributos:
 | --- | --- |
 | **src** | O local do arquivo ou arquivos a serem incluídos, sujeito a exclusões especificadas pelo atributo `exclude`. O caminho é relativo ao arquivo `.nuspec`, a menos que um caminho absoluto seja especificado. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 | **destino** | O caminho relativo para a pasta dentro do pacote em que os arquivos de origem são colocados, os quais devem começar com `lib`, `content`, `build` ou `tools`. Consulte [Criando um .nuspec de um diretório de trabalho baseado em convenção](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **excluir** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
+| **excluí** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 
 ### <a name="examples"></a>Exemplos
 
@@ -723,10 +726,10 @@ Esses arquivos são especificados com um conjunto de atributos que descrevem com
 | Atributo | Descrição |
 | --- | --- |
 | **incluir** | (Obrigatório) O local do arquivo ou arquivos a serem incluídos, sujeito a exclusões especificadas pelo atributo `exclude`. O caminho é relativo à `contentFiles` pasta, a menos que um caminho absoluto seja especificado. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
-| **excluir** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
+| **excluí** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 | **buildAction** | A ação de compilação a ser atribuída ao item de conteúdo para o MSBuild, como,,, `Content` `None` `Embedded Resource` `Compile` etc. O padrão é `Compile` . |
-| **copyToOutput** | Um booliano que indica se os itens de conteúdo devem ser copiados para a pasta de saída Build (ou Publish). O padrão é false. |
-| **flatten** | Um valor booliano que indica se os itens de conteúdo devem ser copiados para uma única pasta na saída do build (verdadeiro) ou preservar a estrutura de pasta no pacote (falso). Esse sinalizador só funciona quando o sinalizador copyToOutput está definido como true. O padrão é false. |
+| **copyToOutput** | Um booliano que indica se os itens de conteúdo devem ser copiados para a pasta de saída Build (ou Publish). O padrão é falso. |
+| **flatten** | Um valor booliano que indica se os itens de conteúdo devem ser copiados para uma única pasta na saída do build (verdadeiro) ou preservar a estrutura de pasta no pacote (falso). Esse sinalizador só funciona quando o sinalizador copyToOutput está definido como true. O padrão é falso. |
 
 Ao instalar um pacote, o NuGet aplicará os elementos filho de `<contentFiles>` de cima para baixo. Se várias entradas corresponderem ao mesmo arquivo, todas as entradas serão aplicadas. A entrada superior substitui as entradas mais baixas em caso de conflito para o mesmo atributo.
 

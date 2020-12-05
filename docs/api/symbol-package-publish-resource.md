@@ -1,9 +1,7 @@
 ---
 title: Pacotes de símbolo de push, API do NuGet | Microsoft Docs
 author: cristinamanum
-ms.author:
-- cmanu
-- kraigb
+ms.author: cmanu
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -12,33 +10,33 @@ ms.technology: ''
 description: O serviço de publicação permite que os clientes publiquem novos pacotes de símbolo.
 keywords: Pacote de símbolos de push da API do NuGet
 ms.reviewer: karann
-ms.openlocfilehash: 27e557bf15ce31152243a409eddc4112eeb6c38b
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235113"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738871"
 ---
 # <a name="push-symbol-packages"></a>Pacotes de símbolo de push
 
 É possível enviar por push os pacotes de símbolos ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) usando a API do NuGet v3.
-Essas operações são baseadas `SymbolPackagePublish` no recurso encontrado no índice de [serviço](service-index.md).
+Essas operações são baseadas no `SymbolPackagePublish` recurso encontrado no [índice de serviço](service-index.md).
 
 ## <a name="versioning"></a>Controle de versão
 
 O seguinte `@type` valor é usado:
 
-Valor @type                 | Observações
+@type valor                 | Observações
 --------------------        | -----
 SymbolPackagePublish/4.9.0  | A versão inicial
 
-## <a name="base-url"></a>URL Base
+## <a name="base-url"></a>URL base
 
-A URL base para as APIs a seguir é o valor da `@id` propriedade `SymbolPackagePublish/4.9.0` do recurso no [índice de serviço](service-index.md)da origem do pacote. Para a documentação abaixo, a URL do NuGet. org é usada. Considere `https://www.nuget.org/api/v2/symbolpackage` como um espaço reservado para `@id` o valor encontrado no índice de serviço.
+A URL base para as APIs a seguir é o valor da `@id` Propriedade do `SymbolPackagePublish/4.9.0` recurso no [índice de serviço](service-index.md)da origem do pacote. Para a documentação abaixo, a URL do NuGet. org é usada. Considere `https://www.nuget.org/api/v2/symbolpackage` como um espaço reservado para o `@id` valor encontrado no índice de serviço.
 
 ## <a name="http-methods"></a>Métodos HTTP
 
-Este `PUT` recurso dá suporte ao método http. 
+`PUT`Este recurso dá suporte ao método http. 
 
 ## <a name="push-a-symbol-package"></a>Enviar por push um pacote de símbolos
 
@@ -51,11 +49,11 @@ Pacotes de símbolos com a mesma ID e versão podem ser enviados várias vezes. 
 - Um pacote de símbolos com a mesma ID e versão foi enviado por push, mas ainda não foi publicado.
 - O pacote de símbolos ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) é inválido (consulte [restrições de pacote de símbolo](../create-packages/Symbol-Packages-snupkg.md)).
 
-### <a name="request-parameters"></a>Parâmetros de solicitação
+### <a name="request-parameters"></a>Parâmetros da solicitação
 
-Nome           | No     | Tipo   | Necessária | Observações
+Nome           | Em     | Type   | Obrigatório | Observações
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Cabeçalho | cadeia de caracteres | sim      | Por exemplo, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Cabeçalho | string | sim      | Por exemplo, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 A chave de API é uma cadeia de caracteres opaca proveniente da origem do pacote pelo usuário e configurada no cliente. Nenhum formato de cadeia de caracteres específico é obrigatório, mas o comprimento da chave de API não deve exceder um tamanho razoável para valores de cabeçalho HTTP.
 

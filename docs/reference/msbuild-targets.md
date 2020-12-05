@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16fd7b9103ef5ac335f0b2e5493dd2983b182f50
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623169"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738923"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -48,7 +48,7 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 
 | Valor de atributo/NuSpec | Propriedade do MSBuild | Padrão | Observações |
 |--------|--------|--------|--------|
-| ID | PackageId | AssemblyName | $(AssemblyName) do MSBuild |
+| Id | PackageId | AssemblyName | $(AssemblyName) do MSBuild |
 | Versão | PackageVersion | Versão | Isso é compatível com semver, por exemplo “1.0.0”, “1.0.0-beta” ou “1.0.0-beta-00345” |
 | VersionPrefix | PackageVersionPrefix | vazio | A configuração PackageVersion substitui PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | vazio | $(VersionSuffix) do MSBuild. A configuração PackageVersion substitui PackageVersionSuffix |
@@ -62,9 +62,9 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 | license | PackageLicenseFile | vazio | Corresponde ao `<license type="file">`. Você precisa empacotar explicitamente o arquivo de licença referenciado. |
 | LicenseUrl | PackageLicenseUrl | vazio | `PackageLicenseUrl` é preterido, use a propriedade PackageLicenseExpression ou PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | vazio | |
-| ícone | PackageIcon | vazio | Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado.|
+| Ícone | PackageIcon | vazio | Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado.|
 | IconUrl | PackageIconUrl | vazio | Para obter a melhor experiência de nível inferior, `PackageIconUrl` deve ser especificado além de `PackageIcon` . Período mais longo, `PackageIconUrl` será preterido. |
-| Marcas | PackageTags | vazio | Marcas são delimitadas por ponto e vírgula. |
+| Marcações | PackageTags | vazio | Marcas são delimitadas por ponto e vírgula. |
 | ReleaseNotes | PackageReleaseNotes | vazio | |
 | Repositório/URL | RepositoryUrl | vazio | URL do repositório usada para clonar ou recuperar o código-fonte. Exemplo *https://github.com/NuGet/NuGet.Client.git* |
 | Repositório/tipo | RepositoryType | vazio | Tipo de repositório. Exemplos: *git*, *TFS*. |
@@ -365,7 +365,8 @@ Um exemplo:
 1. Baixar os pacotes
 1. Gravar arquivo de ativos, destinos e objetos
 
-O `restore` destino funciona **apenas** para projetos que usam o formato PackageReference. Ele não **funciona para** projetos que usam o `packages.config` formato; em vez disso, use a [restauração do NuGet](../reference/cli-reference/cli-ref-restore.md) .
+O `restore` destino funciona para projetos que usam o formato PackageReference.
+`MSBuild 16.5+` também tem [suporte opcional](#restoring-packagereference-and-packages.config-with-msbuild) para o `packages.config` formato.
 
 ### <a name="restore-properties"></a>Restaurar propriedades
 
@@ -391,7 +392,8 @@ Configurações de restauração adicionais podem vir de propriedades MSBuild no
 | RestorePackagesWithLockFile | Opta pelo uso de um arquivo de bloqueio. |
 | RestoreLockedMode | Execute RESTORE no modo bloqueado. Isso significa que a restauração não reavaliará as dependências. |
 | NuGetLockFilePath | Um local personalizado para o arquivo de bloqueio. O local padrão é ao lado do projeto e é nomeado `packages.lock.json` . |
-| RestoreForceEvaluate | Força a restauração a recalcular as dependências e atualizar o arquivo de bloqueio sem nenhum aviso. | 
+| RestoreForceEvaluate | Força a restauração a recalcular as dependências e atualizar o arquivo de bloqueio sem nenhum aviso. |
+| RestorePackagesConfig | Um comutador opcional que restaura projetos com packages.config. Suporte `MSBuild -t:restore` apenas com. |
 
 #### <a name="examples"></a>Exemplos
 
@@ -435,6 +437,17 @@ msbuild -t:build -restore
 ```
 
 A mesma lógica se aplica a outros destinos semelhantes a `build` .
+
+### <a name="restoring-packagereference-and-packagesconfig-with-msbuild"></a>Restaurando PackageReference e packages.config com o MSBuild
+
+Com o MSBuild los +, também há suporte para packages.config para `msbuild -t:restore` .
+
+```cli
+msbuild -t:restore -p:RestorePackagesConfig=true
+```
+
+> [!NOTE]
+> `packages.config` a restauração está disponível apenas com o `MSBuild 16.5+` , e não com `dotnet.exe`
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
