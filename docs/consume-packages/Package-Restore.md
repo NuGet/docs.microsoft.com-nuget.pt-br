@@ -1,16 +1,16 @@
 ---
 title: Restauração de pacote do NuGet
 description: Uma visão geral de como o NuGet restaura os pacotes dos quais um projeto depende, incluindo como desabilitar a restauração e restringir as versões.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: be68d3bd1c7dfcc5661276c0b62d46722af61a00
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738949"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523530"
 ---
 # <a name="restore-packages-using-package-restore"></a>Restaurar pacotes usando a Restauração de Pacote
 
@@ -82,7 +82,7 @@ A Restauração de Pacote ocorre automaticamente quando você cria um projeto co
 
 ### <a name="enable-and-disable-package-restore-in-visual-studio"></a>Habilitar e desabilitar a restauração de pacote no Visual Studio
 
-No Visual Studio, você controla a restauração de pacotes principalmente por meio das opções de **ferramentas**  >  **Options**  >  **Gerenciador de pacotes NuGet**:
+No Visual Studio, você controla a restauração de pacotes principalmente por meio das opções de **ferramentas**  >    >  **Gerenciador de pacotes NuGet**:
 
 ![Controlar a Restauração de Pacote por meio das opções do Gerenciador de Pacotes NuGet](media/Restore-01-AutoRestoreOptions.png)
 
@@ -147,7 +147,7 @@ O NuGet tem dois formatos nos quais um projeto pode usar pacotes: [`PackageRefer
 
 ## <a name="restore-using-msbuild"></a>Restaurar usando o MSBuild
 
-Use o comando [MSBuild-t:Restore](../reference/msbuild-targets.md#restore-target) para restaurar os pacotes listados no arquivo de projeto (consulte [PackageReference](../../consume-packages/package-references-in-project-files.md)) e começando com o MSBuild los +, `packages.config` projetos.
+Use o comando [MSBuild-t:Restore](../reference/msbuild-targets.md#restore-target) para restaurar os pacotes listados no arquivo de projeto (consulte [PackageReference](package-references-in-project-files.md)) e começando com o MSBuild los +, `packages.config` projetos.
 
  Esse comando só está disponível no NuGet 4.x e posterior e no MSBuild 15.1 e posterior, que estão incluídos no Visual Studio 2017 e em versões superiores.
 A partir do MSBuild e +, esse comando também pode restaurar `packages.config` projetos baseados quando executado com o `-p:RestorePackagesConfig=true` .
