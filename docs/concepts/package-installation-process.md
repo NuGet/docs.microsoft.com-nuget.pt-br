@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ae030c308b14b8884fb608c1683c8c46000b0bd
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 634c421499b06f6b62d88a95f8703614dec5ace8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "77036897"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699762"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>O que acontece quando um pacote NuGet é instalado?
 
@@ -25,7 +25,10 @@ O processo geral é o seguinte:
 2. Adquira o pacote:
    - Verifique se o pacote (pelo identificador exato ou pelo número da versão) já está instalado na pasta *global-packages* conforme descrito em [Como gerenciar as pastas de pacotes globais e de cache](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-   - Se o pacote não estiver na pasta *pacotes globais,* tente recuperá-lo das fontes listadas nos [arquivos de configuração](../consume-packages/Configuring-NuGet-Behavior.md). Para fontes online, primeiro tente recuperar o pacote do cache HTTP, a menos que `-NoCache` seja especificado com comandos `nuget.exe` ou que `--no-cache` seja especificado com `dotnet restore`. (Visual Studio `dotnet add package` e sempre use o cache.) Se um pacote for usado no cache, "CACHE" aparecerá na saída. O cache tem um tempo de expiração de 30 minutos.
+   - Se o pacote não estiver na pasta *global-Packages* , tente recuperá-lo das fontes listadas nos [arquivos de configuração](../consume-packages/Configuring-NuGet-Behavior.md). Para fontes online, primeiro tente recuperar o pacote do cache HTTP, a menos que `-NoCache` seja especificado com comandos `nuget.exe` ou que `--no-cache` seja especificado com `dotnet restore`. (O Visual Studio e `dotnet add package` sempre usa o cache.) Se um pacote for usado do cache, "CACHE" aparecerá na saída. O cache tem um tempo de expiração de 30 minutos.
+
+   - Se o pacote tiver sido especificado usando uma [versão flutuante](../consume-packages/Package-References-in-Project-Files.md#floating-versions)ou sem uma versão mínima, *o NuGet* entrará em contato com todas as fontes para descobrir a melhor correspondência.
+   Exemplo: `1.*` , `(, 2.0.0]` .
 
    - Se o pacote não estiver no cache HTTP, tente baixá-lo nas fontes listadas na configuração. Se um pacote for baixado, "GET" e "OK" serão exibidos na saída. O NuGet registra o tráfego HTTP em log no nível de detalhes normal.
 

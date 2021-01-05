@@ -1,16 +1,16 @@
 ---
 title: Criar um pacote do NuGet usando a CLI nuget.exe
-description: Um guia detalhado para o processo de design e criação de um pacote do NuGet, incluindo os principais pontos de decisão como arquivos e controle de versão.
+description: Um guia detalhado sobre como projetar e criar um pacote NuGet, incluindo arquivos e controle de versão.
 author: karann-msft
-ms.author: karann
+ms.author: feaguila
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: ec06a8f721b7b67ddc5d72323305b9b22f292de6
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428943"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699798"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Criar um pacote usando a CLI nuget.exe
 
@@ -68,8 +68,8 @@ Propriedades opcionais comuns:
 - Uma breve descrição para a [Interface do usuário do Gerenciador de Pacotes no Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - Uma identificação de localidade
 - URL de Projeto
-- Licença como expressão ou`licenseUrl` arquivo (está sendo preterido, use o [ `license` elemento metadados nuspec](../reference/nuspec.md#license))
-- Uma URL de ícone
+- Licença como uma expressão ou um arquivo ( `licenseUrl` é preterido, use o [ `license` elemento de metadados nuspec](../reference/nuspec.md#license) em vez disso)
+- Um arquivo de ícone ( `iconUrl` é preterido, use o [ `icon` elemento de metadados nuspec](../reference/nuspec.md#icon) )
 - Listas de dependências e referências
 - Marcas que auxiliam em pesquisas de galeria
 
@@ -79,11 +79,11 @@ A seguir está um arquivo `.nuspec` típico (mas fictício), com os comentários
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <!-- The identifier that must be unique within the hosting gallery -->
+        <!-- Identifier that must be unique within the hosting gallery -->
         <id>Contoso.Utility.UsefulStuff</id>
 
-        <!-- The package version number that is used when resolving dependencies -->
-        <version>1.8.3-beta</version>
+        <!-- Package version number that is used when resolving dependencies -->
+        <version>1.8.3</version>
 
         <!-- Authors contain text that appears directly on the gallery -->
         <authors>Dejana Tesic, Rajeev Dey</authors>
@@ -101,8 +101,8 @@ A seguir está um arquivo `.nuspec` típico (mas fictício), com os comentários
         <license type="expression">Apache-2.0</license>
         
 
-        <!-- The icon is used in Visual Studio's package manager UI -->
-        <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
+        <!-- Icon is used in Visual Studio's package manager UI -->
+        <icon>icon.png</icon>
 
         <!-- 
             If true, this value prompts the user to accept the license when
@@ -134,6 +134,7 @@ A seguir está um arquivo `.nuspec` típico (mas fictício), com os comentários
     <!-- A readme.txt to display when the package is installed -->
     <files>
         <file src="readme.txt" target="" />
+        <file src="icon.png" target="" />
     </files>
 </package>
 ```
@@ -183,11 +184,11 @@ As convenções de pasta são as seguintes:
 | lib/{tfm} | Arquivos de assembly (`.dll`), documentação (`.xml`) e símbolo (`.pdb`) para TFM (Moniker de Estrutura de Destino) | Os assemblies são adicionados como referências para a compilação e o runtime também; `.xml` e `.pdb` são copiados para as pastas do projeto. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md) para ver a criação de subpastas específicas de destino da estrutura. |
 | ref/{tfm} | Arquivos de assembly (`.dll`) e símbolo (`.pdb`) para TFM (Moniker de Estrutura de Destino) | Assemblies são adicionados como referências apenas para o tempo de compilação, portanto, nada será copiado para a pasta lixeira do projeto. |
 | runtimes | Arquivos de assembly específico de arquitetura (`.dll`), símbolo (`.pdb`) e recurso nativo (`.pri`) | Assemblies são adicionados como referências apenas para o runtime. Outros arquivos são copiados para as pastas do projeto. Deve sempre haver um assembly específico (TFM) `AnyCPU` correspondente na pasta `/ref/{tfm}` para oferecer o assembly de tempo de compilação correspondente. Consulte [Suporte a várias estruturas de destino](supporting-multiple-target-frameworks.md). |
-| content | Arquivos arbitrários | O conteúdo é copiado para a raiz do projeto. Pense na pasta **content** como a raiz do aplicativo de destino que, enfim, consome o pacote. Para fazer o pacote adicionar uma imagem à pasta */imagens* do aplicativo, coloque-o na pasta *content/images* do pacote. |
+| conteúdo | Arquivos arbitrários | O conteúdo é copiado para a raiz do projeto. Pense na pasta **content** como a raiz do aplicativo de destino que, enfim, consome o pacote. Para fazer o pacote adicionar uma imagem à pasta */imagens* do aplicativo, coloque-o na pasta *content/images* do pacote. |
 | compilar | Arquivos `.targets` e `.props` do MSBuild *(3.x+)* | Inserido automaticamente no projeto. |
 | buildMultiTargeting | Arquivos `.targets` e `.props` do MSBuild *(4.0+)* para direcionamento entre estruturas | Inserido automaticamente no projeto. |
 | buildTransitive | Arquivos `.targets` e `.props` do MSBuild *(5.0+)* que fluem para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Inserido automaticamente no projeto. |
-| ferramentas | Scripts e programas do Powershell acessíveis do Console do Gerenciador de Pacotes | A pasta `tools` é adicionada à variável de ambiente `PATH` somente para o Console do Gerenciador de Pacotes (especificamente, *não* para o `PATH` conforme definido para MSBuild ao criar o projeto). |
+| tools | Scripts e programas do Powershell acessíveis do Console do Gerenciador de Pacotes | A pasta `tools` é adicionada à variável de ambiente `PATH` somente para o Console do Gerenciador de Pacotes (especificamente, *não* para o `PATH` conforme definido para MSBuild ao criar o projeto). |
 
 Como a estrutura de pastas pode conter qualquer número de assemblies para uma infinidade de estruturas de destino, esse método é necessário ao criar pacotes compatíveis com várias estruturas.
 
@@ -241,7 +242,7 @@ Observe que há várias opções de empacotamento adicional disponíveis ao trab
 
 #### <a name="solution-level-packages"></a>Pacotes de nível de solução
 
-*Somente NuGet 2.x. Não disponível no NuGet 3.0+.*
+*Somente NuGet 2. x. Não disponível no NuGet 3.0 +.*
 
 O NuGet 2.x é compatível com a noção de um pacote de nível de solução que instala ferramentas ou comandos adicionais para o Console do Gerenciador de Pacotes (o conteúdo da pasta `tools`), mas não adiciona referências, conteúdo ou personalizações de build aos projetos na solução. Esses pacotes não contém arquivos em suas pastas `lib`, `content` ou `build` diretas e nenhuma de suas dependências têm arquivos em suas respectivas pastas `lib`, `content` ou `build`.
 
@@ -255,7 +256,7 @@ O comando a seguir cria um manifesto padrão com espaços reservados, que garant
 nuget spec [<package-name>]
 ```
 
-Se você omitir \<package-name\>, o arquivo resultante será `Package.nuspec`. Se você fornecer um nome como `Contoso.Utility.UsefulStuff`, o arquivo será `Contoso.Utility.UsefulStuff.nuspec`.
+Se você omitir \<package-name\> , o arquivo resultante será `Package.nuspec` . Se você fornecer um nome como `Contoso.Utility.UsefulStuff`, o arquivo será `Contoso.Utility.UsefulStuff.nuspec`.
 
 O `.nuspec` resultante contém espaços reservados para valores como o `projectUrl`. Edite o arquivo antes de usá-lo para criar o arquivo `.nupkg` final.
 
@@ -267,7 +268,7 @@ O identificador de pacote (elemento `<id>`) e o número de versão (elemento `<v
 
 - **Exclusividade**: o identificador deve ser exclusivo no nuget.org ou na galeria que hospeda o pacote. Antes de decidir sobre um identificador, pesquise a galeria aplicável para verificar se o nome já está em uso. Para evitar conflitos, um bom padrão é usar o nome da sua empresa como a primeira parte do identificador, como `Contoso.`.
 - **Nomes semelhantes a namespace**: siga um padrão semelhante aos namespaces no .NET, usando a notação de ponto em vez de hifens. Por exemplo, use `Contoso.Utility.UsefulStuff` em vez de `Contoso-Utility-UsefulStuff` ou `Contoso_Utility_UsefulStuff`. Também é útil para os consumidores quando o identificador de pacote corresponde os namespaces usados no código.
-- **Pacotes de exemplo**: se você gerar um pacote de código de exemplo que demonstra como usar outro pacote, anexe `.Sample` como um sufixo ao identificador, como em `Contoso.Utility.UsefulStuff.Sample`. (O pacote de amostra teria, naturalmente, uma dependência do outro pacote.) Ao criar um pacote de exemplo, use o método de diretório de trabalho baseado em convenção descrito anteriormente. Na pasta `content`, organize o código de exemplo em uma pasta chamada `\Samples\<identifier>` como no `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Pacotes de exemplo**: se você gerar um pacote de código de exemplo que demonstra como usar outro pacote, anexe `.Sample` como um sufixo ao identificador, como em `Contoso.Utility.UsefulStuff.Sample`. (O pacote de exemplo, obviamente, teria uma dependência do outro pacote.) Ao criar um pacote de exemplo, use o método de diretório de trabalho baseado em Convenção descrito anteriormente. Na pasta `content`, organize o código de exemplo em uma pasta chamada `\Samples\<identifier>` como no `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Práticas recomendadas para a versão de pacote:**
 
@@ -316,6 +317,7 @@ Em alguns casos, convém adicionar destinos ou propriedades de build personaliza
 
 Arquivos na pasta `\build` raiz são considerados adequados para todas as estruturas de destino. Para fornecer arquivos específicos de estrutura, primeiro coloque-os em subpastas apropriadas, como os seguintes:
 
+```
     \build
         \netstandard1.4
             \Contoso.Utility.UsefulStuff.props
@@ -323,6 +325,7 @@ Arquivos na pasta `\build` raiz são considerados adequados para todas as estrut
         \net462
             \Contoso.Utility.UsefulStuff.props
             \Contoso.Utility.UsefulStuff.targets
+```
 
 Em seguida, no arquivo `.nuspec`, faça referência a esses arquivos no nó `<files>`:
 
@@ -344,7 +347,7 @@ Em seguida, no arquivo `.nuspec`, faça referência a esses arquivos no nó `<fi
 
 Incluindo os arquivos de propriedades e de destinos do MSBuild em um pacote [introduzidos com o NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), portanto é recomendado adicionar o atributo `minClientVersion="2.5"` ao elemento `metadata` para indicar a versão mínima necessária do cliente NuGet para consumir o pacote.
 
-Quando o NuGet instala um pacote com arquivos `\build`, ele adiciona elementos `<Import>` do MSBuild ao arquivo de projeto que aponta para os arquivos `.targets` e `.props`. (`.props` é adicionado na parte superior do arquivo do projeto; `.targets` é adicionado na parte inferior.) Um elemento MSBuild `<Import>` condicional separado é adicionado para cada estrutura de destino.
+Quando o NuGet instala um pacote com arquivos `\build`, ele adiciona elementos `<Import>` do MSBuild ao arquivo de projeto que aponta para os arquivos `.targets` e `.props`. ( `.props` é adicionado na parte superior do arquivo de projeto; `.targets` é adicionado na parte inferior.) Um elemento diferente do MSBuild condicional `<Import>` é adicionado para cada estrutura de destino.
 
 É possível colocar os arquivos `.props` e `.targets` do MSBuild na pasta `\buildMultiTargeting` para direcionamento entre estruturas. Durante a instalação do pacote, o NuGet adiciona elementos `<Import>` correspondentes ao arquivo de projeto contanto que a estrutura de destino não esteja definida (a propriedade `$(TargetFramework)` do MSBuild deve estar vazia).
 
@@ -434,4 +437,4 @@ Você também poderá estender os recursos do seu pacote ou dar suporte a outros
 Por fim, há tipos de pacote adicionais a serem considerados:
 
 - [Pacotes nativos](../guides/native-packages.md)
-- [Pacotes de símbolos](../create-packages/symbol-packages-snupkg.md)
+- [Pacotes de símbolo](../create-packages/symbol-packages-snupkg.md)

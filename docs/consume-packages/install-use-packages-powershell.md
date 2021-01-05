@@ -7,12 +7,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237394"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699837"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Instalar e gerenciar pacotes com o Console do Gerenciador de Pacotes no Visual Studio (PowerShell)
 
@@ -20,11 +20,14 @@ O Console do Gerenciador de pacotes do NuGet possibilita usar os [comandos do Po
 
 O console é integrado ao Visual Studio no Windows. Ele não está incluído no Visual Studio para Mac ou no Visual Studio Code.
 
+> [!Important]
+> Os comandos listados aqui são específicos do console do Gerenciador de pacotes no Visual Studio e são diferentes dos [comandos do módulo gerenciamento de pacotes](/powershell/module/packagemanagement/) que estão disponíveis em um ambiente geral do PowerShell. Especificamente, cada ambiente tem comandos que não estão disponíveis no outro, e comandos com o mesmo nome também podem diferir em seus argumentos específicos. Ao usar o console do Gerenciamento de Pacotes no Visual Studio, os comandos e argumentos documentados neste tópico atual se aplicam.
+
 ## <a name="find-and-install-a-package"></a>Encontrar e instalar um pacote
 
 Por exemplo, encontrar e instalar um pacote é feito com três etapas fáceis:
 
-1. Abra o projeto/solução no Visual Studio e abra o console usando o comando **Ferramentas > Gerenciador de pacotes do NuGet > Console do Gerenciador de Pacotes** .
+1. Abra o projeto/solução no Visual Studio e abra o console usando o comando **Ferramentas > Gerenciador de pacotes do NuGet > Console do Gerenciador de Pacotes**.
 
 1. Localize o pacote que você deseja instalar. Se já sabe qual é, pule para a etapa 3.
 
@@ -48,7 +51,7 @@ Por exemplo, encontrar e instalar um pacote é feito com três etapas fáceis:
 
 ## <a name="opening-the-console-and-console-controls"></a>Abrir o console e os controles do console
 
-1. Abra o console no Visual Studio usando o comando **Ferramentas > Gerenciador de pacotes do NuGet > Console do Gerenciador de Pacotes** . O console é uma janela do Visual Studio que pode ser organizada e posicionada como você desejar (confira [Personalizar layouts de janela no Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Abra o console no Visual Studio usando o comando **Ferramentas > Gerenciador de pacotes do NuGet > Console do Gerenciador de Pacotes**. O console é uma janela do Visual Studio que pode ser organizada e posicionada como você desejar (confira [Personalizar layouts de janela no Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 1. Por padrão, os comandos do console operam em relação a um projeto e origem de pacote específicos, como definido no controle na parte superior da janela:
 
@@ -56,7 +59,7 @@ Por exemplo, encontrar e instalar um pacote é feito com três etapas fáceis:
 
 1. A seleção de um projeto e/ou origem de pacote diferente altera esses padrões para os comandos subsequentes. Para substituir essas configurações sem alterar os padrões, a maioria dos comandos é compatível com as opções `-Source` e `-ProjectName`.
 
-1. Para gerenciar as origens dos pacote, selecione o ícone de engrenagem. Este é um atalho para a caixa de diálogo **Ferramentas > Opções > Gerenciador de pacotes do NuGet > Origens do Pacote** , como descrito na página [Interface do usuário do Gerenciador de Pacotes](install-use-packages-visual-studio.md#package-sources). Além disso, o controle à direita do seletor de projeto limpa o conteúdo do console:
+1. Para gerenciar as origens dos pacote, selecione o ícone de engrenagem. Este é um atalho para a caixa de diálogo **Ferramentas > Opções > Gerenciador de pacotes do NuGet > Origens do Pacote**, como descrito na página [Interface do usuário do Gerenciador de Pacotes](install-use-packages-visual-studio.md#package-sources). Além disso, o controle à direita do seletor de projeto limpa o conteúdo do console:
 
     ![Configurações do Console do Gerenciador de pacotes e controles desmarcados](media/PackageManagerConsoleControls2.png)
 
@@ -79,7 +82,7 @@ Confira [Install-Package](../reference/ps-reference/ps-ref-install-package.md).
 A instalação de um pacote no console executa as mesmas etapas, como descrito em [O que acontece quando um pacote é instalado](../concepts/package-installation-process.md), com as seguintes adições:
 
 - O console exibe os termos de licenças aplicáveis em sua janela com o contrato implícito. Se você não concordar com os termos, deverá desinstalar o pacote imediatamente.
-- Além disso, uma referência ao pacote é adicionada ao arquivo de projeto e aparece no **Gerenciador de Soluções** sob o nó **Referências** ; é preciso salvar o projeto para ver as alterações diretamente no arquivo de projeto.
+- Além disso, uma referência ao pacote é adicionada ao arquivo de projeto e aparece no **Gerenciador de Soluções** sob o nó **Referências**; é preciso salvar o projeto para ver as alterações diretamente no arquivo de projeto.
 
 ## <a name="uninstall-a-package"></a>Desinstalar um pacote
 
@@ -98,7 +101,7 @@ Confira [Uninstall-Package](../reference/ps-reference/ps-ref-uninstall-package.m
 
 A desinstalação de um pacote executa as seguintes ações:
 
-- Remove as referências ao pacote do projeto (e qualquer formato de gerenciamento em uso). As referências não aparecem mais no **Gerenciador de Soluções** . (Talvez seja necessário recompilar o projeto para vê-lo removido da pasta **Bin** .)
+- Remove as referências ao pacote do projeto (e qualquer formato de gerenciamento em uso). As referências não aparecem mais no **Gerenciador de Soluções**. (Talvez seja necessário recompilar o projeto para vê-lo removido da pasta **Bin**.)
 - Reverte todas as alterações feitas em `app.config` ou `web.config` quando o pacote foi instalado.
 - Remove as dependências instaladas anteriormente se nenhum pacote restante usa essas dependências.
 

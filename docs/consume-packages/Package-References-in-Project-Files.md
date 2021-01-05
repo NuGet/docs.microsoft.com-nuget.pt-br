@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237634"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699784"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
@@ -102,7 +102,7 @@ As seguintes marcas de metadados controlam ativos de dependência:
 | Marca | Descrição | Valor padrão |
 | --- | --- | --- |
 | IncludeAssets | Esses ativos serão consumidos | all |
-| ExcludeAssets | Esses ativos não serão consumidos | nenhum |
+| ExcludeAssets | Esses ativos não serão consumidos | none |
 | PrivateAssets | Esses ativos serão consumidos, mas não fluem para o projeto pai | contentfiles;analyzers;build |
 
 Os valores permitidos para essas marcas são os seguintes, com vários valores separados por ponto e vírgula, exceto com `all` e `none`, que devem aparecer sozinhos:
@@ -117,7 +117,7 @@ Os valores permitidos para essas marcas são os seguintes, com vários valores s
 | buildTransitive | *(5.0+)* `.props` e `.targets` na pasta `buildTransitive`, para ativos que fluem transitivamente para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analisadores | Analisadores de .NET |
 | nativa | O conteúdo da pasta `native` |
-| nenhum | Nenhuma das opções acima é usada. |
+| none | Nenhuma das opções acima é usada. |
 | all | Todas as anteriores (exceto `none`) |
 
 No exemplo a seguir, tudo, exceto os arquivos de conteúdo do pacote, poderia ser consumido pelo projeto e tudo, exceto analisadores e arquivos de conteúdo, fluiria para o projeto pai.
@@ -139,7 +139,7 @@ No exemplo a seguir, tudo, exceto os arquivos de conteúdo do pacote, poderia se
 Observe que, como `build` não está incluído em `PrivateAssets`, destino e objetos *fluirão* para o projeto pai. Considere, por exemplo, que a referência acima é usada em um projeto que compila um pacote do NuGet chamado AppLogger. O AppLogger pode consumir os destinos e objetos de `Contoso.Utility.UsefulStuff`, bem como projetos que consomem AppLogger.
 
 > [!NOTE]
-> Quando `developmentDependency` é definido como `true` em um arquivo `.nuspec`, isso marca um pacote como uma dependência somente de desenvolvimento, o que impede que o pacote seja incluído como uma dependência em outros pacotes. Com PackageReference *(NuGet 4.8+)* , esse sinalizador também significa que ele excluirá os recursos em tempo de compilação. Para obter mais informações, confira [Suporte do DevelopmentDependency para PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
+> Quando `developmentDependency` é definido como `true` em um arquivo `.nuspec`, isso marca um pacote como uma dependência somente de desenvolvimento, o que impede que o pacote seja incluído como uma dependência em outros pacotes. Com PackageReference *(NuGet 4.8+)*, esse sinalizador também significa que ele excluirá os recursos em tempo de compilação. Para obter mais informações, confira [Suporte do DevelopmentDependency para PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
 
 ## <a name="adding-a-packagereference-condition"></a>Adicionar uma condição de PackageReference
 
@@ -201,10 +201,42 @@ Além disso, o NuGet gerará automaticamente as propriedades para pacotes que co
   <Target Name="TakeAction" AfterTargets="Build">
     <Exec Command="$(PkgPackage_With_Tools)\tools\tool.exe" />
   </Target>
-````
+```
 
 As propriedades do MSBuild e as identidades do pacote não têm as mesmas restrições para que a identidade do pacote precise ser alterada para um nome amigável do MSBuild, prefixado pela palavra `Pkg` .
 Para verificar o nome exato da propriedade gerada, examine o arquivo [NuGet. g. props](../reference/msbuild-targets.md#restore-outputs) gerado.
+
+## <a name="packagereference-aliases"></a>Aliases de PackageReference
+
+Em algumas instâncias raras, pacotes diferentes conterão classes no mesmo namespace. A partir do NuGet 5,7 & o Visual Studio 2019 atualização 7, equivalente a ProjectReference, o PackageReference dá suporte a [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) .
+Por padrão, nenhum alias é fornecido. Quando um alias é especificado, *todos os* assemblies provenientes do pacote anotado precisam ser referenciados com um alias.
+
+Você pode examinar o uso de exemplo em [NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample)
+
+No arquivo de projeto, especifique os aliases da seguinte maneira:
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="NuGet.Versioning" Version="5.8.0" Aliases="ExampleAlias" />
+  </ItemGroup>
+```
+
+e no código, use-o da seguinte maneira:
+
+```cs
+extern alias ExampleAlias;
+
+namespace PackageReferenceAliasesExample
+{
+...
+        {
+            var version = ExampleAlias.NuGet.Versioning.NuGetVersion.Parse("5.0.0");
+            Console.WriteLine($"Version : {version}");
+        }
+...
+}
+
+```
 
 ## <a name="nuget-warnings-and-errors"></a>Avisos e erros do NuGet
 

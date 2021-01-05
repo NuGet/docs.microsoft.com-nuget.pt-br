@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: a6a4ee434c43ad4865dba12f039b5d545a90d3c4
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: d8e5c8574b44375e651f3ff1a4868681b3ce6d66
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238160"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699850"
 ---
 # <a name="list-command-nuget-cli"></a>comando List (NuGet CLI)
 
@@ -58,7 +58,7 @@ onde os termos de pesquisa opcionais filtrarão a lista exibida. Os [termos de p
 
 - **`-Source`**
 
-  Especifica uma lista de fontes de pacotes a serem pesquisadas.
+  A origem do pacote a ser pesquisado. Você pode especificar várias fontes usando a `-Source` opção várias vezes.
 
 - **`-Verbosity [normal|quiet|detailed]`**
 

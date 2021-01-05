@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b162990eae2160961f560b6c6ee73e47cb4121d6
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 9f680a714717d1bde0472f2e1266cacfd8bd4d5f
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451145"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699723"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Solução de problemas de erros de restauração de pacote
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Esse erro ocorre ao tentar compilar um projeto com referências a um ou mais pacotes do NuGet, mas, no momento, esses pacotes não estão instalados no computador ou no projeto.
 
-- Ao usar o formato de gerenciamento [PackageReference](package-references-in-project-files.md) , o erro significa que o pacote não está instalado na pasta *global-Packages* , conforme descrito em [Gerenciando os pacotes globais e as pastas de cache](managing-the-global-packages-and-cache-folders.md).
+- Ao usar o formato de gerenciamento [PackageReference](package-references-in-project-files.md) , esse erro pode ser um sobra de um packages.config para a migração do PackageReference e precisa ser [removido manualmente](../resources/NuGet-FAQ.md#working-with-packages) do arquivo de projeto.
 - Ao usar o [packages.config](../reference/packages-config.md), o erro significa que o pacote não está instalado na pasta `packages` na raiz da solução.
 
 Essa situação geralmente ocorre ao obter o código-fonte do projeto por meio do controle do código-fonte ou de outro download. Os pacotes normalmente são omitidos do controle do código-fonte ou dos downloads, uma vez que podem ser restaurados de feeds de pacotes, como o nuget.org (veja [Pacotes e controle do código-fonte](Packages-and-Source-Control.md)). Por outro lado, a inclusão deles sobrecarregaria o repositório ou criaria arquivos .zip desnecessariamente grandes.

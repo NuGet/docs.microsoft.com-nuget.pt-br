@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: be24660d05f34242e45f223e2248b943ecc38616
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237991"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699658"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Perguntas frequentes do NuGet
 
@@ -45,9 +45,9 @@ Para obter mais informações, consulte [Localizando e escolhendo pacotes](../co
 
 **Como fazer para verificar a versão exata das ferramentas do NuGet que estão instaladas?**
 
-No Visual Studio, use o comando **Ajuda > Sobre o Microsoft Visual Studio** e examine a versão exibida ao lado de **Gerenciador de Pacotes do NuGet** .
+No Visual Studio, use o comando **Ajuda > Sobre o Microsoft Visual Studio** e examine a versão exibida ao lado de **Gerenciador de Pacotes do NuGet**.
 
-Como alternativa, inicie o Console do Gerenciador de Pacotes ( **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes** ) e digite `$host` para ver informações sobre o NuGet, incluindo a versão.
+Como alternativa, inicie o Console do Gerenciador de Pacotes (**Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**) e digite `$host` para ver informações sobre o NuGet, incluindo a versão.
 
 **Quais linguagens de programação são compatíveis com o NuGet?**
 
@@ -149,3 +149,10 @@ Isso não é um problema ao usar PackageReference, pois cada arquivo de projeto 
 
 - Adicione `https://api.nuget.org/v3/index.json` à lista de fontes ou
 - Exclua `%appdata%\.nuget\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) e deixe o NuGet recriá-lo.
+
+**Migrei para o PackageReference, por que meu Build está falhando `This project references NuGet package(s) that are missing on this computer.` ?**
+
+Em projetos packages.config, quando um pacote com `build` Props ou destinos foi instalado, o NuGet adicionaria um `EnsureNuGetPackageBuildImports` destino para verificar se o conteúdo do MSBuild dos pacotes foi importado antes da compilação.
+Se o `target` tiver sido modificado manualmente, o NuGet talvez não consiga detectar que ele precisa ser removido durante a migração.
+
+Se o seu projeto for `PackageReference` e você ainda tiver esse destino no arquivo de projeto, será seguro removê-lo.

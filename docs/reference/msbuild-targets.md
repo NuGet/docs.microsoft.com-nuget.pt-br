@@ -1,16 +1,16 @@
 ---
 title: Empacotamento e restauração do NuGet como destinos do MSBuild
 description: O pack e restore do NuGet podem funcionar diretamente como destinos do MSBuild com o NuGet 4.0 e superior.
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738923"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699885"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -62,7 +62,7 @@ Observe que as propriedades `Owners` e `Summary` de `.nuspec` não são compatí
 | license | PackageLicenseFile | vazio | Corresponde ao `<license type="file">`. Você precisa empacotar explicitamente o arquivo de licença referenciado. |
 | LicenseUrl | PackageLicenseUrl | vazio | `PackageLicenseUrl` é preterido, use a propriedade PackageLicenseExpression ou PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | vazio | |
-| Ícone | PackageIcon | vazio | Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado.|
+| ícone | PackageIcon | vazio | Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado.|
 | IconUrl | PackageIconUrl | vazio | Para obter a melhor experiência de nível inferior, `PackageIconUrl` deve ser especificado além de `PackageIcon` . Período mais longo, `PackageIconUrl` será preterido. |
 | Marcações | PackageTags | vazio | Marcas são delimitadas por ponto e vírgula. |
 | ReleaseNotes | PackageReleaseNotes | vazio | |
@@ -256,6 +256,23 @@ Ao empacotar um arquivo de licença, você precisa usar a propriedade PackageLic
 
 [Exemplo de arquivo de licença](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
+### <a name="packing-a-file-without-an-extension"></a>Empacotando um arquivo sem uma extensão
+
+Em alguns cenários, como ao empacotar um arquivo de licença, talvez você queira incluir um arquivo sem uma extensão.
+Por motivos históricos, o NuGet & MSBuild trata caminhos sem uma extensão como diretórios.
+
+```xml
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>  
+```
+
+[Arquivo sem um exemplo de extensão](https://github.com/NuGet/Samples/blob/master/PackageLicenseFileExtensionlessExample/).
 ### <a name="istool"></a>IsTool
 
 Ao usar `MSBuild -t:pack -p:IsTool=true`, todos os arquivos de saída, conforme especificado no cenário [Assemblies de saída](#output-assemblies), são copiados para a pasta `tools` em vez da pasta `lib`. Observe que isso é diferente de um `DotNetCliTool` que é especificado pela configuração do `PackageType` no arquivo `.csproj`.
@@ -366,7 +383,10 @@ Um exemplo:
 1. Gravar arquivo de ativos, destinos e objetos
 
 O `restore` destino funciona para projetos que usam o formato PackageReference.
-`MSBuild 16.5+` também tem [suporte opcional](#restoring-packagereference-and-packages.config-with-msbuild) para o `packages.config` formato.
+`MSBuild 16.5+` também tem [suporte opcional](#restoring-packagereference-and-packagesconfig-with-msbuild) para o `packages.config` formato.
+
+> [!NOTE]
+> O `restore` destino [não deve ser executado](#restoring-and-building-with-one-msbuild-command) em combinação com o `build` destino.
 
 ### <a name="restore-properties"></a>Restaurar propriedades
 
