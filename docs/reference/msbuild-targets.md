@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699885"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235692"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Empacotamento e restauração do NuGet como destinos do MSBuild
 
@@ -413,7 +413,8 @@ Configurações de restauração adicionais podem vir de propriedades MSBuild no
 | RestoreLockedMode | Execute RESTORE no modo bloqueado. Isso significa que a restauração não reavaliará as dependências. |
 | NuGetLockFilePath | Um local personalizado para o arquivo de bloqueio. O local padrão é ao lado do projeto e é nomeado `packages.lock.json` . |
 | RestoreForceEvaluate | Força a restauração a recalcular as dependências e atualizar o arquivo de bloqueio sem nenhum aviso. |
-| RestorePackagesConfig | Um comutador opcional que restaura projetos com packages.config. Suporte `MSBuild -t:restore` apenas com. |
+| RestorePackagesConfig | Uma opção opcional que restaura projetos com packages.config. Suporte `MSBuild -t:restore` apenas com. |
+| RestoreUseStaticGraphEvaluation | Uma opção de aceitação para usar a avaliação do MSBuild do grafo estático em vez da avaliação padrão. A avaliação estática do grafo é um recurso experimental que é significativamente mais rápido para repositórios e soluções grandes. |
 
 #### <a name="examples"></a>Exemplos
 
@@ -469,25 +470,40 @@ msbuild -t:restore -p:RestorePackagesConfig=true
 > [!NOTE]
 > `packages.config` a restauração está disponível apenas com o `MSBuild 16.5+` , e não com `dotnet.exe`
 
-### <a name="packagetargetfallback"></a>PackageTargetFallback
+### <a name="restoring-with-msbuild-static-graph-evaluation"></a>Restaurando com a avaliação de grafo estático do MSBuild
 
-O elemento `PackageTargetFallback` permite especificar um conjunto de destinos compatíveis a serem usados ao restaurar os pacotes. Ele foi desenvolvido para permitir que os pacotes que usam o dotnet [TxM](../reference/target-frameworks.md) funcionem com pacotes compatíveis que não declaram um dotnet TxM. Ou seja, se o projeto usar o dotnet TxM, todos os pacotes dos quais ele depende também deverão ter um dotnet TxM, a menos que você adicione o `<PackageTargetFallback>` ao projeto para permitir que plataformas não dotnet sejam compatíveis com o dotnet.
+> [!NOTE]
+> Com o MSBuild 16.6 +, o NuGet adicionou um recurso experimental para usar a avaliação estática de grafo a partir da linha de comando que melhora significativamente o tempo de restauração para repositórios grandes.
 
-Por exemplo, se o projeto está usando o `netstandard1.6` TxM e um pacote dependente contém apenas `lib/net45/a.dll` e `lib/portable-net45+win81/a.dll`, o projeto não será compilado. Se a DLL que você deseja colocar é esta última, é possível adicionar um `PackageTargetFallback` como mostrado a seguir para dizer que a DLL `portable-net45+win81` é compatível:
-
-```xml
-<PackageTargetFallback Condition="'$(TargetFramework)'=='netstandard1.6'">
-    portable-net45+win81
-</PackageTargetFallback>
+```cli
+msbuild -t:restore -p:RestoreUseStaticGraphEvaluation=true
 ```
 
-Para declarar um fallback para todos os destinos em seu projeto, deixe o atributo `Condition` de fora. Você também pode estender qualquer `PackageTargetFallback` existente incluindo `$(PackageTargetFallback)` conforme mostrado aqui:
+Como alternativa, você pode habilitá-lo definindo a propriedade em um diretório. Build. props.
 
 ```xml
-<PackageTargetFallback>
-    $(PackageTargetFallback);portable-net45+win81
-</PackageTargetFallback >
+<Project>
+  <PropertyGroup>
+    <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+  </PropertyGroup>
+</Project>
 ```
+
+> [!NOTE]
+> A partir do Visual Studio 2019. x e do NuGet 5. x, esse recurso é considerado experimental e opcional. Siga o [NuGet/Home # 9803](https://github.com/NuGet/Home/issues/9803) para obter detalhes sobre quando esse recurso será habilitado por padrão.
+
+A restauração estática do grafo altera a parte do MSBuild da restauração, a leitura e a avaliação do projeto, mas não o algoritmo de restauração! O algoritmo de restauração é o mesmo em todas as ferramentas do NuGet (NuGet.exe, MSBuild.exe, dotnet.exe e Visual Studio).
+
+Em poucos cenários, a restauração estática do grafo pode se comportar de forma diferente da restauração atual e determinados PackageReferences ou ProjectReferences declarados podem estar ausentes.
+
+Para facilitar sua ideia, como uma verificação única, ao migrar para a restauração estática do grafo, considere a execução:
+
+```cli
+msbuild.exe -t:restore -p:RestoreUseStaticGraphEvaluation
+msbuild.exe -t:restore
+```
+
+O NuGet *não* deve relatar nenhuma alteração. Se você vir uma discrepância, registre um problema em [NuGet/Home](https://github.com/nuget/home/issues/new).
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>Substituindo uma biblioteca de um grafo de restauração
 

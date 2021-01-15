@@ -1,16 +1,16 @@
 ---
 title: Formato PackageReference do NuGet (referências de pacote em arquivos de projeto)
 description: Veja detalhes sobre o PackageReference de NuGet em arquivos de projeto compatível com o NuGet 4.0 e posterior e o VS2017 e .Net Core 2.0
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699784"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235757"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
 
@@ -102,7 +102,7 @@ As seguintes marcas de metadados controlam ativos de dependência:
 | Marca | Descrição | Valor padrão |
 | --- | --- | --- |
 | IncludeAssets | Esses ativos serão consumidos | all |
-| ExcludeAssets | Esses ativos não serão consumidos | none |
+| ExcludeAssets | Esses ativos não serão consumidos | nenhum |
 | PrivateAssets | Esses ativos serão consumidos, mas não fluem para o projeto pai | contentfiles;analyzers;build |
 
 Os valores permitidos para essas marcas são os seguintes, com vários valores separados por ponto e vírgula, exceto com `all` e `none`, que devem aparecer sozinhos:
@@ -117,7 +117,7 @@ Os valores permitidos para essas marcas são os seguintes, com vários valores s
 | buildTransitive | *(5.0+)* `.props` e `.targets` na pasta `buildTransitive`, para ativos que fluem transitivamente para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analisadores | Analisadores de .NET |
 | nativa | O conteúdo da pasta `native` |
-| none | Nenhuma das opções acima é usada. |
+| nenhum | Nenhuma das opções acima é usada. |
 | all | Todas as anteriores (exceto `none`) |
 
 No exemplo a seguir, tudo, exceto os arquivos de conteúdo do pacote, poderia ser consumido pelo projeto e tudo, exceto analisadores e arquivos de conteúdo, fluiria para o projeto pai.
@@ -390,3 +390,34 @@ Você pode controlar vários comportamentos de restauração com o arquivo de bl
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você deseja criar compilações repetíveis.|   
 | `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Esta opção é útil com pacotes que têm a versão flutuante definida no projeto. Por padrão, a restauração do NuGet não atualizará a versão do pacote automaticamente após cada restauração, a menos que você execute RESTORE com essa opção. |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Define o local de um arquivo de bloqueio personalizado para um projeto. Por padrão, o NuGet é compatível com `packages.lock.json` no diretório raiz. Se você tiver vários projetos no mesmo diretório, o NuGet oferecerá suporte ao arquivo de bloqueio `packages.<project_name>.lock.json` específico do projeto |
+
+## <a name="assettargetfallback"></a>AssetTargetFallback
+
+A `AssetTargetFallback` propriedade permite que você especifique versões de estrutura compatíveis adicionais para projetos que seu projeto faz referência e pacotes NuGet que seu projeto consome.
+
+Se você especificar uma dependência de pacote usando `PackageReference` , mas esse pacote não contiver ativos compatíveis com a estrutura de destino de seus projetos, a `AssetTargetFallback` Propriedade entrará em cena. A compatibilidade do pacote referenciado é verificada novamente usando cada estrutura de destino especificada em `AssetTargetFallback` .
+Quando um `project` ou um `package` for referenciado por meio `AssetTargetFallback` do, o aviso de [NU1701](../reference/errors-and-warnings/NU1701.md) será gerado.
+
+Consulte a tabela abaixo para obter exemplos de como o `AssetTargetFallback` afeta a compatibilidade.
+
+| Estrutura do projeto | AssetTargetFallback | Estruturas de pacote | Result |
+|-------------------|---------------------|--------------------|--------|
+| .NET Framework 4.7.2 | | .NET Standard 2.0 | .NET Standard 2.0 |
+| Aplicativo .NET Core 3,1 | | .NET Standard 2,0, .NET Framework 4.7.2 | .NET Standard 2.0 |
+| Aplicativo .NET Core 3,1 | | .NET Framework 4.7.2 | Incompatível, falha com [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
+| Aplicativo .NET Core 3,1 | net472;net471 | .NET Framework 4.7.2 | .NET Framework 4.7.2 com [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
+
+Várias estruturas podem ser especificadas usando `;` como um delimitador. Para adicionar uma estrutura de fallback, você pode fazer o seguinte:
+
+```xml
+<AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
+    $(AssetTargetFallback);net472;net471
+</AssetTargetFallback>
+```
+
+Você pode deixar desativado `$(AssetTargetFallback)` se desejar substituir, em vez de adicionar aos `AssetTargetFallback` valores existentes.
+
+> [!NOTE]
+> Se você estiver usando um [projeto baseado no SDK do .net](/dotnet/core/sdk), `$(AssetTargetFallback)` os valores apropriados serão configurados e você não precisará defini-los manualmente.
+>
+> `$(PackageTargetFallback)` foi um recurso anterior que tentou resolver esse desafio, mas ele é dividido de maneira fundamental e não *deve* ser usado. Para migrar do `$(PackageTargetFallback)` para `$(AssetTargetFallback)` o, basta alterar o nome da propriedade.
