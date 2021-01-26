@@ -1,16 +1,16 @@
 ---
 title: Referência do NuGet Add-BindingRedirect PowerShell
 description: Referência para Add-BindingRedirect comando do PowerShell no console do Gerenciador de pacotes NuGet no Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 382ba9b179428c70e3eb16db86a363e095207d61
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 62edf1bf8995a4e1ffb83acc7a7621a786cc53e4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237251"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777614"
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (console do Gerenciador de pacotes no Visual Studio)
 

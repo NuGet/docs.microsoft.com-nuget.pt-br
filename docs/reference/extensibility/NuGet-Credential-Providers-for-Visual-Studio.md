@@ -1,16 +1,16 @@
 ---
 title: Provedores de credenciais NuGet para Visual Studio
 description: Os provedores de credenciais do NuGet são autenticados com feeds implementando a interface IVsCredentialProvider em uma extensão do Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 13b6f5abe93a17c809564265990f86f6780aa67e
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: f324f1e27e0d718571525152fcf16b55b900dbaa
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230805"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777760"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Autenticando feeds no Visual Studio com provedores de credenciais do NuGet
 
@@ -19,14 +19,14 @@ Depois de instalar um provedor de credenciais do NuGet para o Visual Studio, a e
 
 Uma implementação de exemplo pode ser encontrada no [exemplo VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
 
-No Visual Studio, o NuGet usa um `VsCredentialProviderImporter` interno que também verifica os provedores de credenciais de plug-in. Esses provedores de credenciais de plug-in devem ser detectáveis como uma exportação de MEF do tipo `IVsCredentialProvider`.
+No Visual Studio, o NuGet usa um interno `VsCredentialProviderImporter` que também verifica os provedores de credenciais de plug-in. Esses provedores de credenciais de plug-in devem ser detectáveis como uma exportação de MEF do tipo `IVsCredentialProvider` .
 
 A partir do mais de 4.8, o NuGet no Visual Studio também dá suporte aos novos plug-ins de autenticação entre plataformas, mas eles não são a abordagem recomendada por motivos de desempenho.
 
 > [!Note]
 > Os provedores de credenciais do NuGet para Visual Studio devem ser instalados como uma extensão regular do Visual Studio e exigirão o [visual studio 2017](https://aka.ms/vs/15/release/vs_enterprise.exe) ou superior.
 >
-> Os provedores de credenciais do NuGet para o Visual Studio funcionam apenas no Visual Studio (não no dotnet restore ou NuGet. exe). Para provedores de credenciais com NuGet. exe, consulte [provedores de credenciais NuGet. exe](nuget-exe-Credential-providers.md).
+> Os provedores de credenciais do NuGet para o Visual Studio funcionam apenas no Visual Studio (não em dotnet restore ou nuget.exe). Para provedores de credenciais com nuget.exe, consulte [nuget.exe provedores de credenciais](nuget-exe-Credential-providers.md).
 > Para provedores de credenciais no dotnet e MSBuild, consulte [plug-ins de plataforma cruzada do NuGet](nuget-cross-platform-authentication-plugin.md)
 
 ## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Criando um provedor de credenciais do NuGet para o Visual Studio
@@ -35,7 +35,7 @@ A extensão do NuGet do Visual Studio 3.6 + implementa um CredentialService inte
 
 Durante a aquisição da credencial, o serviço de credenciais tentará provedores de credenciais na seguinte ordem, parando assim que as credenciais forem adquiridas:
 
-1. As credenciais serão buscadas nos arquivos de configuração do NuGet (usando o `SettingsCredentialProvider`interno).
+1. As credenciais serão buscadas nos arquivos de configuração do NuGet (usando o interno `SettingsCredentialProvider` ).
 1. Se a origem do pacote estiver em Visual Studio Team Services, o `VisualStudioAccountProvider` será usado.
 1. Todos os outros provedores de credenciais de plug-in do Visual Studio serão tentados sequencialmente.
 1. Tente usar todos os provedores de credenciais de plataforma cruzada do NuGet sequencialmente.
@@ -43,7 +43,7 @@ Durante a aquisição da credencial, o serviço de credenciais tentará provedor
 
 ### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>Implementando IVsCredentialProvider. GetCredentialsAsync
 
-Para criar um provedor de credenciais do NuGet para o Visual Studio, crie uma extensão do Visual Studio que exponha uma exportação de MEF pública implementando o tipo de `IVsCredentialProvider` e siga os princípios descritos abaixo.
+Para criar um provedor de credenciais do NuGet para o Visual Studio, crie uma extensão do Visual Studio que exponha uma exportação de MEF pública implementando o `IVsCredentialProvider` tipo e siga os princípios descritos abaixo.
 
 ```cs
 public interface IVsCredentialProvider
@@ -62,14 +62,14 @@ Uma implementação de exemplo pode ser encontrada no [exemplo VsCredentialProvi
 
 Cada provedor de credenciais do NuGet para Visual Studio deve:
 
-1. Determine se ele pode fornecer credenciais para o URI de destino antes de iniciar a aquisição de credencial. Se o provedor não puder fornecer credenciais para a origem de destino, ele deverá retornar `null`.
+1. Determine se ele pode fornecer credenciais para o URI de destino antes de iniciar a aquisição de credencial. Se o provedor não puder fornecer credenciais para a origem de destino, deverá retornar `null` .
 1. Se o provedor processar solicitações para o URI de destino, mas não puder fornecer credenciais, uma exceção deverá ser lançada.
 
-Um provedor de credenciais NuGet personalizado para Visual Studio deve implementar a interface `IVsCredentialProvider` disponível no [pacote NuGet. VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/).
+Um provedor de credenciais NuGet personalizado para o Visual Studio deve implementar a `IVsCredentialProvider` interface disponível no [pacote NuGet. VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/).
 
 #### <a name="getcredentialasync"></a>GetCredentialAsync
 
-| Parâmetro de entrada |DESCRIÇÃO|
+| Parâmetro de entrada |Descrição|
 | ----------------|-----------|
 | URI do URI | O URI de origem do pacote para o qual as credenciais estão sendo solicitadas.|
 | Proxy IWebProxy | Proxy Web a ser usado ao se comunicar na rede. NULL se não houver nenhuma autenticação de proxy configurada. |
@@ -78,4 +78,4 @@ Um provedor de credenciais NuGet personalizado para Visual Studio deve implement
 | bool não interativo | Se for true, o provedor de credenciais deverá suprimir todos os prompts de usuário e usar valores padrão em vez disso. |
 | CancellationToken cancellationToken | Esse token de cancelamento deve ser verificado para determinar se a operação que solicita credenciais foi cancelada. |
 
-**Valor de retorno**: um objeto de credenciais que implementa a [interface`System.Net.ICredentials`](/dotnet/api/system.net.icredentials?view=netstandard-2.0).
+**Valor de retorno**: um objeto de credenciais que implementa a [ `System.Net.ICredentials` interface](/dotnet/api/system.net.icredentials?view=netstandard-2.0).

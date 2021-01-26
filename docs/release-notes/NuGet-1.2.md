@@ -1,16 +1,16 @@
 ---
 title: Notas de versão do NuGet 1,2
 description: Notas de versão do NuGet 1,2 incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: af2248a41800f7641be9b77d7bb72e2a94d4ce47
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237174"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777200"
 ---
 # <a name="nuget-12-release-notes"></a>Notas de versão do NuGet 1,2
 
@@ -42,8 +42,8 @@ Esses assemblies não são incluídos no seu pacote, pois eles são considerados
 
 |Atributo |Descrição|
 |----------------|-----------|
-|**assemblyName**|*Obrigatório* . Nome do assembly, como `System.Net` .|
-|**targetFramework**|*Opcional* . Permite especificar um nome de estrutura e perfil (ou alias) que esse assembly de estrutura aplica a como "net40" ou "SL4". Usa o mesmo formato descrito em [suporte a várias estruturas de destino](../create-packages/supporting-multiple-target-frameworks.md).|
+|**assemblyName**|*Obrigatório*. Nome do assembly, como `System.Net` .|
+|**targetFramework**|*Opcional*. Permite especificar um nome de estrutura e perfil (ou alias) que esse assembly de estrutura aplica a como "net40" ou "SL4". Usa o mesmo formato descrito em [suporte a várias estruturas de destino](../create-packages/supporting-multiple-target-frameworks.md).|
 
 ```xml
   <frameworkAssemblies>
@@ -63,8 +63,8 @@ O explorador de pacotes foi atualizado para dar suporte ao NuGet 1,2. Para obter
 
 A lista anterior era o mais perceptível dos muitos recursos que implementamos e os bugs que corrigimos. Em todos, implementamos/corrigimos [59 itens de trabalho](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.2&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0) nesta versão.
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 
-* **incompatibilidade de pacote 1,2** : pacotes criados com a versão mais recente da ferramenta de linha de comando, nuget.exe (> 1,2) não funcionarão com versões mais antigas do suplemento do NuGet vs (como 1,1). Se você encontrar uma mensagem de erro informando algo sobre o esquema incompatível, você está executando esse erro. Atualize o NuGet para a versão mais recente.
-* **Incompatibilidade do NuGet. Server** : se você estiver hospedando um feed do NuGet interno usando o projeto NuGet. Server, você precisará atualizar esse projeto com a versão mais recente do NuGet. Server.
-* **Erro de incompatibilidade de assinatura** : se você encontrar um erro durante uma atualização com uma mensagem sobre uma incompatibilidade de assinatura, será necessário desinstalar primeiro o NuGet e, em seguida, instalá-lo. Isso é listado em nossa [página de problemas conhecidos](../release-notes/known-issues.md) que fornece mais detalhes. O problema afeta apenas aqueles que executam o Visual Studio 2010 SP1 e tem uma versão do NuGet 1,0 instalada que foi assinada incorretamente. Essa versão só foi disponibilizada no site do CodePlex por um breve período, portanto, esse problema não deve afetar muitas pessoas.
+* **incompatibilidade de pacote 1,2**: pacotes criados com a versão mais recente da ferramenta de linha de comando, nuget.exe (> 1,2) não funcionarão com versões mais antigas do suplemento do NuGet vs (como 1,1). Se você encontrar uma mensagem de erro informando algo sobre o esquema incompatível, você está executando esse erro. Atualize o NuGet para a versão mais recente.
+* **Incompatibilidade do NuGet. Server**: se você estiver hospedando um feed do NuGet interno usando o projeto NuGet. Server, você precisará atualizar esse projeto com a versão mais recente do NuGet. Server.
+* **Erro de incompatibilidade de assinatura**: se você encontrar um erro durante uma atualização com uma mensagem sobre uma incompatibilidade de assinatura, será necessário desinstalar primeiro o NuGet e, em seguida, instalá-lo. Isso é listado em nossa [página de problemas conhecidos](../release-notes/known-issues.md) que fornece mais detalhes. O problema afeta apenas aqueles que executam o Visual Studio 2010 SP1 e tem uma versão do NuGet 1,0 instalada que foi assinada incorretamente. Essa versão só foi disponibilizada no site do CodePlex por um breve período, portanto, esse problema não deve afetar muitas pessoas.

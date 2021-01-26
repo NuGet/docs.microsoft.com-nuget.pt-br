@@ -1,16 +1,16 @@
 ---
 title: Referência do NuGet Install-Package PowerShell
 description: Referência para Install-Package comando do PowerShell no console do Gerenciador de pacotes NuGet no Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 5bda888e0fb526faca79e88da93b0ceb9aff5348
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 110b41e830636d60741b14292c17840aa5a63dfd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237199"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777438"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (console do Gerenciador de pacotes no Visual Studio)
 
@@ -36,14 +36,14 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parâmetro | Descrição |
 | --- | --- |
-| ID | Necessária O identificador do pacote a ser instalado. ( *3.0 +* ) O identificador pode ser um caminho ou uma URL de um `packages.config` arquivo ou `.nupkg` arquivo. A opção-ID em si é opcional. |
+| Id | Necessária O identificador do pacote a ser instalado. (*3.0 +*) O identificador pode ser um caminho ou uma URL de um `packages.config` arquivo ou `.nupkg` arquivo. A opção-ID em si é opcional. |
 | IgnoreDependencies | Instale somente este pacote e não suas dependências. |
 | ProjectName | O projeto no qual instalar o pacote, padronizando para o projeto padrão. |
 | Fonte | O caminho da URL ou da pasta para a origem do pacote a ser pesquisado. Os caminhos de pasta local podem ser absolutos ou relativos à pasta atual. Se omitido, `Install-Package` pesquisa a origem do pacote selecionada no momento. |
 | Versão | A versão do pacote a ser instalada, padronizando para a versão mais recente. |
 | IncludePrerelease | Considera os pacotes de pré-lançamento para a instalação. Se omitido, apenas os pacotes estáveis são considerados. |
-| Fileconflitoaction | A ação a ser tomada quando for solicitado a substituir ou ignorar os arquivos existentes referenciados pelo projeto. Os valores possíveis são *overwrite, ignore, None, OverwriteAll* e *(3.0 +)* *IgnoreAll* . |
-| DependencyVersion | A versão dos pacotes de dependência a serem usados, que pode ser uma das seguintes:<br/><ul><li>*Mais baixo* (padrão): a versão mais baixa</li><li>*HighestPatch* : a versão com o menor principal, menor o mais baixo, patch mais alto</li><li>*HighestMinor* : a versão com o menor principal, o mais baixo, o patch mais alto</li><li>*Mais alto* (padrão para Update-Package sem parâmetros): a versão mais recente</li></ul>Você pode definir o valor padrão usando a [`dependencyVersion`](../nuget-config-file.md#config-section) configuração no `Nuget.Config` arquivo. |
+| Fileconflitoaction | A ação a ser tomada quando for solicitado a substituir ou ignorar os arquivos existentes referenciados pelo projeto. Os valores possíveis são *overwrite, ignore, None, OverwriteAll* e *(3.0 +)* *IgnoreAll*. |
+| DependencyVersion | A versão dos pacotes de dependência a serem usados, que pode ser uma das seguintes:<br/><ul><li>*Mais baixo* (padrão): a versão mais baixa</li><li>*HighestPatch*: a versão com o menor principal, menor o mais baixo, patch mais alto</li><li>*HighestMinor*: a versão com o menor principal, o mais baixo, o patch mais alto</li><li>*Mais alto* (padrão para Update-Package sem parâmetros): a versão mais recente</li></ul>Você pode definir o valor padrão usando a [`dependencyVersion`](../nuget-config-file.md#config-section) configuração no `Nuget.Config` arquivo. |
 | WhatIf | Mostra o que aconteceria ao executar o comando sem realmente executar a instalação. |
 
 Nenhum desses parâmetros aceita a entrada de pipeline ou caracteres curinga.

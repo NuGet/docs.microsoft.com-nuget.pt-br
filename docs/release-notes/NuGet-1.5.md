@@ -1,20 +1,20 @@
 ---
 title: Notas de versão do NuGet 1,5
 description: Notas de versão do NuGet 1,5 incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 940a19cdc485d611d03b52ee3102bc95a78a36bb
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: c9946f3d8cf545ec14f842c40105743c231b4b72
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383343"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777094"
 ---
 # <a name="nuget-15-release-notes"></a>Notas de versão do NuGet 1,5
 
-[Notas de versão do nuget 1,4](../release-notes/nuget-1.4.md) | [notas de versão do NuGet 1,6](../release-notes/nuget-1.6.md)
+Notas de versão do [NuGet 1,4](../release-notes/nuget-1.4.md)  |  [Notas de versão do NuGet 1,6](../release-notes/nuget-1.6.md)
 
 O NuGet 1,5 foi lançado em 30 de agosto de 2011.
 
@@ -29,7 +29,7 @@ Para obter mais detalhes sobre esse recurso, leia esta [postagem de blog pelo de
 
 ### <a name="explicit-assembly-references"></a>Referências explícitas de assembly
 
-Adicionado um novo elemento `<references />` usado para especificar explicitamente quais assemblies no pacote devem ser referenciados.
+Adicionado um novo `<references />` elemento usado para especificar explicitamente quais assemblies no pacote devem ser referenciados.
 
 Por exemplo, se você adicionar o seguinte:
 
@@ -40,18 +40,18 @@ Por exemplo, se você adicionar o seguinte:
 </references>
 ```
 
-Em seguida, somente os `xunit.dll` e `xunit.extensions.dll` serão referenciados da [subpasta estrutura/perfil](../reference/nuspec.md#explicit-assembly-references) apropriada da pasta `lib`, mesmo se houver outros assemblies na pasta.
+Em seguida, somente o `xunit.dll` e `xunit.extensions.dll` será referenciado da [subpasta de estrutura/perfil](../reference/nuspec.md#explicit-assembly-references) apropriada da `lib` pasta, mesmo se houver outros assemblies na pasta.
 
-Se esse elemento for omitido, o comportamento usual se aplicará, que é fazer referência a cada assembly na pasta `lib`.
+Se esse elemento for omitido, o comportamento usual se aplicará, que é fazer referência a cada assembly na `lib` pasta.
 
 __Para que esse recurso é usado?__
 
-Esse recurso dá suporte apenas a assemblies de tempo de design. Por exemplo, ao usar contratos de código, os assemblies de contrato precisam estar ao lado dos assemblies de tempo de execução que eles aumentam para que o Visual Studio possa encontrá-los, mas os assemblies de contrato não devem realmente ser referenciados pelo projeto e não devem ser copiados para a pasta `bin`.
+Esse recurso dá suporte apenas a assemblies de tempo de design. Por exemplo, ao usar contratos de código, os assemblies de contrato precisam estar ao lado dos assemblies de tempo de execução que eles aumentam para que o Visual Studio possa encontrá-los, mas os assemblies de contrato não devem realmente ser referenciados pelo projeto e não devem ser copiados para a `bin` pasta.
 
 Da mesma forma, o recurso pode ser usado para estruturas de teste de unidade, como XUnit, que precisam que seus assemblies de ferramentas estejam localizados ao lado dos assemblies de tempo de execução, mas excluídos de referências de projeto.
 
 ### <a name="added-ability-to-exclude-files-in-the-nuspec"></a>Capacidade adicional de excluir arquivos no. nuspec
-O elemento `<file>` dentro de um arquivo de `.nuspec` pode ser usado para incluir um arquivo específico ou um conjunto de arquivos usando um caractere curinga. Ao usar um caractere curinga, não há como excluir um subconjunto específico dos arquivos incluídos. Por exemplo, suponha que você queira todos os arquivos de texto dentro de uma pasta, exceto um específico.
+O `<file>` elemento dentro de um `.nuspec` arquivo pode ser usado para incluir um arquivo específico ou um conjunto de arquivos usando um curinga. Ao usar um caractere curinga, não há como excluir um subconjunto específico dos arquivos incluídos. Por exemplo, suponha que você queira todos os arquivos de texto dentro de uma pasta, exceto um específico.
 
 ```xml
 <files>
@@ -81,10 +81,12 @@ Ao desinstalar um pacote com dependências, os prompts do NuGet, permitindo a re
 ![Removendo pacotes dependentes](./media/remove-dependent-packages.png)
 
 
-### <a name="get-package-command-improvement"></a>aperfeiçoamento do comando `Get-Package`
-O comando `Get-Package` agora dá suporte a um parâmetro `-ProjectName`. Portanto, o comando
+### <a name="get-package-command-improvement"></a>`Get-Package` aprimoramento de comando
+O `Get-Package` comando agora dá suporte a um `-ProjectName` parâmetro. Portanto, o comando
 
-    Get-Package –ProjectName A
+```
+Get-Package –ProjectName A
+```
 
 listará todos os pacotes instalados no projeto A.
 
@@ -107,18 +109,18 @@ Agora, os pacotes NuGet incluem suporte para notas de versão. As notas de vers�
 
 ![Notas de versão na guia Atualizações](./media/manage-nuget-packages-release-notes.png)
 
-Para adicionar notas de versão a um pacote, use o novo elemento de metadados `<releaseNotes />` em seu arquivo NuSpec.
+Para adicionar notas de versão a um pacote, use o novo `<releaseNotes />` elemento de metadados em seu arquivo NuSpec.
 
-### <a name="nuspec-ltfiles-gt-improvement"></a>. nuspec & melhoria de ltfiles/&gt;
-O arquivo de `.nuspec` agora permite o elemento de `<files />` vazio, o que informa ao NuGet. exe para não incluir nenhum arquivo no pacote.
+### <a name="nuspec-ltfiles-gt-improvement"></a>. nuspec &ltfiles/ &gt; aperfeiçoamento
+O `.nuspec` arquivo agora permite `<files />` um elemento vazio, que informa nuget.exe não incluir nenhum arquivo no pacote.
 
-## <a name="bug-fixes"></a>Correções de Bug
+## <a name="bug-fixes"></a>Correções de bugs
 O NuGet 1,5 tinha um total de 107 itens de trabalho corrigidos. 103 deles foram marcados como bugs.
 
 Para obter uma lista completa de itens de trabalho corrigidos no NuGet 1,5, consulte o [rastreador de problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.5&assignedTo=All&component=All&sortField=Summary&sortDirection=Descending&page=0).
 
 ## <a name="bug-fixes-worth-noting"></a>Correções de bugs vale a pena observar:
 
-* [Problema 1273](http://nuget.codeplex.com/workitem/1273): fez `packages.config` mais controle de versão amigável classificando os pacotes em ordem alfabética e removendo espaços em branco extras.
-* [Problema 844](http://nuget.codeplex.com/workitem/844): os números de versão agora são normalizados para que `Install-Package 1.0` funcione em um pacote com a versão `1.0.0`.
-* [Problema 1060](http://nuget.codeplex.com/workitem/1060): ao criar um pacote usando NuGet. exe, o sinalizador `-Version` substitui o elemento `<version />`.
+* [Problema 1273](http://nuget.codeplex.com/workitem/1273): fez `packages.config` mais controle de versão amigável, classificando os pacotes em ordem alfabética e removendo espaços em branco extras.
+* [Problema 844](http://nuget.codeplex.com/workitem/844): os números de versão agora são normalizados para que `Install-Package 1.0` funcione em um pacote com a versão `1.0.0` .
+* [Problema 1060](http://nuget.codeplex.com/workitem/1060): ao criar um pacote usando nuget.exe, o `-Version` sinalizador substitui o `<version />` elemento.

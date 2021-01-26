@@ -1,16 +1,16 @@
 ---
 title: Referência do NuGet Register-TabExpansion PowerShell
 description: Referência para Register-TabExpansion comando do PowerShell no console do Gerenciador de pacotes NuGet no Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 9d5bae2878cb6bf0848bca9a5ed9af0fee61bb85
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 6ad0da0e84fc2e31499c06bde013d2a256987d9a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237147"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777455"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (console do Gerenciador de pacotes no Visual Studio)
 
@@ -28,7 +28,7 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 | Parâmetro | Descrição |
 | --- | --- |
-| Name | Necessária O comando para o qual registrar expansões. A opção-Name em si é opcional. |
+| Nome | Necessária O comando para o qual registrar expansões. A opção-Name em si é opcional. |
 | Definição | Necessária Um objeto que descreve o argumento na sintaxe `@{'<parameter>' = {'<value1>', '<value2>', ...}}` em que `<parameter>` é o nome do parâmetro a ser modificado e cada `<value>` um fornece uma expansão específica. Aspas simples e duplas são aceitas. |
 
 Nenhum desses parâmetros aceita a entrada de pipeline ou caracteres curinga.

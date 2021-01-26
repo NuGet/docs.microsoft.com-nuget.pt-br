@@ -1,17 +1,17 @@
 ---
 title: Referência de estruturas de destino para NuGet
 description: As referências de estrutura de destino do NuGet identificam e isolam componentes dependentes de estrutura de um pacote.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 995f15ae2ad823d9c814cb7e78facddee713cc8f
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230506"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777308"
 ---
 # <a name="target-frameworks"></a>Frameworks de destino
 
@@ -116,7 +116,7 @@ As seguintes estruturas são preteridas. Os pacotes direcionados a essas estrutu
 
 Várias estruturas relacionadas e compatíveis entre si, mas não necessariamente equivalentes:
 
-| Framework | Pode usar |
+| Estrutura | Pode usar |
 | -- | --- |
 | uap (Plataforma Universal do Windows) | win81 |
 | | wpa81 |
@@ -286,7 +286,7 @@ Estruturas adicionais definidas por terceiros fornecem compatibilidade com outro
 
 Além disso, os pacotes do NuGet direcionados ao Xamarin podem usar estruturas adicionais definidas pelo Xamarin. Consulte [Criando pacotes do NuGet para Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Nome | DESCRIÇÃO | .NET Standard |
+| Nome | Descrição | .NET Standard |
 | --- | --- | ---
 | monoandroid | Suporte a Mono para o sistema operacional Android | netstandard1.4 |
 | monotouch | Suporte Mono para iOS | netstandard1.4 |

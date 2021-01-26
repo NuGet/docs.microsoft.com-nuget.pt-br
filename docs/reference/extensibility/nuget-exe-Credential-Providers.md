@@ -1,16 +1,16 @@
 ---
 title: Provedores de credencial nuget.exe
 description: nuget.exe provedores de credenciais são autenticados com um feed e são implementados como executáveis de linha de comando que seguem convenções específicas.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238108"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777773"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Autenticando feeds com nuget.exe provedores de credenciais
 
@@ -22,11 +22,11 @@ Consulte [consumindo pacotes de feeds autenticados](../../consume-packages/consu
 
 nuget.exe provedores de credenciais podem ser usados de três maneiras:
 
-- **Globalmente** : para disponibilizar um provedor de credenciais para todas as instâncias de `nuget.exe` execução sob o perfil do usuário atual, adicione-o a `%LocalAppData%\NuGet\CredentialProviders` . Talvez seja necessário criar a `CredentialProviders` pasta. Os provedores de credenciais podem ser instalados na raiz da `CredentialProviders`  pasta ou em uma subpasta. Se um provedor de credenciais tiver vários arquivos/assemblies, você poderá usar subpastas para manter os provedores organizados.
+- **Globalmente**: para disponibilizar um provedor de credenciais para todas as instâncias de `nuget.exe` execução sob o perfil do usuário atual, adicione-o a `%LocalAppData%\NuGet\CredentialProviders` . Talvez seja necessário criar a `CredentialProviders` pasta. Os provedores de credenciais podem ser instalados na raiz da `CredentialProviders`  pasta ou em uma subpasta. Se um provedor de credenciais tiver vários arquivos/assemblies, você poderá usar subpastas para manter os provedores organizados.
 
-- **De uma variável de ambiente** : os provedores de credenciais podem ser armazenados em qualquer lugar e tornarem-se acessíveis ao `nuget.exe` definindo a `%NUGET_CREDENTIALPROVIDERS_PATH%` variável de ambiente para o local do provedor. Essa variável pode ser uma lista separada por ponto-e-vírgula (por exemplo, `path1;path2` ) se você tiver vários locais.
+- **De uma variável de ambiente**: os provedores de credenciais podem ser armazenados em qualquer lugar e tornarem-se acessíveis ao `nuget.exe` definindo a `%NUGET_CREDENTIALPROVIDERS_PATH%` variável de ambiente para o local do provedor. Essa variável pode ser uma lista separada por ponto-e-vírgula (por exemplo, `path1;path2` ) se você tiver vários locais.
 
-- **Junto com nuget.exe** : os provedores de credenciais nuget.exe podem ser colocados na mesma pasta que o `nuget.exe` .
+- **Junto com nuget.exe**: os provedores de credenciais nuget.exe podem ser colocados na mesma pasta que o `nuget.exe` .
 
 Ao carregar provedores de credenciais, `nuget.exe` o pesquisa os locais acima, em ordem, para qualquer arquivo chamado e, em `credentialprovider*.exe` seguida, carrega esses arquivos na ordem em que são encontrados. Se houver vários provedores de credenciais na mesma pasta, eles serão carregados em ordem alfabética.
 
@@ -70,9 +70,11 @@ Um provedor deve fazer o seguinte:
 
 Exemplo stdout:
 
-    { "Username" : "freddy@example.com",
-      "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
-      "Message"  : "" }
+```
+{ "Username" : "freddy@example.com",
+    "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
+    "Message"  : "" }
+```
 
 ## <a name="troubleshooting-a-credential-provider"></a>Solucionando problemas de um provedor de credenciais
 

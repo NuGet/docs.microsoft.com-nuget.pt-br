@@ -1,37 +1,41 @@
 ---
-title: Notas de versão 2.1 do NuGet
-description: Notas da versão 2.1 do NuGet incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
-author: karann-msft
-ms.author: karann
+title: Notas de versão do NuGet 2,1
+description: Notas de versão do NuGet 2,1 incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fd6dadc7968991c77c1b06a6a261415355b2fd73
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c44ad32c8c4018ccb517b41bffda674eef1f11f3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548591"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777026"
 ---
-# <a name="nuget-21-release-notes"></a>Notas de versão 2.1 do NuGet
+# <a name="nuget-21-release-notes"></a>Notas de versão do NuGet 2,1
 
-[Notas de versão do NuGet 2.0](../release-notes/nuget-2.0.md) | [notas de versão do NuGet 2.2](../release-notes/nuget-2.2.md)
+Notas de versão do [NuGet 2,0](../release-notes/nuget-2.0.md)  |  [Notas de versão do NuGet 2,2](../release-notes/nuget-2.2.md)
 
-2.1 do NuGet foi lançado em 4 de outubro de 2012.
+O NuGet 2,1 foi lançado em 4 de outubro de 2012.
 
-## <a name="hierarchical-nugetconfig"></a>NuGet. config hierárquica
+## <a name="hierarchical-nugetconfig"></a>Nuget.Config hierárquica
 
-2.1 do NuGet fornece maior flexibilidade no controle de configurações do NuGet por meio de recursivamente, percorra a estrutura de pastas procurando `NuGet.Config` arquivos e, em seguida, compilar a configuração do conjunto de todos os arquivos encontrados.  Por exemplo, considere o cenário em que uma equipe tem um repositório do pacote interno para compilações de CI de outras dependências internas. A estrutura de pastas para um projeto individual pode parecer com o seguinte:
+O NuGet 2,1 proporciona maior flexibilidade no controle das configurações do NuGet por meio da movimentação recursiva da estrutura de pastas procurando `NuGet.Config` arquivos e, em seguida, compilando a configuração do conjunto de todos os arquivos encontrados.  Como exemplo, considere o cenário em que uma equipe tem um repositório de pacotes interno para compilações de CI de outras dependências internas. A estrutura de pastas de um projeto individual pode ser semelhante ao seguinte:
 
-    C:\
-    C:\myteam\
-    C:\myteam\solution1
-    C:\myteam\solution1\project1
+```
+C:\
+C:\myteam\
+C:\myteam\solution1
+C:\myteam\solution1\project1
+```
 
-Além disso, se a restauração do pacote está habilitada para a solução, a pasta a seguir também existirá:
+Além disso, se a restauração do pacote estiver habilitada para a solução, a seguinte pasta também existirá:
 
-    C:\myteam\solution1\.nuget
+```
+C:\myteam\solution1\.nuget
+```
 
-Para ter um repositório de pacote interno da equipe disponível para todos os projetos que a equipe trabalha em, ao mesmo tempo, tornando-o não disponível para todos os projetos na máquina, podemos criar um novo arquivo NuGet. config e colocá-lo na pasta c:\myteam. Não há nenhuma maneira para especificar uma pasta de pacotes por projeto.
+Para que o repositório de pacotes interno da equipe esteja disponível para todos os projetos nos quais a equipe trabalha, embora não o esteja disponibilizando para cada projeto no computador, podemos criar um novo arquivo Nuget.Config e colocá-lo na pasta c:\myteam Não há nenhuma maneira de especificar uma pasta de pacotes por projeto.
 
 ```xml
 <configuration>
@@ -45,23 +49,23 @@ Para ter um repositório de pacote interno da equipe disponível para todos os p
 </configuration>
 ```
 
-Agora podemos ver que a fonte foi adicionada executando o comando 'nuget.exe fontes' de qualquer pasta abaixo c:\myteam conforme mostrado abaixo:
+Agora podemos ver que a fonte foi adicionada executando o comando ' nuget.exe Sources ' de qualquer pasta abaixo de c:\myteam, conforme mostrado abaixo:
 
-![Fontes de pacote de configuração do nuget pai](./media/releasenotes-21-cfg-hierarchy.png)
+![Origens do pacote da configuração pai do NuGet](./media/releasenotes-21-cfg-hierarchy.png)
 
-`NuGet.Config` arquivos são pesquisados na seguinte ordem:
+`NuGet.Config` os arquivos são pesquisados na seguinte ordem:
 
 1. `.nuget\Nuget.Config`
-2. Recursiva ir da pasta do projeto raiz
-3. Global `Nuget.Config` (`%appdata%\NuGet\Nuget.Config`)
+2. Movimentação recursiva da pasta do projeto para a raiz
+3. Global `Nuget.Config` ( `%appdata%\NuGet\Nuget.Config` )
 
-As configurações são aplicadas na *ordem inversa*, que significa que, com base na classificação acima, o NuGet. config global seria ser aplicada primeiro, seguido por descobertos arquivos NuGet. config de raiz a pasta do projeto, seguidos por `.nuget\Nuget.Config`.  Isso é particularmente importante se você estiver usando o `<clear/>` elemento para remover um conjunto de itens de configuração.
+As configurações são as aplicadas na *ordem inversa*, o que significa que com base na ordenação acima, a Nuget.Config global seria aplicada primeiro, seguida pelos arquivos de Nuget.Config descobertos da raiz para a pasta do projeto, seguido por `.nuget\Nuget.Config` .  Isso é particularmente importante se você estiver usando o `<clear/>` elemento para remover um conjunto de itens da configuração.
 
-## <a name="specify-packages-folder-location"></a>Especifique 'pacotes' local da pasta
+## <a name="specify-packages-folder-location"></a>Especificar o local da pasta ' Packages '
 
-No passado, o NuGet tem gerenciado pacotes da solução de uma pasta de pacotes' conhecidos' encontrada sob a pasta raiz da solução.  Para equipes de desenvolvimento que têm muitas soluções diferentes que têm pacotes NuGet instalados, isso pode resultar no mesmo pacote que está sendo instalado em diversos lugares no sistema de arquivos.
+No passado, o NuGet gerenciava os pacotes de uma solução de uma pasta ' Packages ' conhecida encontrada abaixo da pasta raiz da solução.  Para equipes de desenvolvimento que têm muitas soluções diferentes que têm pacotes NuGet instalados, isso pode resultar na instalação do mesmo pacote em vários locais diferentes no sistema de arquivos.
 
-2.1 do NuGet fornece controle mais granular sobre o local da pasta de pacotes por meio de `repositoryPath` elemento no `NuGet.Config` arquivo.  Compilando o exemplo anterior de suporte hierárquico do NuGet. config, suponha que desejamos ter todos os projetos em C:\myteam\ compartilhar a mesma pasta de pacotes.  Para fazer isso, basta adicionar a seguinte entrada à `c:\myteam\Nuget.Config`.
+O NuGet 2,1 fornece um controle mais granular sobre o local da pasta de pacotes por meio do `repositoryPath` elemento no `NuGet.Config` arquivo.  Criando o exemplo anterior de suporte hierárquico de Nuget.Config, suponha que desejamos que todos os projetos em C:\myteam\ compartilhem a mesma pasta de pacotes.  Para fazer isso, basta adicionar a entrada a seguir ao `c:\myteam\Nuget.Config` .
 
 ```xml
 <configuration>
@@ -72,75 +76,79 @@ No passado, o NuGet tem gerenciado pacotes da solução de uma pasta de pacotes'
 </configuration>
 ```
 
-Neste exemplo, o compartilhado `Nuget.Config` arquivo Especifica uma pasta de pacotes compartilhados para cada projeto que é criada abaixo C:\myteam, independentemente de profundidade. Observe que, se você tiver uma pasta de pacotes existente sob a raiz da solução, você precisa excluí-lo antes do NuGet colocará pacotes no novo local.
+Neste exemplo, o arquivo compartilhado `Nuget.Config` especifica uma pasta de pacotes compartilhados para cada projeto criado sob C:\myteam, independentemente da profundidade. Observe que, se você tiver uma pasta pacotes existente sob a raiz da solução, será necessário excluí-la antes que o NuGet Coloque os pacotes no novo local.
 
 ## <a name="support-for-portable-libraries"></a>Suporte para bibliotecas portáteis
 
-[Bibliotecas portáteis](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) é um recurso introduzido pela primeira vez com o .NET 4 que permite que você crie assemblies que podem funcionar sem modificação em diferentes plataformas da Microsoft, de versões do.NET Framework para Silverlight para Windows Phone e Xbox até mesmo 360 (embora neste momento, o NuGet não suporta o destino de biblioteca portátil do Xbox).  Estendendo o [convenções de pacote](../create-packages/supporting-multiple-target-frameworks.md) para versões do framework e perfis, 2.1 do NuGet agora dá suporte a bibliotecas portáteis, permitindo que você criar pacotes que têm composto framework e o perfil de destino `lib` pastas.
+As [bibliotecas portáteis](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) são um recurso introduzido pela primeira vez com o .NET 4, que permite que você crie assemblies que podem funcionar sem modificação em diferentes plataformas da Microsoft, desde versões do The.NET Framework até o Silverlight até Windows Phone e até mesmo o Xbox 360 (embora, no momento, o NuGet não ofereça suporte ao destino da biblioteca portátil do Xbox).  Ao estender as [convenções de pacote](../create-packages/supporting-multiple-target-frameworks.md) para versões e perfis do Framework, o NuGet 2,1 agora dá suporte a bibliotecas portáteis, permitindo que você crie pacotes que tenham pastas compostas de estrutura e perfil de destino `lib` .
 
-Por exemplo, considere a possibilidade de plataformas de destino disponíveis da biblioteca de classes portátil seguintes.
+Como exemplo, considere as seguintes plataformas de destino disponíveis da biblioteca de classes portátil.
 
-![Caixa de diálogo de criação de biblioteca portátil](./media/releasenotes-21-plib.png)
+![Diálogo de criação de biblioteca portátil](./media/releasenotes-21-plib.png)
 
-Depois que a biblioteca é compilada e o comando `nuget.exe pack MyPortableProject.csproj` é executado, portátil nova estrutura de pastas de pacote de biblioteca pode ser vista examinando o conteúdo do pacote do NuGet gerado.
+Depois que a biblioteca é criada e o comando `nuget.exe pack MyPortableProject.csproj` é executado, a nova estrutura de pasta de pacote de biblioteca portátil pode ser vista examinando o conteúdo do pacote NuGet gerado.
 
 ![Layout do pacote de biblioteca portátil](./media/releasenotes-21-plib-layout.png)
 
-Como você pode ver, a convenção de nomes de pasta de biblioteca portátil segue o padrão 'portable-{framework 1} + {framework n}' em que os identificadores de framework siga existente [convenções de nome e a versão do framework](../reference/target-frameworks.md). Uma exceção com as convenções de nome e a versão for encontrada no identificador de estrutura usado para o Windows Phone.  Esse moniker deve usar o nome da estrutura 'wp' (wp7, wp71 ou wp8). Usar 'silverlight wp7', por exemplo, resultará em erro.
+Como você pode ver, a Convenção de nome da pasta de biblioteca portátil segue o padrão ' Portable-{Framework 1} + {Framework n} ', em que os identificadores de estrutura seguem o [nome da estrutura e as convenções de versão](../reference/target-frameworks.md)existentes. Uma exceção às convenções de nome e versão é encontrada no identificador de estrutura usado para Windows Phone.  Esse moniker deve usar o nome de estrutura ' wp ' (WP7, wp71 ou WP8). O uso de ' Silverlight-WP7 ', por exemplo, resultará em um erro.
 
-Ao instalar o pacote que é criado a partir dessa estrutura de pasta, o NuGet agora pode aplicar suas regras de estrutura e o perfil para vários destinos, conforme especificado no nome da pasta.  Por trás de regras de correspondência do NuGet é o princípio de que os destinos "mais específicos" terá precedência sobre "menos específicas".  Isso significa que monikers visando uma plataforma específica sempre será preferenciais sobre aqueles portátil se eles são compatíveis com um projeto.  Além disso, se vários destinos portáteis são compatíveis com um projeto, o NuGet vai preferir aquele em que o conjunto de plataformas com suporte é "mais próximo" para o projeto referenciando o pacote.
+Ao instalar o pacote criado a partir dessa estrutura de pastas, o NuGet agora pode aplicar sua estrutura e regras de perfil a vários destinos, conforme especificado no nome da pasta.  Por trás das regras de correspondência do NuGet, é o princípio de que destinos "mais específicos" terão precedência sobre os "menos específicos".  Isso significa que os monikers que se destinam a uma plataforma específica sempre serão preferidos sobre os portáteis se forem ambos compatíveis com um projeto.  Além disso, se vários destinos portáteis forem compatíveis com um projeto, o NuGet preferirá aquele em que o conjunto de plataformas com suporte é "mais próximo" ao projeto que faz referência ao pacote.
 
-## <a name="targeting-windows-8-and-windows-phone-8-projects"></a>Direcionamento do Windows 8 e Windows Phone 8 projetos
+## <a name="targeting-windows-8-and-windows-phone-8-projects"></a>Direcionando projetos do Windows 8 e do Windows Phone 8
 
-Além de adicionar suporte para projetos de biblioteca portátil de direcionamento, 2.1 do NuGet fornece novos monikers de estrutura para projetos do Windows 8 Store e Windows Phone 8, bem como alguns novos monikers gerais para a Windows Store e projetos do Windows Phone que será mais fácil de gerenciar em versões futuras das respectivas plataformas.
+Além de adicionar suporte para o direcionamento de projetos de biblioteca portátil, o NuGet 2,1 fornece novos monikers de estrutura para projetos do Windows 8 Store e do Windows Phone 8, bem como alguns novos monikers gerais para a Windows Store e Windows Phone projetos que serão mais fáceis de gerenciar em versões futuras das respectivas plataformas.
 
-Para aplicativos do Windows 8 Store, os identificadores semelhante ao seguinte:
+Para aplicativos da loja do Windows 8, os identificadores têm a seguinte aparência:
 
-| NuGet 2.0 e versões anterior | 2.1 do NuGet |
+| NuGet 2,0 e anterior | NuGet 2.1 |
 | ---------------- | ----------- |
-| winRT45, .NETCore45 | Win do Windows, Windows8, win8 |
+| winRT45, . NETCore45 | Windows, windows8, Win, win8 |
 
 <br/>
-Para projetos do Windows Phone, os identificadores semelhante ao seguinte:
+Para projetos Windows Phone, os identificadores têm a seguinte aparência:
 
-| Sistema operacional do telefone | NuGet 2.0 e versões anterior | 2.1 do NuGet |
+| SO do telefone | NuGet 2,0 e anterior | NuGet 2.1 |
 | --- | --- | --- |
-| Windows Phone 7 | silverlight3 wp | WP, wp7, WindowsPhone, WindowsPhone7 |
-| Windows Phone 7.5 (Mango) | silverlight4 wp71 | wp71, WindowsPhone71 |
-| Windows Phone 8 | (sem suporte) | wp8, WindowsPhone8 |
+| Windows Phone 7 | silverlight3-wp | WP, WP7, WindowsPhone, WindowsPhone7 |
+| Windows Phone 7,5 (Mango) | silverlight4-wp71 | wp71, WindowsPhone71 |
+| Windows Phone 8 | (sem suporte) | WP8, WindowsPhone8 |
 
 <br/>
-Em todas as alterações acima, os nomes antigos do framework continuarão tendo suporte completo pelo NuGet 2.1.  Mais adiante, os novos nomes devem ser usados como eles serão mais estáveis entre versões futuras das respectivas plataformas. Os novos nomes serão *não* ser, portanto, no entanto, com suporte nas versões do NuGet anteriores à 2.1, planeje adequadamente para quando a transição.
+Em todas as alterações acima, os nomes de estrutura antigos continuarão a ser totalmente suportados pelo NuGet 2,1.  Avançando, os novos nomes devem ser usados, pois eles serão mais estáveis em versões futuras das respectivas plataformas. Os novos nomes *não* terão suporte em versões do NuGet anteriores a 2,1. no entanto, planeje adequadamente para quando fazer a alternância.
 
-## <a name="improved-search-in-package-manager-dialog"></a>Pesquisa aperfeiçoada na caixa de diálogo Gerenciador de pacotes
+## <a name="improved-search-in-package-manager-dialog"></a>Pesquisa aprimorada na caixa de diálogo Gerenciador de pacotes
 
-Ao longo de várias iterações anteriores, as alterações foram introduzidas na Galeria do NuGet que melhorou muito a velocidade e a relevância das pesquisas de pacote.  No entanto, esses aprimoramentos eram limitados para o site nuget.org.  NuGet 2.1 torna a pesquisa aperfeiçoada experiência disponível por meio da caixa de diálogo do Gerenciador de pacote do NuGet.  Por exemplo, imagine que você queira localizar o pacote de versão prévia do Windows Azure de cache.  Uma consulta de pesquisa razoável para esse pacote pode ser "Cache do Azure".  Nas versões anteriores da caixa de diálogo de Gerenciador de pacote, o pacote desejado ainda não é listado na primeira página de resultados.  No entanto, o NuGet 2.1, o pacote desejado agora aparece na parte superior dos resultados da pesquisa.
+Nas últimas várias iterações, foram introduzidas alterações na galeria do NuGet que melhoraram muito a velocidade e a relevância das pesquisas de pacote.  No entanto, essas melhorias eram limitadas ao site da nuget.org.  O NuGet 2,1 torna a experiência de pesquisa aprimorada disponível por meio da caixa de diálogo Gerenciador de pacotes NuGet.  Como exemplo, imagine que você queria encontrar o pacote de visualização do Windows Azure Caching.  Uma consulta de pesquisa razoável para esse pacote pode ser "cache do Azure".  Nas versões anteriores da caixa de diálogo Gerenciador de pacotes, o pacote desejado nem mesmo seria listado na primeira página de resultados.  No entanto, no NuGet 2,1, o pacote desejado agora aparece na parte superior dos resultados da pesquisa.
 
-![Pesquisa de caixa de diálogo de Gerenciador de pacote](./media/releasenotes-21-vsdlg-search.png)
+![Pesquisa de diálogo do Gerenciador de pacotes](./media/releasenotes-21-vsdlg-search.png)
 
-## <a name="force-package-update"></a>Forçar a atualização de pacote
+## <a name="force-package-update"></a>Forçar atualização do pacote
 
-Antes de 2.1 do NuGet, NuGet seria ignorar a atualização de um pacote quando havia uma não um número de versão de alta.  Essa introduzida atrito para determinados cenários – especialmente no caso de compilação ou CI cenários em que a equipe não queria incrementar o número com cada compilação de versão do pacote.  Era o comportamento desejado forçar uma atualização independentemente.  2.1 do NuGet aborda isso com o sinalizador 'reinstalar'.  Por exemplo, as versões anteriores do NuGet resultaria no seguinte ao tentar atualizar um pacote que não tem uma versão mais recente do pacote:
+Antes do NuGet 2,1, o NuGet ignoraria a atualização de um pacote quando não havia um número de versão alto.  Isso introduziu o problema para determinados cenários – particularmente no caso de cenários de compilação ou CI, em que a equipe não queria incrementar o número de versão do pacote com cada compilação.  O comportamento desejado foi forçar uma atualização, independentemente.  O NuGet 2,1 resolve isso com o sinalizador ' Reinstall '.  Por exemplo, as versões anteriores do NuGet resultarão no seguinte ao tentar atualizar um pacote que não tinha uma versão mais recente do pacote:
 
-    PM> Update-Package Moq
-    No updates available for 'Moq' in project 'MySolution.MyConsole'.
+```
+PM> Update-Package Moq
+No updates available for 'Moq' in project 'MySolution.MyConsole'.
+```
 
-Com o sinalizador de reinstalação, o pacote será atualizado independentemente se há uma versão mais recente.
+Com o sinalizador REINSTALL, o pacote será atualizado independentemente de haver uma versão mais recente.
 
-    PM> Update-Package Moq -Reinstall
-    Successfully removed 'Moq 4.0.10827' from MySolution.MyConsole.
-    Successfully uninstalled 'Moq 4.0.10827'.
-    Successfully installed 'Moq 4.0.10827'.
-    Successfully added 'Moq 4.0.10827' to MySolution.MyConsole.
+```
+PM> Update-Package Moq -Reinstall
+Successfully removed 'Moq 4.0.10827' from MySolution.MyConsole.
+Successfully uninstalled 'Moq 4.0.10827'.
+Successfully installed 'Moq 4.0.10827'.
+Successfully added 'Moq 4.0.10827' to MySolution.MyConsole.
+```
 
-Outro cenário em que o sinalizador de reinstalação é vantajoso é de estrutura redirecionar. Ao alterar a estrutura de destino de um projeto (por exemplo, do .NET 4 para o .NET 4.5), Update-Package-reinstalar pode atualizar as referências aos assemblies corretos para todos os pacotes NuGet instalados no projeto.
+Outro cenário em que o sinalizador reinstalar comprova benéfico é o de redirecionamento de estrutura. Ao alterar a estrutura de destino de um projeto (por exemplo, do .NET 4 para o .NET 4,5), a reinstalação do Update-Package pode atualizar as referências aos assemblies corretos para todos os pacotes do NuGet instalados no projeto.
 
-## <a name="edit-package-sources-within-visual-studio"></a>Editar fontes de pacote dentro do Visual Studio
+## <a name="edit-package-sources-within-visual-studio"></a>Editar fontes de pacote no Visual Studio
 
-Nas versões anteriores do NuGet, atualizando uma origem de pacote a partir a caixa de diálogo de opções do Visual Studio necessária excluir e adicionar novamente a origem do pacote.  2.1 do NuGet melhora este fluxo de trabalho com o suporte à atualização como uma função de primeira classe da interface do usuário de configuração.
+Nas versões anteriores do NuGet, a atualização de uma origem de pacote de dentro da caixa de diálogo opções do Visual Studio exigia a exclusão e a adição da origem do pacote.  O NuGet 2,1 melhora esse fluxo de trabalho ao dar suporte à atualização como uma função de primeira classe da interface do usuário de configuração.
 
-![Diálogo de configuração do Gerenciador de pacote](./media/releasenotes-21-edit-pkg-source.png)
+![Caixa de diálogo de configuração do Gerenciador de pacotes](./media/releasenotes-21-edit-pkg-source.png)
 
-## <a name="bug-fixes"></a>Correções de Bug
+## <a name="bug-fixes"></a>Correções de bugs
 
-2.1 do NuGet inclui muitas correções de bugs. Para obter uma lista completa de trabalho itens corrigidos no NuGet 2.0, por favor, modo de exibição de [rastreador de problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Fixed&type=All&priority=All&release=NuGet%202.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+O NuGet 2,1 inclui muitas correções de bugs. Para obter uma lista completa de itens de trabalho corrigidos no NuGet 2,0, consulte o [rastreador de problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Fixed&type=All&priority=All&release=NuGet%202.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).

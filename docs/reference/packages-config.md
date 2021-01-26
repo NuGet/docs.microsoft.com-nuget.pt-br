@@ -1,30 +1,30 @@
 ---
-title: Referência do arquivo Packages. config do NuGet
+title: Referência de arquivo NuGet packages.config
 description: Em alguns tipos de projeto, o packages.json mantém a lista de pacotes do NuGet usados no projeto.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 3665989d35d7362b30a106cf6b4ed0210619efee
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 3e5db779f735cd42aa331f9f8a93496d32c8df54
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230546"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777623"
 ---
 # <a name="packagesconfig-reference"></a>Referência de packages.config
 
 O arquivo `packages.config` é usado em alguns tipos de projeto para manter a lista de pacotes referenciados pelo projeto. Isso permite que o NuGet restaure facilmente as dependências do projeto quando ele a ser transportado para um computador diferente, como um servidor de build, sem todos esses pacotes.
 
-Se usado, o `packages.config` normalmente está localizado em uma raiz do projeto. Ele é criado automaticamente quando a primeira operação do NuGet é executada, mas também pode ser criado manualmente antes de executar qualquer comando, como `nuget restore`.
+Se usado, `packages.config` normalmente está localizado em uma raiz do projeto. Ele é criado automaticamente quando a primeira operação do NuGet é executada, mas também pode ser criado manualmente antes de executar qualquer comando, como `nuget restore` .
 
-Projetos que usam [PackageReference](../consume-packages/Package-References-in-Project-Files.md) não usam `packages.config`.
+Projetos que usam [PackageReference](../consume-packages/Package-References-in-Project-Files.md) não usam `packages.config` .
 
 ## <a name="schema"></a>Esquema
 
 O esquema é simples: após o cabeçalho padrão de XML está um único nó `<packages>` que contém um ou mais elementos `<package>`, um para cada referência. Cada elemento `<package>` pode ter os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --- | --- | --- |
 | id | Sim | O identificador do pacote, como Newtonsoft.json ou Microsoft.AspNet.Mvc. | 
 | version | Sim | A versão exata do pacote a ser instalado, como 3.1.1 ou 4.2.5.11-beta. Uma cadeia de caracteres de versão precisa ter pelo menos três números; um quarto número é opcional, assim como um sufixo de pré-lançamento. Intervalos não são permitidos. | 
