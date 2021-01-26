@@ -1,31 +1,31 @@
 ---
 title: Notas de Versão do NuGet 4.4 RTM
 description: Notas de versão do NuGet 4.3 RTM incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498696"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776281"
 ---
 # <a name="nuget-44-release-notes"></a>Notas sobre a versão do NuGet 4.4
 
 O [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) vem com o NuGet 4.4 RTM.
 
-## <a name="summary-whats-new-in-440"></a>Resumo: O que há de novo no 4.4.0
+## <a name="summary-whats-new-in-440"></a>Resumo: o que há de novo no 4.4.0
 
-## <a name="summary-whats-new-in-442"></a>Resumo: O que há de novo em 4.4.2
+## <a name="summary-whats-new-in-442"></a>Resumo: o que há de novo no 4.4.2
 
-* Correção de segurança: permissões em arquivos criados dentro ~/.nuget estão muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correção de segurança: as permissões em arquivos criados dentro de ~/.NuGet são muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-443"></a>Resumo: O que há de novo em 4.4.3
+## <a name="summary-whats-new-in-443"></a>Resumo: o que há de novo no 4.4.3
 
-* Correção de segurança: arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correção de segurança: os arquivos dentro de NUPKGs podem ter um caminho relativo acima do diretório NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -71,7 +71,7 @@ Faça uma restauração manual.
 
 #### <a name="workaround"></a>Solução alternativa
 
-Não há nenhuma solução alternativa no momento.
+No momento, não há uma solução alternativa para esse problema.
 
 ## <a name="issues-fixed-in-nuget-44-rtm-timeframe"></a>Problemas corrigidos no período de tempo do NuGet 4.4 RTM
 
@@ -175,7 +175,7 @@ Não há nenhuma solução alternativa no momento.
 
 - [Avisos e erros] NoWarn não flui transitivamente por referências P2P – [#5501](https://github.com/NuGet/Home/issues/5501)
 
-- Carga de solução leve: Núcleo comum para PM UI, PMC e IVs- - [#5057](https://github.com/NuGet/Home/issues/5057)
+- Carga de solução leve: núcleo comum para interface do usuário do PM, PMC e IVs-- [#5057](https://github.com/NuGet/Home/issues/5057)
 
 - Lightweight Solution Load: suporte – PMC – [#5053](https://github.com/NuGet/Home/issues/5053)
 

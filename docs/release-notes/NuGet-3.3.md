@@ -1,26 +1,26 @@
 ---
 title: Notas de versão do NuGet 3,3
 description: Notas de versão do NuGet 3,3 incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: aa8290c80cc500b59d1779bf76662c07382fd277
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: cd3f8c9c4586c608d41e7b8bfc413acfc6aff497
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813774"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776512"
 ---
 # <a name="nuget-33-release-notes"></a>Notas de versão do NuGet 3,3
 
-[Notas de versão do NuGet 3.2.1](../release-notes/nuget-3.2.1.md) | [NuGet 3,4-RC Release Notes](../release-notes/nuget-3.4-RC.md)
+Notas de versão do [NuGet 3.2.1](../release-notes/nuget-3.2.1.md)  |  [Notas de versão do NuGet 3,4-RC](../release-notes/nuget-3.4-RC.md)
 
 O NuGet 3,3 foi lançado em 30 de novembro de 2015 com um número significativo de atualizações de interface do usuário e recursos de linha de comando, bem como uma coleção de correções úteis para os clientes NuGet.
 
 ## <a name="new-features"></a>Novos recursos
 
-* Provedores de credenciais foram introduzidos para permitir que os clientes de linha de comando do NuGet possam trabalhar sem problemas com um feed autenticado. [Instruções sobre como instalar o provedor de credenciais Visual Studio Team Services](../reference/extensibility/nuget-exe-credential-providers.md) e configurar os clientes do NuGet para usá-lo estão disponíveis em documentos do NuGet.
+* Provedores de credenciais foram introduzidos para permitir que os clientes de linha de comando do NuGet possam trabalhar sem problemas com um feed autenticado. [Instruções sobre como instalar o provedor de credenciais Visual Studio Team Services ](../reference/extensibility/nuget-exe-credential-providers.md) e configurar os clientes do NuGet para usá-lo estão disponíveis em documentos do NuGet.
 
 ## <a name="new-user-interface-features"></a>Novos recursos da interface do usuário
 
@@ -37,11 +37,11 @@ O NuGet 3,3 foi lançado em 30 de novembro de 2015 com um número significativo 
 
 ## <a name="new-command-line-features"></a>Novos recursos de linha de comando
 
-Nesta versão, apresentamos os comandos `add` e `init` para inicializar repositórios baseados em pasta, conforme descrito na [referência do NuGet. exe](../reference/nuget-exe-cli-reference.md). Os repositórios construídos e mantidos com essa estrutura de pastas fornecerão [benefícios de desempenho significativos](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) , conforme descrito em nosso blog.
+Nesta versão, apresentamos os `add` `init` comandos e para inicializar repositórios baseados em pasta, conforme descrito na [ referência denuget.exe](../reference/nuget-exe-cli-reference.md). Os repositórios construídos e mantidos com essa estrutura de pastas fornecerão [benefícios de desempenho significativos](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) , conforme descrito em nosso blog.
 
 ## <a name="contentfiles"></a>ContentFiles
 
-Agora há suporte para conteúdo em `project.json` projetos gerenciados por meio da nova pasta `contentFiles` e `.nuspec` notação de elemento `contentFiles`.  Esse conteúdo pode ser especificado mais diretamente pelo autor do pacote para interações com sistemas de projeto.  Mais informações sobre como configurar o contentFiles em um documento `.nuspec` podem ser encontradas na [referência de. nuspec](../reference/nuspec.md).
+Agora há suporte para conteúdo em `project.json` projetos gerenciados por meio da nova `contentFiles` notação de pasta e `.nuspec` `contentFiles` elemento.  Esse conteúdo pode ser especificado mais diretamente pelo autor do pacote para interações com sistemas de projeto.  Mais informações sobre como configurar o contentFiles em um `.nuspec` documento podem ser encontradas na [referência de. nuspec](../reference/nuspec.md).
 
 ## <a name="nuget-locals-cache-management"></a>Gerenciamento de cache local do NuGet
 
@@ -55,8 +55,8 @@ A linha de comando do NuGet foi atualizada para incluir informações sobre como
 
 A lista completa de problemas que foram resolvidos na versão 3,3 pode ser encontrada no GitHub na [etapa 3,3](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.3.0+is%3Aclosed).
 
-A lista de problemas corrigidos na versão de linha de comando 3,3 é registrada na [etapa de linha de comando 3,3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline).
+A lista de problemas corrigidos na versão de linha de comando 3,3 é registrada na [etapa 3,3 Command-Line](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline).
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 
 Continuamos a acompanhar problemas em nossa lista de problemas do GitHub, que pode ser encontrada em: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

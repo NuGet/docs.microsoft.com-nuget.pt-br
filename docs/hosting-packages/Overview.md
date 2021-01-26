@@ -1,17 +1,17 @@
 ---
 title: Visão geral da hospedagem de seus próprios feeds do NuGet
 description: Uma visão geral de aberturas para hospedar seus próprios feeds de pacote do NuGet ou galerias localmente ou remotamente.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 81acf15ac69d78d39d2784e77c18ba38bfea126d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 1b7bad6bcd897b746ea9eb6e89b80a88ee5e891a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "75385536"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774046"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hospedando seus próprios feeds do NuGet
 
@@ -23,7 +23,7 @@ Para todas as finalidades, o NuGet é compatível com a configuração de origen
 - NuGet.Server: os pacotes são disponibilizados por meio de um servidor HTTP local. Para ver mais detalhes, consulte [NuGet.Server](../hosting-packages/nuget-server.md).
 - Galeria do NuGet: os pacotes são hospedados em um servidor de Internet usando o [Projeto da Galeria do NuGet](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (github.com). A Galeria do NuGet fornece gerenciamento de usuários e recursos como uma interface do usuário extensiva da Web que permite pesquisar e explorar pacotes de dentro do navegador, semelhante ao nuget.org.
 
-Há também vários outros produtos de hospedagem NuGet, como [artefatos azure](https://www.visualstudio.com/docs/package/nuget/publish) e [registro de pacotes GitHub](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry) que suportam feeds privados remotos. Abaixo está uma lista de tais produtos:
+Também há vários outros produtos de hospedagem do NuGet, como [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish) e [registro de pacote do GitHub](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry) , que dão suporte a feeds privados remotos. Abaixo está uma lista de tais produtos:
 
 - [Artifactory](https://www.jfrog.com/artifactory/) da JFrog.
 - O [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish), que também está disponível no Team Foundation Server 2017 e posterior.
@@ -32,7 +32,7 @@ Há também vários outros produtos de hospedagem NuGet, como [artefatos azure](
 - [Registro de pacote do GitHub](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
 - [LiGet](https://github.com/ai-traders/liget), uma implementação em código aberto do servidor NuGet V2 que é executado no kestrel no docker
 - [MyGet](https://myget.org)
-- [Nexus Repository OSS](https://www.sonatype.com/nexus-repository-oss) da Sonatype.
+- [OSS do repositório de Nexus](https://www.sonatype.com/nexus-repository-oss) de Sonatype.
 - [NuGet Server (Software Livre)](https://github.com/svenkle/nuget-server), uma implementação de software livre semelhante ao NuGet Server da Inedo
 - [NuGet Server](http://nugetserver.net/), um projeto da comunidade do Inedo
 - [ProGet](https://inedo.com/proget) da Inedo

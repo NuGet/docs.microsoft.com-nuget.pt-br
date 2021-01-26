@@ -1,7 +1,7 @@
 ---
 title: Como publicar pacotes de símbolos do NuGet usando o novo formato de pacote de símbolos '.snupkg' | Microsoft Docs
-author: cristinamanu
-ms.author: cristinamanu
+author: JonDouglas
+ms.author: jodou
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -12,16 +12,18 @@ keywords: Pacotes de símbolos do NuGet, depuração de pacote do NuGet, suporte
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: fbcc035a6b800617f995d3bcebd7e1764aa467b0
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 001637348fdd435e4ffd3a5a55e8128d1eab453c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235718"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774569"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Criando pacotes de símbolos (.snupkg)
 
 Uma boa experiência de depuração depende da presença de símbolos de depuração, pois eles fornecem informações críticas, como a associação entre o código de origem compilado e o, nomes de variáveis locais, rastreamentos de pilha e muito mais. Você pode usar pacotes de símbolos (. snupkg) para distribuir esses símbolos e melhorar a experiência de depuração de seus pacotes NuGet.
+
+> Observe que o pacote de símbolos não é a única estratégia para disponibilizar os símbolos de depuração para os consumidores da sua biblioteca. Também é [possível `embed` fazer](https://docs.microsoft.com/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle) isso no `dll` ou `exe` com a seguinte propriedade de projeto:`<DebugType>embedded</DebugType>`
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

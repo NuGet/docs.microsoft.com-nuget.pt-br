@@ -1,16 +1,16 @@
 ---
 title: Versões de pré-lançamento em pacotes do NuGet
 description: Diretrizes para compilar pacotes de pré-lançamento
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5dda56ccd4c959bcbcbd12b7a4771ddff1fe7530
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: ae6628efa6d97ff5ba2c4c359b9565a3214cb346
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623000"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774661"
 ---
 # <a name="building-pre-release-packages"></a>Compilando pacotes de pré-lançamento
 
@@ -77,15 +77,17 @@ Considerando isso, geralmente é aconselhável seguir as convenções de nomencl
 
 Qualquer sufixo que você usar, no entanto, receberá precedência do NuGet cem ordem alfabética inversa:
 
-    1.0.1
-    1.0.1-zzz
-    1.0.1-rc
-    1.0.1-open
-    1.0.1-beta.12
-    1.0.1-beta.5
-    1.0.1-beta
-    1.0.1-alpha.2
-    1.0.1-alpha
+```
+1.0.1
+1.0.1-zzz
+1.0.1-rc
+1.0.1-open
+1.0.1-beta.12
+1.0.1-beta.5
+1.0.1-beta
+1.0.1-alpha.2
+1.0.1-alpha
+```
 
 Conforme mostrado, a versão sem nenhum sufixo sempre terá precedência sobre as versões de pré-lançamento.
 

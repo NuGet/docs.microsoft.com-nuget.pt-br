@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ffbcb8dc18542f39c32a6d84b279c8eccaf98fc3
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292301"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774150"
 ---
 # <a name="catalog"></a>Catálogo
 
@@ -63,15 +63,17 @@ Os itens de catálogo são sempre adicionados ao catálogo em uma ordem cronoló
 
 A solicitação a seguir busca o índice do catálogo.
 
-    GET {@id}
+```
+GET {@id}
+```
 
 O índice de catálogo é um documento JSON que contém um objeto com as seguintes propriedades:
 
-Nome            | Type             | Obrigatório | Observações
+Nome            | Type             | Necessária | Observações
 --------------- | ---------------- | -------- | -----
 commitId        | string           | sim      | Uma ID exclusiva associada à confirmação mais recente
 commitTimeStamp | string           | sim      | Um carimbo de data/hora da confirmação mais recente
-count           | inteiro          | sim      | O número de páginas no índice
+count           | Número inteiro          | sim      | O número de páginas no índice
 itens           | matriz de objetos | sim      | Uma matriz de objetos, cada objeto que representa uma página
 
 Cada elemento na `items` matriz é um objeto com alguns detalhes mínimos sobre cada página. Esses objetos de página não contêm as folhas de catálogo (itens). A ordem dos elementos nesta matriz não está definida. As páginas podem ser ordenadas pelo cliente na memória usando sua `commitTimeStamp` propriedade.
@@ -84,18 +86,20 @@ Cada elemento na `items` matriz é um objeto com alguns detalhes mínimos sobre 
 
 Os objetos de página de catálogo encontrados na Propriedade do índice de catálogo `items` têm as seguintes propriedades:
 
-Nome            | Type    | Obrigatório | Observações
+Nome            | Type    | Necessária | Observações
 --------------- | ------- | -------- | -----
 @id             | string  | sim      | A URL para buscar a página do catálogo
 commitId        | string  | sim      | Uma ID exclusiva associada à confirmação mais recente nesta página
 commitTimeStamp | string  | sim      | Um carimbo de data/hora da confirmação mais recente nesta página
-count           | inteiro | sim      | O número de itens na página do catálogo
+count           | Número inteiro | sim      | O número de itens na página do catálogo
 
 Ao contrário do [recurso de metadados do pacote](registration-base-url-resource.md) , que, em alguns casos, deixa de lado no índice, as folhas de catálogo nunca são embutidas no índice e sempre devem ser buscadas usando a URL da página `@id` .
 
 ### <a name="sample-request"></a>Solicitação de exemplo
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 ### <a name="sample-response"></a>Resposta de exemplo
 
@@ -109,11 +113,11 @@ Novos itens de catálogo são adicionados à página no índice de catálogo som
 
 O documento de página de catálogo é um objeto JSON com as seguintes propriedades:
 
-Nome            | Type             | Obrigatório | Observações
+Nome            | Type             | Necessária | Observações
 --------------- | ---------------- | -------- | -----
 commitId        | string           | sim      | Uma ID exclusiva associada à confirmação mais recente nesta página
 commitTimeStamp | string           | sim      | Um carimbo de data/hora da confirmação mais recente nesta página
-count           | inteiro          | sim      | O número de itens na página
+count           | Número inteiro          | sim      | O número de itens na página
 itens           | matriz de objetos | sim      | Os itens de catálogo nesta página
 pai          | string           | sim      | Uma URL para o índice do catálogo
 
@@ -129,7 +133,7 @@ O número de itens de catálogo em uma página é definido pela implementação 
 
 Os objetos de item de catálogo encontrados na propriedade da página do catálogo `items` têm as seguintes propriedades:
 
-Nome            | Type    | Obrigatório | Observações
+Nome            | Type    | Necessária | Observações
 --------------- | ------- | -------- | -----
 @id             | string  | sim      | A URL para buscar o item de catálogo
 @type           | string  | sim      | O tipo do item de catálogo
@@ -147,7 +151,9 @@ Para obter mais detalhes sobre o que cada tipo significa, consulte o [tipo de it
 
 ### <a name="sample-request"></a>Solicitação de exemplo
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 ### <a name="sample-response"></a>Resposta de exemplo
 
@@ -159,7 +165,7 @@ A folha catálogo contém metadados sobre uma ID e versão de pacote específico
 
 O documento folha do catálogo é um objeto JSON com as seguintes propriedades:
 
-Nome                    | Type                       | Obrigatório | Observações
+Nome                    | Type                       | Necessária | Observações
 ----------------------- | -------------------------- | -------- | -----
 @type                   | cadeia de caracteres ou matriz de cadeias de caracteres | sim      | Os tipos do item de catálogo
 Catálogo: ConfirmID        | string                     | sim      | Uma ID de confirmação associada a este item de catálogo
@@ -190,7 +196,7 @@ Os clientes que consomem os itens de catálogo não devem tentar determinar quai
 
 Os itens do catálogo detalhes do pacote têm as seguintes propriedades além das [incluídas em todas as folhas de catálogo](#catalog-leaf).
 
-Nome                    | Type                       | Obrigatório | Observações
+Nome                    | Type                       | Necessária | Observações
 ----------------------- | -------------------------- | -------- | -----
 authors                 | string                     | não       |
 criado                 | string                     | não       | Um carimbo de data/hora de quando o pacote foi criado pela primeira vez. Propriedade de fallback: `published` .
@@ -205,7 +211,7 @@ listados                  | booleano                    | não       | Se o paco
 minClientVersion        | string                     | não       |
 packageHash             | string                     | sim      | O hash do pacote, codificação usando a [base padrão 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | string                     | sim      |
-packageSize             | inteiro                    | sim      | O tamanho do pacote. nupkg em bytes
+packageSize             | Número inteiro                    | sim      | O tamanho do pacote. nupkg em bytes
 packageTypes            | matriz de objetos           | não       | Os tipos de pacote especificados pelo autor.
 projectUrl              | string                     | não       |
 releaseNotes            | string                     | não       |
@@ -223,7 +229,7 @@ O `packageHashAlgorithm` é uma cadeia de caracteres definida pela implementaç�
 
 A `packageTypes` propriedade só estará presente se um tipo de pacote tiver sido especificado pelo autor. Se estiver presente, ele sempre terá pelo menos uma (1) entrada. Cada item na `packageTypes` matriz é um objeto JSON com as seguintes propriedades:
 
-Nome      | Type    | Obrigatório | Observações
+Nome      | Type    | Necessária | Observações
 --------- | ------- | -------- | -----
 name      | string  | sim      | O nome do tipo de pacote.
 version    | string  | não       | A versão do tipo de pacote. Presente somente se o autor especificou explicitamente uma versão no nuspec.
@@ -235,7 +241,9 @@ O `published` carimbo de data/hora é o horário em que o pacote foi listado pel
 
 #### <a name="sample-request"></a>Solicitação de exemplo
 
+```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 #### <a name="sample-response"></a>Resposta de exemplo
 
@@ -256,7 +264,9 @@ A `published` propriedade é a hora em que o pacote foi excluído, que normalmen
 
 #### <a name="sample-request"></a>Solicitação de exemplo
 
+```
 GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+```
 
 #### <a name="sample-response"></a>Resposta de exemplo
 

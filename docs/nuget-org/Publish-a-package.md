@@ -1,17 +1,17 @@
 ---
 title: Como publicar um pacote do NuGet
 description: Instruções detalhadas sobre como publicar um pacote do NuGet no nuget.org ou feeds privados e como gerenciar a propriedade de pacote no nuget.org.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237926"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775982"
 ---
 # <a name="publishing-packages"></a>Publicando pacotes
 
@@ -44,7 +44,7 @@ Em seguida, você poderá carregar o pacote por meio do portal da Web nuget.org,
 
 1. Quando todas as informações estiverem prontas, selecione o botão **Submit** (Enviar)
 
-### <a name="command-line"></a>Linha de comando
+### <a name="command-line"></a>Linha de Comando
 
 Para enviar pacotes por push para o nuget.org, primeiro você precisa de uma chave de API, que é criada em nuget.org. Você deve usar o dotnet.exe (.NET Core) ou nuget.exe v 4.1.0 ou superior, que implementa os protocolos NuGet necessários.
 Para obter mais informações, consulte [.NET Core](/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)e [protocolos NuGet](../api/nuget-protocols.md).

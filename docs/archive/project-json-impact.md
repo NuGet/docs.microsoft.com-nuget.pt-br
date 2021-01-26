@@ -1,16 +1,16 @@
 ---
 title: Impacto do project.json em autores de pacote do NuGet
 description: Detalhes sobre como a implementação do project.json no NuGet 3.x afeta autores de pacote, como recursos incompatíveis, conteúdo e formato do pacote.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 82b7ce7962ecccc9559ae25a8fe35a3820238049
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69488193"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775388"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impacto do project.json durante a criação de pacotes
 
@@ -45,7 +45,7 @@ Não há compatibilidade para o conteúdo pelos mesmos motivos dos scripts e tra
 
 Arquivos de conteúdo ainda podem ser transportados dentro de pacotes e são ignorados no momento, porém o usuário final ainda pode copiá-los para o ponto certo.
 
-Você pode ver uma das propostas para trazer de volta [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)arquivos de conteúdo, e acompanhar seu progresso, aqui: .
+Você pode ver uma das propostas para retornar arquivos de conteúdo e seguir seu progresso, aqui: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627) .
 
 ## <a name="impact-for-package-authors"></a>Impacto para os autores de pacote
 

@@ -10,12 +10,12 @@ ms.technology: ''
 description: O serviço de publicação permite que os clientes publiquem novos pacotes de símbolo.
 keywords: Pacote de símbolos de push da API do NuGet
 ms.reviewer: karann
-ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 91bb4c9ca77fd7f1ff35831e02eb4f9d65d641c5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738871"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773898"
 ---
 # <a name="push-symbol-packages"></a>Pacotes de símbolo de push
 
@@ -42,7 +42,9 @@ A URL base para as APIs a seguir é o valor da `@id` Propriedade do `SymbolPacka
 
 o nuget.org dá suporte ao envio de novo formato de pacotes de símbolo ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) usando a API a seguir. 
 
-    PUT https://www.nuget.org/api/v2/symbolpackage
+```
+PUT https://www.nuget.org/api/v2/symbolpackage
+```
 
 Pacotes de símbolos com a mesma ID e versão podem ser enviados várias vezes. Um pacote de símbolos será rejeitado nos casos a seguir.
 - Não existe um pacote com a mesma ID e versão.
@@ -51,7 +53,7 @@ Pacotes de símbolos com a mesma ID e versão podem ser enviados várias vezes. 
 
 ### <a name="request-parameters"></a>Parâmetros da solicitação
 
-Nome           | Em     | Type   | Obrigatório | Observações
+Nome           | Em     | Type   | Necessária | Observações
 -------------- | ------ | ------ | -------- | -----
 X-NuGet-ApiKey | Cabeçalho | string | sim      | Por exemplo, `X-NuGet-ApiKey: {USER_API_KEY}`
 

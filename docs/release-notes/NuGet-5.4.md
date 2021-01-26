@@ -1,16 +1,16 @@
 ---
 title: Notas de versão do NuGet 5,4
 description: Notas de versão do NuGet 5,4, incluindo novos recursos, correções de bugs e DCRs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: c7fb9c1e587b6603abe63581c662571abfd4506b
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: dd4c10672db3a65b68f18636105ee55ab09da7ef
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384105"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776181"
 ---
 # <a name="nuget-54-release-notes"></a>Notas de versão do NuGet 5,4
 
@@ -28,11 +28,11 @@ Veículos de distribuição do NuGet:
 
 * Nova função auxiliar – dada uma lista de IDs e versões de pacote, obtenha os pacotes de nível superior prováveis. - [#8316](https://github.com/NuGet/Home/issues/8316)
 
-* Nova ação [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) para instalar e configurar o NuGet. exe em [ações do GitHub](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
+* Nova [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) ação para instalar e configurar NuGet.exe em [ações do GitHub](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
 
 ### <a name="issues-fixed-in-this-release"></a>Problemas corrigidos nesta versão
 
-**•s**
+**Bugs**
 
 * Plugin: a precisão do tempo de log está desativada no Linux/Mac- [#8747](https://github.com/NuGet/Home/issues/8747)
 
@@ -42,7 +42,7 @@ Veículos de distribuição do NuGet:
 
 * O arquivo de bloqueio não foi gerado corretamente-a ordenação de estrutura não deve afetar a restauração com o modo bloqueado- [#8645](https://github.com/NuGet/Home/issues/8645)
 
-* A validação de lockfile falha para projetos com <RuntimeIdentifiers> definido no SDK 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639)
+* A validação de lockfile falha para projetos com <RuntimeIdentifiers> set no SDK 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639)
 
 * A validação de assinatura agora rejeitará corretamente as assinaturas com carimbos de data/hora que têm 2 valores na mesma OID- [#8629](https://github.com/NuGet/Home/issues/8629)
 

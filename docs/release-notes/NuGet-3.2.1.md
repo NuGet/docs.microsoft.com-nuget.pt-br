@@ -1,38 +1,38 @@
 ---
 title: Notas de versão do NuGet 3.2.1
-description: Notas de versão do NuGet 3.2.1 incluindo conhecidos problemas, correções de bugs, recursos adicionados e DCRs.
-author: karann-msft
-ms.author: karann
+description: Notas de versão do NuGet 3.2.1, incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: e5ddbb8aa52ef85c823404364a3aca79fd16f3b1
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cbbef3517122ceda91cb4b4463fe8be43d204db4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548184"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776525"
 ---
 # <a name="nuget-321-release-notes"></a>Notas de versão do NuGet 3.2.1
 
-[Notas de versão do NuGet 3.2](../release-notes/nuget-3.2.md) | [notas de versão do NuGet 3.3](../release-notes/nuget-3.3.md)
+Notas de versão do [NuGet 3,2](../release-notes/nuget-3.2.md)  |  [Notas de versão do NuGet 3,3](../release-notes/nuget-3.3.md)
 
-O NuGet 3.2.1 para a linha de comando foi lançado em 12 de outubro de 2015 com algumas otimizações e correções para a versão 3.2 e está disponível no [dist.nuget.org](http://dist.nuget.org/index.html).
+O NuGet 3.2.1 para a linha de comando foi lançado em 12 de outubro de 2015 com algumas otimizações e correções para a versão 3,2 e está disponível em [dist.NuGet.org](http://dist.nuget.org/index.html).
 
-## <a name="improvements"></a>Melhorias
+## <a name="improvements"></a>Aprimoramentos
 
-* Agora, o NuGet usa o arquivo de configuração com a capitalização original da `NuGet.Config`.  Isso é importante em sistemas operacionais de diferencia maiusculas de minúsculas [1427](https://github.com/NuGet/Home/issues/1427)
-* Restauração do NuGet agora irá ignorar os projetos dnx (`*.xproj`) que devem ser processadas com `dnu` [1227](https://github.com/NuGet/Home/issues/1227)
-* Com otimização de utilização da rede ao trabalhar com `index.json` e dados de registro do pacote [1426](https://github.com/NuGet/Home/issues/1426)
-* Download de um recurso aprimorado de tratamento para ser mais robusta com os serviços de v2 [1448](https://github.com/NuGet/Home/issues/1448)
+* O NuGet agora usa o arquivo de configuração com a capitalização original de `NuGet.Config` .  Isso é importante em sistemas operacionais com distinção de maiúsculas e minúsculas [1427](https://github.com/NuGet/Home/issues/1427)
+* A restauração do NuGet agora irá ignorar projetos DNX ( `*.xproj` ) que devem ser processados com `dnu` [1227](https://github.com/NuGet/Home/issues/1227)
+* Utilização de rede otimizada ao trabalhar com `index.json` e empacotar dados de registro [1426](https://github.com/NuGet/Home/issues/1426)
+* Tratamento aprimorado de download de recursos para ser mais robusto com os serviços v2 [1448](https://github.com/NuGet/Home/issues/1448)
 
 ## <a name="fixes"></a>Correções
 
-* Atualização do NuGet atualiza corretamente `.csproj` / `.vcxproj` referências [1483](https://github.com/NuGet/Home/issues/1483)
-* Impedindo que uma pasta local .nuget sejam criadas quando um SpecialFolders.UserProfile não é possível localizar [1531](https://github.com/NuGet/Home/issues/1531)
-* Manipulação de pacotes no cache local que estão corrompidos durante o download melhorada [1405](https://github.com/NuGet/Home/issues/1405) [1157](https://github.com/NuGet/Home/issues/1157)
+* A atualização do NuGet atualiza corretamente as `.csproj` / `.vcxproj` referências [1483](https://github.com/NuGet/Home/issues/1483)
+* Agora, impedir que uma pasta local. NuGet seja criada quando um SpecialFolders. UserProfile não puder ser localizado [1531](https://github.com/NuGet/Home/issues/1531)
+* Tratamento aprimorado de pacotes no cache local que estão corrompidos durante o download [1405](https://github.com/NuGet/Home/issues/1405) [1157](https://github.com/NuGet/Home/issues/1157)
 
-Uma lista completa dos problemas abordados para a extensão de linha de comando e o Visual Studio pode ser encontrada no NuGet GitHub [3.2.1 marco](https://github.com/NuGet/Home/issues?q=milestone%3A3.2.1+is%3Aclosed)
+Uma lista completa de problemas abordados para a extensão de linha de comando e do Visual Studio pode ser encontrada no [Marco](https://github.com/NuGet/Home/issues?q=milestone%3A3.2.1+is%3Aclosed) do GitHub do NuGet 3.2.1
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 
-Continuamos a acompanhar os problemas em nossa lista de problemas do GitHub que pode ser encontrada em: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Continuamos a acompanhar problemas em nossa lista de problemas do GitHub, que pode ser encontrada em: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

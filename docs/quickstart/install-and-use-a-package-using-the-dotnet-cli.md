@@ -1,22 +1,22 @@
 ---
 title: Instalar e usar um pacote do NuGet usando a CLI dotnet
 description: Um tutorial passo a passo sobre o processo de instalação e uso de um pacote NuGet em um projeto .NET Core.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 006fff8360ac62393e4b88c1a253514591d22f4c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: adbf8f457d8520e3087e539b91ef932877aec3a0
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231261"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775449"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Início Rápido: Instalar e usar um pacote usando a CLI do dotnet
 
 Os pacotes NuGet contém código reutilizável que outros desenvolvedores disponibilizam para uso em seus projetos. Consulte [O que há de novo no NuGet](../What-is-NuGet.md) para obter mais informações. Os pacotes são instalados em um projeto do .NET Core usando o comando `dotnet add package`, conforme descrito neste artigo para a popular pacote [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/).
 
-Depois de instalado, consulte o pacote no código com `using <namespace>` em que \<namespace\> é específico para o pacote que você está usando. Em seguida, você pode usar o API do pacote.
+Uma vez instalado, consulte o pacote em código com `using <namespace>` onde \<namespace\> é específico para o pacote que você está usando. Em seguida, você pode usar o API do pacote.
 
 > [!Tip]
 > **Começar com nuget.org**: normalmente, os desenvolvedores em .NET encontram os componentes que podem reutilizar em seus próprios aplicativos procurando no nuget.org. Você pode pesquisar no nuget.org diretamente ou localizar e instalar pacotes de dentro do Visual Studio, conforme mostrado neste artigo.
@@ -106,7 +106,7 @@ Os pacotes NuGet podem ser instalados em algum tipo de projeto do .NET. Para est
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-the-NET-CLI-3-of-5/player]
 
-Encontre mais vídeos do NuGet no [Canal 9](https://channel9.msdn.com/Series/NuGet-101) e [no YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Encontre mais vídeos sobre o NuGet no [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e no [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="next-steps"></a>Próximas etapas
 

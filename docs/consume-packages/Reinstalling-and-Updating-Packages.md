@@ -1,16 +1,16 @@
 ---
 title: Reinstalando e atualizando pacotes do NuGet
 description: Detalhes sobre quando é necessário reinstalar e atualizar pacotes, assim como acontece com referências de pacote interrompidas no Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 588d546352e5733ba8198061beb8006a79ecedac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237725"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774979"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Como reinstalar e atualizar pacotes
 
@@ -23,7 +23,7 @@ A atualização e reinstalação de pacotes é feita da seguinte maneira:
 | Método | Atualizar | Reinstalar |
 | --- | --- | --- |
 | Console do Gerenciador de Pacotes (descrito em [Usando Update-Package](#using-update-package)) | Comando `Update-Package` | Comando `Update-Package -reinstall` |
-| Interface do usuário do Gerenciador de Pacotes | Na guia **Atualizações** , selecione um ou mais pacotes e escolha **Atualizar** | Na guia **Instalado** , selecione um pacote, registre seu nome e escolha **Desinstalar** . Mude para a guia **Procurar** , pesquise pelo nome do pacote, selecione-o e escolha **Instalar** ). |
+| Interface do usuário do Gerenciador de Pacotes | Na guia **Atualizações**, selecione um ou mais pacotes e escolha **Atualizar** | Na guia **Instalado**, selecione um pacote, registre seu nome e escolha **Desinstalar**. Mude para a guia **Procurar**, pesquise pelo nome do pacote, selecione-o e escolha **Instalar**). |
 | CLI do nuget.exe | Comando `nuget update` | Para todos os pacotes, exclua a pasta do pacote e execute `nuget install`. Para um único pacote, exclua a pasta do pacote e usar `nuget install <id>` para reinstalar o mesmo. |
 
 > [!NOTE]
@@ -36,11 +36,11 @@ Neste artigo:
 
 ## <a name="when-to-reinstall-a-package"></a>Quando reinstalar um pacote
 
-1. **Referências interrompidas após a restauração do pacote** : se você abriu um projeto e restaurou pacotes do NuGet, mas ainda está encontrando referências interrompidas, tente reinstalar todos os pacotes.
-1. **Projeto interrompido devido a arquivos excluídos** : o NuGet não evita que você remova itens adicionados de pacotes, portanto, é fácil modificar inadvertidamente o conteúdo instalado de um pacote e desfazer seu projeto. Para restaurar o projeto, reinstale os pacotes afetados.
-1. **Atualização de pacote interrompeu o projeto** : se uma atualização de um pacote interromper um projeto, a falha será geralmente causada por um pacote de dependências que também pode ter sido atualizado. Para restaurar o estado da dependência, reinstale o pacote específico.
-1. **Redirecionamento ou upgrade do projeto** : isso pode ser útil quando um projeto foi redirecionado ou atualizado e se o pacote exigir a reinstalação devido à alteração na estrutura de destino. O NuGet mostra um erro de build nesses casos imediatamente após o redirecionamento do projeto e os avisos de build subsequentes informam que o pacote pode precisar ser reinstalado. Para upgrade do projeto, o NuGet mostra um erro no Log de Upgrade de Projeto.
-1. **Reinstalar um pacote durante o desenvolvimento** : os autores de pacotes geralmente precisam reinstalar a mesma versão do pacote que está sendo desenvolvido para testar o comportamento. O comando `Install-Package` não oferece uma opção para forçar uma reinstalação, portanto, use `Update-Package -reinstall` em vez disso.
+1. **Referências interrompidas após a restauração do pacote**: se você abriu um projeto e restaurou pacotes do NuGet, mas ainda está encontrando referências interrompidas, tente reinstalar todos os pacotes.
+1. **Projeto interrompido devido a arquivos excluídos**: o NuGet não evita que você remova itens adicionados de pacotes, portanto, é fácil modificar inadvertidamente o conteúdo instalado de um pacote e desfazer seu projeto. Para restaurar o projeto, reinstale os pacotes afetados.
+1. **Atualização de pacote interrompeu o projeto**: se uma atualização de um pacote interromper um projeto, a falha será geralmente causada por um pacote de dependências que também pode ter sido atualizado. Para restaurar o estado da dependência, reinstale o pacote específico.
+1. **Redirecionamento ou upgrade do projeto**: isso pode ser útil quando um projeto foi redirecionado ou atualizado e se o pacote exigir a reinstalação devido à alteração na estrutura de destino. O NuGet mostra um erro de build nesses casos imediatamente após o redirecionamento do projeto e os avisos de build subsequentes informam que o pacote pode precisar ser reinstalado. Para upgrade do projeto, o NuGet mostra um erro no Log de Upgrade de Projeto.
+1. **Reinstalar um pacote durante o desenvolvimento**: os autores de pacotes geralmente precisam reinstalar a mesma versão do pacote que está sendo desenvolvido para testar o comportamento. O comando `Install-Package` não oferece uma opção para forçar uma reinstalação, portanto, use `Update-Package -reinstall` em vez disso.
 
 ## <a name="constraining-upgrade-versions"></a>Restrições de versões de upgrade
 
@@ -63,7 +63,7 @@ Em todo os casos, use a notação descrita em [Controle de versão do pacote](..
 
 ## <a name="using-update-package"></a>Usando o Update-Package
 
-Lembre-se das [Considerações](#considerations) descritas abaixo. É possível reinstalar facilmente qualquer pacote usando o [comando Update-Package](../reference/ps-reference/ps-ref-update-package.md) no Console do Gerenciador de Pacotes do Visual Studio ( **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes** ).
+Lembre-se das [Considerações](#considerations) descritas abaixo. É possível reinstalar facilmente qualquer pacote usando o [comando Update-Package](../reference/ps-reference/ps-ref-update-package.md) no Console do Gerenciador de Pacotes do Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**).
 
 ```ps
 Update-Package -Id <package_name> –reinstall

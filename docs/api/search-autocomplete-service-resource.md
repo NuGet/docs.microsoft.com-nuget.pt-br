@@ -6,14 +6,14 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f574849bf99cd4da4eefd55c3dd5a0648042f0c1
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 2893e13ff7b070844a2bdd5722da3aa1f123538d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292287"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773963"
 ---
-# <a name="autocomplete"></a>Preenchimento Automático
+# <a name="autocomplete"></a>Preenchimento automático
 
 É possível criar uma ID do pacote e uma experiência de preenchimento automático da versão usando a API v3. O recurso usado para fazer consultas de preenchimento automático é o `SearchAutocompleteService` recurso encontrado no [índice de serviço](service-index.md).
 
@@ -24,8 +24,8 @@ Os seguintes `@type` valores são usados:
 @type valor                          | Observações
 ------------------------------------ | -----
 SearchAutocompleteService            | A versão inicial
-SearchAutocompleteService/3.0.0-beta | Alias de`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-RC   | Alias de`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | Alias de `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-RC   | Alias de `SearchAutocompleteService`
 SearchAutocompleteService/3.5.0      | Inclui suporte para `packageType` parâmetro de consulta
 
 ### <a name="searchautocompleteservice350"></a>SearchAutocompleteService/3.5.0
@@ -45,15 +45,17 @@ A primeira API de preenchimento automático dá suporte à pesquisa de parte de 
 
 Um pacote com apenas versões não listadas não será exibido nos resultados.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>Parâmetros da solicitação
 
-Nome        | Em     | Type    | Obrigatório | Observações
+Nome        | Em     | Type    | Necessária | Observações
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | não       | A cadeia de caracteres para comparar com as IDs de pacote
-skip        | URL    | inteiro | não       | O número de resultados a serem ignorados, para paginação
-take        | URL    | inteiro | não       | O número de resultados a serem retornados, para paginação
+skip        | URL    | Número inteiro | não       | O número de resultados a serem ignorados, para paginação
+take        | URL    | Número inteiro | não       | O número de resultados a serem retornados, para paginação
 prerelease  | URL    | booleano | não       | `true`ou `false` determinando se os [pacotes de pré-lançamento](../create-packages/prerelease-packages.md) devem ser incluídos
 semVerLevel | URL    | string  | não       | Uma cadeia de versão do SemVer 1.0.0 
 packageType | URL    | string  | não       | O tipo de pacote a ser usado para filtrar pacotes (adicionados em `SearchAutocompleteService/3.5.0` )
@@ -80,14 +82,16 @@ A resposta é um documento JSON que contém até `take` resultados de preenchime
 
 O objeto JSON raiz tem as seguintes propriedades:
 
-Nome      | Type             | Obrigatório | Observações
+Nome      | Type             | Necessária | Observações
 --------- | ---------------- | -------- | -----
-totalHits | inteiro          | sim      | O número total de correspondências, desconsiderando `skip` e`take`
+totalHits | Número inteiro          | sim      | O número total de correspondências, desconsiderando `skip` e `take`
 data      | Matriz de cadeias de caracteres | sim      | As IDs de pacote correspondentes à solicitação
 
 ### <a name="sample-request"></a>Solicitação de exemplo
 
-    GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+```
+GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+```
 
 ### <a name="sample-response"></a>Resposta de exemplo
 
@@ -99,11 +103,13 @@ Depois que uma ID de pacote é descoberta usando a API anterior, um cliente pode
 
 Uma versão de pacote que não está listada não aparecerá nos resultados.
 
-    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+```
+GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+```
 
 ### <a name="request-parameters"></a>Parâmetros da solicitação
 
-Nome        | Em     | Type    | Obrigatório | Observações
+Nome        | Em     | Type    | Necessária | Observações
 ----------- | ------ | ------- | -------- | -----
 id          | URL    | string  | sim      | A ID do pacote para buscar versões para
 prerelease  | URL    | booleano | não       | `true`ou `false` determinando se os [pacotes de pré-lançamento](../create-packages/prerelease-packages.md) devem ser incluídos
@@ -119,7 +125,7 @@ A resposta é um documento JSON que contém todas as versões de pacote da ID de
 
 O objeto JSON raiz tem a seguinte propriedade:
 
-Nome      | Type             | Obrigatório | Observações
+Nome      | Type             | Necessária | Observações
 --------- | ---------------- | -------- | -----
 data      | Matriz de cadeias de caracteres | sim      | As versões de pacote correspondidas pela solicitação
 
@@ -127,7 +133,9 @@ As versões de pacote na `data` matriz podem conter metadados de compilação Se
 
 ### <a name="sample-request"></a>Solicitação de exemplo
 
-    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
+```
+GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
+```
 
 ### <a name="sample-response"></a>Resposta de exemplo
 

@@ -1,16 +1,16 @@
 ---
 title: Como empacotar os controles da Interface do Usuário com o NuGet
 description: Como criar pacotes do NuGet que contêm controles UWP ou WPF, incluindo os metadados e os arquivos de suporte necessários para os designers do Visual Studio e do Blend.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 17062d83349fe1b8cd28e57dd888686a226ac9cb
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 317937b4d9d773d74384b8ebfcd2146062236ac1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238017"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774320"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Como criar controles de interface do usuário como pacotes do NuGet
 
@@ -36,10 +36,12 @@ Como alternativa, edite o arquivo de projeto para adicionar `<GenerateLibraryLay
 
 Para que um controle XAML apareça na caixa de ferramentas do designer XAML no Visual Studio e no painel de Ativos do Blend, crie um arquivo `VisualStudioToolsManifest.xml` na raiz da pasta `tools` do seu projeto de pacote. Esse arquivo não é necessário se você não precisar que o controle apareça na caixa de ferramentas ou no painel Ativos.
 
-    \build
-    \lib
-    \tools
-        VisualStudioToolsManifest.xml
+```
+\build
+\lib
+\tools
+    VisualStudioToolsManifest.xml
+```
 
 A estrutura do arquivo é a seguinte:
 
@@ -59,11 +61,11 @@ A estrutura do arquivo é a seguinte:
 
 onde:
 
-- *your_package_file* : o nome do arquivo do seu controle, como `ManagedPackage.winmd` (“ManagedPackage” é um nome arbitrário usado para este exemplo e não tem nenhum outro significado).
-- *vs_category* : o rótulo para o grupo no qual o controle deve aparecer na caixa de ferramentas do designer do Visual Studio. Um `VSCategory` é necessário para o controle apareça na caixa de ferramentas.
-*ui_framework* : o nome da estrutura, como ' WPF ', observe que `UIFramework` o atributo é necessário em nós ToolboxItems no Visual Studio 16,7 Preview 3 ou superior para que o controle apareça na caixa de ferramentas.
-- *blend_category* : o rótulo para o grupo no qual o controle deve aparecer no painel Ativos do designer do Blend. Um `BlendCategory` é necessário para o controle apareça em Ativos.
-- *type_full_name_n* : o nome totalmente qualificado para cada controle, incluindo o namespace, como `ManagedPackage.MyCustomControl`. Observe que o formato de ponto é usado tanto para tipos gerenciados quanto para tipos nativos.
+- *your_package_file*: o nome do arquivo do seu controle, como `ManagedPackage.winmd` (“ManagedPackage” é um nome arbitrário usado para este exemplo e não tem nenhum outro significado).
+- *vs_category*: o rótulo para o grupo no qual o controle deve aparecer na caixa de ferramentas do designer do Visual Studio. Um `VSCategory` é necessário para o controle apareça na caixa de ferramentas.
+*ui_framework*: o nome da estrutura, como ' WPF ', observe que `UIFramework` o atributo é necessário em nós ToolboxItems no Visual Studio 16,7 Preview 3 ou superior para que o controle apareça na caixa de ferramentas.
+- *blend_category*: o rótulo para o grupo no qual o controle deve aparecer no painel Ativos do designer do Blend. Um `BlendCategory` é necessário para o controle apareça em Ativos.
+- *type_full_name_n*: o nome totalmente qualificado para cada controle, incluindo o namespace, como `ManagedPackage.MyCustomControl`. Observe que o formato de ponto é usado tanto para tipos gerenciados quanto para tipos nativos.
 
 Em cenários mais avançados, também é possível incluir vários elementos `<File>` dentro de `<FileList>` quando um único pacote contém vários assemblies de controle. Também é possível ter vários nós `<ToolboxItems>` dentro de um único `<File>` se você quiser organizar os controles em categorias separadas.
 
@@ -109,45 +111,52 @@ Pacotes UWP têm um TPV (TargetPlatformVersion) e TPMinV (TargetPlatformMinVersi
 
 Por exemplo, digamos que você tenha definido o TPMinV para o pacote de controles para o Windows 10 Anniversary Edition (10.0; Build 14393), por isso pode ser útil garantir que o pacote seja consumido somente por projetos UWP que correspondam ao limite inferior. Para permitir que o pacote seja consumido por projetos UWP você precisa empacotar os controles com os seguintes nomes de pasta:
 
-    \lib\uap10.0.14393\*
-    \ref\uap10.0.14393\*
+```
+\lib\uap10.0.14393\*
+\ref\uap10.0.14393\*
+```
 
 O NuGet verificará automaticamente o TPMinV do projeto consumidor e falhará na instalação se for inferior ao Windows 10 Anniversary Edition (10.0; build 14393)
 
 No caso do WPF, digamos que você queira que seu pacote de controles WPF seja consumido por projetos utilizando o .NET Framework v4.6.1 ou superior. Para impor isso, você deve empacotar os controles com os seguintes nomes de pastas:
 
-    \lib\net461\*
-    \ref\net461\*
+```
+\lib\net461\*
+\ref\net461\*
+```
 
 ## <a name="add-design-time-support"></a>Adicionar suporte no tempo de design
 
 Para configurar onde as propriedades do controle aparecem na Inspeção de propriedade, adicionar adornos personalizados, etc., coloque o arquivo `design.dll` dentro da pasta `lib\uap10.0.14393\Design` conforme apropriado para a plataforma de destino. Além disso, para garantir que o recurso **[Editar Modelo > Editar uma Cópia](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** funcione, você precisará incluir o `Generic.xaml` e os dicionários de recursos aos quais ele é mesclado na pasta `<your_assembly_name>\Themes` (novamente, usando o nome real do assembly). (Esse arquivo não tem impacto sobre o comportamento de tempo de execução de um controle.) A estrutura de pastas, portanto, seria exibida da seguinte maneira:
 
-    \lib
-      \uap10.0.14393
-        \Design
-          \MyControl.design.dll
-        \your_assembly_name
-          \Themes
-            Generic.xaml
-
+```
+\lib
+  \uap10.0.14393
+    \Design
+      \MyControl.design.dll
+    \your_assembly_name
+      \Themes
+        Generic.xaml
+```
 
 Para WPF, continuando com o exemplo em que você deseja que o pacote de controles WPF fosse consumido por projetos utilizando o .NET Framework v4.6.1 ou superior:
 
-    \lib
-      \net461
-        \Design
-          \MyControl.design.dll
-        \your_assembly_name
-          \Themes
-            Generic.xaml
+```
+\lib
+  \net461
+    \Design
+      \MyControl.design.dll
+    \your_assembly_name
+      \Themes
+        Generic.xaml
+```
 
 > [!Note]
 > Por padrão, as propriedades de controle aparecerão na categoria Diversos na Inspeção de propriedade.
 
 ## <a name="use-strings-and-resources"></a>Usar cadeias de caracteres e recursos
 
-Você pode inserir recursos de cadeia de caracteres (`.resw`) no pacote, as quais podem ser usadas pelo controle ou o projeto UWP consumidor, defina a propriedade **Ação de Build** do arquivo `.resw` para **PRIResource** .
+Você pode inserir recursos de cadeia de caracteres (`.resw`) no pacote, as quais podem ser usadas pelo controle ou o projeto UWP consumidor, defina a propriedade **Ação de Build** do arquivo `.resw` para **PRIResource**.
 
 Para obter um exemplo, consulte [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) no exemplo ExtensionSDKasNuGetPackage.
 

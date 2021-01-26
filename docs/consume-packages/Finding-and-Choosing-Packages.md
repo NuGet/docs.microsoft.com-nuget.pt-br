@@ -1,16 +1,16 @@
 ---
 title: Localizando e escolhendo pacotes do NuGet
 description: Uma visão geral de como localizar e escolher os melhores pacotes do NuGet para um projeto, incluindo detalhes sobre a sintaxe de pesquisa do NuGet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4ba51028c1a69a3466cec655db19c2c498e29d9b
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622974"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775177"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Localizando e avaliando pacotes do NuGet para o seu projeto
 
@@ -72,7 +72,7 @@ No Visual Studio e ao usar a CLI do NuGet e ferramentas da CLI dotnet, o NuGet n
 
 - **Console do Gerenciador de pacotes**: Use a `-IncludePrerelease` opção com os `Find-Package` comandos,, `Get-Package` `Install-Package` , `Sync-Package` e `Update-Package` . Consulte a [Referência do PowerShell](../reference/powershell-reference.md).
 
-- ** CLI donuget.exe**: Use a `-prerelease` opção com `install` os `update` comandos,, `delete` e `mirror` . Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
+- **CLI donuget.exe**: Use a `-prerelease` opção com `install` os `update` comandos,, `delete` e `mirror` . Consulte a [referência da CLI do NuGet](../reference/nuget-exe-cli-reference.md)
 
 - **CLI dotnet.exe**: especifique a versão de pré-lançamento exata usando o argumento `-v`. Veja a [referência de dotnet add package](/dotnet/core/tools/dotnet-add-package).
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: aaeedea9750c11099b34e927bd8442656839d784
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76812929"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773947"
 ---
 # <a name="package-details-url-template"></a>Modelo de URL de detalhes do pacote
 
@@ -19,21 +19,21 @@ ms.locfileid: "76812929"
 
 O recurso usado para criar essa URL é o `PackageDetailsUriTemplate` recurso encontrado no [índice de serviço](service-index.md).
 
-## <a name="versioning"></a>{1&gt;Controle de versão&lt;1}
+## <a name="versioning"></a>Controle de versão
 
-Os seguintes valores de `@type` são usados:
+Os seguintes `@type` valores são usados:
 
-Valor @type                     | {1&gt;Observações&lt;1}
+@type valor                     | Observações
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1.0 | A versão inicial
 
-## <a name="url-template"></a>Modelo de URL
+## <a name="url-template"></a>Modelo do URL
 
-A URL para a API a seguir é o valor da propriedade `@id` associada a um dos valores de `@type` de recursos mencionados anteriormente.
+A URL para a API a seguir é o valor da `@id` propriedade associada a um dos valores de recurso mencionados anteriormente `@type` .
 
 ## <a name="http-methods"></a>Métodos HTTP
 
-Embora o cliente não se destine a fazer solicitações para a URL de detalhes do pacote em nome do usuário, a página da Web deve dar suporte ao método `GET` para permitir que uma URL clicada seja aberta facilmente em um navegador da Web.
+Embora o cliente não se destine a fazer solicitações para a URL de detalhes do pacote em nome do usuário, a página da Web deve dar suporte ao `GET` método para permitir que uma URL clicada seja aberta facilmente em um navegador da Web.
 
 ## <a name="construct-the-url"></a>Construir a URL
 
@@ -41,21 +41,25 @@ Dada uma ID de pacote e versão conhecidas, a implementação do cliente pode co
 
 A URL deve ser uma URL absoluta e o esquema (protocolo) deve ser HTTPS.
 
-O valor do `@id` no índice de serviço é uma cadeia de caracteres de URL que contém qualquer um dos seguintes tokens de espaço reservado:
+O valor de `@id` no índice de serviço é uma cadeia de caracteres de URL que contém qualquer um dos seguintes tokens de espaço reservado:
 
 ### <a name="url-placeholders"></a>Espaços reservados de URL
 
-Name        | {1&gt;Tipo&lt;1}    | Necessário | {1&gt;Observações&lt;1}
+Nome        | Type    | Necessária | Observações
 ----------- | ------- | -------- | -----
-`{id}`      | cadeia de caracteres  | no       | A ID do pacote para obter detalhes
-`{version}` | cadeia de caracteres  | no       | A versão do pacote para obter detalhes
+`{id}`      | string  | não       | A ID do pacote para obter detalhes
+`{version}` | string  | não       | A versão do pacote para obter detalhes
 
 O servidor deve aceitar `{id}` e `{version}` valores com maiúsculas e minúsculas. Além disso, o servidor não deve ser sensível a se a versão é [normalizada](../concepts/package-versioning.md#normalized-version-numbers). Em outras palavras, o servidor também deve aceitar versões não normalizadas.
 
 Por exemplo, o modelo de detalhes do pacote NuGet. org tem esta aparência:
 
-    https://www.nuget.org/packages/{id}/{version}
+```http
+https://www.nuget.org/packages/{id}/{version}
+```
 
 Se a implementação do cliente precisar exibir um link para os detalhes do pacote para NuGet. Versioning 4.3.0, ele produzirá a seguinte URL e a forneceria ao usuário:
 
-    https://www.nuget.org/packages/NuGet.Versioning/4.3.0
+```http
+https://www.nuget.org/packages/NuGet.Versioning/4.3.0
+```

@@ -1,16 +1,16 @@
 ---
 title: Criar e publicar um pacote NuGet do .NET Standard - Visual Studio no Windows
 description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Standard usando o Visual Studio no Windows.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 53f54f6723ad10fca2ed6f75290ba3829dfb9a5e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237491"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775683"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Início Rápido: Criar e publicar um pacote do NuGet usando o Visual Studio (.NET Standard somente no Windows)
 
@@ -36,7 +36,7 @@ Criar um pacote NuGet de uma Biblioteca de Classes .NET Standard no Visual Studi
 
 Você pode usar um projeto existente da Biblioteca de Classes .NET Standard para o código que você deseja empacotar ou criar um simples da seguinte maneira:
 
-1. No Visual Studio, escolha **Arquivo > Novo > Projeto** , expanda o nó **Visual C# > .NET Standard** , selecione o modelo de "Biblioteca de Classes (.NET Standard)", nomeie o projeto como AppLogger e clique em **OK** .
+1. No Visual Studio, escolha **Arquivo > Novo > Projeto**, expanda o nó **Visual C# > .NET Standard**, selecione o modelo de "Biblioteca de Classes (.NET Standard)", nomeie o projeto como AppLogger e clique em **OK**.
 
    > [!Tip]
    > A menos que você tenha um motivo para a escolha de outro jeito, o .NET Standard é o destino preferencial para pacotes NuGet, pois fornece compatibilidade com a mais ampla variedade de projetos de consumo.
@@ -60,35 +60,35 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>Configurar as propriedades do pacote
 
-1. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha o comando de menu **Propriedades** e selecione a guia **Pacote** .
+1. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha o comando de menu **Propriedades** e selecione a guia **Pacote**.
 
    A guia **Pacote** é exibida apenas para projetos no estilo SDK no Visual Studio, normalmente .NET Standard ou projetos de biblioteca de classes do .NET Core; se você estiver direcionando para um projeto de estilo não SDK (normalmente, .NET Framework), [migre o projeto](../consume-packages/migrate-packages-config-to-package-reference.md) ou confira [Criar e publicar um pacote do .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) para ver as instruções passo a passo.
 
     ![Propriedades do pacote NuGet em um projeto do Visual Studio](media/qs_create-vs-01-package-properties.png)
 
     > [!Note]
-    > Para pacotes compilados para consumo público, preste atenção especial à propriedade **Tags** , à medida que as marcas ajudam outras pessoas a localizar o pacote e entender o que ele faz.
+    > Para pacotes compilados para consumo público, preste atenção especial à propriedade **Tags**, à medida que as marcas ajudam outras pessoas a localizar o pacote e entender o que ele faz.
 
-1. Dê ao seu pacote um identificador exclusivo e preencha as outras propriedades desejadas. Para ver um mapeamento das propriedades do MSBuild (projeto no estilo SDK) para propriedades em um *.nuspec* , confira [alvos de pacote](../reference/msbuild-targets.md#pack-target). Para obter descrições de propriedades, confira a [referência do arquivo .nuspec](../reference/nuspec.md). Todas essas propriedades vão para o manifesto `.nuspec` que o Visual Studio cria para o projeto.
+1. Dê ao seu pacote um identificador exclusivo e preencha as outras propriedades desejadas. Para ver um mapeamento das propriedades do MSBuild (projeto no estilo SDK) para propriedades em um *.nuspec*, confira [alvos de pacote](../reference/msbuild-targets.md#pack-target). Para obter descrições de propriedades, confira a [referência do arquivo .nuspec](../reference/nuspec.md). Todas essas propriedades vão para o manifesto `.nuspec` que o Visual Studio cria para o projeto.
 
     > [!Important]
     > Você precisa dar ao pacote um identificador exclusivo em nuget.org ou qualquer host que você esteja usando. Para este passo a passo, recomendamos incluir o "Sample" ou "Test" no nome, pois a etapa de publicação posterior torna o pacote publicamente visível (embora seja improvável que alguém possa usá-lo).
     >
     > Se você tentar publicar um pacote com um nome que já existe, você verá um erro.
 
-1. (Opcional) Para ver as propriedades diretamente no arquivo de projeto, clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione **Editar AppLogger.csproj** .
+1. (Opcional) Para ver as propriedades diretamente no arquivo de projeto, clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione **Editar AppLogger.csproj**.
 
-   Essa opção só está disponível a partir do Visual Studio 2017 para projetos que usam o atributo de estilo SDK. Caso contrário, clique com o botão direito do mouse no projeto e escolha **Descarregar Projeto** . Em seguida, clique com o botão direito do mouse no projeto descarregado e escolha **Editar AppLogger.csproj** .
+   Essa opção só está disponível a partir do Visual Studio 2017 para projetos que usam o atributo de estilo SDK. Caso contrário, clique com o botão direito do mouse no projeto e escolha **Descarregar Projeto**. Em seguida, clique com o botão direito do mouse no projeto descarregado e escolha **Editar AppLogger.csproj**.
 
 ## <a name="run-the-pack-command"></a>Executar o comando pack
 
-1. Defina a configuração como **Versão** .
+1. Defina a configuração como **Versão**.
 
-1. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione o comando **Pack** :
+1. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione o comando **Pack**:
 
     ![Comando pack do NuGet no menu de contexto de projeto do Visual Studio](media/qs_create-vs-02-pack-command.png)
 
-    Se você não vir o comando **Pack** , seu projeto provavelmente não será um projeto no estilo SDK e você precisará usar a CLI do `nuget.exe`. Ou [migre o projeto](../consume-packages/migrate-packages-config-to-package-reference.md) e use `dotnet` a CLI, ou confira [Criar e publicar um pacote do .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) para ver instruções passo a passo.
+    Se você não vir o comando **Pack**, seu projeto provavelmente não será um projeto no estilo SDK e você precisará usar a CLI do `nuget.exe`. Ou [migre o projeto](../consume-packages/migrate-packages-config-to-package-reference.md) e use `dotnet` a CLI, ou confira [Criar e publicar um pacote do .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) para ver instruções passo a passo.
 
 1. O Visual Studio compila o projeto e cria o arquivo `.nupkg`. Examine a janela **Saída** para obter detalhes (semelhante ao seguinte), que contém o caminho até o arquivo de pacote. Observe também que o assembly criado está em `bin\Release\netstandard2.0`, como convém ao destino do .NET Standard 2.0.
 
@@ -103,9 +103,9 @@ namespace AppLogger
 
 Você pode configurar o Visual Studio para gerar automaticamente o pacote NuGet ao compilar o projeto.
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e escolha **Propriedades** .
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e escolha **Propriedades**.
 
-2. Na guia **Pacote** , selecione **Gerar pacote NuGet no build** .
+2. Na guia **Pacote**, selecione **Gerar pacote NuGet no build**.
 
    ![Gerar pacote automaticamente no build](media/qs_create-vs-05-generate-on-build.png)
 

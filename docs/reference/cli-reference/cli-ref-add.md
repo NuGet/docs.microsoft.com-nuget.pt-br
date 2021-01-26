@@ -1,20 +1,20 @@
 ---
 title: Comando Add da CLI do NuGet
 description: Referência para o nuget.exe Adicionar comando
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 89d268946243e8eae07e482db48e809a15260c38
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 096d2f7a61a3c861ce2084368500ab8e8b21f212
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622896"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776096"
 ---
 # <a name="add-command-nuget-cli"></a>Adicionar comando (NuGet CLI)
 
-**Aplica-se a**: &bullet; **versões com suporte**para publicação de pacotes: 3.3 +
+**Aplica-se a**: &bullet; **versões com suporte** para publicação de pacotes: 3.3 +
 
 Adiciona um pacote especificado a uma origem de pacote não HTTP (uma pasta ou caminho UNC) em um layout hierárquico, onde as pastas são criadas para a ID do pacote e o número de versão. Por exemplo:
 

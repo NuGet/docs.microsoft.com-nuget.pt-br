@@ -1,24 +1,24 @@
 ---
 title: Referência do arquivo project.json para NuGet
 description: Em alguns tipos de projeto, o project.json mantém a lista de pacotes do NuGet usados no projeto.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 6665f4f3e688cb4a3989216c8c8f1a8655b61ed8
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69488290"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775206"
 ---
 # <a name="projectjson-reference"></a>Referência do project.json
 
-*NuGet 3.x+*
+*NuGet 3. x +*
 
 O arquivo `project.json` mantém uma lista de pacotes usados em um projeto, conhecidos como um formato de gerenciamento de pacote. Ele substitui `packages.config`, mas é, por sua vez substituído por [PackageReference](../consume-packages/package-references-in-project-files.md) com o NuGet 4.0 e superior.
 
-O [`project.lock.json`](#projectlockjson) arquivo (descrito abaixo) também é `project.json`usado em projetos de empregabilidade .
+O [`project.lock.json`](#projectlockjson) arquivo (descrito abaixo) também é usado em projetos que usam o `project.json` .
 
 `project.json` tem a seguinte estrutura básica, em que cada um dos quatro objetos de nível superior pode ter qualquer número de objetos filho:
 
@@ -75,7 +75,7 @@ Quais ativos do fluxo de dependências para o projeto de nível superior é cont
 | compilar | lib |
 | compilar | build (objetos e destinos do MSBuild) |
 | nativa | nativa |
-| none | Nenhuma pasta |
+| nenhum | Nenhuma pasta |
 | all | Todas as pastas |
 
 Marcas especificadas com `exclude` têm precedência sobre aquelas especificadas com `include`. Por exemplo, `include="runtime, compile" exclude="compile"` é o mesmo que `include="runtime"`.

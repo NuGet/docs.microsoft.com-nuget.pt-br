@@ -1,20 +1,20 @@
 ---
 title: Solicitações de dados de usuário
 description: Políticas de solicitação de exportação e exclusão de dados de usuário
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ef054f741755bccf56eedfd462915b8e9fd6931a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e0ec429469a992c9558d1635890fd568398206a1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426981"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775725"
 ---
 # <a name="user-data-requests"></a>Solicitações de dados de usuário
 
-nuget.org os usuários podem enviar informações para excluir solicitações e solicitações de exportação de informações através [de nuget.org](https://www.nuget.org). Ambos os tipos são submetidos sob a forma de solicitações de suporte e são executados pelos administradores nuget.org dentro de 30 dias.
+os usuários do nuget.org podem enviar solicitações de exclusão de informações e solicitações de exportação de informações por meio do [NuGet.org](https://www.nuget.org). Ambos os tipos são enviados na forma de solicitações de suporte e são executados pelos administradores do nuget.org dentro de 30 dias.
 
 Os seguintes dados do usuário podem ser acessados diretamente por meio do nuget.org:
 

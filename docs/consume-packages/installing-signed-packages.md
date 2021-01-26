@@ -1,16 +1,16 @@
 ---
 title: Gerenciar os limites de confiança do pacote
 description: Descreve o processo de instalação de pacotes do NuGet assinados e de definição das configurações de confiança de assinatura de pacotes.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 596ce330e434253e6fb200aa59ae4e14d47779ed
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237621"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774809"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gerenciar os limites de confiança do pacote
 

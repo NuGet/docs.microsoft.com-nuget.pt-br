@@ -1,16 +1,16 @@
 ---
 title: Arquivo project.json do NuGet com projetos UWP
 description: Descrição de como o arquivo project.json é usado para rastrear dependências do NuGet em projetos UWP (Plataforma Universal do Windows).
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/17/2017
 ms.topic: conceptual
-ms.openlocfilehash: ac3c137dd0ba50571737093eef11c8ab0ef932b2
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 30e2272aafb5d2ea8d932e3cb0209d97c30b3209
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64494362"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773805"
 ---
 # <a name="projectjson-and-uwp"></a>project.json e UWP
 
@@ -33,7 +33,7 @@ Nesse caso, será necessário adicionar o moniker da estrutura de destino `uap10
 
 ## <a name="i-dont-need-windows-10-specific-apis-but-want-new-net-features-or-dont-have-netcore45-already"></a>Não preciso de APIs específicas do Windows 10, mas desejo novos recursos do .NET ou ainda não tenho o netcore45
 
-Nesse caso, você adicionaria o `dotnet` TxM ao seu pacote. Ao contrário de outros TxMs, o `dotnet` não implica em uma plataforma ou área da superfície. É informado que seu pacote funciona em qualquer plataforma com as quais suas dependências funcionam. Ao construir um `dotnet` pacote com o TxM, é provável que você tenha `.nuspec`muito mais dependências específicas de TxM `System.Text`em `System.Xml`seu , pois você precisa definir os pacotes BCL de que você depende, tais , etc. Os locais em que essas dependências trabalham definem onde seu pacote funciona.
+Nesse caso, você adicionaria o `dotnet` TxM ao seu pacote. Ao contrário de outros TxMs, o `dotnet` não implica em uma plataforma ou área da superfície. É informado que seu pacote funciona em qualquer plataforma com as quais suas dependências funcionam. Ao criar um pacote com o `dotnet` TxM, é provável que você tenha muito mais dependências específicas de TxM em seu `.nuspec` , pois você precisa definir os pacotes de BCL dos quais depende, como, `System.Text` `System.Xml` etc. Os locais em que essas dependências funcionam definem onde o pacote funciona.
 
 ### <a name="how-do-i-find-out-my-dependencies"></a>Como fazer para localizar minhas dependências
 
@@ -43,7 +43,7 @@ Há duas maneiras de descobrir quais dependências listar:
 
 1. (A maneira mais difícil) Use `ILDasm` para examinar seu `.dll` para ver quais assemblies são realmente necessários no runtime. Em seguida, determine de qual pacote do NuGet cada um deles veio.
 
-Veja [`project.json`](project-json.md) o tópico para obter detalhes sobre recursos que `dotnet` ajudam na criação de um pacote que suporta o TxM.
+Consulte o [`project.json`](project-json.md) tópico para obter detalhes sobre os recursos que ajudam na criação de um pacote que dá suporte ao `dotnet` TxM.
 
 > [!Important]
 > Se seu pacote se destina a trabalhar com projetos PCL, é altamente recomendável criar uma pasta `dotnet` para evitar avisos e possíveis problemas de compatibilidade.
@@ -73,11 +73,13 @@ O comportamento da pasta `lib` ainda não foi alterado significativamente no NuG
 
 Um exemplo de estrutura de lib:
 
-    lib
-    ├───net40
-    │       MyLibrary.dll
-    └───wp81
-            MyLibrary.dll
+```
+lib
+├───net40
+│       MyLibrary.dll
+└───wp81
+        MyLibrary.dll
+```
 
 A pasta `lib` contém os assemblies que são usados no runtime. Para a maioria dos pacotes, tudo o que é necessário é uma pasta em `lib` para cada destino TxMs.
 
@@ -91,55 +93,59 @@ Mecanicamente, os assemblies incluídos na pasta `ref` são os assemblies de ref
 
 A estrutura da pasta `ref` é o mesmo que `lib`, por exemplo:
 
-    └───MyImageProcessingLib
-         ├───lib
-         │   ├───net40
-         │   │       MyImageProcessingLibrary.dll
-         │   │
-         │   ├───net451
-         │   │       MyImageProcessingLibrary.dll
-         │   │
-         │   └───win81
-         │           MyImageProcessingLibrary.dll
-         │
-         └───ref
-             ├───net40
-             │       MyImageProcessingLibrary.dll
-             │
-             └───portable-net451-win81
-                     MyImageProcessingLibrary.dll
+```
+└───MyImageProcessingLib
+        ├───lib
+        │   ├───net40
+        │   │       MyImageProcessingLibrary.dll
+        │   │
+        │   ├───net451
+        │   │       MyImageProcessingLibrary.dll
+        │   │
+        │   └───win81
+        │           MyImageProcessingLibrary.dll
+        │
+        └───ref
+            ├───net40
+            │       MyImageProcessingLibrary.dll
+            │
+            └───portable-net451-win81
+                    MyImageProcessingLibrary.dll
+```
 
 Neste exemplo, os assemblies nos diretórios `ref` serão idênticos.
 
 ## <a name="runtimes"></a>Runtimes
 
-A pasta de runtimes contém os assemblies e bibliotecas nativos necessários para executar em “runtimes” específicos, que geralmente são definidos pelo sistema operacional e arquitetura de CPU. Esses tempos de execução são identificados usando [identificadores de tempo de execução (RIDs)](/dotnet/core/rid-catalog) como `win`, `win-x86`, `win7-x86`, `win8-64`, etc.
+A pasta de runtimes contém os assemblies e bibliotecas nativos necessários para executar em “runtimes” específicos, que geralmente são definidos pelo sistema operacional e arquitetura de CPU. Esses tempos de execução são identificados usando [RIDs (identificadores de tempo de execução)](/dotnet/core/rid-catalog) , como `win` ,, `win-x86` `win7-x86` , `win8-64` etc.
 
 ## <a name="native-helpers-to-use-platform-specific-apis"></a>Auxiliares nativo para usar APIs específicas de plataforma
 
 O exemplo a seguir mostra um pacote que tem uma implementação totalmente gerenciada para várias plataformas, mas usa auxiliares nativos no Windows 8, em que ele pode chamar APIs nativas específicas do Windows 8.
 
-    └───MyLibrary
-         ├───lib
-         │   └───net40
-         │           MyLibrary.dll
-         │
-         └───runtimes
-             ├───win8-x64
-             │   ├───lib
-             │   │   └───net40
-             │   │           MyLibrary.dll
-             │   │
-             │   └───native
-             │           MyNativeLibrary.dll
-             │
-             └───win8-x86
-                 ├───lib
-                 │   └───net40
-                 │           MyLibrary.dll
-                 │
-                 └───native
-                         MyNativeLibrary.dll
+```
+└───MyLibrary
+        ├───lib
+        │   └───net40
+        │           MyLibrary.dll
+        │
+        └───runtimes
+            ├───win8-x64
+            │   ├───lib
+            │   │   └───net40
+            │   │           MyLibrary.dll
+            │   │
+            │   └───native
+            │           MyNativeLibrary.dll
+            │
+            └───win8-x86
+                ├───lib
+                │   └───net40
+                │           MyLibrary.dll
+                │
+                └───native
+                        MyNativeLibrary.dll
+```
 
 Considerando o pacote acima, acontece o seguinte:
 
@@ -155,23 +161,25 @@ Somente uma pasta `lib` única será escolhida, por isso se houver uma pasta esp
 
 Outra maneira de usar os runtimes é fornecer um pacote que é essencialmente um wrapper gerenciado em um assembly nativo. Neste cenário, você cria um pacote como o seguinte:
 
-    └───MyLibrary
-         └───runtimes
-             ├───win8-x64
-             │   ├───lib
-             │   │   └───net451
-             │   │           MyLibrary.dll
-             │   │
-             │   └───native
-             │           MyImplementation.dll
-             │
-             └───win8-x86
-                 ├───lib
-                 │   └───net451
-                 │           MyLibrary.dll
-                 │
-                 └───native
-                         MyImplementation.dll
+```
+└───MyLibrary
+        └───runtimes
+            ├───win8-x64
+            │   ├───lib
+            │   │   └───net451
+            │   │           MyLibrary.dll
+            │   │
+            │   └───native
+            │           MyImplementation.dll
+            │
+            └───win8-x86
+                ├───lib
+                │   └───net451
+                │           MyLibrary.dll
+                │
+                └───native
+                        MyImplementation.dll
+```
 
 Nesse caso não há pasta `lib` de nível superior, pois não há nenhuma implementação desse pacote que não conte com o assembly nativo correspondente. Se o assembly gerenciado, `MyLibrary.dll`, era exatamente o mesmo em ambos os casos, poderíamos colocá-lo em uma pasta `lib` de nível superior, mas como a falta de um assembly nativo não causa falha de instalação do pacote, se ele foi instalado em uma plataforma que não era win-x86 ou win-x64, a biblioteca de nível superior será usada, mas nenhum assembly nativo será copiado.
 

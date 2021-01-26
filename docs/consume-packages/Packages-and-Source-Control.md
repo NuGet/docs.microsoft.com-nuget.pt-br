@@ -1,16 +1,16 @@
 ---
 title: Pacotes do NuGet e controle do código-fonte
 description: Considerações sobre como tratar pacotes do NuGet nos sistemas de controle de versão e do código-fonte, e como omitir pacotes com git e TFVC.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9d9ea10ccd32bb65ad0d62b591f5e2cb58ea3427
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9bae65573ca49c68d07250228c1923890e0f14ac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69019990"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775018"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Omitindo pacotes do NuGet em sistemas de controle do código-fonte
 
@@ -27,7 +27,7 @@ Embora a restauração de pacote seja o comportamento padrão no NuGet, é neces
 
 ## <a name="omitting-packages-with-git"></a>Omitir pacotes com Git
 
-Use o [arquivo .gitignore](https://git-scm.com/docs/gitignore) para ignorar pacotes do NuGet (`.nupkg`), a pasta `packages`, `project.assets.json`, entre outros itens. Para referência, consulte a [amostra `.gitignore` para projetos do Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
+Use o [arquivo .gitignore](https://git-scm.com/docs/gitignore) para ignorar pacotes do NuGet (`.nupkg`), a pasta `packages`, `project.assets.json`, entre outros itens. Para referência, consulte o [exemplo `.gitignore` para projetos do Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
 
 As partes importantes do arquivo `.gitignore` são:
 

@@ -1,16 +1,16 @@
 ---
-title: Notas de Versão do NuGet 4.0 RC
+title: Notas de Versão do NuGet 4.0 RTM
 description: Notas de versão do NuGet 4.0 RTM incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
 author: anangaur
 ms.author: anangaur
 ms.date: 03/03/2017
 ms.topic: conceptual
-ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c3ec5c20e5175edd315de20ca98c7a106c51809e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496602"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776278"
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Notas de Versão do NuGet 4.0 RTM
 
@@ -46,7 +46,7 @@ Reinicie o Visual Studio e abra o PMC antes de abrir a solução. Como alternati
 
 #### <a name="workaround"></a>Solução alternativa
 
-Não há nenhuma solução alternativa no momento.
+No momento, não há uma solução alternativa para esse problema.
 
 ### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Você não consegue exibir, adicionar ou atualizar o DotNetCLITools usando o Gerenciador de Pacotes NuGet
 
@@ -86,7 +86,7 @@ O uso manual do pacote de atualização no console funciona somente uma vez para
 
 #### <a name="workaround"></a>Solução alternativa
 
-Não há nenhuma solução alternativa no momento.
+No momento, não há uma solução alternativa para esse problema.
 
 ### <a name="retargeting-target-framework-version-may-lead-to-incomplete-intellisense"></a>Redirecionar a versão da estrutura de destino pode levar a um IntelliSense incompleto
 
@@ -106,7 +106,7 @@ O msbuild /t:restore falha quando um projeto baseado em PackageReferenece que de
 
 #### <a name="workaround"></a>Solução alternativa
 
-Não há nenhuma solução alternativa no momento.
+No momento, não há uma solução alternativa para esse problema.
 
 ## <a name="issues-fixed-in-nuget-40-rtm-timeframe"></a>Problemas corrigidos no período de tempo do NuGet 4.0 RTM
 

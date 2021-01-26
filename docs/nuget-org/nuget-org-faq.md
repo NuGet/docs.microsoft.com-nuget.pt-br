@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7076378b53c439eef51a243fa6efcfb01b8cfa73
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: aa845464dbe939260d5fca3e4b89bd846df471a7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237900"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775934"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Perguntas frequentes sobre o NuGet.org
 
@@ -81,7 +81,7 @@ Primeiro, verifique se que você está usando as versões mais recentes do NuGet
 *Para capturar MTR:*
 
 - Baixe o [WinMTR](https://sourceforge.net/projects/winmtr/files/WinMTR-v092.zip/download).
-- Digite `api.nuget.org` como o nome do host e clique em **Iniciar** .
+- Digite `api.nuget.org` como o nome do host e clique em **Iniciar**.
 - Aguarde até a coluna **Sent** ser >= 100.
 
     ![Capturando MTR](media/mtr.png)
@@ -91,11 +91,11 @@ Primeiro, verifique se que você está usando as versões mais recentes do NuGet
 *Para capturar o Fiddler:*
 
 - Instale a versão mais recente do [Fiddler](https://www.telerik.com/download/fiddler).
-- Inicie o Fiddler e desabilite a captura de tráfego usando o menu **Arquivo > Capturar tráfego** .
-- Remova todas as sessões (selecione todos os itens na lista, pressione a tecla **Delete** ).
-- Configure o Fiddler para capturar o tráfego HTTPS marcando **Descriptografar tráfego HTTPS** na guia **HTTPS** do menu **Ferramentas > Opções do Fiddler...** .
+- Inicie o Fiddler e desabilite a captura de tráfego usando o menu **Arquivo > Capturar tráfego**.
+- Remova todas as sessões (selecione todos os itens na lista, pressione a tecla **Delete**).
+- Configure o Fiddler para capturar o tráfego HTTPS marcando **Descriptografar tráfego HTTPS** na guia **HTTPS** do menu **Ferramentas > Opções do Fiddler...**.
 - Feche o Visual Studio.
-- Habilitar o menu **Arquivo > Capturar Tráfego** .
+- Habilitar o menu **Arquivo > Capturar Tráfego**.
 - Inicie o Visual Studio ou .exe do nuget.exe e execute as ações que não estão funcionando. O tráfego gerado por essas ações deve ser exibido no Fiddler.
 - Depois das ações serem executadas, use **Arquivo > Salvar > Todas as sessões** para armazenar as sessões capturadas.
 
@@ -111,7 +111,7 @@ Observe que o [logon com senha do NuGet.org foi descontinuado](https://blog.nuge
 - **Requisito:** Você precisará ter acesso ao email que está associado à conta para a qual você precisa recuperar a senha.
 - Vá para a [página Esqueci a senha](https://www.nuget.org/account/ForgotPassword)
 - Insira o endereço de **email** que está associado à conta do NuGet.org que você deseja recuperar.
-- Clique no botão **Enviar** .
+- Clique no botão **Enviar**.
 - Você receberá um email para a conta do endereço de email especificado com um link para redefinir sua senha. Clique nesse link e defina a nova senha. Se não encontrar o email, verifique a pasta "lixo eletrônico".
 - Quando terminar, você poderá fazer logon com nome de usuário/senha no NuGet.
 - Para fazer logon com nome de usuário e senha, use o link **Entrar usando a conta do NuGet.org** na [página de logon do NuGet.org](https://www.nuget.org/users/account/LogOn).
@@ -124,10 +124,10 @@ Se você tiver esquecido qual conta Microsoft está associada à sua conta do Nu
 
 ### <a name="how-to-change-the-microsoft-account-i-use-for-nugetorg-login"></a>Como alterar a conta Microsoft que eu uso para logon no NuGet.org?
 Se você quiser alterar a conta Microsoft para o usuário do NuGet.org, siga as etapas abaixo. Digamos que sua conta Microsoft com o email `account1@outlook.com` esteja associada à conta do NuGet.org com o nome de usuário `MyNuGetAccount`. É melhor que você altere o logon para outra conta Microsoft com o email `account2@outlook.com`
-1. Entre usando a **conta Microsoft associada atualmente** , ou seja, `account1@outlook.com` na [página de logon](https://www.nuget.org/users/account/LogOn) depois de clicar em **Entrar com a conta Microsoft** .
+1. Entre usando a **conta Microsoft associada atualmente**, ou seja, `account1@outlook.com` na [página de logon](https://www.nuget.org/users/account/LogOn) depois de clicar em **Entrar com a conta Microsoft**.
 1. Depois de conectado, vá para a página de [configurações da conta](https://www.nuget.org/account).
-1. Expanda a seção **Conta de Logon** . Clique no botão **Alterar a Conta** .
-1. Agora você será redirecionado à página de logon da Microsoft. Entre com a conta na qual você deseja alterar a associação, ou seja `account2@outlook.com` ,. **Observação** : Talvez seja necessário clicar em sair **e entrar com uma conta diferente** durante o fluxo de entrada para poder fazer logon com um conta Microsoft diferente.
+1. Expanda a seção **Conta de Logon**. Clique no botão **Alterar a Conta**.
+1. Agora você será redirecionado à página de logon da Microsoft. Entre com a conta na qual você deseja alterar a associação, ou seja `account2@outlook.com` ,. **Observação**: Talvez seja necessário clicar em sair **e entrar com uma conta diferente** durante o fluxo de entrada para poder fazer logon com um conta Microsoft diferente.
 1. Se você vir um erro como o abaixo, confira [A conta Microsoft está vinculada a outra conta do NuGet.org](#microsoft-account-is-linked-with-another-nugetorg-account) para obter mais detalhes.
     >_Falha ao atualizar o conta Microsoft com ' Account2 <account2@outlook.com> '. Isso pode acontecer se já estiver vinculado a outra conta do NuGet. Contate o suporte para obter mais informações._
 
@@ -188,11 +188,11 @@ Siga as etapas da seção [Não é possível usar o logon da Microsoft. Como fa�
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Não é possível usar o logon da Microsoft. Como faço para recuperar minha conta do NuGet.org?
 
 Se você tentou usar a [assistência de entrada](#which-microsoft-account-is-linked-to-my-nugetorg-account) e não teve acesso à conta Microsoft associada à conta do NuGet.org, siga as etapas abaixo para vincular uma nova conta Microsoft à sua conta do NuGet.org.
-1. **Requisito** : você precisará de acesso a uma conta Microsoft que não está associada a nenhuma conta NuGet.org existente. Se não tiver uma ID da Apple, [crie](https://signup.live.com) uma.
+1. **Requisito**: você precisará de acesso a uma conta Microsoft que não está associada a nenhuma conta NuGet.org existente. Se não tiver uma ID da Apple, [crie](https://signup.live.com) uma.
 2. Se você esqueceu o nome de usuário e a senha da sua conta do NuGet.org, siga as [etapas para recuperar seu logon com senha](#how-to-recover-nugetorg-password-login).
 3. [Faça logon no NuGet.org](https://www.nuget.org/users/account/LogOnNuGetAccount) usando o logon com nome de usuário e senha.
 4. Depois de conectado, você verá a caixa de diálogo pop-up ser exibida conforme demonstrado abaixo. Essa é a caixa de diálogo de descontinuação de senha.
-5. **Observação** : ignore a instrução para fazer logon com o conta Microsoft especificado. Agora você pode vincular sua conta do NuGet.org a qualquer outro logon da Microsoft.
+5. **Observação**: ignore a instrução para fazer logon com o conta Microsoft especificado. Agora você pode vincular sua conta do NuGet.org a qualquer outro logon da Microsoft.
 6. Clique no botão **Entrar com a conta da Microsoft** e faça logon com a conta Microsoft à qual você tem acesso, conforme mencionado na etapa 1.
 7. Sua conta agora será vinculada à nova conta Microsoft, que poderá ser usada no futuro para fazer logon no NuGet.org.
 
@@ -203,12 +203,12 @@ Se você tentou usar a [assistência de entrada](#which-microsoft-account-is-lin
 Se você deseja transformar sua conta em uma organização e essa conta já está associada a um logon de conta Microsoft, siga as etapas descritas na documentação de [organizações no nuget.org](organizations-on-nuget-org.md).
 
 No entanto, caso sua conta do NuGet.org não esteja associada/vinculada a uma conta Microsoft, siga as etapas abaixo para transformar essa conta em uma organização.
-1. **Requisito** : você precisa ter uma conta individual criada primeiro no NuGet.org para ser usada como um administrador na conta da org. Se você não tiver uma, [crie uma conta do NuGet.org](individual-accounts.md)
+1. **Requisito**: você precisa ter uma conta individual criada primeiro no NuGet.org para ser usada como um administrador na conta da org. Se você não tiver uma, [crie uma conta do NuGet.org](individual-accounts.md)
 2. Se você ainda não tiver logon com senha para a sua conta do NuGet.org, siga as [etapas para recuperar seu logon com senha](#how-to-recover-nugetorg-password-login). Se já tiver, ignore esta etapa.
 3. [Faça logon no NuGet.org](https://www.nuget.org/users/account/LogOnNuGetAccount) usando o logon com nome de usuário e senha.
 4. Depois de conectado, você verá a caixa de diálogo pop-up ser exibida conforme demonstrado abaixo. Essa é a caixa de diálogo de descontinuação de senha. 
     > [!Important]
-    > Ignore esta caixa de diálogo **não** clique no botão **entrar com a Microsoft** .
+    > Ignore esta caixa de diálogo **não** clique no botão **entrar com a Microsoft**.
 
 5. Acesse [https://www.nuget.org/account/transform](https://www.nuget.org/account/transform). Isso permitirá que você converta a conta do NuGet.org em uma organização sem vinculá-la a uma conta Microsoft.
 6. Especifique o nome de usuário de administrador para sua conta pessoal do NuGet.org/a conta criada na Etapa 1.
@@ -220,9 +220,7 @@ No entanto, caso sua conta do NuGet.org não esteja associada/vinculada a uma co
 
 Se você vir um erro como o abaixo durante o fluxo de logon com seu domínio da conta de email (@yourdomain.com), confira as etapas abaixo para recuperar sua conta do NuGet.org.
 
-<p align="center">
-    <img src="media/unmanaged-aad-tenant.png" />
-</p>
+![Erro ao fazer logon para contas do AAD](media/unmanaged-aad-tenant.png)
 
 **O que é esse estado não gerenciado durante o logon? E por que isso está acontecendo agora?** 
 
@@ -244,7 +242,7 @@ Você pode [criar](https://www.microsoft.com/account) uma conta Microsoft (com u
 
 Não é possível. Como uma questão de política, não permitimos a alteração de nomes de User. Além disso, isso é uma alteração significativa para os usuários que podem ter definido [políticas de confiança de pacote com base no proprietário do pacote](../consume-packages/installing-signed-packages.md#trust-package-owners). A única maneira de alterar seu nome de usuário é criar uma conta com o nome de usuário desejado. Recomendamos que exclua sua conta existente antes de criar uma nova, caso contrário, você não poderá reutilizar sua conta Microsoft registrada.
 > [!Important]
-> Excluir o usuário ainda **reservará** o `username`. Você não poderá reutilizar o mesmo nome de usuário novamente e **isso inclui a alteração do uso de maiúsculas e minúsculas** . Como um exemplo, se você tiver criado um usuário com nome de usuário `mycoolname` e desejar alterá-lo para `MyCoolName` (alterações de maiúsculas e minúsculas), isso não será possível depois de excluir o usuário.
+> Excluir o usuário ainda **reservará** o `username`. Você não poderá reutilizar o mesmo nome de usuário novamente e **isso inclui a alteração do uso de maiúsculas e minúsculas**. Como um exemplo, se você tiver criado um usuário com nome de usuário `mycoolname` e desejar alterá-lo para `MyCoolName` (alterações de maiúsculas e minúsculas), isso não será possível depois de excluir o usuário.
 
 Siga as etapas fornecidas na seção [excluir sua conta do NuGet.org](#how-to-delete-my-nugetorg-account) e [registre uma nova conta](individual-accounts.md) com o nome de usuário correto.
 

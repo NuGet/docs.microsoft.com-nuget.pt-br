@@ -1,16 +1,16 @@
 ---
 title: Configurando feeds locais do NuGet
 description: Como criar um feed local para pacotes do NuGet usando pastas em sua rede local
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/06/2017
 ms.topic: conceptual
-ms.openlocfilehash: 42a5c30c058a9efb35338c1b484235b6ad111bd0
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 1eb194c9ddaee05281749c7a0420cbaf77044fe3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "68317587"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774043"
 ---
 # <a name="local-feeds"></a>Feeds locais
 
@@ -25,13 +25,15 @@ Para habilitar a origem, adicione o nome do caminho (como `\\myserver\packages`)
 
 A árvore hierárquica de pastas com controle de versão tem a seguinte estrutura geral:
 
-    \\myserver\packages
-      └─<packageID>
-        └─<version>
-          ├─<packageID>.<version>.nupkg
-          └─<other files>
+```
+\\myserver\packages
+  └─<packageID>
+    └─<version>
+      ├─<packageID>.<version>.nupkg
+      └─<other files>
+```
 
-NuGet cria essa estrutura automaticamente [`nuget add`](../reference/cli-reference/cli-ref-add.md) quando você usa o comando para copiar um pacote para o feed:
+O NuGet cria essa estrutura automaticamente quando você usa o [`nuget add`](../reference/cli-reference/cli-ref-add.md) comando para copiar um pacote no feed:
 
 ```cli
 nuget add new_package.1.0.0.nupkg -source \\myserver\packages
@@ -39,7 +41,7 @@ nuget add new_package.1.0.0.nupkg -source \\myserver\packages
 
 O comando `nuget add` funciona com um pacote ao mesmo tempo, o que pode ser inconveniente ao configurar um feed com vários pacotes.
 
-Nesses casos, use [`nuget init`](../reference/cli-reference/cli-ref-init.md) o comando para copiar todos os pacotes `nuget add` em uma pasta para o feed como se você fosse usado em cada um individualmente. Por exemplo, o comando a seguir copia todos os pacotes de `c:\packages` para uma árvore hierárquica em `\\myserver\packages`:
+Nesses casos, use o [`nuget init`](../reference/cli-reference/cli-ref-init.md) comando para copiar todos os pacotes em uma pasta para o feed como se fosse executado `nuget add` em cada um deles individualmente. Por exemplo, o comando a seguir copia todos os pacotes de `c:\packages` para uma árvore hierárquica em `\\myserver\packages`:
 
 ```cli
 nuget init c:\packages \\myserver\packages

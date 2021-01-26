@@ -1,16 +1,16 @@
 ---
 title: Multiplataformas para pacotes do NuGet em seu arquivo de projeto
-description: Descrição dos diversos métodos para várias versões do .NET Framework de dentro de um único pacote do NuGet.
-author: karann-msft
-ms.author: karann
+description: Descrição dos vários métodos para direcionar várias versões de .NET Framework de dentro de um único pacote NuGet em seu arquivo de projeto.
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a05d053340bb2fe795991dfa5a2b95d8625dfd44
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380687"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774381"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Suporte a várias versões de .NET Framework em seu arquivo de projeto
 
@@ -37,7 +37,7 @@ Para projetos de estilo SDK, é possível configurar o suporte para várias estr
 
    Certifique-se de alterar o elemento XML de singular para plural (adicione o plural às marcas de abrir e fechar).
 
-3. Se você tem qualquer código que funciona apenas em um TFM, use `#if NET45` ou `#if NETSTANDARD2_0` para separar o código dependente do TFM. (Para obter mais informações, [consulte Como fazer multitarget](/dotnet/core/tutorials/libraries#how-to-multitarget).) Por exemplo, você pode usar o seguinte código:
+3. Se você tem qualquer código que funciona apenas em um TFM, use `#if NET45` ou `#if NETSTANDARD2_0` para separar o código dependente do TFM. (Para obter mais informações, consulte [como didirecionar](/dotnet/core/tutorials/libraries#how-to-multitarget).) Por exemplo, você pode usar o seguinte código:
 
    ```csharp
    public string Platform {

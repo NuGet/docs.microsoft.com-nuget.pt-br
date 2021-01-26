@@ -1,16 +1,16 @@
 ---
 title: Criar um pacote NuGet usando MSBuild
 description: Um guia detalhado para o processo de design e criação de um pacote do NuGet, incluindo os principais pontos de decisão como arquivos e controle de versão.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 47a20c5566affec1cdc7772c86d8101dab162d85
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237965"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774443"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Criar um pacote NuGet usando MSBuild
 
@@ -39,7 +39,7 @@ Além disso, se você estiver empacotando projetos de estilo não-SDK que usam P
 
 - `PackageOutputPath`, a pasta de saída para o pacote gerado ao chamar Pack.
 
-No Visual Studio, é possível definir esses valores nas propriedades do projeto (clique com o botão direito do mouse no projeto no Gerenciador de Soluções, escolha **Propriedades** e selecione a guia **Pacote** ). Você também pode definir essas propriedades diretamente nos arquivos do projeto ( *.csproj* ).
+No Visual Studio, é possível definir esses valores nas propriedades do projeto (clique com o botão direito do mouse no projeto no Gerenciador de Soluções, escolha **Propriedades** e selecione a guia **Pacote**). Você também pode definir essas propriedades diretamente nos arquivos do projeto (*.csproj*).
 
 ```xml
 <PropertyGroup>
@@ -70,7 +70,7 @@ O exemplo a seguir mostra um arquivo de projeto simples e completo com essas pro
 Defina também as propriedades opcionais, como `Title`, `PackageDescription` e `PackageTags`, conforme descrito em [Destinos do pacote MSBuild](../reference/msbuild-targets.md#pack-target), [Controlar ativos de dependência](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets) e [Propriedades de metadados do NuGet](/dotnet/core/tools/csproj#nuget-metadata-properties).
 
 > [!NOTE]
-> Para pacotes compilados para consumo público, preste atenção especial à propriedade **PackageTags** , à medida que as marcas ajudam outras pessoas a localizar o pacote e entender o que ele faz.
+> Para pacotes compilados para consumo público, preste atenção especial à propriedade **PackageTags**, à medida que as marcas ajudam outras pessoas a localizar o pacote e entender o que ele faz.
 
 Para obter detalhes sobre como declarar dependências e especificar números de versão, consulte [Referências de pacote em arquivos de projeto](../consume-packages/package-references-in-project-files.md) e [Controle de versão do pacote](../concepts/package-versioning.md). Também é possível extrair ativos de dependências diretamente no pacote usando os atributos `<IncludeAssets>` e `<ExcludeAssets>`. Para saber mais, confira [Controlar ativos de dependência](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
@@ -96,9 +96,9 @@ Se você estiver usando o MSBuild com um projeto que não é de estilo SDK e com
    </ItemGroup>
    ```
 
-2. Abra um prompt de comando do Desenvolvedor (na caixa **Pesquisar** , digite **Prompt de Comando do Desenvolvedor** ).
+2. Abra um prompt de comando do Desenvolvedor (na caixa **Pesquisar**, digite **Prompt de Comando do Desenvolvedor**).
 
-   Você normalmente deseja iniciar o Prompt de Comando do Desenvolvedor para Visual Studio usando o menu **Iniciar** , pois ele estará configurado com todos os caminhos necessários para o MSBuild.
+   Você normalmente deseja iniciar o Prompt de Comando do Desenvolvedor para Visual Studio usando o menu **Iniciar**, pois ele estará configurado com todos os caminhos necessários para o MSBuild.
 
 3. Alterne para a pasta que contém o arquivo de projeto e digite o seguinte comando para instalar o pacote NuGet.Build.Tasks.Pack.
 

@@ -1,16 +1,16 @@
 ---
 title: Passo a passo da restauração do pacote do NuGet com o Team Foundation Build
 description: Um passo a passo de como restaurar pacotes do NuGet com o Team Foundation Build (no TFS e no Visual Studio Team Services).
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8b993106d439dc137fbe040b51fda373539de81a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610998"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774991"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Configurando a restauração de pacote com o Team Foundation Build
 
@@ -54,26 +54,28 @@ Nosso projeto de demonstração é uma ferramenta de linha de comando simples qu
 
 A estrutura do repositório será semelhante ao seguinte:
 
-    <Project>
-        │   .gitignore
-        │   .tfignore
-        │   build.proj
-        │
-        ├───src
-        │   │   BingSearcher.sln
-        │   │
-        │   └───BingSearcher
-        │       │   App.config
-        │       │   BingSearcher.csproj
-        │       │   packages.config
-        │       │   Program.cs
-        │       │
-        │       └───Properties
-        │               AssemblyInfo.cs
-        │
-        └───tools
-            └───NuGet
-                    nuget.exe
+```
+<Project>
+    │   .gitignore
+    │   .tfignore
+    │   build.proj
+    │
+    ├───src
+    │   │   BingSearcher.sln
+    │   │
+    │   └───BingSearcher
+    │       │   App.config
+    │       │   BingSearcher.csproj
+    │       │   packages.config
+    │       │   Program.cs
+    │       │
+    │       └───Properties
+    │               AssemblyInfo.cs
+    │
+    └───tools
+        └───NuGet
+                nuget.exe
+```
 
 Você pode ver que não fizemos check-in na pasta `packages` nem qualquer arquivo `.targets`.
 
@@ -84,7 +86,7 @@ O código-fonte está na pasta `src`. Embora a nossa demonstração use apenas u
 ### <a name="ignore-files"></a>Ignorar arquivos
 
 > [!Note]
-> Atualmente, há um [bug conhecido no cliente do NuGet](https://nuget.codeplex.com/workitem/4072) que faz com que o cliente ainda adicione a pasta `packages` ao controle de versão. Uma solução alternativa é desabilitar a integração de controle do código-fonte. Para fazer isso, você precisa de um arquivo `Nuget.Config ` na pasta `.nuget` paralela à sua solução. Se essa pasta ainda não existir, você precisará criá-la. Em [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md), adicionar o seguinte conteúdo:
+> Atualmente, há um [bug conhecido no cliente do NuGet](https://nuget.codeplex.com/workitem/4072) que faz com que o cliente ainda adicione a pasta `packages` ao controle de versão. Uma solução alternativa é desabilitar a integração de controle do código-fonte. Para fazer isso, você precisa de um arquivo `Nuget.Config ` na pasta `.nuget` paralela à sua solução. Se essa pasta ainda não existir, você precisará criá-la. No [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md) , adicione o seguinte conteúdo:
 
 ```xml
 <configuration>
@@ -98,33 +100,39 @@ Para se comunicar com o controle de versão que nós não temos intenção de fa
 
 O arquivo `.gitignore` se parece com o seguinte:
 
-    syntax: glob
-    *.user
-    *.suo
-    bin
-    obj
-    packages
-    *.nupkg
-    project.lock.json
-    project.assets.json
+```
+syntax: glob
+*.user
+*.suo
+bin
+obj
+packages
+*.nupkg
+project.lock.json
+project.assets.json
+```
 
 O arquivo `.gitignore` é [muito poderoso](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Por exemplo, se você geralmente não quiser fazer check-in do conteúdo da pasta `packages`, mas deseja prosseguir com a orientação anterior de fazer check-in nos arquivos `.targets`, você poderia ter a seguinte regra em vez disso:
 
-    packages
-    !packages/**/*.targets
+```
+packages
+!packages/**/*.targets
+```
 
 Isso excluirá todas as pastas `packages`, mas incluirá novamente todos os arquivos `.targets` contidos. Aliás, você pode encontrar um modelo para arquivos `.gitignore` especificamente projetado para as necessidades de desenvolvedores do Visual Studio [aqui](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
 O controle de versão do TF dá suporte a um mecanismo muito semelhante por meio do arquivo [.tfignore](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control). A sintaxe é praticamente a mesma:
 
-    *.user
-    *.suo
-    bin
-    obj
-    packages
-    *.nupkg
-    project.lock.json
-    project.assets.json
+```
+*.user
+*.suo
+bin
+obj
+packages
+*.nupkg
+project.lock.json
+project.assets.json
+```
 
 ## <a name="buildproj"></a>build.proj
 

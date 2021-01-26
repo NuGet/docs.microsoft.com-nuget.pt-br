@@ -1,16 +1,16 @@
 ---
 title: Criar pacotes do NuGet para a Plataforma Universal do Windows
 description: Uma explicação passo a passo de ponta a ponta da criação de pacotes do NuGet usando um componente do Windows Runtime para a Plataforma Universal do Windows.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 77aa186291122a8d05018ecacd1329da459badad
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c077645508cb10e86b3ed1e1f2bf61adcd2013d9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380759"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774238"
 ---
 # <a name="create-uwp-packages"></a>Criar pacotes UWP
 
@@ -34,7 +34,7 @@ Neste passo a passo, você cria um pacote NuGet com um componente UWP nativo (in
 
     ![Adicionar um novo item de Controle Modelo XAML ao projeto](media/UWP-NewXAMLControl.png)
 
-1. Clique com o botão direito do mouse no projeto no Solution Explorer e selecione **Propriedades.** Na página Propriedades, expanda **Propriedades de configuração > C/C++** e clique em **Arquivos de saída**. No painel à direita, altere o valor para **Gerar arquivos de documentação XML** para Sim:
+1. Clique com o botão direito do mouse no projeto em Gerenciador de Soluções e selecione **Propriedades.** Na página Propriedades, expanda **Propriedades de configuração > C/C++** e clique em **Arquivos de saída**. No painel à direita, altere o valor para **Gerar arquivos de documentação XML** para Sim:
 
     ![Definindo a geração de arquivos de documentação XML para Sim](media/UWP-GenerateXMLDocFiles.png)
 
@@ -153,7 +153,7 @@ No seu componente, a lógica principal do tipo ImageEnhancer está no código na
 
 ### <a name="adding-targets"></a>Adicionar .targets
 
-Em seguida, projetos C++ e JavaScript que podem consumir seu pacote do NuGet precisam de um arquivo .targets para identificar os arquivos de assembly e winmd necessários. (C# e projetos Visual Basic fazem isso automaticamente.) Crie este arquivo copiando o `ImageEnhancer.targets` texto abaixo e salve-o na mesma pasta que o `.nuspec` arquivo. _Observação_: esse arquivo `.targets` precisa ter o mesmo nome que a ID do pacote (por exemplo, o elemento `<Id>` no arquivo `.nupspec`):
+Em seguida, projetos C++ e JavaScript que podem consumir seu pacote do NuGet precisam de um arquivo .targets para identificar os arquivos de assembly e winmd necessários. (Os projetos do C# e do Visual Basic fazem isso automaticamente.) Crie esse arquivo copiando o texto abaixo para `ImageEnhancer.targets` e salve-o na mesma pasta que o `.nuspec` arquivo. _Observação_: esse arquivo `.targets` precisa ter o mesmo nome que a ID do pacote (por exemplo, o elemento `<Id>` no arquivo `.nupspec`):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -252,7 +252,7 @@ Para disponibilizar seu pacote para outros desenvolvedores, siga as instruções
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
-- [Referência .nuspec](../reference/nuspec.md)
+- [Referência de. nuspec](../reference/nuspec.md)
 - [Pacotes de símbolo](../create-packages/symbol-packages-snupkg.md)
 - [Controle de versão do pacote](../concepts/package-versioning.md)
 - [Suporte a Várias Versões do .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)

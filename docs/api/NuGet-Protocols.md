@@ -1,60 +1,64 @@
 ---
-title: Protocolos NuGet.org
-description: Os protocolos nuget.org em evolução para interagir com os clientes do NuGet.
+title: Protocolos nuget.org
+description: Os protocolos de nuget.org em evolução para interagir com clientes NuGet.
 author: anangaur
 ms.author: anangaur
-ms.date: 10/30/2017
+ms.date: 01/21/2021
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: d0add777040dbb8bcde6d8e385a4feab568e5cdd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ea072484c896c4862e47b2c03a1b177f196b0aad
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547267"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773978"
 ---
-# <a name="nugetorg-protocols"></a>protocolos NuGet.org
+# <a name="nugetorg-protocols"></a>Protocolos nuget.org
 
-Para interagir com o nuget.org, os clientes precisam seguir determinados protocolos. Porque esses protocolos mantenham evoluindo, os clientes devem identificar a versão do protocolo usarem ao chamar APIs de nuget.org específico. Isso permite que o nuget.org introduzir alterações de forma incondicional para os clientes antigos.
+Para interagir com o nuget.org, os clientes precisam seguir determinados protocolos. Como esses protocolos continuam em evolução, os clientes devem identificar a versão do protocolo que usam ao chamar APIs nuget.org específicas. Isso permite que o nuget.org introduza alterações de forma não-significativa para os clientes antigos.
 
 > [!Note]
-> As APIs documentadas nesta página são específicas para o nuget.org e não há nenhuma expectativa de outras implementações de servidor do NuGet introduzir essas APIs. 
+> As APIs documentadas nesta página são específicas do nuget.org e não há nenhuma expectativa para que outras implementações do servidor NuGet introduzam essas APIs. 
 
-Para obter informações sobre a API do NuGet amplamente implementada no ecossistema do NuGet, consulte o [visão geral da API](overview.md).
+Para obter informações sobre a API do NuGet implementada amplamente no ecossistema do NuGet, consulte a [visão geral da API](overview.md).
 
-Este tópico lista os vários protocolos, como e quando eles vêm à existência.
+Este tópico lista vários protocolos como e quando eles chegam à existência.
 
-## <a name="nuget-protocol-version-410"></a>Versão de protocolo do NuGet 4.1.0
+## <a name="nuget-protocol-version-410"></a>Versão do protocolo NuGet 4.1.0
 
-A 4.1.0 especifica o protocolo de uso de chaves de escopo verificar para interagir com serviços diferentes do nuget.org, a fim de validar um pacote em uma conta do nuget.org. Observe que o `4.1.0` versão número é uma cadeia de caracteres opaca, mas coincidir com a primeira versão do cliente do NuGet oficial que suporte esse protocolo.
+O protocolo 4.1.0 especifica o uso de chaves de escopo de verificação para interagir com serviços diferentes de nuget.org, para validar um pacote em uma conta nuget.org. Observe que o `4.1.0` número de versão é uma cadeia de caracteres opaca, mas que ocorre coincidir com a primeira versão do cliente do NuGet oficial que tem suporte para esse protocolo.
 
-A validação garante que as chaves de API criados pelo usuário são usadas somente com nuget.org e essa verificação ou validação de um serviço de terceiros é tratada por meio de chaves de escopo verificar um único uso. Essas chaves de escopo verificar podem ser usados para validar que o pacote pertence a um usuário específico (conta) em nuget.org.
+A validação garante que as chaves de API criadas pelo usuário sejam usadas somente com nuget.org, e que outra verificação ou validação de um serviço de terceiros seja manipulada por meio de uma única utilização de chaves de escopo de verificação. Essas chaves de escopo de verificação podem ser usadas para validar que o pacote pertence a um usuário específico (conta) em nuget.org.
 
-### <a name="client-requirement"></a>Requisito de cliente
+### <a name="client-requirement"></a>Requisito do cliente
 
-Os clientes devem passar o cabeçalho a seguir ao fazer chamadas à API **push** pacotes para nuget.org:
+Os clientes são obrigados a passar o seguinte cabeçalho quando fazem chamadas à API para **enviar pacotes por push** para NuGet.org:
 
-    X-NuGet-Protocol-Version: 4.1.0
+```
+X-NuGet-Protocol-Version: 4.1.0
+```
 
-Observe que o `X-NuGet-Client-Version` cabeçalho tem semântica semelhantes, mas está reservado para ser usado apenas pelo cliente do NuGet oficial. Os clientes de terceiros devem usar o `X-NuGet-Protocol-Version` cabeçalho e o valor.
+Observe que o `X-NuGet-Client-Version` cabeçalho tem semântica semelhante, mas é reservado para ser usado apenas pelo cliente oficial do NuGet. Clientes de terceiros devem usar o `X-NuGet-Protocol-Version` cabeçalho e o valor.
 
-O **push** protocolo em si é descrito na documentação para o [ `PackagePublish` recurso](package-publish-resource.md).
+O próprio protocolo de **Push** é descrito na documentação do [ `PackagePublish` recurso](package-publish-resource.md).
 
-Se um cliente interage com serviços externos e necessidades para validar se um pacote pertence a um usuário específico (conta), ele deve usar o protocolo a seguir e usar as teclas de Verifique se o escopo e não as chaves de API do nuget.org.
+Se um cliente interage com serviços externos e precisa validar se um pacote pertence a um usuário específico (conta), ele deve usar o seguinte protocolo e usar as chaves de escopo de verificação e não as chaves de API de nuget.org.
 
-### <a name="api-to-request-a-verify-scope-key"></a>API para solicitar uma chave Verifique se o escopo
+### <a name="api-to-request-a-verify-scope-key"></a>API para solicitar uma chave de verificação de escopo
 
-Essa API é usada para obter uma chave Verifique se o escopo para um autor de nuget.org validar um pacote pertencente a pessoa.
+Essa API é usada para obter uma chave de escopo de verificação para um autor de nuget.org para validar um pacote de propriedade dele.
 
-    POST api/v2/package/create-verification-key/{ID}/{VERSION}
+```
+POST api/v2/package/create-verification-key/{ID}/{VERSION}
+```
 
-#### <a name="request-parameters"></a>Parâmetros de solicitação
+#### <a name="request-parameters"></a>Parâmetros da solicitação
 
-Nome           | No     | Tipo   | Necessária | Observações
+Nome           | Em     | Type   | Necessária | Observações
 -------------- | ------ | ------ | -------- | -----
-ID             | URL    | cadeia de caracteres | sim      | O identidier de pacote para o qual a tecla de escopo de verificação é solicitada
-VERSION        | URL    | cadeia de caracteres | no       | A versão do pacote
-X-NuGet-ApiKey | Cabeçalho | cadeia de caracteres | sim      | Por exemplo, `X-NuGet-ApiKey: {USER_API_KEY}`
+ID             | URL    | string | sim      | O pacote identidier para o qual a chave de verificação de escopo é solicitada
+VERSION        | URL    | string | não       | A versão do pacote
+X-NuGet-ApiKey | Cabeçalho | string | sim      | Por exemplo, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 #### <a name="response"></a>Resposta
 
@@ -65,27 +69,29 @@ X-NuGet-ApiKey | Cabeçalho | cadeia de caracteres | sim      | Por exemplo, `X-
 }
 ```
 
-### <a name="api-to-verify-the-verify-scope-key"></a>API para verificar se a tecla de escopo de verificação
+### <a name="api-to-verify-the-verify-scope-key"></a>API para verificar a chave de verificação de escopo
 
-Essa API é usada para validar uma chave de Verifique se o escopo para o pacote de propriedade pelo autor do nuget.org.
+Essa API é usada para validar uma chave de escopo de verificação para o pacote de Propriedade do autor do nuget.org.
 
-    GET api/v2/verifykey/{ID}/{VERSION}
+```
+GET api/v2/verifykey/{ID}/{VERSION}
+```
 
-#### <a name="request-parameters"></a>Parâmetros de solicitação
+#### <a name="request-parameters"></a>Parâmetros da solicitação
 
-Nome           | No     | Tipo   | Necessária | Observações
+Nome           | Em     | Type   | Necessária | Observações
 -------------  | ------ | ------ | -------- | -----
-ID             | URL    | cadeia de caracteres | sim      | O identificador de pacote para o qual a tecla de escopo de verificação é solicitada
-VERSION        | URL    | cadeia de caracteres | no       | A versão do pacote
-X-NuGet-ApiKey | Cabeçalho | cadeia de caracteres | sim      | Por exemplo, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
+ID             | URL    | string | sim      | O identificador de pacote para o qual a chave de verificação de escopo é solicitada
+VERSION        | URL    | string | não       | A versão do pacote
+X-NuGet-ApiKey | Cabeçalho | string | sim      | Por exemplo, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
 
 > [!Note]
-> Essa chave de API do escopo de verificar expira em um dia ou na primeira utilização, o que ocorrer primeiro.
+> Essa chave verificar API de escopo expira no horário de um dia ou no primeiro uso, o que ocorrer primeiro.
 
 #### <a name="response"></a>Resposta
 
 Código de status | Significado
 ----------- | -------
 200         | A chave de API é válida
-403         | A chave de API é inválida ou não autorizado a enviar por push contra o pacote
-404         | O pacote referenciado pela `ID` e `VERSION` (opcional) não existe
+403         | A chave de API é inválida ou não está autorizada a enviar por push para o pacote
+404         | O pacote referido por `ID` e `VERSION` (opcional) não existe

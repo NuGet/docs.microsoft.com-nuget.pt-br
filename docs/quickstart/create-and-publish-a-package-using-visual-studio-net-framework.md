@@ -1,23 +1,23 @@
 ---
 title: Criar e publicar um pacote do NuGet do .NET Framework usando o Visual Studio no Windows
 description: Um tutorial passo a passo sobre como criar e publicar um pacote NuGet do .NET Framework usando o Visual Studio no Windows.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7c030db769973e3b3c41da6523d57ab2cd769a9d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380638"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775748"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Início Rápido: Criar e publicar um pacote usando o Visual Studio (.NET Framework no Windows)
 
 Para criar um pacote NuGet em uma Biblioteca de Classes .NET Framework, é necessário criar a DLL no Visual Studio no Windows e, em seguida, usar a ferramenta de linha de comando nuget.exe para criar e publicar o pacote.
 
 > [!Note]
-> Este Quickstart se aplica ao Visual Studio 2017 e versões mais altas apenas para Windows. O Visual Studio para Mac não inclui os recursos descritos aqui. Em vez disso, use as [ferramentas CLI do dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
+> Este início rápido aplica-se apenas ao Visual Studio 2017 e às versões posteriores para Windows. O Visual Studio para Mac não inclui os recursos descritos aqui. Em vez disso, use as [ferramentas CLI do dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -134,7 +134,7 @@ Execute `nuget spec` apenas uma vez para gerar o manifesto inicial. Ao atualizar
 
 ## <a name="publish-the-package"></a>Publicar o pacote
 
-Depois de `.nupkg` ter um arquivo, publique-o para nuget.org usando `nuget.exe` com uma chave de API adquirida de nuget.org. Para nuget.org você `nuget.exe` deve usar 4.1.0 ou superior.
+Depois de ter um `.nupkg` arquivo, você o publica em NuGet.org usando `nuget.exe` com uma chave de API adquirida em NuGet.org. Para nuget.org, você deve usar o `nuget.exe` 4.1.0 ou superior.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 

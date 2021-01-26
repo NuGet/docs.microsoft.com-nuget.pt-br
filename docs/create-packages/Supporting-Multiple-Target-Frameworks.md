@@ -1,22 +1,22 @@
 ---
 title: Multiplataforma para pacotes do NuGet
 description: Descrição dos diversos métodos para várias versões do .NET Framework de dentro de um único pacote do NuGet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7c0da38ab4059b89c9693ecbece2bc8ed1a775ec
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: e919b11670589900d9e588db33fd68b8df592ac2
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237939"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774556"
 ---
 # <a name="support-multiple-net-versions"></a>Suporte a várias versões do .NET
 
 Muitas bibliotecas se destinam a uma versão específica do .NET Framework. Por exemplo, você pode ter uma versão da biblioteca específica para a UWP e outra versão para aproveitar os recursos no .NET Framework 4.6. Para acomodar isso, o NuGet é compatível com a colocação de várias versões da mesma biblioteca em um único pacote.
 
-Este artigo descreve o layout de um pacote NuGet, independentemente de como o pacote ou os assemblies são compilados (ou seja, o layout é o mesmo se você estiver usando vários arquivos *. csproj* de estilo não SDK e um arquivo *. nuspec* personalizado, ou um único SDK multiplataforma-Style *. csproj* ). Para um projeto no estilo SDK, os [destinos do pacote](../reference/msbuild-targets.md) do NuGet reconhecem como o pacote deve ser definido e automatiza a colocação dos assemblies nas pastas corretas da biblioteca e a criação de grupos de dependências para cada estrutura de destino (TFM). Para saber mais, confira [Suporte a várias versões de .NET Framework em seu arquivo de projeto](multiple-target-frameworks-project-file.md).
+Este artigo descreve o layout de um pacote NuGet, independentemente de como o pacote ou os assemblies são compilados (ou seja, o layout é o mesmo se você estiver usando vários arquivos *. csproj* de estilo não SDK e um arquivo *. nuspec* personalizado, ou um único SDK multiplataforma-Style *. csproj*). Para um projeto no estilo SDK, os [destinos do pacote](../reference/msbuild-targets.md) do NuGet reconhecem como o pacote deve ser definido e automatiza a colocação dos assemblies nas pastas corretas da biblioteca e a criação de grupos de dependências para cada estrutura de destino (TFM). Para saber mais, confira [Suporte a várias versões de .NET Framework em seu arquivo de projeto](multiple-target-frameworks-project-file.md).
 
 Você deve definir manualmente o pacote conforme descrito neste artigo ao usar o método de diretório de trabalho baseado em convenções descrito em [Criar um pacote](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). Para um projeto em estilo SDK, é recomendado o método automatizado, mas você também pode optar por definir manualmente o pacote como descrito neste artigo.
 
@@ -24,7 +24,9 @@ Você deve definir manualmente o pacote conforme descrito neste artigo ao usar o
 
 Ao compilar um pacote que contém somente uma versão de uma biblioteca ou destinado a várias estruturas, sempre crie as subpastas em `lib` usando nomes de estrutura que diferenciam maiúsculas de minúsculas com a seguinte convenção:
 
-    lib\{framework name}[{version}]
+```
+lib\{framework name}[{version}]
+```
 
 Para ver uma lista completa de nomes compatíveis, consulte a [Referência a Estruturas de Destino](../reference/target-frameworks.md#supported-frameworks).
 
@@ -32,15 +34,17 @@ Você nunca deve ter uma versão da biblioteca que não seja específico para um
 
 Por exemplo, a seguinte estrutura de pastas a seguir é compatível com quatro versões de um assembly que são específicas da estrutura:
 
-    \lib
-        \net46
-            \MyAssembly.dll
-        \net461
-            \MyAssembly.dll
-        \uap
-            \MyAssembly.dll
-        \netcore
-            \MyAssembly.dll
+```
+\lib
+    \net46
+        \MyAssembly.dll
+    \net461
+        \MyAssembly.dll
+    \uap
+        \MyAssembly.dll
+    \netcore
+        \MyAssembly.dll
+```
 
 Para incluir facilmente todos esses arquivos ao criar o pacote, use um curinga `**` recursivo na seção `<files>` do seu `.nuspec`:
 
@@ -54,16 +58,18 @@ Para incluir facilmente todos esses arquivos ao criar o pacote, use um curinga `
 
 Se você tiver assemblies específicos de arquitetura, ou seja, assemblies separados destinados ao ARM, x86 e x64, será preciso colocá-los em uma pasta chamada `runtimes` dentro de subpastas denominadas `{platform}-{architecture}\lib\{framework}` ou `{platform}-{architecture}\native`. Por exemplo, a seguinte estrutura de pasta acomodaria DLLs nativos e gerenciados direcionados para o Windows 10 e a estrutura `uap10.0`:
 
-    \runtimes
-        \win10-arm
-            \native
-            \lib\uap10.0
-        \win10-x86
-            \native
-            \lib\uap10.0
-        \win10-x64
-            \native
-            \lib\uap10.0
+```
+\runtimes
+    \win10-arm
+        \native
+        \lib\uap10.0
+    \win10-x86
+        \native
+        \lib\uap10.0
+    \win10-x64
+        \native
+        \lib\uap10.0
+```
 
 Esses assemblies só estarão disponíveis no runtime, portanto, se você quiser fornecer o assembly de tempo de compilação correspondente, também terá um assembly `AnyCPU` na pasta `/ref/{tfm}`. 
 
@@ -81,11 +87,13 @@ Se nenhuma correspondência for encontrada, o NuGet copia o assembly para a vers
 
 Considere, por exemplo, a estrutura de pastas a seguir em um pacote:
 
-    \lib
-        \net45
-            \MyAssembly.dll
-        \net461
-            \MyAssembly.dll
+```
+\lib
+    \net45
+        \MyAssembly.dll
+    \net461
+        \MyAssembly.dll
+```
 
 Ao instalar esse pacote em um projeto voltado para o .NET Framework 4.6, o NuGet instala o assembly na pasta `net45`, pois é a versão mais recente disponível que é menor ou igual a 4.6.
 
@@ -97,12 +105,14 @@ Se o projeto se destina ao .NET framework 4.0 e versões anterior, o NuGet gera 
 
 O NuGet copia assemblies apenas de uma única pasta de biblioteca no pacote. Suponha, por exemplo, que um pacote tem a seguinte estrutura de pastas:
 
-    \lib
-        \net40
-            \MyAssembly.dll (v1.0)
-            \MyAssembly.Core.dll (v1.0)
-        \net45
-            \MyAssembly.dll (v2.0)
+```
+\lib
+    \net40
+        \MyAssembly.dll (v1.0)
+        \MyAssembly.Core.dll (v1.0)
+    \net45
+        \MyAssembly.dll (v2.0)
+```
 
 Quando o pacote é instalado em um projeto voltado para o .NET Framework 4.5, `MyAssembly.dll` (v2.0) é o único assembly instalado. `MyAssembly.Core.dll` (v1.0) não está instalado, porque ele não está listado na pasta `net45`. O NuGet se comporta dessa maneira porque `MyAssembly.Core.dll` pode ter sido mesclado na versão 2.0 do `MyAssembly.dll`.
 
@@ -112,7 +122,7 @@ Se você quiser que `MyAssembly.Core.dll` seja instalado para o .NET Framework 4
 
 O NuGet também dá suporte ao direcionamento a um perfil de estrutura específico acrescentando um traço e o nome do perfil ao fim da pasta.
 
-    lib\{framework name}-{profile}
+\{nome da estrutura lib}-{perfil}
 
 Os perfis compatíveis são os seguintes:
 
@@ -129,7 +139,7 @@ Ao empacotar um arquivo de projeto, o NuGet tenta gerar automaticamente as depen
 
 Cada grupo tem um atributo chamado `targetFramework` e contém zero ou mais elementos `<dependency>`. Essas referências são instaladas juntas quando a estrutura de destino é compatível com o perfil da estrutura do projeto. Consulte [Estruturas de destino](../reference/target-frameworks.md) para ver os identificadores de estrutura exatos.
 
-Recomendamos usar um grupo por TFM (Moniker da Estrutura de Destino) para arquivos nas pastas *lib/* e *ref/* .
+Recomendamos usar um grupo por TFM (Moniker da Estrutura de Destino) para arquivos nas pastas *lib/* e *ref/*.
 
 O exemplo a seguir mostra diferentes variações do elemento `<group>`:
 
@@ -162,22 +172,24 @@ Quando pacotes de bibliotecas são direcionados à Biblioteca de Classes Portát
 
 Com `packages.config`, arquivos de conteúdo e scripts do PowerShell podem ser agrupados pela estrutura de destino usando a mesma convenção de pasta dentro das pastas `content` e `tools`. Por exemplo:
 
-    \content
-        \net46
-            \MyContent.txt
-        \net461
-            \MyContent461.txt
-        \uap
-            \MyUWPContent.html
-        \netcore
-    \tools
-        init.ps1
-        \net46
-            install.ps1
-            uninstall.ps1
-        \uap
-            install.ps1
-            uninstall.ps1
+```
+\content
+    \net46
+        \MyContent.txt
+    \net461
+        \MyContent461.txt
+    \uap
+        \MyUWPContent.html
+    \netcore
+\tools
+    init.ps1
+    \net46
+        install.ps1
+        uninstall.ps1
+    \uap
+        install.ps1
+        uninstall.ps1
+```
 
 Se uma pasta da estrutura for deixada vazia, o NuGet não adiciona referência de assembly ou arquivos de conteúdo, nem executam os scripts do PowerShell para essa estrutura.
 

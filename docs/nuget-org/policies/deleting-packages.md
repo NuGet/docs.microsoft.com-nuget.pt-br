@@ -1,22 +1,22 @@
 ---
 title: Excluindo pacotes do NuGet de nuget.org
 description: Políticas para remover pacotes do nuget.org; a exclusão permanente não é compatível, exceto quando os pacotes violam outras políticas.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3abe809d76e75801c2f936aba129d27ba7b64913
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e5c62177b40162cb8b6b37b0d272fb7a945156c1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80581272"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775703"
 ---
 # <a name="deleting-packages"></a>Excluir pacotes
 
 O nuget.org não é compatível com a exclusão permanente de pacotes. Isso interrompe todos os projetos dependendo da disponibilidade do pacote, especialmente com fluxos de trabalho de build que envolvem a restauração do pacote.
 
-nuget.org suporta [a deslistagem de um pacote,](#unlisting-a-package)que pode ser feito na página de gerenciamento de pacotes no site. Pacotes não listados não aparecem em nuget.org ou na interface do usuário do Visual Studio e não aparecem nos resultados da pesquisa. Pacotes não listados, no entanto, ainda podem ser baixados e instalados usando um número de versão exata, compatível com a restauração do pacote. Além disso, os pacotes não listados ainda podem ser descobertos nos seguintes cenários específicos:
+o nuget.org dá suporte à [deslistação de um pacote](#unlisting-a-package), que pode ser feito na página de gerenciamento de pacotes no site da Web. Pacotes não listados não aparecem em nuget.org ou na interface do usuário do Visual Studio e não aparecem nos resultados da pesquisa. Pacotes não listados, no entanto, ainda podem ser baixados e instalados usando um número de versão exata, compatível com a restauração do pacote. Além disso, os pacotes não listados ainda podem ser descobertos nos seguintes cenários específicos:
 
 - Restauração de pacote usando versões flutuante (por exemplo, `1.0.0-*`), se o pacote mais recente que corresponder às restrições de versão ou de dependência for um pacote não listado.
 - Replicação de pacotes por meio do catálogo (visto que o catálogo também contém os pacotes não listados).
@@ -40,16 +40,16 @@ Se você encontrar um pacote que viole qualquer um desses pacotes, clique no lin
 
 Observe que a equipe do NuGet e a .NET Foundation reserva o direito de alterar esses critérios a qualquer momento.
 
-## <a name="unlisting-a-package"></a>Deslistagem de um pacote
-A deslistagem de uma versão do pacote esconde-a da pesquisa e da página de detalhes do pacote nuget.org. Isso permite que os usuários existentes do pacote continuem a usá-lo, mas reduz a nova adoção, já que o pacote não é visível na pesquisa.
+## <a name="unlisting-a-package"></a>Deslistando um pacote
+A deslistação de uma versão de pacote a oculta da pesquisa e da página de detalhes do pacote nuget.org. Isso permite que os usuários existentes do pacote continuem a usá-lo, mas reduz a nova adoção, já que o pacote não é visível na pesquisa.
 
 Etapas para deslistar um pacote:
 
 1. Selecione `Your account name` (no canto superior direito) >`Manage packages` > `Published packages`
-1. Selecione o ícone "Gerenciar pacote"
-1. Expanda a seção "Listagem" e selecione a versão do pacote
-1. Desmarque "Listar resultados de pesquisa" e selecione "Salvar"
+1. Selecione o ícone "gerenciar pacote"
+1. Expanda a seção "listagem" e selecione a versão do pacote
+1. Desmarque "listar nos resultados da pesquisa" e selecione "salvar"
 
-A versão específica do pacote não foi listada. Para verificar isso, faça logout da sua conta e navegue até a página https://www.nuget.org/packages/YOUR-PACKAGE-NAME/do pacote (sem a parte da versão), por exemplo: . Você verá todas as versões desse pacote que **não** foram listadas. No entanto, o proprietário do pacote, quando conectado, pode ver todas as versões e seu status de listagem.
+A versão específica do pacote agora foi deslistada. Para verificar isso, faça logoff da sua conta e navegue até a página do pacote (sem a parte da versão), por exemplo: https://www.nuget.org/packages/YOUR-PACKAGE-NAME/ . Você verá todas as versões desse pacote que **não** foram listadas. No entanto, o proprietário do pacote, quando conectado, pode ver todas as versões e seu status de listagem.
 
-Também é possível depreciar uma versão do pacote (caso você não possa excluir uma versão do pacote). Para obter mais informações sobre a depreciação das versões do pacote, consulte [Pacotes de depreciação](../deprecate-packages.md).
+Também é possível substituir uma versão do pacote (caso não seja possível excluir uma versão do pacote). Para obter mais informações sobre como substituir versões de pacote, consulte [preterindo pacotes](../deprecate-packages.md).

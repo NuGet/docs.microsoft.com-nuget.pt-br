@@ -1,16 +1,16 @@
 ---
 title: Configurações comuns do NuGet
 description: Arquivos NuGet.Config controlam o comportamento do NuGet tanto globalmente quanto em cada projeto e são modificados com o comando nuget config.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: e81c380eab3f1a8635e50e62811c7ae463ec3653
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699766"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774856"
 ---
 # <a name="common-nuget-configurations"></a>Configurações comuns do NuGet
 
@@ -21,7 +21,7 @@ O comportamento do NuGet é controlado pelas configurações acumuladas em um ou
 | Escopo | Local do arquivo NuGet.Config | Descrição |
 | --- | --- | --- |
 | Solução | A pasta atual (também conhecida como pasta de solução) ou qualquer pasta até a raiz da unidade.| Em uma pasta de solução, as configurações se aplicam a todos os projetos nas subpastas. Observe que, se um arquivo de configuração for colocado em uma pasta de projeto, ele não causará nenhum efeito nesse projeto. |
-| Usuário | **Windows:**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` ou `~/.nuget/NuGet/NuGet.Config` (varia de acordo com a distribuição do sistema operacional) <br/>Configurações adicionais têm suporte em todas as plataformas. Essas configurações não podem ser editadas pelas ferramentas. </br> **Windows:**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` or `~/.nuget/config/*.config` | As configurações se aplicam a todas as operações, mas são substituídas por quaisquer configurações de nível de projeto. |
+| User | **Windows:**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` ou `~/.nuget/NuGet/NuGet.Config` (varia de acordo com a distribuição do sistema operacional) <br/>Configurações adicionais têm suporte em todas as plataformas. Essas configurações não podem ser editadas pelas ferramentas. </br> **Windows:**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` or `~/.nuget/config/*.config` | As configurações se aplicam a todas as operações, mas são substituídas por quaisquer configurações de nível de projeto. |
 | Computador | **Windows:**`%ProgramFiles(x86)%\NuGet\Config`<br/>**Mac/Linux:** `$XDG_DATA_HOME` . Se `$XDG_DATA_HOME` for nulo ou vazio, `~/.local/share` ou `/usr/local/share` será usado (varia de acordo com a distribuição do SO)  | As configurações se aplicam a todas as operações, mas são substituídas por qualquer usuário ou por configurações de nível de projeto. |
 
 Observações para versões anteriores do NuGet:
@@ -120,14 +120,16 @@ Especificamente, o NuGet carrega as configurações dos arquivos de configuraç�
 
 Digamos que você tem a seguinte estrutura de pasta em duas unidades separadas:
 
-    disk_drive_1
-        User
-    disk_drive_2
-       Project1
-         Source
-       Project2
-         Source
-       tmp
+```
+disk_drive_1
+    User
+disk_drive_2
+    Project1
+        Source
+    Project2
+        Source
+    tmp
+```
 
 Dessa forma, você terá quatro arquivos `NuGet.Config` nos seguintes locais com o conteúdo em questão. (O arquivo no nível de computador não está incluído neste exemplo, mas se comportaria da mesma forma que o arquivo de nível de usuário.)
 
