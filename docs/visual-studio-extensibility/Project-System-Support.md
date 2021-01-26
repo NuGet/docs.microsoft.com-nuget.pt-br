@@ -1,16 +1,16 @@
 ---
 title: Suporte do NuGet para o sistema de projeto do Visual Studio
 description: Integração do NuGet ao sistema de projeto do Visual Studio para tipos de projetos de terceiros.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: 00a64d95c943e9e5cb3a279358a6495125a1bd87
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7af330f88b47352666933598719d9c8f8cb66a78
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64495928"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779411"
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Suporte do NuGet para o sistema de projetos do Visual Studio
 
@@ -25,7 +25,7 @@ Para integrar-se ao NuGet, um sistema de projeto deve anunciar seu próprio supo
 
 O cliente do NuGet determina quais pacotes são compatíveis com o tipo de projeto com base nos [recursos do projeto](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md), conforme descrito na tabela a seguir.
 
-| Recurso | Descrição |
+| Funcionalidade | Descrição |
 | --- | --- |
 | AssemblyReferences | Indica que o projeto é compatível com referências de assembly (diferentes de WinRTReferences). |
 | DeclaredSourceItems | Indica que o projeto é um projeto típico do MSBuild (não DNX) em que ele declara itens de origem no próprio projeto. |

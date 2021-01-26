@@ -1,115 +1,115 @@
 ---
-title: 3.5 notas de versão de RC
-description: Notas de versão do NuGet 3.5 RC incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
-author: karann-msft
-ms.author: karann
+title: Notas de versão do 3,5 RC
+description: Notas de versão do NuGet 3,5 RC incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 52c443ecd79c9108203f5a3c327078ce9e28b95b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 04ec402df5ff993b405bb710abf26e1cdc850703
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548532"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780203"
 ---
-# <a name="nuget-35-rc-release-notes"></a>Notas de versão do NuGet 3.5 RC
+# <a name="nuget-35-rc-release-notes"></a>Notas de versão do NuGet 3,5 RC
 
-[Notas de versão do NuGet 3.5-Beta2](../release-notes/nuget-3.5-Beta2.md) | [NuGet 3.5-notas de versão RTM](../release-notes/nuget-3.5-RTM.md)
+Notas de versão do [NuGet 3,5-beta2](../release-notes/nuget-3.5-Beta2.md)  |  [NuGet 3,5-notas de versão RTM](../release-notes/nuget-3.5-RTM.md)
 
-versão 3.5 tem como foco melhorar a qualidade e desempenho de clientes do NuGet. Além disso, podemos enviar alguns recursos, como suporte para [pastas de Fallback](https://github.com/NuGet/Home/issues/2899), [PackageType](https://github.com/NuGet/Home/issues/2476) suporte no `.nuspec` e muito mais.
+a versão 3,5 concentra-se em melhorar a qualidade e o desempenho de clientes NuGet. Além disso, enviamos alguns recursos como suporte para pastas de [fallback](https://github.com/NuGet/Home/issues/2899), suporte a [PackageType](https://github.com/NuGet/Home/issues/2476) no `.nuspec` e mais.
 
-[Lista de Problemas](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5%20RC")
+[Lista de problemas](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5%20RC")
 
-## <a name="bug-fixes"></a>Correções de Bug
+## <a name="bug-fixes"></a>Correções de bugs
 
-* Instalação/restauração de um pacote falha com "pacote contém vários `.nuspec` arquivos." - [#3231](https://github.com/NuGet/Home/issues/3231)
+* Falha na instalação/restauração de um pacote com "o pacote contém vários `.nuspec` arquivos". - [#3231](https://github.com/NuGet/Home/issues/3231)
 
-* pacote NuGet adiciona forçada `.tt` arquivos para pasta de conteúdo importa - [#3203](https://github.com/NuGet/Home/issues/3203)
+* o pacote NuGet adiciona `.tt` arquivos à pasta de conteúdo de modo forçado, independentemente do que [#3203](https://github.com/NuGet/Home/issues/3203)
 
-* NuGet pack csproj (com `project.json`) falha se não houver nenhum packOptions e o proprietário do arquivo JSON - [#3180](https://github.com/NuGet/Home/issues/3180)
+* o NuGet Pack csproj (with `project.json` ) falhará se não houver packoptions e proprietário no arquivo JSON- [#3180](https://github.com/NuGet/Home/issues/3180)
 
-* pacote do NuGet para `project.json` ignora packOptions marcas como resumo, os autores, proprietários etc - [#3161](https://github.com/NuGet/Home/issues/3161)
+* o pacote NuGet para `project.json` ignora marcas packoptions, como resumo, autores, proprietários etc- [#3161](https://github.com/NuGet/Home/issues/3161)
 
-* pacote do NuGet ignora as dependências na saída `.nuspec` para `project.json`  -  [3145 #](https://github.com/NuGet/Home/issues/3145)
+* o pacote NuGet ignora dependências na saída `.nuspec` para `project.json`  -  [#3145](https://github.com/NuGet/Home/issues/3145)
 
-* Atualizar vários pacotes com reversão deixa o projeto em um estado interrompido - [#3139](https://github.com/NuGet/Home/issues/3139)
+* A atualização de vários pacotes com a reversão deixa o projeto em um estado desfeito- [#3139](https://github.com/NuGet/Home/issues/3139)
 
-* ContentFiles em qualquer não são adicionados para projetos de identificadores de netstandard - [#3118](https://github.com/NuGet/Home/issues/3118)
+* ContentFiles em qualquer um não é adicionado para projetos netstandard- [#3118](https://github.com/NuGet/Home/issues/3118)
 
-* Não é possível empacotar a biblioteca destinados ao .net Standard corretamente - [#3108](https://github.com/NuGet/Home/issues/3108)
+* Não é possível empacotar a biblioteca com o padrão .net Standard corretamente- [#3108](https://github.com/NuGet/Home/issues/3108)
 
-* Arquivo -> Novo projeto -> Falha de projeto de biblioteca de classes (portátil) em VS2015 e Dev15 - [#3094](https://github.com/NuGet/Home/issues/3094)
+* Arquivo-> novo projeto-> biblioteca de classes (portátil) falha em VS2015 e Dev15- [#3094](https://github.com/NuGet/Home/issues/3094)
 
-* Erro do NuGet - 1.0.0-* não é uma cadeia de caracteres de versão válida - [#3070](https://github.com/NuGet/Home/issues/3070)
+* Erro do NuGet-1.0.0-* não é uma cadeia de caracteres de versão válida- [#3070](https://github.com/NuGet/Home/issues/3070)
 
-* Find-Package falha para exibição, mas funciona de Install-Package - [#3068](https://github.com/NuGet/Home/issues/3068)
+* Find-Package falha ao exibir, mas Install-Package Works- [#3068](https://github.com/NuGet/Home/issues/3068)
 
-* Erro ao "Install-Package jquery.validation" em dev15 - [#3061](https://github.com/NuGet/Home/issues/3061)
+* Erro quando "Install-Package jQuery. Validation" em dev15- [#3061](https://github.com/NuGet/Home/issues/3061)
 
-* Quando instalado VS 2015 atualização 3 em uma que usa o NuGet, ocorre o erro de versão 3.5.0 - VS [#3053](https://github.com/NuGet/Home/issues/3053)
+* Quando instalada VS 2015 atualização 3 em um VS que usa o erro do NuGet versão 3.5.0 ocorre- [#3053](https://github.com/NuGet/Home/issues/3053)
 
-* Interface do usuário do Gerenciador de pacotes: não exibe a nova versão depois de atualizar um pacote- [#3041](https://github.com/NuGet/Home/issues/3041)
+* Interface do usuário do Gerenciador de pacotes: não exibe a nova versão após atualizar um pacote- [#3041](https://github.com/NuGet/Home/issues/3041)
 
-* -ApiKey na linha de comando de exclusão não é leitura/enviada em 3.5.0-Beta - [#3037](https://github.com/NuGet/Home/issues/3037)
+* -ApiKey na linha de comando de exclusão não é lido/enviado em 3.5.0-beta- [#3037](https://github.com/NuGet/Home/issues/3037)
 
 * Cadeia de caracteres incorreta: uma versão estável de um pacote não deve ter em uma dependência de pré-lançamento. - [#3030](https://github.com/NuGet/Home/issues/3030)
 
-* Criando get de projeto PCL (net46 e windows 10) exceção NullRef. - [#3014](https://github.com/NuGet/Home/issues/3014)
+* Criando exceção NullRef de Get do projeto PCL (net46 e Windows 10). - [#3014](https://github.com/NuGet/Home/issues/3014)
 
-* Atualização do NuGet deve fornecer a mensagem informativa quando uma versão mais recente é restrito pela restrição allowedVersions - [#3013](https://github.com/NuGet/Home/issues/3013)
+* A atualização do NuGet deve fornecer uma mensagem informativa quando uma versão superior é restrita pela restrição allowedVersions- [#3013](https://github.com/NuGet/Home/issues/3013)
 
-* Plug-in de credencial foi encerrado com erro -1 / Erro ao baixar pacote ao usar provedores de credenciais com várias fontes - [#2885](https://github.com/NuGet/Home/issues/2885)
+* O plug-in de credencial saiu com o erro-1/erro ao baixar o pacote ao usar provedores de credenciais com várias fontes- [#2885](https://github.com/NuGet/Home/issues/2885)
 
-* pacote do NuGet - dependência de pacote ausente newtonsoft. JSON - [#2876](https://github.com/NuGet/Home/issues/2876)
+* pacote NuGet-faltando Newtonsoft.Jsna dependência de pacote- [#2876](https://github.com/NuGet/Home/issues/2876)
 
-* Erro no ExecuteSynchronizedCore no Linux/MacOS + Mono - [#2860](https://github.com/NuGet/Home/issues/2860)
+* Bug em ExecuteSynchronizedCore no linux/MacOS + mono- [#2860](https://github.com/NuGet/Home/issues/2860)
 
-* VS não dá suporte a variáveis de ambiente no caminho do repositório (nuget.exe faz) - [#2763](https://github.com/NuGet/Home/issues/2763)
+* O VS não oferece suporte a variáveis de ambiente no repositoryPath (nuget.exe) – [#2763](https://github.com/NuGet/Home/issues/2763)
 
-* Corrigir problemas de acessibilidade - [#2745](https://github.com/NuGet/Home/issues/2745)
+* Corrigir problemas de acessibilidade- [#2745](https://github.com/NuGet/Home/issues/2745)
 
-* Estruturas portátil com perfis hifenizadas são rejeitadas. - [#2734](https://github.com/NuGet/Home/issues/2734)
+* Estruturas portáteis com perfis hifenizados são rejeitadas. - [#2734](https://github.com/NuGet/Home/issues/2734)
 
-* O Gerenciador de pacotes do NuGet deve esclarecer essa lista de opções em pacotes detalhes não se aplicam a `project.json`  -  [#2665](https://github.com/NuGet/Home/issues/2665)
+* O Gerenciador de pacotes NuGet deve tornar claro que a lista de opções no detalhes dos pacotes não se aplica a `project.json`  -  [#2665](https://github.com/NuGet/Home/issues/2665)
 
-* NuGet 3.3.0 atualização falha com '... uma restrição adicional definido em Packages. config impede que esta operação.' - [#1816](https://github.com/NuGet/Home/issues/1816)
+* Falha na atualização do NuGet 3.3.0 com ' uma restrição adicional... definido em packages.config impede esta operação. ' - [#1816](https://github.com/NuGet/Home/issues/1816)
 
-* Ao instalar o pacote de um local de origem que não existe gera uma mensagem de falso - [#1674](https://github.com/NuGet/Home/issues/1674)
+* A instalação do pacote de uma fonte local que não existe gera um [#1674](https://github.com/NuGet/Home/issues/1674) de mensagens falso
 
-* Filtro de "Atualização veis" mostra as atualizações que violam a restrição de versão - [#1094](https://github.com/NuGet/Home/issues/1094)
+* O filtro "atualizar disponíveis" mostra atualizações que violam a restrição de versão- [#1094](https://github.com/NuGet/Home/issues/1094)
 
-## <a name="performance-improvements"></a>Melhorias de desempenho
+## <a name="performance-improvements"></a>Melhorias no desempenho
 
-* Desempenho: Melhorar o análise de framework de destino de ContentModel - [#3162](https://github.com/NuGet/Home/issues/3162)
+* Desempenho: melhorar a análise da estrutura de destino ContentModel- [#3162](https://github.com/NuGet/Home/issues/3162)
 
-* Desempenho: Evitar leitura `runtime.json` arquivos para restaurações que não têm RIDs [#3150](https://github.com/NuGet/Home/issues/3150). Em máquinas de CI, restaure de uma amostra de que aplicativo Web ASP.NET reduzido mais de 15 segundos para 3 segundos.
+* Desempenho: Evite `runtime.json` a leitura de arquivos para restaurações que não têm RIDs [#3150](https://github.com/NuGet/Home/issues/3150). Em máquinas de CI, a restauração de um aplicativo Web ASP.NET de exemplo foi reduzida de mais de 15 segundos para 3 segundos.
 
-* Desempenho: Tempo de carregamento Package Manager Console init.ps1 [#2956](https://github.com/NuGet/Home/issues/2956). Tempo para abrir PackageManagerConsole aprimorada em alguns casos de 132s para 10 segundos.
+* Desempenho: o console do Gerenciador de pacotes init.ps1 tempo de carregamento [#2956](https://github.com/NuGet/Home/issues/2956). Tempo para abrir o PackageManagerConsole melhorou em alguns casos de 132s para 10s.
 
-* Solucionar problemas de desempenho do ReSharper na atualização do NuGet - [#3044](https://github.com/NuGet/Home/issues/3044): em um projeto de exemplo, o tempo necessário para instalar pacotes reduzido de 140s para 68s.
+* Solucionar problemas de desempenho de resnitidez no NuGet update- [#3044](https://github.com/NuGet/Home/issues/3044): em um projeto de exemplo, tempo necessário para instalar pacotes reduzidos de 140s para 68S.
 
 ## <a name="dcrs"></a>DCRs
 
-* O NuGet precisa que os usuários saibam que atualizar/instalar em um tfm dotnet com base em PCL poderá causar problemas - [#3138](https://github.com/NuGet/Home/issues/3138)
+* O NuGet precisa permitir que os usuários saibam que a atualização/instalação em uma PCL baseada em TFM de dotnet pode causar problemas- [#3138](https://github.com/NuGet/Home/issues/3138)
 
-* Avisar ruim instalar/atualizar para o projeto c / tfm = "dotnet" - [#3137](https://github.com/NuGet/Home/issues/3137)
+* Avisar instalação/atualização inadequada para o projeto c/TFM = "dotnet"- [#3137](https://github.com/NuGet/Home/issues/3137)
 
-* Adicionar suporte netcoreapp11 e netstandard17 - [#2998](https://github.com/NuGet/Home/issues/2998)
+* Adicionar suporte a netcoreapp11 e netstandard17- [#2998](https://github.com/NuGet/Home/issues/2998)
 
-* Imprimir o conteúdo do cabeçalho de aviso do NuGet para o console no nuget.exe - [#2934](https://github.com/NuGet/Home/issues/2934)
+* Imprimir NuGet-Warning conteúdo do cabeçalho no console do em nuget.exe- [#2934](https://github.com/NuGet/Home/issues/2934)
 
-* Atributo AssemblyMetadata aproveite `.nuspec` token substituições - [#2851](https://github.com/NuGet/Home/issues/2851)
+* Aproveitar o atributo AssemblyMetadata para `.nuspec` substituições de token- [#2851](https://github.com/NuGet/Home/issues/2851)
 
-* Remova a propriedade locked do arquivo lock - [#2379](https://github.com/NuGet/Home/issues/2379)
+* Remover a propriedade locked do arquivo de bloqueio- [#2379](https://github.com/NuGet/Home/issues/2379)
 
-* Pacotes de símbolo já não devem ser usados em instalar ou atualizar #2807
+* Os pacotes de símbolo não devem nunca ser usados na instalação ou atualização #2807
 
 ## <a name="features"></a>Recursos
 
-* Suporte para pastas de pacote fallback - [#2899](https://github.com/NuGet/Home/issues/2899)
+* Suporte para pastas de pacotes de fallback- [#2899](https://github.com/NuGet/Home/issues/2899)
 
-* Projetar e implementar uma noção de tipo de pacote para dar suporte a pacotes de ferramenta - [#2476](https://github.com/NuGet/Home/issues/2476)
+* Projete e implemente uma noção de tipo de pacote para oferecer suporte a pacotes de ferramentas- [#2476](https://github.com/NuGet/Home/issues/2476)
 
-* API para obter o caminho para a pasta de pacotes globais - [#2403](https://github.com/NuGet/Home/issues/2403)
+* API para obter o caminho para a pasta de pacotes globais- [#2403](https://github.com/NuGet/Home/issues/2403)
 
-* Suporte - atualização de pacotes nativos [#1291](https://github.com/NuGet/Home/issues/1291)
+* Suporte à atualização de pacotes nativos- [#1291](https://github.com/NuGet/Home/issues/1291)

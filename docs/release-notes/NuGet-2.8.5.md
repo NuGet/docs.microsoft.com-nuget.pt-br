@@ -1,30 +1,30 @@
 ---
 title: Notas de versão do NuGet 2.8.5
-description: Notas de versão do NuGet 2.8.5 incluindo conhecidos problemas, correções de bugs, recursos adicionados e DCRs.
-author: karann-msft
-ms.author: karann
+description: Notas de versão do NuGet 2.8.5 incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: aa03b00a0043a4805f33900124c13b0777c2b7a3
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f729092bc964b286a007564bd3bbd8c79bc895c9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548619"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780354"
 ---
 # <a name="nuget-285-release-notes"></a>Notas de versão do NuGet 2.8.5
 
-[Notas de versão do NuGet 2.8.3](../release-notes/nuget-2.8.3.md) | [notas de versão do NuGet 2.8.6](../release-notes/nuget-2.8.6.md)
+Notas de versão do [NuGet 2.8.3](../release-notes/nuget-2.8.3.md)  |  [Notas de versão do NuGet 2.8.6](../release-notes/nuget-2.8.6.md)
 
-O NuGet 2.8.5 foi lançado em 30 de março de 2015. Ele é uma pequena atualização para nossos 2.8.3 VSIX com alguns destino correções.
+O NuGet 2.8.5 foi lançado em 30 de março de 2015. É uma pequena atualização para nosso VSIX 2.8.3 com algumas correções direcionadas.
 
-Nesta versão, a caixa de diálogo Gerenciador de pacotes do NuGet foi adicionado suporte às [Monikers da estrutura de destino DNX](https://github.com/aspnet/dnx).  Esses novos monikers de estrutura com suporte incluem:
+Nesta versão, a caixa de diálogo suporte para Gerenciador de pacotes NuGet foi adicionada para [monikers da estrutura de destino do DNX](https://github.com/aspnet/dnx).  Esses novos monikers de estrutura com suporte incluem:
 
-* **core50** – um moniker de estrutura (TFM) é compatível com o Core CLR de destino 'base'.
-* **dnx452** – aplicativos específicos com base em DNX um TFM, usando o 4.5.2 completo versão do framework
-* **dnx46** – aplicativos específicos com base em DNX um TFM, usando a versão 4.6 completa do framework
-* **dnxcore50** – aplicativos específicos com base em DNX um TFM, usando a versão 5.0 do núcleo do framework
+* **core50** -um "base" moniker da estrutura de destino (TFM) que é compatível com o CLR principal.
+* **dnx452** -um TFM específico para aplicativos baseados em DNX usando a versão 4.5.2 completa da estrutura
+* **dnx46** -um TFM específico para aplicativos baseados em DNX usando a versão 4,6 completa da estrutura
+* **dnxcore50** -um TFM específico para aplicativos baseados em DNX usando a versão Core 5,0 da estrutura
 
-Um bug foi corrigido que impedia pacotes seja instalado em projetos FSharp corretamente:
+Foi corrigido um bug que impedia a instalação correta de pacotes em projetos FSharp:
 
 https://nuget.codeplex.com/workitem/4400

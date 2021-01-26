@@ -1,16 +1,16 @@
 ---
 title: Notas sobre a versão do NuGet 4.9 RTM
 description: Notas sobre a versão do NuGet 4.9, incluindo problemas conhecidos, correções de bugs, novas funcionalidades e DCRs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: e0dea74fe179c0dce4996f3e498185bb3a491856
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 429218fa4968d572ef187ef1dbfacac8a3bde2b4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496457"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780149"
 ---
 # <a name="nuget-49-release-notes"></a>Notas sobre a versão do NuGet 4.9
 
@@ -18,15 +18,15 @@ Veículos de distribuição do NuGet:
 
 | Versão do NuGet | Disponível na versão do Visual Studio| Disponível em SDKs do .NET|
 |:---|:---|:---|
-| [**4.9.0**](https://nuget.org/downloads) | [Versão 15.9.0 do Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) | [2.1.500, 2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
-| [**4.9.1**](https://nuget.org/downloads) | n/d | n/d |
-| [**4.9.2**](https://nuget.org/downloads) |[Versão 15.9.4 do Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 versão 15.9.0](https://visualstudio.microsoft.com/downloads/) | [2.1.500, 2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.1**](https://nuget.org/downloads) | n/a | n/a |
+| [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 versão 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
 | [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 versão 15.9.6](https://visualstudio.microsoft.com/downloads/) | [2.1.504, 2.2.104](https://www.microsoft.com/net/download/visual-studio-sdks) |
 
 
 ## <a name="summary-whats-new-in-490"></a>Resumo: novidades no 4.9.0
 
-* Assinatura: Habilite o ClientPolicies para exigir o uso de um conjunto de autores confiáveis e repositórios listados no NuGet.Config - [#6961](https://github.com/NuGet/Home/issues/6961), [post agem no blog](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
+* Assinatura: habilitar ClientPolicies para exigir o uso de um conjunto de autores e Repositórios confiáveis listados em NuGet.Config [#6961](https://github.com/NuGet/Home/issues/6961), [postagem no blog](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
 
 * Crie arquivos ".snupkg" para conter símbolos no pacote – aprimore o envio por push para reconhecer o protocolo nuget para aceitar arquivos snupkg para o servidor de símbolos – [#6878](https://github.com/NuGet/Home/issues/6878), [postagem no blog](https://blog.nuget.org/20181116/Improved-debugging-experience-with-the-NuGet-org-symbol-server-and-snupkg.html)
 
@@ -98,7 +98,7 @@ Veículos de distribuição do NuGet:
 
 [Lista de todas as correções da versão 4.9.1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
-## <a name="summary-whats-new-in-492"></a>Resumo: O que há de novo em 4.9.2
+## <a name="summary-whats-new-in-492"></a>Resumo: o que há de novo no 4.9.2
 
 ### <a name="issues-fixed-in-this-release"></a>Problemas corrigidos nesta versão
 
@@ -110,7 +110,7 @@ Veículos de distribuição do NuGet:
 
 [Lista de todas as correções da versão 4.9.2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
-## <a name="summary-whats-new-in-493"></a>Resumo: O que há de novo em 4.9.3
+## <a name="summary-whats-new-in-493"></a>Resumo: o que há de novo no 4.9.3
 
 ### <a name="issues-fixed-in-this-release"></a>Problemas corrigidos nesta versão
 #### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>Problemas de "restaurações de pacote repetitivo usando um arquivo de bloqueio"
@@ -140,9 +140,9 @@ Veículos de distribuição do NuGet:
 
 [Lista de todas as correções da versão 4.9.3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
 
-## <a name="summary-whats-new-in-494"></a>Resumo: O que há de novo em 4.9.4
+## <a name="summary-whats-new-in-494"></a>Resumo: o que há de novo no 4.9.4
 
-* Correção de segurança: permissões em arquivos criados dentro ~/.nuget estão muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correção de segurança: as permissões em arquivos criados dentro de ~/.NuGet são muito abertas [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 
 ## <a name="known-issues"></a>Problemas conhecidos

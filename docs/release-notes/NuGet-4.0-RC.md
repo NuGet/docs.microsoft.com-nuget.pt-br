@@ -1,17 +1,17 @@
 ---
 title: Notas de Versão do NuGet 4.0 RC
 description: Notas de versão do NuGet 4.0 RC incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/03/2017
 ms.topic: conceptual
 ms.reviewer: ananguar
-ms.openlocfilehash: 2d0bb6356c0a20843bdc884b68f5f61838b82e73
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 44f15e2fc33cca8a3d88af17bf76f1dcc16ca860
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496638"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780191"
 ---
 # <a name="nuget-40-rc-release-notes"></a>Notas de Versão do NuGet 4.0 RC
 

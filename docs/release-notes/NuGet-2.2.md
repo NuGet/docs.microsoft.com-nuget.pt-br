@@ -1,46 +1,46 @@
 ---
-title: Notas de versão 2.2 do NuGet
-description: Notas de versão para 2.2 de NuGet, incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
-author: karann-msft
-ms.author: karann
+title: Notas de versão do NuGet 2,2
+description: Notas de versão do NuGet 2,2 incluindo problemas conhecidos, correções de bugs, recursos adicionados e DCRs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: a968ced3c58b7187a8bd9a8b14baa92f61f0140f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cc81d0ff53a5e8ac8b632a08c3cfe0b8b59c9bd7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545986"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780433"
 ---
-# <a name="nuget-22-release-notes"></a>Notas de versão 2.2 do NuGet
+# <a name="nuget-22-release-notes"></a>Notas de versão do NuGet 2,2
 
-[Notas de versão do NuGet 2.1](../release-notes/nuget-2.1.md) | [notas de versão do NuGet 2.2.1](../release-notes/nuget-2.2.1.md)
+Notas de versão do [NuGet 2,1](../release-notes/nuget-2.1.md)  |  [Notas de versão do NuGet 2.2.1](../release-notes/nuget-2.2.1.md)
 
-NuGet 2.2 foi lançado em 12 de dezembro de 2012.
+O NuGet 2,2 foi lançado em 12 de dezembro de 2012.
 
 ## <a name="visual-studio-quick-launch"></a>Início rápido do Visual Studio
-Um dos novos recursos que foi adicionado no Visual Studio 2012 foi a [caixa de diálogo de início rápido](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box). 2.2 NuGet estende essa caixa de diálogo, permitindo que ele inicializar a caixa de diálogo do Gerenciador de pacote com os termos de pesquisa inseridos no início rápido. Por exemplo, inserir 'jquery' no início rápido agora inclui uma opção nos resultados para pesquisar pacotes do NuGet 'jquery' de correspondência.
+Um dos novos recursos que foi adicionado no Visual Studio 2012 foi a [caixa de diálogo início rápido](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box). O NuGet 2,2 estende essa caixa de diálogo, permitindo que ela inicialize a caixa de diálogo do Gerenciador de pacotes com os termos de pesquisa inseridos no início rápido. Por exemplo, inserir "jQuery" no início rápido agora inclui uma opção nos resultados para pesquisar os pacotes NuGet que correspondem a "jQuery".
 
-![NuGet no início rápido do Visual Studio](./media/quick-launch.png)
+![Início rápido do NuGet no Visual Studio](./media/quick-launch.png)
 
-Selecionar esta opção iniciará a standard NuGet pacote manager experiência de pesquisa para o termo 'jquery'.
+A seleção dessa opção iniciará a experiência de pesquisa padrão do Gerenciador de pacotes do NuGet para o termo ' jQuery '.
 
-![Caixa de diálogo de Gerenciador de pacotes NuGet previamente preenchido](./media/pkg-mgr-search-from-quick-launch.png)
+![Caixa de diálogo do Gerenciador de pacotes do NuGet preenchida previamente](./media/pkg-mgr-search-from-quick-launch.png)
 
-## <a name="specify-entire-folder-for-package-contents"></a>Especifique a pasta inteira para o conteúdo do pacote
-2.2 NuGet agora permite que você especifique uma pasta inteira na `<file>` elemento do `.nuspec` arquivo para incluir todo o conteúdo dessa pasta. Por exemplo, a seguir fará com que todos os scripts na pasta de scripts do pacote a ser adicionado à pasta contents\scripts quando o pacote é instalado em um projeto.
+## <a name="specify-entire-folder-for-package-contents"></a>Especificar a pasta inteira para o conteúdo do pacote
+O NuGet 2,2 agora permite que você especifique uma pasta inteira no `<file>` elemento do `.nuspec` arquivo para incluir todo o conteúdo dessa pasta. Por exemplo, o seguinte fará com que todos os scripts na pasta de scripts do pacote sejam adicionados à pasta contents\scripts quando o pacote for instalado em um projeto.
 
 ```xml
 <file src="scripts\" target="content\scripts"/>
 ```
 
-**Atualizar 6/24/16: pastas vazias na pasta "content" são ignoradas quando a instalação do pacote.**
+**Atualização 6/24/16: as pastas vazias na pasta "conteúdo" são ignoradas durante a instalação do pacote.**
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="package-installation-fails-for-f-projects-when-using-the-package-manager-console"></a>Falha da instalação do pacote para projetos do F # ao usar o console do Gerenciador de pacotes
-Ao tentar instalar um pacote do NuGet em um projeto do F # usando o console do Gerenciador de pacotes, será gerada uma InvalidOperationException. Estamos trabalhando ativamente com a equipe do F # para resolver o problema, mas por enquanto, a solução alternativa é instalar os pacotes NuGet em projetos do F # por meio da caixa de diálogo de Gerenciador de pacote do NuGet em vez do console. [Mais informações estão disponíveis no CodePlex](http://nuget.codeplex.com/workitem/2873).
+### <a name="package-installation-fails-for-f-projects-when-using-the-package-manager-console"></a>Falha na instalação do pacote para projetos F # ao usar o console do Gerenciador de pacotes
+Ao tentar instalar um pacote NuGet em um projeto F # usando o console do Gerenciador de pacotes, um InvalidOperationException é gerado. Estamos trabalhando ativamente com a equipe do F # para resolver o problema, mas enquanto isso, a solução alternativa é instalar pacotes NuGet em projetos F # por meio da caixa de diálogo Gerenciador de pacotes do NuGet, em vez do console. [Mais informações estão disponíveis no CodePlex](http://nuget.codeplex.com/workitem/2873).
 
 
-## <a name="bug-fixes"></a>Correções de Bug
-NuGet 2.2 inclui muitas correções de bugs. Para obter uma lista completa de trabalho itens corrigidos no NuGet 2.2, por favor, modo de exibição de [rastreador de problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+## <a name="bug-fixes"></a>Correções de bugs
+O NuGet 2,2 inclui muitas correções de bugs. Para obter uma lista completa de itens de trabalho corrigidos no NuGet 2,2, consulte o [rastreador de problemas do NuGet para esta versão](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).

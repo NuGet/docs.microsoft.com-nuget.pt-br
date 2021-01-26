@@ -1,16 +1,16 @@
 ---
 title: Notas de versão do NuGet 5,3
 description: Notas de versão do NuGet 5,3, incluindo novos recursos, correções de bugs e DCRs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: ca71c5b9ef546f3ea92e55763d5059466ac3a930
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 009a219139a767ee6453305be68ccce478b0ec75
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813748"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780119"
 ---
 # <a name="nuget-53-release-notes"></a>Notas de versão do NuGet 5,3
 
@@ -27,13 +27,13 @@ Veículos de distribuição do NuGet:
 
 * [O ícone de pacote pode ser inserido no pacote](../reference/msbuild-targets.md#packing-an-icon-image-file), em vez de precisar de uma URL externa. - [#352](https://github.com/NuGet/Home/issues/352)
 
-* Segurança aprimorada com rastreamento e imposição de SHA para Packages. config- [#7281](https://github.com/NuGet/Home/issues/7281)
+* Segurança aprimorada com rastreamento e imposição de SHA para Packages.Config- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* Habilitar a reprovação de pacotes NuGet obsoletos/herdados [#2867](https://github.com/NuGet/Home/issues/2867) | [postagem de blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [documentos](../nuget-org/deprecate-packages.md)
+* Habilitar a reprovação de pacotes NuGet obsoletos/herdados [#2867](https://github.com/NuGet/Home/issues/2867)  |  documentos de[postagem de blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/)  |  [](../nuget-org/deprecate-packages.md)
 
 ### <a name="issues-fixed-in-this-release"></a>Problemas corrigidos nesta versão
 
-**•s**
+**Bugs**
 
 * Os pacotes NuGet produzidos com o SDK 3.0.100-preview9 não podem ser usados por usuários do SDK 2,2... dependendo do seu fuso horário [#8603](https://github.com/NuGet/Home/issues/8603)
 
@@ -47,7 +47,7 @@ Veículos de distribuição do NuGet:
 
 * Aprimoramentos do NU1403 – validar todos os pacotes, incluir os valores de Sha esperados/reais- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Várias enumerações no `NuGetPackageManager.PreviewUpdatePackagesAsync` - [#8401](https://github.com/NuGet/Home/issues/8401)
+* Várias enumerações em `NuGetPackageManager.PreviewUpdatePackagesAsync`  -  [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * Reverter alteração "pública > interna" em PluginProcess- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -71,7 +71,7 @@ Veículos de distribuição do NuGet:
 
 * Fazer com que as configurações sejam lidas em VS Lazy- [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* A regressão no `Nuget sources add` causa "o caractere ': ', o valor hexadecimal 0x3A, não pode ser incluído em um nome" Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
+* A regressão em `Nuget sources add` causa "o caractere": ", valor hexadecimal 0x3A, não pode ser incluído em um nome" erros- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Provedores de credenciais do plug-in NuGet-ocultar a janela processo- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -91,7 +91,7 @@ Veículos de distribuição do NuGet:
 
 * Habilitar várias versões para um PackageDownload por meio do atributo de versão- [#8074](https://github.com/NuGet/Home/issues/8074)
 
-* Adicionar opções-SolutionDirectory e-PackageDirectory ao NuGet. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
+* Opções Add-SolutionDirectory e-PackageDirectory para nuget.exe Pack [#7163](https://github.com/NuGet/Home/issues/7163)
 
 **[Lista de todos os problemas corrigidos nesta versão-5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
 

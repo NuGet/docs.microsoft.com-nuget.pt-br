@@ -1,16 +1,16 @@
 ---
 title: Notas de versão do NuGet 5,1 RTM
 description: Notas de versão do NuGet 5,1, incluindo novos recursos, correções de bugs e DCRs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2a94360dc375ba90b90c1045f4acbcfca81fea5b
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: d6f6bffc6b5fda9ee1b9d9830f6d7d3c0f5be654
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699863"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780133"
 ---
 # <a name="nuget-51-release-notes"></a>Notas de versão do NuGet 5,1
 
