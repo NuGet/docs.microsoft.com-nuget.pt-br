@@ -35,9 +35,10 @@
 ## [Criar um pacote (CLI do dotnet)](create-packages/creating-a-package-dotnet-cli.md)
 ## [Criar um pacote (CLI do nuget.exe)](create-packages/creating-a-package.md)
 ## [Criar um pacote (MSBuild)](create-packages/creating-a-package-msbuild.md)
-## [Suporte a várias estruturas de destino no seu arquivo de projeto](create-packages/multiple-target-frameworks-project-file.md)
+## [Práticas recomendadas de criação de pacote](create-packages/Package-authoring-best-practices.md)
 ## [Compilar um pacote de pré-lançamento](create-packages/prerelease-packages.md)
 ## [Criar um pacote de símbolos](create-packages/symbol-packages-snupkg.md)
+## [Suporte a várias estruturas de destino no seu arquivo de projeto](create-packages/multiple-target-frameworks-project-file.md)
 ## Tarefas avançadas
 ### [Suporte a várias estruturas de destino](create-packages/supporting-multiple-target-frameworks.md)
 ### [Modificar o código-fonte e os arquivos de configuração](create-packages/source-and-config-file-transformations.md)
