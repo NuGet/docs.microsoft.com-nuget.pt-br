@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 3e5db779f735cd42aa331f9f8a93496d32c8df54
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: da682197d4a156f9dff8ce169aab449a5392ef41
+ms.sourcegitcommit: c19d398cecee3cad2d79a8b22650fc1988d41a3f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777623"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260297"
 ---
 # <a name="packagesconfig-reference"></a>Referência de packages.config
 
-O arquivo `packages.config` é usado em alguns tipos de projeto para manter a lista de pacotes referenciados pelo projeto. Isso permite que o NuGet restaure facilmente as dependências do projeto quando ele a ser transportado para um computador diferente, como um servidor de build, sem todos esses pacotes.
+O arquivo `packages.config` é usado em alguns tipos de projeto para manter a lista de pacotes referenciados pelo projeto. Isso permite que o NuGet restaure facilmente as dependências do projeto quando o projeto for transportado para um computador diferente, como um servidor de compilação, sem todos esses pacotes.
 
 Se usado, `packages.config` normalmente está localizado em uma raiz do projeto. Ele é criado automaticamente quando a primeira operação do NuGet é executada, mas também pode ser criado manualmente antes de executar qualquer comando, como `nuget restore` .
 
