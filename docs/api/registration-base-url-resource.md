@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8d1ab4d1f3d75d93c30d94958fd9d1abf0742730
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775288"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990119"
 ---
 # <a name="package-metadata"></a>Metadados de pacote
 
@@ -78,7 +78,7 @@ GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Parâmetros da solicitação
 
-Nome     | Em     | Type    | Necessária | Observações
+Nome     | Em     | Tipo    | Obrigatório | Observações
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | string  | sim      | A ID do pacote, em letras minúsculas
 
@@ -88,7 +88,7 @@ O `LOWER_ID` valor é a ID de pacote desejada com letras minúsculas usando as r
 
 A resposta é um documento JSON que tem um objeto raiz com as seguintes propriedades:
 
-Nome  | Type             | Necessária | Observações
+Nome  | Tipo             | Obrigatório | Observações
 ----- | ---------------- | -------- | -----
 count | Número inteiro          | sim      | O número de páginas de registro no índice
 itens | matriz de objetos | sim      | A matriz de páginas de registro
@@ -99,7 +99,7 @@ Cada item na matriz do objeto de índice `items` é um objeto JSON que represent
 
 O objeto de página de registro encontrado no índice de registro tem as seguintes propriedades:
 
-Nome   | Type             | Necessária | Observações
+Nome   | Tipo             | Obrigatório | Observações
 ------ | ---------------- | -------- | -----
 @id    | string           | sim      | A URL para a página de registro
 count  | Número inteiro          | sim      | O número de folhas de registro na página
@@ -123,10 +123,10 @@ Cada item na matriz do objeto da página `items` é um objeto JSON que represent
 
 O objeto folha de registro encontrado em uma página de registro tem as seguintes propriedades:
 
-Nome           | Type   | Necessária | Observações
+Nome           | Tipo   | Obrigatório | Observações
 -------------- | ------ | -------- | -----
 @id            | string | sim      | A URL para a folha de registro
-catalogEntry   | objeto | sim      | A entrada de catálogo que contém os metadados do pacote
+catalogEntry   | object | sim      | A entrada de catálogo que contém os metadados do pacote
 packageContent | string | sim      | A URL para o conteúdo do pacote (. nupkg)
 
 Cada objeto folha de registro representa os dados associados a uma única versão de pacote.
@@ -135,12 +135,12 @@ Cada objeto folha de registro representa os dados associados a uma única versã
 
 A `catalogEntry` propriedade no objeto folha de registro tem as seguintes propriedades:
 
-Nome                     | Type                       | Necessária | Observações
+Nome                     | Tipo                       | Obrigatório | Observações
 ------------------------ | -------------------------- | -------- | -----
 @id                      | string                     | sim      | A URL para o documento usado para produzir este objeto
 authors                  | cadeia de caracteres ou matriz de cadeias de caracteres | não       | 
 dependencyGroups         | matriz de objetos           | não       | As dependências do pacote, agrupadas por estrutura de destino
-substituição              | objeto                     | não       | A reprovação associada ao pacote
+substituição              | object                     | não       | A reprovação associada ao pacote
 descrição              | string                     | não       | 
 iconUrl                  | string                     | não       | 
 id                       | string                     | sim      | A ID do pacote
@@ -155,6 +155,7 @@ resumo                  | string                     | não       |
 marcas                     | Cadeia de caracteres ou matriz de cadeia de caracteres  | não       | 
 título                    | string                     | não       | 
 version                  | string                     | sim      | A cadeia de caracteres de versão completa após a normalização
+vulnerabilidades          | matriz de objetos           | não       | As vulnerabilidades de segurança do pacote
 
 A propriedade de pacote `version` é a cadeia de caracteres de versão completa após a normalização. Isso significa que os dados de compilação SemVer 2.0.0 podem ser incluídos aqui.
 
@@ -169,7 +170,7 @@ O valor da `licenseExpression` propriedade está em conformidade com a [sintaxe 
 
 Cada objeto de grupo de dependências tem as seguintes propriedades:
 
-Nome            | Type             | Necessária | Observações
+Nome            | Tipo             | Obrigatório | Observações
 --------------- | ---------------- | -------- | -----
 targetFramework | string           | não       | A estrutura de destino à qual essas dependências se aplicam
 dependencies    | matriz de objetos | não       |
@@ -182,10 +183,10 @@ A `dependencies` propriedade é uma matriz de objetos, cada um representando uma
 
 Cada dependência de pacote tem as seguintes propriedades:
 
-Nome         | Type   | Necessária | Observações
+Nome         | Tipo   | Obrigatório | Observações
 ------------ | ------ | -------- | -----
 id           | string | sim      | A ID da dependência do pacote
-range        | objeto | não       | O [intervalo de versão](../concepts/package-versioning.md#version-ranges) permitido da dependência
+range        | object | não       | O [intervalo de versão](../concepts/package-versioning.md#version-ranges) permitido da dependência
 registro | string | não       | A URL para o índice de registro desta dependência
 
 Se a `range` propriedade for excluída ou uma cadeia de caracteres vazia, o cliente deverá padronizar para o intervalo de versão `(, )` . Ou seja, qualquer versão da dependência é permitida. O valor de `*` não é permitido para a `range` propriedade.
@@ -194,11 +195,11 @@ Se a `range` propriedade for excluída ou uma cadeia de caracteres vazia, o clie
 
 Cada substituição de pacote tem as seguintes propriedades:
 
-Nome             | Type             | Necessária | Observações
+Nome             | Tipo             | Obrigatório | Observações
 ---------------- | ---------------- | -------- | -----
 motivos          | Matriz de cadeias de caracteres | sim      | Os motivos pelos quais o pacote foi preterido
 message          | string           | não       | Os detalhes adicionais sobre essa reprovação
-alternatePackage | objeto           | não       | O pacote alternativo que deve ser usado em vez disso
+alternatePackage | object           | não       | O pacote alternativo que deve ser usado em vez disso
 
 A `reasons` propriedade deve conter pelo menos uma cadeia de caracteres e deve incluir apenas as cadeias da tabela a seguir:
 
@@ -214,10 +215,19 @@ Se a `reasons` Propriedade contiver cadeias de caracteres que não sejam do conj
 
 O objeto de pacote alternativo tem as seguintes propriedades:
 
-Nome         | Type   | Necessária | Observações
+Nome         | Tipo   | Obrigatório | Observações
 ------------ | ------ | -------- | -----
 id           | string | sim      | A ID do pacote alternativo
-range        | objeto | não       | O [intervalo de versão](../concepts/package-versioning.md#version-ranges)permitido ou `*` se qualquer versão for permitida
+range        | object | não       | O [intervalo de versão](../concepts/package-versioning.md#version-ranges)permitido ou `*` se qualquer versão for permitida
+
+#### <a name="vulnerabilities"></a>Vulnerabilidades
+
+Uma matriz de objetos de `vulnerability`. Cada vulnerabilidade tem as seguintes propriedades:
+
+Nome         | Tipo   | Obrigatório | Observações
+------------ | ------ | -------- | -----
+advisoryUrl  | string | sim      | Local do comunicado de segurança para o pacote
+severidade     | string | sim      | Severidade do comunicado: "0" = baixo, "1" = moderado, "2" = alto, "3" = crítico
 
 ### <a name="sample-request"></a>Solicitação de exemplo
 
@@ -240,7 +250,7 @@ A página de registro contém folhas de registro. A URL para buscar uma página 
 
 Quando a `items` matriz não for fornecida no índice de registro, uma solicitação HTTP Get do `@id` valor retornará um documento JSON que tem um objeto como sua raiz. O objeto tem as seguintes propriedades:
 
-Nome   | Type             | Necessária | Observações
+Nome   | Tipo             | Obrigatório | Observações
 ------ | ---------------- | -------- | -----
 @id    | string           | sim      | A URL para a página de registro
 count  | Número inteiro          | sim      | O número de folhas de registro na página
@@ -272,7 +282,7 @@ A URL para buscar uma folha de registro é obtida da `@id` propriedade de um obj
 
 A folha de registro é um documento JSON com um objeto raiz com as seguintes propriedades:
 
-Nome           | Type    | Necessária | Observações
+Nome           | Tipo    | Obrigatório | Observações
 -------------- | ------- | -------- | -----
 @id            | string  | sim      | A URL para a folha de registro
 catalogEntry   | string  | não       | A URL para a entrada do catálogo que produziu estas folhas

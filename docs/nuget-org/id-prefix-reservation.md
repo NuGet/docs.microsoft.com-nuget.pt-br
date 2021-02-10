@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: af9969df33c6bf7a62709e6e3535b8b886376e3e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 428fd3d7b324f6eb825b17e4a87a662fbd84a2f0
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775927"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990104"
 ---
 # <a name="package-id-prefix-reservation"></a>Reserva de prefixo da ID do pacote
 
@@ -73,23 +73,25 @@ Após o envio da solicitação, você será notificado da aceitação ou da reje
 
 ### <a name="id-prefix-reservation-criteria"></a>Critérios para a reserva de prefixo da ID
 
-Ao examinar qualquer solicitação de reserva de prefixo da ID, a equipe do [nuget.org](https://www.nuget.org/) avaliará a solicitação levando em conta os critérios abaixo. Nem todos os critérios precisam ser atendidos para que um prefixo seja reservado, mas a solicitação poderá ser negada se não houver evidência substancial dos critérios atendidos (com uma explicação fornecida):
+Ao examinar qualquer aplicativo para a reserva de prefixo de ID, a equipe [NuGet.org](https://www.nuget.org) avaliará o aplicativo em relação aos critérios abaixo. Observe que nem todos os critérios precisam ser atendidos para que um prefixo seja reservado, mas o aplicativo poderá ser negado se não houver evidências substanciais sobre os critérios que estão sendo atendidos (com uma explicação fornecida):
 
-1. O prefixo da ID do pacote identifica o proprietário do pacote de maneira clara e adequada?
+1. O prefixo da ID do pacote é apropriado e identifica claramente o proprietário da reserva?
 
-1. O proprietário do pacote [habilitou o 2FA para a conta do NuGet.org](individual-accounts.md#enable-two-factor-authentication-2fa)?
-
-1. Há um número significativo dos pacotes que já foram enviados pelo proprietário com o prefixo da ID do pacote?
+1. O proprietário [habilitou o 2FA para sua conta do NuGet.org](individual-accounts.md#enable-two-factor-authentication-2fa)?
 
 1. O prefixo da ID do pacote é algo comum que não deve pertencer a nenhum proprietário individual ou nenhuma organização?
 
-1. A reserva do prefixo da ID do pacote *não* causará ambiguidade e confusão para a comunidade?
+1. *Não* reservaria o prefixo da ID do pacote causa ambigüidade, confusão ou outros danos à Comunidade?
+
+Ao publicar pacotes para NuGet.org em sua reserva de prefixo de ID, as seguintes práticas recomendadas devem ser consideradas:
 
 1. As propriedades de identificação dos pacotes que correspondem ao prefixo da ID do pacote são claras e consistentes (especialmente o autor do pacote)?
 
 1. Os pacotes têm uma licença (que usa o elemento de metadados [license](../reference/nuspec.md#license) e NÃO licenseUrl, que está sendo preterido)?
 
-1. Se os pacotes tiverem um ícone (usando o elemento de metadados iconUrl), eles também usam o elemento de metadados [Icon](../reference/nuspec.md#icon) (não é um requisito para remover o iconUrl)?
+1. Se os pacotes tiverem um ícone (usando o elemento de metadados iconUrl), eles também estão usando o elemento de metadados [Icon](../reference/nuspec.md#icon) ? Não é necessário remover os iconUrl, mas os ícones inseridos devem ser usados.
+ 
+Considere a análise do [Guia de práticas recomendadas de criação de pacote](../create-packages/package-authoring-best-practices.md) completo, além dos pontos acima.
 
 ## <a name="third-party-feed-provider-scenarios"></a>Cenários de provedor de feed de terceiros
 

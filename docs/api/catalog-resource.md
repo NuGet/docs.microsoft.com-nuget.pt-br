@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 6c04453fec9beb7b0998953384ec60694e1213c1
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774150"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990148"
 ---
 # <a name="catalog"></a>Catálogo
 
@@ -69,7 +69,7 @@ GET {@id}
 
 O índice de catálogo é um documento JSON que contém um objeto com as seguintes propriedades:
 
-Nome            | Type             | Necessária | Observações
+Nome            | Tipo             | Obrigatório | Observações
 --------------- | ---------------- | -------- | -----
 commitId        | string           | sim      | Uma ID exclusiva associada à confirmação mais recente
 commitTimeStamp | string           | sim      | Um carimbo de data/hora da confirmação mais recente
@@ -86,7 +86,7 @@ Cada elemento na `items` matriz é um objeto com alguns detalhes mínimos sobre 
 
 Os objetos de página de catálogo encontrados na Propriedade do índice de catálogo `items` têm as seguintes propriedades:
 
-Nome            | Type    | Necessária | Observações
+Nome            | Tipo    | Obrigatório | Observações
 --------------- | ------- | -------- | -----
 @id             | string  | sim      | A URL para buscar a página do catálogo
 commitId        | string  | sim      | Uma ID exclusiva associada à confirmação mais recente nesta página
@@ -113,7 +113,7 @@ Novos itens de catálogo são adicionados à página no índice de catálogo som
 
 O documento de página de catálogo é um objeto JSON com as seguintes propriedades:
 
-Nome            | Type             | Necessária | Observações
+Nome            | Tipo             | Obrigatório | Observações
 --------------- | ---------------- | -------- | -----
 commitId        | string           | sim      | Uma ID exclusiva associada à confirmação mais recente nesta página
 commitTimeStamp | string           | sim      | Um carimbo de data/hora da confirmação mais recente nesta página
@@ -133,7 +133,7 @@ O número de itens de catálogo em uma página é definido pela implementação 
 
 Os objetos de item de catálogo encontrados na propriedade da página do catálogo `items` têm as seguintes propriedades:
 
-Nome            | Type    | Necessária | Observações
+Nome            | Tipo    | Obrigatório | Observações
 --------------- | ------- | -------- | -----
 @id             | string  | sim      | A URL para buscar o item de catálogo
 @type           | string  | sim      | O tipo do item de catálogo
@@ -165,7 +165,7 @@ A folha catálogo contém metadados sobre uma ID e versão de pacote específico
 
 O documento folha do catálogo é um objeto JSON com as seguintes propriedades:
 
-Nome                    | Type                       | Necessária | Observações
+Nome                    | Tipo                       | Obrigatório | Observações
 ----------------------- | -------------------------- | -------- | -----
 @type                   | cadeia de caracteres ou matriz de cadeias de caracteres | sim      | Os tipos do item de catálogo
 Catálogo: ConfirmID        | string                     | sim      | Uma ID de confirmação associada a este item de catálogo
@@ -196,12 +196,12 @@ Os clientes que consomem os itens de catálogo não devem tentar determinar quai
 
 Os itens do catálogo detalhes do pacote têm as seguintes propriedades além das [incluídas em todas as folhas de catálogo](#catalog-leaf).
 
-Nome                    | Type                       | Necessária | Observações
+Nome                    | Tipo                       | Obrigatório | Observações
 ----------------------- | -------------------------- | -------- | -----
 authors                 | string                     | não       |
 criado                 | string                     | não       | Um carimbo de data/hora de quando o pacote foi criado pela primeira vez. Propriedade de fallback: `published` .
 dependencyGroups        | matriz de objetos           | não       | As dependências do pacote, agrupadas por estrutura de destino ([mesmo formato que o recurso de metadados do pacote](registration-base-url-resource.md#package-dependency-group))
-substituição             | objeto                     | não       | A reprovação associada ao pacote ([mesmo formato que o recurso de metadados do pacote](registration-base-url-resource.md#package-deprecation))
+substituição             | object                     | não       | A reprovação associada ao pacote ([mesmo formato que o recurso de metadados do pacote](registration-base-url-resource.md#package-deprecation))
 descrição             | string                     | não       |
 iconUrl                 | string                     | não       |
 isPrerelease            | booleano                    | não       | Se a versão do pacote é de pré-lançamento ou não. Pode ser detectado de `version` .
@@ -220,6 +220,7 @@ resumo                 | string                     | não       |
 marcas                    | Matriz de cadeias de caracteres           | não       |
 título                   | string                     | não       |
 verbatimVersion         | string                     | não       | A cadeia de caracteres da versão como foi encontrada originalmente no. nuspec
+vulnerabilidades         | matriz de objetos           | não       | As vulnerabilidades de segurança do pacote
 
 A propriedade de pacote `version` é a cadeia de caracteres de versão completa após a normalização. Isso significa que os dados de compilação SemVer 2.0.0 podem ser incluídos aqui.
 
@@ -229,7 +230,7 @@ O `packageHashAlgorithm` é uma cadeia de caracteres definida pela implementaç�
 
 A `packageTypes` propriedade só estará presente se um tipo de pacote tiver sido especificado pelo autor. Se estiver presente, ele sempre terá pelo menos uma (1) entrada. Cada item na `packageTypes` matriz é um objeto JSON com as seguintes propriedades:
 
-Nome      | Type    | Necessária | Observações
+Nome      | Tipo    | Obrigatório | Observações
 --------- | ------- | -------- | -----
 name      | string  | sim      | O nome do tipo de pacote.
 version    | string  | não       | A versão do tipo de pacote. Presente somente se o autor especificou explicitamente uma versão no nuspec.
@@ -238,6 +239,17 @@ O `published` carimbo de data/hora é o horário em que o pacote foi listado pel
 
 > [!Note]
 > Em nuget.org, o `published` valor é definido como o ano 1900 quando o pacote é deslistado.
+
+#### <a name="vulnerabilities"></a>Vulnerabilidades
+
+Uma matriz de objetos de `vulnerability`. Cada vulnerabilidade tem as seguintes propriedades:
+
+Nome         | Tipo   | Obrigatório | Observações
+------------ | ------ | -------- | -----
+advisoryUrl  | string | sim      | Local do comunicado de segurança para o pacote
+severidade     | string | sim      | Severidade do comunicado: "0" = baixo, "1" = moderado, "2" = alto, "3" = crítico
+
+Se a `severity` Propriedade contiver valores diferentes daqueles listados aqui, a severidade do comunicado será tratada como baixa.
 
 #### <a name="sample-request"></a>Solicitação de exemplo
 
