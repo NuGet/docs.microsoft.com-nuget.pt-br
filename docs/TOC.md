@@ -69,6 +69,7 @@
 ## [Processo de instalação do pacote](concepts/package-installation-process.md)
 ## [Controle de versão do pacote](concepts/package-versioning.md)
 ## [Resolução de dependência](concepts/dependency-resolution.md)
+## [Práticas recomendadas para uma cadeia de fornecimento de software seguro](concepts/Security-Best-Practices.md)
 # Referência
 ## [.nuspec](reference/nuspec.md)
 ## [arquivo nuget.config](reference/nuget-config-file.md)
