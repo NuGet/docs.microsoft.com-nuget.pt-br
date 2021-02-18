@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 9b15550d0e6e8aec4d526391d77c654a756f343e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 60626a5a2a261241e0dce34421f73a86d815e454
+ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777659"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101336"
 ---
 # <a name="nugetconfig-reference"></a>Referência de nuget.config
 
@@ -32,8 +32,8 @@ Contém diversas definições de configuração, que podem ser definidas usando 
 | Chave | Valor |
 | --- | --- |
 | dependencyVersion (somente `packages.config`) | O valor `DependencyVersion` padrão para a instalação, restauração e atualização do pacote, quando a opção `-DependencyVersion` não tiver sido especificada diretamente. Esse valor também é usado pela interface do usuário do Gerenciador de Pacotes do NuGet. Os valores são `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (projetos usando apenas PackageReference) | O local da pasta de pacotes global padrão. O padrão é `%userprofile%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
-| repositoryPath (somente `packages.config`) | O local no qual instalar os pacotes do NuGet em vez da pasta `$(Solutiondir)/packages` padrão. Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela variável de ambiente NUGET_PACKAGES, que tem precedência. |
+| globalPackagesFolder (projetos usando apenas PackageReference) | O local da pasta de pacotes global padrão. O padrão é `%userprofile%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela `NUGET_PACKAGES` variável de ambiente, que tem precedência. |
+| repositoryPath (somente `packages.config`) | O local no qual instalar os pacotes do NuGet em vez da pasta `$(Solutiondir)/packages` padrão. Um caminho relativo pode ser usado em arquivos `nuget.config` específicos do projeto. Essa configuração é substituída pela `NUGET_PACKAGES` variável de ambiente, que tem precedência. |
 | defaultPushSource | Identifica a URL ou o caminho da origem do pacote que deve ser usada como o padrão se nenhuma outra origem de pacote for encontrada para uma operação. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Configurações de proxy a serem usadas ao se conectar a origens de pacote; `http_proxy` deve estar no formato `http://<username>:<password>@<domain>`. As senhas são criptografadas e não podem ser adicionadas manualmente. Para `no_proxy`, o valor é uma lista separada por vírgulas de domínios a ignorar no servidor proxy. Como alternativa, você pode usar as variáveis de ambiente http_proxy e no_proxy para esses valores. Para ver detalhes adicionais, consulte [Configurações de proxy do NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 | signatureValidationMode | Especifica o modo de validação usado para verificar assinaturas de pacote para instalação do pacote e restauração. Os valores são `accept` , `require` . Assume o padrão de `accept`.
@@ -351,7 +351,7 @@ A tabela abaixo mostra a sintaxe da variável ambiente e o suporte ao separador 
 
 ### <a name="nugetconfig-environment-variable-support"></a>Suporte à variável de ambiente NuGet.Config
 
-| Syntax | Separador de dir | nuget.exe do Windows | dotnet.exe do Windows | nuget.exe do Mac (em mono) | dotnet.exe Mac |
+| Sintaxe | Separador de dir | nuget.exe do Windows | dotnet.exe do Windows | nuget.exe do Mac (em mono) | dotnet.exe Mac |
 |---|---|---|---|---|---|
 | `%MY_VAR%` | `/`  | Sim | Sim | Sim | Sim |
 | `%MY_VAR%` | `\`  | Sim | Sim | Não | Não |
