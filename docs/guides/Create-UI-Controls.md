@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 317937b4d9d773d74384b8ebfcd2146062236ac1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7660203ec44db75b7764767b519c9ff10dd1122e
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774320"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859077"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Como criar controles de interface do usuário como pacotes do NuGet
 
-No Visual Studio 2017 em diante, você pode aproveitar as funcionalidades adicionadas dos controles UWP e WPF entregues em pacotes NuGet. Este guia orientará você quanto a esses recursos no contexto dos controles UWP usando o [exemplo ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). O mesmo se aplica aos controles WPF, salvo indicação em contrário.
+No Visual Studio 2017 em diante, você pode aproveitar as funcionalidades adicionadas dos controles UWP e WPF entregues em pacotes NuGet. Este guia orientará você quanto a esses recursos no contexto dos controles UWP usando o [exemplo ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage). O mesmo se aplica aos controles WPF, salvo indicação em contrário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +59,7 @@ A estrutura do arquivo é a seguinte:
 </FileList>
 ```
 
-onde:
+em que:
 
 - *your_package_file*: o nome do arquivo do seu controle, como `ManagedPackage.winmd` (“ManagedPackage” é um nome arbitrário usado para este exemplo e não tem nenhum outro significado).
 - *vs_category*: o rótulo para o grupo no qual o controle deve aparecer na caixa de ferramentas do designer do Visual Studio. Um `VSCategory` é necessário para o controle apareça na caixa de ferramentas.
@@ -90,7 +90,7 @@ No exemplo a seguir, o controle implementado em `ManagedPackage.winmd` aparecer�
 
 ## <a name="add-custom-icons-to-your-controls"></a>Adicionar ícones personalizados aos seus controles
 
-Para exibir um ícone personalizado no painel de caixa de ferramentas/ativos, adicione uma imagem ao seu projeto ou ao projeto `design.dll` correspondente com o nome “Namespace.ControlName.extension” e defina a ação de build como “Recurso Inserido”. Você também deve garantir que o `AssemblyInfo.cs` associado especifique o atributo ProvideMetadata - `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Veja este [exemplo](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
+Para exibir um ícone personalizado no painel de caixa de ferramentas/ativos, adicione uma imagem ao seu projeto ou ao projeto `design.dll` correspondente com o nome “Namespace.ControlName.extension” e defina a ação de build como “Recurso Inserido”. Você também deve garantir que o `AssemblyInfo.cs` associado especifique o atributo ProvideMetadata - `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Veja este [exemplo](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
 
 Os formatos compatíveis são `.png`, `.jpg`, `.jpeg`, `.gif` e `.bmp`. O formato recomendado é BMP24 em 16 x 16 pixels.
 
@@ -158,12 +158,12 @@ Para WPF, continuando com o exemplo em que você deseja que o pacote de controle
 
 Você pode inserir recursos de cadeia de caracteres (`.resw`) no pacote, as quais podem ser usadas pelo controle ou o projeto UWP consumidor, defina a propriedade **Ação de Build** do arquivo `.resw` para **PRIResource**.
 
-Para obter um exemplo, consulte [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) no exemplo ExtensionSDKasNuGetPackage.
+Para obter um exemplo, consulte [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) no exemplo ExtensionSDKasNuGetPackage.
 
 > [!Note]
 > Isso só se aplica aos controles UWP.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Criar Pacotes UWP](create-uwp-packages.md)
-- [Exemplo de ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)
+- [Exemplo de ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage)

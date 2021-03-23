@@ -5,12 +5,12 @@ author: zivkan
 ms.author: zivkan
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b32075c3f2c06c15c07d36602bdabdaee8b9405a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: b2202946d0060e09828250d240f931044d1bf485
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67427471"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859025"
 ---
 # <a name="select-assemblies-referenced-by-projects"></a>Selecionar os assemblies referenciados por projetos
 
@@ -21,7 +21,7 @@ As referências de assembly explícitas permitem que um subconjunto de assemblie
 
 ## <a name="packagereference-support"></a>Suporte a `PackageReference`
 
-Quando um projeto usar um pacote com `PackageReference` e o pacote contiver um diretório `ref\<tfm>\`, o NuGet classificará aqueles assemblies como ativos em tempo de compilação, enquanto os assemblies `lib\<tfm>\` serão classificados como ativos em runtime. Os assemblies em `ref\<tfm>\` não são usados em runtime. Isso significa que é necessário que qualquer assembly em `ref\<tfm>\` tenha um assembly correspondente em `lib\<tfm>\` ou um diretório `runtime\` relevante, caso contrário, poderão ocorrer erros em runtime. Como os assemblies em `ref\<tfm>\` não são usados em runtime, eles podem ser [assemblies somente de metadados](https://github.com/dotnet/roslyn/blob/master/docs/features/refout.md) para reduzir o tamanho do pacote.
+Quando um projeto usar um pacote com `PackageReference` e o pacote contiver um diretório `ref\<tfm>\`, o NuGet classificará aqueles assemblies como ativos em tempo de compilação, enquanto os assemblies `lib\<tfm>\` serão classificados como ativos em runtime. Os assemblies em `ref\<tfm>\` não são usados em runtime. Isso significa que é necessário que qualquer assembly em `ref\<tfm>\` tenha um assembly correspondente em `lib\<tfm>\` ou um diretório `runtime\` relevante, caso contrário, poderão ocorrer erros em runtime. Como os assemblies em `ref\<tfm>\` não são usados em runtime, eles podem ser [assemblies somente de metadados](https://github.com/dotnet/roslyn/blob/main/docs/features/refout.md) para reduzir o tamanho do pacote.
 
 > [!Important]
 > Se um pacote contiver o elemento `<references>` nuspec (usado por `packages.config`, confira abaixo) e não contiver assemblies em `ref\<tfm>\`, o NuGet anunciará os assemblies listados no elemento `<references>` nuspec como ativos de tempo de compilação e de execução. Isso significa que haverá exceções de runtime quando os assemblies referenciados precisarem carregar qualquer outro assembly no diretório `lib\<tfm>\`.
@@ -31,7 +31,7 @@ Quando um projeto usar um pacote com `PackageReference` e o pacote contiver um d
 
 ## <a name="packagesconfig-support"></a>Suporte a `packages.config`
 
-Normalmente, os projetos que usam `packages.config` para gerenciar pacotes NuGet adicionam referências a todos os assemblies do diretório `lib\<tfm>\`. O diretório `ref\` foi adicionado para dar suporte a `PackageReference` e, portanto, não é considerado ao usar `packages.config`. Para definir explicitamente quais conjuntos são `packages.config`referenciados para projetos de uso, o pacote deve usar o [ `<references>` elemento no arquivo nuspec](../reference/nuspec.md#explicit-assembly-references). Por exemplo:
+Normalmente, os projetos que usam `packages.config` para gerenciar pacotes NuGet adicionam referências a todos os assemblies do diretório `lib\<tfm>\`. O diretório `ref\` foi adicionado para dar suporte a `PackageReference` e, portanto, não é considerado ao usar `packages.config`. Para definir explicitamente quais assemblies são referenciados para projetos usando `packages.config` , o pacote deve usar o [ `<references>` elemento no arquivo nuspec](../reference/nuspec.md#explicit-assembly-references). Por exemplo:
 
 ```xml
 <references>
@@ -42,7 +42,7 @@ Normalmente, os projetos que usam `packages.config` para gerenciar pacotes NuGet
 ```
 
 > [!Note]
-> O projeto `packages.config` usa um processo chamado [ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/master/documentation/wiki/ResolveAssemblyReference.md) para copiar os assemblies para o diretório de saída `bin\<configuration>\`. O assembly do projeto é copiado e, em seguida, o sistema de build examina o manifesto do assembly em busca de assemblies referenciados. Depois, ele copia esses assemblies e repete o processo recursivamente para todos os assemblies. Isso significa que, se um dos assemblies do diretório `lib\<tfm>\` não estiver listado em nenhum outro manifesto do assembly como uma dependência (se o assembly for carregado em runtime usando `Assembly.Load`, o MEF ou outra estrutura de injeção de dependência), ele poderá não ser copiado para o diretório de saída `bin\<configuration>\` do projeto, apesar de estar em `bin\<tfm>\`.
+> O projeto `packages.config` usa um processo chamado [ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/main/documentation/wiki/ResolveAssemblyReference.md) para copiar os assemblies para o diretório de saída `bin\<configuration>\`. O assembly do projeto é copiado e, em seguida, o sistema de build examina o manifesto do assembly em busca de assemblies referenciados. Depois, ele copia esses assemblies e repete o processo recursivamente para todos os assemblies. Isso significa que, se um dos assemblies do diretório `lib\<tfm>\` não estiver listado em nenhum outro manifesto do assembly como uma dependência (se o assembly for carregado em runtime usando `Assembly.Load`, o MEF ou outra estrutura de injeção de dependência), ele poderá não ser copiado para o diretório de saída `bin\<configuration>\` do projeto, apesar de estar em `bin\<tfm>\`.
 
 ## <a name="example"></a>Exemplo
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 7e611b568538e0acfcbad2e5d986a0f9382ac8fd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8f21aad93eb952035683314c10cd964f265ec4fd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774119"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859337"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Consulta para todos os pacotes publicados em nuget.org
 
@@ -110,7 +110,7 @@ Se, por algum motivo, você tiver um bug no modo de processamento de catálogo, 
 
 Como o catálogo é um conjunto de documentos JSON disponíveis por HTTP, é possível interagir com ele usando qualquer linguagem de programação que tenha um cliente HTTP e um desserializador JSON.
 
-Exemplos de C# estão disponíveis no [repositório do NuGet/Samples](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample).
+Exemplos de C# estão disponíveis no [repositório do NuGet/Samples](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample).
 
 ```cli
 git clone https://github.com/NuGet/Samples.git
@@ -122,7 +122,7 @@ A maneira mais fácil de consumir o catálogo é usar o pacote de pré-lançamen
 
 Você pode instalar esse pacote em um projeto compatível com `netstandard1.3` ou superior (como o .NET Framework 4.6).
 
-Um exemplo que usa este pacote está disponível no GitHub no [projeto NuGet.Protocol.Catalog.Sample](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample).
+Um exemplo que usa este pacote está disponível no GitHub no [projeto NuGet.Protocol.Catalog.Sample](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample/NuGet.Protocol.Catalog.Sample).
 
 #### <a name="sample-output"></a>Saída de exemplo
 
@@ -160,9 +160,9 @@ warn: NuGet.Protocol.Catalog.CatalogProcessor[0]
 
 ### <a name="minimal-sample"></a>Exemplo mínimo
 
-Para ver um exemplo com menos dependências que ilustra a interação com o catálogo em mais detalhes, consulte o [projeto de exemplo CatalogReaderExample](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample). Os projeto é voltado para `netcoreapp2.0` e depende do [NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (para resolver o índice de serviço) e [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (para desserialização JSON).
+Para ver um exemplo com menos dependências que ilustra a interação com o catálogo em mais detalhes, consulte o [projeto de exemplo CatalogReaderExample](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample/CatalogReaderExample). Os projeto é voltado para `netcoreapp2.0` e depende do [NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (para resolver o índice de serviço) e [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (para desserialização JSON).
 
-A lógica principal do código pode ser vista no [arquivo Program.cs](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs).
+A lógica principal do código pode ser vista no [arquivo Program.cs](https://github.com/NuGet/Samples/blob/main/CatalogReaderExample/CatalogReaderExample/Program.cs).
 
 #### <a name="sample-output"></a>Saída de exemplo
 

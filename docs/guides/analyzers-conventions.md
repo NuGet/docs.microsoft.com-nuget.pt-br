@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 63880b6b9bbfe6aac9cc6419d6a972062eea3495
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ef1a2e68714618ac0195874996acd8263a3a6eb1
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774134"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859350"
 ---
 # <a name="analyzer-nuget-formats"></a>Formatos de NuGet do Analisador
 
-O .NET Compiler Platform (também conhecido como “Roslyn”) permite aos desenvolvedores criar [analisadores](https://github.com/dotnet/roslyn/blob/master/docs/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix.md) que examinam a árvore de sintaxe e a semântica do código enquanto ele está sendo escrito. Isso fornece aos desenvolvedores uma maneira de criar ferramentas de análise específicas de domínio, como aquelas que ajudam a orientar o uso de determinada API ou biblioteca. Você pode encontrar mais informações no wiki do GitHub do [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Consulte também o artigo [Use o Roslyn para escrever um analisador de código dinâmico para sua API](/archive/msdn-magazine/2014/special-issue/csharp-and-visual-basic-use-roslyn-to-write-a-live-code-analyzer-for-your-api) na MSDN Magazine.
+O .NET Compiler Platform (também conhecido como “Roslyn”) permite aos desenvolvedores criar [analisadores](https://github.com/dotnet/roslyn/blob/main/docs/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix.md) que examinam a árvore de sintaxe e a semântica do código enquanto ele está sendo escrito. Isso fornece aos desenvolvedores uma maneira de criar ferramentas de análise específicas de domínio, como aquelas que ajudam a orientar o uso de determinada API ou biblioteca. Você pode encontrar mais informações no wiki do GitHub do [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Consulte também o artigo [Use o Roslyn para escrever um analisador de código dinâmico para sua API](/archive/msdn-magazine/2014/special-issue/csharp-and-visual-basic-use-roslyn-to-write-a-live-code-analyzer-for-your-api) na MSDN Magazine.
 
 Os próprios analisadores normalmente são empacotados e distribuídos como parte dos pacotes do NuGet que implementam a API ou a biblioteca em questão.
 

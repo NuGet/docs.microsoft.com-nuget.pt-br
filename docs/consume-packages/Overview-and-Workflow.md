@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f1856940a988e0585c29ccfd581d823e4f69921
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 92968236262f891106ab2d4cd3ba399f1644400b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775061"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859207"
 ---
 # <a name="package-consumption-workflow"></a>Fluxo de trabalho de consumo do pacote
 
@@ -45,9 +45,9 @@ Por fim, o comportamento do NuGet é orientado por arquivos `Nuget.Config`. Vár
 
 Os pacotes NuGet são baixados e instalados por meio de um dos métodos descritos na tabela a seguir.
 
-| Ferramenta | Descrição |
-| --- | --- |
-| [ CLI DOdotnet.exe](install-use-packages-dotnet-cli.md) | (Todas as plataformas) Ferramenta CLI para bibliotecas .NET Core e .NET Standard e projetos no estilo SDK direcionados ao .NET Framework (confira o [Atributo SDK](/dotnet/core/tools/csproj#additions)). Recupera o pacote identificado pelo \<package_name\> e adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências. |
-| Visual Studio | (Windows e Mac) Fornece uma interface do usuário por meio da qual você pode procurar, selecionar e instalar pacotes e suas dependências em um projeto a partir de uma fonte do pacote especificado. Adicione referências a pacotes instalados ao arquivo de projeto.<ul><li>[Instalar e gerenciar pacotes usando o Visual Studio](install-use-packages-visual-studio.md)</li><li>[Incluir um pacote NuGet ao seu projeto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [Console do Gerenciador de Pacotes (Visual Studio)](install-use-packages-powershell.md) | (Somente Windows) Recupera e instala o pacote identificado por \<package_name\> de uma origem selecionada em um projeto especificado na solução e, em seguida, adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências. |
-| [CLI do nuget.exe](install-use-packages-nuget-cli.md) | (Todas as plataformas) Ferramenta CLI para bibliotecas .NET Framework e projetos no estilo não SDK direcionados a bibliotecas .NET Standard. Recupera o pacote identificado pelo \<package_name\> e expande seu conteúdo em uma pasta no diretório atual; também pode recuperar todos os pacotes listados em um `packages.config` arquivo. Também recupera e instala dependências, mas não altera arquivos de projeto ou `packages.config`. |
+| Ferramenta | Plataformas | Description |
+| --- | --- | --- |
+| [CLI do dotnet](install-use-packages-dotnet-cli.md) | Tudo | Ferramenta CLI para bibliotecas .NET Core e .NET Standard, em projetos no estilo SDK que se destinam ao .NET Framework (confira o [atributo do SDK](/dotnet/core/tools/csproj#additions)). Recupera o pacote identificado pelo \<package_name\> e adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências. |
+| Visual Studio | Windows e Mac | Fornece uma interface do usuário por meio da qual você pode procurar, selecionar e instalar pacotes e suas dependências em um projeto de uma origem de pacote especificada. Adicione referências a pacotes instalados ao arquivo de projeto.<ul><li>[Instalar e gerenciar pacotes usando o Visual Studio](install-use-packages-visual-studio.md)</li><li>[Incluir um pacote NuGet ao seu projeto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| [Console do Gerenciador de Pacotes (Visual Studio)](install-use-packages-powershell.md) | Somente Windows | Recupera e instala o pacote identificado por \<package_name\> de uma origem selecionada em um projeto especificado na solução e, em seguida, adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências. |
+| [CLI do nuget.exe](install-use-packages-nuget-cli.md) | Tudo | Ferramenta CLI para bibliotecas do .NET Framework e projetos no estilo não SDK que se destinam a bibliotecas do .NET Standard. Recupera o pacote identificado pelo \<package_name\> e expande seu conteúdo em uma pasta no diretório atual; também pode recuperar todos os pacotes listados em um `packages.config` arquivo. Também recupera e instala dependências, mas não altera arquivos de projeto ou `packages.config`. |

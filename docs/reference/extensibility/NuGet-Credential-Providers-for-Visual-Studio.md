@@ -5,19 +5,19 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: f324f1e27e0d718571525152fcf16b55b900dbaa
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ab3bde0d320375f854a8f0a98fb90acfecf54aa3
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777760"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859090"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Autenticando feeds no Visual Studio com provedores de credenciais do NuGet
 
 A extensão do NuGet do Visual Studio 3.6 + dá suporte a provedores de credenciais, que permitem que o NuGet funcione com feeds autenticados.
 Depois de instalar um provedor de credenciais do NuGet para o Visual Studio, a extensão NuGet do Visual Studio adquirirá e atualizará automaticamente as credenciais para feeds autenticados, conforme necessário.
 
-Uma implementação de exemplo pode ser encontrada no [exemplo VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Uma implementação de exemplo pode ser encontrada no [exemplo VsCredentialProvider](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider).
 
 No Visual Studio, o NuGet usa um interno `VsCredentialProviderImporter` que também verifica os provedores de credenciais de plug-in. Esses provedores de credenciais de plug-in devem ser detectáveis como uma exportação de MEF do tipo `IVsCredentialProvider` .
 
@@ -58,7 +58,7 @@ public interface IVsCredentialProvider
 }
 ```
 
-Uma implementação de exemplo pode ser encontrada no [exemplo VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Uma implementação de exemplo pode ser encontrada no [exemplo VsCredentialProvider](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider).
 
 Cada provedor de credenciais do NuGet para Visual Studio deve:
 
@@ -69,7 +69,7 @@ Um provedor de credenciais NuGet personalizado para o Visual Studio deve impleme
 
 #### <a name="getcredentialasync"></a>GetCredentialAsync
 
-| Parâmetro de entrada |Descrição|
+| Parâmetro de entrada |Description|
 | ----------------|-----------|
 | URI do URI | O URI de origem do pacote para o qual as credenciais estão sendo solicitadas.|
 | Proxy IWebProxy | Proxy Web a ser usado ao se comunicar na rede. NULL se não houver nenhuma autenticação de proxy configurada. |
@@ -78,4 +78,4 @@ Um provedor de credenciais NuGet personalizado para o Visual Studio deve impleme
 | bool não interativo | Se for true, o provedor de credenciais deverá suprimir todos os prompts de usuário e usar valores padrão em vez disso. |
 | CancellationToken cancellationToken | Esse token de cancelamento deve ser verificado para determinar se a operação que solicita credenciais foi cancelada. |
 
-**Valor de retorno**: um objeto de credenciais que implementa a [ `System.Net.ICredentials` interface](/dotnet/api/system.net.icredentials?view=netstandard-2.0).
+**Valor de retorno**: um objeto de credenciais que implementa a [ `System.Net.ICredentials` interface](/dotnet/api/system.net.icredentials).

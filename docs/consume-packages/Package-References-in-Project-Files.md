@@ -5,14 +5,14 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235757"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859181"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>Referências de pacote (PackageReference) em arquivos de projeto
+# <a name="package-references-packagereference-in-project-files"></a>Referências de pacote ( `PackageReference` ) em arquivos de projeto
 
 As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). O uso de PackageReference, como ele é chamado, não afeta outros aspectos do NuGet; por exemplo, as configurações nos arquivos `NuGet.config` (incluindo as origens do pacote) ainda são aplicadas, conforme explicado em [Configurações comuns do NuGet](configuring-nuget-behavior.md).
 
@@ -102,7 +102,7 @@ As seguintes marcas de metadados controlam ativos de dependência:
 | Marca | Descrição | Valor padrão |
 | --- | --- | --- |
 | IncludeAssets | Esses ativos serão consumidos | all |
-| ExcludeAssets | Esses ativos não serão consumidos | nenhum |
+| ExcludeAssets | Esses ativos não serão consumidos | none |
 | PrivateAssets | Esses ativos serão consumidos, mas não fluem para o projeto pai | contentfiles;analyzers;build |
 
 Os valores permitidos para essas marcas são os seguintes, com vários valores separados por ponto e vírgula, exceto com `all` e `none`, que devem aparecer sozinhos:
@@ -117,7 +117,7 @@ Os valores permitidos para essas marcas são os seguintes, com vários valores s
 | buildTransitive | *(5.0+)* `.props` e `.targets` na pasta `buildTransitive`, para ativos que fluem transitivamente para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analisadores | Analisadores de .NET |
 | nativa | O conteúdo da pasta `native` |
-| nenhum | Nenhuma das opções acima é usada. |
+| none | Nenhuma das opções acima é usada. |
 | all | Todas as anteriores (exceto `none`) |
 
 No exemplo a seguir, tudo, exceto os arquivos de conteúdo do pacote, poderia ser consumido pelo projeto e tudo, exceto analisadores e arquivos de conteúdo, fluiria para o projeto pai.
@@ -211,7 +211,7 @@ Para verificar o nome exato da propriedade gerada, examine o arquivo [NuGet. g. 
 Em algumas instâncias raras, pacotes diferentes conterão classes no mesmo namespace. A partir do NuGet 5,7 & o Visual Studio 2019 atualização 7, equivalente a ProjectReference, o PackageReference dá suporte a [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) .
 Por padrão, nenhum alias é fornecido. Quando um alias é especificado, *todos os* assemblies provenientes do pacote anotado precisam ser referenciados com um alias.
 
-Você pode examinar o uso de exemplo em [NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample)
+Você pode examinar o uso de exemplo em [NuGet\Samples](https://github.com/NuGet/Samples/tree/main/PackageReferenceAliasesExample)
 
 No arquivo de projeto, especifique os aliases da seguinte maneira:
 
@@ -384,7 +384,7 @@ Se `ProjectA` tiver uma dependência em uma versão `2.0.0` do `PackageX`, além
 
 Você pode controlar vários comportamentos de restauração com o arquivo de bloqueio conforme descrito abaixo:
 
-| Opção NuGet.exe | opção dotnet | Opção equivalente do MSBuild | Descrição |
+| Opção NuGet.exe | opção dotnet | Opção equivalente do MSBuild | Description |
 |:--- |:--- |:--- |:--- |
 | `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Opta pelo uso de um arquivo de bloqueio. |
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você deseja criar compilações repetíveis.|   
@@ -400,7 +400,7 @@ Quando um `project` ou um `package` for referenciado por meio `AssetTargetFallba
 
 Consulte a tabela abaixo para obter exemplos de como o `AssetTargetFallback` afeta a compatibilidade.
 
-| Estrutura do projeto | AssetTargetFallback | Estruturas de pacote | Result |
+| Estrutura do projeto | AssetTargetFallback | Estruturas de pacote | Resultado |
 |-------------------|---------------------|--------------------|--------|
 | .NET Framework 4.7.2 | | .NET Standard 2.0 | .NET Standard 2.0 |
 | Aplicativo .NET Core 3,1 | | .NET Standard 2,0, .NET Framework 4.7.2 | .NET Standard 2.0 |

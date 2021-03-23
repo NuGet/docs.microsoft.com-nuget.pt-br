@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 77b96e83f8fc7afd391537d16120d037585dd379
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775123"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859194"
 ---
 # <a name="package-versioning"></a>Controle de versão do pacote
 
@@ -245,3 +245,13 @@ Ao obter pacotes de um repositório durante a instalação, reinstalação ou re
 As operações `pack` e `restore` normalizam as versões sempre que possível. Para pacotes já compilados, essa normalização não afeta os números de versão nos próprios pacotes; ela afeta apenas como o NuGet faz a correspondência das versões ao resolver dependências.
 
 No entanto, os repositórios de pacotes do NuGet devem tratar esses valores da mesma maneira que o NuGet para evitar a duplicação da versão do pacote. Portanto, um repositório que contenha a versão *1.0* de um pacote não deve hospedar também a versão *1.0.0* como um pacote separado e diferente.
+
+## <a name="where-nugetversion-diverges-from-semantic-versioning"></a>Onde NuGetVersion divergências do controle de versão semântico
+
+Se você quiser usar programaticamente versões de pacote NuGet, é altamente recomendável usar [o pacote NuGet. Versioning](https://www.nuget.org/packages/NuGet.Versioning). O método estático `NuGetVersion.Parse(string)` pode ser usado para analisar as cadeias de caracteres de versão e `VersionComparer` pode ser usado para classificar `NuGetVersion` instâncias.
+
+Se você estiver implementando a funcionalidade do NuGet em uma linguagem que não é executada no .NET, aqui está a lista conhecida de diferenças entre o `NuGetVersion` e o controle de versão semântico e os motivos pelos quais uma biblioteca de controle de versão semântica existente pode não funcionar para pacotes já publicados em NuGet.org.
+
+1. `NuGetVersion` dá suporte a um quarto segmento `Revision` de versão,, para ser compatível com o ou com um superconjunto de, [`System.Version`](/dotnet/api/system.version) . Portanto, excluindo os rótulos de pré-lançamento e de metadados, uma cadeia de caracteres de versão é `Major.Minor.Patch.Revision` . De acordo com a normalização de versão descrita acima, se `Revision` for zero, ele será omitido da cadeia de caracteres de versão normalizada.
+2. `NuGetVersion` Só requer que o segmento principal seja definido. Todos os outros são opcionais e são equivalentes a zero. Isso significa que `1` , `1.0` , `1.0.0` e `1.0.0.0` são todos aceitos e iguais.
+3. `NuGetVersion` usa comparações de cadeia de caracteres sem distinção de caso para componentes de pré-lançamento. Isso significa que `1.0.0-alpha` e `1.0.0-Alpha` são iguais.

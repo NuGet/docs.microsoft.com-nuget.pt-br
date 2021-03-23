@@ -5,18 +5,18 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: e5c62177b40162cb8b6b37b0d272fb7a945156c1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 574ee874e2d6555a2e3e0a0643962e33b7ec1b09
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775703"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859441"
 ---
 # <a name="deleting-packages"></a>Excluir pacotes
 
 O nuget.org não é compatível com a exclusão permanente de pacotes. Isso interrompe todos os projetos dependendo da disponibilidade do pacote, especialmente com fluxos de trabalho de build que envolvem a restauração do pacote.
 
-o nuget.org dá suporte à [deslistação de um pacote](#unlisting-a-package), que pode ser feito na página de gerenciamento de pacotes no site da Web. Pacotes não listados não aparecem em nuget.org ou na interface do usuário do Visual Studio e não aparecem nos resultados da pesquisa. Pacotes não listados, no entanto, ainda podem ser baixados e instalados usando um número de versão exata, compatível com a restauração do pacote. Além disso, os pacotes não listados ainda podem ser descobertos nos seguintes cenários específicos:
+o nuget.org oferece suporte à [deslistação de um pacote](#unlisting-a-package), que pode ser feito na página de gerenciamento de pacotes no site da Web. Pacotes não listados não aparecem em nuget.org ou na interface do usuário do Visual Studio e não aparecem nos resultados da pesquisa. Pacotes não listados, no entanto, ainda podem ser baixados e instalados usando um número de versão exata, compatível com a restauração do pacote. Além disso, os pacotes não listados ainda podem ser descobertos nos seguintes cenários específicos:
 
 - Restauração de pacote usando versões flutuante (por exemplo, `1.0.0-*`), se o pacote mais recente que corresponder às restrições de versão ou de dependência for um pacote não listado.
 - Replicação de pacotes por meio do catálogo (visto que o catálogo também contém os pacotes não listados).

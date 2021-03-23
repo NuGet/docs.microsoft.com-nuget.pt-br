@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: adbf8f457d8520e3087e539b91ef932877aec3a0
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: dbe1d3ee8e50a90803140bc2c5cb5821b485a2fd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775449"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859428"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Início Rápido: Instalar e usar um pacote usando a CLI do dotnet
 
@@ -52,9 +52,9 @@ Os pacotes NuGet podem ser instalados em algum tipo de projeto do .NET. Para est
 2. Após a conclusão do comando, abra o arquivo `.csproj` para ver a referência adicionada:
 
     ```xml
-   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-   </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    </ItemGroup>
     ```
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Use a API Newtonsoft.Json no aplicativo

@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 125579832db2ac32217d24f6fc6fc1b555f54350
-ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
+ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101415"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859220"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>Práticas recomendadas para uma cadeia de fornecimento de software seguro
 
@@ -75,7 +75,7 @@ Normalmente, isso é encontrado em um dos dois locais:
 -   [`packages.config`](../reference/packages-config.md) – Localizado na raiz do projeto.
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) – Localizado no arquivo de projeto. 
 
-Dependendo do método usado para gerenciar suas dependências do NuGet, você também pode usar o Visual Studio para exibir suas dependências diretamente no [Gerenciador de soluções](/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019#solution-explorer) ou no [Gerenciador de pacotes NuGet](../consume-packages/install-use-packages-visual-studio.md).
+Dependendo do método usado para gerenciar suas dependências do NuGet, você também pode usar o Visual Studio para exibir suas dependências diretamente no [Gerenciador de soluções](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) ou no [Gerenciador de pacotes NuGet](../consume-packages/install-use-packages-visual-studio.md).
 
 Para ambientes da CLI, você pode usar o [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) comando para listar as dependências do seu projeto ou da solução. 
 
@@ -140,7 +140,7 @@ Para configurar as políticas de confiança [do cliente, consulte a documentaç�
 
 Arquivos de bloqueio armazenam o hash do conteúdo do pacote. Se o hash de conteúdo de um pacote que você deseja instalar corresponder ao arquivo de bloqueio, ele garantirá a capacidade de repetição do pacote.
 
-Para habilitar arquivos de bloqueio, [consulte a documentação a seguir](../consume-packages/package-references-in-project-files#locking-dependencies).
+Para habilitar arquivos de bloqueio, [consulte a documentação a seguir](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 
 ## <a name="monitor-your-supply-chain"></a>Monitorar sua cadeia de suprimentos
 

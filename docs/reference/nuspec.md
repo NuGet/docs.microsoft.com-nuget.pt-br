@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6a68b07c42e6abf4ad57d0129fa76d7dd620145f
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777676"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859493"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -34,7 +34,7 @@ Neste tópico:
 
 - Um `.nuspec` arquivo não é necessário para criar pacotes para [projetos de estilo SDK](../resources/check-project-format.md) (normalmente .net Core e .net Standard projetos que usam o [atributo SDK](/dotnet/core/tools/csproj#additions)). (Observe que um `.nuspec` é gerado quando você cria o pacote.)
 
-   Se você estiver criando um pacote usando `dotnet.exe pack` ou `msbuild pack target` , recomendamos que [inclua todas as propriedades](../reference/msbuild-targets.md#pack-target) que normalmente estão no `.nuspec` arquivo no arquivo de projeto. No entanto, você pode optar por [usar um `.nuspec` arquivo para empacotar usando o `dotnet.exe` ou `msbuild pack target` o ](../reference/msbuild-targets.md#packing-using-a-nuspec).
+   Se você estiver criando um pacote usando `dotnet.exe pack` ou `msbuild pack target` , recomendamos que [inclua todas as propriedades](../reference/msbuild-targets.md#pack-target) que normalmente estão no `.nuspec` arquivo no arquivo de projeto. No entanto, você pode optar por [usar um `.nuspec` arquivo para empacotar usando o `dotnet.exe` ou `msbuild pack target` o ](../reference/msbuild-targets.md#packing-using-a-nuspec-file).
 
 - Para projetos migrados do `packages.config` para o [PackageReference](../consume-packages/package-references-in-project-files.md), um `.nuspec` arquivo não é necessário para criar o pacote. Em vez disso, use o [MSBuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
@@ -198,7 +198,7 @@ Por exemplo, você adicionaria o seguinte ao seu nuspec ao criar um pacote usand
 </package>
 ```
 
-[Ícone de pacote exemplo de nuspec.](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
+[Ícone de pacote exemplo de nuspec.](https://github.com/NuGet/Samples/tree/main/PackageIconNuspecExample)
 
 Para o equivalente do MSBuild, dê uma olhada no [empacotamento de um arquivo de imagem de ícone](msbuild-targets.md#packing-an-icon-image-file).
 
@@ -213,7 +213,7 @@ Um valor booliano que especifica se o cliente precisa solicitar que o consumidor
 
 #### <a name="summary"></a>resumo
 > [!Important]
-> `summary` está sendo preterido. Use `description` em seu lugar.
+> `summary` está sendo preterido. Use `description` em vez disso.
 
 Uma breve descrição do pacote para exibição de interface do usuário. Se omitido, uma versão truncada do `description` é usada.
 
@@ -374,7 +374,7 @@ Ao carregar um pacote no nuget.org, cada atributo de dependência `id` é limita
 | compilar | lib |
 | compilar | build (objetos e destinos do MSBuild) |
 | nativa | nativa |
-| nenhum | Nenhuma pasta |
+| none | Nenhuma pasta |
 | all | Todas as pastas |
 
 Por exemplo, as linhas a seguir indicam as dependências no `PackageA` versão 1.1.0 ou superior e `PackageB` versão 1.x.
@@ -528,7 +528,7 @@ Cada elemento `<file>` especifica os seguintes atributos:
 | --- | --- |
 | **src** | O local do arquivo ou arquivos a serem incluídos, sujeito a exclusões especificadas pelo atributo `exclude`. O caminho é relativo ao arquivo `.nuspec`, a menos que um caminho absoluto seja especificado. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 | **destino** | O caminho relativo para a pasta dentro do pacote em que os arquivos de origem são colocados, os quais devem começar com `lib`, `content`, `build` ou `tools`. Consulte [Criando um .nuspec de um diretório de trabalho baseado em convenção](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **excluir** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
+| **excluí** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 
 ### <a name="examples"></a>Exemplos
 
@@ -758,7 +758,7 @@ Esses arquivos são especificados com um conjunto de atributos que descrevem com
 | Atributo | Descrição |
 | --- | --- |
 | **incluir** | (Obrigatório) O local do arquivo ou arquivos a serem incluídos, sujeito a exclusões especificadas pelo atributo `exclude`. O caminho é relativo à `contentFiles` pasta, a menos que um caminho absoluto seja especificado. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
-| **excluir** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
+| **excluí** | Uma lista separada por ponto-e-vírgula de arquivos ou padrões de arquivo para excluir o local `src`. O caractere curinga `*` é permitido e o caractere curinga duplo `**` sugere uma pesquisa de pastas recursiva. |
 | **buildAction** | A ação de compilação a ser atribuída ao item de conteúdo para o MSBuild, como,,, `Content` `None` `Embedded Resource` `Compile` etc. O padrão é `Compile` . |
 | **copyToOutput** | Um booliano que indica se os itens de conteúdo devem ser copiados para a pasta de saída Build (ou Publish). O padrão é falso. |
 | **flatten** | Um valor booliano que indica se os itens de conteúdo devem ser copiados para uma única pasta na saída do build (verdadeiro) ou preservar a estrutura de pasta no pacote (falso). Esse sinalizador só funciona quando o sinalizador copyToOutput está definido como true. O padrão é falso. |

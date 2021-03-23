@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777308"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859480"
 ---
 # <a name="target-frameworks"></a>Frameworks de destino
 
@@ -23,13 +23,17 @@ O NuGet usa referências de estrutura de destino em uma variedade de locais para
 - [packages.config](../reference/packages-config.md): o atributo `targetframework` de uma dependência especifica a variante de um pacote a ser instalado.
 
 > [!Note]
-> O código-fonte do cliente do NuGet que calcula as tabelas abaixo é encontrado nos seguintes locais:
-> - Suporte para nomes de estrutura: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Precedência e mapeamento do Framework: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> O NuGet dá suporte a todas as estruturas de destino do .NET modernas:
+> - Para obter uma lista das estruturas de destino mais recentes, consulte a documentação [estruturas de destino em projetos no estilo SDK](/dotnet/standard/frameworks) .
 
 ## <a name="supported-frameworks"></a>Estruturas com suporte
 
 Normalmente, uma estrutura é referenciada por um moniker curto de estrutura de destino ou TFM. Em .NET Standard isso também é generalizado para *TxM* para permitir uma única referência a várias estruturas.
+
+> [!Note]
+> O código-fonte do cliente do NuGet que calcula as tabelas abaixo é encontrado nos seguintes locais:
+> - Suporte para nomes de estrutura: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Precedência e mapeamento do Framework: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 Os clientes do NuGet são compatíveis com as estruturas indicadas na tabela abaixo. Equivalentes são mostrados entre colchetes []. Observe que algumas ferramentas, como `dotnet`, podem usar as variações de TFMs canônicos em alguns arquivos. Por exemplo, `dotnet pack` usa `.NETCoreApp2.0` em um arquivo `.nuspec` em vez de `netcoreapp2.0`. As várias ferramentas de cliente do NuGet manipulam essas variações corretamente, mas você sempre deve usar TFMs canônicos ao editar arquivos diretamente.
 

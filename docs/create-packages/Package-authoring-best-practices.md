@@ -5,12 +5,12 @@ author: chgill-MSFT
 ms.author: chgill
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 35eb000bddaa58726857cd3c1fd2362917f83196
-ms.sourcegitcommit: c19d398cecee3cad2d79a8b22650fc1988d41a3f
+ms.openlocfilehash: 7475cf655876f2c127e79a16ccf67c0c723d164f
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99420853"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859064"
 ---
 # <a name="package-authoring-best-practices"></a>Práticas recomendadas de criação de pacote
 
@@ -20,7 +20,7 @@ Este guia destina-se a dar aos autores de pacote NuGet uma referência leve para
 
 Cada artigo apresenta quatro tipos de recomendação: **Fazer**, **Considerar**, **Evitar** e **Não fazer**. O tipo de recomendação indica com que precisão ele deve ser seguido.
 
-Procure quase sempre seguir a recomendação **Fazer**. Por exemplo: 
+Procure quase sempre seguir a recomendação **Fazer**. Por exemplo:
 
 ✔️ incluem uma breve descrição do pacote que descreve o que ele é para o.
 
@@ -58,8 +58,8 @@ Os elementos de metadados do pacote também podem ser [especificados diretamente
 
 Abaixo está um mapeamento de tabela e descrevendo os elementos de metadados de pacote disponíveis:
 
-| Nome da Propriedade do Visual Studio                   | [Nome da Propriedade do arquivo/MSBuild do projeto](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                          | [Nome da propriedade Nuspec](https://docs.microsoft.com/nuget/reference/nuspec#general-form-and-schema) | Descrição                                                                                                       |
-|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Nome da Propriedade do Visual Studio                   | [Nome da Propriedade do arquivo/MSBuild do projeto](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                          | [Nome da propriedade Nuspec](https://docs.microsoft.com/nuget/reference/nuspec#general-form-and-schema) | Description                                                                                                       |
+|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | [`Package id`](#package-id)                   | [`PackageId`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageid)                                                            | [`id`](https://docs.microsoft.com/nuget/reference/nuspec#id)                                      | O nome ou identificador do pacote.                    |
 | [`Package version`](#package-version)         | [`PackageVersion`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageversion)                                                  | [`version`](https://docs.microsoft.com/nuget/reference/nuspec#version)                            | Versão do pacote NuGet.                                           |
 | [`Authors`](#authors)                         | [`Authors`](https://docs.microsoft.com/dotnet/core/tools/csproj#authors)                                                                | [`authors`](https://docs.microsoft.com/nuget/reference/nuspec#authors)                            | Uma lista separada por vírgulas de autores de pacote, geralmente usando o "nome" de uma organização individual ou de uma empresa.                             |
@@ -70,9 +70,9 @@ Abaixo está um mapeamento de tabela e descrevendo os elementos de metadados de 
 | [`Project URL`](#project-url)                 | `PackageProjectUrl`                                                                                                                     | [`projectUrl`](https://docs.microsoft.com/nuget/reference/nuspec#projecturl)                      | Uma URL para a página inicial do projeto.                                                                                   |
 | [`Icon File`](#icon)                          | [`PackageIcon`](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-an-icon-image-file)                                  | [`icon`](https://docs.microsoft.com/nuget/reference/nuspec#icon)                                  | Caminho para o arquivo de imagem do ícone de pacote.                                                                      |
 | [`Repository URL`](#repository-type-and-url)  | [`RepositoryUrl`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositoryurl)                                                    | [`repository url`](https://docs.microsoft.com/nuget/reference/nuspec#repository)               | URL para o repositório do qual o pacote foi criado.                                                           |
-| [`Repository type`](#repository-type-and-url) | [`RespositoryType`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositorytype)                                                 | [`repository type`](https://docs.microsoft.com/nuget/reference/nuspec#repository)              | Tipo de repositório ao qual a URL do repositório está apontando (ou seja, "git").                                                   |
+| [`Repository type`](#repository-type-and-url) | [`RepositoryType`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositorytype)                                                 | [`repository type`](https://docs.microsoft.com/nuget/reference/nuspec#repository)              | Tipo de repositório ao qual a URL do repositório está apontando (ou seja, "git").                                                   |
 | [`Tags`](#tags)                               | [`PackageTags`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagetags)                                                        | [`tags`](https://docs.microsoft.com/nuget/reference/nuspec#tags)                                  | Uma lista delimitada por espaço de marcas e palavras-chave que descrevem o pacote. Marcas são usadas ao pesquisar pacotes. |
-| [`Release notes`](#release-notes)             | [`PackageReleaseNotes`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                                          | [`releaseNotes`](https://docs.microsoft.com/nuget/reference/nuspec#releasenotes)                  | Uma descrição das alterações feitas nesta versão do pacote.                                                 |  |
+| [`Release notes`](#release-notes)             | [`PackageReleaseNotes`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                                          | [`releaseNotes`](https://docs.microsoft.com/nuget/reference/nuspec#releasenotes)                  | Uma descrição das alterações feitas nesta versão do pacote.                                                 |
 
 ### <a name="package-id"></a>ID do Pacote
 
@@ -99,7 +99,7 @@ Consulte o [Guia de controle de versão da biblioteca do .net](https://docs.micr
 
 ✔️ Use o campo autor para o seu ou o "nome" de sua organização.
 > Por exemplo, se meu nome de usuário do NuGet.org for "jdoe", usar "Jane Doe" para o campo autor pode ajudar os consumidores a reconhecê-lo como autor. Se o nome de usuário do NuGet.org da minha organização for "ContosoToolkit", usar "Contoso Corporation" pode ser mais reconhecível e inspirar mais confiança do consumidor.
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 ✔️ incluem uma breve descrição (até 4000 caracteres) para descrever seu pacote.
 > As descrições de pacote são um dos campos mais proeminentes na pesquisa NuGet e provavelmente serão a primeira coisa que os consumidores potenciais examinam para determinar se um pacote é adequado para eles.
@@ -155,7 +155,7 @@ Exemplo: Copyright (c) contoso 2020
 ✔️ CONSIDERE configurar o [link de origem](https://docs.microsoft.com/dotnet/standard/library-guidance/sourcelink) para adicionar automaticamente metadados de controle do código-fonte ao seu pacote NuGet e tornar sua biblioteca mais fácil de depurar.
 > O link de origem adiciona `Repository URL` e `Repository Type` para os metadados do pacote automaticamente. Ele também adiciona a confirmação específica associada à versão do pacote.
 
-### <a name="tags"></a>Marcações
+### <a name="tags"></a>Marcas
 
 os ✔️ incluem várias marcas com os principais termos relacionados ao seu pacote para aprimorar a capacidade de descoberta.
 > As marcas são levadas em conta no algoritmo de pesquisa do NuGet. org e são especialmente úteis para termos que não estão na ID do pacote, mas são relevantes.
