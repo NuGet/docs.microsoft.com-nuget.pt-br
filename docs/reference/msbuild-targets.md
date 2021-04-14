@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 9d40d43d972537ee1cb11d54194ed6450ccd0b6e
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104858960"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387368"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet empacotar e restaurar como MSBuild destinos
 
@@ -52,7 +52,7 @@ A tabela a seguir descreve as MSBuild Propriedades que podem ser adicionadas a u
 > [!NOTE]
 > `Owners``Summary`as propriedades e de `.nuspec` não têm suporte com MSBuild .
 
-| Atributo/ nuspec valor | MSBuild Propriedade | Padrão | Observações |
+| Atributo/ nuspec valor | MSBuild Propriedade | Padrão | Anotações |
 |--------|--------|--------|--------|
 | `Id` | `PackageId` | `$(AssemblyName)` | `$(AssemblyName)` de MSBuild |
 | `Version` | `PackageVersion` | Versão | Isso é compatível com semver, por exemplo, `1.0.0` `1.0.0-beta` ou `1.0.0-beta-00345` |
@@ -68,8 +68,9 @@ A tabela a seguir descreve as MSBuild Propriedades que podem ser adicionadas a u
 | `license` | `PackageLicenseFile` | vazio | Caminho para um arquivo de licença dentro do pacote se você estiver usando uma licença personalizada ou uma licença que não tenha sido atribuída a um identificador SPDX. Você precisa empacotar explicitamente o arquivo de licença referenciado. Corresponde ao `<license type="file">`. Consulte [empacotando uma expressão de licença ou um arquivo de licença](#packing-a-license-expression-or-a-license-file). |
 | `LicenseUrl` | `PackageLicenseUrl` | vazio | O `PackageLicenseUrl` foi preterido. Use `PackageLicenseExpression` ou `PackageLicenseFile` em vez disso. |
 | `ProjectUrl` | `PackageProjectUrl` | vazio | |
-| `Icon` | `PackageIcon` | vazio | Um caminho para uma imagem no pacote a ser usado como um ícone de pacote. Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado. Para obter mais informações, consulte [empacotando um arquivo de imagem de ícone](#packing-an-icon-image-file) e [ `icon` metadados](/nuget/reference/nuspec#icon). |
+| `Icon` | `PackageIcon` | vazio | Um caminho para uma imagem no pacote a ser usado como um ícone de pacote. Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado. Para obter mais informações, consulte [empacotando um arquivo de imagem de ícone](#packing-an-icon-image-file) e [ `icon` metadados](./nuspec.md#icon). |
 | `IconUrl` | `PackageIconUrl` | vazio | `PackageIconUrl` é preterido em favor do `PackageIcon` . No entanto, para obter a melhor experiência de nível inferior, você deve especificar, `PackageIconUrl` além do `PackageIcon` . |
+| `Readme` | `PackageReadmeFile` | vazio | Você precisa empacotar explicitamente o arquivo Leiame referenciado.|
 | `Tags` | `PackageTags` | vazio | Uma lista delimitada por ponto e vírgula de marcas que designam o pacote. |
 | `ReleaseNotes` | `PackageReleaseNotes` | vazio | Notas de versão do projeto. |
 | `Repository/Url` | `RepositoryUrl` | vazio | URL do repositório usada para clonar ou recuperar o código-fonte. Exemplo: *https://github.com/ NuGet / NuGet . Client. git*. |
@@ -99,6 +100,7 @@ A tabela a seguir descreve as MSBuild Propriedades que podem ser adicionadas a u
 | `PackageProjectUrl` | |
 | `PackageIcon` | Especifica o caminho do ícone de pacote, relativo à raiz do pacote. Para obter mais informações, consulte [empacotando um arquivo de imagem de ícone](#packing-an-icon-image-file). |
 | `PackageReleaseNotes` | Notas de versão do projeto. |
+| `PackageReadmeFile` | Leiame do pacote. |
 | `PackageTags` | Uma lista delimitada por ponto e vírgula de marcas que designam o pacote. |
 | `PackageOutputPath` | Determina o caminho de saída no qual o pacote empacotado será solto. O padrão é `$(OutputPath)`. |
 | `IncludeSymbols` | Esse valor booliano indica se o pacote deve criar um pacote de símbolos adicionais quando o projeto é empacotado. O formato do pacote de símbolos é controlado pela propriedade `SymbolPackageFormat`. Para obter mais informações, consulte [IncludeSymbols](#includesymbols). |
@@ -158,6 +160,28 @@ Por exemplo:
 [Exemplo de ícone de pacote](https://github.com/NuGet/Samples/tree/main/PackageIconExample).
 
 Para o nuspec equivalente, dê uma olhada na [ nuspec referência para o ícone](nuspec.md#icon).
+
+### <a name="packagereadmefile"></a>PackageReadmeFile
+
+Ao empacotar um arquivo Leiame, você precisa usar a `PackageReadmeFile` propriedade para especificar o caminho do pacote, em relação à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. Os formatos de arquivo com suporte incluem apenas redução (*. MD*).
+
+Por exemplo:
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="docs\readme.md" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+Para o nuspec equivalente, dê uma olhada na [ nuspec referência do Leiame](nuspec.md#readme).
 
 ### <a name="output-assemblies"></a>Assemblies de saída
 
