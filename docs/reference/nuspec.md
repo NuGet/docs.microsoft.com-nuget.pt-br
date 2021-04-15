@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859493"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387407"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -205,6 +205,29 @@ Para o equivalente do MSBuild, dê uma olhada no [empacotamento de um arquivo de
 > [!Tip]
 > Você pode especificar o `icon` e o `iconUrl` para manter a compatibilidade com versões anteriores com fontes que não dão suporte ao `icon` . O Visual Studio dará suporte a `icon` pacotes provenientes de uma fonte baseada em pasta em uma versão futura.
 
+#### <a name="readme"></a>leiame
+
+Ao empacotar um arquivo Leiame, você precisa usar o `readme` elemento para especificar o caminho do pacote, em relação à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. Os formatos de arquivo com suporte incluem apenas redução (*. MD*).
+
+Por exemplo, você adicionaria o seguinte ao seu nuspec para empacotar um arquivo Leiame com seu projeto:
+
+```xml
+<package>
+  <metadata>
+    ...
+    <readme>docs\readme.md</readme>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="..\readme.md" target="docs\" />
+    ...
+  </files>
+</package>
+```
+
+Para o equivalente do MSBuild, dê uma olhada no [empacotamento de um arquivo Leiame](msbuild-targets.md#packagereadmefile).
+
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Um valor booliano que especifica se o cliente precisa solicitar que o consumidor aceite a licença do pacote antes de instalá-lo.
 
@@ -374,7 +397,7 @@ Ao carregar um pacote no nuget.org, cada atributo de dependência `id` é limita
 | compilar | lib |
 | compilar | build (objetos e destinos do MSBuild) |
 | nativa | nativa |
-| none | Nenhuma pasta |
+| nenhum | Nenhuma pasta |
 | all | Todas as pastas |
 
 Por exemplo, as linhas a seguir indicam as dependências no `PackageA` versão 1.1.0 ou superior e `PackageB` versão 1.x.
