@@ -5,12 +5,12 @@ author: chgill-msft
 ms.author: chgill
 ms.date: 8/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c821091983ab0b5d59b759e1ee9930cf449fd9d
-ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
+ms.openlocfilehash: 58ab481f0c6a6cb5549c269788170b8c3ff6002f
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364161"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508781"
 ---
 # <a name="nuget-57-release-notes"></a>Notas de versão do NuGet 5,7
 
@@ -19,6 +19,7 @@ Veículos de distribuição do NuGet:
 | Versão do NuGet | Disponível na versão do Visual Studio | Disponível em SDKs do .NET |
 |:---|:---|:---|
 | [**5.7.0**](https://nuget.org/downloads) | [Visual Studio 2019 versão 16,7](https://visualstudio.microsoft.com/downloads/) | [3.1.401](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
+| [**5.7.1**](https://nuget.org/downloads) | [Visual Studio 2019 versão 16,7](https://visualstudio.microsoft.com/downloads/) | [3.1.408](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
 
 <sup>1</sup> instalado com o Visual Studio 2019 com carga de trabalho do .NET Core
 
@@ -107,3 +108,15 @@ Obrigado a todos os colaboradores que ajudaram a tornar esta versão do NuGet in
 |[Sunner (SuNNjek)](https://github.com/SuNNjek)|[3088](https://github.com/NuGet/NuGet.Client/pull/3088)|nuget.exe spec gera uma marca de direitos autorais com texto embutido em código de Copyright aaaa em vez de `$copyright$`  -  [#8696](https://github.com/NuGet/Home/issues/8696)|
 |[Olivier Spinelli (olivier-spinelli)](https://github.com/olivier-spinelli)|[3335](https://github.com/NuGet/NuGet.Client/pull/3335)|Em uma restauração de CLI dotnet, ao iniciar plugins de credenciais, tente a CLI do dotnet no caminho do sistema se a `DOTNET_HOST_PATH`  variável de ambiente não estiver definida. - [#7438](https://github.com/NuGet/Home/issues/7438)|
 |[goyzhang](https://github.com/goyzhang)|[3370](https://github.com/NuGet/NuGet.Client/pull/3370)|`latest`Opção adicionada para `-MSBuildVersion`  -  [#8808](https://github.com/NuGet/Home/issues/8808)|
+
+## <a name="summary-whats-new-in-571"></a>Resumo: o que há de novo na 5.7.1
+
+* Estenda o arquivo. nupkg. Metadata para incluir a fonte de instalação- [#10354](https://github.com/NuGet/Home/issues/10354)
+
+* Registrar o pacote contenthash durante o log de restauração (durante a extração)- [#10384](https://github.com/NuGet/Home/issues/10384)
+
+* Ao restaurar em detalhes normais, registre em qual fonte um pacote está sendo restaurado- [#10461](https://github.com/NuGet/Home/issues/10461)
+
+**[Lista de todos os problemas corrigidos nesta versão-5.7.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f5724f84579cc29a79ee)**
+
+**[Lista de confirmações nesta versão-5.7.1](https://github.com/NuGet/NuGet.Client/compare/80512866a2c127e52ce3e86fd803fff77e9b9b52...5.7.1.4)**

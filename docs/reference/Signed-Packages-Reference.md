@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: ac9efadc1d29bec86ca9b7821d5587e0171613aa
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 85fdf7a41cc033d92bbd0326648142aec27a9970
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235705"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508794"
 ---
 # <a name="signed-packages"></a>Pacotes assinados
 
@@ -23,7 +23,7 @@ Os pacotes assinados fornecem a validação de ponta a ponta mais forte. Há doi
 - **Assinatura de autor**. Uma assinatura de autor garante que o pacote não foi modificado desde que o autor assinou o pacote, independentemente de qual repositório ou qual método de transporte o pacote é entregue. Além disso, os pacotes assinados por autor fornecem um mecanismo de autenticação extra para o pipeline de publicação nuget.org porque o certificado de autenticação deve ser registrado antecipadamente. Para obter mais informações, consulte [registrar certificados](#signature-requirements-on-nugetorg).
 - **Assinatura do repositório**. As assinaturas de repositório fornecem uma garantia de integridade para **todos os** pacotes em um repositório, independentemente de serem autor ou não assinados, mesmo que esses pacotes sejam obtidos de um local diferente do repositório original em que foram assinados.   
 
-Para obter detalhes sobre como criar um pacote assinado por autor, consulte [pacotes de assinatura](../create-packages/Sign-a-package.md) e o comando de [sinal do NuGet](../reference/cli-reference/cli-ref-sign.md). Você pode verificar as assinaturas de pacotes usando os comandos [dotnet NuGet Verify](/dotnet/core/tools/dotnet-nuget-verify.md) ou [NuGet Verify](../reference/cli-reference/cli-ref-verify.md) .
+Para obter detalhes sobre como criar um pacote assinado por autor, consulte [pacotes de assinatura](../create-packages/Sign-a-package.md) e o comando de [sinal do NuGet](../reference/cli-reference/cli-ref-sign.md). Você pode verificar as assinaturas de pacotes usando os comandos [dotnet NuGet Verify](/dotnet/core/tools/dotnet-nuget-verify) ou [NuGet Verify](../reference/cli-reference/cli-ref-verify.md) .
 
 > [!Important]
 > Os pacotes de assinatura de autor só têm suporte do nuget.exe no Windows no momento. No entanto, todos os pacotes carregados em nuget.org são assinados automaticamente pelo repositório.
@@ -57,6 +57,6 @@ o nuget.org tem requisitos adicionais para aceitar um pacote assinado:
 ## <a name="related-articles"></a>Artigos relacionados
 
 - [Assinando pacotes NuGet](../create-packages/Sign-a-Package.md)
-- [Verificar pacotes assinados usando a CLI do dotnet](/dotnet/core/tools/dotnet-nuget-verify.md)
+- [Verificar pacotes assinados usando a CLI do dotnet](/dotnet/core/tools/dotnet-nuget-verify)
 - [Verificar pacotes assinados usando o nuget.exe](../reference/cli-reference/cli-ref-verify.md)
 - [Gerenciar os limites de confiança do pacote](../consume-packages/installing-signed-packages.md)
