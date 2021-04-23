@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e3af7145495b5753b5900915ffb4b07942b856
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774856"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901467"
 ---
 # <a name="common-nuget-configurations"></a>Configurações comuns do NuGet
 
@@ -18,15 +18,15 @@ O comportamento do NuGet é controlado pelas configurações acumuladas em um ou
 
 ## <a name="config-file-locations-and-uses"></a>Usos e locais do arquivo de configuração
 
-| Escopo | Local do arquivo NuGet.Config | Descrição |
+| Escopo | `NuGet.Config` local do arquivo | Descrição |
 | --- | --- | --- |
 | Solução | A pasta atual (também conhecida como pasta de solução) ou qualquer pasta até a raiz da unidade.| Em uma pasta de solução, as configurações se aplicam a todos os projetos nas subpastas. Observe que, se um arquivo de configuração for colocado em uma pasta de projeto, ele não causará nenhum efeito nesse projeto. |
-| User | **Windows:**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` ou `~/.nuget/NuGet/NuGet.Config` (varia de acordo com a distribuição do sistema operacional) <br/>Configurações adicionais têm suporte em todas as plataformas. Essas configurações não podem ser editadas pelas ferramentas. </br> **Windows:**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` or `~/.nuget/config/*.config` | As configurações se aplicam a todas as operações, mas são substituídas por quaisquer configurações de nível de projeto. |
+| Usuário | **Windows:**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` ou `~/.nuget/NuGet/NuGet.Config` (varia de acordo com a distribuição do sistema operacional) <br/>Configurações adicionais têm suporte em todas as plataformas. Essas configurações não podem ser editadas pelas ferramentas. </br> **Windows:**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` or `~/.nuget/config/*.config` | As configurações se aplicam a todas as operações, mas são substituídas por quaisquer configurações de nível de projeto. |
 | Computador | **Windows:**`%ProgramFiles(x86)%\NuGet\Config`<br/>**Mac/Linux:** `$XDG_DATA_HOME` . Se `$XDG_DATA_HOME` for nulo ou vazio, `~/.local/share` ou `/usr/local/share` será usado (varia de acordo com a distribuição do SO)  | As configurações se aplicam a todas as operações, mas são substituídas por qualquer usuário ou por configurações de nível de projeto. |
 
 Observações para versões anteriores do NuGet:
 - O NuGet 3.3 e versões anteriores usavam uma pasta `.nuget` para configurações de toda a solução. Esta pasta não é usada no NuGet 3.4 +.
-- Para o NuGet 2.6 a 3.x, o arquivo de configuração de nível de computador no Windows encontra-se em %ProgramData%\NuGet\Config [\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config, em que *{IDE}* pode ser *VisualStudio*, *{Version}* é a versão do Visual Studio como *14.0* e *{SKU}* é *Community*, *Pro* ou *Enterprise*. Para migrar as configurações para o NuGet 4.0 +, basta copiar o arquivo de configuração para% ProgramFiles (x86)% \ NuGet\Config. No Linux, esse local anterior era/etc/opt e, no Mac, o suporte do/library/Application Support.
+- Para o NuGet 2,6 a 3. x, o arquivo de configuração no nível do computador no Windows estava localizado em `%ProgramData%\NuGet\Config[\{IDE}[\{Version}[\{SKU}]]]\NuGet.Config` , onde `{IDE}` pode ser `VisualStudio` , `{Version}` a versão do Visual Studio, como, `14.0` e `{SKU}` é `Community` , `Pro` ou `Enterprise` . Para migrar as configurações para o NuGet 4.0 +, basta copiar o arquivo de configuração para `%ProgramFiles(x86)%\NuGet\Config` . No Linux, esse local anterior era `/etc/opt` , e no Mac, `/Library/Application Support` .
 
 ## <a name="changing-config-settings"></a>Alterar as definições da configuração
 
@@ -102,18 +102,16 @@ Vários arquivos `NuGet.Config` permitem que você armazene as configurações e
 
 Especificamente, o NuGet carrega as configurações dos arquivos de configuração diferente na seguinte ordem:
 
-1. O [arquivo NuGetDefaults.Config](#nuget-defaults-file), que contém as configurações relacionadas somente às origens de pacotes.
+1. O [ `NuGetDefaults.Config` arquivo](#nuget-defaults-file), que contém configurações relacionadas apenas às origens do pacote.
 1. O arquivo de nível de computador.
 1. O arquivo de nível de usuário.
 1. O arquivo especificado com `-configFile`.
-1. Arquivos encontrados em todas as pastas no caminho da raiz de unidade para a pasta atual (em que nuget.exe é invocado ou a pasta que contém o projeto do Visual Studio). Por exemplo, se um comando for invocado em c:\A\B\C, o NuGet procura e carrega os arquivos de configuração em c:\,, c:\A, c:\A\B e, finalmente, c:\A\B\C.
+1. Arquivos encontrados em todas as pastas no caminho da raiz da unidade para a pasta atual (onde `nuget.exe` é invocado ou a pasta que contém o projeto do Visual Studio). Por exemplo, se um comando for invocado no `c:\A\B\C` , o NuGet procurará e carregará os arquivos de configuração em `c:\` , depois, `c:\A` `c:\A\B` e finalmente `c:\A\B\C` .
 
 À medida que o NuGet encontra configurações nesses arquivos, eles são aplicados da seguinte maneira:
 
 1. Para elementos de item único, o NuGet substituiu qualquer valor encontrado anteriormente pela mesma chave. Isso significa que as configurações que são “mais próximas” da pasta ou projeto atual substituem quaisquer outras encontradas anteriormente. Por exemplo, a definição `defaultPushSource` em `NuGetDefaults.Config` será substituída se ela existir em qualquer outro arquivo de configuração.
-
 1. Para elementos de coleta (como `<packageSources>`), o NuGet combina os valores de todos os arquivos de configuração em uma única coleção.
-
 1. Quando `<clear />` está presente para um nó específico, o NuGet ignora os valores de configuração definidos anteriormente para esse nó.
 
 ### <a name="settings-walkthrough"></a>Explicação passo a passo das configurações
@@ -144,7 +142,7 @@ Arquivo A. Arquivo de nível de usuário, (`%appdata%\NuGet\NuGet.Config` no Win
 </configuration>
 ```
 
-Arquivo B. disk_drive_2/NuGet.Config:
+Arquivo B. `disk_drive_2/NuGet.Config` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -158,7 +156,7 @@ Arquivo B. disk_drive_2/NuGet.Config:
 </configuration>
 ```
 
-Arquivo C. disk_drive_2/Project1/NuGet.Config:
+Arquivo C. `disk_drive_2/Project1/NuGet.Config` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -174,7 +172,7 @@ Arquivo C. disk_drive_2/Project1/NuGet.Config:
 </configuration>
 ```
 
-Arquivo D. disk_drive_2/Project2/NuGet.Config:
+Arquivo D. `disk_drive_2/Project2/NuGet.Config` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -188,13 +186,13 @@ Arquivo D. disk_drive_2/Project2/NuGet.Config:
 
 O NuGet, em seguida, carrega e aplica as configurações como mostrado a seguir, dependendo de onde ele é chamado:
 
-- **Invocado de disk_drive_1/users**: somente o repositório padrão listado no arquivo de configuração de nível do usuário (A) é usado, pois esse é o único arquivo encontrado em disk_drive_1.
+- **Chamado de `disk_drive_1/users`**: somente o repositório padrão listado no arquivo de configuração de nível de usuário (A) é usado, pois esse é o único arquivo encontrado em `disk_drive_1` .
 
-- **Invocado de disk_drive_2/ ou disk_drive_/tmp**: o arquivo no nível do usuário (A) é carregado primeiro, depois o NuGet acessa a raiz de disk_drive_2 e descobre o arquivo (B). O NuGet também procura um arquivo de configuração em /tmp, mas não o encontra. Como resultado, o repositório padrão no nuget.org é usado, a restauração de pacote é habilitada e os pacotes são expandidos em disk_drive_2/tmp.
+- **Invocado `disk_drive_2/` de `disk_drive_/tmp` ou**: o arquivo de nível de usuário (a) é carregado primeiro, então o NuGet vai para a raiz de `disk_drive_2` e localiza o arquivo (B). O NuGet também procura um arquivo de configuração no `/tmp` , mas não localiza um. Como resultado, o repositório padrão no `nuget.org` é usado, a restauração de pacote é habilitada e os pacotes são expandidos no `disk_drive_2/tmp` .
 
-- **Invocado de disk_drive_2/Project1 ou disk_drive_2/Project1/Source**: o arquivo de nível do usuário (A) é carregado primeiro e então, o NuGet carrega o arquivo (B) da raiz de disk_drive_2, seguido pelo arquivo (C). As configurações em (C) substituirão as de (B) e (A), portanto, o `repositoryPath` em que os pacotes são instalados são disk_drive_2/Project1/External/Packages em vez de *disk_drive_2/tmp*. Além disso, como (C) limpa o `<packageSources>`, o nuget.org não está mais disponível como uma origem, restando apenas `https://MyPrivateRepo/ES/nuget`.
+- **Invocado `disk_drive_2/Project1` de `disk_drive_2/Project1/Source` ou**: o arquivo de nível de usuário (a) é carregado primeiro, em seguida, o NuGet carrega o arquivo (B) da raiz de `disk_drive_2` , seguido por arquivo (C). As configurações em (C) substituem aquelas em (B) e (A), de modo que os `repositoryPath` pacotes de onde são instalados são, `disk_drive_2/Project1/External/Packages` em vez de `disk_drive_2/tmp` . Além disso, como (C) limpa o `<packageSources>`, o nuget.org não está mais disponível como uma origem, restando apenas `https://MyPrivateRepo/ES/nuget`.
 
-- **Invocado de disk_drive_2/Project2 ou disk_drive_2/Project2/Source**: o arquivo de nível de usuário (A) é carregado primeiro e seguido pelos arquivos (B) e (D). Como `packageSources` não foi apagado, ambos `nuget.org` e `https://MyPrivateRepo/DQ/nuget` estão disponíveis como origens. Pacotes são expandidos em disk_drive_2/tmp conforme especificado em (B).
+- **Invocado `disk_drive_2/Project2` de `disk_drive_2/Project2/Source` ou**: o arquivo de nível de usuário (a) é carregado primeiro seguido pelo arquivo (B) e arquivo (D). Como `packageSources` não foi apagado, ambos `nuget.org` e `https://MyPrivateRepo/DQ/nuget` estão disponíveis como origens. Os pacotes são expandidos no `disk_drive_2/tmp` conforme especificado em (B).
 
 ## <a name="additional-user-wide-configuration"></a>Configuração de todo o usuário adicional
 
@@ -217,11 +215,11 @@ O arquivo `NuGetDefaults.Config` existe para especificar origens de pacote do qu
 >
 > Além disso, nem `NuGetDefaults.Config` qualquer outro mecanismo no NuGet pode impedir o acesso a fontes de pacote como NuGet.org. Se uma organização quiser bloquear tal acesso, ela deverá usar outros meios, como firewalls para fazer isso.
 
-### <a name="nugetdefaultsconfig-location"></a>Local do NuGetDefaults.Config
+### <a name="nugetdefaultsconfig-location"></a>`NuGetDefaults.Config` local
 
 A tabela a seguir descreve onde o arquivo `NuGetDefaults.Config` deve ser armazenado, dependendo do sistema operacional de destino:
 
-| Plataforma do SO  | Local de NuGetDefaults.Config |
+| Plataforma do SO  | `NuGetDefaults.Config` Local |
 | --- | --- |
 | Windows      | **Visual Studio 2017 ou NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 e anteriores ou NuGet 3.x e anteriores:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (normalmente `~/.local/share` ou `/usr/local/share`, dependendo da distribuição do SO)|
@@ -230,9 +228,9 @@ A tabela a seguir descreve onde o arquivo `NuGetDefaults.Config` deve ser armaze
 
 - `packageSources`: esta coleção tem o mesmo significado que `packageSources` em arquivos de configuração regulares e especifica as origens padrão. O NuGet usa as origens em ordem ao instalar ou atualizar pacotes em projetos usando o formato de gerenciamento `packages.config`. Para projetos usando o formato PackageReference, o NuGet usa origens locais primeiro e, em seguida, origens em compartilhamentos de rede e origens em HTTP, independentemente da ordem dos arquivos de configuração. O NuGet sempre ignora a ordem de origens com operações de restauração.
 
-- `disabledPackageSources`: esta coleção também tem o mesmo significado que arquivos `NuGet.Config`, em que cada origem afetada é listada por seu nome e um valor true/false que indica se ela está desabilitada. Isso permite que o nome de origem e a URL permaneçam em `packageSources` sem que ele seja ativado por padrão. Desenvolvedores individuais podem reabilitar a origem definindo o valor dela para falso em outros arquivos `NuGet.Config` sem a necessidade de localizar a URL correta novamente. Isso também é útil para fornecer aos desenvolvedores uma lista completa de URLs de origem interna para uma organização, permitindo somente a origem de uma equipe individual por padrão.
+- `disabledPackageSources`: essa coleção também tem o mesmo significado que nos `NuGet.Config` arquivos, onde cada fonte afetada é listada por seu nome e um `true` / `false` valor que indica se ele está desabilitado. Isso permite que o nome de origem e a URL permaneçam em `packageSources` sem que ele seja ativado por padrão. Os desenvolvedores individuais podem reabilitar a origem definindo o valor da origem como `false` em outros `NuGet.Config` arquivos sem precisar encontrar a URL correta novamente. Isso também é útil para fornecer aos desenvolvedores uma lista completa de URLs de origem interna para uma organização, permitindo somente a origem de uma equipe individual por padrão.
 
-- `defaultPushSource`: especifica o destino padrão para `nuget push` operações, substituindo o padrão interno de NuGet.org. Os administradores podem implantar essa configuração para evitar a publicação de pacotes internos para o nuget.org público por acidente, pois os desenvolvedores precisam especificamente usar `nuget push -Source` para publicar no NuGet.org.
+- `defaultPushSource`: especifica o destino padrão para `nuget push` operações, substituindo o padrão interno de `nuget.org` . Os administradores podem implantar essa configuração para evitar a publicação de pacotes internos para o público `nuget.org` por acidente, pois os desenvolvedores precisam usar especificamente `nuget push -Source` para publicar no `nuget.org` .
 
 ### <a name="example-nugetdefaultsconfig-and-application"></a>Exemplo de NuGetDefaults.Config e aplicativo
 

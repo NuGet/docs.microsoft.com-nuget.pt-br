@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a3d2504528249f3545e2eb5d9bce7713029638db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426941"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901584"
 ---
 # <a name="scoped-api-keys"></a>Chaves de API no escopo
 
@@ -49,7 +49,7 @@ No exemplo a seguir, você tem uma chave de API chamada `Contoso service CI` que
 
 Se estiver trabalhando em vários pacotes e tiver uma lista grande de pacotes para gerenciar, opte por usar padrões de recurso de curinga para selecionar vários pacotes juntos. Por exemplo, caso deseje conceder escopos específicos a uma chave para todos os pacotes cuja ID comece com `Fabrikam.Service`, faça isso especificando `fabrikam.service.*` na caixa de texto **Padrão glob**.
 
-![Criar chaves de API](media/scoped-api-keys-glob-pattern.png)
+![Criar chaves de API-2](media/scoped-api-keys-glob-pattern.png)
 
 O uso de padrões glob para determinar as permissões da chave de API também se aplica a novos pacotes que correspondem ao padrão glob. Por exemplo, se você tentar efetuar push de um novo pacote chamado `Fabrikam.Service.Framework`, poderá fazer isso com a chave criada anteriormente, pois o pacote corresponde ao padrão glob `fabrikam.service.*`.
 
@@ -57,19 +57,19 @@ O uso de padrões glob para determinar as permissões da chave de API também se
 
 Por segurança, uma chave recém-criada nunca é mostrada na tela e só fica disponível por meio do botão **Copiar**. Da mesma forma, a chave não é acessível depois que a página é atualizada.
 
-![Criar chaves de API](media/scoped-api-keys-obtain-keys.png)
+![Criar chaves de API-3](media/scoped-api-keys-obtain-keys.png)
 
 ## <a name="edit-existing-api-keys"></a>Editar as chaves de API existentes
 
 Além disso, o ideal é atualizar as permissões de chave e os escopos sem alterar a própria chave. Caso você tenha uma chave com escopos específicos para um único pacote, poderá optar por aplicar os mesmos escopos a um ou muitos outros pacotes.
 
-![Criar chaves de API](media/scoped-api-keys-edit.png)
+![Criar chaves de API-4](media/scoped-api-keys-edit.png)
 
 ## <a name="refresh-or-delete-existing-api-keys"></a>Atualizar ou excluir as chaves de API existentes
 
 O proprietário da conta pode optar por atualizar a chave, caso em que a permissão (nos pacotes), o escopo e a expiração permanecem os mesmos, mas uma nova chave é emitida, tornando a chave antiga inutilizável. Isso é útil no gerenciamento de chaves obsoletas ou quando há potencial de um vazamento da chave de API.
 
-![Criar chaves de API](media/scoped-api-keys-refresh.png)
+![Criar chaves de API-5](media/scoped-api-keys-refresh.png)
 
 Você também poderá optar por excluir essas chaves se elas não forem mais necessárias. A exclusão de uma chave remove a chave e a torna inutilizável.
 

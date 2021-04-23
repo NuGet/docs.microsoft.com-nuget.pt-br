@@ -5,14 +5,14 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: afc06c81bf0344f2086efd19111cc60d24d7f723
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 38620058bccde876152328302a6049f011c149db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859506"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901857"
 ---
-# <a name="nugetconfig-reference"></a>Referência de nuget.config
+# <a name="nugetconfig-reference"></a>`nuget.config` referência
 
 O comportamento do NuGet é controlado por configurações `NuGet.Config` em `nuget.config` arquivos diferentes ou conforme descrito em [configurações comuns do NuGet](../consume-packages/configuring-nuget-behavior.md).
 
@@ -350,7 +350,7 @@ Se uma variável de ambiente não for encontrada, o NuGet usa o valor literal do
 
 A tabela abaixo mostra a sintaxe da variável ambiente e o suporte ao separador de caminho para arquivos de NuGet.Config.
 
-### <a name="nugetconfig-environment-variable-support"></a>Suporte à variável de ambiente NuGet.Config
+### <a name="nugetconfig-environment-variable-support"></a>`NuGet.Config` suporte à variável de ambiente
 
 | Sintaxe | Separador de dir | nuget.exe do Windows | dotnet.exe do Windows | nuget.exe do Mac (em mono) | dotnet.exe Mac |
 |---|---|---|---|---|---|

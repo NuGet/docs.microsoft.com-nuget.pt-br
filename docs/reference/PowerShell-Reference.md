@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 98bea8a225f4864953f898ef57b26e9093f7c2e9
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7bc0395a98e75fe006e048b91d84cb5c17220161
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779373"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901883"
 ---
 # <a name="powershell-reference"></a>Referência do PowerShell
 
@@ -20,7 +20,7 @@ O console do Gerenciador de pacotes fornece uma interface do PowerShell no Visua
 > Todos os comandos do PowerShell se relacionam apenas com o consumo do pacote. Nenhum comando do PowerShell está relacionado à criação e publicação de pacotes, exceto na medida em que um pacote também pode ser um consumidor de outros pacotes.
 
 > [!Important]
-> Os comandos listados aqui são específicos do console do Gerenciador de pacotes no Visual Studio e são diferentes dos [comandos do módulo gerenciamento de pacotes](/powershell/module/packagemanagement/?view=powershell-6) que estão disponíveis em um ambiente geral do PowerShell. Especificamente, cada ambiente tem comandos que não estão disponíveis no outro, e comandos com o mesmo nome também podem diferir em seus argumentos específicos. Ao usar o console do Gerenciamento de Pacotes no Visual Studio, os comandos e argumentos documentados neste tópico atual se aplicam.
+> Os comandos listados aqui são específicos do console do Gerenciador de pacotes no Visual Studio e são diferentes dos [comandos do módulo gerenciamento de pacotes](/powershell/module/packagemanagement) que estão disponíveis em um ambiente geral do PowerShell. Especificamente, cada ambiente tem comandos que não estão disponíveis no outro, e comandos com o mesmo nome também podem diferir em seus argumentos específicos. Ao usar o console do Gerenciamento de Pacotes no Visual Studio, os comandos e argumentos documentados neste tópico atual se aplicam.
 
 | Comandos comuns | Descrição | Versão do NuGet |
 | --- | --- | --- |

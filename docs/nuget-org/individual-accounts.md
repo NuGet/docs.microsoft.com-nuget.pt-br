@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5224a4f5be519e1d72285562c1611d047582f7de
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237608"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901558"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Contas individuais no NuGet.org
 
@@ -28,11 +28,11 @@ Para criar uma conta do NuGet.org, você precisa ter uma MSA (conta Microsoft pe
 
 1. Vá para a [página de logon do NuGet.org](https://www.nuget.org/users/account/LogOn).
 
-1. Clique no botão **Entrar com a conta Microsoft** .
+1. Clique no botão **Entrar com a conta Microsoft**.
 
 1. Insira os detalhes de sua conta Microsoft ou sua conta do Azure Active Directory.
 
-1. Clique em **Sim** para aceitar as permissões a serem concedidas ao aplicativo do *NuGet.org* .
+1. Clique em **Sim** para aceitar as permissões a serem concedidas ao aplicativo do *NuGet.org*.
 
    ![Como conceder permissões ao NuGet.org](media/nuget-org-permissions.png)
 
@@ -50,23 +50,23 @@ Agora você tem uma conta do NuGet.org. Realize o gerenciamento de contas na pá
 
 A autenticação de dois fatores, ou 2FA, é uma camada extra de segurança usada ao fazer logon em sites ou aplicativos. Com o 2FA, você precisa fazer logon com sua conta da Microsoft (MSA) e fornecer outra forma de autenticação que só você conhece ou tem acesso ao. Para proteger melhor sua conta, habilite a autenticação de dois fatores (recomendada).
 
-1. Depois de entrar em sua conta, abra seu perfil e escolha **Habilitar** em **Conta de logon** .
+1. Depois de entrar em sua conta, abra seu perfil e escolha **Habilitar** em **Conta de logon**.
 
    ![Habilitar 2FA](media/nuget-org-register-2fa.png)
 
-   Você verá uma mensagem informando que, na próxima vez que entrar em *nuget.org* , serão solicitadas credenciais adicionais.
+   Você verá uma mensagem informando que, na próxima vez que entrar em *nuget.org*, serão solicitadas credenciais adicionais.
 
 2. Para concluir a autenticação neste momento, saia e entre novamente.
 
 3. Ao entrar, escolha se deseja receber uma mensagem de texto ou email como uma segunda forma de autenticação.
 
-   Verifique o número de telefone ou email já associados à sua conta Microsoft. Talvez seja necessário inserir um novo número de telefone ou email para sua conta. Nesse caso, insira as informações necessárias como instruído e clique em **Avançar** .
+   Verifique o número de telefone ou email já associados à sua conta Microsoft. Talvez seja necessário inserir um novo número de telefone ou email para sua conta. Nesse caso, insira as informações necessárias como instruído e clique em **Avançar**.
 
-   ![Habilitar 2FA](media/nuget-org-sign-in-2fa.png)
+   ![Habilitar 2FA e entrar no telefone](media/nuget-org-sign-in-2fa.png)
 
 4. Verifique seu dispositivo ou conta de email e insira o código que você acabou de receber.
 
-   ![Habilitar 2FA](media/nuget-org-enter-code-2fa.png)
+   ![Habilitar 2FA e inserir código](media/nuget-org-enter-code-2fa.png)
 
 5. Siga as instruções adicionais para concluir a autenticação de dois fatores.
 

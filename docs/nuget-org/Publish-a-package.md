@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 05a16d8bf609d727aba3ddbc42959a3deb97b24b
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775982"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901909"
 ---
 # <a name="publishing-packages"></a>Publicando pacotes
 
@@ -38,11 +38,9 @@ Em seguida, você poderá carregar o pacote por meio do portal da Web nuget.org,
 
 1. nuget.org informa se o nome do pacote está disponível. Se não estiver, altere o identificador de pacote no seu projeto, recompile e tente carregar novamente.
 
-1. Se o nome do pacote estiver disponível, nuget.org abrirá uma seção **Verify** (Verificar) em que é possível examinar os metadados do manifesto do pacote. Para alterar os metadados, edite seu projeto (arquivo de projeto ou arquivo `.nuspec`), recompile, recrie o pacote e carregue-o novamente.
+1. Se o nome do pacote estiver disponível, nuget.org abrirá uma seção **Verify** (Verificar) em que é possível examinar os metadados do manifesto do pacote. Se você tiver incluído um [arquivo Leiame](/docs/nuget-org/package-readme-on-nuget-org.md) em seu pacote, confira a visualização para garantir que todo o conteúdo esteja sendo renderizado corretamente. Para alterar os metadados, edite seu projeto (arquivo de projeto ou arquivo `.nuspec`), recompile, recrie o pacote e carregue-o novamente.
 
-1. Em **Import Documentation** (Importar Documentação), você pode colar Markdown, apontar para seus documentos com uma URL ou carregar um arquivo de documentação.
-
-1. Quando todas as informações estiverem prontas, selecione o botão **Submit** (Enviar)
+2. Quando todas as informações estiverem prontas, selecione o botão **Submit** (Enviar)
 
 ### <a name="command-line"></a>Linha de Comando
 

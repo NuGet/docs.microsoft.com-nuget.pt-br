@@ -5,20 +5,20 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 110b41e830636d60741b14292c17840aa5a63dfd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ad551b8701cfc2061f7721fb050ed9b5a4fede32
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777438"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901688"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (console do Gerenciador de pacotes no Visual Studio)
 
-*Este tópico descreve o comando no [console do Gerenciador de pacotes](../../consume-packages/install-use-packages-powershell.md) no Visual Studio no Windows. Para o comando genérico Install-Package do PowerShell, consulte a [referência do PackageManagement do PowerShell](/powershell/module/packagemanagement/?view=powershell-6).*
+*Este tópico descreve o comando no [console do Gerenciador de pacotes](../../consume-packages/install-use-packages-powershell.md) no Visual Studio no Windows. Para o comando genérico Install-Package do PowerShell, consulte a [referência do PackageManagement do PowerShell](/powershell/module/packagemanagement).*
 
 Instala um pacote e suas dependências em um projeto.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 ```ps
 Install-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Source] <string>] 
@@ -36,7 +36,7 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parâmetro | Descrição |
 | --- | --- |
-| Id | Necessária O identificador do pacote a ser instalado. (*3.0 +*) O identificador pode ser um caminho ou uma URL de um `packages.config` arquivo ou `.nupkg` arquivo. A opção-ID em si é opcional. |
+| ID | Necessária O identificador do pacote a ser instalado. (*3.0 +*) O identificador pode ser um caminho ou uma URL de um `packages.config` arquivo ou `.nupkg` arquivo. A opção-ID em si é opcional. |
 | IgnoreDependencies | Instale somente este pacote e não suas dependências. |
 | ProjectName | O projeto no qual instalar o pacote, padronizando para o projeto padrão. |
 | Fonte | O caminho da URL ou da pasta para a origem do pacote a ser pesquisado. Os caminhos de pasta local podem ser absolutos ou relativos à pasta atual. Se omitido, `Install-Package` pesquisa a origem do pacote selecionada no momento. |

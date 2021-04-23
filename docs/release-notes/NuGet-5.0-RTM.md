@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 637db1ae128ce020c33e54e56148c848a5f905a5
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 19173d2be7cd66b65651655385466b40f5e08352
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776220"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901740"
 ---
 # <a name="nuget-50-release-notes"></a>Notas de versão do NuGet 5,0
 
@@ -27,7 +27,7 @@ Veículos de distribuição do NuGet:
 
 ## <a name="summary-whats-new-in-50"></a>Resumo: o que há de novo no 5,0
 
-* Suporte para restaurar [soluções filtradas](/visualstudio/ide/filtered-solutions?view=vs-2019) no Visual Studio 2019- [#5820](https://github.com/NuGet/Home/issues/5820)
+* Suporte para restaurar [soluções filtradas](/visualstudio/ide/filtered-solutions) no Visual Studio 2019- [#5820](https://github.com/NuGet/Home/issues/5820)
 * `BuildTransitive` a pasta permite que os pacotes contribuam de forma transitiva destinos/props para o projeto de host- [#6091](https://github.com/NuGet/Home/issues/6091)
 * Melhor suporte para cenários de PackageReference no NuGet IVs APIs- [#7005](https://github.com/NuGet/Home/issues/7005), [#7493](https://github.com/NuGet/Home/issues/7493)
 * `nuget.exe pack project.json` foi preterido- [#7928](https://github.com/NuGet/Home/issues/7928)

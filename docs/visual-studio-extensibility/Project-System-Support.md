@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: 7af330f88b47352666933598719d9c8f8cb66a78
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 9f1ddfd20835cc3a0f9af40a8b4e712c218b31bc
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779411"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901402"
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Suporte do NuGet para o sistema de projetos do Visual Studio
 
@@ -113,6 +113,6 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
 
 ## <a name="dte-support"></a>Suporte a DTE
 
-O NuGet comanda o sistema do projeto para adicionar referências, itens de conteúdo e importações do MSBuild chamando [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017), que é a interface de automação do Visual Studio nível superior. O DTE é um conjunto de interfaces COM que você já pode implementar.
+O NuGet comanda o sistema do projeto para adicionar referências, itens de conteúdo e importações do MSBuild chamando [DTE](/dotnet/api/envdte.dte), que é a interface de automação do Visual Studio nível superior. O DTE é um conjunto de interfaces COM que você já pode implementar.
 
 Se o tipo de projeto é baseado no CPS, o DTE é implementado para você.

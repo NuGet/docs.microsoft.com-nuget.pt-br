@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
-ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
+ms.openlocfilehash: c0622520a325000d5fcb8fb884cb509ee4b641f4
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550369"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901896"
 ---
 # <a name="signing-nuget-packages"></a>Assinando pacotes NuGet
 
@@ -19,7 +19,7 @@ Os pacotes assinados permitem verificações de integridade do conteúdo que ofe
 
 ## <a name="get-a-code-signing-certificate"></a>Obter um certificado de assinatura de código
 
-Certificados válidos podem ser obtidos de uma autoridade de certificação pública como [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Sign global](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certal](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)etc. A lista completa de autoridades de certificação confiável pelo Windows pode ser obtida do [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) .
+Certificados válidos podem ser obtidos de uma autoridade de certificação pública, como [DigiCert](https://www.digicert.com/code-signing/), [Sign global](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certal](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)etc. A lista completa de autoridades de certificação confiável pelo Windows pode ser obtida do [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) .
 
 Você pode usar certificados emitidos por conta própria para fins de teste. No entanto, os pacotes assinados usando certificados emitidos por conta própria não são aceitos pelo NuGet.org. Saiba mais sobre como [criar um certificado de teste](#create-a-test-certificate)
 

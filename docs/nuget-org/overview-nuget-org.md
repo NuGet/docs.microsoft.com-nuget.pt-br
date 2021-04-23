@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9a75ecbc589afa664e5684005e077b02913e8039
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2dac6ebd6367f3ed1a5ef9e81d843867a4a22f62
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67427011"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901870"
 ---
 # <a name="overview-of-nugetorg"></a>Visão geral do NuGet.org
 
@@ -18,7 +18,7 @@ O NuGet.org é um host público de pacotes NuGet que são utilizados por milhõe
 
 ## <a name="role-of-nugetorg-in-the-nuget-ecosystem"></a>Função do NuGet.org no ecossistema do NuGet
 
-Em seu papel de host público, NuGet.org própria mantém o repositório central de mais de 100.000 pacotes exclusivos em [nuget.org](https://www.nuget.org). NuGet.org não é o único host possível para pacotes. A tecnologia do NuGet também permite hospedar pacotes em modo privado na nuvem (como o Azure DevOps), em uma rede privada ou, até mesmo, apenas no sistema de arquivos local. Caso esteja interessado em outro host ou outra opção de hospedagem, confira [Como hospedar seus próprios feeds do NuGet](../hosting-packages/overview.md).
+Em sua função como um host público, o próprio NuGet.org mantém o repositório central de mais de 100.000 pacotes exclusivos em [NuGet.org](https://www.nuget.org). NuGet.org não é o único host possível para pacotes. A tecnologia do NuGet também permite hospedar pacotes em modo privado na nuvem (como o Azure DevOps), em uma rede privada ou, até mesmo, apenas no sistema de arquivos local. Caso esteja interessado em outro host ou outra opção de hospedagem, confira [Como hospedar seus próprios feeds do NuGet](../hosting-packages/overview.md).
 
 O NuGet.org, como qualquer host para pacotes NuGet, serve como o ponto de conexão entre os *criadores* e os *consumidores* do pacote. Os criadores criam pacotes NuGet úteis e os publicam. Os consumidores pesquisam então por pacotes úteis e compatíveis em hosts acessíveis, baixando e incluindo esses pacotes em seus projetos. Depois de instalado em um projeto, as APIs dos pacotes estão disponíveis para o restante do código do projeto.
 
@@ -48,6 +48,6 @@ Para usar o NuGet.org como um repositório de pacotes com clientes do NuGet, voc
 
 `https://api.nuget.org/v3/index.json`
 
-Clientes mais antigos ainda podem usar o protocolo V2 para chegar a NuGet.org. No entanto, observe que os clientes NuGet 3.0 ou posteriores terão um serviço mais lento e menos confiável usando o protocolo V2:
+Clientes mais antigos ainda podem usar o protocolo v2 para alcançar o NuGet.org. No entanto, observe que os clientes NuGet 3,0 ou posteriores terão um serviço mais lento e menos confiável usando o protocolo v2:
 
-`https://www.nuget.org/api/v2` (**O protocolo V2 foi preterido.**)
+`https://www.nuget.org/api/v2` (**O protocolo v2 foi preterido!**)

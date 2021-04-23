@@ -7,10 +7,11 @@
 ## [Publicar um pacote](publish-a-package.md)
 ## [Reserva de prefixo da ID do pacote](id-prefix-reservation.md)
 ## [Reprovação de pacote](deprecate-packages.md)
+## [Leiame do pacote](package-readme-on-nuget-org.md)
 # Políticas
 ## [Solicitações de dados](policies/Data-requests.md)
 ## [Solução de controvérsias](policies/dispute-resolution.md)
-## [Exclusão de pacotes](policies/deleting-packages.md)
+## [Excluindo pacotes](policies/deleting-packages.md)
 ## [Controles de exportação](policies/export-control.md)
 # Referência
 ## [API do NuGet](../api/overview.md)

@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387368"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901479"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet empacotar e restaurar como MSBuild destinos
 
@@ -52,7 +52,7 @@ A tabela a seguir descreve as MSBuild Propriedades que podem ser adicionadas a u
 > [!NOTE]
 > `Owners``Summary`as propriedades e de `.nuspec` não têm suporte com MSBuild .
 
-| Atributo/ nuspec valor | MSBuild Propriedade | Padrão | Anotações |
+| Atributo/ nuspec valor | MSBuild Propriedade | Padrão | Observações |
 |--------|--------|--------|--------|
 | `Id` | `PackageId` | `$(AssemblyName)` | `$(AssemblyName)` de MSBuild |
 | `Version` | `PackageVersion` | Versão | Isso é compatível com semver, por exemplo, `1.0.0` `1.0.0-beta` ou `1.0.0-beta-00345` |
@@ -162,6 +162,8 @@ Por exemplo:
 Para o nuspec equivalente, dê uma olhada na [ nuspec referência para o ícone](nuspec.md#icon).
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
+
+*Com suporte com o **NuGet 5.10.0 Preview 2**  /  **.NET 5.0.3** e posterior*
 
 Ao empacotar um arquivo Leiame, você precisa usar a `PackageReadmeFile` propriedade para especificar o caminho do pacote, em relação à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. Os formatos de arquivo com suporte incluem apenas redução (*. MD*).
 

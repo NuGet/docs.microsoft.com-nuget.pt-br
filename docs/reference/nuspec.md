@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: ed865aad6f72752adcf3e3921287a20b961c4a8a
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387407"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901805"
 ---
 # <a name="nuspec-reference"></a>Referência do .nuspec
 
@@ -207,6 +207,8 @@ Para o equivalente do MSBuild, dê uma olhada no [empacotamento de um arquivo de
 
 #### <a name="readme"></a>leiame
 
+*Com suporte com o **NuGet 5.10.0 Preview 2** e posterior*
+
 Ao empacotar um arquivo Leiame, você precisa usar o `readme` elemento para especificar o caminho do pacote, em relação à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. Os formatos de arquivo com suporte incluem apenas redução (*. MD*).
 
 Por exemplo, você adicionaria o seguinte ao seu nuspec para empacotar um arquivo Leiame com seu projeto:
@@ -226,7 +228,7 @@ Por exemplo, você adicionaria o seguinte ao seu nuspec para empacotar um arquiv
 </package>
 ```
 
-Para o equivalente do MSBuild, dê uma olhada no [empacotamento de um arquivo Leiame](msbuild-targets.md#packagereadmefile).
+Para o equivalente do MSBuild, dê uma olhada no [empacotamento de um arquivo Leiame](msbuild-targets.md#packagereadmefile). 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Um valor booliano que especifica se o cliente precisa solicitar que o consumidor aceite a licença do pacote antes de instalá-lo.
@@ -255,7 +257,7 @@ Ao carregar um pacote no nuget.org, o `copyright` campo é limitado a 4000 carac
 #### <a name="language"></a>Linguagem
 A identificação de localidade para o pacote. Consulte [Criando pacotes localizados](../create-packages/creating-localized-packages.md).
 
-#### <a name="tags"></a>marcas
+#### <a name="tags"></a>tags
 Uma lista delimitada por espaço de marcas e palavras-chave que descrevem o pacote e auxiliam na descoberta de pacotes por meio de pesquisa e filtragem. 
 
 Ao carregar um pacote no nuget.org, o `tags` campo é limitado a 4000 caracteres.
@@ -397,7 +399,7 @@ Ao carregar um pacote no nuget.org, cada atributo de dependência `id` é limita
 | compilar | lib |
 | compilar | build (objetos e destinos do MSBuild) |
 | nativa | nativa |
-| nenhum | Nenhuma pasta |
+| nenhuma | Nenhuma pasta |
 | all | Todas as pastas |
 
 Por exemplo, as linhas a seguir indicam as dependências no `PackageA` versão 1.1.0 ou superior e `PackageB` versão 1.x.

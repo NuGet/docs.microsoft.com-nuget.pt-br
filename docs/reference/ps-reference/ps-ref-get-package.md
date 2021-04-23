@@ -5,20 +5,20 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 8394f888ec3d5e57eacd351a4867173da1070ead
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7c91faecaac2967c7a01dd81e72b9097e7bd6cae
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777490"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901727"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (console do Gerenciador de pacotes no Visual Studio)
 
-*Este tópico descreve o comando no [console do Gerenciador de pacotes](../../consume-packages/install-use-packages-powershell.md) no Visual Studio no Windows. Para o comando genérico Get-Package do PowerShell, consulte a [referência do PackageManagement do PowerShell](/powershell/module/packagemanagement/?view=powershell-6).*
+*Este tópico descreve o comando no [console do Gerenciador de pacotes](../../consume-packages/install-use-packages-powershell.md) no Visual Studio no Windows. Para o comando genérico Get-Package do PowerShell, consulte a [referência do PackageManagement do PowerShell](/powershell/module/packagemanagement).*
 
 Recupera a lista de pacotes instalados no repositório local, lista os pacotes disponíveis de uma origem de pacote quando usados com a opção-ListAvailable ou lista as atualizações disponíveis quando usadas com a opção-Update.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 ```ps
 Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]

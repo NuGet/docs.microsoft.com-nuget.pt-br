@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e5dfd9f8dd0439751ddd3863cad03f3b463e1487
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 6cdc826c85f233c7108a53ad244aa8c47df0be67
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859233"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901831"
 ---
 # <a name="restore-packages-using-package-restore"></a>Restaurar pacotes usando a Restauração de Pacote
 
@@ -181,7 +181,7 @@ msbuild -restore
 
 ## <a name="restore-using-azure-pipelines"></a>Restaurar usando o Azure Pipelines
 
-Ao criar uma definição de build no Azure Pipelines, inclua a tarefa [restore](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) do NuGet ou a tarefa [restore](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) do .NET Core na definição antes de qualquer tarefa de build. Alguns modelos de build incluem a tarefa de restauração por padrão.
+Ao criar uma definição de build no Azure Pipelines, inclua a tarefa [restore](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) do NuGet ou a tarefa [restore](/azure/devops/pipelines/tasks/build/dotnet-core-cli) do .NET Core na definição antes de qualquer tarefa de build. Alguns modelos de build incluem a tarefa de restauração por padrão.
 
 ## <a name="restore-using-azure-devops-server"></a>Restaurar usando o Azure DevOps Server
 
