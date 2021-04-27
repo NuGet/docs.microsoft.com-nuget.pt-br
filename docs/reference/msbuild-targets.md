@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
-ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
+ms.openlocfilehash: 8ebf0329f9dc7af09a59f1498a934754842df365
+ms.sourcegitcommit: 08c5b2c956a1a45f0ea9fb3f50f55e41312d8ce3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107901479"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108067304"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet empacotar e restaurar como MSBuild destinos
 
@@ -56,28 +56,28 @@ A tabela a seguir descreve as MSBuild Propriedades que podem ser adicionadas a u
 |--------|--------|--------|--------|
 | `Id` | `PackageId` | `$(AssemblyName)` | `$(AssemblyName)` de MSBuild |
 | `Version` | `PackageVersion` | Versão | Isso é compatível com semver, por exemplo, `1.0.0` `1.0.0-beta` ou `1.0.0-beta-00345` |
-| `VersionPrefix` | `PackageVersionPrefix` | vazio | Configurando `PackageVersion` substituições `PackageVersionPrefix` |
-| `VersionSuffix` | `PackageVersionSuffix` | vazio | `$(VersionSuffix)` de MSBuild . Configurando `PackageVersion` substituições `PackageVersionSuffix` |
+| `VersionPrefix` | `PackageVersionPrefix` | empty | Configurando `PackageVersion` substituições `PackageVersionPrefix` |
+| `VersionSuffix` | `PackageVersionSuffix` | empty | `$(VersionSuffix)` de MSBuild . Configurando `PackageVersion` substituições `PackageVersionSuffix` |
 | `Authors` | `Authors` | Nome do usuário atual | Uma lista separada por ponto-e-vírgula de autores de pacotes, que correspondem aos nomes de perfil em nuget.org. Eles são exibidos na NuGet Galeria no NuGet.org e são usados para fazer referência cruzada de pacotes pelos mesmos autores. |
 | `Owners` | N/D | Não presente em nuspec | |
 | `Title` | `Title` | O `PackageId` | Um título amigável do pacote, geralmente usado em exibições de interface do usuário como em nuget.org e no Gerenciador de Pacotes do Visual Studio. |
 | `Description` | `Description` | “Package Description” | Uma descrição longa para o manifesto do assembly. Se `PackageDescription` não for especificado, essa propriedade também será usada como a descrição do pacote. |
-| `Copyright` | `Copyright` | vazio | Detalhes sobre direitos autorais do pacote. |
+| `Copyright` | `Copyright` | empty | Detalhes sobre direitos autorais do pacote. |
 | `RequireLicenseAcceptance` | `PackageRequireLicenseAcceptance` | `false` | Um valor booliano que especifica se o cliente deve solicitar que o consumidor aceite a licença do pacote antes de instalá-lo. |
-| `license` | `PackageLicenseExpression` | vazio | Corresponde ao `<license type="expression">`. Consulte [empacotando uma expressão de licença ou um arquivo de licença](#packing-a-license-expression-or-a-license-file). |
-| `license` | `PackageLicenseFile` | vazio | Caminho para um arquivo de licença dentro do pacote se você estiver usando uma licença personalizada ou uma licença que não tenha sido atribuída a um identificador SPDX. Você precisa empacotar explicitamente o arquivo de licença referenciado. Corresponde ao `<license type="file">`. Consulte [empacotando uma expressão de licença ou um arquivo de licença](#packing-a-license-expression-or-a-license-file). |
-| `LicenseUrl` | `PackageLicenseUrl` | vazio | O `PackageLicenseUrl` foi preterido. Use `PackageLicenseExpression` ou `PackageLicenseFile` em vez disso. |
-| `ProjectUrl` | `PackageProjectUrl` | vazio | |
-| `Icon` | `PackageIcon` | vazio | Um caminho para uma imagem no pacote a ser usado como um ícone de pacote. Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado. Para obter mais informações, consulte [empacotando um arquivo de imagem de ícone](#packing-an-icon-image-file) e [ `icon` metadados](./nuspec.md#icon). |
-| `IconUrl` | `PackageIconUrl` | vazio | `PackageIconUrl` é preterido em favor do `PackageIcon` . No entanto, para obter a melhor experiência de nível inferior, você deve especificar, `PackageIconUrl` além do `PackageIcon` . |
-| `Readme` | `PackageReadmeFile` | vazio | Você precisa empacotar explicitamente o arquivo Leiame referenciado.|
-| `Tags` | `PackageTags` | vazio | Uma lista delimitada por ponto e vírgula de marcas que designam o pacote. |
-| `ReleaseNotes` | `PackageReleaseNotes` | vazio | Notas de versão do projeto. |
-| `Repository/Url` | `RepositoryUrl` | vazio | URL do repositório usada para clonar ou recuperar o código-fonte. Exemplo: *https://github.com/ NuGet / NuGet . Client. git*. |
-| `Repository/Type` | `RepositoryType` | vazio | Tipo de repositório. Exemplos: `git` (padrão), `tfs` . |
-| `Repository/Branch` | `RepositoryBranch` | vazio | Informações opcionais da ramificação do repositório. `RepositoryUrl` também deve ser especificado para que essa propriedade seja incluída. Exemplo: *Master* ( NuGet 4.7.0 +). |
-| `Repository/Commit` | `RepositoryCommit` | vazio | Confirmação opcional do repositório ou conjunto de alterações para indicar de qual fonte o pacote foi criado. `RepositoryUrl` também deve ser especificado para que essa propriedade seja incluída. Exemplo: *0e4d1b598f350b3dc675018d539114d1328189ef* ( NuGet 4.7.0 +). |
-| `PackageType` | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
+| `license` | `PackageLicenseExpression` | empty | Corresponde ao `<license type="expression">`. Consulte [empacotando uma expressão de licença ou um arquivo de licença](#packing-a-license-expression-or-a-license-file). |
+| `license` | `PackageLicenseFile` | empty | Caminho para um arquivo de licença dentro do pacote se você estiver usando uma licença personalizada ou uma licença que não tenha sido atribuída a um identificador SPDX. Você precisa empacotar explicitamente o arquivo de licença referenciado. Corresponde ao `<license type="file">`. Consulte [empacotando uma expressão de licença ou um arquivo de licença](#packing-a-license-expression-or-a-license-file). |
+| `LicenseUrl` | `PackageLicenseUrl` | empty | O `PackageLicenseUrl` foi preterido. Use `PackageLicenseExpression` ou `PackageLicenseFile` em vez disso. |
+| `ProjectUrl` | `PackageProjectUrl` | empty | |
+| `Icon` | `PackageIcon` | empty | Um caminho para uma imagem no pacote a ser usado como um ícone de pacote. Você precisa empacotar explicitamente o arquivo de imagem do ícone referenciado. Para obter mais informações, consulte [empacotando um arquivo de imagem de ícone](#packing-an-icon-image-file) e [ `icon` metadados](./nuspec.md#icon). |
+| `IconUrl` | `PackageIconUrl` | empty | `PackageIconUrl` é preterido em favor do `PackageIcon` . No entanto, para obter a melhor experiência de nível inferior, você deve especificar, `PackageIconUrl` além do `PackageIcon` . |
+| `Readme` | `PackageReadmeFile` | empty | Você precisa empacotar explicitamente o arquivo Leiame referenciado.|
+| `Tags` | `PackageTags` | empty | Uma lista delimitada por ponto e vírgula de marcas que designam o pacote. |
+| `ReleaseNotes` | `PackageReleaseNotes` | empty | Notas de versão do projeto. |
+| `Repository/Url` | `RepositoryUrl` | empty | URL do repositório usada para clonar ou recuperar o código-fonte. Exemplo: *https://github.com/ NuGet / NuGet . Client. git*. |
+| `Repository/Type` | `RepositoryType` | empty | Tipo de repositório. Exemplos: `git` (padrão), `tfs` . |
+| `Repository/Branch` | `RepositoryBranch` | empty | Informações opcionais da ramificação do repositório. `RepositoryUrl` também deve ser especificado para que essa propriedade seja incluída. Exemplo: *Master* ( NuGet 4.7.0 +). |
+| `Repository/Commit` | `RepositoryCommit` | empty | Confirmação opcional do repositório ou conjunto de alterações para indicar de qual fonte o pacote foi criado. `RepositoryUrl` também deve ser especificado para que essa propriedade seja incluída. Exemplo: *0e4d1b598f350b3dc675018d539114d1328189ef* ( NuGet 4.7.0 +). |
+| `PackageType` | `<PackageType>CustomType1, 1.0.0.0;CustomType2</PackageType>` | | Indica o uso pretendido do pacote. Os tipos de pacote usam o mesmo formato que as IDs de pacote e são delimitados pelo `;` . Os tipos de pacote podem ter controle de versão acrescentando um `,` e uma [`Version`](/dotnet/api/system.version) cadeia de caracteres. Consulte [definir um NuGet tipo de pacote](../create-packages/set-package-type.md) ( NuGet 3.5.0 +). |
 | `Summary` | Sem suporte | | |
 
 ### <a name="pack-target-inputs"></a>pack target inputs
@@ -163,7 +163,7 @@ Para o nuspec equivalente, dê uma olhada na [ nuspec referência para o ícone]
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
 
-*Com suporte com o **NuGet 5.10.0 Preview 2**  /  **.NET 5.0.3** e posterior*
+*Com suporte com o **NuGet 5.10.0 Preview 2**  /  **SDK do .NET 5.0.300** e posterior*
 
 Ao empacotar um arquivo Leiame, você precisa usar a `PackageReadmeFile` propriedade para especificar o caminho do pacote, em relação à raiz do pacote. Além disso, você precisa certificar-se de que o arquivo está incluído no pacote. Os formatos de arquivo com suporte incluem apenas redução (*. MD*).
 
