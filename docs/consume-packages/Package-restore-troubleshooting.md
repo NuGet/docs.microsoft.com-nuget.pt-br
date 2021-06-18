@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1c7c4ce2872e18b1ed35ccbf3355a6192ab4a9c
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 0bd14104695a15d2e4c65a13b271143809c4ba8a
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775024"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323616"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Solução de problemas de erros de restauração de pacote
 
@@ -31,7 +31,7 @@ Se você estiver usando o Visual Studio, primeiro habilite a restauração de pa
 
 ![Habilitar a restauração de pacote do NuGet em Ferramenta/Opções](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-Essas configurações também podem ser alteradas no arquivo `NuGet.config`; veja a seção de [consentimento](#consent). Se seu projeto for um projeto mais antigo que usa a restauração de pacote integrada ao MSBuild, talvez seja [necessário](package-restore.md#migrate-to-automatic-package-restore-visual-studio) migrar para a restauração automática de pacote.
+Essas configurações também podem ser alteradas no arquivo `NuGet.Config`; veja a seção de [consentimento](#consent). Se seu projeto for um projeto mais antigo que usa a restauração de pacote integrada ao MSBuild, talvez seja [necessário](package-restore.md#migrate-to-automatic-package-restore-visual-studio) migrar para a restauração automática de pacote.
 
 <a name="missing"></a>
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Esse erro ocorre ao tentar compilar um projeto com referências a um ou mais pacotes do NuGet, mas, no momento, esses pacotes não estão instalados no computador ou no projeto.
 
-- Ao usar o formato de gerenciamento [PackageReference](package-references-in-project-files.md) , esse erro pode ser um sobra de um packages.config para a migração do PackageReference e precisa ser [removido manualmente](../resources/NuGet-FAQ.md#working-with-packages) do arquivo de projeto.
+- Ao usar o formato de gerenciamento [PackageReference](package-references-in-project-files.md) , esse erro pode ser um sobra de um packages.config para a migração do PackageReference e precisa ser [removido manualmente](/nuget/resources/nuget-faq#working-with-packages) do arquivo de projeto.
 - Ao usar o [packages.config](../reference/packages-config.md), o erro significa que o pacote não está instalado na pasta `packages` na raiz da solução.
 
 Essa situação geralmente ocorre ao obter o código-fonte do projeto por meio do controle do código-fonte ou de outro download. Os pacotes normalmente são omitidos do controle do código-fonte ou dos downloads, uma vez que podem ser restaurados de feeds de pacotes, como o nuget.org (veja [Pacotes e controle do código-fonte](Packages-and-Source-Control.md)). Por outro lado, a inclusão deles sobrecarregaria o repositório ou criaria arquivos .zip desnecessariamente grandes.

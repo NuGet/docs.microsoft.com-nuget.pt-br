@@ -5,16 +5,16 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: c7b963352e0e9640844a213767a58c883ed0eeb9
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859181"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323707"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Referências de pacote ( `PackageReference` ) em arquivos de projeto
 
-As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). O uso de PackageReference, como ele é chamado, não afeta outros aspectos do NuGet; por exemplo, as configurações nos arquivos `NuGet.config` (incluindo as origens do pacote) ainda são aplicadas, conforme explicado em [Configurações comuns do NuGet](configuring-nuget-behavior.md).
+As referências de pacote, usando o nó `PackageReference`, gerenciam as dependências do NuGet diretamente nos arquivos de projeto (em vez de precisar de um arquivo `packages.config` separado). O uso de PackageReference, como ele é chamado, não afeta outros aspectos do NuGet; por exemplo, as configurações nos arquivos `NuGet.Config` (incluindo as origens do pacote) ainda são aplicadas, conforme explicado em [Configurações comuns do NuGet](configuring-nuget-behavior.md).
 
 Com o PackageReference, você também pode usar as condições do MSBuild para escolher as referências de pacote por estrutura de destino ou outros agrupamentos. Ele também proporciona um controle refinado sobre as dependências e o fluxo de conteúdo. (Para obter mais detalhes, veja [Empacotamento e restauração do NuGet como destinos do MSBuild](../reference/msbuild-targets.md).)
 
@@ -99,10 +99,10 @@ Você pode estar usando uma dependência puramente como uma estrutura de desenvo
 
 As seguintes marcas de metadados controlam ativos de dependência:
 
-| Marca | Descrição | Valor padrão |
+| Marca | Descrição | Valor Padrão |
 | --- | --- | --- |
 | IncludeAssets | Esses ativos serão consumidos | all |
-| ExcludeAssets | Esses ativos não serão consumidos | none |
+| ExcludeAssets | Esses ativos não serão consumidos | nenhum |
 | PrivateAssets | Esses ativos serão consumidos, mas não fluem para o projeto pai | contentfiles;analyzers;build |
 
 Os valores permitidos para essas marcas são os seguintes, com vários valores separados por ponto e vírgula, exceto com `all` e `none`, que devem aparecer sozinhos:
@@ -117,7 +117,7 @@ Os valores permitidos para essas marcas são os seguintes, com vários valores s
 | buildTransitive | *(5.0+)* `.props` e `.targets` na pasta `buildTransitive`, para ativos que fluem transitivamente para qualquer projeto de consumo. Confira a página de [recursos](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analisadores | Analisadores de .NET |
 | nativa | O conteúdo da pasta `native` |
-| none | Nenhuma das opções acima é usada. |
+| nenhum | Nenhuma das opções acima é usada. |
 | all | Todas as anteriores (exceto `none`) |
 
 No exemplo a seguir, tudo, exceto os arquivos de conteúdo do pacote, poderia ser consumido pelo projeto e tudo, exceto analisadores e arquivos de conteúdo, fluiria para o projeto pai.
@@ -213,7 +213,7 @@ Por padrão, nenhum alias é fornecido. Quando um alias é especificado, *todos 
 
 Você pode examinar o uso de exemplo em [NuGet\Samples](https://github.com/NuGet/Samples/tree/main/PackageReferenceAliasesExample)
 
-No arquivo de projeto, especifique os aliases da seguinte maneira:
+No arquivo de projeto, especifique os aliases da seguinte forma:
 
 ```xml
   <ItemGroup>
@@ -221,7 +221,7 @@ No arquivo de projeto, especifique os aliases da seguinte maneira:
   </ItemGroup>
 ```
 
-e no código, use-o da seguinte maneira:
+e, no código, use-o da seguinte forma:
 
 ```cs
 extern alias ExampleAlias;
@@ -240,15 +240,15 @@ namespace PackageReferenceAliasesExample
 
 ## <a name="nuget-warnings-and-errors"></a>Avisos e erros do NuGet
 
-*Esse recurso está disponível com o NuGet **4,3** ou superior e com o Visual Studio 2017 **15,3** ou superior.*
+*Esse recurso está disponível com o NuGet **4.3** ou superior e com Visual Studio 2017 **15.3** ou superior.*
 
-Para muitos cenários de pacote e restauração, todos os avisos e erros do NuGet são codificados e começam com `NU****` . Todos os avisos e erros do NuGet são listados na documentação de [referência](../reference/errors-and-warnings.md) .
+Para muitos cenários de pacote e restauração, todos os avisos e erros do NuGet são codificados e começam com `NU****` . Todos os avisos e erros do NuGet são listados na [documentação de](../reference/errors-and-warnings.md) referência.
 
 O NuGet observa as seguintes propriedades de aviso:
 
-- `TreatWarningsAsErrors`, tratar todos os avisos como erros
-- `WarningsAsErrors`, tratar avisos específicos como erros
-- `NoWarn`, ocultar avisos específicos, em todo o projeto ou em todo o pacote.
+- `TreatWarningsAsErrors`, trate todos os avisos como erros
+- `WarningsAsErrors`, trate avisos específicos como erros
+- `NoWarn`, o oculta avisos específicos, em todo o projeto ou em todo o pacote.
 
 Exemplos:
 
@@ -272,8 +272,8 @@ Exemplos:
 
 ### <a name="suppressing-nuget-warnings"></a>Suprimindo avisos do NuGet
 
-Embora seja recomendável que você resolva todos os avisos do NuGet durante as operações de pacote e restauração, em determinadas situações, a supressão deles é garantida.
-Para suprimir um projeto de aviso em geral, considere:
+Embora seja recomendável que você resolva todos os avisos do NuGet durante as operações de pacote e restauração, em determinadas situações, a supressão deles é assegurada.
+Para suprimir um projeto de aviso em todo o projeto, considere fazer:
 
 ```xml
 <PropertyGroup>
@@ -285,7 +285,7 @@ Para suprimir um projeto de aviso em geral, considere:
 </ItemGroup>
 ```
 
-Às vezes, os avisos se aplicam apenas a um determinado pacote no grafo. Podemos optar por suprimir esse aviso mais seletivamente adicionando um `NoWarn` no item PackageReference. 
+Às vezes, os avisos se aplicam somente a um determinado pacote no grafo. Podemos optar por suprimir esse aviso de forma mais seletiva adicionando `NoWarn` um no item PackageReference. 
 
 ```xml
 <PropertyGroup>
@@ -296,10 +296,10 @@ Para suprimir um projeto de aviso em geral, considere:
 </ItemGroup>
 ```
 
-#### <a name="suppressing-nuget-package-warnings-in-visual-studio"></a>Suprimindo avisos de pacote NuGet no Visual Studio
+#### <a name="suppressing-nuget-package-warnings-in-visual-studio"></a>Suprimindo avisos de pacote NuGet Visual Studio
 
-Quando no Visual Studio, você também pode [suprimir avisos](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
-) por meio do IDE.
+Quando estiver Visual Studio, você também poderá [suprimir avisos por](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
+) meio do IDE.
 
 ## <a name="locking-dependencies"></a>Bloqueio de dependências
 
@@ -378,36 +378,36 @@ ProjectA
              |------>PackageX 1.0.0
 ```
 
-Se `ProjectA` tiver uma dependência em uma versão `2.0.0` do `PackageX`, além de referências `ProjectB` que dependem da versão `1.0.0` do `PackageX`, o arquivo de bloqueio de `ProjectB` listará uma dependência na versão `1.0.0` do `PackageX`. No entanto, quando `ProjectA` o é compilado, seu arquivo de bloqueio conterá uma dependência na `PackageX` versão **`2.0.0`** e **não** `1.0.0` conforme listado no arquivo de bloqueio para `ProjectB` . Portanto, o arquivo de bloqueio de um projeto de código comum tem pouco a dizer sobre os pacotes resolvidos de projetos que dependem dele.
+Se `ProjectA` tiver uma dependência em uma versão `2.0.0` do `PackageX`, além de referências `ProjectB` que dependem da versão `1.0.0` do `PackageX`, o arquivo de bloqueio de `ProjectB` listará uma dependência na versão `1.0.0` do `PackageX`. No entanto, quando é criado, seu arquivo de bloqueio conterá uma dependência na versão e não conforme listado no `ProjectA` arquivo de bloqueio para `PackageX` **`2.0.0`**  `1.0.0` `ProjectB` . Portanto, o arquivo de bloqueio de um projeto de código comum tem pouco a dizer sobre os pacotes resolvidos de projetos que dependem dele.
 
 ### <a name="lock-file-extensibility"></a>Extensibilidade do arquivo de bloqueio
 
 Você pode controlar vários comportamentos de restauração com o arquivo de bloqueio conforme descrito abaixo:
 
-| Opção NuGet.exe | opção dotnet | Opção equivalente do MSBuild | Description |
+| NuGet.exe opção | Opção dotnet | Opção equivalente do MSBuild | Descrição |
 |:--- |:--- |:--- |:--- |
 | `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Opta pelo uso de um arquivo de bloqueio. |
-| `-LockedMode` | `--locked-mode` | RestoreLockedMode | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você deseja criar compilações repetíveis.|   
-| `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Esta opção é útil com pacotes que têm a versão flutuante definida no projeto. Por padrão, a restauração do NuGet não atualizará a versão do pacote automaticamente após cada restauração, a menos que você execute RESTORE com essa opção. |
+| `-LockedMode` | `--locked-mode` | RestoreLockedMode | Habilita o modo de bloqueio para a restauração. Isso é útil em cenários de CI/CD em que você deseja builds re repetitivas.|   
+| `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Esta opção é útil com pacotes que têm a versão flutuante definida no projeto. Por padrão, a restauração do NuGet não atualizará a versão do pacote automaticamente em cada restauração, a menos que você execute a restauração com essa opção. |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Define o local de um arquivo de bloqueio personalizado para um projeto. Por padrão, o NuGet é compatível com `packages.lock.json` no diretório raiz. Se você tiver vários projetos no mesmo diretório, o NuGet oferecerá suporte ao arquivo de bloqueio `packages.<project_name>.lock.json` específico do projeto |
 
 ## <a name="assettargetfallback"></a>AssetTargetFallback
 
-A `AssetTargetFallback` propriedade permite que você especifique versões de estrutura compatíveis adicionais para projetos que seu projeto faz referência e pacotes NuGet que seu projeto consome.
+A propriedade permite especificar versões de estrutura compatíveis adicionais para projetos que seu projeto referencia e pacotes NuGet que `AssetTargetFallback` seu projeto consome.
 
-Se você especificar uma dependência de pacote usando `PackageReference` , mas esse pacote não contiver ativos compatíveis com a estrutura de destino de seus projetos, a `AssetTargetFallback` Propriedade entrará em cena. A compatibilidade do pacote referenciado é verificada novamente usando cada estrutura de destino especificada em `AssetTargetFallback` .
-Quando um `project` ou um `package` for referenciado por meio `AssetTargetFallback` do, o aviso de [NU1701](../reference/errors-and-warnings/NU1701.md) será gerado.
+Se você especificar uma dependência de pacote usando, mas esse pacote não contém ativos compatíveis com a estrutura de destino de seus projetos, a propriedade `PackageReference` `AssetTargetFallback` entra em ação. A compatibilidade do pacote referenciado é verificado novamente usando cada estrutura de destino especificada em `AssetTargetFallback` .
+Quando um `project` ou um `package` é referenciado por meio de , `AssetTargetFallback` o aviso [NU1701](../reference/errors-and-warnings/NU1701.md) será gerado.
 
-Consulte a tabela abaixo para obter exemplos de como o `AssetTargetFallback` afeta a compatibilidade.
+Consulte a tabela abaixo para ver exemplos de como `AssetTargetFallback` afeta a compatibilidade.
 
 | Estrutura do projeto | AssetTargetFallback | Estruturas de pacote | Resultado |
 |-------------------|---------------------|--------------------|--------|
 | .NET Framework 4.7.2 | | .NET Standard 2.0 | .NET Standard 2.0 |
-| Aplicativo .NET Core 3,1 | | .NET Standard 2,0, .NET Framework 4.7.2 | .NET Standard 2.0 |
-| Aplicativo .NET Core 3,1 | | .NET Framework 4.7.2 | Incompatível, falha com [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
-| Aplicativo .NET Core 3,1 | net472;net471 | .NET Framework 4.7.2 | .NET Framework 4.7.2 com [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
+| Aplicativo .NET Core 3.1 | | .NET Standard 2.0, .NET Framework 4.7.2 | .NET Standard 2.0 |
+| Aplicativo .NET Core 3.1 | | .NET Framework 4.7.2 | Incompatível, falha com [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
+| Aplicativo .NET Core 3.1 | net472;net471 | .NET Framework 4.7.2 | .NET Framework 4.7.2 com [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
 
-Várias estruturas podem ser especificadas usando `;` como um delimitador. Para adicionar uma estrutura de fallback, você pode fazer o seguinte:
+Várias estruturas podem ser especificadas usando `;` como umlimidor. Para adicionar uma estrutura de fallback, você pode fazer o seguinte:
 
 ```xml
 <AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">

@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 69adbbad20debf2e53f247e85d638b3226c0491d
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775270"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323746"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Como o NuGet resolve as dependências do pacote
 
@@ -102,7 +102,7 @@ Com o `packages.config`, as dependências do projeto são gravadas em `packages.
 
 Com `packages.config`, o NuGet tenta resolver conflitos de dependência durante a instalação de cada pacote individual. Ou seja, se o Pacote A está sendo instalado e depende do Pacote B, e este já está listado em `packages.config` como uma dependência de outra coisa, o NuGet compara as versões do Pacote B que está sendo solicitado e tenta localizar uma versão que atenda a todas as restrições de versão. Especificamente, o NuGet seleciona a versão *principal.secundária* mais antiga que satisfaça as dependências.
 
-Por padrão, o NuGet 2.8 procura a versão de patch mais baixa (veja [Notas de versão do NuGet 2.8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Você pode controlar essa configuração por meio do atributo `DependencyVersion` em `Nuget.Config` e a opção `-DependencyVersion` na linha de comando.  
+Por padrão, o NuGet 2.8 procura a versão de patch mais baixa (veja [Notas de versão do NuGet 2.8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Você pode controlar essa configuração por meio do atributo `DependencyVersion` em `NuGet.Config` e a opção `-DependencyVersion` na linha de comando.  
 
 O processo `packages.config` para resolver as dependências fica complicado para grandes grafos de dependência. Cada nova instalação do pacote exige uma transversal de todo o grafo e aumenta as chances de conflitos de versão. Quando ocorre um conflito, a instalação é interrompida, deixando o projeto em um estado indeterminado, especialmente com possíveis modificações para o arquivo de projeto. Isso não é um problema ao usar outros formatos de gerenciamento de pacote.
 

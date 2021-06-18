@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5224a4f5be519e1d72285562c1611d047582f7de
-ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
+ms.openlocfilehash: d032b69f6eb4cbd3687ca60190c15aed9b7a4d79
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107901558"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323889"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Contas individuais no NuGet.org
 
@@ -26,7 +26,7 @@ Uma conta da organização tem uma ou mais contas individuais como seus membros.
 
 Para criar uma conta do NuGet.org, você precisa ter uma MSA (conta Microsoft pessoal) ou uma conta do AAD (Azure Active Directory). Se não tiver uma ID da Apple, [crie](https://signup.live.com) uma. Siga as etapas a seguir caso você tenha uma conta MSA ou do AAD.
 
-1. Vá para a [página de logon do NuGet.org](https://www.nuget.org/users/account/LogOn).
+1. Vá para a página [NuGet.org logon do](https://www.nuget.org/users/account/LogOn).
 
 1. Clique no botão **Entrar com a conta Microsoft**.
 
@@ -36,19 +36,19 @@ Para criar uma conta do NuGet.org, você precisa ter uma MSA (conta Microsoft pe
 
    ![Como conceder permissões ao NuGet.org](media/nuget-org-permissions.png)
 
-1. Você será redirecionado para *NuGet.org* e solicitado a registrar um nome de usuário.
+1. Você será redirecionado para o *nuget.org* e solicitado a registrar um nome de usuário.
 
 1. Especifique o nome de usuário na caixa de entrada. Observe que o nome de usuário **diferencia** maiúsculas de minúsculas e não pode ser alterado ou renomeado mais tarde.
 
    ![Especificar um nome de usuário no NuGet.org](media/nuget-org-register.png) 
 
-1. Clique no botão **registrar** .
+1. Clique no **botão Registrar.**
 
 Agora você tem uma conta do NuGet.org. Realize o gerenciamento de contas na página de [configurações da conta](https://www.nuget.org/account).
 
 ## <a name="enable-two-factor-authentication-2fa"></a>Habilitar a autenticação de dois fatores (2FA)
 
-A autenticação de dois fatores, ou 2FA, é uma camada extra de segurança usada ao fazer logon em sites ou aplicativos. Com o 2FA, você precisa fazer logon com sua conta da Microsoft (MSA) e fornecer outra forma de autenticação que só você conhece ou tem acesso ao. Para proteger melhor sua conta, habilite a autenticação de dois fatores (recomendada).
+A autenticação de dois fatores, ou 2FA, é uma camada extra de segurança usada ao fazer logom em sites ou aplicativos. Com o 2FA, você precisa fazer logoff com sua MSA (Conta Microsoft) e fornecer outra forma de autenticação que só você conhece ou tem acesso. Para proteger melhor sua conta, habilite a autenticação de dois fatores (recomendada).
 
 1. Depois de entrar em sua conta, abra seu perfil e escolha **Habilitar** em **Conta de logon**.
 
@@ -62,7 +62,7 @@ A autenticação de dois fatores, ou 2FA, é uma camada extra de segurança usad
 
    Verifique o número de telefone ou email já associados à sua conta Microsoft. Talvez seja necessário inserir um novo número de telefone ou email para sua conta. Nesse caso, insira as informações necessárias como instruído e clique em **Avançar**.
 
-   ![Habilitar 2FA e entrar no telefone](media/nuget-org-sign-in-2fa.png)
+   ![Habilitar 2FA e inserir telefone](media/nuget-org-sign-in-2fa.png)
 
 4. Verifique seu dispositivo ou conta de email e insira o código que você acabou de receber.
 
@@ -71,8 +71,8 @@ A autenticação de dois fatores, ou 2FA, é uma camada extra de segurança usad
 5. Siga as instruções adicionais para concluir a autenticação de dois fatores.
 
 > [!Tip]
-> Habilitar o 2FA para sua conta do NuGet.org não afeta as configurações de autenticação para outras contas ou serviços que podem estar vinculados ao conta Microsoft usado para fazer logon no NuGet.org.
+> A habilitação de 2FA para sua conta NuGet.org não afeta as configurações de autenticação para outras contas ou serviços que podem ser vinculados ao conta Microsoft que você usa para fazer logon no NuGet.org.
 
 ## <a name="delete-a-nugetorg-account"></a>Excluir uma conta do NuGet.org
 
-Para obter ajuda com tarefas adicionais relacionadas a contas, por exemplo, excluir uma conta do NuGet.org, confira [Gerenciamento de conta do NuGet.org](nuget-org-faq.md#nugetorg-account-management).
+Para obter ajuda com tarefas adicionais relacionadas a contas, por exemplo, excluir uma conta do NuGet.org, confira [Gerenciamento de conta do NuGet.org](/nuget/nuget-org/nuget-org-faq#nuget.org-account-management).

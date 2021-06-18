@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 92968236262f891106ab2d4cd3ba399f1644400b
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: d1d6df3bcc36d8a78fcee97099b301c9ffc440d9
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859207"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323629"
 ---
 # <a name="package-consumption-workflow"></a>Fluxo de trabalho de consumo do pacote
 
@@ -39,13 +39,13 @@ Ao adicionar o código do projeto a um repositório de origem, pacotes do NuGet 
 
 Ocasionalmente, é necessário reinstalar pacotes que já estão incluídos em um projeto, o que também pode reinstalar as dependências. É fácil fazer isso usando o comando `nuget reinstall` ou o Console do Gerenciador de Pacotes do NuGet. Para obter detalhes, consulte [Reinstalando e atualizando pacotes](../consume-packages/reinstalling-and-updating-packages.md).
 
-Por fim, o comportamento do NuGet é orientado por arquivos `Nuget.Config`. Vários arquivos podem ser usados para centralizar determinadas configurações em níveis diferentes, conforme explicado em [Configurando o comportamento do NuGet](../consume-packages/configuring-nuget-behavior.md).
+Por fim, o comportamento do NuGet é orientado por arquivos `NuGet.Config`. Vários arquivos podem ser usados para centralizar determinadas configurações em níveis diferentes, conforme explicado em [Configurando o comportamento do NuGet](../consume-packages/configuring-nuget-behavior.md).
 
 ## <a name="ways-to-install-a-nuget-package"></a>Maneiras de instalar um pacote NuGet
 
 Os pacotes NuGet são baixados e instalados por meio de um dos métodos descritos na tabela a seguir.
 
-| Ferramenta | Plataformas | Description |
+| Ferramenta | Plataformas | Descrição |
 | --- | --- | --- |
 | [CLI do dotnet](install-use-packages-dotnet-cli.md) | Tudo | Ferramenta CLI para bibliotecas .NET Core e .NET Standard, em projetos no estilo SDK que se destinam ao .NET Framework (confira o [atributo do SDK](/dotnet/core/tools/csproj#additions)). Recupera o pacote identificado pelo \<package_name\> e adiciona uma referência ao arquivo de projeto. Além disso, recupera e instala as dependências. |
 | Visual Studio | Windows e Mac | Fornece uma interface do usuário por meio da qual você pode procurar, selecionar e instalar pacotes e suas dependências em um projeto de uma origem de pacote especificada. Adicione referências a pacotes instalados ao arquivo de projeto.<ul><li>[Instalar e gerenciar pacotes usando o Visual Studio](install-use-packages-visual-studio.md)</li><li>[Incluir um pacote NuGet ao seu projeto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |

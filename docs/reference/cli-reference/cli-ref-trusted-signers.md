@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9dd3fe3786c824c4a0a1cb252aa50cfc4458a483
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: a5f3564af8b96dfa673d2252aea2e77a79c184a4
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859415"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323584"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>comando de assinantes confiáveis (NuGet CLI)
 
@@ -62,14 +62,14 @@ Adiciona um signatário confiável com o nome fornecido para a configuração. E
 ## <a name="options-for-add-based-on-a-package"></a>Opções para adicionar com base em um pacote
 
 ```cli
-nuget trusted-signers add <package(s)> -Name <name> [options]
+nuget trusted-signers add <package> -Name <name> [options]
 ```
 
-onde `<package(s)>` é um ou mais `.nupkg` arquivos.
+onde `<package>` é um `.nupkg` arquivo assinado.
 
 - **`-Author`**
 
-  Especifica que a assinatura de autor dos pacotes deve ser confiável.
+  Especifica que a assinatura de autor do pacote assinado deve ser confiável.
 
 - **`-AllowUntrustedRoot`**
 
@@ -81,7 +81,7 @@ onde `<package(s)>` é um ou mais `.nupkg` arquivos.
 
 - **`-Repository`**
 
-  Especifica que a assinatura do repositório ou a referenda dos pacotes devem ser confiáveis.
+  Especifica que a assinatura de repositório ou a referenda do pacote assinado deve ser confiável.
 
 Fornecer `-Author` e `-Repository` ao mesmo tempo não é suportado.
 
