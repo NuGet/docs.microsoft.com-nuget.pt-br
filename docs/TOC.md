@@ -35,7 +35,7 @@
 ## [Criar um pacote (CLI do dotnet)](create-packages/creating-a-package-dotnet-cli.md)
 ## [Criar um pacote (CLI do nuget.exe)](create-packages/creating-a-package.md)
 ## [Criar um pacote (MSBuild)](create-packages/creating-a-package-msbuild.md)
-## [Práticas recomendadas de criação de pacote](create-packages/Package-authoring-best-practices.md)
+## [Práticas recomendadas de produção de pacotes](create-packages/Package-authoring-best-practices.md)
 ## [Compilar um pacote de pré-lançamento](create-packages/prerelease-packages.md)
 ## [Criar um pacote de símbolos](create-packages/symbol-packages-snupkg.md)
 ## [Suporte a várias estruturas de destino no seu arquivo de projeto](create-packages/multiple-target-frameworks-project-file.md)
@@ -69,8 +69,8 @@
 ## [Processo de instalação do pacote](concepts/package-installation-process.md)
 ## [Controle de versão do pacote](concepts/package-versioning.md)
 ## [Resolução de dependência](concepts/dependency-resolution.md)
-## [Práticas recomendadas para uma cadeia de fornecimento de software seguro](concepts/Security-Best-Practices.md)
-## [Solucionando problemas de pacotes instalados](concepts/troubleshooting-installed-packages.md)
+## [Práticas recomendadas para uma cadeia de fornecimento de software segura](concepts/Security-Best-Practices.md)
+## [Solução de problemas de pacotes instalados](concepts/troubleshooting-installed-packages.md)
 # Referência
 ## [.nuspec](reference/nuspec.md)
 ## [arquivo nuget.config](reference/nuget-config-file.md)
@@ -158,6 +158,7 @@
 ### [NU1605](reference/errors-and-warnings/NU1605.md)
 ### [NU1608](reference/errors-and-warnings/NU1608.md)
 ### [NU1701](reference/errors-and-warnings/NU1701.md)
+### [NU1703](reference/errors-and-warnings/NU1703.md)
 ### [NU1801](reference/errors-and-warnings/NU1801.md)
 ### [NU3000](reference/errors-and-warnings/NU3000.md)
 ### [NU3001](reference/errors-and-warnings/NU3001.md)
@@ -292,8 +293,8 @@
 ## Notas de Versão
 ### [Problemas conhecidos](release-notes/known-issues.md)
 ### NuGet 5.x
-#### [NuGet 5.10](release-notes/NuGet-5.10.md)
-#### [NuGet 5.9](release-notes/NuGet-5.9.md)
+#### [NuGet 5,10](release-notes/NuGet-5.10.md)
+#### [NuGet 5,9](release-notes/NuGet-5.9.md)
 #### [NuGet 5.8](release-notes/NuGet-5.8.md)
 #### [NuGet 5.7](release-notes/NuGet-5.7.md)
 #### [NuGet 5.6](release-notes/NuGet-5.6.md)
